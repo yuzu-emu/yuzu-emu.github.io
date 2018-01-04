@@ -9,11 +9,12 @@ paginate = 10
 
 [params]
   GithubURL = "https://github.com/yuzu-emu/yuzu"
+  ProjectName = "yuzu emulator project"
 
 [Languages]
   [Languages.en]
-    title = "Yuzu"
-    tagline = "Experimental Nintendo Switch Emulator"
+    title = "yuzu"
+    tagline = "An experimental Nintendo Switch Emulator"
     description = "Yuzu is a highly experimental open-source emulator for the Nintendo Switch."
     weight = 1
 
