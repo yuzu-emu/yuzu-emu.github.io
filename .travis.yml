@@ -24,7 +24,7 @@ deploy:
  target_branch: master
  fqdn: yuzu-emu.org
  on:
-   branch: master
+   branch: hugo
 notifications:
   email:
     - mods@citra-emu.org
