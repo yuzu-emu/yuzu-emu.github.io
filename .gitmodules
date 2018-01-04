@@ -1,0 +1,3 @@
+[submodule "site/themes/shared-bulma-theme"]
+	path = site/themes/shared-bulma-theme
+	url = git@github.com:chris062689/shared-bulma-theme.git
