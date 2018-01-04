@@ -1,0 +1,22 @@
+baseurl = "https://yuzu-emu.org/"
+languageCode = "en-us"
+
+DefaultContentLanguage = "en"
+theme = "shared-bulma-theme"
+
+# Define how many objects appear per pagination.
+paginate = 10
+
+[params]
+  GithubURL = "https://github.com/yuzu-emu/yuzu"
+
+[Languages]
+  [Languages.en]
+    title = "Yuzu"
+    tagline = "Experimental Nintendo Switch Emulator"
+    description = "Yuzu is a highly experimental open-source emulator for the Nintendo Switch."
+    weight = 1
+
+[outputs]
+home = [ "HTML", "RSS" ]
+section = [ "HTML", "JSON" ]

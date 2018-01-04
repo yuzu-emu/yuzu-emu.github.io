@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Params.languageCode | default " en-us " }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="theme-color" content="#404040">
+  <meta property="og:title" content="{{ if ne .URL " / " }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta property="og:url" content="{{ .Permalink }}" /> {{- if eq .IsPage true }} {{ .Render "meta" }} {{- end }} {{ .Hugo.Generator }}
+
+  <link rel="icon" href="{{ .Site.BaseURL }}/favicon.ico" />
+  <link rel="shortcut icon" href="{{ .Site.BaseURL }}/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="{{ .Permalink }}"> {{ if .RSSLink }}
+  <link href="{{ .Site.BaseURL }}/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .Site.BaseURL }}/index.xml" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" /> {{ end }}
+
+  <title>{{- if not .IsHome }}{{ .Title }} - {{ .Site.Title }}{{- else }}{{ .Site.Title }} - {{ .Site.Params.Tagline }}{{- end}}</title>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css" />
+
+  {{ if eq (getenv "HUGO_ENV") "PRD" }}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-73966905-1', 'auto');
+        ga('send', 'pageview');
+      </script> -->
+  <meta name="robots" content="noindex,nofollow" />
+  {{ else }}
+  <meta name="robots" content="noindex,nofollow" />
+  {{ end }}
+</head>
+
+<body>
+  {{- if not .IsHome }}
+  {{ partial "menu" . }}
+  {{- else }}
+  {{ partial "header_homepage" . }}
+  {{- end }}
+
+  {{ block "main" . }}{{ end }}
+  
+  <footer class="footer">
+      <div class="container">
+          <div class="content has-text-centered">
+              Copyright © {{ now.Format "2006" }} Yuzu Emulator
+          </div>
+      </div>
+  </footer>
+  
+  <script src="{{ .Site.BaseURL }}/js/script.js"></script>
+  
+  <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+  {{- block "scripts" . }}{{- end }}
+</body>
+
+</html>

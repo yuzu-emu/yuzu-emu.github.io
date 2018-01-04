@@ -1,0 +1,25 @@
+<div class="container is-mobile">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="{{ .Site.BaseURL }}">
+                    <img src="{{ .Site.BaseURL }}/images/menu.png" alt="{{ .Site.Title }} {{ .Site.Params.Tagline }}" width="112" height="28">
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">{{ .Site.Title }}</h1>
+            <h2 class="subtitle">{{ .Site.Params.Tagline }}</h2>
+            <a class="button is-primary is-inverted" href="{{ .Site.Params.GithubURL }}">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Source Code</span>
+            </a>
+        </div>
+</section>
