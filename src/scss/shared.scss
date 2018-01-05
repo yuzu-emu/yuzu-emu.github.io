@@ -1,46 +1,23 @@
 // Override/configure the default color palette
-$white: white;
-$black: black;
 $info: $primary-color;
-$link: $dark-primary-color;
-$danger: $accent-color;
 
 $navbar-height: 64px;
-$body-background-color: darken($white, 10%);
-$footer-background-color: $white;
-$content-background-color: $white;
+$body-background-color: darken(white, 10%);
 
-$navbar-background-color: $dark-primary-color;
-
-$navbar-item-color: $content-background-color;
-$navbar-item-hover-color: $navbar-item-color;
-
-// ~10% darker then .is-info
-$navbar-item-hover-background-color: lighten($navbar-background-color, 10%) !important;
-$navbar-item-active-background-color: $navbar-item-hover-background-color;
-$navbar-tab-hover-background-color: $navbar-item-hover-background-color;
-
-$navbar-dropdown-item-hover-background-color: $body-background-color !important;
-$navbar-dropdown-item-hover-color: $black !important;
-
+// Allows for larger icons with less padding
 $navbar-item-img-max-height: 2.75rem;
 
-.navbar {
-    // Normally, the navbar in a .hero doesn't have a background, however,
-    //  it is fixed and needs something. We force it here.
-    background: $navbar-background-color !important;
+// Used to smoothly change background colors
+#hero-navbar {
+    transition: background-color 0.2s ease;
 }
 
-.navbar-dropdown .navbar-item {
-    // The colors need to be inverted from the normal navbar colors
-    color: $navbar-dropdown-item-hover-color;
+// Used to distinguish the hero navbar when the page has been scrolled
+.is-freestanding {
+    background: $info !important;
 }
 
-.navbar-item.has-dropdown {
-    // Navbar dropdowns normally get a different color. Force it, as we use icons instead.
-    color: $navbar-item-color !important;
-}
-
+// Used as helper
 .middle {
     align-items: center;
     vertical-align: middle;
@@ -49,6 +26,19 @@ $navbar-item-img-max-height: 2.75rem;
     justify-content: center;
 }
 
-.content {
-    background: $content-background-color;
+// https://github.com/jgthms/bulma/issues/935
+.navbar-dropdown {
+    a.navbar-item {
+        color: #4a4a4a !important;
+    }
+
+    a.navbar-item:hover {
+        background-color: #f5f5f5 !important;
+        color: #0a0a0a !important;
+    }
+}
+
+// Works around incorrect coloring on navbar dropdown, related to above
+.is-info div {
+  color: inherit !important;
 }
