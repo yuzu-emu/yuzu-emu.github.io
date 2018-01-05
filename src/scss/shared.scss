@@ -1,7 +1,54 @@
-$navbar-height: 64px;
-$body-background-color: #e5e5e5;
-$footer-background-color: $body-background-color;
+// Override/configure the default color palette
+$white: white;
+$black: black;
+$info: $primary-color;
+$link: $dark-primary-color;
+$danger: $accent-color;
 
-#homepage-hero {
-    background-image: url(../images/rays.svg);
+$navbar-height: 64px;
+$body-background-color: darken($white, 10%);
+$footer-background-color: $white;
+$content-background-color: $white;
+
+$navbar-background-color: $dark-primary-color;
+
+$navbar-item-color: $content-background-color;
+$navbar-item-hover-color: $navbar-item-color;
+
+// ~10% darker then .is-info
+$navbar-item-hover-background-color: lighten($navbar-background-color, 10%) !important;
+$navbar-item-active-background-color: $navbar-item-hover-background-color;
+$navbar-tab-hover-background-color: $navbar-item-hover-background-color;
+
+$navbar-dropdown-item-hover-background-color: $body-background-color !important;
+$navbar-dropdown-item-hover-color: $black !important;
+
+$navbar-item-img-max-height: 2.75rem;
+
+.navbar {
+    // Normally, the navbar in a .hero doesn't have a background, however,
+    //  it is fixed and needs something. We force it here.
+    background: $navbar-background-color !important;
+}
+
+.navbar-dropdown .navbar-item {
+    // The colors need to be inverted from the normal navbar colors
+    color: $navbar-dropdown-item-hover-color;
+}
+
+.navbar-item.has-dropdown {
+    // Navbar dropdowns normally get a different color. Force it, as we use icons instead.
+    color: $navbar-item-color !important;
+}
+
+.middle {
+    align-items: center;
+    vertical-align: middle;
+    height: 100%;
+    display: flex !important;
+    justify-content: center;
+}
+
+.content {
+    background: $content-background-color;
 }

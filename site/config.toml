@@ -9,7 +9,7 @@ paginate = 10
 
 [params]
   GithubURL = "https://github.com/yuzu-emu/yuzu"
-  ProjectName = "yuzu emulator project"
+  ProjectName = "yuzu Emulator Project"
 
 [Languages]
   [Languages.en]
