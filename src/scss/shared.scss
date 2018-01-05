@@ -1,7 +1,44 @@
-$navbar-height: 64px;
-$body-background-color: #e5e5e5;
-$footer-background-color: $body-background-color;
+// Override/configure the default color palette
+$info: $primary-color;
 
-#homepage-hero {
-    background-image: url(../images/rays.svg);
+$navbar-height: 64px;
+$body-background-color: darken(white, 10%);
+
+// Allows for larger icons with less padding
+$navbar-item-img-max-height: 2.75rem;
+
+// Used to smoothly change background colors
+#hero-navbar {
+    transition: background-color 0.2s ease;
+}
+
+// Used to distinguish the hero navbar when the page has been scrolled
+.is-freestanding {
+    background: $info !important;
+}
+
+// Used as helper
+.middle {
+    align-items: center;
+    vertical-align: middle;
+    height: 100%;
+    display: flex !important;
+    justify-content: center;
+}
+
+// https://github.com/jgthms/bulma/issues/935
+.navbar-dropdown {
+    a.navbar-item {
+        color: #4a4a4a !important;
+    }
+
+    a.navbar-item:hover {
+        background-color: #f5f5f5 !important;
+        color: #0a0a0a !important;
+    }
+}
+
+// Works around incorrect coloring on navbar dropdown, related to above
+.is-info div {
+  color: inherit !important;
 }
