@@ -7,10 +7,6 @@ theme = "shared-bulma-theme"
 # Define how many objects appear per pagination.
 paginate = 10
 
-[[menu.main]]
-    name = "blog"
-    url = "/"
-
 [params]
   GithubURL = "https://github.com/yuzu-emu/yuzu"
   TwitterURL = "https://twitter.com/notfunnei"
