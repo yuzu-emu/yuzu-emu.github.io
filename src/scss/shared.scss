@@ -1,18 +1,18 @@
-// Used to smoothly change background colors
-#hero-navbar {
-    transition: background-color 0.2s ease;
-}
-
-// Used to distinguish the hero navbar when the page has been scrolled
-.hero .navbar.is-freestanding {
-    background: $info;
-}
-
-// Used as helper
+// Center a column's content vertically.
 .columns .column.is-centered-vertically {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+// Used to smoothly change background colors when transitioning on the homepage.
+.navbar {
+    transition: background-color 0.2s ease;
+}
+
+// TODO: $navbar-background-color is the wrong variable to use here, as it's a dark theme?
+.hero .navbar.is-freestanding {
+    background: #363636;
 }
 
 // https://github.com/jgthms/bulma/issues/935
@@ -27,7 +27,7 @@
     }
 }
 
-// Works around incorrect coloring on navbar dropdown, related to above
+// Works around incorrect coloring on navbar dropdown, related to above.
 .is-info div {
   color: inherit !important;
 }
