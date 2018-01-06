@@ -1,28 +1,17 @@
-// Override/configure the default color palette
-$info: $primary-color;
-
-$navbar-height: 64px;
-$body-background-color: darken(white, 10%);
-
-// Allows for larger icons with less padding
-$navbar-item-img-max-height: 2.75rem;
-
 // Used to smoothly change background colors
 #hero-navbar {
     transition: background-color 0.2s ease;
 }
 
 // Used to distinguish the hero navbar when the page has been scrolled
-.is-freestanding {
-    background: $info !important;
+.hero .navbar.is-freestanding {
+    background: $info;
 }
 
 // Used as helper
-.middle {
-    align-items: center;
-    vertical-align: middle;
-    height: 100%;
-    display: flex !important;
+.columns .column.is-centered-vertically {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 

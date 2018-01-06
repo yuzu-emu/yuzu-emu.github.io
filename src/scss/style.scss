@@ -1,3 +1,15 @@
 @import "./yuzu.scss";
-@import "./shared.scss";
+
+// Override/configure the default color palette
+$info: $primary-color;
+
+$navbar-height: 64px;
+$body-background-color: darken(white, 10%);
+
+// Allows for larger icons with less padding
+$navbar-item-img-max-height: 2.75rem;
+
+$footer-background-color: $body-background-color;
+
 @import "./node_modules/bulma/bulma.sass";
+@import "./shared.scss";
