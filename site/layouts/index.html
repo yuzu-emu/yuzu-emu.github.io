@@ -2,7 +2,13 @@
 {{ partial "home_hero" . }}
 <div class="container">
     <section class="section">
-        {{ partial "index_tweets" . }}
+        <div class="columns is-multiline">
+                {{ range .Site.Data.twitter }}
+                <div class="column is-one-third">
+                    {{ partial "widget/tweet.html" . }}
+                </div>
+                {{ end }}
+            </div>
     </section>
 </div>
 {{ end }}
