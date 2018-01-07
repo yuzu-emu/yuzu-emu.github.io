@@ -2,7 +2,7 @@
 <div class="container">
     <section class="section">
         <div class="columns is-multiline">
-            {{ range sort .Site.Data.twitter "order" }}
+            {{ range .Site.Data.twitter }}
             <div class="column is-one-third">
                 {{ partial "widget/tweet.html" . }}
             </div>
