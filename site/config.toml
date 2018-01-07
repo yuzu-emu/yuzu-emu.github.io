@@ -9,7 +9,7 @@ paginate = 10
 
 [params]
   GithubURL = "https://github.com/yuzu-emu/yuzu"
-  TwitterURL = "https://twitter.com/notfunnei"
+  TwitterURL = "https://twitter.com/yuzu"
   ProjectName = "yuzu Emulator Project"
 
 [Languages]
