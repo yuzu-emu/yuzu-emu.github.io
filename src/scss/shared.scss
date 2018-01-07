@@ -10,9 +10,8 @@
     transition: background-color 0.2s ease;
 }
 
-// TODO: $navbar-background-color is the wrong variable to use here, as it's a dark theme?
 .hero .navbar.is-freestanding {
-    background: #363636;
+    background: $navbar-background-color;
 }
 
 // https://github.com/jgthms/bulma/issues/935
