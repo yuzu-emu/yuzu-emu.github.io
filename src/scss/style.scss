@@ -3,9 +3,9 @@
 @import "./node_modules/bulma/sass/utilities/initial-variables.sass";
 
 /* 2. Set the derived variables */
-@import "./yuzu_before_derived.scss";
+@import "./yuzu/yuzu_before_derived.scss";
 @import "./node_modules/bulma/sass/utilities/derived-variables.sass";
-@import "./yuzu_after_derived.scss";
+@import "./yuzu/yuzu_after_derived.scss";
 
 /* 3. Misc customization of Bulma */
 $body-background-color: $background;
@@ -20,4 +20,4 @@ $navbar-item-img-max-height: 2.75rem;
 /* 4. Import the rest of Bulma */
 @import "./node_modules/bulma/bulma.sass";
 @import "./shared.scss";
-@import "./yuzu.scss";
+@import "./yuzu/yuzu.scss";
