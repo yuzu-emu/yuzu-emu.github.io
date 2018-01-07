@@ -1,2 +1,17 @@
+/* Yuzu uses a dark theme by default */
 $background: darken($dark, 8);
+
 $navbar-background-color: $dark;
+
+$box-background-color: $dark;
+$card-background-color: $dark;
+
+$text: $white;
+$text-light: $white;
+$text-strong: $white;
+
+$title-color: $white;
+$subtitle-color: $white;
+
+$link: lighten(#fff, 50);
+$link-hover: darken($link, 15);
