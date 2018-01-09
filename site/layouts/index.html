@@ -1,14 +1,46 @@
 {{ define "main" }}
 {{ partial "home_hero" . }}
-<div class="container">
-    <section class="section">
-        <div class="columns is-multiline">
-                {{ range sort .Site.Data.twitter "order" }}
-                <div class="column is-one-third">
-                    {{ partial "widget/tweet.html" . }}
-                </div>
-                {{ end }}
+
+<a name="faq"></a>
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">Frequently asked questions</h1>
+            <div class="content">
+                <ol>
+                    <li>
+                        <span class="is-italic">Why are you the way you are?</span>
+                        <span>Because, reasons.</span>
+                    </li>
+                </ol>
             </div>
-    </section>
-</div>
+        </div>
+    </div>
+</section>
+
+<a name="contribute"></a>
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">How can I contribute?</h1>
+            <div class="content">
+                <p>A call to action!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<a name="updates"></a>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            {{ range sort .Site.Data.twitter "order" }}
+            <div class="column is-one-third">
+                {{ partial "widget/tweet.html" . }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
 {{ end }}

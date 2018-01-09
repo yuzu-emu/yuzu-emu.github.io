@@ -13,5 +13,5 @@ $text-strong: $white;
 $title-color: $white;
 $subtitle-color: $white;
 
-$link: lighten(#fff, 50);
+$link: $primary;
 $link-hover: darken($link, 15);
