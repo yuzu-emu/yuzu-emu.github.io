@@ -8,26 +8,27 @@ theme = "shared-bulma-theme"
 paginate = 10
 
 [[menu.main]]
-    name = "frequently asked questions"
-    weight = 1
-    identifier = "faq"
-    url = "#faq"
+  name = "frequently asked questions"
+  weight = 1
+  identifier = "faq"
+  url = "#faq"
 
 [[menu.main]]
-    name = "contributing"
-    weight = 2
-    identifier = "contribute"
-    url = "#contribute"
+  name = "contributing"
+  weight = 2
+  identifier = "contribute"
+  url = "#contribute"
 
 [[menu.main]]
-    name = "updates"
-    weight = 3
-    identifier = "updates"
-    url = "#updates"
+  name = "updates"
+  weight = 3
+  identifier = "updates"
+  url = "#updates"
 
 [params]
+  DiscordURL = "https://discord.gg/gz9pz97"
+  TwitterURL = "https://twitter.com/yuzuemu"
   GithubURL = "https://github.com/yuzu-emu/yuzu"
-  TwitterURL = "https://twitter.com/yuzu"
   ProjectName = "yuzu Emulator Project"
 
 [Languages]
