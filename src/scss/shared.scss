@@ -9,6 +9,7 @@
 .navbar {
     transition: background-color 0.2s ease;
 }
+.navbar-logo { height: 32px; }
 
 .hero .navbar.is-freestanding {
     background: $navbar-background-color;
