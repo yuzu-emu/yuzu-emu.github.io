@@ -8,13 +8,13 @@ theme = "shared-bulma-theme"
 paginate = 10
 
 [[menu.main]]
-  name = "frequently asked questions"
+  name = "about"
   weight = 1
-  identifier = "faq"
-  url = "#faq"
+  identifier = "about"
+  url = "#about"
 
 [[menu.main]]
-  name = "contributing"
+  name = "contribute"
   weight = 2
   identifier = "contribute"
   url = "#contribute"
