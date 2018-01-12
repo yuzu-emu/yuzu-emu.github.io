@@ -20,8 +20,14 @@ paginate = 10
   url = "#getting-started"
 
 [[menu.main]]
-  name = "updates"
+  name = "donate"
   weight = 3
+  identifier = "donate"
+  url = "#donate"
+
+[[menu.main]]
+  name = "updates"
+  weight = 4
   identifier = "updates"
   url = "#updates"
 
