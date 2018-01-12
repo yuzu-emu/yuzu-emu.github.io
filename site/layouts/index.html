@@ -1,5 +1,4 @@
-{{ define "main" }}
-{{ partial "home_hero" . }}
+{{ define "main" }} {{ partial "home_hero" . }}
 
 <a name="about"></a>
 <section class="hero">
@@ -7,11 +6,47 @@
         <div class="container">
             <h1 class="title">About</h1>
             <div class="content">
-                <p>Another blurb about Yuzu.</p>
+                <p>yuzu is a work-in-progress Nintendo Switch emulator. The project was started in spring of 2017 by bunnei,
+                    one of the original authors of the popular Citra 3DS emulator, to experiment with and research the Nintendo
+                    Switch.
+                </p>
+
+                <p>Due to the similarities between Switch and 3DS, yuzu was developed as a fork of Citra. This means that it
+                    uses the same project architecture, and both emulators benefit from shared improvements. During the early
+                    months of development, work was done in private, and progress was slow.</p>
+
+                <p>However, as Switch reverse-engineering and homebrew development became popular, work on yuzu began to take
+                    off as well. In January of 2018, the yuzu team was formed out of several Citra developers, and the decision
+                    was made to release the project publicly. </p>
+
+                <p>As an emulator, yuzu is in its infancy, and is only currently useful for Switch reverse-engineering and homebrew
+                    development. yuzu has been designed with portability in mind, with builds actively maintained for Windows,
+                    Linux, and macOs.
+                </p>
                 <ol>
                     <li>
-                        <span class="is-italic">Why are you the way you are?</span>
-                        <span>Because, reasons.</span>
+                        <span class="is-italic">Can I use yuzu to play Switch games?</span>
+                        <span>No – at this time, yuzu does not run any commercial Switch games. yuzu can boot some games, to varying
+                            degrees of success, but does not implement any of the necessary GPU features to render 3D graphics.</span>
+                    </li>
+
+                    <li>
+                        <span class="is-italic">When will yuzu run games?</span>
+                        <span>In short – we do not know. Running games is one of the team’s top priorities, so we are actively
+                            working toward that goal!</span>
+                    </li>
+
+                    <li>
+                        <span class="is-italic">What is yuzu’s license?</span>
+                        <span>yuzu is an open-source project, licensed under the GPLv2 (or any later version). Refer to the license
+                            document for more information.</span>
+                    </li>
+
+                    <li>
+                        <span class="is-italic">Where does the name come from?</span>
+                        <span>Citrus junos, or yuzu (from Japanese ユズ), is a citrus fruit, most commonly used in Asian cuisines.
+                            This name was chosen as an homage to Citra and its developers, whose work gave the foundation
+                            for this project.</span>
                     </li>
                 </ol>
             </div>
