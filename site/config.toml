@@ -14,10 +14,10 @@ paginate = 10
   url = "#about"
 
 [[menu.main]]
-  name = "contribute"
+  name = "getting started"
   weight = 2
-  identifier = "contribute"
-  url = "#contribute"
+  identifier = "getting-started"
+  url = "#getting-started"
 
 [[menu.main]]
   name = "updates"
