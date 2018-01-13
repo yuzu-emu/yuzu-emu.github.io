@@ -22,7 +22,7 @@ gulp.task('default', ['start:setup'], callback => {
 });
 
 gulp.task('all', ['start:setup'], callback => {
-	runSequence(['scripts:twitter'],
+	runSequence(['scripts:twitter', 'scripts:wiki'],
               ['assets:js', 'assets:scss'],
               'hugo',
               'assets:images',
@@ -52,6 +52,14 @@ gulp.task('start:setup', () => {
 
 gulp.task('scripts:twitter', callback => {
 	exec(`cd ./scripts/shared-hugo-scripts/twitter/ && npm install && node app.js`, (err, stdout, stderr) => {
+		console.log(stdout);
+		console.log(stderr);
+		callback(err);
+	});
+});
+
+gulp.task('scripts:wiki', callback => {
+	exec(`cd ./scripts/shared-hugo-scripts/wiki/ && npm install && node app.js`, (err, stdout, stderr) => {
 		console.log(stdout);
 		console.log(stderr);
 		callback(err);

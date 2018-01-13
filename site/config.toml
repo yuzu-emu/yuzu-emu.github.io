@@ -17,7 +17,7 @@ paginate = 10
   name = "wiki"
   weight = 1
   identifier = "wiki"
-  url = "/wiki"
+  url = "/wiki/home"
 
 
 [[menu.main]]
