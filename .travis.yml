@@ -4,7 +4,7 @@ language: node_js
 node_js: node
 cache: yarn
 
-script:
+install:
   - echo '========== Installing gulp & dependencies =========='
   - sudo apt-get install graphicsmagick
   - wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.31.1/hugo_0.31.1_Linux-64bit.deb
@@ -12,9 +12,13 @@ script:
   - yarn global add gulp
   - yarn install
 
-  - echo '========== Starting gulp deploy task =========='
+before_install:
   - hugo version
+
+script:
+  - echo '========== Starting gulp deploy task =========='
   - gulp all --production
+
 deploy:
  provider: pages
  skip_cleanup: true
