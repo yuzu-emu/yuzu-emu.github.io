@@ -39,7 +39,6 @@
     </div>
 </section>
 
-<a name="about"></a>
 <section class="hero">
     <div class="hero-body">
         <div class="container">
@@ -61,65 +60,57 @@
                     publicly. As an emulator, yuzu is in its infancy, and is only currently useful for Switch reverse-engineering
                     and homebrew development.
                 </p>
+            </div>
 
-                <div class="tile is-ancestor">
-                    <div class="tile is-parent">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">Can I use yuzu to play Switch games?</p>
-                            </header>
-                            <div class="card-content">
-                                <div class="content">
-                                    No – at this time, yuzu does not run any commercial Switch games. yuzu can boot some games, to varying degrees of success,
-                                    but does not implement any of the necessary GPU features to render 3D graphics.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tile is-parent">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">When will yuzu run games?</p>
-                            </header>
-                            <div class="card-content">
-                                <div class="content">
-                                    In short – we do not know how soon games might run. While yuzu is making great progress, Switch emulation is very complex.
-                                    Running games is one of the team’s top priorities, so we are actively working toward
-                                    that goal!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tile is-parent">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">Where does the name come from?</p>
-                            </header>
-                            <div class="card-content">
-                                <div class="content">
-                                    Citrus junos, or yuzu (from Japanese ユズ), is a citrus fruit, most commonly used in Asian cuisines. This name was chosen as
-                                    an homage to Citra and its developers, whose work gave the foundation for this project.
-                                </div>
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <div class="card">
+                        <div class="card-content">
+                            <p class="title is-4">Can I play Switch games?</p>
+                            <div class="content">
+                                No – at this time, yuzu does not run any commercial Switch games. yuzu can boot some games, to varying degrees of success,
+                                but does not implement any of the necessary GPU features to render 3D graphics.
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="tile is-parent">
+                    <div class="card">
+                        <div class="card-content">
+                            <p class="title is-4">When will yuzu run games?</p>
+                            <div class="content">
+                                In short – we do not know how soon games might run. While yuzu is making great progress, Switch emulation is very complex.
+                                Running games is one of the team’s top priorities, so we are actively working toward that
+                                goal!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile is-parent">
+                    <div class="card">
+                        <div class="card-content">
+                            <p class="title is-4">Where does the name come from?</p>
+                            <div class="content">
+                                Citrus junos, or yuzu (from Japanese ユズ), is a citrus fruit, most commonly used in Asian cuisines. This name was chosen as
+                                an homage to Citra and its developers, whose work gave the foundation for this project.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<a name="updates"></a>
 <section class="section">
     <div class="container">
-        <div class="columns is-multiline">
+        <div class="tile is-ancestor">
             {{ range sort .Site.Data.twitter "order" }}
-            <div class="column is-one-third">
-                {{ partial "widget/tweet.html" . }}
-            </div>
+                <div class="tile is-parent">
+                    {{ partial "widget/tweet.html" . }}
+                </div>
             {{ end }}
         </div>
     </div>
