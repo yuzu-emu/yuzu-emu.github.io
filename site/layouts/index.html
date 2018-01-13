@@ -1,6 +1,4 @@
-{{ define "main" }}
-
-{{ partial "home_hero" . }}
+{{ define "main" }} {{ partial "home_hero" . }}
 
 <section class="hero is-info">
     <div class="hero-body">
@@ -106,13 +104,21 @@
     </div>
 </section>
 
+<section class="hero is-info">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="{{ .Site.Params.GoogleAdsenseClient }}" data-ad-slot="{{ .Site.Params.GoogleAdsenseSlot }}"></ins>
+        </div>
+    </div>
+</section>
+
 <section class="section">
     <div class="container">
         <div class="tile is-ancestor">
             {{ range sort .Site.Data.twitter "order" }}
-                <div class="tile is-parent">
-                    {{ partial "widget/tweet.html" . }}
-                </div>
+            <div class="tile is-parent">
+                {{ partial "widget/tweet.html" . }}
+            </div>
             {{ end }}
         </div>
     </div>
