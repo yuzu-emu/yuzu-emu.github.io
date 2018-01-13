@@ -3,8 +3,8 @@ $background: darken($dark, 8);
 
 $navbar-background-color: $dark;
 
-$box-background-color: darken($dark, 5);
-$card-background-color: darken($dark, 5);
+$box-background-color: $info;
+$card-background-color: $info;
 
 $text: $white;
 $text-light: $white;
