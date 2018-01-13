@@ -30,7 +30,6 @@ paginate = 10
   DiscordURL = "https://discord.gg/gz9pz97"
   TwitterURL = "https://twitter.com/yuzuemu"
   GithubURL = "https://github.com/yuzu-emu/yuzu"
-  ProjectName = "Yuzu Emulator Team"
 
 [Languages]
   [Languages.en]
