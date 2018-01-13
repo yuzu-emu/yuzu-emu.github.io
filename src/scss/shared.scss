@@ -15,6 +15,10 @@
     background: $navbar-background-color;
 }
 
+.is-hero-action:hover {
+    text-shadow: 4px 4px 16px #fff;
+}
+
 // https://github.com/jgthms/bulma/issues/935
 .navbar-dropdown {
     a.navbar-item {
