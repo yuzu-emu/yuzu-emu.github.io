@@ -12,7 +12,7 @@ install:
   - yarn global add gulp
   - yarn install
 
-before_install:
+before_script:
   - hugo version
 
 script:
