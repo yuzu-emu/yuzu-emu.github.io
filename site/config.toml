@@ -11,25 +11,20 @@ paginate = 10
   name = "about"
   weight = 1
   identifier = "about"
-  url = "#about"
+  url = "/"
 
 [[menu.main]]
-  name = "getting started"
-  weight = 2
-  identifier = "getting-started"
-  url = "#getting-started"
+  name = "wiki"
+  weight = 1
+  identifier = "wiki"
+  url = "/wiki"
+
 
 [[menu.main]]
   name = "donate"
   weight = 3
   identifier = "donate"
-  url = "#donate"
-
-[[menu.main]]
-  name = "updates"
-  weight = 4
-  identifier = "updates"
-  url = "#updates"
+  url = "/donate"
 
 [params]
   DiscordURL = "https://discord.gg/gz9pz97"
@@ -40,7 +35,7 @@ paginate = 10
 [Languages]
   [Languages.en]
     title = "yuzu"
-    tagline = "An experimental Nintendo Switch Emulator"
+    tagline = "An experimental emulator for the Nintendo Switch"
     description = "Yuzu is a highly experimental open-source emulator for the Nintendo Switch."
     weight = 1
 

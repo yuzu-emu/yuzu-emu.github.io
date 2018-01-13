@@ -8,14 +8,7 @@
 @import "./yuzu/yuzu_after_derived.scss";
 
 /* 3. Misc customization of Bulma */
-$body-background-color: $background;
-$footer-background-color: $background;
-
-// Changes the navbar height to match discourse.
-$navbar-height: 64px;
-
-// Allows for larger icons with less padding
-$navbar-item-img-max-height: 2.75rem;
+@import "./shared_customization.scss";
 
 /* 4. Import the rest of Bulma */
 @import "./node_modules/bulma/bulma.sass";

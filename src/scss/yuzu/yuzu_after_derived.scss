@@ -3,8 +3,8 @@ $background: darken($dark, 8);
 
 $navbar-background-color: $dark;
 
-$box-background-color: $dark;
-$card-background-color: $dark;
+$box-background-color: darken($dark, 5);
+$card-background-color: darken($dark, 5);
 
 $text: $white;
 $text-light: $white;
@@ -13,5 +13,5 @@ $text-strong: $white;
 $title-color: $white;
 $subtitle-color: $white;
 
-$link: $primary;
-$link-hover: darken($link, 15);
+// $link: $primary;
+// $link-hover: darken($link, 15);
