@@ -27,6 +27,7 @@ paginate = 10
   url = "/donate"
 
 [params]
+  BulmaPrimaryShade = "is-dark"
   DiscordURL = "https://discord.gg/gz9pz97"
   TwitterURL = "https://twitter.com/yuzuemu"
   GithubURL = "https://github.com/yuzu-emu/yuzu"
