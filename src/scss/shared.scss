@@ -15,8 +15,9 @@
     background: $navbar-background-color;
 }
 
-.is-hero-action:hover {
-    text-shadow: 4px 4px 16px #fff;
+// For call to action heros, we want to style them on hover.
+.hero.is-actionable:hover {
+    color: #969696;
 }
 
 // https://github.com/jgthms/bulma/issues/935
