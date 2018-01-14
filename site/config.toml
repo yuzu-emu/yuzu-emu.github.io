@@ -11,7 +11,7 @@ paginate = 10
   name = "about"
   weight = 1
   identifier = "about"
-  url = "/"
+  url = "/#about-section"
 
 [[menu.main]]
   name = "wiki"
