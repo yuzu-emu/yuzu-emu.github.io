@@ -15,14 +15,6 @@ if (navbar) {
 }
 
 // Handle random switch colors
-const leftJoycon = document.getElementById('LeftJoy');
-const rightJoycon = document.getElementById('RightJoy');
-const colors = ['orangered', 'deepskyblue', 'yellow', 'deeppink', 'lime', 'gray'];
-
-if (leftJoycon) {
-    leftJoycon.classList.add('switch-' + colors[Math.floor(Math.random() * colors.length)]); 
-}
-
-if (rightJoycon) {
-    rightJoycon.classList.add('switch-' + colors[Math.floor(Math.random() * colors.length)]); 
-}
+const colors = ["orangered", "deepskyblue", "yellow", "deeppink", "lime", "gray"];
+document.body.classList.add("switch-left-" + colors[Math.floor(Math.random() * colors.length)]);
+document.body.classList.add("switch-right-" + colors[Math.floor(Math.random() * colors.length)]);

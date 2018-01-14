@@ -7,9 +7,26 @@ $switch-gray: #828282;
 
 @each $name, $color in ("orangered", $switch-orangered), ("deepskyblue", $switch-deepskyblue),
         ("yellow", $switch-yellow), ("deeppink", $switch-deeppink), ("lime", $switch-lime), ("gray", $switch-gray) {
-  .switch-#{$name} path {
-    // The normal coloring for the .svg is inline, so we cannot override it normally.
-    stroke: $color !important;
+  .switch-left-#{$name} {
+    #jumbotron-leftjoy path {
+      // The normal coloring for the .svg is inline, so we cannot override it normally.
+      stroke: $color !important;
+    }
+
+    #logo-leftjoy path, #logo-u1 path {
+      fill: $color !important;
+    }
+  }
+
+  .switch-right-#{$name} {
+    #jumbotron-rightjoy path {
+      // The normal coloring for the .svg is inline, so we cannot override it normally.
+      stroke: $color !important;
+    }
+
+    #logo-rightjoy path, #logo-u2 path {
+      fill: $color !important;
+    }
   }
 }
 
