@@ -15,6 +15,6 @@
 }
 
 // For call to action heros, we want to style them on hover.
-.hero.is-actionable:hover {
+.hero .column:hover .is-actionable {
     color: #969696;
 }
