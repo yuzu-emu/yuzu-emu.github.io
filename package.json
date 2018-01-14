@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/yuzu-emu/yuzu-emu.github.io#readme",
   "dependencies": {
-    "bulma": "^0.6.2",
+    "bulma": "0.6.2",
     "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
