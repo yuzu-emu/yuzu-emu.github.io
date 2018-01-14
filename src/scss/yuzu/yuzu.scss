@@ -1,0 +1,14 @@
+$switch-orangered: #ff3c28;
+$switch-deepskyblue: #0ab9e6;
+$switch-yellow: #e6ff00;
+$switch-deeppink: #ff3278;
+$switch-lime: #1edc00;
+$switch-gray: #828282;
+
+@each $name, $color in ("orangered", $switch-orangered), ("deepskyblue", $switch-deepskyblue),
+        ("yellow", $switch-yellow), ("deeppink", $switch-deeppink), ("lime", $switch-lime), ("gray", $switch-gray) {
+  .switch-#{$name} path {
+    // The normal coloring for the .svg is inline, so we cannot override it normally.
+    stroke: $color !important;
+  }
+}

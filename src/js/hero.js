@@ -12,3 +12,8 @@ if (navbar) {
         }
     });
 }
+
+// Handle random switch colors
+const colors = ["orangered", "deepskyblue", "yellow", "deeppink", "lime", "gray"];
+document.getElementById('LeftJoy').classList.add("switch-" + colors[Math.floor(Math.random() * colors.length)]);
+document.getElementById('RightJoy').classList.add("switch-" + colors[Math.floor(Math.random() * colors.length)]);
