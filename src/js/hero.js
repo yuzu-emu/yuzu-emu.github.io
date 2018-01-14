@@ -15,6 +15,6 @@ if (navbar) {
 }
 
 // Handle random switch colors
-const colors = ["orangered", "deepskyblue", "yellow", "deeppink", "lime", "gray"];
-document.body.classList.add("switch-left-" + colors[Math.floor(Math.random() * colors.length)]);
+let colors = ["orangered", "deepskyblue", "yellow", "deeppink", "lime", "gray"];
+document.body.classList.add("switch-left-" + colors.splice(Math.floor(Math.random() * colors.length), 1)[0]);
 document.body.classList.add("switch-right-" + colors[Math.floor(Math.random() * colors.length)]);
