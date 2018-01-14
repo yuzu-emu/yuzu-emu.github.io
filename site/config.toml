@@ -28,7 +28,7 @@ paginate = 10
 
 [params]
   BulmaPrimaryShade = "is-dark"
-  DiscordURL = "https://discord.gg/gz9pz97"
+  DiscordURL = "https://discord.gg/VXqngT3"
   TwitterURL = "https://twitter.com/yuzuemu"
   GithubURL = "https://github.com/yuzu-emu/yuzu"
   GoogleAdsenseClient = "ca-pub-4126545610079023"
