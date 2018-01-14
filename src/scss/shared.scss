@@ -10,7 +10,6 @@
     transition: background-color 0.2s ease;
 }
 .navbar-logo { height: 32px; }
-
 .hero .navbar.is-freestanding {
     background: $navbar-background-color;
 }
@@ -18,21 +17,4 @@
 // For call to action heros, we want to style them on hover.
 .hero.is-actionable:hover {
     color: #969696;
-}
-
-// https://github.com/jgthms/bulma/issues/935
-.navbar-dropdown {
-    a.navbar-item {
-        color: #4a4a4a !important;
-    }
-
-    a.navbar-item:hover {
-        background-color: #f5f5f5 !important;
-        color: #0a0a0a !important;
-    }
-}
-
-// Works around incorrect coloring on navbar dropdown, related to above.
-.is-info div {
-  color: inherit !important;
 }
