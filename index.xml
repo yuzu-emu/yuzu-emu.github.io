@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>yuzu</title>
+    <link>https://yuzu-emu.org/</link>
+    <description>Recent content on yuzu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2018 20:31:54 +0000</lastBuildDate>
+    
+	<atom:link href="https://yuzu-emu.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Building for Linux</title>
+      <link>https://yuzu-emu.org/wiki/building-for-linux/</link>
+      <pubDate>Mon, 15 Jan 2018 20:31:54 +0000</pubDate>
+      
+      <guid>https://yuzu-emu.org/wiki/building-for-linux/</guid>
+      <description>Dependencies: You&amp;rsquo;ll need to download and install the following to build yuzu:
+ SDL2
+ Deb: apt-get install sdl2 or apt-get install libsdl2-2.0-0 or apt-get install libsdl2-dev Arch: pacman -S sdl2 Fedora: dnf install SDL2-devel Gentoo: emerge media-libs/libsdl2  Qt
+ Deb: apt-get install qtbase5-dev libqt5opengl5-dev Arch: pacman -S qt5 Fedora: dnf install qt5-qtbase qt5-qtbase-devel Gentoo: emerge dev-qt/qtcore dev-qt/qtopengl  GCC v7 (for C++17 support)
+ Deb: apt-get install build-essential Arch: pacman -S base-devel Fedora: dnf install sys-devel/gcc  CMake 3.</description>
+    </item>
+    
+    <item>
+      <title>Building for Windows</title>
+      <link>https://yuzu-emu.org/wiki/building-for-windows/</link>
+      <pubDate>Mon, 15 Jan 2018 20:31:54 +0000</pubDate>
+      
+      <guid>https://yuzu-emu.org/wiki/building-for-windows/</guid>
+      <description>MSVC Build for Windows Minimal Dependencies On Windows, all library dependencies are automatically included within the &amp;quot;externals&amp;quot; folder or can be downloaded on-demand. To build yuzu, you simply need to install:
+ Visual Studio 2017 Community - Make sure to select C++ support in the installer. CMake - Used to generate Visual Studio project files.  Git - We recommend msysgit.  While installing Git Bash, you should tell it to include Git in your system path.</description>
+    </item>
+    
+    <item>
+      <title>Building for macOS</title>
+      <link>https://yuzu-emu.org/wiki/building-for-macos/</link>
+      <pubDate>Mon, 15 Jan 2018 20:31:54 +0000</pubDate>
+      
+      <guid>https://yuzu-emu.org/wiki/building-for-macos/</guid>
+      <description>Dependencies: It&amp;rsquo;s recommended that you use homebrew to install dependencies. You&amp;rsquo;ll need to download and install the following to build yuzu:
+ pkg-config (brew install pkgconfig) SDL2 (brew install sdl2) Qt5 (brew install qt5) (Note: If you have Qt4 installed, then you will need to remove it before building. brew unlink qt4) CMake (brew install cmake) A recent version of Xcode and the Xcode command line tools  Cloning yuzu in Git: git clone --recursive https://github.</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://yuzu-emu.org/wiki/faq/</link>
+      <pubDate>Mon, 15 Jan 2018 20:31:54 +0000</pubDate>
+      
+      <guid>https://yuzu-emu.org/wiki/faq/</guid>
+      <description>another placeholder</description>
+    </item>
+    
+    <item>
+      <title>Home</title>
+      <link>https://yuzu-emu.org/wiki/home/</link>
+      <pubDate>Mon, 15 Jan 2018 20:31:54 +0000</pubDate>
+      
+      <guid>https://yuzu-emu.org/wiki/home/</guid>
+      <description>yuzu emulator yuzu is an experimental open-source emulator for the Nintendo Switch from the creators of Citra.
+It is written in C++ with portability in mind, with builds actively maintained for Windows, Linux and macOS. The emulator is currently only useful for homebrew development and research purposes.
+yuzu only emulates a subset of Switch hardware and therefore is generally only useful for running/debugging homebrew applications. At this time, yuzu does not run any commercial Switch games.</description>
+    </item>
+    
+    <item>
+      <title>Switch Hardware and Software</title>
+      <link>https://yuzu-emu.org/wiki/switch-hardware-and-software/</link>
+      <pubDate>Mon, 15 Jan 2018 20:31:54 +0000</pubDate>
+      
+      <guid>https://yuzu-emu.org/wiki/switch-hardware-and-software/</guid>
+      <description> A very incomplete overview of useful information to get started with Switch development. Please add anything that&amp;rsquo;s missing :)
+Switch Hardware/Software  ReSwitched an excellent resource and community for Switch homebrew and hacking. SwitchBrew is probably the best resource for the Switch hardware/software internals. ARMv8-A Reference Manual describes Switch&amp;rsquo;s CPU architecture.  </description>
+    </item>
+    
+    <item>
+      <title>Switch Homebrew</title>
+      <link>https://yuzu-emu.org/wiki/switch-homebrew/</link>
+      <pubDate>Mon, 15 Jan 2018 20:31:54 +0000</pubDate>
+      
+      <guid>https://yuzu-emu.org/wiki/switch-homebrew/</guid>
+      <description>Welcome to the fun and exciting world of Switch homebrew! Things here are brand new and highly technical, so we highly reccomend that you don&amp;rsquo;t proceed unless you&amp;rsquo;d like to get your hands dirty. If so, here are the best resources for getting started:
+ LibTransistor, the homebrew library from the ReSwitched team. LibNx, the homebrew library from the SwitchBrew team.  </description>
+    </item>
+    
+    <item>
+      <title>Placeholder</title>
+      <link>https://yuzu-emu.org/entry/test-post-2/</link>
+      <pubDate>Mon, 22 Feb 2016 22:18:00 -0500</pubDate>
+      
+      <guid>https://yuzu-emu.org/entry/test-post-2/</guid>
+      <description>This is just a placeholder blog post.
+New line.
+Test line.
+Test italics.
+Test bold.
+Test link.</description>
+    </item>
+    
+    <item>
+      <title>Placeholder</title>
+      <link>https://yuzu-emu.org/entry/test-post/</link>
+      <pubDate>Mon, 22 Feb 2016 22:18:00 -0500</pubDate>
+      
+      <guid>https://yuzu-emu.org/entry/test-post/</guid>
+      <description>This is just a placeholder blog post.
+New line.
+Test line.
+Test italics.
+Test bold.
+Test link.</description>
+    </item>
+    
+    <item>
+      <title>Community Rules</title>
+      <link>https://yuzu-emu.org/rules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuzu-emu.org/rules/</guid>
+      <description>Warez/downloading games talk is prohibited. To prevent legal issues, you may not request or refer to any kind of ROM, NAND, ISO, game, or other copyrighted material that has been illegally obtained or shared. This rule also applies to pre-release leaks. We don&amp;rsquo;t allow discussion / support requests about games until they are officially released.
+If any post like that is found, the thread containing it will be locked and further support revoked.</description>
+    </item>
+    
+    <item>
+      <title>Donations</title>
+      <link>https://yuzu-emu.org/donate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuzu-emu.org/donate/</guid>
+      <description>Developing an emulator for a modern, complex system like the Nintendo Switch requires significant hard work and dedication from a large team of developers. We will never charge you for yuzu and will always make our source code freely available. We do not make any money from our work, however development has many expenses that are often paid out-of-pocket by our team members, among them
+ Switch consoles to explore and reverse-engineer the hardware Switch games for testing, reverse-engineering, and implementing new features Web hosting and infrastructure setup Software licenses (e.</description>
+    </item>
+    
+  </channel>
+</rss>

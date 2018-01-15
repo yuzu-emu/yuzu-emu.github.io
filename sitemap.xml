@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/building-for-linux/</loc>
+    <lastmod>2018-01-15T20:31:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/building-for-windows/</loc>
+    <lastmod>2018-01-15T20:31:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/building-for-macos/</loc>
+    <lastmod>2018-01-15T20:31:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/faq/</loc>
+    <lastmod>2018-01-15T20:31:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/home/</loc>
+    <lastmod>2018-01-15T20:31:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/switch-hardware-and-software/</loc>
+    <lastmod>2018-01-15T20:31:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/switch-homebrew/</loc>
+    <lastmod>2018-01-15T20:31:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/test-post-2/</loc>
+    <lastmod>2016-02-22T22:18:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/test-post/</loc>
+    <lastmod>2016-02-22T22:18:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/rules/</loc>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/donate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/</loc>
+    <lastmod>2016-02-22T22:18:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/</loc>
+    <lastmod>2018-01-15T20:31:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/</loc>
+    <lastmod>2018-01-15T20:31:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
