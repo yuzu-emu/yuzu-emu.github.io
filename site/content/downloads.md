@@ -109,6 +109,7 @@ The canary build of yuzu is the same as our nightly builds, with additional feat
             </a>
             `;
 
+            // TODO: Add information on latest commit
             document.getElementById(`downloads-${v}`).innerHTML += 
                 `<div class="box">
                    <article class="media">
