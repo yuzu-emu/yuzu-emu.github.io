@@ -35,7 +35,7 @@ $switch-gray: #828282;
   top: -100px;
 }
 
-// Hack for links appearing as the wrong color
+// TODO: Hack for links appearing as the wrong color
 a:hover {
   color: lighten($blue, 5);
 }
