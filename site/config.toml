@@ -14,11 +14,16 @@ paginate = 10
   url = "/#about-section"
 
 [[menu.main]]
+  name = "download"
+  weight = 2
+  identifier = "download"
+  url = "/downloads"
+
+[[menu.main]]
   name = "wiki"
-  weight = 1
+  weight = 2
   identifier = "wiki"
   url = "/wiki/home/"
-
 
 [[menu.main]]
   name = "donate"
