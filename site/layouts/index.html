@@ -123,11 +123,13 @@
 <section class="section">
     <div class="container">
         <div class="tile is-ancestor">
-            {{ range sort .Site.Data.twitter "order" }}
-            <div class="tile is-parent">
-                {{ partial "widget/tweet.html" . }}
-            </div>
-            {{ end }}
+            {{- if isset .Site.Data "twitter" }}
+                {{- range sort .Site.Data.twitter "order" }}
+                <div class="tile is-parent">
+                    {{ partial "widget/tweet.html" . }}
+                </div>
+                {{- end }}
+            {{- end }}
         </div>
     </div>
 </section>
