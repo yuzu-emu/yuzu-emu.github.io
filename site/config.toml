@@ -5,7 +5,7 @@ DefaultContentLanguage = "en"
 theme = "shared-bulma-theme"
 
 # Define how many objects appear per pagination.
-paginate = 10
+paginate = 20
 
 [[menu.main]]
   name = "about"
@@ -49,4 +49,4 @@ paginate = 10
 
 [outputs]
 home = [ "HTML", "RSS" ]
-section = [ "HTML", "JSON" ]
+section = [ "HTML" ]
