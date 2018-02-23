@@ -122,13 +122,12 @@
 <!-- Twitter Feed -->
 <section class="section">
     <div class="container">
-        <div class="tile is-ancestor">
-            {{- if isset .Site.Data "twitter" }}
-                {{- range sort .Site.Data.twitter "order" }}
-                <div class="tile is-parent">
-                    {{ partial "widget/tweet.html" . }}
-                </div>
-                {{- end }}
+        <h1 class="title">Progress and Updates Feed</h1>
+        <div class="columns is-multiline">
+            {{- range sort .Site.Data.twitter "order" }}
+            <div class="column is-4">
+                {{ partial "widget/tweet.html" . }}
+            </div>
             {{- end }}
         </div>
     </div>
