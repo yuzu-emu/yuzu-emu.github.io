@@ -12,8 +12,6 @@
    version="1.1"
    id="svg815"
    xml:space="preserve"
-   width="1840.84"
-   height="784.29333"
    viewBox="0 0 1840.84 784.29333"
    sodipodi:docname="switch_outline_svg_final_white_gap.svg"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"><metadata
@@ -59,7 +57,7 @@
      inkscape:groupmode="layer"
      inkscape:label="switch_outline_svg_final_white"
      transform="matrix(1.3333333,0,0,-1.3333333,0,784.29333)"><g
-       id="Switch"
+       id="jumbotron-switch"
        inkscape:label="#g825"><g
          id="g827"
          clip-path="url(#clipPath831)"><g
@@ -87,7 +85,7 @@
              style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
              id="path847"
              inkscape:connector-curvature="0" /></g></g></g><g
-       id="RightJoy"
+       id="jumbotron-rightjoy"
        inkscape:label="#g849"
        transform="translate(6)"><g
          id="g851"
@@ -248,7 +246,7 @@
              style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
              id="path959"
              inkscape:connector-curvature="0" /></g></g></g><g
-       id="LeftJoy"
+       id="jumbotron-leftjoy"
        inkscape:label="#g961"
        transform="translate(-6)"><g
          id="g963"

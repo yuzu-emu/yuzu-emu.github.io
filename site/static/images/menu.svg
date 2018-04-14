@@ -12,11 +12,9 @@
    version="1.1"
    id="svg2099"
    xml:space="preserve"
-   width="862.35199"
-   height="233.50932"
    viewBox="0 0 862.35199 233.50932"
    sodipodi:docname="yuzu-logo-banner.svg"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"><metadata
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
      id="metadata2105"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -99,7 +97,7 @@
              style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
              id="path2131"
              inkscape:connector-curvature="0" /></g></g></g><g
-       id="u1"
+       id="logo-u1"
        inkscape:label="#g2133"><g
          id="g2135"
          clip-path="url(#clipPath2139)"><g
@@ -115,7 +113,7 @@
              style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
              id="path2147"
              inkscape:connector-curvature="0" /></g></g></g><g
-       id="u2"
+       id="logo-u2"
        inkscape:label="#g2149"><g
          id="g2151"
          clip-path="url(#clipPath2155)"><g
@@ -131,7 +129,7 @@
              style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
              id="path2163"
              inkscape:connector-curvature="0" /></g></g></g><g
-       id="leftjoy"
+       id="logo-leftjoy"
        inkscape:label="#g2165"><g
          id="g2167"
          clip-path="url(#clipPath2171)"
@@ -142,7 +140,7 @@
              style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
              id="path2175"
              inkscape:connector-curvature="0" /></g></g></g><g
-       id="rightjoy"
+       id="logo-rightjoy"
        inkscape:label="#g2177"
        transform="translate(-16.5)"><g
          id="g2179"

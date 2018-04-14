@@ -20,40 +20,41 @@
     color: #969696;
 }
 
-// Blog entries
-.blog-entry-header-image {
-    height: 25em;
-    background-image: url('https://www.w3schools.com/css/img_flowers.jpg');
+/* Typography */
+.has-text-shadow {
+    text-shadow: 2px 2px #fff;
+}
+
+/* Blog Entry */
+.blog-entry-header {
+    position: relative;
+    background-color: $dark;
     background-size: cover;
 }
 
-.blog-entry-header-content {
-    position: absolute;
-    left: 0;
-    right: 0;
+// Summary
+$blog-entry-summary-height: 16em;
+.blog-entry-header.summary {
+    height: $blog-entry-summary-height;
 }
-
-.blog-entry-summary {
-    overflow: hidden;
+.blog-entry-header.summary > div:first-child {
+    padding-top: $blog-entry-summary-height - 14em;
 }
-.blog-entry-summary:hover {
+.blog-entry-header.summary:hover {
     cursor: hand;
     cursor: pointer;
     opacity: .9;
 }
-.blog-entry-summary .blog-entry-header-image {
-    height: 15em;
-    filter: blur(8px);
-        -webkit-filter: blur(8px);
-        -moz-filter: blur(8px);
-        -o-filter: blur(8px);
-        -ms-filter: blur(8px);
-    margin: -5px -10px -10px -5px;
+.blog-entry-header.summary.twitter {
+    background-color: #1b2836;
+    height: $blog-entry-summary-height / 1.5;
 }
-.blog-entry-summary:hover .blog-entry-header-image {
-    filter: blur(0px);
-        -webkit-filter: blur(0px);
-        -moz-filter: blur(0px);
-        -o-filter: blur(0px);
-        -ms-filter: blur(0px);
+
+// Single
+$blog-entry-single-height: 26em;
+.blog-entry-header.single {
+    height: $blog-entry-single-height;
+}
+.blog-entry-header.single > div:first-child {
+    padding-top: $blog-entry-single-height - 8em;
 }

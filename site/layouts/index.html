@@ -1,4 +1,4 @@
-{{ define "header" }} {{ partial "home_hero" . }}
+{{ define "header" }} {{ partial "homepage/hero" . }}
 
 <!-- Wiki Hero -->
 <section class="hero is-info">
@@ -43,13 +43,18 @@
 
 {{ define "main" }}
 <section class="pt-md">
-    {{ $pag := .Paginate (where .Data.Pages "Type" "entry") }}
-    {{ range $pag.Pages }}
-        {{ partial "entry/summary" . }}
-    {{ end }}
+    {{ $pag := .Paginate (where .Data.Pages "Type" "entry") 4 }}
 
-    {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
-        {{ partial "layout/pagination" . }}
+    <div class="columns is-multiline">
+    {{ range $pag.Pages }}
+        <div class="column is-half">
+            {{ partial "entry/summary" . }}
+        </div>
     {{ end }}
+    </div>
+    
+    <div class="has-text-centered">
+        <a class="pagination-next" href="{{ .Site.BaseURL }}/entry/">View more posts</a>
+    </div>
 </section>
 {{ end }}

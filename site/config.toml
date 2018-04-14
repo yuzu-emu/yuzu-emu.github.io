@@ -8,10 +8,10 @@ theme = "shared-bulma-theme"
 paginate = 20
 
 [[menu.main]]
-  name = "about"
+  name = "blog"
   weight = 1
-  identifier = "about"
-  url = "/#about-section"
+  identifier = "blog"
+  url = "/"
 
 [[menu.main]]
   name = "download"
@@ -31,7 +31,7 @@ paginate = 20
   identifier = "donate"
   url = "/donate"
 
-[params]
+[Params]
   BulmaPrimaryShade = "is-dark"
   DiscordURL = "https://discord.gg/u77vRWY"
   TwitterURL = "https://twitter.com/yuzuemu"
@@ -39,6 +39,9 @@ paginate = 20
   GoogleAdsenseClient = "ca-pub-4126545610079023"
   GoogleAdsenseSlot = "5525580072"
   GoogleAnalyticsTrackingId = "UA-112443698-1"
+
+[Params.fmt]
+  ISO8601 = "2006-01-02T15:04:05-07:00"
 
 [Languages]
   [Languages.en]

@@ -84,12 +84,9 @@ gulp.task('assets:images', () => {
 });
 
 gulp.task('assets:js', () => {
-	let userScripts = gulp.src(['src/js/*.js'])
+	return gulp.src(['src/js/**/*.js'])
 		.pipe(concat('script.js'))
 		.pipe(gulp.dest('build/js'));
-	let vendorScripts = gulp.src(['src/js/vendor/*.js'])
-		.pipe(gulp.dest('build/js'));
-	return merge(userScripts, vendorScripts);
 });
 
 gulp.task('assets:scss', () => {
