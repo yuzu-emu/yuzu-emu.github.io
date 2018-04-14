@@ -1,0 +1,85 @@
+{{ define "header" }}
+<section class="section">
+    <div class="container">
+        <h1 class="title">{{ .Title }}</h1>
+
+        <article class="message has-text-weight-semibold">
+            <div class="message-body">
+                <p>At this time, yuzu does not run any commercial Switch games. yuzu can boot some games, to varying degrees
+                    of success, but does not implement any of the necessary GPU features to render 3D graphics. </p>
+                <p>
+                    <a href="https://yuzu-emu.org/wiki/switch-homebrew/">Click here</a> for homebrew games you can download and test.</p>
+            </div>
+        </article>
+
+        <div class="content">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+<!-- Advertisement -->
+<section class="hero is-info">
+    <div class="hero-body">
+        <div class="has-text-centered">
+            <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="{{ .Site.Params.GoogleAdsenseClient }}"
+                data-ad-slot="1038554045"></ins>
+        </div>
+    </div>
+</section>
+
+<div class="section">
+    <div class="container">
+        <div class="columns">
+            <!-- Nightly -->
+            <div class="column">
+                <h3>Nightly Build
+                    <span style='font-size: smaller; margin-left: 6px;'>
+                        Last release was
+                        <span id='last-updated-nightly'></span>
+                    </span>
+                </h3>
+
+                <div id="downloads-nightly">
+                </div>
+
+                <div id="unavailable-nightly" class="is-hidden">There was a problem checking GitHub. Click the link below to view them directly.</div>
+                <br />
+
+                <div class="has-text-centered">
+                    <a href="https://github.com/yuzu-emu/yuzu-nightly/releases">Click here to view previous versions...</a>
+                </div>
+            </div>
+            <div class="column">
+                <h3>Canary Build
+                    <span style='font-size: smaller; margin-left: 6px;'>
+                        Last release was
+                        <span id='last-updated-canary'></span>
+                    </span>
+                </h3>
+
+                <div id="downloads-canary">
+                </div>
+
+                <div id="unavailable-canary" class="is-hidden">There was a problem checking GitHub. Click the link below to view them directly.</div>
+                <br />
+
+                <div class="has-text-centered">
+                    <a href="https://github.com/yuzu-emu/yuzu-canary/releases">Click here to view previous versions...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+<script type="text/javascript">
+    function fetchReleases() {
+        getRelease('nightly');
+        getRelease('canary');
+    }
+
+    fetchReleases();
+</script>
+{{ end }}

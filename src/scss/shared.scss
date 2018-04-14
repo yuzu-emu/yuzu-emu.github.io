@@ -8,6 +8,7 @@
 // Used to smoothly change background colors when transitioning on the homepage.
 .navbar {
     transition: background-color 0.2s ease;
+    box-shadow: unset; // TODO: Find Bulma variable for this.
 }
 .navbar-logo { height: 32px; }
 .hero .navbar.is-freestanding {
@@ -17,4 +18,43 @@
 // For call to action heros, we want to style them on hover.
 .hero .column:hover .is-actionable {
     color: #969696;
+}
+
+/* Typography */
+.has-text-shadow {
+    text-shadow: 2px 2px #fff;
+}
+
+/* Blog Entry */
+.blog-entry-header {
+    position: relative;
+    background-image: url('/images/banner.png');
+    background-color: $dark;
+    background-size: cover;
+}
+
+// Summary
+$blog-entry-summary-height: 16em;
+.blog-entry-header.summary {
+    height: $blog-entry-summary-height;
+}
+.blog-entry-header.summary.twitter {
+    height: $blog-entry-summary-height / 1.5;
+}
+.blog-entry-header.summary > div:first-child {
+    padding-top: $blog-entry-summary-height - 15em;
+}
+.blog-entry-header.summary:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: .9;
+}
+
+// Single
+$blog-entry-single-height: 26em;
+.blog-entry-header.single {
+    height: $blog-entry-single-height;
+}
+.blog-entry-header.single > div:first-child {
+    padding-top: $blog-entry-single-height - 8em;
 }

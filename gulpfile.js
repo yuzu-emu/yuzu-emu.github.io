@@ -51,17 +51,13 @@ gulp.task('start:setup', () => {
 });
 
 gulp.task('scripts:twitter', callback => {
-	exec(`cd ./scripts/shared-hugo-scripts/twitter/ && npm install && node app.js`, (err, stdout, stderr) => {
-		console.log(stdout);
-		console.log(stderr);
+	exec(`cd ./scripts/shared-hugo-scripts/twitter/ && yarn install && node app.js`, (err, stdout, stderr) => {
 		callback(err);
 	});
 });
 
 gulp.task('scripts:wiki', callback => {
-	exec(`cd ./scripts/shared-hugo-scripts/wiki/ && npm install && node app.js`, (err, stdout, stderr) => {
-		console.log(stdout);
-		console.log(stderr);
+	exec(`cd ./scripts/shared-hugo-scripts/wiki/ && yarn install && node app.js`, (err, stdout, stderr) => {
 		callback(err);
 	});
 });
@@ -88,12 +84,9 @@ gulp.task('assets:images', () => {
 });
 
 gulp.task('assets:js', () => {
-	let userScripts = gulp.src(['src/js/*.js'])
+	return gulp.src(['src/js/**/*.js'])
 		.pipe(concat('script.js'))
 		.pipe(gulp.dest('build/js'));
-	let vendorScripts = gulp.src(['src/js/vendor/*.js'])
-		.pipe(gulp.dest('build/js'));
-	return merge(userScripts, vendorScripts);
 });
 
 gulp.task('assets:scss', () => {
@@ -108,7 +101,6 @@ gulp.task('assets:scss', () => {
 gulp.task('hugo', cb => {
 	exec('hugo -s ./site/ -d ../build/ -v', (err, stdout, stderr) => {
 		console.log(stdout);
-		console.log(stderr);
 		cb(err);
 	});
 });
