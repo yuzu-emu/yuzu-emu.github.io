@@ -1,8 +1,9 @@
 +++
-date = "2016-02-22T22:18:00-05:00"
+date = "2018-03-22T22:18:00-05:00"
 title = "Placeholder"
 author = "flamesage"
 forum = 8
+draft = true
 +++
 
 This is just a placeholder blog post.

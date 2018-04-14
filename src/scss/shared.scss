@@ -28,6 +28,7 @@
 /* Blog Entry */
 .blog-entry-header {
     position: relative;
+    background-image: url('/images/banner.png');
     background-color: $dark;
     background-size: cover;
 }
@@ -37,17 +38,16 @@ $blog-entry-summary-height: 16em;
 .blog-entry-header.summary {
     height: $blog-entry-summary-height;
 }
+.blog-entry-header.summary.twitter {
+    height: $blog-entry-summary-height / 1.5;
+}
 .blog-entry-header.summary > div:first-child {
-    padding-top: $blog-entry-summary-height - 14em;
+    padding-top: $blog-entry-summary-height - 15em;
 }
 .blog-entry-header.summary:hover {
     cursor: hand;
     cursor: pointer;
     opacity: .9;
-}
-.blog-entry-header.summary.twitter {
-    background-color: #1b2836;
-    height: $blog-entry-summary-height / 1.5;
 }
 
 // Single
