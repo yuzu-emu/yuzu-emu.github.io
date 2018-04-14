@@ -1,7 +1,8 @@
-+++
-title = "Downloads"
-layout = "downloads"
-+++
+---
+title: "Downloads"
+layout: "downloads"
+FullWidth: true
+---
 
 The nightly build of yuzu contains already reviewed and tested features. If you require support with the installation or use of yuzu, or you want to report bugs you should use this version.
 This version is still in development, so expect crashes and bugs.

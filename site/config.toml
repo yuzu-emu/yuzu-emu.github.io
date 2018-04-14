@@ -43,7 +43,7 @@ paginate = 20
 [Languages]
   [Languages.en]
     title = "yuzu"
-    tagline = "An experimental emulator for the Nintendo Switch"
+    tagline = "Nintendo Switch Emulator"
     description = "yuzu is a highly experimental open-source emulator for the Nintendo Switch."
     weight = 1
 

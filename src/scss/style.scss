@@ -12,5 +12,6 @@
 
 /* 4. Import the rest of Bulma */
 @import "./node_modules/bulma/bulma.sass";
+@import "./helpers/spacing.scss";
 @import "./shared.scss";
 @import "./yuzu/yuzu.scss";
