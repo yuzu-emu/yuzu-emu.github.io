@@ -42,7 +42,7 @@
 {{ end }}
 
 {{ define "main" }}
-<section class="pt-lg">
+<section class="section">
     {{ $pag := .Paginate (where .Data.Pages "Type" "entry") 4 }}
 
     <div class="columns is-multiline">

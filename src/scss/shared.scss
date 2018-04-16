@@ -35,7 +35,7 @@
 
 // Summary
 $blog-entry-summary-height: 16em;
-.blog-entry-header.summary {
+.blog-entry-header.summary.entry {
     height: $blog-entry-summary-height;
 }
 .blog-entry-header.summary.twitter {
