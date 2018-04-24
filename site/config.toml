@@ -37,7 +37,6 @@ paginate = 20
   TwitterURL = "https://twitter.com/yuzuemu"
   GithubURL = "https://github.com/yuzu-emu/yuzu"
   GoogleAdsenseClient = "ca-pub-4126545610079023"
-  GoogleAdsenseSlot = "5525580072"
   GoogleAnalyticsTrackingId = "UA-112443698-1"
 
 [Params.fmt]
