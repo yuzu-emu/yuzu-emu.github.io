@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/building-for-linux/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/building-for-windows/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/building-for-macos/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/developer-information/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/dumping-game-cartridges/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/dumping-installed-titles/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/dumping-system-archives-and-the-shared-fonts-from-a-switch-console/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/faq/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/home/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/switch-hardware-and-software/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/switch-homebrew/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_987555027169538048/</loc>
+    <lastmod>2018-04-21T04:54:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/first-games-are-running/</loc>
+    <lastmod>2018-04-15T01:18:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_971526697513254918/</loc>
+    <lastmod>2018-03-07T23:23:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_962189343120117760/</loc>
+    <lastmod>2018-02-10T04:59:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_955564198288875520/</loc>
+    <lastmod>2018-01-22T22:13:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_955511093052485633/</loc>
+    <lastmod>2018-01-22T18:42:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_955451501207523328/</loc>
+    <lastmod>2018-01-22T14:46:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_955277942598316033/</loc>
+    <lastmod>2018-01-22T03:16:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_953871940846063616/</loc>
+    <lastmod>2018-01-18T06:09:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_952966745895194627/</loc>
+    <lastmod>2018-01-15T18:12:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_952461671368478721/</loc>
+    <lastmod>2018-01-14T08:45:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_952461195142946816/</loc>
+    <lastmod>2018-01-14T08:43:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_952255367504973826/</loc>
+    <lastmod>2018-01-13T19:05:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/tweet_950086043423952899/</loc>
+    <lastmod>2018-01-07T19:25:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/rules/</loc>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/donate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/downloads/</loc>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/entry/</loc>
+    <lastmod>2018-04-21T04:54:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/wiki/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuzu-emu.org/</loc>
+    <lastmod>2018-04-26T03:19:20+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
