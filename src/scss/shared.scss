@@ -58,3 +58,10 @@ $blog-entry-single-height: 26em;
 .blog-entry-header.single > div:first-child {
     padding-top: $blog-entry-single-height - 8em;
 }
+
+// CompatDB
+.is-square {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
