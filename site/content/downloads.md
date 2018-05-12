@@ -9,5 +9,7 @@ This version is still in development, so expect crashes and bugs.
 
 The canary build of yuzu is the same as our nightly builds, with additional features that are still waiting on review before making it into the official yuzu builds.
 
+Linux builds require Ubuntu 18.04 or above. If you have an older distro and run into issues, you may want to build Yuzu yourself.
+
 If you believe you've found a bug, please retest on our nightly builds.
 This version is still in development, so expect crashes and bugs.
