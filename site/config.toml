@@ -32,11 +32,11 @@ paginate = 20
   url = "/donate"
 
 [Params]
+  Tenant = "yuzu"
   BulmaPrimaryShade = "is-dark"
   DiscordURL = "https://discord.gg/u77vRWY"
   TwitterURL = "https://twitter.com/yuzuemu"
   GithubURL = "https://github.com/yuzu-emu/yuzu"
-  GoogleAdsenseClient = "ca-pub-4126545610079023"
   GoogleAnalyticsTrackingId = "UA-112443698-1"
 
 [Params.fmt]
