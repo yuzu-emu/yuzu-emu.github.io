@@ -39,3 +39,18 @@ $switch-gray: #828282;
 a:hover {
   color: lighten($blue, 5);
 }
+
+// Correctly positions the switch screen images in the overlay.
+.offset-switch-overlay {
+  top: 13.5%;
+  left: 22.5%;
+  // 100% - (22.5% * 2)
+  width: 55%;
+}
+
+// Ensure that arrows consume the entire overlay's height.
+.glide__arrow {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
