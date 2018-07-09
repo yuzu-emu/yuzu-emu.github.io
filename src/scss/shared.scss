@@ -65,3 +65,16 @@ $blog-entry-single-height: 26em;
     width: 16px;
     height: 16px;
 }
+
+// Used for the carousel
+.carousel-caption {
+    text-align: left;
+    padding: 0 10px;
+    font-size: 14px;
+    top: 10px;
+    position: absolute;
+    z-index: 5;
+    text-shadow: -2px 2px 3px #000,-2px -2px 3px #000,2px -2px 3px #000,2px 2px 3px #000;
+    display: inline-block;
+    min-width: 300px;
+}
