@@ -43,14 +43,18 @@
 
 {{ define "main" }}
 <section class="section">
-    {{ $pag := .Paginate (where .Data.Pages "Type" "entry") 4 }}
-
     <div class="columns is-multiline">
-    {{ range $pag.Pages }}
+        {{ range first 2 (where (where .Data.Pages ".Params.twitter" "==" nil) "Type" "entry") }}
+        <div class="column is-half">
+                {{ partial "entry/summary" . }}
+            </div>
+        {{ end }}
+
+        {{ range first 2 (where (where .Data.Pages ".Params.twitter" "!=" nil) "Type" "entry") }}
         <div class="column is-half">
             {{ partial "entry/summary" . }}
         </div>
-    {{ end }}
+        {{ end }}
     </div>
     
     <div class="has-text-centered">
