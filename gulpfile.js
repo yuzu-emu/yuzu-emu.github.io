@@ -66,7 +66,7 @@ gulp.task('assets:images', () => {
 	const baseImages = gulp.src(`build/images/*`, {base: './'})
       .pipe(gulp.dest('./'));
 	const jumbotronImages = gulp.src(`build/images/jumbotron/*`, {base: './'})
-      .pipe(imageResize({width: 786, height: 471, crop: true}))
+      .pipe(imageResize({width: 426, height: 240, crop: true}))
       .pipe(gulp.dest('./'));
 	const bannerImages = gulp.src(`build/images/banners/*`, {base: './'})
       .pipe(imageResize({width: 824, height: 306, crop: false}))
@@ -78,7 +78,7 @@ gulp.task('assets:images', () => {
       .pipe(imageResize({width: 48, height: 48, crop: true}))
       .pipe(gulp.dest('./'));
 	const screenshotImages = gulp.src(`build/images/screenshots/*`)
-      .pipe(imageResize({width: 400, height: 240, crop: false}))
+      .pipe(imageResize({width: 640, height: 360, crop: false}))
       .pipe(gulp.dest(`build/images/screenshots/thumbs`));
 	return merge(baseImages, jumbotronImages, bannerImages, boxartImages, iconImages, screenshotImages);
 });

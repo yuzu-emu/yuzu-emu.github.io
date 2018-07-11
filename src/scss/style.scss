@@ -15,3 +15,6 @@
 @import "./helpers/spacing.scss";
 @import "./shared.scss";
 @import "./yuzu/yuzu.scss";
+
+/* 5. Bring in other external vendor SCSS to bake in */
+@import "./vendor/glide.scss";

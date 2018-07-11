@@ -26,8 +26,14 @@ paginate = 20
   url = "/wiki/home/"
 
 [[menu.main]]
-  name = "donate"
+  name = "screenshots"
   weight = 3
+  identifier = "screenshots"
+  url = "/screenshots"
+
+[[menu.main]]
+  name = "donate"
+  weight = 4
   identifier = "donate"
   url = "/donate"
 

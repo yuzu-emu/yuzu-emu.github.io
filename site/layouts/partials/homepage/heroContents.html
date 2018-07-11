@@ -13,20 +13,62 @@
                 </span>
                 <span>Download</span>
             </a>
-            
+
             <a class="button mr-sm is-medium is-primary is-inverted is-outlined" href="{{ .Site.Params.GithubURL }}" target="_blank">
                 <span class="icon">
                     <i class="fab fa-github"></i>
                 </span>
                 <span>Source Code</span>
             </a>
-        </div>        
+        </div>
     </div>
 
     <!-- Right panel -->
     <div class="column is-centered-vertically is-7 is-hidden-mobile">
-        <figure class="image">
-            {{ partial "inline/heroSvg" }}
-        </figure>
+        <div class="container is-fluid is-marginless">
+            <figure class="image">
+                {{ partial "inline/heroSvg" }}
+            </figure>
+
+            <figure class="is-overlay offset-switch-overlay">
+                <div class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            {{ $jumbotronFiles := readDir "/static/images/jumbotron/" }}
+                            {{ range $index, $element := $jumbotronFiles }}
+                            {{ $fileTitle := (index (split .Name "-") 1) }}
+                            {{ $fileTitle := (index (split $fileTitle ".") 0) }}
+                            <li class="glide__slide">
+                                <div>
+                                    <div class="carousel-caption">{{ $fileTitle }}</div>
+                                    <img {{if eq $index 0}}
+                                         class="article-image img-responsive center-block"
+                                         src="/images/jumbotron{{ $element.Name | relURL }}"
+                                         {{else}}
+                                         class="article-image img-responsive center-block lazy-load"
+                                         data-src="/images/jumbotron{{ $element.Name | relURL }}"
+                                         {{end}}
+                                         alt="{{ $fileTitle }}">
+                                </div>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+
+                    <div class="glide__arrows is-overlay" data-glide-el="controls">
+                        <a class="glide__arrow glide__arrow--left is-pulled-left" data-glide-dir="<">
+                            <span class="icon is-large">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                        </a>
+                        <a class="glide__arrow glide__arrow--right is-pulled-right" data-glide-dir=">">
+                            <span class="icon is-large">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </figure>
+        </div>
     </div>
 </div>
