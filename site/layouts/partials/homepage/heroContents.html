@@ -39,13 +39,12 @@
                             {{ $fileTitle := (index (split .Name "-") 1) }}
                             {{ $fileTitle := (index (split $fileTitle ".") 0) }}
                             <li class="glide__slide">
-                                <div>
+                                <div class="image is-16by9">
                                     <div class="carousel-caption">{{ $fileTitle }}</div>
                                     <img {{if eq $index 0}}
-                                         class="article-image img-responsive center-block"
                                          src="/images/jumbotron{{ $element.Name | relURL }}"
                                          {{else}}
-                                         class="article-image img-responsive center-block lazy-load"
+                                         class="lazy-load"
                                          data-src="/images/jumbotron{{ $element.Name | relURL }}"
                                          {{end}}
                                          alt="{{ $fileTitle }}">

@@ -69,12 +69,20 @@ $blog-entry-single-height: 26em;
 // Used for the carousel
 .carousel-caption {
     text-align: left;
-    padding: 0 10px;
-    font-size: 14px;
-    top: 10px;
+    padding: 0 5px;
+    font-size: 0.70rem;
+
+    bottom: 0;
+    right: 0;
+
     position: absolute;
-    z-index: 5;
-    text-shadow: -2px 2px 3px #000,-2px -2px 3px #000,2px -2px 3px #000,2px 2px 3px #000;
+    z-index: 2;
     display: inline-block;
-    min-width: 300px;
+
+    border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+
+    // Overrride on regular has-background-dark with transparency
+    background: rgba(54, 54, 54, 0.85) !important;
 }
