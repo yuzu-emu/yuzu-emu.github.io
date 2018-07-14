@@ -73,7 +73,7 @@ and people have started working on the Switch hacking as well.
 ***Rivalry of scholars advances wisdom***. This proverb is highly accurate in terms of emulators. The
 clash of knowledge between peers helps mutual growth. During its early days, Citra had a peer too,
 [3dmoo](https://github.com/plutooo/3dmoo). In the case of Switch emulation, we have [Ryujinx](https://github.com/gdkchan/Ryujinx).
-Our developers have worked with [gdkchan](https://github.com/gdkchan) (he main developer of Ryujinx) on
+Our developers have worked with [gdkchan](https://github.com/gdkchan) (the main developer of Ryujinx) on
 reverse engineering (RE), figuring out how games work, and how the Switch GPU works.
 
 [Subv](https://github.com/Subv) worked on initial framebuffer rendering support, and then went on to
