@@ -30,9 +30,9 @@ of an emulator for Switch. Using the available documentation, [bunnei](https://g
 worked on yuzu privately for a few months before other Citra developers joined him. They made some
 progress and finally went public on 14 January, 2018.
 
-{{< gifv
+{{< imgs
 	  "/images/entry/yuzu-progress-report-2018-p1/homebrew.mp4|Before (Colors are wrong)"
-    "/images/entry/yuzu-progress-report-2018-p1/homebrew_work.jpg|After (fixed)"
+	  "/images/entry/yuzu-progress-report-2018-p1/homebrew_work.jpg|After (fixed)"
 >}}
 
 {{< imgs
