@@ -32,7 +32,7 @@ progress and finally went public on 14 January, 2018.
 
 {{< gifv
 	  "/images/entry/yuzu-progress-report-2018-p1/homebrew.mp4|Before (Colors are wrong)"
-    "/images/entry/yuzu-progress-report-2018-p1/homebrew_work.mp4|After (fixed)"
+    "/images/entry/yuzu-progress-report-2018-p1/homebrew_work.jpg|After (fixed)"
 >}}
 
 {{< imgs
