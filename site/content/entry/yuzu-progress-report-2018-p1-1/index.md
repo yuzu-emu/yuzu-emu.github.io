@@ -25,18 +25,17 @@ electronic components to make development for the console easier.
 was very active and that there were signs of the Switch's operating system, called _Horizon_, being
 based on the 3DS's operating system. The Switch hacking communities ([ReSwitched](https://reswitched.tech/)
 and [Switchbrew](http://switchbrew.org)) had many people working on hacking and documenting the system.
-[bunnei](https://github.com/bunnei), being a _huge Nintendo fan_, was very excited at the prospect
-of an emulator for Switch. Using the available documentation, [bunnei](https://github.com/bunnei)
-worked on yuzu privately for a few months before other Citra developers joined him. They made some
-progress and finally went public on 14 January, 2018.
+Being _a huge Nintendo fan_, bunnei was very excited at the prospect of an emulator for Switch. Using
+the available documentation, he worked on yuzu privately for a few months before other Citra developers
+joined him. They made some progress and finally went public on 14 January, 2018.
 
 {{< imgs
-	  "/images/entry/yuzu-progress-report-2018-p1/homebrew.mp4|Before (Colors are wrong)"
-	  "/images/entry/yuzu-progress-report-2018-p1/homebrew_work.jpg|After (fixed)"
+    "./homebrew.mp4|Before (Colors are wrong)"
+    "./homebrew_work.jpg|After (fixed)"
 >}}
 
 {{< imgs
-	  "/images/entry/yuzu-progress-report-2018-p1/homebrew_game.png|Very first homebrew on yuzu, Space Game !!"
+    "./homebrew_game.png|Very first homebrew on yuzu, Space Game !!"
 >}}
 
 ## Baby Steps
@@ -45,14 +44,14 @@ yuzu shares the same common and core code, with much of the same OS (operating s
 (as both OSs are similar). For the uninitiated, with HLE (high level emulation), parts of the OS are
 re-implemented in the emulator, which the emulated game can call directly. This contrasts with low-level
 emulation (LLE), where the hardware is emulated, and the real OS bits are run within the emulator.
-Initially, [bunnei](https://github.com/bunnei) worked hard to get the Citra code base working for
-Switch emulation. He updated the core emulation and Citra's memory management to work with 64-bit
-addresses (as Citra emulates 32-bit apps), did lots of OS HLE, added a loader for the Switch games
-/ homebrew, and integrated [Unicorn](http://www.unicorn-engine.org/) into yuzu for CPU emulation.
-Unicorn was chosen at that time and not [Dynarmic](https://github.com/MerryMage/dynarmic) (which is
-used in Citra) because the Switch has an ARMv8 CPU (64-bit) and dynarmic only had support for ARMv6
-at that time. He got some basic SVC (Supervisor Call) implementation hooked up to begin booting some
-homebrew applications and very simple games. At this time, there was no graphical output yet.
+Initially, bunnei worked hard to get the Citra code base working for Switch emulation. He updated the
+core emulation and Citra's memory management to work with 64-bit addresses (as Citra emulates 32-bit
+apps), did lots of OS HLE, added a loader for the Switch games/homebrew, and integrated [Unicorn](http://www.unicorn-engine.org/)
+into yuzu for CPU emulation. Unicorn was chosen at that time and not [Dynarmic](https://github.com/MerryMage/dynarmic)
+(which is used in Citra) because the Switch has an ARMv8 CPU (64-bit) and dynarmic only had support
+for ARMv6 at that time. He got some basic SVC (Supervisor Call) implementation hooked up to begin
+booting some homebrew applications and very simple games. At this time, there was no graphical output
+yet.
 
 Later, [Subv](https://github.com/Subv), another Citra veteran, joined him and together they both got
 framebuffer rendering support for basic homebrew. It was at this point that yuzu was announced publicly
@@ -65,7 +64,7 @@ to this, Switch has a much more active hacking scene, much earlier on in the con
 and people have started working on the Switch hacking as well.
 
 {{< imgs
-	  "/images/entry/yuzu-progress-report-2018-p1/puyo_boot.png|First game rendering triangles (actually SEGA logo) !!"
+    "./puyo_boot.png|First game rendering triangles (actually SEGA logo) !!"
 >}}
 
 ## Pit Crew & Their Efforts So Far
@@ -76,11 +75,11 @@ clash of knowledge between peers helps mutual growth. During its early days, Cit
 Our developers have worked with [gdkchan](https://github.com/gdkchan) (the main developer of Ryujinx) on
 reverse engineering (RE), figuring out how games work, and how the Switch GPU works.
 
-[Subv](https://github.com/Subv) worked on initial framebuffer rendering support, and then went on to
-do lots of OS reverse engineering and bug fixes. Lately, [bunnei](https://github.com/bunnei) and him
-have been working on GPU emulation. [ogniK](https://github.com/ogniK5377) (from the [ReSwitched](https://reswitched.tech/)
-team) also joined us and is one of our RE experts. He has done a lot of Switch OS RE, which helps us
-to get yuzu booting games further. He has contributed a lot, mostly in audio, kernel, and services.
+Subv worked on initial framebuffer rendering support, and then went on to do lots of OS reverse
+engineering and bug fixes. Lately, bunnei and him have been working on GPU emulation. [ogniK](https://github.com/ogniK5377)
+(from the [ReSwitched](https://reswitched.tech/) team) also joined us and is one of our RE experts.
+He has done a lot of Switch OS RE, which helps us to get yuzu booting games further. He has contributed
+a lot, mostly in audio, kernel, and services.
 
 [shinyquagsire](https://github.com/shinyquagsire), another Citra developer, came forward and implemented
 user input and various other things. [Lioncash](https://github.com/lioncash) and [MerryMage](https://github.com/merrymage)
@@ -100,7 +99,7 @@ fact that the Switch is based on off-the-shelf Tegra SoC does not necessarily ma
 because, similar to the PICA200 (3DS GPU), the Maxwell GPU architecture isn't publicly documented.
 
 {{< imgs
-	  "/images/entry/yuzu-progress-report-2018-p1/setup.jpg|ogniK's janky RE setup"
+    "./setup.jpg|ogniK's janky RE setup"
 >}}
 
 That said, there are more resources and non-Switch related projects ([Nouveau](https://nouveau.freedesktop.org/wiki/),
@@ -121,25 +120,27 @@ as it meant that Citra's OS HLE code could be largely reused. A point to remembe
 and yuzu are high level emulators. In both of these, we are trying to implement the software rather
 than the hardware of the consoles.
 
-As an emulator, the first necessity in yuzu would be to load the Switch game dumps. So, [bunnei](https://github.com/bunnei/)
-started working on a loader and file system service for yuzu. Citra's loader and file system frameworks
-were reused and modified heavily to support Switch game dump files ([here](https://github.com/yuzu-emu/yuzu/pull/123)).
-Further fixes and improvements to the loader were done by ogniK, Rozelette, gdkchan, and shinyquagsire.
+As an emulator, the first necessity in yuzu would be to load the Switch game dumps. So, bunnei started
+working on a loader and file system service for yuzu. Citra's loader and file system frameworks were
+reused and modified heavily to support Switch game dump files ([here](https://github.com/yuzu-emu/yuzu/pull/123)).
+Further fixes and improvements to the loader were done by [ogniK](https://github.com/ogniK5377),
+[Rozelette](https://github.com/Rozelette), [gdkchan](https://github.com/gdkchan), and
+[shinyquagsire](https://github.com/shinyquagsire).
 
-Next, we would need a way for games to read or load save data. [Subv](https://github.com/Subv) believed
-that the save data in the Switch has a similar behavior as the save data in the 3DS. He implemented the
-file system and save data behaviors, which allowed games to read and write files to the save data directory.
+Next, we would need a way for games to read or load save data. Subv believed that the save data in
+the Switch has a similar behavior as the save data in the 3DS. He implemented the file system and save
+data behaviors, which allowed games to read and write files to the save data directory
 ([here](https://github.com/yuzu-emu/yuzu/pull/216)). This implementation allowed us to boot further
 in "Puyo Puyo Tetris" and "Cave Story".
 
 {{< imgs
-	  "/images/entry/yuzu-progress-report-2018-p1/cavestory_boot.png|First boot - Cave Story+"
-    "/images/entry/yuzu-progress-report-2018-p1/cavestory_work.png|Now - Cave Story+"
+    "./cavestory_boot.png|First boot - Cave Story+"
+    "./cavestory_work.png|Now - Cave Story+"
 >}}
 
 {{< imgs
-	  "/images/entry/yuzu-progress-report-2018-p1/tetris.png|First boot - Puyo Puyo Tetris"
-    "/images/entry/yuzu-progress-report-2018-p1/tetris_work.png|Now - Puyo Puyo Tetris"
+    "./tetris.png|First boot - Puyo Puyo Tetris"
+    "./tetris_work.png|Now - Puyo Puyo Tetris"
 >}}
 
 Often, the best way to debug or RE any functionality is to use homebrew. For the uninitiated, homebrew
@@ -164,9 +165,9 @@ results have to be at right offsets, data needs to be at right offsets, and a co
 fields need to be present.
 
 {{< imgs
-	  "/images/entry/yuzu-progress-report-2018-p1/stardew.png|First boot - Stardew Valley"
-		"/images/entry/yuzu-progress-report-2018-p1/stardew_2.png|in-game - bugs"
-    "/images/entry/yuzu-progress-report-2018-p1/stardew_work.png|Now - Stardew Valley"
+    "./stardew.png|First boot - Stardew Valley"
+    "./stardew_2.png|in-game - bugs"
+    "./stardew_work.png|Now - Stardew Valley"
 >}}
 
 In addition to this, we have a couple of different command modes, a typical IPC request response, and
@@ -180,9 +181,10 @@ how the IPC system works.
 A lot of our work is based on background research the ReSwitched team did with their Switch
 debug emulators, [CageTheUnicorn](https://github.com/reswitched/CageTheUnicorn) (python) and [Mephisto](https://github.com/reswitched/mephisto)(C-lang).
 These emulators were designed for debugging and they implemented the Switch IPC and did most of the
-work to figure that out. We thank [daeken](https://github.com/daeken) and [mission20000](https://github.com/mission20000),
-authors of CageTheUnicorn and Mephisto respectively, as without their initial help and their work, we
-wouldn't have gotten as far as we have.
+work to figure that out. We thank the ReSwitched team for CageTheUnicorn and Mephisto, and a special
+thanks to [daeken](https://github.com/daeken) and [misson20000](https://github.com/misson20000), for
+without their help with reverse engineering and bug fixing along the way, we wouldn't have gotten as
+far as we have.
 
 The Nvidia services configure the video driver to get the graphics output. Nintendo re-purposed the
 Android graphics stack and used it in the Switch for rendering. We had to implement this even to get
@@ -200,33 +202,33 @@ primitives but the rest if it (thus far) has been very similar and has used a si
 Hence we've reused Citra's code here as well.
 
 {{< imgs
-	  "/images/entry/yuzu-progress-report-2018-p1/1-2-switch.png|First boot - 1-2-Switch"
-		"/images/entry/yuzu-progress-report-2018-p1/1-2-switch_jap.png|Wrong Language"
-    "/images/entry/yuzu-progress-report-2018-p1/1-2-switch_work.png|Now - 1-2-Switch"
+    "./1-2-switch.png|First boot - 1-2-Switch"
+    "./1-2-switch_jap.png|Wrong Language"
+    "./1-2-switch_work.png|Now - 1-2-Switch"
 >}}
 
 {{< imgs
-	  "/images/entry/yuzu-progress-report-2018-p1/boi_2.png|First boot - The Binding of Issac"
-		"/images/entry/yuzu-progress-report-2018-p1/boi.png|in-game - first renders"
-    "/images/entry/yuzu-progress-report-2018-p1/boi_work.png|Now - The Binding of Issac"
+    "./boi_2.png|First boot - The Binding of Issac"
+    "./boi.png|in-game - first renders"
+    "./boi_work.png|Now - The Binding of Issac"
 >}}
 
 As we now have some games booting, the next step along the line would be adding HID (user input support).
-shinyquagsire worked on getting initial HID support and made further fixes along the way. HID services
-maps some shared memory region to which the games can read to, get user input state and gamepad input
-writes to this. yuzu now supports handheld inputs with analog sticks and buttons. We still have a lot
-to implement in HID, like support for all 9 controllers, rumble, LEDs, layouts etc., and its going to
-take a bit of additional work to get it all implemented. As much of this has already been RE'd, this
-is a great place for new developers to make contributions!
+[shinyquagsire](https://github.com/shinyquagsire) worked on getting initial HID support and made further
+fixes along the way. HID services maps some shared memory region to which the games can read to, get
+user input state and gamepad input writes to this. yuzu now supports handheld inputs with analog sticks
+and buttons. We still have a lot to implement in HID, like support for all 9 controllers, rumble, LEDs,
+layouts etc., and its going to take a bit of additional work to get it all implemented. As much of
+this has already been RE'd, this is a great place for new developers to make contributions!
 
-Currently Audio HLE is in progress, but we do not support audio playback (_yet!_). ogniK did a lot of
-reverse engineering on the `AudRen` service (Audio renderer) which most games use for audio output.
-There is another service called `AudOut` service, which homebrew and a few games use for audio output.
-It's a much simpler service and the homebrew community figured this out. We haven't implemented this
-as not many games use this. ogniK did most of the work on `AudRen` service and he pretty much figured
-out how it works. This is a major breakthrough as most complicated games we have seen so far were
-getting stuck, either hanging or deadlocking because they were waiting for proper `AudRen` state to
-be set. ogniK's work on this helped us go further in a few other games.
+Currently Audio HLE is in progress, but we do not support audio playback (_yet!_). [ogniK](https://github.com/ogniK5377)
+did a lot of reverse engineering on the `AudRen` service (Audio renderer) which most games use for
+audio output. There is another service called `AudOut` service, which homebrew and a few games use
+for audio output. It's a much simpler service and the homebrew community figured this out. We haven't
+implemented this as not many games use this. ogniK did most of the work on `AudRen` service and he
+pretty much figured out how it works. This is a major breakthrough as most complicated games we have
+seen so far were getting stuck, either hanging or deadlocking because they were waiting for proper
+`AudRen` state to be set. ogniK's work on this helped us go further in a few other games.
 
 Apart from the work mentioned above, we have also had minor fixes which helped us boot further in
 games like Super Mario Odyssey, 1-2-Switch, and The Binding of Issac.
