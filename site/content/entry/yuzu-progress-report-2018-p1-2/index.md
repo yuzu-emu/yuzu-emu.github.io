@@ -95,7 +95,7 @@ The game calls this kind of generic `write` to drawing registers indicating that
 So we knew that we were drawing and we now had to figure out how to decode these triangles and render them on screen.
 At the end of the day, Switch uses a modern GPU and like most modern GPUs it relies on a programmable pipeline.
 A programmable pipeline gives game developers the power to control some of the graphics pipeline with a full featured programming language, and these programs that they write are called shaders.
-Game developers will write shaders in languages such as GLSL and HSL, and the graphics driver will compile these into a GPU specific assembly language.
+Game developers will write shaders in languages such as GLSL and HLSL, and the graphics driver will compile these into a GPU specific assembly language.
 Shaders are really useful to give game developers the ability to change how the geometry is drawn, and even how the pixels are colored on the screen.
 
 {{< imgs
@@ -215,8 +215,12 @@ With this feature, yuzu now emulates mouse clicks to touch inputs and if you hap
 {{< imgs
     "./farming.png|Farming Simulator"
     "./Lildew.png|Ittle Dew"
-    "./minecraft.mp4|Minecraft Story Mode 3D"
+    "./minecraft.png|Minecraft Story Mode"
     "./picross.png|Picross"
+>}}
+
+{{< imgs
+    "./minecraft.mp4|Our first 3D rendered game - Minecraft"
 >}}
 
 ## Miscellaneous
