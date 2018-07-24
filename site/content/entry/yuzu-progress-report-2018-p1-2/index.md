@@ -192,7 +192,7 @@ Apart from the above mentioned stuff, there have been many more modifications ma
 These bug fixes or modifications were done on a per-game experimentation basis and as we progress further we will continue to fix our implementations and improve the accuracy of emulation in yuzu.
 All of the progress we have made until now is thanks to the efforts of yuzu's contributors and the good people from Switch hacking communities.
 
-## Virtual File System (VFS) by [DarkLordZach](https://github.com/DarkLordZach) ([here](https://github.com/yuzu-emu/yuzu/pull/679))
+## Virtual File System (VFS) by [DarkLordZach](https://github.com/DarkLordZach) ([here](https://github.com/yuzu-emu/yuzu/pull/676))
 
 A Virtual File System (VFS) is an abstraction layer which allows us to hide the details of where the actual files are stored.
 The purpose of a VFS is to enable the emulated Switch file system to read and write to many different types of backends, without changing anything in the emulated FS code.
