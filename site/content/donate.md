@@ -18,6 +18,6 @@ We will more than gladly accept a donation! __In particular, donations of Ninten
 
 If you’d like to donate, please contact: [donations@yuzu-emu.org](mailto:donations@yuzu-emu.org)
 
-Please note that we do not currently have a Patreon account.
+Alternatively, you can become a Patreon supporter at our [Patreon page](https://www.patreon.com/yuzuteam).
 
 Thank you for your support!
