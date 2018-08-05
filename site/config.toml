@@ -37,6 +37,12 @@ paginate = 20
   identifier = "donate"
   url = "/donate"
 
+[[menu.main]]
+  name = "patreon"
+  weight = 5
+  identifier = "patreon"
+  url = "https://www.patreon.com/yuzuteam"
+
 [Params]
   Tenant = "yuzu"
   BulmaPrimaryShade = "is-dark"
