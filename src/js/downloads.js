@@ -35,8 +35,8 @@ function releaseCallback(v, count, e) {
             if (asset.name.includes('.7z')) return;
             if (asset.name.includes('RELEASES')) return;
 
-            /* We only want to provide mingw builds on the downloads page. */
-            if (asset.name.includes('-msvc-')) return;
+            /* We only want to provide the msvc builds on the downloads page for Windows. */
+            if (asset.name.includes('-mingw-')) return;
 
             var env_icon = 'unknown';
             if (asset.name.includes('windows')) env_icon = 'windows';
