@@ -7,11 +7,27 @@ function releaseCallback(v, count, e) {
     }
 
     var releases = JSON.parse(e.responseText);
+    var shownReleases = 0;
 
     document.getElementById(`last-updated-${v}`).innerText = moment(releases[0].published_at).fromNow();
 
     for (var i = 0; i < releases.length; ++i) {
         var release = releases[i];
+
+        var windowsFound = false;
+        release.assets.forEach(function (asset) {
+            /* We only want to provide the msvc builds on the downloads page for Windows. */
+            if (asset.name.includes('-mingw-')) return;
+
+            if (asset.name.includes('windows')) {
+                windowsFound = true;
+            }
+        });
+
+        if (!windowsFound) {
+            continue;
+        }
+
         var release_date = moment(release.published_at).fromNow();
 
         var release_commit = release.assets[0].name.split('-').pop().trim().split('.')[0];
@@ -86,7 +102,10 @@ function releaseCallback(v, count, e) {
                 </div>
                </article>
              </div>`;
-        if (i + 1 >= count) { break; }
+
+        shownReleases++;
+
+        if (shownReleases >= count) { break; }
     };
 }
 
