@@ -54,3 +54,34 @@ a:hover {
   display: flex;
   align-items: center;
 }
+
+// Fixes the backgrounds + colors of messages with headers
+.message {
+  background: $dark !important;
+}
+
+.message-header {
+  color: $dark;
+}
+
+// Fixes multiple <p> elements in messages in content blocks
+.message-header p:not(:last-child) {
+  margin-bottom: 0;
+}
+
+// Adds dropdown support for messsages
+.message-header.is-dropdown {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.message-body.is-dropdown-target {
+  display: none;
+}
+
+.message-body.is-dropdown-target.is-active {
+  display: block !important;
+}

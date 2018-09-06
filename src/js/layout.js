@@ -10,4 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.moment-timeago').forEach(x => {
         x.innerHTML = moment(x.innerHTML).fromNow()
     })
+
+    // .is-dropdown
+    document.querySelectorAll('.is-dropdown').forEach(x => {
+        x.addEventListener('click', function(event) {
+            event.stopPropagation()
+            x.parentElement.querySelectorAll(".is-dropdown-target").forEach(child => {
+                child.classList.toggle('is-active')
+            })
+        });
+    })
 })
