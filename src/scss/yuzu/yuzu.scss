@@ -85,3 +85,14 @@ a:hover {
 .message-body.is-dropdown-target.is-active {
   display: block !important;
 }
+
+// Make text nicer to read in articles
+.content p {
+  text-align: justify;
+  line-height: 1.45;
+}
+
+// Fix background color of monospaced text
+.content code {
+  background: $dark;
+}
