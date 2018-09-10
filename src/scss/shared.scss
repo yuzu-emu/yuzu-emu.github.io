@@ -86,3 +86,12 @@ $blog-entry-single-height: 26em;
     // Overrride on regular has-background-dark with transparency
     background: rgba(54, 54, 54, 0.85) !important;
 }
+
+// Add overrides for padding/margin on specific sides of an element
+.is-bottom-paddingless {
+    padding-bottom: 0 !important;
+}
+
+.is-bottom-marginless {
+    margin-bottom: 0 !important;
+}
