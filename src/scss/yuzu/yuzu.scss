@@ -93,6 +93,6 @@ a:hover {
 }
 
 // Fix background color of monospaced text
-.content code {
+.content :not(pre) > code {
   background: $dark;
 }
