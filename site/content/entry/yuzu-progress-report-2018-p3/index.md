@@ -164,9 +164,10 @@ Similarly, we got Retro City Rampage booting because it was trying to get the Us
 mailwl added more stubs for the `Account` service.
 Lastly, the `Account` service is mainly for management of your local account or registered users on the system.
 
-{{< imgs
-    "./fantasyhero.png|Fantasy Hero"
-		"./hwknight.png|Hollow Knight"
+{{< single-title-imgs
+    "Fantasy Hero"
+    "./fh.png"
+    "./fh_1.png"
 >}}
 
 Each user has an unique UUID (Universally Unique Identifier), which is generated when an account is made, and they each have some information about their profile.
@@ -178,7 +179,6 @@ He also implemented functions to allow setting the username and locale of the Sw
     "Hyrule Warriors"
 		"./hyrule.png"
 		"./hyrule_1.png"
-		"./hyrule_2.png"
 >}}
 
 ogniK also implemented support for loading shared fonts in the `pl:u` service.
@@ -383,6 +383,7 @@ We would also love to thank our generous [patrons](https://www.patreon.com/yuzut
 	  "./mta.png|Mario Tennis Aces"
 	  "./kirby.png|Kirby Star Allies"
 	  "./splatoon2.png|Splatoon 2"
+    "./hwknight.png|Hollow Knight"
 >}}
 
 {{< message Note >}}
