@@ -1,3 +1,8 @@
+---
+title: Quickstart Guide
+description: Quickstart guide.
+---
+
 # yuzu Quickstart Guide
 
 To start playing games, yuzu needs a couple of different files and directoires from your switch in order to play them properly.

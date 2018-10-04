@@ -1,3 +1,8 @@
++++
+title = "Game Modding"
+description = "Game modding features"
++++
+
 # Game Modding
 
 Yuzu has a powerful modding framework allowing for multiple formats of patches, flexibility in distribution, and easy organization and change.

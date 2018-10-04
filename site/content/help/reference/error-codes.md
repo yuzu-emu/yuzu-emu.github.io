@@ -1,8 +1,6 @@
 ---
-title: Error Codes Reference Document
+title: Error Codes Reference
 description: "A list of common error codes and how to resolve them."
-categories:
-  - References
 ---
 
 #### To use this list, press Ctrl-F and then type in the error code from yuzu. This should look similar to `XXXX-XXXX` where the Xs represent numbers and letters.
@@ -89,7 +87,3 @@ categories:
 | `0008-0036` | `ErrorBadSubsectionBlock` |
 | `0008-0037` | `ErrorBadRelocationBuckets` |
 | `0008-0038` | `ErrorBadSubsectionBuckets` |
-
-
-
-
