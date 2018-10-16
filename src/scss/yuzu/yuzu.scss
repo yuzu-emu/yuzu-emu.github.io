@@ -96,3 +96,12 @@ a:hover {
 .content :not(pre) > code {
   background: $dark;
 }
+
+// Workaround for browsers without JavaScript for the downloads pagge
+#install-view, #manual-package-view {
+  display: none;
+}
+
+.dl-button, #platform-unsupported {
+  display: none;
+}
