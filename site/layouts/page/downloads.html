@@ -119,13 +119,12 @@
     }
 
     fetchReleases();
-
     // Attempt autodetection of their operating system
     var userAgent = navigator.userAgent.toLowerCase();
     
     var allPlatforms = ["windows", "mac", "linux"];
     
-    var os = undefined;
+    var os = "Other";
     if (userAgent.indexOf("windows") !== -1) {
         os = "Windows";
     } else if (userAgent.indexOf("mac") !== -1 && userAgent.indexOf("mobile") === -1 && userAgent.indexOf("phone") === -1) {
