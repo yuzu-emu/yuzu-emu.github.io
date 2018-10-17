@@ -22,7 +22,7 @@ gulp.task('default', ['start:setup'], callback => {
 });
 
 gulp.task('all', ['start:setup'], callback => {
-	runSequence(['scripts:twitter', 'scripts:wiki'],
+	runSequence(['scripts:compatdb', 'scripts:twitter', 'scripts:wiki'],
               ['assets:js', 'assets:scss'],
               'hugo',
               'assets:images',
@@ -48,6 +48,12 @@ gulp.task('start:setup', () => {
 
 	util.log(`process.env.HUGO_ENV = '${process.env.HUGO_ENV}'`);
 	util.log(`process.env.HUGO_BASEURL = '${process.env.HUGO_BASEURL}'`);
+});
+
+gulp.task('scripts:compatdb', callback => {
+	exec(`cd ./scripts/shared-hugo-scripts/compatdb/ && yarn install && node app.js`, (err, stdout, stderr) => {
+		callback(err);
+	});
 });
 
 gulp.task('scripts:twitter', callback => {
