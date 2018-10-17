@@ -29,7 +29,46 @@
 
 <div class="section">
     <div class="container">
-        <div class="columns">
+        <div id="no-js-view">
+            Hi! We see that you have JavaScript disabled. We can't show you an
+            updated listing of the available packages for yuzu, nor alternative
+            installation methods, but here are a few links to get you started: <br />
+            <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.2/yuzu_install.exe">Windows x64 Installer</a><br />
+            <a href="https://github.com/yuzu-emu/yuzu-nightly/releases">Nightly releases on GitHub</a><br />
+            <a href="https://github.com/yuzu-emu/yuzu-canary/releases">Canary releases on GitHub</a>
+        </div>
+        <div id="install-view">
+            <article class="message is-danger" id="platform-unsupported">
+                <div class="message-body has-text-white">
+                    yuzu doesn't support your platform. If you are running Windows x64, Mac x64 or Linux x64 however,
+                    choose one of the options below.
+                </div>
+            </article>
+
+            <article class="message">
+                <div class="message-body">
+                    The yuzu installer automates the management of a yuzu installation, and is
+                    recommended on supported platforms. It provides automated updating as well as shortcuts
+                    in your start menu.
+                </div>
+            </article>
+
+            <div class="buttons is-centered">
+                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.2/yuzu_install.exe" class="button dl-button is-medium is-success" id="dl-button-windows">Download for Windows x64</a>
+            </div>
+
+            <div class="buttons is-centered">
+                <!-- Show this when Flatpak/other primary installation methods are provided for Linux/Mac.
+                <a class="button">
+                    Other platforms
+                </a>
+                -->
+                <a class="button" id="view-package-listing-button">
+                    View package listing
+                </a>
+            </div>
+        </div>
+        <div class="columns" id="manual-package-view">
             <!-- Nightly -->
             <div class="column">
                 <h3>Nightly Build
@@ -80,5 +119,44 @@
     }
 
     fetchReleases();
+
+    // Attempt autodetection of their operating system
+    var userAgent = navigator.userAgent.toLowerCase();
+    
+    var allPlatforms = ["windows", "mac", "linux"];
+    
+    var os = "Other";
+    if (userAgent.indexOf("windows") !== -1) {
+        os = "Windows";
+    } else if (userAgent.indexOf("mac") !== -1 && userAgent.indexOf("mobile") === -1 && userAgent.indexOf("phone") === -1) {
+        os = "Mac";
+    } else if (userAgent.indexOf("linux") !== -1 && userAgent.indexOf("android") === -1) {
+        os = "Linux";
+    }
+
+    // Configure the views for this platform
+    document.getElementById("no-js-view").style.display = "none";
+
+    var platformButton = document.getElementById("dl-button-" + os.toLowerCase());
+    if (platformButton !== null) {
+        platformButton.style.display = "block";
+    } else {
+        document.getElementById("platform-unsupported").style.display = "block";
+    }
+
+    // Installer is not available on all platforms
+    if (os === "Mac" || os === "Linux") {
+        document.getElementById("install-view").style.display = "none";
+        document.getElementById("manual-package-view").style.display = "flex";
+    } else {
+        document.getElementById("install-view").style.display = "block";
+        document.getElementById("manual-package-view").style.display = "none";
+    }
+
+    document.getElementById("view-package-listing-button").addEventListener("click", function() {
+        this.style.display = "none";
+        document.getElementById("manual-package-view").style.display = "flex";
+    });
+
 </script>
 {{ end }}
