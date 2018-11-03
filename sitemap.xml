@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/game/1-2-switch/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/game/icons/1-2-switch.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-11-03T03:45:25+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/game/cave-story-plus/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/game/icons/cave-story-plus.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-11-03T03:45:25+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/game/one-piece-unlimited-world-red-deluxe/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/game/icons/one-piece-unlimited-world-red-deluxe.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-11-03T03:45:25+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/game/puyo-puyo-tetris/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/game/icons/puyo-puyo-tetris.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-11-03T03:45:25+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/game/the-binding-of-isaac-afterbirth-plus/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/game/icons/the-binding-of-isaac-afterbirth-plus.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-11-03T03:45:25+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/game/tiny-barbarian-dx/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/game/icons/tiny-barbarian-dx.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-11-03T03:45:25+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/building-for-linux/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/building-for-windows/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/building-for-macos/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/developer-information/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/dumping-decryption-keys-from-a-switch-console/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/dumping-game-cartridges/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/dumping-installed-titles/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/dumping-system-archives-and-the-shared-fonts-from-a-switch-console/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/faq/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/home/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/how-to-install-and-use-game-updates/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/overview-of-switch-game-formats/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/service-function-usage/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/switch-hardware-and-software/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/switch-homebrew/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/switch-mods/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/troubleshooting-loader-errors/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/typical-git-workflow/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/user-directory/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/wiki/yuzu-web-service/</loc>
+
+    
+
+    <lastmod>2018-11-03T03:45:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1057789360500887553/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-11-01T00:20:10+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1057781359639490560/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-10-31T23:48:23+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1056289838977171457/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-10-27T21:01:37+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1053480213928181760/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-10-20T02:57:10+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1052314269214285825/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-10-16T21:44:07+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1048788609942388737/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-10-07T04:14:24+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1046916164780265473/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-10-02T00:13:59+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1046579783776309249/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-10-01T01:57:19+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1039608663260975104/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-09-11T20:16:34+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p3/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-09-11T22:00:00+05:30</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1037848005620248576/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-09-06T23:40:21+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1035327879528239105/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-31T00:46:16+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1033548542743388162/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-26T02:55:49+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1032781233976213505/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-24T00:06:48+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1032300040696549377/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-22T16:14:43+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1031247694763892736/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-19T18:33:04+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1029425508977659904/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-14T17:52:21+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1028707852523909126/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-12T18:20:39+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1028514151520522242/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-12T05:30:57+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1027812960444600320/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-10T07:04:40+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/tweet_1027066281441341440/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-08-08T05:37:38+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p2/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-07-21T20:00:00+05:30</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-07-14T08:00:00+05:30</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/entry/first-games-are-running/</loc>
+
+    
+    <image:image>
+      <image:loc>https://yuzu-emu.org/images/banners/index.png</image:loc>
+    </image:image>
+    
+
+    <lastmod>2018-04-15T01:18:00-05:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/rules/</loc>
+
+    
+
+    
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/donate/</loc>
+
+    
+
+    
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/downloads/</loc>
+
+    
+
+    
+    
+    
+  </url>
+  
+  
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/help/reference/error-codes/</loc>
+
+    
+
+    
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/help/feature/game-modding/</loc>
+
+    
+
+    
+    
+    
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/help/quickstart/</loc>
+
+    
+
+    
+    
+    
+  </url>
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/screenshots/</loc>
+
+    
+
+    
+    
+    
+  </url>
+  
+  
+  
+  
+  
+  
+  <url>
+
+    <loc>https://yuzu-emu.org/help/feature/telemetry/</loc>
+
+    
+
+    
+    
+    
+  </url>
+  
+  
+  
+  
+  
+  
+</urlset>
+
