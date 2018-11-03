@@ -20,26 +20,38 @@ paginate = 20
   url = "/downloads"
 
 [[menu.main]]
-  name = "wiki"
-  weight = 2
-  identifier = "wiki"
+  name = "help"
+  weight = 3
+  identifier = "help"
+  url = "/help/"
+
+[[menu.main]]
+  name = "quick start"
+  weight = 4
+  identifier = "quickstart"
+  url = "/quickstart/"
+
+[[menu.main]]
+  name = "dev wiki"
+  weight = 5
+  identifier = "devwiki"
   url = "/wiki/home/"
 
 [[menu.main]]
   name = "screenshots"
-  weight = 3
+  weight = 6
   identifier = "screenshots"
   url = "/screenshots"
 
 [[menu.main]]
   name = "donate"
-  weight = 4
+  weight = 7
   identifier = "donate"
   url = "/donate"
 
 [[menu.main]]
   name = "patreon"
-  weight = 5
+  weight = 8
   identifier = "patreon"
   url = "https://www.patreon.com/yuzuteam"
 
