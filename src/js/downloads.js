@@ -54,6 +54,9 @@ function releaseCallback(v, count, e) {
             /* We only want to provide the msvc builds on the downloads page for Windows. */
             if (asset.name.includes('-mingw-')) return;
 
+            /* We no longer support OSX builds */
+            if (asset.name.includes('osx')) return;
+
             var env_icon = 'unknown';
             if (asset.name.includes('windows')) env_icon = 'windows';
             else if (asset.name.includes('exe')) env_icon = 'windows';
