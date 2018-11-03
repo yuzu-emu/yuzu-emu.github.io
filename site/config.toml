@@ -20,16 +20,16 @@ paginate = 20
   url = "/downloads"
 
 [[menu.main]]
-  name = "help"
+  name = "quick start"
   weight = 3
-  identifier = "help"
-  url = "/help/"
+  identifier = "quickstart"
+  url = "/help/quickstart/"
 
 [[menu.main]]
-  name = "quick start"
+  name = "help"
   weight = 4
-  identifier = "quickstart"
-  url = "/quickstart/"
+  identifier = "help"
+  url = "/help/"
 
 [[menu.main]]
   name = "dev wiki"
