@@ -1,6 +1,6 @@
 baseurl = "https://yuzu-emu.org/"
 languageCode = "en-us"
-
+languageCode = "pt-br"
 DefaultContentLanguage = "en"
 theme = "shared-bulma-theme"
 
@@ -67,7 +67,11 @@ paginate = 20
   ISO8601 = "2006-01-02T15:04:05-07:00"
   Date = "January 02 2006"
 
-[Languages]
+[Languages.ptbr]
+ title = "yuzu"
+ tagline = "Nintendo Switch Emulator"
+ description = "yuzu é um emulador de código aberto altamente experimental para o Nintendo Switch."
+ weight = 1
   [Languages.en]
     title = "yuzu"
     tagline = "Nintendo Switch Emulator"
