@@ -32,26 +32,32 @@ paginate = 20
   url = "/help/"
 
 [[menu.main]]
-  name = "dev wiki"
+  name = "game db"
   weight = 5
+  identifier = "gamedb"
+  url = "/game"
+
+[[menu.main]]
+  name = "dev wiki"
+  weight = 6
   identifier = "devwiki"
   url = "/wiki/home/"
 
-[[menu.main]]
-  name = "screenshots"
-  weight = 6
-  identifier = "screenshots"
-  url = "/screenshots"
+#[[menu.main]]
+#  name = "screenshots"
+#  weight = 6
+#  identifier = "screenshots"
+#  url = "/screenshots"
 
-[[menu.main]]
-  name = "donate"
-  weight = 7
-  identifier = "donate"
-  url = "/donate"
+#[[menu.main]]
+#  name = "donate"
+#  weight = 7
+#  identifier = "donate"
+#  url = "/donate"
 
 [[menu.main]]
   name = "patreon"
-  weight = 8
+  weight = 7
   identifier = "patreon"
   url = "https://www.patreon.com/yuzuteam"
 
@@ -61,6 +67,7 @@ paginate = 20
   DiscordURL = "https://discord.gg/u77vRWY"
   TwitterURL = "https://twitter.com/yuzuemu"
   GithubURL = "https://github.com/yuzu-emu/yuzu"
+  GithubGamesWikiURL = "https://github.com/yuzu-emu/yuzu-games-wiki"
   GoogleAnalyticsTrackingId = "UA-112443698-1"
 
 [Params.fmt]
