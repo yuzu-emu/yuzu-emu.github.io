@@ -20,40 +20,28 @@ paginate = 20
   url = "/downloads"
 
 [[menu.main]]
-  name = "quick start"
-  weight = 3
-  identifier = "quickstart"
-  url = "/help/quickstart/"
-
-[[menu.main]]
   name = "help"
-  weight = 4
+  weight = 3
   identifier = "help"
   url = "/help/"
 
 [[menu.main]]
   name = "game db"
-  weight = 5
+  weight = 4
   identifier = "gamedb"
   url = "/game"
 
 [[menu.main]]
   name = "dev wiki"
-  weight = 6
+  weight = 5
   identifier = "devwiki"
   url = "/wiki/home/"
 
-#[[menu.main]]
-#  name = "screenshots"
-#  weight = 6
-#  identifier = "screenshots"
-#  url = "/screenshots"
-
-#[[menu.main]]
-#  name = "donate"
-#  weight = 7
-#  identifier = "donate"
-#  url = "/donate"
+[[menu.main]]
+  name = "screenshots"
+  weight = 6
+  identifier = "screenshots"
+  url = "/screenshots"
 
 [[menu.main]]
   name = "patreon"
