@@ -32,7 +32,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
     - 2b. Open Zadig
     - 2c. Plug your switch into your computer.
     - 2d. Power off your switch while it is still connected to your computer.
-    - 2e. Insert your RCM jig into the right joy-con slot and then press VOL+ and Power at the same time. Nothing should happen. If the switch starts to turn on normally, go back to step 6 and try again.
+    - 2e. Insert your RCM jig into the right joy-con slot and then press VOL+ and Power at the same time. Nothing should happen. If the switch starts to turn on normally, go back to step 2c and try again.
     - 2f. and choose APX in the device list. If APX does not show, go to the Options menu and check List all devices. If it still doesn't appear, double check the connection the between the switch and your computer.
     - 2g. For Driver type, cycle the arrows until it says `libusbK (v3.0.7.0)`. This is very important.
     - 2h. Hit install driver.
@@ -51,7 +51,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
     - 3b. Open Zadig
     - 3c. Plug your switch into your computer.
     - 3d. Power off your switch while it is still connected to your computer.
-    - 3e. Insert your RCM jig into the right joy-con slot and then press VOL+ and Power at the same time. Nothing should happen. If the switch starts to turn on normally, go back to step 6 and try again.
+    - 3e. Insert your RCM jig into the right joy-con slot and then press VOL+ and Power at the same time. Nothing should happen. If the switch starts to turn on normally, go back to step 3c and try again.
     - 3f. and choose APX in the device list. If APX does not show, go to the Options menu and check List all devices. If it still doesn't appear, double check the connection the between the switch and your computer.
     - 3g. For Driver type, cycle the arrows until it says `libusbK (v3.0.7.0)`. This is very important.
     - 3h. Hit install driver.
