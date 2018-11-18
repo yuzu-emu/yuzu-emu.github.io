@@ -1,6 +1,6 @@
 baseurl = "https://yuzu-emu.org/"
 languageCode = "en-us"
-languageCode = "pt-br"
+
 DefaultContentLanguage = "en"
 theme = "shared-bulma-theme"
 
@@ -20,16 +20,16 @@ paginate = 20
   url = "/downloads"
 
 [[menu.main]]
-  name = "quick start"
-  weight = 3
-  identifier = "quickstart"
-  url = "/help/quickstart/"
-
-[[menu.main]]
   name = "help"
-  weight = 4
+  weight = 3
   identifier = "help"
   url = "/help/"
+
+[[menu.main]]
+  name = "game db"
+  weight = 4
+  identifier = "gamedb"
+  url = "/game"
 
 [[menu.main]]
   name = "dev wiki"
@@ -44,14 +44,8 @@ paginate = 20
   url = "/screenshots"
 
 [[menu.main]]
-  name = "donate"
-  weight = 7
-  identifier = "donate"
-  url = "/donate"
-
-[[menu.main]]
   name = "patreon"
-  weight = 8
+  weight = 7
   identifier = "patreon"
   url = "https://www.patreon.com/yuzuteam"
 
@@ -61,22 +55,19 @@ paginate = 20
   DiscordURL = "https://discord.gg/u77vRWY"
   TwitterURL = "https://twitter.com/yuzuemu"
   GithubURL = "https://github.com/yuzu-emu/yuzu"
+  GithubGamesWikiURL = "https://github.com/yuzu-emu/yuzu-games-wiki"
   GoogleAnalyticsTrackingId = "UA-112443698-1"
 
 [Params.fmt]
   ISO8601 = "2006-01-02T15:04:05-07:00"
   Date = "January 02 2006"
 
-[Languages.ptbr]
- title = "yuzu"
- tagline = "Nintendo Switch Emulator"
- description = "yuzu é um emulador de código aberto altamente experimental para o Nintendo Switch."
- weight = 1
+[Languages]
   [Languages.en]
-   title = "yuzu"
-   tagline = "Nintendo Switch Emulator"
-   description = "yuzu is a highly experimental open-source emulator for the Nintendo Switch."
-   weight = 1
+    title = "yuzu"
+    tagline = "Nintendo Switch Emulator"
+    description = "yuzu is a highly experimental open-source emulator for the Nintendo Switch."
+    weight = 1
 
 [outputs]
 home = [ "HTML", "RSS" ]
