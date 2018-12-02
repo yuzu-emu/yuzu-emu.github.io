@@ -9,7 +9,7 @@ We bring you part 2 of the extensive coverage on yuzu's tremendous progress. So 
 exciting ride, cause its gonna blow your mind!
 &nbsp;
 <h5 style="text-align: center;">
-***Haven't read the first part yet? Read it [here](https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1-1)***
+***Haven't read the first part yet? Read it [here](https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1)***
 </h5>
 <!--more-->
 
