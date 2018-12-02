@@ -15,7 +15,14 @@
         <div class="content">
             {{ .Content }}
         </div>
-    </div>
+
+        <article class="message has-text-weight-semibold">
+            <div class="message-body">
+                <p>Note: Mac OS is no longer supported due to Apple deprecating OpenGL
+                  and their current version not supporting the OpenGL extensions we require.</p>
+                <a href="https://www.anandtech.com/show/12894/apple-deprecates-opengl-across-all-oses">Source</a>
+            </div>
+        </article>
 </section>
 
 <!-- Advertisement -->
@@ -40,7 +47,7 @@
         <div id="install-view">
             <article class="message is-danger" id="platform-unsupported">
                 <div class="message-body has-text-white">
-                    yuzu doesn't support your platform. If you are running Windows x64, Mac x64 or Linux x64 however,
+                    yuzu doesn't support your platform. If you are running Windows x64 or Linux x64 however,
                     choose one of the options below.
                 </div>
             </article>
@@ -122,9 +129,9 @@
 
     // Attempt autodetection of their operating system
     var userAgent = navigator.userAgent.toLowerCase();
-    
+
     var allPlatforms = ["windows", "mac", "linux"];
-    
+
     var os = "Other";
     if (userAgent.indexOf("windows") !== -1) {
         os = "Windows";

@@ -26,9 +26,9 @@ paginate = 20
   url = "/help/"
 
 [[menu.main]]
-  name = "game db"
+  name = "compatibility"
   weight = 4
-  identifier = "gamedb"
+  identifier = "compatibility"
   url = "/game"
 
 [[menu.main]]

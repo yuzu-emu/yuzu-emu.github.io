@@ -20,4 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         });
     })
+
+    // baguetteBox
+    baguetteBox.run('.baguetteBox');
 })
