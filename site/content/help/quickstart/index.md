@@ -13,7 +13,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
 - A Nintendo Switch vulnerable to fusee-gelee (purchased before July 2018 will definitely work, purchased after has a lower probability of working)
 - An SD card with at least ~29 GB of free space (an almost empty 32GB card will work)
 - [biskeydump](https://files.sshnuke.net/biskeydumpv6.zip)
-- [hekate](https://github.com/CTCaer/hekate/releases/download/v3.2/hekate_ctcaer_3.2.bin)
+- [hekate](https://github.com/CTCaer/hekate/releases/download/v4.5/hekate_ctcaer_4.5.zip)
 - [Copy Script](https://yuzu-emu.org/help/quickstart/yuzu_copy.bat)
 - [HacDiskMount](https://files.sshnuke.net/HacDiskMount1055.zip)
 - [TegraRcmSmash](https://files.sshnuke.net/TegraRcmSmash1213.zip)
@@ -28,7 +28,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
 ## Directions
 1. Download this [keys template](https://yuzu-emu.org/help/quickstart/console.keys). It will help make sure you don't miss anything in the next steps.
 2. We will now boot biskeydump on your switch to dump your BIS (Built-In Storage) keys.
-    - 2a. Extract the `TegraRcmSmash1213.zip` zip file you downloaded in the prerequisites. Extract the `biskeydumpv6.zip` file you downloaded earlier and but the put the `biskeydump.bin` in the `TegraRcmSmash1213/x64` folder. 
+    - 2a. Extract the `TegraRcmSmash1213.zip` zip file you downloaded in the prerequisites. Extract the `biskeydumpv6.zip` file you downloaded earlier and put the `biskeydump.bin` in the `TegraRcmSmash1213/x64` folder. 
     - 2b. Open Zadig
     - 2c. Plug your switch into your computer.
     - 2d. Power off your switch while it is still connected to your computer.
@@ -37,7 +37,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
     - 2g. For Driver type, cycle the arrows until it says `libusbK (v3.0.7.0)`. This is very important.
     - 2h. Hit install driver.
     - 2i. Close Zadig.
-    - 2j. Drag and drop the bin file from step 1 of this guide onto the `RCMSmasher.exe` program. It should not stay open and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
+    - 2j. Drag and drop the `biskeydump.bin` file (from step 2a of this guide) onto the `TegraRcmSmash.exe` program. It should not stay open and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
     - 2k. You are now in biskeydump. If the background of the QR code is red, retry until it is blue. You can scan the QR code for convenience or copy the codes by typing them into your computer. Our testing has found that QRDroid doesn't work properly but [QR Code Reader by Kaspersky Lab](https://play.google.com/store/apps/details?id=com.kaspersky.qrscanner) does. Copy the keys template from step 1 into `%YUZU_DIR%/keys` and make sure it is still named `console.keys`. Open `console.keys` and replace the large `XXXX...XXX` strings with the corresponding key from biskeydump. You should have copied:
         - `tsec_key`
         - `bis_key_0_crypt`
@@ -47,7 +47,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
         - `bis_key_2_crypt`
         - `bis_key_2_tweak`
 3. We will now boot hekate to dump your system files:
-    - 3a. Extract the `TegraRcmSmash1213.zip` zip file you downloaded in the prerequisites. Put the `hekate_ctcaer_3.2.bin` file from the prerequisites in the `TegraRcmSmash1213/x64` folder. 
+    - 3a. Extract the `hekate_ctcaer_4.5.zip` file you downloaded earlier and put the `hekate_ctcaer_4.5.bin` file in the `TegraRcmSmash1213/x64` folder.
     - 3b. Open Zadig
     - 3c. Plug your switch into your computer.
     - 3d. Power off your switch while it is still connected to your computer.
@@ -56,7 +56,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
     - 3g. For Driver type, cycle the arrows until it says `libusbK (v3.0.7.0)`. This is very important.
     - 3h. Hit install driver.
     - 3i. Close Zadig.
-    - 3j. Drag and drop the bin file from step 1 of this guide onto the `RCMSmasher.exe` program. It should not stay open and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
+    - 3j. Drag and drop the `hekate_ctcaer_4.5.bin` file (from step 3a of this guide) onto the `TegraRcmSmash.exe` program. It should not stay open and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
     - 3k. You are now in hekate. Navigate hekate using volume up and down to go up and down and power to select. Select `Console info` and then `Print fuse info`. It should print out some data onto your screen and then say `Press Power to dump to SD card`. Press power and it should now say `Done!` and `Press volume to go to menu`. Press a volume button and then select `back` in the menu.
     - 3l. Select `Tools` and then select `Dump package1/2`. After it finishes, it should say `Done. Press any key` near the bottom. Press any key to return to the tools menu.
     - 3m. Select `Backup` and then select `Backup eMMC BOOT0/1`. This make take a few seconds to load. After it finished filling the progress bar it should say `Finished and verified! Press any key`. Press any key to return to the backup menu.
