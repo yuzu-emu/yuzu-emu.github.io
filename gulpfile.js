@@ -4,7 +4,6 @@ const exec = require('child_process').exec;
 const gulp = require('gulp');
 const util = require('gulp-util');
 const merge = require('merge-stream');
-const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
@@ -12,44 +11,7 @@ const concat = require('gulp-concat');
 const imageResize = require('gulp-image-resize');
 const browserSync = require('browser-sync').create();
 
-const baseUrl = 'https://yuzu-emu.org';
-const cname = 'yuzu-emu.org';
-let finalCommand = null;
-
 // Gulp Run Tasks
-gulp.task('default', ['start:setup'], callback => {
-	runSequence('hugo', finalCommand, callback);
-});
-
-gulp.task('all', ['start:setup'], callback => {
-	runSequence(['scripts:compatdb', 'scripts:twitter', 'scripts:wiki'],
-              ['assets:js', 'assets:scss'],
-              'hugo',
-              'assets:images',
-              finalCommand,
-              callback);
-});
-
-gulp.task('assets', ['start:setup'], callback => {
-	runSequence(['assets:js', 'assets:scss'], 'hugo', 'assets:images', finalCommand, callback);
-});
-
-// Gulp Pipeline
-gulp.task('start:setup', () => {
-	if (util.env.production) {
-		process.env.HUGO_ENV = 'PRD';
-		process.env.HUGO_BASEURL = baseUrl;
-		finalCommand = 'final:publish';
-	} else {
-		process.env.HUGO_ENV = 'DEV';
-		process.env.HUGO_BASEURL = 'http://localhost:3000';
-		finalCommand = 'final:serve';
-	}
-
-	util.log(`process.env.HUGO_ENV = '${process.env.HUGO_ENV}'`);
-	util.log(`process.env.HUGO_BASEURL = '${process.env.HUGO_BASEURL}'`);
-});
-
 gulp.task('scripts:compatdb', callback => {
 	exec(`cd ./scripts/shared-hugo-scripts/compatdb/ && yarn install && node app.js`, (err, stdout, stderr) => {
 		callback(err);
@@ -85,7 +47,8 @@ gulp.task('assets:images', () => {
       .pipe(gulp.dest('./'));
 	const screenshotImages = gulp.src(`build/images/screenshots/*`)
       .pipe(imageResize({width: 640, height: 360, crop: false}))
-      .pipe(gulp.dest(`build/images/screenshots/thumbs`));
+	  .pipe(gulp.dest(`build/images/screenshots/thumbs`));
+	
 	return merge(baseImages, jumbotronImages, bannerImages, boxartImages, iconImages, screenshotImages);
 });
 
@@ -104,19 +67,14 @@ gulp.task('assets:scss', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('hugo', cb => {
+gulp.task('hugo', callback => {
 	exec('hugo -s ./site/ -d ../build/ -v', (err, stdout, stderr) => {
 		console.log(stdout);
-		cb(err);
+		callback(err);
 	});
 });
 
-function fileChange(x) {
-	console.log(`[FileChange] File changed: ${x.path}`);
-	browserSync.reload(x);
-}
-
-gulp.task('final:serve', () => {
+gulp.task('final:serve', (done) => {
 	browserSync.init({
 		open: false,
 		server: {
@@ -124,15 +82,40 @@ gulp.task('final:serve', () => {
 		}
 	});
 
-	gulp.watch('src/js/**/*', ['assets:js']);
-	gulp.watch('src/scss/**/*', ['assets:scss']);
-	gulp.watch('site/**/*.html', ['hugo']);
-	gulp.watch('site/**/*.md', ['hugo']);
+    gulp.watch('src/js/**/*', gulp.series('assets:js'));
+    gulp.watch('src/scss/**/*', gulp.series('assets:scss'));
+    gulp.watch('site/**/*.html', gulp.series('hugo'));
+    gulp.watch('site/**/*.md', gulp.series('hugo'));
 
-	gulp.watch('build/**/*').on('change', fileChange);
+    gulp.watch('build/**/*').on('change', function() {
+      browserSync.reload(x);
+    });
+
+	done()
 });
 
-gulp.task('final:publish', () => {
+gulp.task('final:publish', (done) => {
 	fs.writeFileSync(`build/CNAME`, `${cname}`);
 	fs.writeFileSync(`build/robots.txt`, `Sitemap: https://${cname}/sitemap.xml\n\nUser-agent: *`);
+	done()
 });
+
+const cname = 'yuzu-emu.org';
+let finalCommand = null;
+
+if (util.env.production) {
+	process.env.HUGO_ENV = 'PRD';
+	process.env.HUGO_BASEURL = `https://${cname}`
+	finalCommand = 'final:publish';
+} else {
+	process.env.HUGO_ENV = 'DEV';
+	process.env.HUGO_BASEURL = 'http://localhost:3000'
+	finalCommand = 'final:serve';
+}
+
+util.log(`process.env.HUGO_ENV = '${process.env.HUGO_ENV}'`)
+util.log(`process.env.HUGO_BASEURL = '${process.env.HUGO_BASEURL}'`)
+
+gulp.task('default', gulp.series(gulp.parallel('assets:js', 'assets:scss'), 'hugo', 'assets:images', finalCommand))
+gulp.task('all', gulp.series(gulp.parallel('scripts:compatdb', 'scripts:twitter', 'scripts:wiki'), gulp.parallel('assets:js', 'assets:scss'), 'hugo', 'assets:images', finalCommand))
+gulp.task('content', gulp.series('hugo', finalCommand))
