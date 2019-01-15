@@ -7,7 +7,7 @@ ECHO v4 -  01/15/2019
 
 cd /d "%appdata%\yuzu"
 if exist sysdata goto setup
-if not exist stsdata goto createsdata
+if not exist sysdata goto createsdata
 
 :createsdata
 mkdir sysdata
