@@ -12,8 +12,8 @@ This guide will help you copy all of your system files, games, updates, and DLC 
 ## Prerequisites
 - A Nintendo Switch vulnerable to fusee-gelee (purchased before July 2018 will definitely work, purchased after has a lower probability of working)
 - An SD card with at least ~29 GB of free space (an almost empty 32GB card will work)
-- [biskeydump](https://files.sshnuke.net/biskeydumpv6.zip)
-- [hekate](https://github.com/CTCaer/hekate/releases/download/v3.2/hekate_ctcaer_3.2.bin)
+- [biskeydump](http://switchtools.sshnuke.net/)
+- [hekate](https://github.com/CTCaer/hekate/releases/)
 - [Copy Script](https://yuzu-emu.org/help/quickstart/yuzu_copy.bat)
 - [HacDiskMount](https://files.sshnuke.net/HacDiskMount1055.zip)
 - [TegraRcmSmash](https://files.sshnuke.net/TegraRcmSmash1213.zip)
