@@ -1,13 +1,12 @@
 [
     {
         "DateSubmitted": "11-20-2018",
-        "DateExpires": "03-01-2019",
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "Blinkhawk",
+        "Status": "Completed",
         "Requester": "Jon S",
-        "Amount": "$300 USD",
+        "Amount": "$150 USD",
         "Description": "Fix major rendering issues with BOTW (should look pretty good, can still be minor issues, e.g. like SMO is today. Does not include performance)",
-        "PaymentStatus": null,
+        "PaymentStatus": "Paid",
         "DeveloperResponse": null
     },
     {
@@ -80,6 +79,26 @@
         "Requester": "Marie",
         "Amount": "$50 USD",
         "Description": "Fix core timing issues in Snipperclips, Cut it out Together!",
+        "PaymentStatus": null,
+        "DeveloperResponse": null
+    },
+    {
+        "DateSubmitted": "02-06-2019",
+        "Developer": null,
+        "Status": "Unassigned",
+        "Requester": "Bunnei",
+        "Amount": "$75 USD",
+        "Description": "Fixing ground collision in The Legend of Zelda: Breath of the Wild",
+        "PaymentStatus": null,
+        "DeveloperResponse": null
+    },
+    {
+        "DateSubmitted": "02-06-2019",
+        "Developer": null,
+        "Status": "Unassigned",
+        "Requester": "Tobi",
+        "Amount": "$15 EUR",
+        "Description": "Fixing ground collision in The Legend of Zelda: Breath of the Wild",
         "PaymentStatus": null,
         "DeveloperResponse": null
     }
