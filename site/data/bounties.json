@@ -88,7 +88,7 @@
         "Status": "Unassigned",
         "Requester": "Bunnei",
         "Amount": "$75 USD",
-        "Description": "Fixing ground collision in The Legend of Zelda: Breath of the Wild",
+        "Description": "Fix ground rendering in The Legend of Zelda: Breath of the Wild",
         "PaymentStatus": null,
         "DeveloperResponse": null
     },
@@ -98,7 +98,7 @@
         "Status": "Unassigned",
         "Requester": "Tobi",
         "Amount": "$15 EUR",
-        "Description": "Fixing ground collision in The Legend of Zelda: Breath of the Wild",
+        "Description": "Fix ground rendering in The Legend of Zelda: Breath of the Wild",
         "PaymentStatus": null,
         "DeveloperResponse": null
     }
