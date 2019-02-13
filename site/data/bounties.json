@@ -84,21 +84,31 @@
     },
     {
         "DateSubmitted": "02-06-2019",
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "Blinkhawk",
+        "Status": "Completed",
         "Requester": "Bunnei",
         "Amount": "$75 USD",
         "Description": "Fix ground rendering in The Legend of Zelda: Breath of the Wild",
-        "PaymentStatus": null,
+        "PaymentStatus": "Paid",
         "DeveloperResponse": null
     },
     {
         "DateSubmitted": "02-06-2019",
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "Blinkhawk",
+        "Status": "Completed",
         "Requester": "Tobi",
         "Amount": "$15 EUR",
         "Description": "Fix ground rendering in The Legend of Zelda: Breath of the Wild",
+        "PaymentStatus": "Paid",
+        "DeveloperResponse": null
+    },
+    {
+        "DateSubmitted": "02-13-2019",
+        "Developer": null,
+        "Status": "Unassigned",
+        "Requester": "KennyRoody",
+        "Amount": "$35 USD",
+        "Description": "Implement Wall Timer/Cycle Timer to correct timing in games like The Binding of Isaac: Afterbirth+, Celeste, Wizard of Light, etc. until either better/faster timing or Core::Timing imped.",
         "PaymentStatus": null,
         "DeveloperResponse": null
     }
