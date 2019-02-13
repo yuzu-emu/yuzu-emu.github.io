@@ -85,21 +85,21 @@
     {
         "DateSubmitted": "02-06-2019",
         "Developer": null,
-        "Status": "Unassigned",
+        "Status": "Completed",
         "Requester": "Bunnei",
         "Amount": "$75 USD",
         "Description": "Fix ground rendering in The Legend of Zelda: Breath of the Wild",
-        "PaymentStatus": null,
+        "PaymentStatus": "Paid",
         "DeveloperResponse": null
     },
     {
         "DateSubmitted": "02-06-2019",
         "Developer": null,
-        "Status": "Unassigned",
+        "Status": "Completed",
         "Requester": "Tobi",
         "Amount": "$15 EUR",
         "Description": "Fix ground rendering in The Legend of Zelda: Breath of the Wild",
-        "PaymentStatus": null,
+        "PaymentStatus": "Paid",
         "DeveloperResponse": null
     },
     {
