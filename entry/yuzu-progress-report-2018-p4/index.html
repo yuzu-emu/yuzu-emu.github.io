@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Progress Report 2018 Part 4 &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p4/" />
+    <meta property="og:description" content="Sorry for keeping you guys waiting!
+A whole slew of new updates and a ton of progress await you.
+Let&rsquo;s not waste anymore time and get the party started." />
+<meta name="description" content="Sorry for keeping you guys waiting!
+A whole slew of new updates and a ton of progress await you.
+Let&rsquo;s not waste anymore time and get the party started." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p4/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p4/"> 
+
+    <title>Progress Report 2018 Part 4 - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/help/">
+                help
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/home/">
+                dev wiki
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> github
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+<div class="container">
+    <div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-progress-report-2018-p4/banner.png')">
+        <div>
+            <span class="title px-md py-sm has-background-dark">Progress Report 2018 Part 4</span>
+        </div>
+        
+        <div class="mt-lg">
+            <span class="h3 px-md py-sm has-background-dark">
+                Written by <a href="https://community.citra-emu.org/users/CaptV0rt3x">CaptV0rt3x</a> 
+                on December 03 2018
+            </span> 
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <p>Sorry for keeping you guys waiting!
+A whole slew of new updates and a ton of progress await you.
+Let&rsquo;s not waste anymore time and get the party started.</p>
+
+<p>These past couple of months have been absolutely fantabulous.
+If you were following us closely on <a href="https://twitter.com/yuzuemu">twitter</a>, you might have seen a few tweets but, strictly speaking, they don&rsquo;t even come close to describing the amount of work that has been accomplished.</p>
+
+<p>Also, a new remake was released on the Switch a few days back and with it a bunch of contributors raced to fix some of the new issues it uncovered.
+We will be covering that in a separate section, so hold on to your seats and enjoy the ride.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./lgpe.png" title="Pokémon: Let&#39;s Go, Eevee!">
+                <img src="./lgpe.png" alt="Pokémon: Let&#39;s Go, Eevee!">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Pokémon: Let&#39;s Go, Eevee!</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="cpu-core">CPU / Core</h2>
+
+<p><a href="https://github.com/MerryMage">MerryMage</a> has added a lot of new ARMv8 instructions to <a href="https://github.com/MerryMage/dynarmic">dynarmic</a>, our ARM dynamic recompiler, which further reduce our fallbacks to <a href="https://www.unicorn-engine.org/">unicorn</a>.
+Code generation has also been improved by making use of more recent CPU instructions (e.g. SSE4.1, AVX, AVX512, etc).
+We are slowly moving towards completely phasing out unicorn in favor of dynarmic, with nearly 85% of the work done.
+While there are still a few missing instructions in dynarmic, we didn&rsquo;t observe any games hitting them.</p>
+
+<p>Support for Linux <code>perf</code> command has been added, which allows us to profile the time we spend in recompiled game code.
+In simple terms, it helps us identify areas of code which are being used by games frequently, so that we can optimize those areas.
+For more info on <code>perf</code>, visit <a href="https://perf.wiki.kernel.org/index.php/Main_Page">here</a>.</p>
+
+<p><a href="https://github.com/lioncash">Lioncash</a> found and fixed a bug in dynarmic&rsquo;s <code>ExclusiveWrite128()</code> function.
+Due to this bug, when the second half of the value was being written, it would overwrite the first half.
+Thankfully this wasn&rsquo;t a bug that was being encountered, as the function is currently unused.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./botw.png" title="">
+                <img src="./botw.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./botw-1.png" title="">
+                <img src="./botw-1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./botw-2.png" title="">
+                <img src="./botw-2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">The Legend of Zelda - Breath of the Wild</p>
+
+
+
+<h2 id="general-improvements">General Improvements</h2>
+
+<p>To ensure general feature parity between the sister projects, whenever we have new features implemented in <a href="https://citra-emu.org/">Citra</a>, we port them to yuzu and vice versa.
+Recently we have had new features like Joystick Hot-plugging support and Touch Input handling implemented in Citra.
+While Joystick hot-plugging allows us to connect/disconnect controllers on-the-go, without crashing the emulator, Touch Input handling allows us to use a physical touch screen for input, in the place of a mouse.</p>
+
+<p>Web Services &amp; Telemetry features are used to gather anonymous user statistics and for other backend stuff like user authentication.
+We now have a <a href="https://yuzu-emu.org/game/">Compatibility Database</a> which lists the playability information for various games.
+Mind you that this list is a work-in-progress and is community driven.
+Play games on yuzu and while playing, go to <code>Help -&gt; Report Compatibility</code> and submit info to help improve the database.
+<code>Discord Rich Presence</code>, a novelty feature, was also added so that yuzu fans could show off in their discord statuses.</p>
+
+<p>Apart from these, we&rsquo;ve also had a few minor improvements like:</p>
+
+<ul>
+<li>Unsupported OpenGL extensions pop-up - which tells you if your GPU isn&rsquo;t suitable for yuzu.</li>
+<li>Background color changer - to change background color.</li>
+<li>Fixed logging initialization, default <code>username</code>, and default language in our SDL frontend.</li>
+</ul>
+
+<p><strong>Note</strong>: The Multi-core option has been temporarily removed, due to inaccuracies in our kernel and scheduler.
+We will likely support multi-core at some point in the future.</p>
+
+<h2 id="audio">Audio</h2>
+
+<p><a href="https://github.com/fearlesstobi">FearlessTobi</a> and MerryMage teamed up to bring audio-stretching to yuzu!
+While the implementation shares a lot in common with audio-stretching in Citra, it&rsquo;s been tuned and optimized for yuzu to decrease the performance impact on emulation and reduce delay and crackling as much as possible.</p>
+
+<p>If fixes are more your thing, <a href="https://github.com/ogniK5377">ogniK</a> fixed an annoying softlock in Super Mario Odyssey (SMO).
+This game expects various Effect States (for sound effects) to be initialized, even if they aren&rsquo;t updated.
+Because SMO hasn&rsquo;t been observed to actually update these states, assertions have been placed to see if they are ever updated.
+For now though, his changes mean that various hangs in SMO are fixed, making the game much easier to play.</p>
+
+<h2 id="gpu">GPU</h2>
+
+<p>Thanks to tons of contributions the past few months, yuzu&rsquo;s GPU core has seen a lot of fixes, optimizations and new features making emulated games look a lot more like their console experience.
+At the forefront of these efforts is getting the sublime 3D platformer, Super Mario Odyssey, to playable status.</p>
+
+<h4 id="super-mario-odyssey-smo">Super Mario Odyssey (SMO)</h4>
+
+<p>As you probably know, while yuzu technically could boot Super Mario Odyssey, it was neither able to properly render graphics nor run the game at decent speeds.
+To get the game working, was like an exciting challenge to the developers which, at the end, held a hidden treasure.
+So, they set out on a journey - to dig deeper into the internal workings of the game, as well as the console.</p>
+
+<p>But, as with any treasure hunt, you need clues to start somewhere.
+The only way to move forward was to try fixing the existing bugs and graphical issues, which could give more insight into what else might be broken.
+And thus started the journey, with 2 goals in mind - to fix issues in SMO and to make it run at playable speeds in yuzu.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./SMO-2.png" title="">
+                <img src="./SMO-2.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./SMO.png" title="">
+                <img src="./SMO.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./SMO-1.png" title="">
+                <img src="./SMO-1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Super Mario Odyssey</p>
+
+
+
+<p><a href="https://github.com/bunnei">bunnei</a> and <a href="https://github.com/Subv">Subv</a> together implemented <code>multiple color attachments</code> for the framebuffers.
+A color attachment is a texture, which attaches to a framebuffer as a render target and is used for off-screen rendering.
+These are used in several techniques including reflection, refraction, and deferred shading.</p>
+
+<p>A render buffer, or render target, is any specially created single buffer to which part of rendering may be directed.
+Some examples would be color buffers and depth buffers.
+A framebuffer is a bound collection of several such render buffers.
+While all of these changes fixed many graphical issues in SMO and other games, performance still left a lot to be desired.</p>
+
+<p><strong>What if, for a change, instead of fixing bugs, we try to improve rendering in the game?</strong>
+bunnei independently set out to scrutinize the way we were rendering graphics and found out that we could improve the accuracy of how we cached and copied our framebuffers.
+And the result was improved rendering in SMO&rsquo;s Ruined Kingdom, without even having to use the <code>Accurate Framebuffers</code> setting in yuzu.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo-1295-b.png" title="Before">
+                <img src="./smo-1295-b.png" alt="Before">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Before</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo-1295-a.png" title="After">
+                <img src="./smo-1295-a.png" alt="After">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">After</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Our further efforts to improve rendering led to the fact that we needed to properly provide textures to shaders.</p>
+
+<blockquote>
+<p>A texture is an OpenGL Object that contains one or more images that all have the same image format.
+A texture can be used in two ways - it can either be the source of a texture access from a Shader, or it can be used as a render target.</p>
+</blockquote>
+
+<p>There are a number of different types of textures in OpenGL and not all of them are 2D - some are arrays and some are cubemaps.
+These are special kinds of textures generally called Layered Textures.
+<a href="https://github.com/FernandoS27">Blinkhawk</a> found that we were incorrectly reading these special textures, which was causing various graphical glitches in games.
+He then reworked the code to account for size of mipmaps and made sure that we read these textures properly.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Mipmap">Mipmaps</a> are generally pre-calculated, optimized sequences of images, each of which is a progressively lower resolution representation of the same image.
+If the image to be rendered is big or close to the camera, the renderer uses a bigger texture map, while if it is smaller or farther away, then smaller textures are used.</p>
+
+<p>The absence of these mipmaps was yet another reason for glitchy rendering in several games.
+Blinkhawk identified this, and implemented mipmaps and texture processing modes - which are needed to access said mipmaps.
+Mipmaps are intended to increase rendering speed and reduce aliasing artifacts, while texture processing modes change the way games access a texture&rsquo;s mipmaps.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo-mip.png" title="Before">
+                <img src="./smo-mip.png" alt="Before">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Before</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo-map.png" title="After">
+                <img src="./smo-map.png" alt="After">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">After</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Another missing texture type was Cubemaps.
+Cubemaps aren&rsquo;t unique to Super Mario Odyssey - in fact most games use cubemaps.
+Essentially, a cubemap is a texture that contains six individual 2D textures that form each side of a textured cube.
+The thing that sets SMO apart in this case is <em>how</em> it uses cubemaps in an unusual way.
+As with emulation, it&rsquo;s easy to emulate <em>expected</em> behaviors, but when a game uses a feature for something unanticipated, it can trip up an incomplete implementation.
+SMO tends to use a single render target for all six sides of the cubemap surface, necessitating yuzu to allow copying between render targets and cubemaps for correct emulation.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./metro1-b.png" title="">
+                <img src="./metro1-b.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./sand1-b.png" title="">
+                <img src="./sand1-b.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Before</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./metro1-a.png" title="">
+                <img src="./metro1-a.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./sand1-a.png" title="">
+                <img src="./sand1-a.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">After</p>
+
+
+
+<p>Blinkhawk also implemented 3D textures, which are used for global illumination caching and to enable correct coloring.
+3D textures work like regular textures, but they are truly 3D and are usually used for volumetric effects like smoke, fire, light rays, realistic fog, etc.
+The way in which Switch games create these is very interesting from an emulation perspective.
+It turns out that most games compute them on loading, instead of having them pre-computed and they are generated through some sort of hack over Nvidia&rsquo;s memory layout.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo-1505-1.png" title="">
+                <img src="./smo-1505-1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo-1505-2.png" title="">
+                <img src="./smo-1505-2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">After 3D textures</p>
+
+
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>XtraByte</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        The game tries to render 2d textures with a block depth of 16, (block depth should only be used on 3d textures), then overlaps them in a specific order of rendering and reinterprets that as a 3d texture.
+The solution we came up with was, to flush all textures in that memory area in the order of modification from last modified to newest and then read that memory as a 3D Texture.
+    </div>
+</article>
+
+
+<p>While all the others were trying to fix graphical bugs, bunnei was still searching for ways to optimize performance of the game.
+He and Subv identfied a major issue - that we weren&rsquo;t flushing data properly.</p>
+
+<blockquote>
+<p>Flushing is the process of taking render buffers that were modified in the host-GPU and write them back to the guest RAM (Host - hardware, Guest - Switch).
+If you modify render buffers that were cached on the host-GPU but never flush them, then the games won&rsquo;t see the latest version of those render buffers when they try to access them.</p>
+</blockquote>
+
+<p>bunnei, over a couple of weeks, implemented flushing in the rasterizer cache and also for DMA transfers.
+Along with these, he also implemented accelerated Fermi2D copies.
+Fermi2D is one of the engines inside the GPU.
+It is like a 2D transformation engine, where you feed it 2D images and you can do a bunch of transformations on it in the GPU.
+With accelerated copies, the surface copying was now simpler and faster and as an additional bonus, it fixed several things like the ice effect in SMO and the blur effect in One Piece.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo-ice.png" title="Super Mario Odyssey">
+                <img src="./smo-ice.png" alt="Super Mario Odyssey">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Super Mario Odyssey</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./op-blur.png" title="One Piece">
+                <img src="./op-blur.png" alt="One Piece">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">One Piece</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Days went by without any new findings but then we finally hit a jackpot.
+Code investigation and reverse engineering led us to an issue where <code>macros</code> could be skipped.
+<code>macros</code> are command sequences sent to the guest GPU and since they were being skipped, it led to distant objects not being rendered in SMO.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo-1622-b.png" title="Before">
+                <img src="./smo-1622-b.png" alt="Before">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Before</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo-1622-a.png" title="After">
+                <img src="./smo-1622-a.png" alt="After">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">After</p>
+        
+    </div>
+    
+</div>
+
+
+<p>bunnei fixed this by restructuring the way we uploaded these macros to the guest GPU.
+Instead of piping macro code into separate memory for each program, we now write it to a single macro memory region and then execute macros via the specified offset into this region.
+He also found a bug in our memory manager, where buffers were being mapped over memory which was already in use.
+By fixing that, we fixed the rendering when changing areas in SMO.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo-1630-1b.png" title="">
+                <img src="./smo-1630-1b.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo-1630-2b.png" title="">
+                <img src="./smo-1630-2b.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Before</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo-1630-1a.png" title="">
+                <img src="./smo-1630-1a.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo-1630-2a.png" title="">
+                <img src="./smo-1630-2a.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">After</p>
+
+
+
+<h4 id="new-features-optimizations-and-fixes">New Features, Optimizations, and Fixes</h4>
+
+<p>But <del>SMOzu</del> yuzu isn&rsquo;t a Super Mario Odyssey emulator, it&rsquo;s a Nintendo Switch emulator.
+And as such, any efforts to fix or improve a single game will definitely impact other games too and thus many other games are reaping the benefits of sustained work.</p>
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Back-to-School</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        <p>Let&rsquo;s go back to school for a bit.
+<strong>What is rendering and how does it work on modern GPUs?</strong>
+Rendering is a very generic term which is basically can be defined as &ldquo;creating an image&rdquo;, which can be, obviously, created in many ways.</p>
+
+<p>In modern GPUs, say if you want to render a triangle, you supply triangle coordinates to GPU and also load a shader to GPU.
+Then the GPU starts rendering the data you supplied, it is executing your shader on every triangle vertex (vertex shader) and every triangle pixel (pixel shader).
+Shaders are simple programs that describe the traits of either a vertex or a pixel.
+In the shader, you basically transform coordinates (vertex) and change color (pixel) of your final image.
+Shaders are very powerful and very fast, most effects in modern games are possible because of shaders.</p>
+
+<p>But, how does the shader know to transform given data to our exact requirements?
+That&rsquo;s because the shaders are programs that can be written using shader languages.
+There are a number of such shader languages, but we use a C-like language GLSL (OpenGL Shader Language).
+Modern GPUs make use of shader instruction sets, to pass commands to the individual programmable shader units and make them do the work.</p>
+
+    </div>
+</article>
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./kirby.png" title="">
+                <img src="./kirby.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./kirby-1.png" title="">
+                <img src="./kirby-1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Kirby Star Allies</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./kirby-2.png" title="">
+                <img src="./kirby-2.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./kirby-3.png" title="">
+                <img src="./kirby-3.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">In Game</p>
+
+
+
+<p>The Nvidia Tegra X1 - which is the brain of the Switch, houses a Maxwell architecture based GPU.
+Like all other Nvidia GPUs, this too utilizes Nvidia&rsquo;s shader instruction sets to make the shaders render graphics.
+Unlike most other parts of our code base, which is HLE (High Level Emulation), our GPU emulation is LLE (Low Level Emulation).</p>
+
+<blockquote>
+<p>LLE just translates the native code and is the traditional way of emulating.
+Simply put, in LLE we interpret the <code>macros</code> sent to the GPU and then read the registers to render stuff.
+And to do that, we need to emulate the shader instructions that the GPU uses.</p>
+</blockquote>
+
+<p>Our developer Blinkhawk took it upon himself to try and implement the shader instructions in our GPU emulation.
+He refactored the existing <code>IPA</code> shader instruction, implemented the shader instructions <code>TMML</code>, <code>LEA</code>, <code>PSET</code>, properly implemented <code>TXQ</code> and fixed <code>TLDS</code>, <code>FSETP</code>, <code>FSET</code>.</p>
+
+<p>He implemented Cube Arrays, implemented <code>3 coordinate array</code> in <code>TEXS</code> instruction - which is used by Breath of the Wild, improved shader accuracy on Vertex and Geometry shaders, and improved GPU Cache&rsquo;s lookup Speed - which resulted in better overall performance.</p>
+
+<p>Another developer <a href="https://github.com/ReinUsesLisp">Rodrigo</a>, also lent a hand by independently researching the shader instructions we were missing and implementing them.
+He implemented a few instructions like <code>VMAD</code> &amp; <code>VSETP</code>- which are complex instructions used in Geometry Shaders, <code>PBK</code> &amp; <code>BRK</code> - which are flow instructions used by some games, and also implemented the whole set of &ldquo;Half-Float&rdquo; instructions - <code>HADD2</code>, <code>HMUL2</code>, <code>HFMA2</code>, <code>HSET2</code>, and <code>HSETP2</code>.</p>
+
+<p>Most games use 32-bit floats, but some use half floats (16-bit floats).
+These instructions can execute two operations at once and it&rsquo;s easier for the game to send half the data.
+Games like Xenoblade, Hyrule Warriors and L.A. Noire were found to be using these.
+As these are not used by <a href="https://nouveau.freedesktop.org/wiki/">nouveau</a>, it required a bit of hardware testing and help from the nouveau team to implement these.
+For those of you who don&rsquo;t know, the nouveau project develops and builds open source drivers for Nvidia GPUs on Linux.</p>
+
+<p>In the meantime, Blinkhawk, in his research efforts, found out that some shader information was going missing.
+This was because, not all the info of an Nvidia shader is saved in the registers and some can be sent to a temporary shader memory too.
+By implementing a shader local memory, we now began emulating such memory and thus fixed many graphical issues in games like ARMS and Splatoon 2, among others.
+He also implemented fast layered copy - which fixed performance regressions in ARMS and Splatoon 2, while improving loading performance in many other games.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./arms.png" title="">
+                <img src="./arms.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./arms-1.png" title="">
+                <img src="./arms-1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./arms-2.png" title="">
+                <img src="./arms-2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">ARMS</p>
+
+
+
+<p>Generally in OpenGL, rendering is done sequentially in multiple steps.
+It is called the <a href="https://www.khronos.org/opengl/wiki/Rendering_Pipeline_Overview">Rendering Pipeline</a>.
+While we had a working implementation of vertex shaders, we were still missing the geometry shaders.
+The geometry shader is an optional shader stage, that sits between the vertex and fragment shaders.</p>
+
+<p>Rodrigo did lots of research and finally did a basic implementation of geometry shaders.
+This shader has the unique ability to create new geometry on-the-fly, using the output of the vertex shader as input.
+Geometry shaders in Maxwell architecture do not specify input topology anywhere, they just receive the data as is.
+It doesn&rsquo;t care if it&rsquo;s a point or a triangle list.
+But in OpenGL, GS requires that input topology is in their source.</p>
+
+<p>The implementation isn&rsquo;t complete yet, but gets the job done.
+Most games that use GS will find correct behavior depending to what extent the games use GS.
+It still has scope for improvements and is also missing a few features like:</p>
+
+<ul>
+<li>built-in types of output.</li>
+<li>buffer streams.</li>
+</ul>
+
+<p>Rodrigo found the cause and fixed the infamous &ldquo;half-screen rendering&rdquo; bug on Intel GPUs (Windows).
+The cause of the bug was an expression, carried from Citra&rsquo;s GPU emulation code.
+Because of setting a default clip distance, the render was being cut to half.
+Removing that expression, fixed rendering on Intel GPUs.</p>
+
+<p>Also, he optimized our GPU emulation by using <code>ARB_multi_bind</code> for uniform buffers and sampler bindings, and implemented <code>quads</code> topology.
+The <code>ARB_multi_bind</code> is an OpenGL extension, which reduces OpenGL invokes by binding multiple objects to a single call.
+<code>quads</code> are rendered using OpenGL core and are used by some indie games and Xenoblade.
+A <code>quad</code> is a 4 vertex quadrilateral primitive and is not exposed in the modern OpenGL API.
+So as a workaround, we render <code>quads</code> with a pair of triangles.</p>
+
+<p>On a hunch that he could improve performance, Blinkhawk researched swizzling techniques and algorithms.
+Unsurprisingly, he found out that yuzu&rsquo;s initial implementations were grossly inefficient and took up the task of optimizing the various swizzling techniques.
+He implemented 3D swizzling and also optimized texture swizzling, fast swizzle, and legacy swizzle.
+The new Swizzling algorithm is about 6~12 times faster than the old one and adds functionality to read and interpret 3D Textures.
+For the users, this meant improved performance and FPS boosts.</p>
+
+<blockquote>
+<p>In order to load textures, we must convert them from a guest optimized format to linear format i.e., an Nvidia internal format into a linear format for OpenGL to read them. This process is called Swizzling.
+The opposite to this i.e., converting the linear format textures to guest optimized format, is called UnSwizzling.</p>
+</blockquote>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./bandicoot.png" title="">
+                <img src="./bandicoot.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./bandicoot-1.png" title="">
+                <img src="./bandicoot-1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Crash Bandicoot</p>
+
+
+
+<p>Furthermore, he implemented the Scissor test, Alpha test - using shader emulation, depth compare, and shadow samplers.
+The Scissor test is a per-sample processing operation that discards fragments that fall outside of a certain rectangular portion of the screen.
+Alpha test is a hardware feature to skip certain pixels.
+The Alpha channel tells OpenGL which parts of image are transparent and which parts are opaque.
+Alpha test is used to discard pixels which fall outside of a certain range of alpha values.
+Depth Compare &amp; Shadow Samplers are used to implement occlusion in games.
+By adding support for them, games will be able to detect where shadows go by checking a depth texture through a shadow sampler.</p>
+
+<p><a href="https://github.com/Tinob">Tinob</a>, well known for Ishiiruka Dolphin, also contributed to the GPU emulation.
+He implemented <code>sRGB</code> framebuffers and improved OpenGL state handling to reduce redundant state changes and ensure default state to avoid driver implementation issues.
+Also, he researched and implemented various missing OpenGL states, added tweaks to reduce state handling redundancy, and added support for various registers.
+These fixed many small graphical bugs in SMO and other games.</p>
+
+<p><a href="https://github.com/degasus">degasus</a> fixed few bugs and optimized GPU emulation wherever possible by reducing the overhead per draw call.
+His optimization of the shader cache resulted in a significant performance boost across all games.
+<a href="https://github.com/FreddyFunk">FreddyFunk</a>, while profiling yuzu, recognized that in some scenarios a lot of time is taken by allocating memory in calls of <code>CopySurface</code> and optimized it for better performance.</p>
+
+<h4 id="pokémon-let-s-go-pikachu-eevee">Pokémon: Let&rsquo;s Go, Pikachu! / Eevee!</h4>
+
+<p>The Pokémon franchise has been and always will be one of Nintendo&rsquo;s most successful and profitable franchises.
+And their newest iteration of games for the Nintendo Switch are Pokémon: Let&rsquo;s Go, Pikachu! &amp; Let&rsquo;s Go, Eevee! - remakes of good old Pokémon Yellow from the GameBoy days.
+For the developers, the thought of booting and emulating a hot new game on release day was very exciting.
+And thus began the rush - to test the games, fix issues, and essentially make it playable on day one.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./lgpe-1.png" title="">
+                <img src="./lgpe-1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./lgpe-2.png" title="">
+                <img src="./lgpe-2.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./lgpe-3.png" title="">
+                <img src="./lgpe-3.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Pokémon: Let&#39;s Go, Pikachu!</p>
+
+
+
+<p>ogniK was the first to get the game, thanks to time zones, and he immediately began his RE (reverse engineering) work.
+He found out that the games checked for the <code>Poké Ball Plus</code> controller on boot and since we didn&rsquo;t support it, the game wasn&rsquo;t booting in yuzu.
+After further research, he implemented a small set of commands and functions used by the bluetooth driver, which got us to the title screen.</p>
+
+<p>And just when we thought that was it, <strong><em>a wild softlock appeared!</em></strong>
+ogniK identified the cause of this to be in <code>HWOpus</code> and simultaneous RE efforts from <a href="https://github.com/gdkchan">gdkchan</a> of Ryujinx, revealed more info.
+It seems that the ordering of output parameters within a <code>HWOpus</code> function - <code>DecodeInterleaveWithPerformance</code> was wrong and fixing that resulted in audio output for both the Let&rsquo;s Go games.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./lgpe-4.png" title="">
+                <img src="./lgpe-4.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./lgpe-5.png" title="">
+                <img src="./lgpe-5.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./lgpe-6.png" title="">
+                <img src="./lgpe-6.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Pokémon: Let&#39;s Go, Eevee!</p>
+
+
+
+<p><a href="https://github.com/Hexagon12">Hexagon12</a> implemented a missing predicate comparison, which fixed trainer battle crashes in the games.
+With these, yuzu was finally able to boot into the game properly but it still crashed when naming the characters.
+Because the software keyboard applet wasn&rsquo;t implemented in yuzu, the games couldn&rsquo;t load the applet and hence crashed.
+<a href="https://github.com/DarkLordZach">DarkLordZach</a> was already working on implementing the applet and with a bit of research and testing, he was able to complete his implementation.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./swkbd.png" title="Software Keyboard in Pokémon: Let&#39;s Go, Eevee!">
+                <img src="./swkbd.png" alt="Software Keyboard in Pokémon: Let&#39;s Go, Eevee!">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Software Keyboard in Pokémon: Let&#39;s Go, Eevee!</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Provided that your PC hardware is strong enough to handle yuzu, the new Pokémon games are playable, with a few caveats.
+Currently, some of the graphics render well, but there are still a lot of flaws - like fonts missing everywhere.
+But hey! the audio works decently, although you still need a save file to bypass softlocks in the beginning.
+Even with all these, there are random crashes everywhere - which require more in-depth testing to fix.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./pokken.png" title="">
+                <img src="./pokken.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./pokken-1.png" title="">
+                <img src="./pokken-1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./pokken-2.png" title="">
+                <img src="./pokken-2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Pokkén Tournament</p>
+
+
+
+<p>Apart from these, there were multiple minor improvements and fixes done by our team and other contributors, which helped us get further into accurate GPU emulation.
+We also updated the OpenGL&rsquo;s backend version from 3.3 to 4.3 and removed pre 4.3 <code>ARB</code> extensions.
+With this, the minimum required OpenGl version for yuzu has been bumped up to 4.3 as well.</p>
+
+<h2 id="operating-system-hle">Operating System - HLE</h2>
+
+<p>In regards, to the operating system, kernel, and various service modules, we have made a lot of progress here as well.
+Lioncash has been absolutely phenomenal in fixing and optimizing our HLE (High-level emulation) kernel implementation.
+He spent dozens of hours in RE (reverse engineering), to debug our kernel and made sure that everything was proper.
+Most of his work in this regard has been:</p>
+
+<ul>
+<li>Adding missing error codes in the kernel.</li>
+<li>Handling error cases within memory related functions.</li>
+<li>Handling &ldquo;invalid address&rdquo; cases within SVC (Supervisor Call) functions.</li>
+<li>Adding missing address range checks in <code>MapMemory</code> &amp; <code>UnMapMemory</code> functions.</li>
+<li>Fix VMA (Virtual Memory Access) boundary check in <code>svcQueryMemory</code>.</li>
+<li>Added missing Korean font in our open-source implementation fallback.</li>
+</ul>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./octo.png" title="Octopath Traveler">
+                <img src="./octo.png" alt="Octopath Traveler">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Octopath Traveler</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./donkey-kong.png" title="Donkey Kong">
+                <img src="./donkey-kong.png" alt="Donkey Kong">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Donkey Kong</p>
+        
+    </div>
+    
+</div>
+
+
+<p>He implemented an svc function - <code>svcGetThreadContext</code> - which retrieves the the context backing a thread, or the state of the thread at that given moment, and writes it to a provided buffer.
+The thread context contains the state of CPU execution - such as general purpose registers, stack pointer, program counter, and several other fields.
+This thread context can be used by the executable for debugging purposes, or to save and reuse it later, or anything else entirely depending on the executable.</p>
+
+<p>He also made changes in our virtual memory manager, to load NPDM metadata.
+NPDM is the Switch equivalent of 3DS exheader.
+Previously we were never loading NPDM metadata in the event that it was available and it meant that we&rsquo;d be making assumptions about the address spaces.
+With this, he de-hardcoded our assumption of a 36-bit address space, given that it&rsquo;s possible for a game to demand a 39-bit one or 32-bit one and we can now derive the parameters from supplied NPDM metadata, if the supplied executable supports it.</p>
+
+<p>Apart from these notable changes, Lioncash made several other contributions to yuzu.
+He updated the function tables for various services - based on latest documentation from <a href="http://switchbrew.org">Switchbrew</a>, fixed minor bugs in various svc functions, worked tirelessly on maintaining proper C++ style across the code-base, and made performance optimizations wherever possible.</p>
+
+<p>While Lioncash has been handling the kernel stuff, our Switch RE expert - ogniK has been busy fixing and implementing more service functions.
+ogniK properly implemented the <code>fatal:u</code> service, stubbed the <code>IRS</code> service, and added many missing functions across various services.
+He reworked the <code>nifm</code> service stubs - which were found to be incorrect, fixed an <code>acc</code> service stub - which allowed us to boot the Nintendo Switch Online NES emulator, implemented a few missing functions in <code>AudRen</code> and <code>HwOpus</code> services - which fixed audio for Sonic Ages.
+(Although Nintendo Switch Online NES emulator boots, it doesn&rsquo;t mean users can play online.)</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./nso-nes.png" title="">
+                <img src="./nso-nes.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./nso-nes-1.png" title="">
+                <img src="./nso-nes-1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Nintendo Switch Online - NES emulator</p>
+
+
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>XtraByte</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        Stubbing means that these services return <code>ok</code> with no errors, so that the games think that the function succeeded and it can continue on without getting back any valid data. As the games boot further and further, we need to start intercepting these function calls and provide a more meaningful response.
+    </div>
+</article>
+
+
+<p>He added the ability to switch between docked and undocked mode while in-game, added support for Amiibo files &amp; uncompressed NSOs, and fixed a few minor bugs in various service functions.
+Although, this isn&rsquo;t complete Amiibo support just yet.
+Only a few games work and more support will be added in the future.</p>
+
+<p>ogniK reworked and refactored the entire <code>HID</code> service implementation, dubbed <code>Better HID</code>, and vastly improved it.
+He replaced lot of stubbed functions with actual implementations and fixed our <code>HID layouts</code>.
+This allowed the registration of multiple user controllers <strong>AND</strong> different <strong>TYPES</strong> of controllers (handheld, joycon left, joycon right, pro controller), except for <code>tabletop mode</code> - wireless dual joycons.</p>
+
+<p>DarkLordZach hasn&rsquo;t been sitting quietly either.
+He picked up from where ogniK&rsquo;s <code>HID</code> rework left off and made further improvements.
+He added full UI support to change the connectivity, type/layouts and buttons for all eight players, the handheld controller, the debug controller, mouse, keyboard, and finally touchscreen.</p>
+
+<p>He also made many new improvements to the file system and added new features as well.
+His other notable works include:</p>
+
+<ul>
+<li>Added support for <code>LayeredFS</code> mods - which brings infinite possibilities for games in yuzu.</li>
+<li>Added support for packed updates - which are basically <code>XCI</code> files with both base game and updates.</li>
+<li>Implemented DLC loading.</li>
+<li>Added support for full key-derivation, so that you don&rsquo;t need 3rd party tools for dumping keys, only our <a href="https://yuzu-emu.org/help/quickstart/">quickstart</a> guide.</li>
+<li>Added support for loading IPS patches.</li>
+<li>Added support for the more easier IPSwitch format patches.</li>
+<li>Implemented save data types - <code>TemporaryStorage</code> and <code>DeviceSaveData</code>.</li>
+<li>Added UI for multiple user profiles (emulated).</li>
+<li>And many more minor bug fixes and optimizations.</li>
+</ul>
+
+<p>bunnei implemented the <code>loadNRO</code> functions from the <code>ldr:ro</code> service.
+This was a basic implementation of the functions which allowed us to boot Super Mario Party.
+DarkLordZach later completed the <code>ldr:ro</code> service implementation, based on research done by bunnei, Subv, and the folks at Atmosphere.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The improvements we&rsquo;ve covered here are only the major ones.
+In addition to these, we have had many minor bug fixes &amp; feature implementations done by our valuable contributors.
+Many thanks to our contributors and also to the devs from various communities who have indirectly helped us progress forward.
+Special thanks to our patrons who have showed their continued support for our efforts in this project.
+Also, another special thanks to JMC47 - one of the authors for dolphin-emu blog, for all his inputs and criticism regarding this article.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./splatoon2.png" title="Splatoon 2">
+                <img src="./splatoon2.png" alt="Splatoon 2">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Splatoon 2</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./sonic-forces.png" title="Sonic Forces">
+                <img src="./sonic-forces.png" alt="Sonic Forces">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Sonic Forces</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./sonic-forces-1.png" title="Sonic Forces (In game)">
+                <img src="./sonic-forces-1.png" alt="Sonic Forces (In game)">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Sonic Forces (In game)</p>
+        
+    </div>
+    
+</div>
+
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Note</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        All these screenshots have been taken in docked mode of yuzu, using a PC with the following specs:</p>
+
+<ul>
+<li>CPU - Intel i3 6100</li>
+<li>GPU - Nvidia GTX 750ti</li>
+<li>RAM - 12 GB DDR3</li>
+</ul>
+
+    </div>
+</article>
+
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, checkout our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/66507">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2019 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

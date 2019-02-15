@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Progress Report 2018 Part 3 &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p3/" />
+    <meta property="og:description" content="It&rsquo;s only been over a month since our last report, and we have made so much progress already that we simply can&rsquo;t wait to share it with you guys.
+Without further ado, let&rsquo;s dive in." />
+<meta name="description" content="It&rsquo;s only been over a month since our last report, and we have made so much progress already that we simply can&rsquo;t wait to share it with you guys.
+Without further ado, let&rsquo;s dive in." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p3/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p3/"> 
+
+    <title>Progress Report 2018 Part 3 - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/help/">
+                help
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/home/">
+                dev wiki
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> github
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+<div class="container">
+    <div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-progress-report-2018-p3/banner.png')">
+        <div>
+            <span class="title px-md py-sm has-background-dark">Progress Report 2018 Part 3</span>
+        </div>
+        
+        <div class="mt-lg">
+            <span class="h3 px-md py-sm has-background-dark">
+                Written by <a href="https://community.citra-emu.org/users/CaptV0rt3x">CaptV0rt3x</a> 
+                on September 11 2018
+            </span> 
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <p>It&rsquo;s only been over a month since our last report, and we have made so much progress already that we simply can&rsquo;t wait to share it with you guys.
+Without further ado, let&rsquo;s dive in.</p>
+
+<p>&nbsp;
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo.png" title="Super Mario Odyssey (Title screen)">
+                <img src="./smo.png" alt="Super Mario Odyssey (Title screen)">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Super Mario Odyssey (Title screen)</p>
+        
+    </div>
+    
+</div>
+</p>
+
+<h2 id="cpu-core">CPU / Core</h2>
+
+<p>On the CPU emulation front, <a href="https://github.com/MerryMage">MerryMage</a> and <a href="https://github.com/lioncash">Lioncash</a> have been absolutely phenomenal.
+They have implemented a lot of missing ARMv8 instructions to <a href="https://github.com/MerryMage/dynarmic">Dynarmic</a>, our ARM recompiler, and also fixed many bugs in the existing ones.
+Because of this, the number of times yuzu has to fallback to <a href="http://www.unicorn-engine.org/">Unicorn</a> has been reduced and has improved the overall performance of yuzu.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./arms.png" title="Title screen">
+                <img src="./arms.png" alt="Title screen">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./arms_1.png" title="Info">
+                <img src="./arms_1.png" alt="Info">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">ARMS</p>
+
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./arms_2.png" title="Menu">
+                <img src="./arms_2.png" alt="Menu">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Menu</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./arms_3.png" title="In-game">
+                <img src="./arms_3.png" alt="In-game">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">In-game</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Thanks to <a href="https://github.com/Hedges">Hedges</a>, the previously Unicorn-only GDBStub now works with Dynarmic as well.
+GDBStub is a debugging tool which helps the developers find errors/bugs in the code.
+<a href="https://github.com/Subv">Subv</a> fixed a bug in dynarmic which was causing issues with CPU state management, by preventing writing data to a register.</p>
+
+<h2 id="general-improvements">General Improvements</h2>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./octo.png" title="">
+                <img src="./octo.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./octo_1.png" title="">
+                <img src="./octo_1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./octo_2.png" title="">
+                <img src="./octo_2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Octopath Traveller</p>
+
+
+
+<p>As both Citra and yuzu share common code, <a href="https://github.com/fearlesstobi">FearlessTobi</a> ported over various changes made in Citra to yuzu.
+Here are some of the things he ported:</p>
+
+<ul>
+<li>Logging the yuzu version - to help us identify yuzu version from log file.</li>
+<li>Added &ldquo;Continue/Pause&rdquo; &amp; &ldquo;Toggle Speed limit&rdquo; hotkeys.</li>
+<li>Updated Dark theme to latest version.</li>
+<li>Added &ldquo;Build-date&rdquo; info to the &ldquo;About&rdquo; dialog.</li>
+<li>Fixes for Travis CI environment.</li>
+<li>Added Game Compatibility List to yuzu.</li>
+<li>Many more code optimizations and minor bug fixes.</li>
+</ul>
+
+<p><a href="https://github.com/DarkLordZach">DarkLordZach</a> implemented the display of game-title in the window title bar.
+<a href="https://github.com/CaptV0rt3x">CaptV0rt3x</a> ported over the display of version number in the title bar.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./puyo.png" title="">
+                <img src="./puyo.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./puyo_1.png" title="">
+                <img src="./puyo_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Puyo Puyo TETRIS</p>
+
+
+
+<h2 id="os">OS</h2>
+
+<p>Lioncash fixed a potential data race condition in the kernel object, by ensuring that the class handles its reference counts atomically.</p>
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Info</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        A race condition, is an undesirable situation that occurs when a device or system attempts to perform two or more operations at the same time, but because of the nature of the device or system, the operations must be done in the proper sequence to be done correctly.
+    </div>
+</article>
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./bayo.png" title="">
+                <img src="./bayo.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./bayo_1.png" title="">
+                <img src="./bayo_1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./bayo_2.png" title="">
+                <img src="./bayo_2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Bayonetta</p>
+
+
+
+<p>The atomicity ensures that the change to the reference count is visible to all threads between operations and thus ensuring a race never happens.
+And since that object class is inherited by all of the kernel objects in yuzu, this pretty much affected every kernel object.
+Apart from this, he also optimized the code in the kernel scheduler and thread queue list.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./boi.png" title="">
+                <img src="./boi.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./boi_1.png" title="">
+                <img src="./boi_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">The Binding of Issac</p>
+
+
+
+<h2 id="gpu">GPU</h2>
+
+<p><a href="https://github.com/degasus">degasus</a>, who was responsible for the stream buffer implementation in Citra, replaced the existing stream buffer in yuzu with Citra&rsquo;s.
+For the uninitiated, stream buffers are used for uploading vertex data to the GPU.
+He has also been doing quite a lot of GPU code profiling and making optimizations.
+Because of this, we are getting to the point where GPU emulation is not much of a bottleneck anymore.</p>
+
+<p>In addition,he&rsquo;s implemented a buffer cache, to avoid redundant uploads, and a VAO (Vertex Array Object) cache, to cache VAO objects.
+Buffer cache works by caching the uploaded buffers within the stream_buffer and just reusing the old pointers.
+VAO cache works by caching VAO objects instead of re-emitting all pointers per draw call.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./disg.png" title="">
+                <img src="./disg.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./disg_1.png" title="">
+                <img src="./disg_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Disgaea 5</p>
+
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./disg_2.png" title="">
+                <img src="./disg_2.png" alt="">
+            </a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./disg_3.png" title="">
+                <img src="./disg_3.png" alt="">
+            </a>
+        
+        
+    </div>
+    
+</div>
+
+
+<p><a href="https://github.com/bunnei">bunnei</a>, <a href="https://github.com/Subv">Subv</a>, <a href="https://github.com/ogniK">ogniK</a>, and <a href="https://github.com/greggameplayer">greggameplayer</a> have implemented many missing texture formats, pixel formats, and render targets.
+These implementations allowed us to proceed further in a lot of games like One Piece, Fate Extella, Go Vacation, and Xenoblade.
+Subv also implemented a few depth buffer formats and added support for depth buffer testing.
+Depth buffers are used for specifying the depth of each pixel, thereby creating various visual effects.</p>
+
+<p>bunnei implemented a couple of vertex attributes, added more texture wrap modes, implemented shader instructions like <code>TLDS</code> &amp; <code>SEL</code>, fixed <code>TEXS</code> shader instruction, implemented <code>TEXS</code> masks, and fixed texture unswizzle.
+He also made various improvements to the rasterizer cache and improved its performance by avoiding superfluous copies.
+This fixed rendering issues in Cave Story+, Disgaea 5, and Binding of Issac.
+ogniK fixed <code>glVertexAttribFormat</code> for integers - which fixed exploding vertices in One Piece Unlimited World.
+Lioncash refactored, cleaned and made improvements / optimizations to the GPU code.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./doom.png" title="">
+                <img src="./doom.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./doom_1.png" title="">
+                <img src="./doom_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">DOOM</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./fe-w.png" title="">
+                <img src="./fe-w.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./fe-w_1.png" title="">
+                <img src="./fe-w_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Fire Emblem - Warriors</p>
+
+
+
+<h2 id="service-hle">Service HLE</h2>
+
+<p>With the latest documentation available on <a href="https://switchbrew.org/index.php/Main_Page">Switchbrew</a>, we have made various bug fixes to our service implementations and also added new services as well.
+Lioncash, <a href="https://github.com/mailwl">mailwl</a>, and <a href="https://github.com/hexagon12">Hexagon12</a> worked on stubbing the <code>HID</code> (Human Interface Devices) service and also made a few improvements there as well.</p>
+
+<p>The <code>HID</code> service basically manages the controllers.
+It stores all sorts of information related to controllers in a shared memory region, which we read from.
+ogniK and bunnei fixed the <code>Friend</code> service, which fixed a crash in Splatoon 2 and also got Retro City Rampage booting.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./hb-h.png" title="">
+                <img src="./hb-h.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./hb-h_1.png" title="">
+                <img src="./hb-h_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Has-Been Heroes</p>
+
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./hb-h_2.png" title="">
+                <img src="./hb-h_2.png" alt="">
+            </a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./hb-h_3.png" title="">
+                <img src="./hb-h_3.png" alt="">
+            </a>
+        
+        
+    </div>
+    
+</div>
+
+
+<p>The <code>Friend</code> service is mainly for your Nintendo Online friends, your friend list etc.
+In this current implementation, we are always offline and we send the same response (offline) to the system and games as well.
+The crash in Splatoon 2 was fixed because it was requesting the friend list and we returned a response of <code>Zero (0) Friends</code> to it.
+It is not exactly an accurate replication of Switch&rsquo;s behavior, but games seem to accept that response.</p>
+
+<p>Similarly, we got Retro City Rampage booting because it was trying to get the User&rsquo;s Presence and we added a stub in place of it.
+mailwl added more stubs for the <code>Account</code> service.
+Lastly, the <code>Account</code> service is mainly for management of your local account or registered users on the system.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./fh.png" title="">
+                <img src="./fh.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./fh_1.png" title="">
+                <img src="./fh_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Fantasy Hero</p>
+
+
+
+<p>Each user has an unique UUID (Universally Unique Identifier), which is generated when an account is made, and they each have some information about their profile.
+This info is typically referenced when saving games.
+ogniK worked on the necessary foundation to support multiple user accounts and their management, in the future.
+He also implemented functions to allow setting the username and locale of the Switch.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./hyrule.png" title="">
+                <img src="./hyrule.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./hyrule_1.png" title="">
+                <img src="./hyrule_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Hyrule Warriors</p>
+
+
+
+<p>ogniK also implemented support for loading shared fonts in the <code>pl:u</code> service.
+As we now support loading system <code>bfttf</code> fonts, users who have installed their system nand dumps to yuzu will automatically get shared fonts.
+For other users, you can now load shared fonts from <code>ttf</code> files as well.</p>
+
+<p>Fearlesstobi, by taking inspiration from Citra&rsquo;s implementation, integrated open-source shared fonts into yuzu.
+This can clearly be observed in above screenshots from the game - Hyrule Warriors.</p>
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Info</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        The fonts need to be named as follows:</p>
+
+<ul>
+<li>FontStandard.ttf</li>
+<li>FontChineseSimplified.ttf</li>
+<li>FontExtendedChineseSimplified.ttf</li>
+<li>FontChineseTraditional.ttf</li>
+<li>FontKorean.ttf</li>
+<li>FontNintendoExtended.ttf</li>
+<li>FontNintendoExtended2.ttf</li>
+</ul>
+
+    </div>
+</article>
+
+
+<p>Lioncash implemented the skeletons for various new services like <code>time:a</code>, <code>es</code>, <code>pm</code>, <code>erpt</code>, <code>eupld</code>, <code>ldr</code>, and many more.</p>
+
+<h2 id="file-system">File System</h2>
+
+<p><a href="https://github.com/DarkLordZach">DarkLordZach</a> added support for various features like loading encrypted NCA files and XCI files, displaying game icons, parsing metadata, and made error handling more descriptive.</p>
+
+<p>Encrypted <code>NCA</code> files are just game files in a container.
+<code>XCI</code> files are basically raw gamecard dumps. Gamecards have 3 major partitions.
+An <code>Update</code> Partition - which stores system updates, a <code>Secure</code> Partition - which has the game <code>NCAs</code>, and a <code>Normal</code> Partition - which just stores miscellaneous files.
+What we want is the <code>Secure</code> Partition. It contains the game <code>NCAs</code> and other metadata as well, which is very useful.
+<code>XCI</code> files are relatively easy to dump compared to other methods and are very useful.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./game_list.png" title="Gamelist showing games and updates">
+                <img src="./game_list.png" alt="Gamelist showing games and updates">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Gamelist showing games and updates</p>
+        
+    </div>
+    
+</div>
+
+
+<p>By adding support for loading <code>NCAs</code> and <code>XCIs</code>, it removes a lot of unnecessary steps when you dump your games.
+Before, you had to dump your <code>XCI</code>, then extract the <code>Secure</code> partition, and then extract the <code>NCA</code> into the format for yuzu.
+This left you with nearly 8 different files, which are binaries and a romfs file.
+Now with this feature, you can directly open your <code>NCA</code> files or, better yet, your <code>XCI</code> files.
+And because <code>XCI</code> files come with additional metadata, you can also get game icons from them.
+The icons can be configured to display at various sizes within yuzu.</p>
+
+<p>DarkLordZach went a step ahead and implemented support for <code>NAX</code> (Nintendo AesXts) archives.
+With this, you can load your games from your Switch&rsquo;s SD card <strong><em>directly</em></strong> by connecting it to your PC.
+He also fixed a few issues with our earlier VFS implementation and made further improvements to it as well.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./runner3.png" title="">
+                <img src="./runner3.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./runner3_1.png" title="">
+                <img src="./runner3_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Runner 3</p>
+
+
+
+<p>He also added support for the <code>NSP</code> (Nintendo Submissions Package) file format, <code>BKTR</code> format, and added an option to set custom NAND/SD directories.
+As <code>NSP</code> support will likely become the new format of choice for advanced dumper homebrew and other tools, adding support means less steps while dumping.
+<code>NSPs</code> contain all the metadata and can contain game updates / DLCs as well.
+With added support for <code>BKTR</code> format, you can now install game updates from yuzu NAND or SD directly via the UI.
+He and Lioncash also worked on refactoring the File System code and made optimizations wherever possible.</p>
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Warning</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        <p style="color:#eb152e"><b><i>Keep in mind that, all types of files will still need their decryption keys.</b></i>
+    </div>
+</article>
+
+
+<h2 id="audio">Audio</h2>
+
+<p>As yuzu was progressing at an incredibly fast pace, one of the most sought out features was audio output.
+We discussed this in our earlier report that the Switch has 2 methods of audio output <code>AudRen</code> and <code>AudOut</code>.
+First, bunnei emulated <code>AudOut</code> without actually producing audio output.
+This was used for only a handful of games like One Piece, Snipperclips, Minecraft etc.</p>
+
+<p>Emulating <code>AudOut</code> state without actually outputting audio was sufficient to get these games to go into actual game play.
+This was because games often wait for signaling to indicate that an audio clip has finished playing.
+We can properly signal this state without actually playing the sound, allowing these games to continue running.
+Later he added audio output, based on <a href="https://github.com/kinetiknz/cubeb">cubeb</a>, for games that used the <code>AudOut</code> service.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./humanff.png" title="">
+                <img src="./humanff.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./humanff_1.png" title="">
+                <img src="./humanff_1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./humanff_2.png" title="">
+                <img src="./humanff_2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Human Fall Flat</p>
+
+
+
+<p>ogniK did the reverse engineering and helped with the HLE (High Level Emulation) implementations of <code>Audout</code> and <code>AudRen</code> services.
+He also added opus library and implemented <code>hwopus</code> service functions, which uses <code>AudOut</code> and <code>AudRen</code>, which fixed Pokemon Quest and Touhou.
+Since we didn&rsquo;t have <code>AudRen</code> yet, it only worked with games using <code>AudOut</code>.</p>
+
+<p>It took a while but bunnei finally implemented the <code>Audren</code> method, which got audio output for most games like Cave Story+, Binding of Issac, Super Mario Odyssey, Puyo Puyo Tetris and many more.
+bunnei&rsquo;s original implementation of audio output, with cubeb backend, only supported two-channel 48000Hz - which is the most common audio output format.
+This works well for <code>AudOut</code> games, but games that use <code>AudRen</code> could use variable sample rates.
+Because we were always playing all sounds at 48000Hz, even though it was working properly, the sounds would be audible but would often sound sped-up or with incorrect pitch.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./opuw.png" title="">
+                <img src="./opuw.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./opuw_1.png" title="">
+                <img src="./opuw_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">One Piece Unlimted World</p>
+
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./opuw_2.png" title="">
+                <img src="./opuw_2.png" alt="">
+            </a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./opuw_3.png" title="">
+                <img src="./opuw_3.png" alt="">
+            </a>
+        
+        
+    </div>
+    
+</div>
+
+
+<p>MerryMage fixed this problem by implementing audio interpolation and filtering, which allowed us to resample these sounds from their original sample rate to 48000Hz.
+Audio Interpolation is a method of making digital audio sound better than it actually is and filtering helps reduce artifacts that arise when resampling the audio.
+She also found and fixed threading issues with the cubeb backend.
+Lioncash did lots of refactoring and made multiple improvements / optimizations to Audio code.</p>
+
+<h2 id="super-mario-odyssey">Super Mario Odyssey</h2>
+
+<p>As it turns out, Super Mario Odyssey (SMO) has actually been capable of going in-game for quite a while.
+However, due to really bad performance and some occasional emulator crashes, no one was really testing it.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo_3.png" title="Super Mario Odyssey">
+                <img src="./smo_3.png" alt="Super Mario Odyssey">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Super Mario Odyssey</p>
+        
+    </div>
+    
+</div>
+
+
+<p>bunnei made a major breakthrough by using save games (dumped from a Switch Console) which enabled him to get in game much quicker, fix crashes, and improve rendering.
+By being able to expedite this process, the team was quickly able to get the first 3D rendering working in SMO - Mario&rsquo;s head in the title screen.
+From there, we were able to get in-game rendering working, although with very glitchy graphics and lots of variation depending on the kingdom.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo_1.png" title="">
+                <img src="./smo_1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo_2.png" title="">
+                <img src="./smo_2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Super Mario Odyssey (In-game)</p>
+
+
+
+<p>bunnei and <a href="https://github.com/khang06">khang06</a> implemented various render targets and texture formats necessary to get it booting.
+bunnei implemented the <code>XMAD</code> shader instruction, improved handling of the <code>KIL</code> shader instruction, improved handling of unknown vertex attributes in shaders, added more accurate floats for shaders, fixed the constbuffer size, added a few vertex attribute types, and stubbed the <code>AM</code> HLE service functions.</p>
+
+<p>Subv implemented the <code>SSY</code> and <code>SYNC</code> shader instructions, implemented alternative blending factors, and improved handling of invalid or unset vertex attributes.
+<code>SSY</code> and <code>SYNC</code> are instructions for control flow in the shaders.
+<code>SSY</code> tells the shader execution unit where to jump when a <code>SYNC</code> is executed.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo_4.png" title="">
+                <img src="./smo_4.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo_5.png" title="">
+                <img src="./smo_5.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smo_6.png" title="">
+                <img src="./smo_6.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Super Mario Odyssey (In-game)</p>
+
+
+
+<p>Currently SMO goes in game and the menus are running at full speed.
+However, in-game speeds can vary based on what&rsquo;s in view and your PC&rsquo;s hardware specifications.
+It is very glitchy, but you <strong><em>can</em></strong> play it.
+Audio output works well when at full speed. Using a save game helps a lot.
+There are random softlocks when transitioning to new areas; therefore, a play-through is not possible.</p>
+
+<h2 id="breath-of-the-wild">Breath of the Wild</h2>
+
+<p>The Legend of Zelda: Breath of the Wild, is a particularly interesting and exciting game to emulate in yuzu.
+While you can already play this game on cemu using Wii U emulation, we think its important to also have an open source alternative.
+Furthermore, BotW is a very graphically complicated game to emulate, so it&rsquo;s exciting to use it as an opportunity to improve our rendering.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./botw.png" title="">
+                <img src="./botw.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./botw_1.png" title="">
+                <img src="./botw_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">The Legend of Zelda: Breath of the Wild</p>
+
+
+
+<p>Random crashing was one of the main issues we faced while trying to get this game working.
+Upon debugging, we found out that there were a few issues with threading in the kernel.
+For example, there were a bunch of race conditions when running in multi-core mode, our core timing was inaccurate for multiple cores, and there was a chance of threads being duplicated.</p>
+
+<p>Subv fixed these issues by removing most of the race conditions, using approximated amount of ticks when advancing core timing, and added more validation asserts to make sure the threads weren&rsquo;t being duplicated.
+Before the changes, the four cores incremented the global <code>ticks</code> counter independently, which caused it to be approximately 4 times more than what it should have been.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./botw_2.png" title="">
+                <img src="./botw_2.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./botw_3.png" title="">
+                <img src="./botw_3.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">The Legend of Zelda: Breath of the Wild</p>
+
+
+
+<p>This made games think that the timing was malfunctioning.
+The reason for this was that the ticks counter was not thread-safe and we were incrementing it more than we should have.
+This was fixed by amortizing the tick increases by dividing each increment by the number of cores (4).
+This is not entirely accurate, as not all cores are active all the time, but it should be better than before.</p>
+
+<p>bunnei implemented a few necessary render targets, texture formats, vertex attribute types, and some primitive topologies.
+Currently, BotW goes in-game but has massively broken graphics.
+The map, items, 3D models of Divine Beasts, and Hyrule Castle are properly displayed though.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Finally, we would like to thank all of our valuable <a href="https://github.com/yuzu-emu/yuzu/graphs/contributors?from=2018-07-20&amp;to=2018-08-31&amp;type=c">contributors</a> who have worked hard to improve yuzu.
+yuzu needs contributors like them to become the best it can be.
+We would also love to thank our generous <a href="https://www.patreon.com/yuzuteam">patrons</a> for supporting our efforts in this project.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./kamiko.png" title="">
+                <img src="./kamiko.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./kamiko_1.png" title="">
+                <img src="./kamiko_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Kamiko</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./soldam.png" title="">
+                <img src="./soldam.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./soldam_1.png" title="">
+                <img src="./soldam_1.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Soldam</p>
+
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./mta.png" title="Mario Tennis Aces">
+                <img src="./mta.png" alt="Mario Tennis Aces">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Mario Tennis Aces</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./kirby.png" title="Kirby Star Allies">
+                <img src="./kirby.png" alt="Kirby Star Allies">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Kirby Star Allies</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./splatoon2.png" title="Splatoon 2">
+                <img src="./splatoon2.png" alt="Splatoon 2">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Splatoon 2</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./hwknight.png" title="Hollow Knight">
+                <img src="./hwknight.png" alt="Hollow Knight">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Hollow Knight</p>
+        
+    </div>
+    
+</div>
+
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Note</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        All these screenshots have been taken in handheld mode of yuzu, using a PC with the following specs:</p>
+
+<ul>
+<li>CPU - Intel i3 6100</li>
+<li>GPU - Nvidia GTX 750ti</li>
+<li>RAM - 12 GB DDR3</li>
+</ul>
+
+    </div>
+</article>
+
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, checkout our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/48393">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2019 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>
