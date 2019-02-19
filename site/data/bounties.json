@@ -104,12 +104,12 @@
     },
     {
         "DateSubmitted": "02-13-2019",
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "Blinkhawk",
+        "Status": "Completed",
         "Requester": "KennyRoody",
         "Amount": "$35 USD",
         "Description": "Implement Wall Timer/Cycle Timer to correct timing in games like The Binding of Isaac: Afterbirth+, Celeste, Wizard of Light, etc. until either better/faster timing or Core::Timing imped.",
-        "PaymentStatus": null,
+        "PaymentStatus": "Paid",
         "DeveloperResponse": null
     }
 ]
