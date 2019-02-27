@@ -28,7 +28,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
 ## Directions
 1. Download this [keys template](https://yuzu-emu.org/help/quickstart/console.keys). It will help make sure you don't miss anything in the next steps.
 2. We will now boot biskeydump on your switch to dump your BIS (Built-In Storage) keys.
-    - 2a. Extract the `TegraRcmSmash1213.zip` zip file you downloaded in the prerequisites. Extract the `biskeydumpv6.zip` file you downloaded earlier and but the put the `biskeydump.bin` in the `TegraRcmSmash1213/x64` folder. 
+    - 2a. Extract the `TegraRcmSmash1213.zip` zip file you downloaded in the prerequisites. Extract the `biskeydump` file you downloaded earlier and but the put the `biskeydump.bin` in the `TegraRcmSmash1213/x64` folder. 
     - 2b. Open Zadig
     - 2c. Plug your switch into your computer.
     - 2d. Power off your switch while it is still connected to your computer.
@@ -37,7 +37,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
     - 2g. For Driver type, cycle the arrows until it says `libusbK (v3.0.7.0)`. This is very important.
     - 2h. Hit install driver.
     - 2i. Close Zadig.
-    - 2j. Drag and drop the bin file from step 1 of this guide onto the `RCMSmasher.exe` program. It should not stay open and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
+    - 2j. Drag and drop the bin file from step 1 of this guide onto `TegraRCMSmash.exe`. It should not stay open and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
     - 2k. You are now in biskeydump. If the background of the QR code is red, retry until it is blue. You can scan the QR code for convenience or copy the codes by typing them into your computer. Our testing has found that QRDroid doesn't work properly but [QR Code Reader by Kaspersky Lab](https://play.google.com/store/apps/details?id=com.kaspersky.qrscanner) does. Copy the keys template from step 1 into `%YUZU_DIR%/keys` and make sure it is still named `console.keys`. Open `console.keys` and replace the large `XXXX...XXX` strings with the corresponding key from biskeydump. You should have copied:
         - `tsec_key`
         - `bis_key_0_crypt`
@@ -70,7 +70,6 @@ This guide will help you copy all of your system files, games, updates, and DLC 
     - 4c. Copy the `PRODINFO.bin` and `BCPKG2-1-Normal-Main.bin` files to the `%YUZU_DIR%/sysdata` dir.
     - 4d. Double-click on the row named `SYSTEM`. In the keys boxes, enter the `bis_key2_crypt` key in the crypt box and the `bis_key2_tweak` key in the tweak box (both aquired from the QR Code) and click test. If the text is red, double check your keys. If the text is blue, click on `Install` and wait until it says `Driver (ver XXXXX) installed, Service is running` where XXXXX is anything, then select `Y:` in the dropdown and click `Mount`. The application may become unresponsive for a moment. Press Windows-R and type `Y:` into the box and click OK and there will be a couple of folders with some named `Contents` and `save`. Copy all of these into `%YUZU_DIR%/nand/system`. After this is done, click `Unmount` and close the window.
     - 4e. Double-click on the row named `USER`. Enter the same key. Click `Mount`, and the tool may become unresponsive again. Once this mounts, open the new drive and copy the `Contents` and `save` folders to `%YUZU_DIR%/nand/user`. After, click `Unmount` and close the window and then the program.
-    - 4f. Everything
 5. (OPTIONAL) If you have games or game data stored on your sd card, copy the `Nintendo` folder of your sd card into `%YUZU_DIR%/sdmc`.
 6. Open yuzu. You should see a dialog with a progress bar informing you that your keys are being derived. If you get a missing file error message, double check the files in your `sysdata` dir and try again. If there are no errors, a message informing you that it was successful will show and then yuzu will refresh to show you your games. 
 
