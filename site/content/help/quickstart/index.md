@@ -14,6 +14,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
 - An SD card with at least ~29 GB of free space (an almost empty 32GB card will work)
 - [biskeydump](http://switchtools.sshnuke.net/)
 - [hekate](https://github.com/CTCaer/hekate/releases/)
+- [Kosmos](https://github.com/AtlasNX/Kosmos/releases/)
 - [Copy Script](https://yuzu-emu.org/help/quickstart/yuzu_copy.bat)
 - [HacDiskMount](https://files.sshnuke.net/HacDiskMount1055.zip)
 - [TegraRcmSmash](https://files.sshnuke.net/TegraRcmSmash1213.zip)
@@ -56,12 +57,13 @@ This guide will help you copy all of your system files, games, updates, and DLC 
     - 3g. For Driver type, cycle the arrows until it says `libusbK (v3.0.7.0)`. This is very important.
     - 3h. Hit install driver.
     - 3i. Close Zadig.
-    - 3j. Drag and drop the bin file from step 1 of this guide onto the `RCMSmasher.exe` program. It should not stay open and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
-    - 3k. You are now in hekate. Navigate hekate using volume up and down to go up and down and power to select. Select `Console info` and then `Print fuse info`. It should print out some data onto your screen and then say `Press Power to dump to SD card`. Press power and it should now say `Done!` and `Press volume to go to menu`. Press a volume button and then select `back` in the menu.
-    - 3l. Select `Tools` and then select `Dump package1/2`. After it finishes, it should say `Done. Press any key` near the bottom. Press any key to return to the tools menu.
-    - 3m. Select `Backup` and then select `Backup eMMC BOOT0/1`. This make take a few seconds to load. After it finished filling the progress bar it should say `Finished and verified! Press any key`. Press any key to return to the backup menu.
-    - 3n. Finally, select `Backup eMMC Raw GPP`. This should take some time as your switch's nand is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is hekate verifying the data. This should take between 40-80 minutes depending on the quality of your SD card.
-    - 3o. Power off your switch to avoid damage to your sd card, by selecting `Back` and then selecting `Power Off` and then eject your sd card. Then open your sd card on your computer. Find the `yuzu_copy.bat` file you downloaded earlier and copy it to the root of your sd card. Double-click it to start the copy. This should take between 10-20 minutes. It should not have any errors listed. If it does, double check and make sure you ran steps 3a-3d correctly.
+    - 3j. Extract the `sept` folder from the Kosmos download and place the `sept` folder onto your SDcard.
+    - 3i. Drag and drop the bin file from step 1 of this guide onto the `TegraRCMSmash.exe` program. It should flash briefly and not stay open, and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
+    - 3l. You are now in hekate. Navigate hekate using volume up and down to go up and down and power to select. Select `Console info` and then `Print fuse info`. It should print out some data onto your screen and then say `Press Power to dump to SD card`. Press power and it should now say `Done!` and `Press volume to go to menu`. Press a volume button and then select `back` in the menu.
+    - 3m. Select `Tools` and then select `Dump package1/2`. After it finishes, it should say `Done. Press any key` near the bottom. Press any key to return to the tools menu.
+    - 3n. Select `Backup` and then select `Backup eMMC BOOT0/1`. This make take a few seconds to load. After it finished filling the progress bar it should say `Finished and verified! Press any key`. Press any key to return to the backup menu.
+    - 3o. Finally, select `Backup eMMC Raw GPP`. This should take some time as your switch's nand is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is hekate verifying the data. This should take between 40-80 minutes depending on the quality of your SD card.
+    - 3p. Power off your switch to avoid damage to your sd card, by selecting `Back` and then selecting `Power Off` and then eject your sd card. Then open your sd card on your computer. Find the `yuzu_copy.bat` file you downloaded earlier and copy it to the root of your sd card. Double-click it to start the copy. This should take between 10-20 minutes. It should not have any errors listed. If it does, double check and make sure you ran steps 3a-3d correctly.
 
 # Move system and user to Desktop
 4. Open `HacDiskMount` as Administrator (Right-click and select Run As Administrator) and go to `File > Open file` and select the `rawnand.bin` that was copied to your Desktop in step 3e.
