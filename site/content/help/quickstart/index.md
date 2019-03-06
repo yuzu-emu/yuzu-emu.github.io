@@ -48,7 +48,7 @@ This guide will help you copy all of your system files, games, updates, and DLC 
         - `bis_key_2_crypt`
         - `bis_key_2_tweak`
 3. We will now boot hekate to dump your system files:
-    - 3a. Extract the `TegraRcmSmash1213.zip` zip file you downloaded in the prerequisites. Put the `hekate_ctcaer_3.2.bin` file from the prerequisites in the `TegraRcmSmash1213/x64` folder. 
+    - 3a. Extract the `TegraRcmSmash1213.zip` zip file you downloaded in the prerequisites. Put the `hekate_ctcaer_x.x.bin` (the version of this file is dependent on your firmware) file from the prerequisites in the `TegraRcmSmash1213/x64` folder. 
     - 3b. Open Zadig
     - 3c. Plug your switch into your computer.
     - 3d. Power off your switch while it is still connected to your computer.
