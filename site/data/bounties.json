@@ -111,5 +111,25 @@
         "Description": "Implement Wall Timer/Cycle Timer to correct timing in games like The Binding of Isaac: Afterbirth+, Celeste, Wizard of Light, etc. until either better/faster timing or Core::Timing imped.",
         "PaymentStatus": "Paid",
         "DeveloperResponse": null
+    },
+    {
+        "DateSubmitted": "03-17-2019",
+        "Developer": null,
+        "Status": "Unassigned",
+        "Requester": "Flame Sage",
+        "Amount": "$20 USD",
+        "Description": "Port over Citra's build system (docker build-environments) plus porting Citra's Flatpak support for Linux.",
+        "PaymentStatus": null,
+        "DeveloperResponse": null
+    },
+    {
+        "DateSubmitted": "03-17-2019",
+        "Developer": null,
+        "Status": "Unassigned",
+        "Requester": "Ivar",
+        "Amount": "$20 USD",
+        "Description": "Port over Citra's build system (docker build-environments) plus porting Citra's Flatpak support for Linux.",
+        "PaymentStatus": null,
+        "DeveloperResponse": null
     }
 ]
