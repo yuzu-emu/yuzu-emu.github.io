@@ -1,135 +1,163 @@
 [
     {
-        "DateSubmitted": "11-20-2018",
         "Developer": "Blinkhawk",
         "Status": "Completed",
-        "Requester": "Jon S",
-        "Amount": "$150 USD",
         "Description": "Fix major rendering issues with BOTW (should look pretty good, can still be minor issues, e.g. like SMO is today. Does not include performance)",
-        "PaymentStatus": "Paid",
-        "DeveloperResponse": null
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "11-20-2018",
+                "Name": "Jon S",
+                "Amount": "$150 USD",
+                "Paid": true
+            }
+        ]
     },
     {
-        "DateSubmitted": "11-20-2018",
         "Developer": "Rodrigo",
         "Status": "Completed",
-        "Requester": "Flame Sage",
-        "Amount": "$25 USD",
         "Description": "Fix text in Pokemon Let's Go games.",
-        "PaymentStatus": "Paid",
-        "DeveloperResponse": "Fixed by PR 1961"
+        "Response": "Fixed by PR 1961",
+        "Requestors": [
+            {
+                "DateSubmitted": "11-20-2018",
+                "Name": "Flame Sage",
+                "Amount": "$125 USD",
+                "Paid": true
+            },
+            {
+                "DateSubmitted": "12-10-2018",
+                "Name": "Marie",
+                "Amount": "$150 USD",
+                "DateExpires": "01-10-2019",
+                "Paid": false
+            }
+        ]
     },
     {
-        "DateSubmitted": "12-10-2018",
-        "DateExpires": "01-10-2019",
-        "Developer": "Rodrigo",
-        "Status": "Pending Payment",
-        "Requester": "Marie",
-        "Amount": "$150 USD",
-        "Description": "Fix text in Pokemon Let's Go games.",
-        "PaymentStatus": "Pending Payment",
-        "DeveloperResponse": "Fixed by PR 1961"
-    },
-    {
-        "DateSubmitted": "11-20-2018",
         "Developer": null,
         "Status": "Unassigned",
-        "Requester": "Flame Sage",
-        "Amount": "$50 USD",
         "Description": "Fix softlocks in Pokemon Let's Go games.",
-        "PaymentStatus": null,
-        "DeveloperResponse": null
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "11-20-2018",
+                "Name": "Flame Sage",
+                "Amount": "$50 USD",
+                "Paid": false
+            }
+        ]
     },
     {
-        "DateSubmitted": "11-20-2018",
         "Developer": null,
         "Status": "Unassigned",
-        "Requester": "Flame Sage",
-        "Amount": "$50 USD",
         "Description": "Get Octopath Traveller in-game working through the first introduction tutorial without major graphical glitches or freezes.",
-        "PaymentStatus": null,
-        "DeveloperResponse": null
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "11-20-2018",
+                "Name": "Flame Sage",
+                "Amount": "$50 USD",
+                "Paid": false
+            }
+        ]
     },
     {
-        "DateSubmitted": "11-21-2018",
         "Developer": null,
-        "Status": "Unassigned",
-        "Requester": "Wes",
-        "Amount": "$50 USD",
+        "Status": "Completed",
         "Description": "Fix random black screens on Ultra Street Fighter 2.",
-        "PaymentStatus": null,
-        "DeveloperResponse": null
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "11-21-2018",
+                "Name": "Wes",
+                "Amount": "$50 USD",
+                "Paid": false
+            }
+        ]
     },
     {
-        "DateSubmitted": "12-10-2018",
-        "DateExpires": "03-03-2019",
         "Developer": null,
-        "Status": "Unassigned",
-        "Requester": "Marie",
-        "Amount": "$50 USD",
+        "Status": "Expired",
         "Description": "Fix crashes on OpenGL 4.4 Integrated GPUs",
-        "PaymentStatus": null,
-        "DeveloperResponse": null
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "12-10-2018",
+                "Name": "Marie",
+                "Amount": "$50 USD",
+                "DateExpires": "03-03-2019",
+                "Paid": false
+            }
+        ]
     },
     {
-        "DateSubmitted": "12-10-2018",
-        "DateExpires": "06-15-2019",
         "Developer": null,
         "Status": "Unassigned",
-        "Requester": "Marie",
-        "Amount": "$50 USD",
         "Description": "Fix core timing issues in Snipperclips, Cut it out Together!",
-        "PaymentStatus": null,
-        "DeveloperResponse": null
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "12-10-2018",
+                "Name": "Marie",
+                "Amount": "$50 USD",
+                "DateExpires": "06-15-2019",
+                "Paid": false
+            }
+        ]
     },
     {
-        "DateSubmitted": "02-06-2019",
         "Developer": "Blinkhawk",
         "Status": "Completed",
-        "Requester": "Bunnei",
-        "Amount": "$75 USD",
         "Description": "Fix ground rendering in The Legend of Zelda: Breath of the Wild",
-        "PaymentStatus": "Paid",
-        "DeveloperResponse": null
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "02-06-2019",
+                "Name": "bunnei",
+                "Amount": "$75 USD",
+                "Paid": true
+            },
+            {
+                "DateSubmitted": "02-06-2019",
+                "Name": "Tobi",
+                "Amount": "$15 EUR",
+                "Paid": true
+            }
+        ]
     },
     {
-        "DateSubmitted": "02-06-2019",
         "Developer": "Blinkhawk",
         "Status": "Completed",
-        "Requester": "Tobi",
-        "Amount": "$15 EUR",
-        "Description": "Fix ground rendering in The Legend of Zelda: Breath of the Wild",
-        "PaymentStatus": "Paid",
-        "DeveloperResponse": null
-    },
-    {
-        "DateSubmitted": "02-13-2019",
-        "Developer": "Blinkhawk",
-        "Status": "Completed",
-        "Requester": "KennyRoody",
-        "Amount": "$35 USD",
         "Description": "Implement Wall Timer/Cycle Timer to correct timing in games like The Binding of Isaac: Afterbirth+, Celeste, Wizard of Light, etc. until either better/faster timing or Core::Timing imped.",
-        "PaymentStatus": "Paid",
-        "DeveloperResponse": null
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "02-13-2019",
+                "Name": "KennyRoody",
+                "Amount": "$35 USD",
+                "Paid": true
+            }
+        ]
     },
     {
-        "DateSubmitted": "03-17-2019",
         "Developer": null,
         "Status": "Unassigned",
-        "Requester": "Flame Sage",
-        "Amount": "$20 USD",
         "Description": "Port over Citra's build system (docker build-environments) plus porting Citra's Flatpak support for Linux.",
-        "PaymentStatus": null,
-        "DeveloperResponse": null
-    },
-    {
-        "DateSubmitted": "03-17-2019",
-        "Developer": null,
-        "Status": "Unassigned",
-        "Requester": "Ivar",
-        "Amount": "$20 USD",
-        "Description": "Port over Citra's build system (docker build-environments) plus porting Citra's Flatpak support for Linux.",
-        "PaymentStatus": null,
-        "DeveloperResponse": null
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "03-17-2019",
+                "Name": "Flame Sage",
+                "Amount": "$20 USD",
+                "Paid": false
+            },
+            {
+                "DateSubmitted": "03-17-2019",
+                "Name": "Ivar",
+                "Amount": "$20 USD",
+                "Paid": false
+            }
+        ]
     }
 ]
