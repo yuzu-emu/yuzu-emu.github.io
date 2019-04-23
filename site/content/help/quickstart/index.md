@@ -5,41 +5,35 @@ description: A guide designed to get you started with yuzu quickly.
 
 # yuzu Quickstart Guide
 
-To start playing games, yuzu needs a couple of different files and directories from your switch in order to play them properly.
+To start playing games, yuzu needs a couple of different files and directories from your Switch in order to play them properly.
 
-This guide will help you copy all of your system files, games, updates, and DLC from your switch to your computer and organize them in a format yuzu understands. This process should take about an hour to an hour and a half.
+This guide will help you copy all of your system files, games, updates, and DLC from your console to your computer and organize them in a format yuzu understands. This process should take about half an hour.
 
 ## Prerequisites
-- A Nintendo Switch vulnerable to fusee-gelee (purchased before July 2018 will definitely work, purchased after has a lower probability of working)
-- An SD card with at least ~29 GB of free space (an almost empty 32GB card will work)
+- A Nintendo Switch vulnerable to fusee-gelee (Check at [this website](https://damota.me/ssnc/checker)
+- An SD card with at least ~29 GB of free space (an nearly empty 32GB card will work)
+- [TegraRCMGui](https://github.com/eliboa/TegraRcmGUI/releases)
 - [biskeydump](http://switchtools.sshnuke.net/)
 - [hekate](https://github.com/CTCaer/hekate/releases/)
-- [Kosmos](https://github.com/AtlasNX/Kosmos/releases/)
+- [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere/releases)
 - [Copy Script](https://yuzu-emu.org/help/quickstart/yuzu_copy.bat)
 - [HacDiskMount](https://files.sshnuke.net/HacDiskMount1055.zip)
-- [TegraRcmSmash](https://files.sshnuke.net/TegraRcmSmash1213.zip)
-- [Zadig](https://zadig.akeo.ie/)
-- [microSD Card Reader](https://www.amazon.com/Anker-Portable-Reader-RS-MMC-Micro/dp/B006T9B6R2/ref=sr_1_4?s=pc&ie=UTF8&qid=1538875513&sr=1-4&keywords=micro+sd+card+reader) -- If your computer has one built-in, you can use that
-- [RCM Jig](https://www.amazon.com/gp/product/B07FP3PC4R/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1) -- we highly recommend this one, but you could use any of the methods outlined [here](https://xghostboyx.github.io/RCM-Guide/)
+- [RCM Jig](https://switchjigs.com/) -- ships worldwide, but you could use any of the methods outlined [here](https://nh-server.github.io/switch-guide/user_guide/entering_rcm/)
+- A cable which can transfer data from your Switch to your PC (most USB-A > USB-C, or USB-C to USB-C cables will work)
 
 `%YUZU_DIR%` is the home directory for yuzu on your computer:
     - For Windows, this is `C:\Users\<YourUserName>\AppData\Roaming\yuzu`
     - For Linux, this is `~/.local/share/yuzu`
+    If the website could not determine your console status, [follow this](https://nh-server.github.io/switch-guide/user_guide/sending_payload/) to determine if your console is vulnerable.
 
 ## Directions
 1. Download this [keys template](https://yuzu-emu.org/help/quickstart/console.keys). It will help make sure you don't miss anything in the next steps.
 2. We will now boot biskeydump on your switch to dump your BIS (Built-In Storage) keys.
-    - 2a. Extract the `TegraRcmSmash1213.zip` zip file you downloaded in the prerequisites. Extract the `biskeydump` file you downloaded earlier and but the put the `biskeydump.bin` in the `TegraRcmSmash1213/x64` folder. 
-    - 2b. Open Zadig
-    - 2c. Plug your switch into your computer.
-    - 2d. Power off your switch while it is still connected to your computer.
-    - 2e. Insert your RCM jig into the right joy-con slot and then press VOL+ and Power at the same time. Nothing should happen. If the switch starts to turn on normally, go back to step 2c and try again.
-    - 2f. and choose APX in the device list. If APX does not show, go to the Options menu and check List all devices. If it still doesn't appear, double check the connection the between the switch and your computer.
-    - 2g. For Driver type, cycle the arrows until it says `libusbK (v3.0.7.0)`. This is very important.
-    - 2h. Hit install driver.
-    - 2i. Close Zadig.
-    - 2j. Drag and drop the bin file from step 1 of this guide onto `TegraRCMSmash.exe`. It should not stay open and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
-    - 2k. You are now in biskeydump. If the background of the QR code is red, retry until it is blue. You can scan the QR code for convenience or copy the codes by typing them into your computer. Our testing has found that QRDroid doesn't work properly but [QR Code Reader by Kaspersky Lab](https://play.google.com/store/apps/details?id=com.kaspersky.qrscanner) does. Copy the keys template from step 1 into `%YUZU_DIR%/keys` and make sure it is still named `console.keys`. Open `console.keys` and replace the large `XXXX...XXX` strings with the corresponding key from biskeydump. You should have copied:
+    - 2a. Launch TegraRcmGUI.exe 
+    - 2b. Within TegraRCMGui, navigate to the `Settings` tab, and select `Install Driver`
+    - 2c. Put your Switch in RCM, then connect it to your PC 
+    - 2d. Navigate to the `Payload` tab , then click on the folder icon near `Select Payload`. Navigate to your biskeydump .bin file and launch it.
+    - 2e. You are now in biskeydump. If the background of the QR code is red, retry until it is blue. You can scan the QR code for convenience or copy the codes by typing them into your computer. Use [QR Code Reader by Kaspersky Lab](https://play.google.com/store/apps/details?id=com.kaspersky.qrscanner) on Android. Copy the keys template from step 1 into `%YUZU_DIR%/keys` and make sure it is still named `console.keys`. Open `console.keys` and replace the large `XXXX...XXX` strings with the corresponding key from biskeydump. You should have copied:
         - `tsec_key`
         - `bis_key_0_crypt`
         - `bis_key_0_tweak`
@@ -48,22 +42,14 @@ This guide will help you copy all of your system files, games, updates, and DLC 
         - `bis_key_2_crypt`
         - `bis_key_2_tweak`
 3. We will now boot hekate to dump your system files:
-    - 3a. Extract the `TegraRcmSmash1213.zip` zip file you downloaded in the prerequisites. Put the `hekate_ctcaer_x.x.bin` (the version of this file is dependent on your firmware) file from the prerequisites in the `TegraRcmSmash1213/x64` folder. 
-    - 3b. Open Zadig
-    - 3c. Plug your switch into your computer.
-    - 3d. Power off your switch while it is still connected to your computer.
-    - 3e. Insert your RCM jig into the right joy-con slot and then press VOL+ and Power at the same time. Nothing should happen. If the switch starts to turn on normally, go back to step 3c and try again.
-    - 3f. and choose APX in the device list. If APX does not show, go to the Options menu and check List all devices. If it still doesn't appear, double check the connection the between the switch and your computer.
-    - 3g. For Driver type, cycle the arrows until it says `libusbK (v3.0.7.0)`. This is very important.
-    - 3h. Hit install driver.
-    - 3i. Close Zadig.
-    - 3j. Extract the `sept` folder from the Kosmos download and place the `sept` folder onto your SDcard.
-    - 3i. Drag and drop the bin file from step 1 of this guide onto the `TegraRCMSmash.exe` program. It should flash briefly and not stay open, and your switch should now display some text on it. If it did not, make sure you have carefully followed all of the previous steps and try again.
-    - 3l. You are now in hekate. Navigate hekate using volume up and down to go up and down and power to select. Select `Console info` and then `Print fuse info`. It should print out some data onto your screen and then say `Press Power to dump to SD card`. Press power and it should now say `Done!` and `Press volume to go to menu`. Press a volume button and then select `back` in the menu.
-    - 3m. Select `Tools` and then select `Dump package1/2`. After it finishes, it should say `Done. Press any key` near the bottom. Press any key to return to the tools menu.
-    - 3n. Select `Backup` and then select `Backup eMMC BOOT0/1`. This make take a few seconds to load. After it finished filling the progress bar it should say `Finished and verified! Press any key`. Press any key to return to the backup menu.
-    - 3o. Finally, select `Backup eMMC Raw GPP`. This should take some time as your switch's nand is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is hekate verifying the data. This should take between 40-80 minutes depending on the quality of your SD card.
-    - 3p. Power off your switch to avoid damage to your sd card, by selecting `Back` and then selecting `Power Off` and then eject your sd card. Then open your sd card on your computer. Find the `yuzu_copy.bat` file you downloaded earlier and copy it to the root of your sd card. Double-click it to start the copy. This should take between 10-20 minutes. It should not have any errors listed. If it does, double check and make sure you ran steps 3a-3d correctly.
+    - 3a. Launch TegraRCMGui.
+    - 3b. Click on the folder icon near `Select Payload`. Navigate to your Hekate .bin file and launch it.
+    - 3c. Extract the `sept` folder from Atmosphère's download and place the `sept` folder onto your SD card.
+    - 3d. You are now in Hekate. Navigate using Volume+/- to go up/down, and Power to select. Select `Console info` and then `Print fuse info`. It will print out data on your screen, then say `Press Power to dump to SD card`. Press Power, and it should say `Done!` and `Press volume to go to menu`. Press a volume button and then select `Back` in the menu.
+    - 3e. Select `Tools` and then select `Dump package1/2`. After it finishes, it should say `Done. Press any key` near the bottom. Press any key to return to the tools menu.
+    - 3f. Select `Backup` and then select `Backup eMMC BOOT0/1`. This make take a few seconds. After it finished filling the progress bar it should say `Finished and verified! Press any key`. Press any key to return to the backup menu.
+    - 3g. Finally, select `Backup eMMC Raw GPP`. This should take some time as your switch's nand is quite large. If the progress bar appears to go backwards at some points or turn green, this just is Hekate verifying the data. This should take between 40-80 minutes depending on the quality of your SD card.
+    - 3h. Power off your console to avoid damage to your microSD card, by selecting `Back` and then selecting `Power Off` and ejecting your microSD card. Then open your microSD on your computer. Find the `yuzu_copy.bat` file you downloaded earlier and copy it to the root of your microSD. Double-click it to start the copy. This should take between 10-20 minutes. It should not have any errors listed. If it does, double check and make sure you ran steps 3a-3g correctly.
 
 # Move system and user to Desktop
 4. Open `HacDiskMount` as Administrator (Right-click and select Run As Administrator) and go to `File > Open file` and select the `rawnand.bin` that was copied to your Desktop in step 3e.
