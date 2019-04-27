@@ -2,7 +2,7 @@
 
 language: node_js
 node_js:
-  - "node"
+  - "11"
 cache: yarn
 
 install:
@@ -31,4 +31,4 @@ deploy:
    branch: hugo
 notifications:
   email:
-    - mods@citra-emu.org
+    - yuzu@yuzu-emu.org
