@@ -3,8 +3,6 @@ title = "Boxcat"
 description = "Boxcat features"
 +++
 
-# Boxcat
-
 Boxcat is an open-source replacement for Nintendo's BCAT service. BCAT is a network games can leverage to add dynamic content to games. Some examples of features games make use of this for are splatoon 2 splatfests, splatoon 2 course rotations, super mario odyssey costumes, super smash bros. ultimate news, and even the news feed on the home menu. By emulating the BCAT service at a high-level, yuzu is able to intercept the game's calls to Nintendo's servers and reroute them to yuzu's servers.
 
 ## Current Boxcat Events
@@ -26,3 +24,11 @@ The satellaview and baseball costumes are available for purchase in the shop if 
 {{< imgs
     "./hint-2-1.png|Located in the big city."
 >}}
+
+### Breath of the Wild
+
+By opening the game and a save file, you will receive 3 raw prime steaks that you can use for cooking, food, or whatever else you desire.
+
+### Splatoon 2
+
+By opening the game you will receive one main ability up drink ticket, which is redeemable at the food truck for a drink that will increase your chances of getting that ability.
