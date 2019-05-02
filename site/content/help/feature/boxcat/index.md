@@ -29,6 +29,14 @@ The satellaview and baseball costumes are available for purchase in the shop if 
 
 By opening the game and a save file, you will receive 3 raw prime steaks that you can use for cooking, food, or whatever else you desire.
 
+{{< imgs
+    "./botw-steak.png|Yummy!"
+>}}
+
 ### Splatoon 2
 
-By opening the game you will receive one main ability up drink ticket, which is redeemable at the food truck for a drink that will increase your chances of getting that ability.
+By opening the game you will receive five main ability up ability chunks, which can be used with Murch ingame to improve your gear.
+
+{{< imgs
+    "./splatoon2-mainability.png|This looks useful!"
+>}}
