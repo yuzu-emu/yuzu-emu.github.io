@@ -10,8 +10,19 @@ To start playing games, yuzu needs a couple of different files and directories f
 This guide will help you copy all of your system files, games, updates, and DLC from your switch to your computer and organize them in a format yuzu understands. This process should take about an hour to an hour and a half.
 
 ## Hardware Requirements
-- A powerful single-core 64-bit CPU.
-- An NVIDIA GPU is recommended.
+|   	|  CPU 	|   GPU	|   RAM	|
+|-----	|---	|---	|---	|
+|**Minimum**|Intel Core i3-6100 / AMD Ryzen 5 2500X|Intel HD Graphics 530 / Nvidia GeForce GT 710|8GB|
+|**Recommended**|Intel Core i7-8700k|Nvidia GTX 1070 Ti|16GB|
+
+<p style="color:cyan"><b><i>Currently on Windows, an Intel or Nvidia GPU is recommended due to AMD GPU driver issues.</b></i><p>
+
+- **GPUs must support OpenGL 4.5 (or higher) & OpenGL Compatibility profile.**<br>
+To find out if your GPU meets these requirements, visit https://opengl.gpuinfo.org and check your GPU details.<br>
+
+Sample Image:
+
+![GPUInfo](./gpuinfo.png)
 
 ## Prerequisites
 - A Nintendo Switch vulnerable to fusee-gelee (purchased before July 2018 will definitely work, purchased after has a lower probability of working)
