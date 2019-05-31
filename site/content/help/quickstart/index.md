@@ -12,8 +12,8 @@ This guide will help you copy all of your system files, games, updates, and DLC 
 ## Hardware Requirements
 |   	|  CPU 	|   GPU	|   RAM	|
 |-----	|---	|---	|---	|
-|**Minimum**|Intel Core i3-6100 / AMD Ryzen 5 2500X|Intel HD Graphics 530 / Nvidia GeForce GT 710|8GB|
-|**Recommended**|Intel Core i7-8700k|Nvidia GTX 1070 Ti|16GB|
+|**Minimum (for 2D games)**|Intel Core i3-6100 / AMD Ryzen 5 2500X|Intel HD Graphics 530 / Nvidia GeForce GT 710|8GB|
+|**Recommended (for 3D games)**|Intel Core i7-8700k|Nvidia GTX 1070 Ti|16GB|
 
 <p style="color:cyan"><b><i>Currently on Windows, an Intel or Nvidia GPU is recommended due to AMD GPU driver issues.</b></i><p>
 
@@ -22,7 +22,7 @@ To find out if your GPU meets these requirements, visit https://opengl.gpuinfo.o
 
 Sample Image:
 
-![GPUInfo](./gpuinfo.png)
+![GPUInfo](./gpu_info.png)
 
 ## Prerequisites
 - A Nintendo Switch vulnerable to fusee-gelee (purchased before July 2018 will definitely work, purchased after has a lower probability of working)
