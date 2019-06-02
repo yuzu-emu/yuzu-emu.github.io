@@ -5,6 +5,9 @@ description: A guide designed to get you started with yuzu quickly.
 
 # yuzu Quickstart Guide
 
+{{< youtube RwojT7zPVhI >}}
+&nbsp;
+
 To start playing games, yuzu needs a couple of different files and directories from your switch in order to play them properly.
 
 This guide will help you copy all of your system files, games, updates, and DLC from your switch to your computer and organize them in a format yuzu understands. This process should take about an hour to an hour and a half.
