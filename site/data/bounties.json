@@ -159,19 +159,5 @@
                 "Paid": false
             }
         ]
-    },
-    {
-        "Developer": null,
-        "Status": "Unassigned",
-        "Description": "Implement internal resolution scaling.",
-        "Response": null,
-        "Requestors": [
-            {
-                "DateSubmitted": "04-27-2019",
-                "Name": "Ethan",
-                "Amount": "$40 USD",
-                "Paid": false
-            }
-        ]
     }
 ]
