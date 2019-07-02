@@ -1,5 +1,5 @@
 +++
-date = "2019-07-02T22:00:00+05:30"
+date = "2019-07-02T21:55:00+05:30"
 title = "yuzu Patreon Preview Release July 2019"
 author = "CaptV0rt3x"
 forum = 123917
