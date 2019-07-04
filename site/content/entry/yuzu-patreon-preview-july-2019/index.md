@@ -71,7 +71,8 @@ Here are some in-game screenshots from the Patreon preview build, just for you g
     "./SMM2_8.png"
 >}}
 
-**Note: Currently saving levels causes yuzu to crash, due to a swkbd (software keyboard) issue. But rest assured, we are working on a fix.**
+~~**Note: Currently saving levels causes yuzu to crash, due to a swkbd (software keyboard) issue. But rest assured, we are working on a fix.**~~
+The issue with the software keyboard has now been fixed. Please download the latest build from our patreon page.
 
 As always, we bring this to you as a `thank you` for your patronage and dedication to our team!
 Please hop on Discord and use the Patreon channels to report any new bugs, or to just say Hi and discuss the new features.
