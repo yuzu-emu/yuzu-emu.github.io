@@ -69,7 +69,7 @@ Sample Image:
         
 3. We will now boot hekate to dump your system files:
     - 3a. In the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the Hekate file you downloaded earlier from the prerequisites.
-    - 3b. Extract the `sept` folder from the Kosmos download and place the `sept` folder onto your SDcard.
+    - 3b. Extract the Kosmos release you downloaded earlier onto your SDcard.
     - 3c. Click on `Inject Payload` to inject the Hekate payload. 
     - 3d. You are now in hekate.
     - 3e. Select `Tools`, the wrench icon at the top of the screen, and select `Backup eMMC`. Underneath the `Full` section, click on `eMMC BOOT0 & BOOT1`. This may take a few seconds to load. After it is finished filling the progress bar it should say `Finished and verified!`. Beneath `Filepath:` you will see the location of the dump. 
