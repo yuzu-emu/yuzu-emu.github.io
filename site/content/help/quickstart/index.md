@@ -86,7 +86,7 @@ Sample Image:
 5. (OPTIONAL) If you have games or game data stored on your sd card, copy the `Nintendo` folder of your sd card into `%YUZU_DIR%/sdmc`.
 
 # Dump Prod.keys and Title.keys
-6. We will now dump your `prod.keys` and `title.keys` for decryption of your game files. Before you return your SD card to your Switch, place the `Lockpick.nro` you downloaded earlier from the requisties into the `switch` folder of your SD card.
+6. We will now dump your `prod.keys` and `title.keys` for decryption of your game files. Before you return your SD card to your Switch, place the `Lockpick.nro` you downloaded earlier from the prerequisites into the `switch` folder of your SD card.
     - 6a. Reboot your Nintendo Switch into RCM mode, and reconnect it to your computer.
     - 6b. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the `Lockpick_RCM` file you downloaded earlier from the prerequisites.
     - 6c. There may be a message on your Switch to `Reboot to Sept...`, Press `Power` or `Vol +/-`
