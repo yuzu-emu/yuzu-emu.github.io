@@ -90,7 +90,7 @@ Sample Image:
     - 6a. Reboot your Nintendo Switch into RCM mode, and reconnect it to your computer.
     - 6b. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the `Lockpick_RCM` file you downloaded earlier from the prerequisites.
     - 6c. There may be a message on your Switch to `Reboot to Sept...`, Press `Power` or `Vol +/-`
-    - 6d. After Lockpick_RCM has finished deriving the keys, please make note of the location fo the dump. Default is: `sd:/switch/prod.keys`.
+    - 6d. After Lockpick_RCM has finished deriving the keys, please make note of the location of the dump. Default is: `sd:/switch/prod.keys`.
     - 6e. Reboot to RCM by pressing the `VOL +` key. 
     - 6f. Run TegraRCMGui, and in the `Playload` tab of TegraRCMGui, click on the folder icon and navigate to the `Hekate` file you downloaded earlier from the prerequisites. 
     - 6g. Click on `Launch`, and click on `CFW`. Your Switch will launch into `C`ustom `F`irm`W`are mode, and once your Switch has booted into the home menu, hold the `R` button and click on the Album application. This will launch the Homebrew Menu.
