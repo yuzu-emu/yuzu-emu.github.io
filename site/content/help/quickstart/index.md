@@ -94,7 +94,7 @@ Sample Image:
     - 3f. Power off your switch to avoid damage to your sd card, by selecting `Back` and then selecting `Power Off` and then eject your sd card. Insert your sd card into your computer and use your file explorer to open the contents. Place the `yuzu_copy.bat` file you downloaded earlier onto to the root of your sd card. Double-click it to start combining your `rawnand.bin`, if it was dumped into sections, i.e. `rawnand.bin.00`. If your rawnand.bin dumped as one ~30gb file, then proceed with the guide. 
     - 3g. If you needed to dump the rawnand.bin into sections due to lack of space on your sd card, transfer the files that did dump to a new folder on your desktop, and then resume the backup of your `eMMC RAW GPP`. After you have obtained all of the `rawnand.bin` files, add them to the same folder as before, place the `yuzu_copy.bat` file you downloaded earlier into that same folder and double-click to run. After they are combined, please proceed with the guide.
 
-# Move system and user to Desktop
+# Move SYSTEM and USER to the yuzu directory
 4. We will now extract the necessary directories from your rawnand.bin for yuzu to read your system files. 
     - 4a. Open `HacDiskMount` as Administrator (Right-click and select Run As Administrator) and go to `File > Open file` and select your `rawnand.bin`.
     - 4b. Double-click on the row marked `PRODINFO`. Under the dump to file area, click browse and pick somewhere easy to get to, like your Desktop. Dump the file as `PRODINFO.bin`. Click start and wait for it to complete. Then close the window. (NOTE: There is no need to enter any keys in the boxes at the top of the dialog at this moment.)
