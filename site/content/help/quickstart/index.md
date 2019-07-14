@@ -72,17 +72,23 @@ Sample Image:
 # Dumping Prod.keys, and Title.keys
 
 2. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
-    - 2a. Extract the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card. Place the `Lockpick.nro` you downloaded earlier from the prerequisites into the `switch` folder of your SD card.
+    - 2a. Extract the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card. Place the `Lockpick.nro` you downloaded earlier from the prerequisites into the `switch` folder of your SD card, and place the `Lockpick_RCM.bin` into the `bootloader/payloads` folder of the SD card.
     - 2b. Boot your Nintendo Switch into RCM mode, and make sure it is connected to your computer.
-    - 2c. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the `Lockpick_RCM` file you downloaded earlier from the prerequisites.
-    - 2d. There may be a message on your Switch to `Reboot to Sept...`, Press `Power` or `Vol +/-`
-    - 2e. After Lockpick_RCM has finished deriving the keys, please make note of the location of the key file. Default is: `sd:/switch/prod.keys`.
-    - 2f. Reboot to RCM by pressing the `VOL +` key. 
-    - 2g. Run TegraRCMGui, and in the `Playload` tab of TegraRCMGui, click on the folder icon and navigate to the `Hekate` file you downloaded earlier from the prerequisites. 
-    - 2h. Click on `Inject Payload` to inject the Hekate payload. The Hekate browser will now display on your Nintendo Switch.
-    - 2i. In the Hekate browser on your Nintendo Switch, click on `Launch`, and then click on `CFW (SYSNAND)`. Your Switch will launch into `C`ustom `F`irm`W`are mode, and once your Switch has booted into the home menu, while holding the `R` button, click on the Album application. This will launch the Homebrew Menu.
-    - 2j. Either use the touchscreen or navigate using your controller and choose `Lockpick`. After a few seconds, this will dump your `title.keys` file into the indicated folder. Default is: `sd:/switch/title.keys`
-    - 2k. With both `prod.keys` and `title.keys` dumped from your Nintendo Switch, place them in the `%YUZU_DIR%/keys` directory. 
+    - 2c. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the `Hekate` file you downloaded earlier from the prerequisites.
+    - 2d. Click on `Inject Payload` to inject the Hekate payload. The Hekate browser will now display on your Nintendo Switch.
+    - 2e. At the top of the Hekate menu, click on `Console Info`
+    - 2f. On the left side of the screen click on `TSEC Keys`, and then click `Dump Keys` at the top of the screen. Click OK on the following message, then click Close.
+    - 2g. On the same screen as before, click `Fuses`, and then click on `Dump fuses` at the top of the screen. Click OK on the following message, then click Close.
+    - 2f. Click on the Home button at the top of the screen, and then on the home screen click on `Payloads`.
+    - 2g. On the list of payloads to launch, you should see listed `Lockpick_RCM.bin` Click on this. 
+    - 2h. There may be a message on your Switch to `Reboot to Sept...`, or there may be just a blank black screen; Press `Power` or `Vol +/-` to boot into the `Lockpick_RCM.bin` payload. 
+    - 2i. After Lockpick_RCM has finished deriving the keys, please make note of the location of the key file. Default is: `sd:/switch/prod.keys`.
+    - 2j. Reboot to RCM by pressing the `VOL +` key. 
+    - 2k. Run TegraRCMGui, and in the `Playload` tab of TegraRCMGui, click on the folder icon and navigate to the `Hekate` file you downloaded earlier from the prerequisites. 
+    - 2l. Click on `Inject Payload` to inject the Hekate payload. The Hekate browser will now display on your Nintendo Switch.
+    - 2m. On the home screen of the Hekate menu, click on `Launch`, and then click on `CFW (SYSNAND)`. Your Switch will launch into CFW, and once your Switch has booted into the home menu, while holding the `R` button, click on the Album application. This will launch the Homebrew Menu.
+    - 2n. Either use the touchscreen or navigate using your controller and choose `Lockpick`. After a few seconds, this will dump your `title.keys` file into the indicated folder. Default is: `sd:/switch/title.keys`
+    - 2o. With both `prod.keys` and `title.keys` dumped from your Nintendo Switch, place them in the `%YUZU_DIR%/keys` directory. 
 
 # Backing up System Files
 3. We will now boot hekate to dump your system files:
