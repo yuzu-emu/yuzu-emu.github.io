@@ -19,6 +19,6 @@ description: "How to properly gather and upload log files from yuzu."
 
 4. *(Optional)* If the log file is larger than 8 MB and you are planning to upload the file to Discord, you'll need to compress the file with a compression tool, such as 7-Zip.
 
-5. Once you have obtained the log file, post it back where you were asked to provide a log file by this guide. (Discord, Community Forums...)
+5. Once you have obtained the log file, upload it where you were asked to provide a log file by this guide. (Discord, Community Forums...)
 
 **You're done!**
