@@ -42,7 +42,7 @@ This process should take about 60 to 90 minutes.
 - [Copy Script](https://yuzu-emu.org/help/quickstart/yuzu_copy.bat)
 - [HacDiskMount](https://files.sshnuke.net/HacDiskMount1055.zip)
 - [microSD Card Reader](https://www.amazon.com/Anker-Portable-Reader-RS-MMC-Micro/dp/B006T9B6R2/ref=sr_1_4?s=pc&ie=UTF8&qid=1538875513&sr=1-4&keywords=micro+sd+card+reader) -- If your computer has one built-in, you can use that
-- [RCM Jig](https://www.amazon.com/gp/product/B07FP3PC4R/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1) <-- we highly recommend this one, but you could use any of the methods outlined [here](https://xghostboyx.github.io/RCM-Guide/)
+- [RCM Jig](https://www.amazon.com/gp/product/B07FP3PC4R/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1) <-- we highly recommend one like this, but you could use any of the methods outlined [here](https://noirscape.github.io/RCM-Guide/)
 
 `%YUZU_DIR%` is the home directory for yuzu on your computer:
 
