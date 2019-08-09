@@ -1,5 +1,5 @@
 +++
-date = "2019-08-09T11:20:00+05:30"
+date = "2019-08-09T11:48:00+05:30"
 title = "Mini-Series - Dev Interview #2"
 author = "CaptV0rt3x"
 forum = 135709
@@ -45,14 +45,14 @@ What got me into emulation mainly was yuzu's very [first video](https://www.yout
 **Q: That's really interesting to hear. Before yuzu and Switch emulation, have you ever worked on other older emulators?**
 
 **R:** No, I've never worked on a non-Switch emulator. The closest thing I did related to emulation was a clone of Pico-8 Celeste for the NES in 6502 assembly.
-It was a fun experience, because I learnt the curse, and blessing, that it is, working that close to the hardware; it showed me what a pain it was to program classics like Super Mario Bros. 3.
+It was a fun experience because I learnt the curse, and blessing, that it is to work that close to the hardware; it showed me what a pain it was to program classics like Super Mario Bros. 3.
 
 
 **Q: Let's get a bit technical. What areas of Switch emulation have you worked on the most, and why? Which other areas keep you interested?**
 
 **R:** I've worked on the graphics, and compute departments of Switch emulation.
 Emulating a modern GPU (Tegra) by using other modern GPUs (user end) is my area of interest.
-Here's a cool fact for those that don't know: the Switch's GPU - it's a Nvidia Tegra X1, and it utilizes the same architecture of a GTX 960+.
+Here's a cool fact for those that don't know: the Switch's GPU is an Nvidia Tegra X1, and it utilizes the same architecture of a GTX 960+.
  
 
 As for why I like it, it's because GPUs nowadays are like mini sub-computers inside a machine.
@@ -83,8 +83,8 @@ Slowly understanding how some known functionality is implemented by the hardware
 
 There are two things that I enjoy the most:
 
-  - seeing games run faster and better than how they ran before and
-  - seeing games get more and more closer to how they look on the console.
+  - seeing games run faster, and better than how they ran before.
+  - seeing games getting closer and closer to how they look on the console.
 
 And if I manage to get these improvements by writing better code, it's an added bonus.
 
@@ -99,7 +99,7 @@ That means that we will have the same overall logic for OpenGL and Vulkan, makin
 It's not as good as Dolphin's VideoCommon, one of the better examples for generic graphics code, but it's still better than having to copy-paste code everywhere.
 This is one of the last prerequisites for the Vulkan API.
 
-I've also been working on implementing various compute shaders related instructions: shared memory (ARB_compute_shader), atomic operations, memory shuffles (NV_shader_thread_shuffle), votes (NV_gpu_shader5, NV_shader_thread_group), surface operations (SUATOM, SULD).
+I've also been working on implementing various compute shader related instructions: shared memory (ARB_compute_shader), atomic operations, memory shuffles (NV_shader_thread_shuffle), votes (NV_gpu_shader5, NV_shader_thread_group), surface operations (SUATOM, SULD).
 These are all features from the D3D11/12 era, meaning that we are reaching interesting complexity on the shaders we find in recently released games.
 I am also investigating how to implement some missing functionality in yuzu, but that's a story for another time.
 
@@ -109,12 +109,12 @@ I am also investigating how to implement some missing functionality in yuzu, but
 
 `First and foremost...` most of our GPU work has been possible thanks to research done by the people working on nouveau (mesa's Nvidia free driver) and libnx's nouveau port to Switch. They have been of huge help.
 
-`Second...` many people believe that Vulkan will bring lots of performance improvements to the emulator... I was one of those too. Don't get me wrong, it might bring some boost on some hardware vendors, but the main issue resides in Vulkan's design.
+`Second...` many people believe that Vulkan will bring lots of performance improvements to the emulator... I was one of those too. Don't get me wrong, it might boost performance on some hardware vendors, but the main issue resides in Vulkan's design.
 It is designed in a way that the programmer cooks and reuses its resources, but in emulation you can't easily know what's going to happen in the future. On the other hand, OpenGL, by design, works without backing its commands. 
 
 Some people might ask, why would we want two APIs? I think one API is going to perform better on two vendors, while the other API is prevalent on the other vendor. 
 
-`And last, but not the least...` We have a console that's just two years old, and it's still lacking the mainstream entries for most Nintendo IPs: Metroid, Donkey Kong Country, the announced Gen 8 Pokémon, Star Fox, Mario Kart, F-Zero (who knows? maybe they will find a way to refresh the franchise) and the end-of-cycle Zelda.
+`And last, but not least...` We have a console that's just two years old, and it's still lacking the mainstream entries for most Nintendo IPs: Metroid, Donkey Kong Country, the announced Gen 8 Pokémon, Star Fox, Mario Kart, F-Zero (who knows? maybe they will find a way to refresh the franchise) and the end-of-cycle Zelda.
 
 I'm really excited about what's to come, and how good Switch emulators will perform with these games. Emulation has been surprisingly faster in the last few years. Let's look forward to a wonderful future...
 ***
