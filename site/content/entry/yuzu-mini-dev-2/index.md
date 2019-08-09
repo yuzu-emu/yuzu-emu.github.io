@@ -5,7 +5,7 @@ author = "CaptV0rt3x"
 forum = 135709
 +++
 
-Good day, yu-zers (~~bad pun, I know~~)!
+Good day, yuz-ers (~~bad pun, I know~~)!
 While our devs are hard at work trying to bring you more performance improvements and game compatibility, we are back again with something a little bit more interesting - **Dev Interview #2**.
 Jump right in, to find out who we're interviewing this time.
 <!--more-->
