@@ -60,7 +60,7 @@ This process should take about 60 to 90 minutes.
     - 1e. Insert your RCM jig into the right joy-con slot, make sure it is seated securely at the base, and then press VOL+ and Power at the same time. Nothing should happen on your Switch; if the switch starts to turn on normally, go back to the beginning of step 1d and try again.
     - 1f. In the program TegraRCMGui you should see the Nintendo Switch icon in the lower left corner flash green and state `RCM O.K.`
     - 1g. In the `Tools` tab of TegraRCMGui, click on `biskeydump (by rajkosto)`.
-    - 1h. Your Switch will briefly flash with a blue QR code, and immediately your computer will prompt you to save a text document titled `BIS_keys.txt` Navigate to `%YUZU_DIR%/keys` and save the file as `console.keys`. Open the file to make sure you have copied:
+    - 1h. Your Switch will briefly flash with a blue QR code, you may or may not see this, and immediately your computer will prompt you to save a text document titled `BIS_keys.txt` Navigate to `%YUZU_DIR%/keys` and save the file as `console.keys`. Open the file to make sure you have copied:
         - `HWI`
         - `SBK`
         - `TSEC KEY`
@@ -77,7 +77,7 @@ This process should take about 60 to 90 minutes.
 # Dumping Prod.keys, and Title.keys
 
 2. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
-    - 2a. Extract the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card. Place the `Lockpick.nro` you downloaded earlier from the prerequisites into the `switch` folder of your SD card, and place the `Lockpick_RCM.bin` into the `bootloader/payloads` folder of the SD card.
+    - 2a. Extract the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card. Place the `Lockpick.nro` you downloaded earlier from the prerequisites into the `switch` folder of your SD card, and place the `Lockpick_RCM.bin` into the `bootloader/payloads` folder of the SD card. Place the SD card back into your Nintnedo Switch.
     - 2b. Boot your Nintendo Switch into RCM mode, and make sure it is connected to your computer.
     - 2c. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the `Hekate` file you downloaded earlier from the prerequisites.
     - 2d. Click on `Inject Payload` to inject the Hekate payload. The Hekate browser will now display on your Nintendo Switch.
@@ -97,7 +97,7 @@ This process should take about 60 to 90 minutes.
 
 # Backing up System Files
 3. We will now boot Hekate to dump your system files:
-    - 3a. Extract the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card.
+    - 3a. Extract the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card, and place the SD card into your Nintendo Switch.
     - 3b. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the Hekate file you downloaded earlier from the prerequisites.
     - 3c. Click on `Inject Payload` to inject the Hekate payload. The Hekate browser will now display on your Nintendo Switch.
     - 3d. Select `Tools`, the wrench icon at the top of the screen, and select `Backup eMMC`. Underneath the `Full` section, click on `eMMC BOOT0 & BOOT1`. This may take a few seconds to load. After it is finished filling the progress bar it should say `Finished and verified!`. Beneath `Filepath:` you will see the location of the dump. 
@@ -111,7 +111,7 @@ This process should take about 60 to 90 minutes.
     - 4b. Double-click on the row marked `PRODINFO`. Under the dump to file area, click browse and pick somewhere easy to get to, like your Desktop. Dump the file as `PRODINFO.bin`. Click start and wait for it to complete. Then close the window. (NOTE: There is no need to enter any keys in the boxes at the top of the dialog at this moment.)
     - 4c. Select the row named `BCPKG2-1-Normal-Main`. Under the dump to file area, click browse and pick somewhere easy to get to, like your Desktop. Dump the file as `BCPKG2-1-Normal-Main.bin`. Click start and wait for it to complete. Again, no keys are necessary at this point. After it finishes, close the window.
     - 4d. Copy the `PRODINFO.bin` and `BCPKG2-1-Normal-Main.bin` files to the `%YUZU_DIR%/sysdata` dir.
-    - 4e. Double-click on the row named `SYSTEM`. In the keys box, enter the `bis_key2_crypt` key in the crypt box and the `bis_key2_tweak` key in the tweak box (both acquired from the QR Code) and click test. If the text is red, double check your keys. If the text is blue, click on `Install` and wait until it says `Driver (ver XXXXX) installed, Service is running` where XXXXX is anything, then select `Y:` in the dropdown and click `Mount`. The application may become unresponsive for a moment. Press Windows-R and type `Y:` into the box and click OK and there will be a couple of folders with some named `Contents` and `save`. Copy all of these into `%YUZU_DIR%/nand/system`. After this is done, click `Unmount` and close the window.
+    - 4e. Double-click on the row named `SYSTEM`. In the keys box, enter the `bis_key2_crypt` key in the crypt box and the `bis_key2_tweak` key in the tweak box and click test. If the text is red, double check your keys. If the text is blue, click on `Install` and wait until it says `Driver (ver XXXXX) installed, Service is running` where XXXXX is anything, then select `Y:` in the dropdown and click `Mount`. The application may become unresponsive for a moment. Press Windows-R and type `Y:` into the box and click OK and there will be a couple of folders with some named `Contents` and `save`. Copy all of these into `%YUZU_DIR%/nand/system`. After this is done, click `Unmount` and close the window.
     - 4f. Double-click on the row named `USER`. Enter the same key. Click `Mount`, and the tool may become unresponsive again. Once this mounts, open the new drive and copy the `Contents` and `save` folders to `%YUZU_DIR%/nand/user`. After, click `Unmount` and close the window and then the program.
     - 4g. If you have games or game data stored on your sd card, copy the `Nintendo` folder of your sd card into `%YUZU_DIR%/sdmc`.
 
