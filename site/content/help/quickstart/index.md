@@ -77,7 +77,7 @@ This process should take about 60 to 90 minutes.
 # Dumping Prod.keys, and Title.keys
 
 2. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
-    - 2a. Extract the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card. Place the `Lockpick.nro` you downloaded earlier from the prerequisites into the `switch` folder of your SD card, and place the `Lockpick_RCM.bin` into the `bootloader/payloads` folder of the SD card. Place the SD card back into your Nintnedo Switch.
+    - 2a. Extract the contents of the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card. Place the `Lockpick.nro`, you downloaded earlier, into the `switch` folder of your SD card, and place the `Lockpick_RCM.bin`, you downloaded earlier, into the `bootloader/payloads` folder of the SD card. Place the SD card back into your Nintnedo Switch.
     - 2b. Boot your Nintendo Switch into RCM mode, and make sure it is connected to your computer.
     - 2c. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the `Hekate` file you downloaded earlier from the prerequisites.
     - 2d. Click on `Inject Payload` to inject the Hekate payload. The Hekate browser will now display on your Nintendo Switch.
@@ -97,7 +97,7 @@ This process should take about 60 to 90 minutes.
 
 # Backing up System Files
 3. We will now boot Hekate to dump your system files:
-    - 3a. Extract the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card, and place the SD card into your Nintendo Switch.
+    - 3a. Extract the contents of the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card, and place the SD card into your Nintendo Switch.
     - 3b. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the Hekate file you downloaded earlier from the prerequisites.
     - 3c. Click on `Inject Payload` to inject the Hekate payload. The Hekate browser will now display on your Nintendo Switch.
     - 3d. Select `Tools`, the wrench icon at the top of the screen, and select `Backup eMMC`. Underneath the `Full` section, click on `eMMC BOOT0 & BOOT1`. This may take a few seconds to load. After it is finished filling the progress bar it should say `Finished and verified!`. Beneath `Filepath:` you will see the location of the dump. 
@@ -119,7 +119,7 @@ This process should take about 60 to 90 minutes.
 # Dumping cartridge games
 
 5. We will now dump the `Cartridge Image (XCI)` files from your game cartridge, to use in yuzu. Insert the game cartridge of your choice.
-    - 5a. Extract the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card.
+    - 5a. Extract the contents of the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card.
     - 5b. Extract the contents of the nxdumptool package you downloaded earlier and place the contents of the Switch folder into the Switch folder of your sd card.
     - 5c. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the Hekate file you downloaded earlier from the prerequisites.
     - 5d. Click on `Inject Payload` to inject the Hekate payload. The Hekate browser will now display on your Nintendo Switch.
