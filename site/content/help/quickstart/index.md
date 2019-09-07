@@ -78,6 +78,8 @@ This process should take about 60 to 90 minutes.
 
 2. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
     - 2a. Extract the contents of the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card. Place the `Lockpick.nro`, you downloaded earlier, into the `switch` folder of your SD card, and place the `Lockpick_RCM.bin`, you downloaded earlier, into the `bootloader/payloads` folder of the SD card. Place the SD card back into your Nintnedo Switch.
+		![SD_Template](./sd_template.png)
+	Your SD card should look like something like this
     - 2b. Boot your Nintendo Switch into RCM mode, and make sure it is connected to your computer.
     - 2c. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the `Hekate` file you downloaded earlier from the prerequisites.
     - 2d. Click on `Inject Payload` to inject the Hekate payload. The Hekate browser will now display on your Nintendo Switch.
