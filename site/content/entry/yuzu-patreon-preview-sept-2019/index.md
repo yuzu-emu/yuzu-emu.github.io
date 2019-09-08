@@ -1,5 +1,5 @@
 +++
-date = "2019-09-09T00:55:00+05:30"
+date = "2019-09-09T01:18:00+05:30"
 title = "yuzu Patreon Preview Release September 2019"
 author = "CaptV0rt3x"
 forum = 144316
@@ -25,11 +25,15 @@ Behind the scenes, our GPU team has been investing a ton of time and talent into
 ### You can download this release on our [Patreon](https://www.patreon.com/yuzuteam)!
 
 As you might expect from the name, this feature increases native resolution through a set of rules enforced by a profile, very similar to other emulators such as Cemu.
-You'll notice an option to `Enable Resolution Scanner` in your graphics settings menu.
+You can select `Profile Scanner (Native)` option in the `Internal Resolution` drop-down list.
 
-- When this option is `ON`, yuzu will continuously learn more about your specific games rendering methods, and will help create a resolution profile for that game.
-- Once a profile is generated or obtained, the user can then select what multiplier they would like to increase their resolution by (2x, 4x, etc - `Auto sizing does not work!`). 
+- When this option is selected, yuzu will continuously learn more about your specific games rendering methods, and will help create a resolution profile for that game.
+- Once a profile is generated or obtained, the user can then select what multiplier they would like to increase their resolution by (2x, 4x, etc).
 
+{{< imgs
+   "./config.png|Configuration Option"
+>}}
+ 
 This of course doesn't come without a few kinks that need to be ironed out.
 For now, some of the dev teams known issues include:
 
@@ -54,7 +58,7 @@ For now, some of the dev teams known issues include:
 
 That's not all that has changed, other notable fixes include:
 
-- sRGB has been fixed. This essentially corrects some games that looked lighter than usual  .
+- sRGB has been fixed. This essentially corrects some games that looked lighter than usual.
 - Viewport and scissor testing have been corrected, which fixes a ton of issues in many different games, most notably in `Hyrule Warriors`.
 
 {{< single-title-imgs
