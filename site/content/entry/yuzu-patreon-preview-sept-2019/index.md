@@ -18,9 +18,6 @@ What is it? Jump right in to find out!
     "./smm2-3.jpg"
 >}}
 
-{{< message "Images take time to load, Please wait patiently.">}}
-{{< / message >}}
-
 We hope everyone had an enjoyable and relaxing summer.
 While you may have noticed a bit of a lull during August, make no mistake that our team was still hard at work!
 Behind the scenes, our GPU team has been investing a ton of time and talent into bringing about this patreon releases' biggest feature: `Resolution Rescaler!`
