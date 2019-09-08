@@ -22,13 +22,14 @@ We hope everyone had an enjoyable and relaxing summer.
 While you may have noticed a bit of a lull during August, make no mistake that our team was still hard at work!
 Behind the scenes, our GPU team has been investing a ton of time and talent into bringing about this patreon releases' biggest feature: `Resolution Rescaler!`
 
-### You can download this release on our [Patreon](https://www.patreon.com/yuzuteam)!
+### You can download this release on our [Patreon](https://www.patreon.com/posts/september-2019-29811265)!
 
 As you might expect from the name, this feature increases native resolution through a set of rules enforced by a profile, very similar to other emulators such as Cemu.
 You can select `Profile Scanner (Native)` option in the `Internal Resolution` drop-down list.
 
 - When this option is selected, yuzu will continuously learn more about your specific games rendering methods, and will help create a resolution profile for that game.
 - Once a profile is generated or obtained, the user can then select what multiplier they would like to increase their resolution by (2x, 4x, etc).
+- You can find these rescaling profiles under `%APPDATA%/yuzu/rescaling/` on Windows and `~/.local/share/yuzu-emu/rescaling/` on Linux, or you can right-click the game on the UI and click on `Open Rescaling Profile`.
 
 {{< imgs
    "./config.png|Configuration Option"
