@@ -4,10 +4,10 @@ layout: "downloads"
 FullWidth: true
 ---
 
-The nightly build of yuzu contains already reviewed and tested features. If you require support with the installation or use of yuzu, or you want to report bugs you should use this version.
-This version is still in development, so expect crashes and bugs.
+Nightly builds are expected to keep maximum accuracy, and therefore, cannot run many commercial titles at the moment. They are mostly useful for development purposes.
 
-The canary build of yuzu is the same as our nightly builds, with additional features that are still waiting on review before making it into the official yuzu builds.
+Canary builds contain code that ignores assertions, and makes games run without having implementations of service commands, GPU shaders, etc. In addition to that, Canary might also have features or fixes that have not yet been merged into Nightly.
 
-If you believe you've found a bug, please retest on our nightly builds.
-This version is still in development, so expect crashes and bugs.
+Both builds are in constant development, so expect crashes and bugs.
+
+Since Nightly is less compatible than Canary, we recommend using Canary builds for regular use and issue reporting.
