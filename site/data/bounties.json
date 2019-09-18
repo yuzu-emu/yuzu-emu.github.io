@@ -37,6 +37,58 @@
     {
         "Developer": null,
         "Status": "Unassigned",
+        "Description": "Be able to boot The Legend of Zelda Link's Awakening.",
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "11-20-2018",
+                "Name": "MelonSpeedruns",
+                "Amount": "$10 USD",
+                "Paid": false
+            }
+            {
+                "DateSubmitted": "09-18-2019",
+                "Name": "Jon S",
+                "Amount": "$20 USD",
+                "Paid": false
+            }
+            {
+                "DateSubmitted": "09-18-2019",
+                "Name": "Tobi",
+                "Amount": "€20 EUR",
+                "Paid": false
+            }
+            {
+                "DateSubmitted": "09-18-2019",
+                "Name": "Eloeri",
+                "Amount": "$50 USD",
+                "Paid": false
+            }
+            {
+                "DateSubmitted": "09-18-2019",
+                "Name": "Bunnei",
+                "Amount": "$100 USD",
+                "Paid": false
+            }
+        ]
+    },
+    {
+        "Developer": null,
+        "Status": "Unassigned",
+        "Description": "Be able to beat the first dungeon of Link's Awakening.",
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "09-18-2019",
+                "Name": "Flame Sage",
+                "Amount": "$50 USD",
+                "Paid": false
+            }
+        ]
+    },
+    {
+        "Developer": null,
+        "Status": "Unassigned",
         "Description": "Fix softlocks in Pokemon Let's Go games.",
         "Response": null,
         "Requestors": [
