@@ -83,6 +83,40 @@
                 "Name": "MelonSpeedruns",
                 "Amount": "$10 USD",
                 "Paid": false
+            },
+            {
+                "DateSubmitted": "09-18-2019",
+                "Name": "jrowboy",
+                "Amount": "$50 USD",
+                "Paid": false
+            }
+        ]
+    },
+    {
+        "Developer": null,
+        "Status": "Unassigned",
+        "Description": "Fixing a major glitch that inhibits gameplay in Link's Awakening, if one should exist.",
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "09-18-2019",
+                "Name": "jroweboy",
+                "Amount": "$50 USD",
+                "Paid": false
+            }
+        ]
+    },
+    {
+        "Developer": null,
+        "Status": "Unassigned",
+        "Description": "Be able to beat The Legend of Zelda Link's Awakening.",
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "09-18-2019",
+                "Name": "jroweboy",
+                "Amount": "$50 USD",
+                "Paid": false
             }
         ]
     },
