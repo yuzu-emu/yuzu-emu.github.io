@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="User Directory &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/wiki/user-directory/" />
+    <meta property="og:description" content="Please note: This page is unfinished and still contains references to the Citra emulator and the Nintendo 3ds! The User Directory yuzu&rsquo;s user directory is where the emulator persists the emulated Switchs NAND, save data, extra data, and a host of other files necessary for yuzu to run properly. The path of the user directory varies on different systems:
+ on Windows, the path is C:/Users/[your-user-name]/AppData/Roaming/yuzu/. Note that the folder AppData is hidden by default, so you need to change the configuration to view it." />
+<meta name="description" content="Please note: This page is unfinished and still contains references to the Citra emulator and the Nintendo 3ds! The User Directory yuzu&rsquo;s user directory is where the emulator persists the emulated Switchs NAND, save data, extra data, and a host of other files necessary for yuzu to run properly. The path of the user directory varies on different systems:
+ on Windows, the path is C:/Users/[your-user-name]/AppData/Roaming/yuzu/. Note that the folder AppData is hidden by default, so you need to change the configuration to view it." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://yuzu-emu.org/logo.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/wiki/user-directory/"> 
+
+    <title>User Directory - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/help/">
+                help
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/home/">
+                dev wiki
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> github
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    <section class="section" style="padding-bottom: 0px;">
+    <div class="container">
+        <article class="message">
+            <div class="message-body">
+                <p>The below wiki article is based on user submitted content. Please verify <strong>all</strong> hyperlinks and terminal commands below!</p>
+                <p>See a mistake? Want to contribute? <a href="https://github.com/yuzu-emu/yuzu/wiki/user-directory/_edit/">Edit this article on Github</a></p>
+            </div>
+        </article>
+    </div>
+</section>
+
+    
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section">
+    <h1 class="title">User Directory</h1>
+    <div class="content">
+        
+
+<h3 id="please-note-this-page-is-unfinished-and-still-contains-references-to-the-citra-emulator-and-the-nintendo-3ds">Please note: This page is unfinished and still contains references to the Citra emulator and the Nintendo 3ds!</h3>
+
+<h2 id="the-user-directory">The User Directory</h2>
+
+<p>yuzu&rsquo;s user directory is where the emulator persists the emulated Switchs NAND, save data, extra data, and a host of other files necessary for yuzu to run properly. The path of the user directory varies on different systems:</p>
+
+<ul>
+<li>on Windows, the path is <code>C:/Users/[your-user-name]/AppData/Roaming/yuzu/</code>. Note that the folder <code>AppData</code> is hidden by default, so you need to change the configuration to view it.
+
+<ul>
+<li>in old version of yuzu, the user directory used to be the <code>user</code> folder in the same directory as the yuzu executable.</li>
+</ul></li>
+<li>on macOS and Linux, the path is <code>~/.local/share/yuzu-emu/</code>. Note that the folder <code>.local</code> is hidden on most machines, so you need to change the configuration to view it. <strong>Additionally, the <code>config</code> folder is located in <code>~/.config/yuzu-emu/</code></strong>.</li>
+</ul>
+
+<p>There are at least three directories within the user directory: <code>config</code>, <code>nand</code>, and <code>sdmc</code>. For users that have dumped the shared fonts from a Switch console, there will also be a <code>sysdata</code> directory. See below for details about each directory and what data is stored within.</p>
+
+<h5 id="diagram-of-yuzu-s-user-directory">Diagram of yuzu&rsquo;s User Directory</h5>
+
+<pre><code>&quot;User directory&quot;
+├── config
+├── nand
+│   ├── 00000000000000000000000000000000 (optional)
+│   └── data
+│       ├── sysdata
+│       └── extdata
+├── sdmc
+│   └── Nintendo
+│       ├── 00000000000000000000000000000000
+│       |   └── 00000000000000000000000000000000
+│       |       ├── title
+│       |       └── extdata
+│       └── Private
+└── sysdata (optional)
+</code></pre>
+
+<h3 id="dumping-files-from-a-switch">Dumping files from a Switch</h3>
+
+<p>Included in this guide are instructions on how to dump various files from a Switch console to put into the yuzu user directory. These files are optional in terms of yuzu&rsquo;s ability to run, but depending on certain circumstances some may be required in order to run a particular game or get past a certain point in the game. In general, dumping files from a Switch will require an SD card reader or some way to use wireless file transfer from a Switch to a computer like the <a href="https://github.com/jakibaki/sys-ftpd">FTP System Module</a> or the <a href="https://github.com/mtheall/ftpd">FTPd Homebrew</a> and that the Switch being dumped from has <a href="https://guide.sdsetup.com">Custom Firmware</a> installed.
+Optionally, more advanced users can use <a href="https://switchtools.sshnuke.net/">HacDiskMount</a> to access a <a href="https://guide.sdsetup.com/#/configuringhekate">NAND Backup</a> instead of accessing the Switch directly.</p>
+
+<p>If the below articles are too wordy, consult the below tutorials for obtaining optional files to improve the yuzu experience:</p>
+
+<ul>
+<li><a href="/wiki/dumping-system-archives-and-the-shared-fonts-from-a-switch-console">Dumping System Archives and the Shared Fonts from a Switch Console</a></li>
+<li><a href="/wiki/dumping-save-data-from-a-switch-console">Dumping Save Data from a Switch Console</a></li>
+</ul>
+
+<hr />
+
+<h3 id="config">config</h3>
+
+<p>This directory contains files containing information that tell yuzu how to run. These files are in plain text and thus are fully editable and contain configurations for mapping controls, which [CPU]] and audio engine to use, rendering and other visual options, the [<a href="/wiki/cpu]]-and-audio-engine-to-use,-rendering-and-other-visual-options,-the-[[log-filters">Log Filters</a>, which region the emulated Switch belongs to, whether to treat the emulated Switch as a new Switch, and whether to insert a virtual SD card into the emulated system.</p>
+
+<p>Changing these files is only to be done by advanced users because making changes at random can cause yuzu not to work as expected or at all. The yuzu executable has options menus that allow users to change most of the aforementioned configurations safely. If yuzu has trouble running after changing a file and the user cannot remember what they changed, delete the configuration files and run the executable again so that they are regenerated automatically (albeit as though yuzu is being run for the first time so any existing configurations are lost).</p>
+
+<h3 id="log">log</h3>
+
+<p>This directory contains <code>yuzu_log.txt</code>. This file is automatically generated by yuzu and stores the logging. It is overwritten every time yuzu is launched.</p>
+
+<h3 id="nand">nand</h3>
+
+<p>This directory is the emulated Switch system NAND. It does not match an actual console&rsquo;s NAND exactly due to differences between yuzu and a physical Switch. This directory will contain the <code>data</code> directory and potentially also the system archives.</p>
+
+<h4 id="data">data</h4>
+
+<p>This directory is automatically generated by yuzu and contains the system and extra data for the emulated NAND. Inside this directory is another directory, <code>00000000000000000000000000000000</code>. On a physical Switch, the directory inside <code>data</code> would be named differently. Its name would be 32 characters long and made of hexadecimal characters (0-9 and A-F) instead of it being all 0&rsquo;s like yuzu. This knowledge is only important if you plan on dumping any NAND system data or extra data from a physical Switch and associating it with yuzu. The <code>00000000000000000000000000000000</code> contains two folders, <code>extdata</code>, containing NAND extra data, and <code>sysdata</code>, containing NAND system save data.</p>
+
+<h5 id="sysdata">sysdata</h5>
+
+<p>System save data is identified by a title ID, separated into TID High, the first 8 characters of the title ID, and TID Low, the last 8 characters of the title ID. Most system save data has a TID high of 00000000. An individual piece of system save data is stored in <code>sysdata/[TID Low]/[TID High]</code>. For details about the different kinds of system save data, see <a href="https://www.3dbrew.org/wiki/System_SaveData">3dbrew</a>. For first-time yuzu users, there may be nothing inside the <code>sysdata</code> directory. In fact this will be the case for most yuzu users, and is nothing to be alarmed about. This data will be created automatically in some cases, such as when a Mii is saved in Mii Maker. Almost none of this data is essential for yuzu to run homebrew games or backups of licensed titles.</p>
+
+<p>There is one notable exception to the last statement. yuzu requires a dump of a physical Switch&rsquo;s config savegame in order to run a small number of games. Follow the instructions located at <a href="/wiki/dumping-config-savegame-from-a-switch-console">Dumping Config Savegame from a Switch Console</a> to obtain the config savegame from a Switch console.</p>
+
+<p>Other system save data aside from the config savegame can be dumped from a Switch console by an expert user and placed in the <code>sysdata</code> folder. At this time, though, many features that read from or write to system save data have not been implemented so there is currently little value in doing so. See <a href="https://discuss.citra-emu.org/d/905-nand-sysdata">this discussion topic</a> for more details about dumping system save data.</p>
+
+<h5 id="extdata">extdata</h5>
+
+<p>NAND extra data always has a TID High of 00048000, so the <code>extdata</code> directory should contain a <code>00048000</code> folder, though it has been observed in yuzu that there may be a <code>00000000</code> folder instead, and users have reported issues if there is both a <code>00000000</code> and <code>00048000</code> folder contained therein, so it is advised to delete the <code>00000000</code> folder if that is the case. Inside the folder may be nothing, or it may contain one or more directories named <code>F000000#</code>, where # can be the characters A-F or the numbers 0-9. Each of these folders corresponds to a TID low, which can be used to identify the type of extra data stored therein. See <a href="https://www.3dbrew.org/wiki/Extdata?section=13#NAND_Shared_Extdata">3dbrew</a> for details about the different kinds of extra data stored in NAND.</p>
+
+<p>At this point in time, it is possible to dump extra data from a physical Switch&rsquo;s NAND using a save manager like <a href="https://github.com/J-D-K/JKSM">JKSM</a> and to place it in the <code>extdata</code> directory, but doing so is entirely optional and yuzu does not currently emulate NAND features that utilize most of this extra data.</p>
+
+<h4 id="system-archives">system archives</h4>
+
+<p>This folder, named <code>00000000000000000000000000000000</code>, will only exist if the system archives have been dumped from a physical Switch. The system archives are required for some games to work with yuzu. To obtain the system archives, follow the instructions located at <a href="/wiki/dumping-system-archives-and-the-shared-fonts-from-a-switch-console">Dumping System Archives and the Shared Fonts from a Switch Console</a>.</p>
+
+<h3 id="sdmc">sdmc</h3>
+
+<p>This directory is the equivalent of the SD card inserted into a physical Switch, which stores game save and extra data and any titles installed to the SD card in encrypted format, though yuzu does not currently emulate installing titles to SD and instead runs decrypted .Switch, .app, and .cxi files directly from the computer&rsquo;s filesystem. Inside the <code>sdmc</code> folder, just like on a real Switch console, is a <code>Nintendo Switch</code> directory, which contains two more directories, <code>Private</code> and <code>00000000000000000000000000000000</code>.</p>
+
+<h4 id="private">Private</h4>
+
+<p>The <code>Private</code> directory on a real Switch contains camera data (in <code>00020400/phtcache.bin</code>) and sound data (in <code>00020500/voice/...</code>). yuzu will create camera data while it is running. If a user wants to copy their camera and sound data to yuzu, they can do so easily by copying the <code>Private</code> folder from their SD card and overwriting yuzu&rsquo;s, but at this time there is no value in doing so.</p>
+
+<h4 id="00000000000000000000000000000000">00000000000000000000000000000000</h4>
+
+<p>This directory contains another directory of the same name, and inside of that is where game saves (in the <code>title</code> directory) and extra data (in the <code>extdata</code> directory) can be found. On a real SD card, there would not be two <code>00000000000000000000000000000000</code> folders, but instead the folders would be named as hexadecimal characters corresponding to a Switch console ID. If a user wishes to extract save or extra data from their physical console, they do not need to worry about the console ID not matching yuzu&rsquo;s <code>00000000000000000000000000000000</code> folders.</p>
+
+<h5 id="title">title</h5>
+
+<p>If any games have been saved while playing them with yuzu, there should be a folder inside <code>sysdata</code> named <code>00040000</code>. This folder contains all of the save data for Switch titles. It is entirely possible to retrieve save data from an SD card using a physical Switch console and import it into yuzu to continue a game where it was last left off on the console. See [Dumping Save Data from a Switch Console]] for instructions. On a real SD card, the <code>sysdata</code> folder will also contain the files required to run any Switch titles installed to the SD card. This can be mimicked somewhat by [<a href="/wiki/dumping-save-data-from-a-switch-console]]-for-instructions.-on-a-real-sd-card,-the-`sysdata`-folder-will-also-contain-the-files-required-to-run-any-switch-titles-installed-to-the-sd-card.-this-can-be-mimicked-somewhat-by-[[dumping-installed-titles">Dumping Installed Titles</a> and importing them into yuzu&rsquo;s <code>sysdata</code> directory but this is unnecessary since yuzu can run them from anywhere on a computer filesystem and doesn&rsquo;t require the accompanying .tmd and .cmd files.</p>
+
+<p>On a real SD card, there may be two other directories inside <code>sysdata</code>. These directories are named <code>0004000e</code> and <code>0004008c</code> and correspond to downloaded game updates and DLC respectively. The data contained within these directories can be backed up on a computer as decrypted CIA files and installed with yuzu (<a href="/wiki/dumping-updates-and-dlcs">Dumping Updates and DLCs</a>). The latest version of GodMode9 is required to redump your DLCs if you do not own all them as it was dumped incorrectly before.</p>
+
+<h5 id="extdata-1">extdata</h5>
+
+<p>This directory contains all of the extra data created when playing Switch game backups. yuzu emulates a console&rsquo;s behavior of reading from and writing to extra data, so this data can be dumped from an SD card using a physical Switch console and imported into yuzu. See <a href="/wiki/dumping-extra-data-from-a-switch-console">Dumping Extra Data from a Switch Console</a> for instructions.</p>
+
+<h5 id="other-folders">other folders</h5>
+
+<p>If a real SD card is compared to yuzu&rsquo;s emulated SD card, yuzu may appear to be missing one or more folders present on the real SD card: <code>dbs</code>, <code>backups</code>, and <code>Nintendo DSiWare</code>. The <code>dbs</code> folder contains a Switch console&rsquo;s title database. The <code>backups</code> folder contains saved data backed up via the Home Menu. The <code>Nintendo DSiWare</code> folder contains exported DSi exports. yuzu does not need any of these folders so there is currently no value in dumping them.</p>
+
+<h3 id="sysdata-1">sysdata</h3>
+
+<p>This directory can contain two files.</p>
+
+<ul>
+<li><p><code>shared_font.bin</code>: this was a legacy system font data dumped from old versions of Switchutils and is no longer supported. If the user does not have shared font installed, yuzu will use the open source font replacement instead. Users should redump their shared font since the open source font replacement may not always look accurate. See <a href="/wiki/dumping-system-archives-and-the-shared-fonts-from-a-switch-console">Dumping System Archives and the Shared Fonts from a Switch Console</a> for more information.</p></li>
+
+<li><p><code>aes_keys.txt</code>: this file is reserved for future use to hold decryption keys.</p></li>
+</ul>
+
+    </div>
+</section>
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2019 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

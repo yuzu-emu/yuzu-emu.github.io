@@ -1,0 +1,17 @@
+## console.keys -- Console Specific Nintendo Switch Keys
+## yuzu assumes that you also have BOOT0, PRODINFO, BCPKG2, fuses, and needed system saves (43, E1, E2).
+## If you don't have all of those components in sysdata, you will need additional keys.
+## Refer to the dumping guide for more details -- you might have missed a step!
+## Each Key is 32 digits in length. If they are 64 digits, then the first 32 are crypt and second 32 are tweak.
+## BIS key 2 and 3 are the same. If they are not, please write down BIS Key 3 as well. 
+
+# Falcon Keys
+tsec_key        = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+# BIS Keys
+bis_key_0_crypt = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+bis_key_0_tweak = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+bis_key_1_crypt = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+bis_key_1_tweak = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+bis_key_2_crypt = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+bis_key_2_tweak = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
