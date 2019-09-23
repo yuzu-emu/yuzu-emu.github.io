@@ -1,6 +1,6 @@
 +++
 title = "Resolution Rescaler"
-description = "How to use the resolution rescaler feature.
+description = "How to use the resolution rescaler feature."
 +++
 
 yuzu has a powerful resolution rescaler allowing for the upscaling of the game's docked and undocked render resolution.
