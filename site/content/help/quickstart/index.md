@@ -77,7 +77,7 @@ This process should take about 60 to 90 minutes.
 # Dumping Prod.keys, and Title.keys
 
 2. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
-    - 2a. Extract the contents of the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card. Place the `Lockpick.nro`, you downloaded earlier, into the `switch` folder of your SD card, and place the `Lockpick_RCM.bin`, you downloaded earlier, into the `bootloader/payloads` folder of the SD card. Place the SD card back into your Nintnedo Switch.
+    - 2a. Extract the contents of the Kosmos package you downloaded earlier from the prerequisites onto the root of your SD card. Place the `Lockpick.nro`, you downloaded earlier, into the `switch` folder of your SD card, and place the `Lockpick_RCM.bin`, you downloaded earlier, into the `bootloader/payloads` folder of the SD card. Place the SD card back into your Nintendo Switch.
 		![SD_Template](./sd_template.png)
 	Your SD card should look like something like this
     - 2b. Boot your Nintendo Switch into RCM mode, and make sure it is connected to your computer.
