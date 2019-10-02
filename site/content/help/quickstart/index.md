@@ -83,8 +83,8 @@ This process should take about 60 to 90 minutes.
     - 2b. Boot your Nintendo Switch into RCM mode, and make sure it is connected to your computer.
     - 2c. Run TegraRCMGui, and in the `Payload` tab of TegraRCMGui, click on the folder icon and navigate to the `Hekate` file you downloaded earlier from the prerequisites.
     - 2d. When you have successfully booted into the Hekate menu, click on `Payloads`. This will show a list of payloads. 
-    - 2e. On the list of payloads to launch, you should see listed `Lockpick_RCM.bin` Click on this. 
-    - 2f. After Lockpick_RCM has successfully booted, Press the power button to select `Dump from SysNAND` 
+    - 2e. Click on `Lockpick_RCM.bin` in the list of payloads. 
+    - 2f. After Lockpick_RCM has successfully booted, Press the power button to select `Dump from SysNAND`. 
     - 2g. It will prompt you to press `VOL+` or `VOL-` to reboot to sept. Do as it says and it will start dumping process. 
     - 2h. After Lockpick_RCM has finished deriving the keys, please make note of the location of the key file. Default is: `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
     - 2i. With both `prod.keys` and `title.keys` dumped from your Nintendo Switch, place them in the `%YUZU_DIR%/keys` directory. 
