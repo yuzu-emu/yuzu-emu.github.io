@@ -6,7 +6,7 @@ forum = 150132
 +++
 
 A very good day to you all ***yuz-ers*** out there! 
-We are currently in the process of merging both the Canary and Nightly versions of yuzu into a single version.<br>
+We are currently in the process of merging both the Canary and Nightly versions of yuzu into a single release channel.
 Jump right in to find out more about this!
 <!--more-->
 ***
@@ -56,9 +56,10 @@ Hence the reorganization.
 </div>
 </article>
 
-We are just reorganizing things internally and it will not have `any` impact for you, as end users.
-With this slight reorganization, instead of multiple branches we will now have a single stable branch.
+We are just reorganizing things internally and it will not have `any` impact for you, as end-users.
+With this slight reorganization, instead of multiple branches, we will now have a single stable branch.
 This will make it easier for new users to use yuzu.
+And with this new release channel, you will still get the same regular `new updates` and `bug fixes` that you've come to expect with the Canary builds.
 
 Also, with the new release channel, we've migrated our CI from `Travis CI & Appveyor CI` to `Azure Dev Ops`.
 `Azure Dev Ops` is a free and reliable service provided by Microsoft.
