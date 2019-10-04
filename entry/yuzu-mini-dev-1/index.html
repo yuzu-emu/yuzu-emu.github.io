@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Mini-Series - Dev Interview #1 &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-mini-dev-1/" />
+    <meta property="og:description" content="Hey there, people!
+This is a new mini-series of dev interviews, with which we sneak a peek into the lives of our developers." />
+<meta name="description" content="Hey there, people!
+This is a new mini-series of dev interviews, with which we sneak a peek into the lives of our developers." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-mini-dev-1/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-mini-dev-1/"> 
+
+    <title>Mini-Series - Dev Interview #1 - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/help/">
+                help
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/home/">
+                dev wiki
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> github
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+<div class="container">
+    <div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-mini-dev-1/banner.png')">
+        <div>
+            <span class="title px-md py-sm has-background-dark">Mini-Series - Dev Interview #1</span>
+        </div>
+        
+        <div class="mt-lg">
+            <span class="h3 px-md py-sm has-background-dark">
+                Written by <a href="https://community.citra-emu.org/users/CaptV0rt3x">CaptV0rt3x</a> 
+                on June 16 2019
+            </span> 
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <p>Hey there, people!
+This is a new mini-series of dev interviews, with which we sneak a peek into the lives of our developers.</p>
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Disclaimer</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        This mini-series has already been underway for our Patreon supporters and we realized that you all deserve this too. So, here it is. Enjoy.
+    </div>
+</article>
+
+
+<p>We already know and I guess most of you would agree, when we say our devs are awesome!
+They are modern day wizards and the work they do is nothing short of magic.
+But as they don&rsquo;t interact much with normal users, you guys might not know much about them.
+This needs to change and we are here to fix that!</p>
+
+<p>So to start off this new mini-series, let&rsquo;s interview - <strong><em>The Silent Guardian, The Watchful Protector, and The Amazing - Lioncache!!</em></strong></p>
+
+<p><img src="./lion.png" alt="Lioncache" /></p>
+
+<p><a href="https://github.com/lioncash/">Lioncache</a> has been in the emulation scene for ages.
+You may also know him from the Nintendo GameCube/Wii emulator <a href="https://dolphin-emu.org/">Dolphin</a>, as he is one of the core maintainers there as well!
+<a href="https://github.com/lioncash/">Lioncache</a> has also worked on other emulators like <a href="https://citra-emu.org/">Citra</a>, and even dabbling with Commodore 64 emulation!
+We managed to pull him away from programming for a few minutes so that he could sit down and talk with us.</p>
+
+<hr />
+
+<p><strong>Q: Hi Lioncache! Could you tell our audience a little bit about yourself?</strong></p>
+
+<p><strong>L:</strong> Heya! I&rsquo;m Lioncache. I&rsquo;m some rando Canadian that likes working on system emulators because I find them fun.</p>
+
+<p><strong>Q: So what got you into emulation in the first place?</strong></p>
+
+<p><strong>L:</strong> Honestly, it just looked fun.
+CPU&rsquo;s are really cool (when they&rsquo;re not being silly) and reverse engineering looked cool (turns out, it really is).
+You genuinely learn quite a bit about software and hardware by working on emulation-related things.
+It also helps out with one of the many facets of game preservation, which is always nice.</p>
+
+<p><strong>Q: Speaking of game preservation, why is that so important to you?</strong></p>
+
+<p><strong>L:</strong> It&rsquo;s important mainly because without external preservation, there&rsquo;s no guarantee that certain games will always be available.
+Companies aim to turn a profit from backwards compatibility when they re-release older games from previous consoles on newer hardware.</p>
+
+<p>Businesses generally aim to strive for a profit (welcome to Econ-101, y&rsquo;all).
+So what this usually means is that only the most popular games with a sizable demand will generally have official re-releases considered for them.
+I may not totally agree with that, but it&rsquo;s generally the way things are.
+This is generally, why you&rsquo;ll see re-releases of Mario games, Legend of Zelda, etc, but certain other games will, &ldquo;fall through the cracks of time&rdquo;.</p>
+
+<p>For example, consider <code>Marvelous: Mōhitotsu no Takarajima</code> for the SNES.
+This is a fantastic RPG released in 1996, which was directed by <code>Eiji Aonuma</code> (who went on to become the series producer for <code>The Legend of Zelda</code>).
+The game itself reused the engine that was made for <code>The Legend of Zelda: A Link to the Past</code>.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./marv_1.png" title="">
+                <img src="./marv_1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./marv_2.png" title="">
+                <img src="./marv_2.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./marv_3.png" title="">
+                <img src="./marv_3.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Marvelous: Mōhitotsu no Takarajima (SNES)</p>
+
+
+
+<p>So, much of the movement and characteristics are similar but it also had its own unique party system and other things that made it it&rsquo;s own distinct game, and it was really fun to play.
+To my knowledge, it hasn&rsquo;t had a re-release in any capacity, nor was it ever localized.
+However in 2016 an English fan translation of the game was released, making the game accessible to the English-speaking community.</p>
+
+<p>Another popular game, which is kind of infamous for not actually being localized and released in North America or Europe during the era of the GameBoy Advance was <code>Mother 3</code>.
+Plans were initially made to localize it, but it never occurred&ndash;plans fell through.
+This too, also had an English fan translation made for it.
+Which would have been difficult, had the game not been preserved in some form.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./m3_1.png" title="">
+                <img src="./m3_1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./m3_2.png" title="">
+                <img src="./m3_2.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./m3_3.png" title="">
+                <img src="./m3_3.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Mother 3 (GBA)</p>
+
+
+
+<p>When you have preserved games (in any capacity), along with emulators, it allows potentially doing more with that game.
+Consider the scenario where all known cartridges of the game have bit rotten to the degree that they&rsquo;re no longer playable: the game would be considered lost (as far as the public is concerned).</p>
+
+<p>No one would be able to experience that game, no one would have been able to start a fan translation and made such a great game accessible to those that know English, but not Japanese.
+Preservation makes sure that the effort people put into making a game is not lost, while allowing being transformative with the game itself.
+It prevents an experience from completely vanishing.</p>
+
+<p>Game preservation also acts as a secondary backup in the event the actual owning body of the game screws up.
+Companies, development teams, anything with a human (or other animal :P) is prone to making mistakes.
+Without other people preserving those games, you essentially have a single-point of failure.
+No preserved dumps of the game, no emulators, and someone accidentally deletes the source code for said game? Gone.
+Forever (unless it&rsquo;s completely remade).
+This is why I find game preservation and archiving important.</p>
+
+<p><strong>Q: This is some really great insight and we appreciate you sharing with us! Well let&rsquo;s get into the meat and potatoes. Can you tell us what you&rsquo;ve been working on for yuzu?</strong></p>
+
+<p><strong>L:</strong> I mostly bounce all over the place because I prefer staging all my changes as their own PR, so I usually end up waiting on stuff to be merged, so I have a few areas I work on stuff:</p>
+
+<h4 id="display">Display</h4>
+
+<p>You&rsquo;ve probably seen me breaking out stuff into classes and reorganizing things there.
+That&rsquo;s all the busywork before I can actually start implementing things.</p>
+
+<p>These are the main display services and what they do:</p>
+
+<ul>
+<li><code>vi:u</code>: the application level display services—this is what general applications (as the name suggests) will access for basic display stuff.</li>
+<li><code>vi:m</code>: the manager level services—this is what something running in the background, like a compositor, would use. It can fiddle around with display layers and stuff. This service has the most access to everything out of all vi: services. It has no restrictions.</li>
+<li><code>vi:s</code>: the system level services—this is used by, well, the system. This service is like vi:u, except it can also retrieve info about various things related to the display.</li>
+</ul>
+
+<p>Handling this stuff properly would be nice, since we can properly see how games are trying to interact with displays in a nicer manner.</p>
+
+<h4 id="audio">Audio</h4>
+
+<p>Inputs go in, bangin&rsquo; tunes come out.
+We need more of the &ldquo;bangin&rsquo; tunes&rdquo; portion.
+So basically I just try to implement things that make audio-related functionality work much nicer.</p>
+
+<h4 id="cpu">CPU</h4>
+
+<p>Our recompiler, dynarmic, isn&rsquo;t complete.
+The 64-bit side of things almost is, but it&rsquo;s not totally complete.
+We&rsquo;re missing some instructions, but they&rsquo;re instructions where it doesn&rsquo;t really make sense to use them from a performance standpoint if you&rsquo;re a game dev.
+So most of the time users of yuzu don&rsquo;t need to care about it.
+However, until we implement all of them, we can&rsquo;t kick our interpreter library (unicorn) into the sun.
+So over time I&rsquo;ll be working on that.
+We also still need to support 32-bit games, that&rsquo;ll come after the 64-bit side of things is all done.</p>
+
+<h4 id="kernel">Kernel</h4>
+
+<p>We don&rsquo;t implement everything the kernel is able to do, so this is quite a large area all on its own.
+It&rsquo;s also one of the most fundamental parts of Switch emulation, given it drives almost everything else in the emulator in terms of backing functionality (emulated processes, threads, memory mappings, etc).
+There&rsquo;s no real specific part of the kernel that I focus on.</p>
+
+<p>It&rsquo;s more of a cascading effect when working on it:
+<code>Oh, so I make [x] work right, then, with that in place, I can follow up with making [y] work properly.</code>, etc.</p>
+
+<p><strong>Q: Phew, is that all you do? Just kidding! Do you ever find time to eat during all of this?</strong></p>
+
+<p><strong>L:</strong> Hit me with that phat spicy Japanese food any day or any spicy food in general.</p>
+
+<hr />
+
+<p>Big thanks to <a href="https://github.com/lioncash/">Lioncache</a>, for sitting with us for this interview and also to special thanks to Jon S. for being the interviewer.
+We hope you guys enjoyed it, and we will be back soon with another featured Yuzu dev to bring you guys behind the curtain again.
+Until then, thank you for your support and stay tuned!</p>
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, checkout our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/117857">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2019 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

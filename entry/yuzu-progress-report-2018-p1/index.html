@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Progress Report 2018 Part 1 &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1/" />
+    <meta property="og:description" content="It&rsquo;s been a bumpy ride. We have had lots of stuff happen to yuzu and we are excited to share that
+with you. Let&rsquo;s get started!" />
+<meta name="description" content="It&rsquo;s been a bumpy ride. We have had lots of stuff happen to yuzu and we are excited to share that
+with you. Let&rsquo;s get started!" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1/"> 
+
+    <title>Progress Report 2018 Part 1 - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/help/">
+                help
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/home/">
+                dev wiki
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> github
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+<div class="container">
+    <div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1/banner.png')">
+        <div>
+            <span class="title px-md py-sm has-background-dark">Progress Report 2018 Part 1</span>
+        </div>
+        
+        <div class="mt-lg">
+            <span class="h3 px-md py-sm has-background-dark">
+                Written by <a href="https://community.citra-emu.org/users/CaptV0rt3x">CaptV0rt3x</a> 
+                on July 14 2018
+            </span> 
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <p>It&rsquo;s been a bumpy ride. We have had lots of stuff happen to yuzu and we are excited to share that
+with you. Let&rsquo;s get started!</p>
+
+<p>After months of research and countless hours of coding, the developers who gave you <a href="https://citra-emu.org">Citra</a>,
+an emulator for the Nintendo 3DS, now bring to you yuzu – an experimental emulator for the Nintendo
+Switch. yuzu is based off of Citra&rsquo;s code, with many changes tailored towards the Switch made. It
+gives me great pleasure to welcome you all into the world of yuzu.</p>
+
+<h2 id="backstory">Backstory</h2>
+
+<p>The Switch is the 7<sup>th</sup> major video game console from Nintendo. As the Wii U had struggled
+to gain external support, leaving it with a weak software library, Nintendo opted to use more standard
+electronic components to make development for the console easier.</p>
+
+<p><a href="https://github.com/bunnei">bunnei</a>, the lead developer of Citra, saw that the Switch hacking scene
+was very active and that there were signs of the Switch&rsquo;s operating system, called <em>Horizon</em>, being
+based on the 3DS&rsquo;s operating system. The Switch hacking communities (<a href="https://reswitched.tech/">ReSwitched</a>
+and <a href="http://switchbrew.org">Switchbrew</a>) had many people working on hacking and documenting the system.
+Being <em>a huge Nintendo fan</em>, bunnei was very excited at the prospect of an emulator for Switch. Using
+the available documentation, he worked on yuzu privately for a few months before other Citra developers
+joined him. They made some progress and finally went public on 14 January, 2018.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./homebrew.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Before (Colors are wrong)</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./homebrew_work.jpg" title="After (fixed)">
+                <img src="./homebrew_work.jpg" alt="After (fixed)">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">After (fixed)</p>
+        
+    </div>
+    
+</div>
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./homebrew_game.png" title="Very first homebrew on yuzu, Space Game !!">
+                <img src="./homebrew_game.png" alt="Very first homebrew on yuzu, Space Game !!">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Very first homebrew on yuzu, Space Game !!</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="baby-steps">Baby Steps</h2>
+
+<p>yuzu shares the same common and core code, with much of the same OS (operating system) HLE, with Citra
+(as both OSs are similar). For the uninitiated, with HLE (high level emulation), parts of the OS are
+re-implemented in the emulator, which the emulated game can call directly. This contrasts with low-level
+emulation (LLE), where the hardware is emulated, and the real OS bits are run within the emulator.
+Initially, bunnei worked hard to get the Citra code base working for Switch emulation. He updated the
+core emulation and Citra&rsquo;s memory management to work with 64-bit addresses (as Citra emulates 32-bit
+apps), did lots of OS HLE, added a loader for the Switch games/homebrew, and integrated <a href="http://www.unicorn-engine.org/">Unicorn</a>
+into yuzu for CPU emulation. Unicorn was chosen at that time and not <a href="https://github.com/MerryMage/dynarmic">Dynarmic</a>
+(which is used in Citra) because the Switch has an ARMv8 CPU (64-bit) and dynarmic only had support
+for ARMv6 at that time. He got some basic SVC (Supervisor Call) implementation hooked up to begin
+booting some homebrew applications and very simple games. At this time, there was no graphical output
+yet.</p>
+
+<p>Later, <a href="https://github.com/Subv">Subv</a>, another Citra veteran, joined him and together they both got
+framebuffer rendering support for basic homebrew. It was at this point that yuzu was announced publicly
+and went open-source. As the project became open-source, many developers and reverse engineers joined
+the team and as of today, yuzu is able to run 12 games. This fast paced progress is a result of the
+highly active Switch hacking scene. When bunnei first started Citra (in 2014), the 3DS was already
+3 years old, homebrew was barely starting to happen, and game dumps were still encrypted. Contrary
+to this, Switch has a much more active hacking scene, much earlier on in the console&rsquo;s life-cycle
+(few months). It is believed that, fueled by the successes with 3DS hacking, a lot of the same teams
+and people have started working on the Switch hacking as well.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./puyo_boot.png" title="First game rendering triangles (actually SEGA logo) !!">
+                <img src="./puyo_boot.png" alt="First game rendering triangles (actually SEGA logo) !!">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">First game rendering triangles (actually SEGA logo) !!</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="pit-crew-their-efforts-so-far">Pit Crew &amp; Their Efforts So Far</h2>
+
+<p><strong><em>Rivalry of scholars advances wisdom</em></strong>. This proverb is highly accurate in terms of emulators. The
+clash of knowledge between peers helps mutual growth. During its early days, Citra had a peer too,
+<a href="https://github.com/plutooo/3dmoo">3dmoo</a>. In the case of Switch emulation, we have <a href="https://github.com/gdkchan/Ryujinx">Ryujinx</a>.
+Our developers have worked with <a href="https://github.com/gdkchan">gdkchan</a> (the main developer of Ryujinx) on
+reverse engineering (RE), figuring out how games work, and how the Switch GPU works.</p>
+
+<p>Subv worked on initial framebuffer rendering support, and then went on to do lots of OS reverse
+engineering and bug fixes. Lately, bunnei and him have been working on GPU emulation. <a href="https://github.com/ogniK5377">ogniK</a>
+(from the <a href="https://reswitched.tech/">ReSwitched</a> team) also joined us and is one of our RE experts.
+He has done a lot of Switch OS RE, which helps us to get yuzu booting games further. He has contributed
+a lot, mostly in audio, kernel, and services.</p>
+
+<p><a href="https://github.com/shinyquagsire">shinyquagsire</a>, another Citra developer, came forward and implemented
+user input and various other things. <a href="https://github.com/lioncash">Lioncash</a> and <a href="https://github.com/merrymage">MerryMage</a>
+worked tirelessly on adding ARMv8 support to dynarmic, and thanks to their efforts we are now using
+<a href="https://github.com/MerryMage/dynarmic">dynarmic</a> for CPU emulation. Apart from these people, there
+are more than a dozen contributors for yuzu who have worked on minor things. It&rsquo;s because of their
+invaluable efforts that yuzu now proudly boasts it&rsquo;s ability to boot several commercial games like ARMS,
+Splatoon 2, One Piece Unlimited Red Deluxe, Cave Story+, and many more. As of now, a few games are
+actually playable on yuzu – Binding of Isaac, Sonic Mania, Stardew Valley, etc.</p>
+
+<h2 id="reverse-engineering-re">Reverse Engineering (RE)</h2>
+
+<p>The RE process of yuzu is very similar to that of Citra. We collaborate with the hacking communities,
+for documenting the workings of Switch and do some RE ourselves as well. It&rsquo;s a mix of learning and
+implementing things ourselves, using community documentation to validate or guide our process. The
+fact that the Switch is based on off-the-shelf Tegra SoC does not necessarily make the process easier,
+because, similar to the PICA200 (3DS GPU), the Maxwell GPU architecture isn&rsquo;t publicly documented.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./setup.jpg" title="ogniK&#39;s janky RE setup">
+                <img src="./setup.jpg" alt="ogniK&#39;s janky RE setup">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">ogniK&#39;s janky RE setup</p>
+        
+    </div>
+    
+</div>
+
+
+<p>That said, there are more resources and non-Switch related projects (<a href="https://nouveau.freedesktop.org/wiki/">Nouveau</a>,
+<a href="https://github.com/envytools/envytools">envytools</a>, etc.) that we can use. Switch&rsquo;s GPU is many times
+more advanced/powerful than 3DS&rsquo;, and so are the challenges in its RE. RE on the OS HLE side of things
+has otherwise been the same and is moving at the same pace. We currently have a graphics renderer,
+based off of Citra&rsquo;s graphics renderer, which uses OpenGL 4.1.</p>
+
+<p>Mind you, yuzu is at a very young stage in its development. As such, any progress we make would be
+only possible if we have a proper direction. Right now, most of our development is being done in a
+trial-and-error manner. Simply put, we are working on making games boot and then we fix our implementations
+based on further RE and any other new found info.</p>
+
+<h2 id="os-emulation">OS emulation</h2>
+
+<p>The Switch&rsquo;s OS (operating system), called Horizon, is based on the 3DS&rsquo;s OS. This was a silver lining,
+as it meant that Citra&rsquo;s OS HLE code could be largely reused. A point to remember, is that both Citra
+and yuzu are high level emulators. In both of these, we are trying to implement the software rather
+than the hardware of the consoles.</p>
+
+<p>As an emulator, the first necessity in yuzu would be to load the Switch game dumps. So, bunnei started
+working on a loader and file system service for yuzu. Citra&rsquo;s loader and file system frameworks were
+reused and modified heavily to support Switch game dump files (<a href="https://github.com/yuzu-emu/yuzu/pull/123">here</a>).
+Further fixes and improvements to the loader were done by <a href="https://github.com/ogniK5377">ogniK</a>,
+<a href="https://github.com/Rozelette">Rozelette</a>, <a href="https://github.com/gdkchan">gdkchan</a>, and
+<a href="https://github.com/shinyquagsire">shinyquagsire</a>.</p>
+
+<p>Next, we would need a way for games to read or load save data. Subv believed that the save data in
+the Switch has a similar behavior as the save data in the 3DS. He implemented the file system and save
+data behaviors, which allowed games to read and write files to the save data directory
+(<a href="https://github.com/yuzu-emu/yuzu/pull/216">here</a>). This implementation allowed us to boot further
+in &ldquo;Puyo Puyo Tetris&rdquo; and &ldquo;Cave Story&rdquo;.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./cavestory_boot.png" title="First boot - Cave Story&#43;">
+                <img src="./cavestory_boot.png" alt="First boot - Cave Story&#43;">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">First boot - Cave Story&#43;</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./cavestory_work.png" title="Now - Cave Story&#43;">
+                <img src="./cavestory_work.png" alt="Now - Cave Story&#43;">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Now - Cave Story&#43;</p>
+        
+    </div>
+    
+</div>
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./tetris.png" title="First boot - Puyo Puyo Tetris">
+                <img src="./tetris.png" alt="First boot - Puyo Puyo Tetris">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">First boot - Puyo Puyo Tetris</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./tetris_work.png" title="Now - Puyo Puyo Tetris">
+                <img src="./tetris_work.png" alt="Now - Puyo Puyo Tetris">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Now - Puyo Puyo Tetris</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Often, the best way to debug or RE any functionality is to use homebrew. For the uninitiated, homebrew
+is a popular term used for applications that are created and executed on a video game console by hackers,
+programmers, developers, and consumers. The good folks at Switchbrew created <code>libnx</code>, a userland library
+to write homebrew apps for the Nintendo Switch. To support homebrew apps, written using libnx, our
+developers bunnei and shinyquagsire made various fixes and finally yuzu now supports loading libnx apps.</p>
+
+<p>The Switch&rsquo;s OS uses a lot of &lsquo;services&rsquo; to provide the games with functionality which allows it to do
+things like getting user input, audio output, graphics output, etc. However since the Switch hasn&rsquo;t
+been completely reverse engineered, we still don&rsquo;t know how to implement some of these services.
+Currently, some service calls, which we are fairly confident can be ignored, are being stubbed. Stubbing
+means that these services return <code>ok</code> with no errors, so that the games think that the function
+succeeded and it can continue on without getting back any valid data. As the games boot further and
+further, we need to start intercepting these function calls and provide a more meaningful response.</p>
+
+<p>Switch IPC (Inter-process communication) is how the OS communicates between the various services running.
+This was much more robust and complicated than the 3DS&rsquo;s, for a lot of reasons. First of all, it does
+lot more validation on responses. This means that both our service HLEs or stubs need to have the
+responses be exactly what it expects with exactly right number of output parameters at right offsets,
+results have to be at right offsets, data needs to be at right offsets, and a couple of other magic
+fields need to be present.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./stardew.png" title="First boot - Stardew Valley">
+                <img src="./stardew.png" alt="First boot - Stardew Valley">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">First boot - Stardew Valley</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./stardew_2.png" title="in-game - bugs">
+                <img src="./stardew_2.png" alt="in-game - bugs">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">in-game - bugs</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./stardew_work.png" title="Now - Stardew Valley">
+                <img src="./stardew_work.png" alt="Now - Stardew Valley">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Now - Stardew Valley</p>
+        
+    </div>
+    
+</div>
+
+
+<p>In addition to this, we have a couple of different command modes, a typical IPC request response, and
+something called a <em>Domain</em>. Once a IPC session is opened to a service, the game can use this command
+to turn that session into what&rsquo;s called a Domain. This is a more efficient way to do lots of service
+calls. Our implementations were mostly iterations of learning how the IPC worked and implementing it.
+After facing many issues and fixing them, we finally got things working. We then wrote a wrapper code
+around this, which allows us to implement service functions without needing intricate knowledge of
+how the IPC system works.</p>
+
+<p>A lot of our work is based on background research the ReSwitched team did with their Switch
+debug emulators, <a href="https://github.com/reswitched/CageTheUnicorn">CageTheUnicorn</a> (python) and <a href="https://github.com/reswitched/mephisto">Mephisto</a>(C-lang).
+These emulators were designed for debugging and they implemented the Switch IPC and did most of the
+work to figure that out. We thank the ReSwitched team for CageTheUnicorn and Mephisto, and a special
+thanks to <a href="https://github.com/daeken">daeken</a> and <a href="https://github.com/misson20000">misson20000</a>, for
+without their help with reverse engineering and bug fixing along the way, we wouldn&rsquo;t have gotten as
+far as we have.</p>
+
+<p>The Nvidia services configure the video driver to get the graphics output. Nintendo re-purposed the
+Android graphics stack and used it in the Switch for rendering. We had to implement this even to get
+homebrew applications to display graphics. The Switch is very different from older systems, where we
+could find a physical or virtual address of the framebuffer in memory and start writing to it to get
+quick output. Here, we actually have to configure the OS to create a render surface and we can start
+writing to it. Even the simplest homebrew had to implement this graphics layering for rendering. Subv
+did most of the work to get the initial framebuffer working.</p>
+
+<p>Coming to Kernel OS threading, scheduling, and synchronization fixes, most of the OS HLE for yuzu was
+ported from Citra&rsquo;s OS implementation. As the Switch RE progressed and we learned things, we made
+multiple fixes to yuzu&rsquo;s OS implementation. The Switch&rsquo;s scheduler is almost identical (if not
+identical) to the 3DS&rsquo;s. We had to make several changes to support Switch&rsquo;s different synchronization
+primitives but the rest if it (thus far) has been very similar and has used a similar SVC interface.
+Hence we&rsquo;ve reused Citra&rsquo;s code here as well.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./1-2-switch.png" title="First boot - 1-2-Switch">
+                <img src="./1-2-switch.png" alt="First boot - 1-2-Switch">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">First boot - 1-2-Switch</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./1-2-switch_jap.png" title="Wrong Language">
+                <img src="./1-2-switch_jap.png" alt="Wrong Language">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Wrong Language</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./1-2-switch_work.png" title="Now - 1-2-Switch">
+                <img src="./1-2-switch_work.png" alt="Now - 1-2-Switch">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Now - 1-2-Switch</p>
+        
+    </div>
+    
+</div>
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./boi_2.png" title="First boot - The Binding of Issac">
+                <img src="./boi_2.png" alt="First boot - The Binding of Issac">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">First boot - The Binding of Issac</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./boi.png" title="in-game - first renders">
+                <img src="./boi.png" alt="in-game - first renders">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">in-game - first renders</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./boi_work.png" title="Now - The Binding of Issac">
+                <img src="./boi_work.png" alt="Now - The Binding of Issac">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Now - The Binding of Issac</p>
+        
+    </div>
+    
+</div>
+
+
+<p>As we now have some games booting, the next step along the line would be adding HID (user input support).
+<a href="https://github.com/shinyquagsire">shinyquagsire</a> worked on getting initial HID support and made further
+fixes along the way. HID services maps some shared memory region to which the games can read to, get
+user input state and gamepad input writes to this. yuzu now supports handheld inputs with analog sticks
+and buttons. We still have a lot to implement in HID, like support for all 9 controllers, rumble, LEDs,
+layouts etc., and its going to take a bit of additional work to get it all implemented. As much of
+this has already been RE&rsquo;d, this is a great place for new developers to make contributions!</p>
+
+<p>Currently Audio HLE is in progress, but we do not support audio playback (<em>yet!</em>). <a href="https://github.com/ogniK5377">ogniK</a>
+did a lot of reverse engineering on the <code>AudRen</code> service (Audio renderer) which most games use for
+audio output. There is another service called <code>AudOut</code> service, which homebrew and a few games use
+for audio output. It&rsquo;s a much simpler service and the homebrew community figured this out. We haven&rsquo;t
+implemented this as not many games use this. ogniK did most of the work on <code>AudRen</code> service and he
+pretty much figured out how it works. This is a major breakthrough as most complicated games we have
+seen so far were getting stuck, either hanging or deadlocking because they were waiting for proper
+<code>AudRen</code> state to be set. ogniK&rsquo;s work on this helped us go further in a few other games.</p>
+
+<p>Apart from the work mentioned above, we have also had minor fixes which helped us boot further in
+games like Super Mario Odyssey, 1-2-Switch, and The Binding of Issac.</p>
+
+<p><strong><em>Check out the next part of this report <a href="https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1-2">here</a></em></strong></p>
+
+<h3 align="center">
+<b><a href="https://github.com/yuzu-emu/yuzu/">Contributions are always welcome !</a></b>
+</h3>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/33660">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2019 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>
