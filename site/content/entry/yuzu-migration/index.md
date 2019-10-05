@@ -1,11 +1,11 @@
 +++
-date = "2019-10-04T23:51:00+05:30"
+date = "2019-10-05T08:53:00+05:30"
 title = "yuzu - The Migration"
 author = "CaptV0rt3x"
 forum = 150132
 +++
 
-A very good day to you all ***yuz-ers*** out there! 
+A very good day to all the ***yuz-ers*** out there! 
 We are currently in the process of merging both the Canary and Nightly versions of yuzu into a single release channel.
 Jump right in to find out more about this!
 <!--more-->
@@ -15,13 +15,13 @@ Jump right in to find out more about this!
 
 <article class="message">
 <div class="message-header is-dropdown">
-<p>We are merging yuzu nightly and yuzu canary releases into a single "yuzu" release!</p>
+<p>We are merging yuzu Nightly and yuzu Canary releases into a single "yuzu" release!</p>
 </div>
 </article>
 
 Don't fret, we are just doing some reorganization to make things easier for both the users and the developers.
-Today marks the retirement of both yuzu nightly and yuzu canary release channels.
-From tomorrow, yuzu will have only a single release channel, dubbed just "yuzu".
+Today marks the retirement of both yuzu Nightly and yuzu Canary release channels.
+From tomorrow, yuzu will have only a single release channel, simply dubbed "yuzu".
 
 Most of you might be thinking, "why are they doing this?" or "what does this mean for the users?".
 Let's go back in time for a bit to understand the "why?" part.
@@ -38,11 +38,11 @@ This allowed us to understand what functionality we were missing and which games
 
 The philosophy behind the nightly channel was to have a release channel with asserts enabled, so that the developers keep getting data on what games were missing what functionality.
 But having yuzu assert and crash while playing a game rendered it unusable for normal users.
-To overcome this, we decided to release the canary builds with a specific `IGNORE ASSERTS` code included.
+To overcome this, we decided to release the canary builds with specific `IGNORE ASSERTS` code included.
 
 This made yuzu ignore all those assertions and allowed normal users to test or play games on it.
 But as yuzu progressed further, the canary builds gained increased popularity among the users as the nightly builds were absolutely unusable.
-Because of this the developers too had to concentrate more on the canary builds, so that they could get users to test their code and thus improve yuzu.
+As a result, the developers had to concentrate more on the canary builds, so that they could get users to test their code and thus improve yuzu.
 
 As we were making good progress in reducing the assertions, the nightly release branch no longer had anything to offer to the developers or the users.
 It was also redundant to have two `stable` release channels for the same codebase.
@@ -58,12 +58,11 @@ Hence the reorganization.
 
 We are just reorganizing things internally and it will not have `any` impact for you, as end-users.
 With this slight reorganization, instead of multiple branches, we will now have a single stable branch.
-This will make it easier for new users to use yuzu.
-And with this new release channel, you will still get the same regular `new updates` and `bug fixes` that you've come to expect with the Canary builds.
+This will make it easier for new users to use yuzu, and with this new release channel, you will still get the same regular `new updates` and `bug fixes` that you've come to expect with the Canary builds.
 
-Also, with the new release channel, we've migrated our CI from `Travis CI & Appveyor CI` to `Azure Dev Ops`.
+With the new release channel, we've migrated our CI from `Travis CI` & `Appveyor CI` to `Azure Dev Ops`.
 `Azure Dev Ops` is a free and reliable service provided by Microsoft.
-That means things like uptime and support are much better than `Travis or Appveyor`.
+That means things like uptime and support are much better than `Travis` or `Appveyor`.
 It is a single service which can generate builds for all of our platforms, which we didn't have before.
 We also get more dedicated resources and therefore builds are generated much faster with Azure.
 
