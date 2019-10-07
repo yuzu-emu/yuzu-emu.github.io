@@ -66,7 +66,7 @@ That means things like uptime and support are much better than `Travis` or `Appv
 It is a single service which can generate builds for all of our platforms, which we didn't have before.
 We also get more dedicated resources and therefore builds are generated much faster with Azure.
 
-Starting today, users will be able to get the new and improved yuzu builds via the installer from our [website](https://yuzu-emu.org/download/) or our [GitHub](https://github.com/yuzu-emu/yuzu-mainline/releases/).
+Starting today, users will be able to get the new and improved yuzu builds via the installer from our [website](https://yuzu-emu.org/downloads/) or our [GitHub](https://github.com/yuzu-emu/yuzu-mainline/releases/).
 And if you are already using our installer, you will be automatically migrated to the latest yuzu build.
 
 {{< imgs
