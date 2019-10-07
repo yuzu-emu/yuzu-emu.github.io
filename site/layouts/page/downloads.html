@@ -18,9 +18,8 @@
 
         <article class="message has-text-weight-semibold">
             <div class="message-body">
-                <p>Note: Mac OS is no longer supported due to Apple deprecating OpenGL
-                  and their current version not supporting the OpenGL extensions we require.</p>
-                <a href="https://www.anandtech.com/show/12894/apple-deprecates-opengl-across-all-oses">Source</a>
+                <p>We recently have merged Nightly and Canary into a single release.</p>
+                <a href="https://yuzu-emu.org/entry/yuzu-migration/">Read our blog post</a>
             </div>
         </article>
 </section>
@@ -76,41 +75,23 @@
             </div>
         </div>
         <div class="columns" id="manual-package-view">
-            <!-- Nightly -->
+            <!-- Mainline -->
             <div class="column">
-                <h3>Nightly Build
+                <h3>Builds
                     <span style='font-size: smaller; margin-left: 6px;'>
                         Last release was
-                        <span id='last-updated-nightly'></span>
+                        <span id='last-updated-mainline'></span>
                     </span>
                 </h3>
 
-                <div id="downloads-nightly">
+                <div id="downloads-mainline">
                 </div>
 
-                <div id="unavailable-nightly" class="is-hidden">There was a problem checking GitHub. Click the link below to view them directly.</div>
+                <div id="unavailable-mainline" class="is-hidden">There was a problem checking GitHub. Click the link below to view them directly.</div>
                 <br />
 
                 <div class="has-text-centered">
-                    <a href="https://github.com/yuzu-emu/yuzu-nightly/releases">Click here to view previous versions...</a>
-                </div>
-            </div>
-            <div class="column">
-                <h3>Canary Build
-                    <span style='font-size: smaller; margin-left: 6px;'>
-                        Last release was
-                        <span id='last-updated-canary'></span>
-                    </span>
-                </h3>
-
-                <div id="downloads-canary">
-                </div>
-
-                <div id="unavailable-canary" class="is-hidden">There was a problem checking GitHub. Click the link below to view them directly.</div>
-                <br />
-
-                <div class="has-text-centered">
-                    <a href="https://github.com/yuzu-emu/yuzu-canary/releases">Click here to view previous versions...</a>
+                    <a href="https://github.com/yuzu-emu/yuzu-mainline/releases">Click here to view previous versions...</a>
                 </div>
             </div>
         </div>
@@ -121,8 +102,7 @@
 {{ define "scripts" }}
 <script type="text/javascript">
     function fetchReleases() {
-        getRelease('nightly');
-        getRelease('canary');
+        getRelease('mainline');
     }
 
     fetchReleases();
