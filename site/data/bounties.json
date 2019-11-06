@@ -2,11 +2,39 @@
     {
         "Developer": null,
         "Status": "Unassigned",
-        "Description": "Getting Super Mario Party to render In-Game.",
+        "Description": "Develop a proper fix for mutex corruption issues.",
         "Response": null,
         "Requestors": [
             {
-                "DateSubmitted": "09-18-2019",
+                "DateSubmitted": "11-06-2019",
+                "Name": "bunnei",
+                "Amount": "$200 USD",
+                "Paid": false
+            }
+        ]
+    },
+    {
+        "Developer": null,
+        "Status": "Unassigned",
+        "Description": "Get Super Smash Bros. Ultimate fully playable, in such that one can play several matches without crashes or hangs.",
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "11-06-2019",
+                "Name": "bunnei",
+                "Amount": "$200 USD",
+                "Paid": false
+            }
+        ]
+    },
+    {
+        "Developer": null,
+        "Status": "Unassigned",
+        "Description": "Get Super Mario Party to render In-Game.",
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "11-04-2019",
                 "Name": "bunnei",
                 "Amount": "$200 USD",
                 "Paid": false
