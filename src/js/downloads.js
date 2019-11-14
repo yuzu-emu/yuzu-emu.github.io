@@ -34,10 +34,8 @@ function releaseCallback(v, count, e) {
         var release_commit_url = `https://github.com/yuzu-emu/yuzu-${v}/commit/${release_commit}`;
 
         var release_title = '';
-        if (v == 'nightly') {
-            release_title = 'Nightly Build';
-        } else if (v == 'canary') {
-            release_title = 'Canary Build';
+        if (v == 'mainline') {
+            release_title = 'Mainline Build';
         }
 
         if (release_commit) {
@@ -50,6 +48,8 @@ function releaseCallback(v, count, e) {
             if (asset.name.includes('nupkg')) return;
             if (asset.name.includes('.7z')) return;
             if (asset.name.includes('RELEASES')) return;
+            if (asset.name.includes('.tar.xz') && (asset.name.includes('windows'))) return;
+            if (asset.name.includes('-debugsymbols.zip')) return;
 
             /* We only want to provide the msvc builds on the downloads page for Windows. */
             if (asset.name.includes('-mingw-')) return;
