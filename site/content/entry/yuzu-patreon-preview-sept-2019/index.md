@@ -70,7 +70,7 @@ That's not all that has changed, other notable fixes include:
 >}}
 
 - Tons of refactoring changes, to better prepare us for our Vulkan backend and other future improvements. 
-- Reworked GPU buffer cache is now more accurate and faster, which lead to fixes in `Super Smash Bros. Ultimate`, `Onimusa Warriors`, and many other titles.
+- Reworked GPU buffer cache is now more accurate and faster, which lead to fixes in `Super Smash Bros. Ultimate`, `Onimusha Warlords`, and many other titles.
 
 {{< single-title-imgs
     "Super Smash Bros. Ultimate - Rescaled to 6k"
