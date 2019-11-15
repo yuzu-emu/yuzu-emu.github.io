@@ -5,35 +5,17 @@
 
         <article class="message has-text-weight-semibold">
             <div class="message-body">
-                <p>At this time, yuzu can boot some commercial Switch games to varying degrees of success,
-                    but your experience may vary between games and for different combinations of host hardware.</p>
-                <p>
-                    <a href="https://yuzu-emu.org/wiki/switch-homebrew/">Click here</a> for homebrew games you can download and test.</p>
-            </div>
-        </article>
-
-        <div class="content">
-            {{ .Content }}
-        </div>
-
-        <article class="message has-text-weight-semibold">
-            <div class="message-body">
-                <p>We recently have merged Nightly and Canary into a single release.</p>
+                <p>We have recently merged the Nightly and Canary builds into a single release channel.</p>
                 <a href="https://yuzu-emu.org/entry/yuzu-migration/">Read our blog post</a>
             </div>
         </article>
+	
+	<div class="content">
+	    {{ .Content }}
+	</div>
 </section>
 
-<!-- Advertisement -->
-<section class="hero is-info">
-    <div class="hero-body">
-        <div class="has-text-centered">
-            <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4126545610079023" data-ad-slot="1038554045"></ins>
-        </div>
-    </div>
-</section>
-
-<div class="section">
+<section class="section">
     <div class="container">
         <div id="no-js-view">
             Hi! We see that you have JavaScript disabled. We can't show you an
@@ -47,14 +29,6 @@
                 <div class="message-body has-text-white">
                     yuzu doesn't support your platform. If you are running Windows x64 or Linux x64 however,
                     choose one of the options below.
-                </div>
-            </article>
-
-            <article class="message">
-                <div class="message-body">
-                    The yuzu installer automates the management of a yuzu installation, and is
-                    recommended on supported platforms. It provides automated updating as well as shortcuts
-                    in your start menu.
                 </div>
             </article>
 
@@ -94,8 +68,17 @@
                 </div>
             </div>
         </div>
+	</div>
+ </section>
+
+<!-- Advertisement -->
+<section class="hero is-info">
+    <div class="hero-body">
+        <div class="has-text-centered">
+            <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4126545610079023" data-ad-slot="1038554045"></ins>
+        </div>
     </div>
-</div>
+</section>
 {{ end }}
 
 {{ define "scripts" }}
