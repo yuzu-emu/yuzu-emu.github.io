@@ -2,6 +2,21 @@
     {
         "Developer": null,
         "Status": "Unassigned",
+        "Description": "Fix softlocks for Pokemon Sword and Pokemon Shield.",
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "11-15-2019",
+                "Name": "bunnei",
+                "Amount": "300 USD",
+                "DateExpires": "02-01-2020",
+                "Paid": false
+            }
+        ]
+    },
+    {
+        "Developer": null,
+        "Status": "Unassigned",
         "Description": "Develop a proper fix for mutex corruption issues.",
         "Response": null,
         "Requestors": [
