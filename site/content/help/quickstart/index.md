@@ -8,8 +8,8 @@ description: A guide designed to get you started with yuzu quickly.
 ## Hardware Requirements
 |   	|  CPU 	|   GPU	|   RAM	|
 |-----	|---	|---	|---	|
-|**Minimum (for 2D games)**|Intel Core i3-6100 / AMD Ryzen 5 2500X|Intel HD Graphics 530 / Nvidia GeForce GT 710|8GB|
-|**Recommended (for 3D games)**|Intel Core i7-8700k|Nvidia GTX 1070 Ti|16GB|
+|**Minimum (for 2D games)**|Intel Core i3-6100 / AMD Ryzen 3 1200|Intel HD Graphics 520 / Nvidia GeForce GT 1030|8GB|
+|**Recommended (for 3D games)**|Intel Core i7-8700K / AMD Ryzen 7 3700X|Nvidia GeForce GTX 1060 6GB|16GB|
 
 <p style="color:cyan"><b><i>Currently on Windows, an Intel or Nvidia GPU is recommended due to AMD GPU driver issues.</b></i><p>
 
