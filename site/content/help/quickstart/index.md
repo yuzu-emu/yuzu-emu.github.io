@@ -5,7 +5,7 @@ description: A guide designed to get you started with yuzu quickly.
 
 {{< youtube RwojT7zPVhI >}}
 <h1 id="hardware"><br></h1>
-## Hardware Requirements
+## Hardware Requirements {#hardware-requirements}
 |   	|  CPU 	|   GPU	|   RAM	|
 |-----	|---	|---	|---	|
 |**Minimum (for 2D games)**|Intel Core i3-6100 / AMD Ryzen 3 1200|Intel HD Graphics 520 / Nvidia GeForce GT 1030|8GB|
