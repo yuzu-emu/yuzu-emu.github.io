@@ -5,6 +5,7 @@ description: A guide designed to get you started with yuzu quickly.
 
 {{< youtube RwojT7zPVhI >}}
 <h1 id="hardware"><br></h1>
+
 ## Hardware Requirements {#hardware-requirements}
 
 |   	|  CPU 	|   GPU	|   RAM	|
