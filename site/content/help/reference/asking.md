@@ -7,7 +7,7 @@ description: "How to properly ask in our forums or support channel for assistanc
 * **Read the [Quickstart Guide](https://yuzu-emu.org/help/quickstart/).** Watching a YouTube video tutorial or reading a guide elsewhere doesn't count, as the majority of those provides incorrect instructions and quickly get outdated.
 * **Check if the problem is already reported in our [game compatibility list](https://yuzu-emu.org/game/)** Someone may be experiencing the same issue as you, or specific settings may be required for the game you are attempting to play.
 * **Reset your config file to defaults** This can resolve many common misconfiguration issues. This can be done by going to Configuration menu, General tab, and selecting "Reset All Settings"
-* **Make sure you're using the latest yuzu mainline build.** We don't provide support for older builds. Make sure you're using the latest Canary build available, as we always pour new improvements into them.
+* **Make sure you're using the latest yuzu Mainline build.** We don't provide support for older builds. Make sure you're using the latest Mainline build available, as we always pour new improvements into them.
 * **Check if your drivers are up-to-date.** Many issues are simply solved by updating your drivers, mainly GPU. Always make sure your GPU drivers are up-to-date before proceeding. Just using the Windows builtin updater usually is not enough! Always install your GPU drivers through your GPU vendor's website.
     * Intel: [Automatically update your drivers](https://downloadcenter.intel.com/product/80939/Graphics-Drivers)
     * NVIDIA: [Automatic Driver Updates](https://www.geforce.com/drivers)
