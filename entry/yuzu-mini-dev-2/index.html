@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Mini-Series - Dev Interview #2 &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-mini-dev-2/" />
+    <meta property="og:description" content="Good day, yuz-ers (bad pun, I know)!
+While our devs are hard at work trying to bring you more performance improvements and game compatibility, we are back again with something a little bit more interesting - Dev Interview #2.
+Jump right in, to find out who we&rsquo;re interviewing this time." />
+<meta name="description" content="Good day, yuz-ers (bad pun, I know)!
+While our devs are hard at work trying to bring you more performance improvements and game compatibility, we are back again with something a little bit more interesting - Dev Interview #2.
+Jump right in, to find out who we&rsquo;re interviewing this time." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-mini-dev-2/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-mini-dev-2/"> 
+
+    <title>Mini-Series - Dev Interview #2 - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/help/">
+                help
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/home/">
+                dev wiki
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> github
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+<div class="container">
+    <div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-mini-dev-2/banner.png')">
+        <div>
+            <span class="title px-md py-sm has-background-dark">Mini-Series - Dev Interview #2</span>
+        </div>
+        
+        <div class="mt-lg">
+            <span class="h3 px-md py-sm has-background-dark">
+                Written by <a href="https://community.citra-emu.org/users/CaptV0rt3x">CaptV0rt3x</a> 
+                on August 09 2019
+            </span> 
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <p>Good day, yuz-ers (<del>bad pun, I know</del>)!
+While our devs are hard at work trying to bring you more performance improvements and game compatibility, we are back again with something a little bit more interesting - <strong>Dev Interview #2</strong>.
+Jump right in, to find out who we&rsquo;re interviewing this time.</p>
+
+<hr />
+
+<p>Welcome to part 2 of our previously announced <code>Developer Interviews</code> segment.
+We are extremely proud that we were once again successful in dragging one of our developers away from programming to answer a few questions.
+This time, it is an interview with one of our resident GPU emulation experts: <strong><em>Rodrigo</em></strong>.</p>
+
+<p>Rodrigo (a.k.a <a href="https://github.com/ReinUsesLisp">ReinUsesLisp</a>) is best known for his massive contributions to yuzu in the GPU emulation area.
+His various contributions have improved the user&rsquo;s visual experience, and his shader disk caches improved the performance of many games on yuzu.
+He is also the guy who is currently working on implementing the Vulkan API.
+Below, you&rsquo;ll find an informative conversation we had that should also help you all understand more about what he&rsquo;s doing behind the scenes.</p>
+
+<hr />
+
+<p><strong>Q: Hi Rodrigo! Wanna tell our patrons a little about yourself?</strong></p>
+
+<p><strong>R:</strong> Hi! I&rsquo;m some random guy from Argentina working on emulating the Nintendo Switch&rsquo;s GPU, (<em>and I&rsquo;m totally not ripping off Lioncash with this presentation</em>).</p>
+
+<p>Right now, I am a school teacher and don&rsquo;t have a formal programming background, but I&rsquo;d like to get a computer science job in the future. I&rsquo;m also interested in languages (both spoken &amp; programming) and software development.</p>
+
+<p><strong>Q: You are entirely self taught?! So, what made you get into emulation?</strong></p>
+
+<p><strong>R:</strong> Yes. See, I always used to play games in my childhood through emulators, mostly 90s console emulators (SNES and Genesis). Later on, I remember playing <code>Twilight Princess</code> on Hyrule Fields with Dolphin at <strong>3 FPS</strong>, it was just awesome.</p>
+
+<p>Around 7 years ago, I learnt to program small RPGs in plain C++ (and then C), but that never got beyond the prototyping stages, mainly because of boredom and the lack of artistic resources.</p>
+
+<p>What got me into emulation mainly was yuzu&rsquo;s very <a href="https://www.youtube.com/watch?v=1VzyIHMTA2Q">first video</a> of three commercial games booting (Cave Story, Isaac Afterbirth and Puyo Puyo Tetris).
+<strong>There it was!</strong> &ndash; an emulator of a console, that I thought was a successful piece of hardware: A tablet with a somewhat desktop GPU? That would have been madness some years ago.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./first.png" title="">
+                <img src="./first.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Cave Story&#43; (First yuzu build) - We&#39;ve come a long way from that!</p>
+
+
+
+<p><strong>Q: That&rsquo;s really interesting to hear. Before yuzu and Switch emulation, have you ever worked on other older emulators?</strong></p>
+
+<p><strong>R:</strong> No, I&rsquo;ve never worked on a non-Switch emulator. The closest thing I did related to emulation was a clone of Pico-8 Celeste for the NES in 6502 assembly.
+It was a fun experience because I learnt the curse, and blessing, that it is to work that close to the hardware; it showed me what a pain it was to program classics like Super Mario Bros. 3.</p>
+
+<p><strong>Q: Let&rsquo;s get a bit technical. What areas of Switch emulation have you worked on the most, and why? Which other areas keep you interested?</strong></p>
+
+<p><strong>R:</strong> I&rsquo;ve worked on the graphics, and compute departments of Switch emulation.
+Emulating a modern GPU (Tegra) by using other modern GPUs (user end) is my area of interest.
+Here&rsquo;s a cool fact for those that don&rsquo;t know: the Switch&rsquo;s GPU is an Nvidia Tegra X1, and it utilizes the same architecture of a GTX 960+.</p>
+
+<p>As for why I like it, it&rsquo;s because GPUs nowadays are like mini sub-computers inside a machine.
+The list of functionality present in the Tegra X1 grows bigger the more we look into it; since it’s a Nvidia device, it can execute CUDA kernels (programs that run some computations in the GPU, primarily used for scientific calculations or accelerated computations).
+It has the 5 traditional shader stages, an extra vertex shader stage, and compute shaders; while at the same time, it supports the supposedly deprecated features from the D3D9 (Direct3D) era, like rendering with quads and alpha testing.</p>
+
+<p>From time to time, I try to get into Core emulation, but it never ends up with good results. Funnily enough, while I was investigating the SSBU (Super Smash Bros. Ultimate) crash, I totally thought I made a breakthrough  - only to find out I was disassembling the wrong module. (LOL)</p>
+
+<p><strong>Q: What are some of the challenges you generally face when working on GPU emulation?</strong></p>
+
+<p><strong>R:</strong> One of biggest challenges is the inherent variable state of Nvidia GPUs.
+Sometimes, graphics APIs like OpenGL and Vulkan have requirements that are the &ldquo;common ground&rdquo;, something that&rsquo;s needed by the lowest denominator.
+We have to write very annoying workarounds to get that functionality working in the emulator.</p>
+
+<p style="color:cyan"><b><i>Here are some sneak peeks from my Vulkan test build. It's still missing a lot of things, but it's not too bad either.</b></i></p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./botw.png" title="The Legend of Zelda - Breath of the Wild">
+                <img src="./botw.png" alt="The Legend of Zelda - Breath of the Wild">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">The Legend of Zelda - Breath of the Wild</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./onepiece.png" title="One Piece - Unlimited World">
+                <img src="./onepiece.png" alt="One Piece - Unlimited World">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">One Piece - Unlimited World</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./smo.png" title="Super Mario Odyssey">
+                <img src="./smo.png" alt="Super Mario Odyssey">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Super Mario Odyssey</p>
+        
+    </div>
+    
+</div>
+
+
+<p><strong>Q: What motivates you every day to keep working on this stuff?</strong></p>
+
+<p><strong>R:</strong> Emulating modern GPU features, on hardware with those same features, is something that has only been possible in the recent times, due to the increasing similarities in hardware between consoles and desktops.
+Slowly understanding how some known functionality is implemented by the hardware, and then re-implementing it on the emulator afterwards, really motivates me.</p>
+
+<p>There are two things that I enjoy the most:</p>
+
+<ul>
+<li>seeing games run faster, and better than how they ran before.</li>
+<li>seeing games getting closer and closer to how they look on the console.</li>
+</ul>
+
+<p>And if I manage to get these improvements by writing better code, it&rsquo;s an added bonus.</p>
+
+<p><strong>Q: Can you tell us a little about what you are currently working on? A sneak-peek perhaps?</strong></p>
+
+<p><strong>R:</strong> That&rsquo;s classified information :P
+I&rsquo;ve recently worked on an improved &amp; generic texture cache.
+<a href="https://github.com/FernandoS27">Blinkhawk</a> helped by cleaning up my bugs to get the thing working, and he&rsquo;s done an awesome job.
+A generic texture cache allows us to share the complex part of it across graphics APIs.
+That means that we will have the same overall logic for OpenGL and Vulkan, making it easier to maintain and improve.</p>
+
+<p>It&rsquo;s not as good as Dolphin&rsquo;s VideoCommon, one of the better examples for generic graphics code, but it&rsquo;s still better than having to copy-paste code everywhere.
+This is one of the last prerequisites for the Vulkan API.</p>
+
+<p>I&rsquo;ve also been working on implementing various compute shader related instructions: shared memory (ARB_compute_shader), atomic operations, memory shuffles (NV_shader_thread_shuffle), votes (NV_gpu_shader5, NV_shader_thread_group), surface operations (SUATOM, SULD).
+These are all features from the D3D11/12 era, meaning that we are reaching interesting complexity on the shaders we find in recently released games.
+I am also investigating how to implement some missing functionality in yuzu, but that&rsquo;s a story for another time.</p>
+
+<p><strong>Q: Would you like to say something to our audience?</strong></p>
+
+<p><strong>R:</strong> Well, there are three things I&rsquo;d like to say.</p>
+
+<p><code>First and foremost...</code> most of our GPU work has been possible thanks to research done by the people working on nouveau (mesa&rsquo;s Nvidia free driver) and libnx&rsquo;s nouveau port to Switch. They have been of huge help.</p>
+
+<p><code>Second...</code> many people believe that Vulkan will bring lots of performance improvements to the emulator&hellip; I was one of those too. Don&rsquo;t get me wrong, it might boost performance on some hardware vendors, but the main issue resides in Vulkan&rsquo;s design.
+It is designed in a way that the programmer cooks and reuses its resources, but in emulation you can&rsquo;t easily know what&rsquo;s going to happen in the future. On the other hand, OpenGL, by design, works without backing its commands.</p>
+
+<p>Some people might ask, why would we want two APIs? I think one API is going to perform better on two vendors, while the other API is prevalent on the other vendor.</p>
+
+<p><code>And last, but not least...</code> We have a console that&rsquo;s just two years old, and it&rsquo;s still lacking the mainstream entries for most Nintendo IPs: Metroid, Donkey Kong Country, the announced Gen 8 Pokémon, Star Fox, Mario Kart, F-Zero (who knows? maybe they will find a way to refresh the franchise) and the end-of-cycle Zelda.</p>
+
+<p>I&rsquo;m really excited about what&rsquo;s to come, and how good Switch emulators will perform with these games. Emulation has been surprisingly faster in the last few years. Let&rsquo;s look forward to a wonderful future&hellip;</p>
+
+<hr />
+
+<p>This has been absolutely wonderful.
+Huge thanks to <a href="https://github.com/ReinUsesLisp">Rodrigo</a> for taking time off his busy schedule to give us a brief insight into his life.
+We wish you success in all your future endeavours. Keep making yuzu awesome!</p>
+
+<p>We hope you all enjoyed it, and we will be back soon with another featured yuzu dev to bring you behind the curtain again.
+Until then, thank you for your support and stay tuned!</p>
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, checkout our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/135709">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2019 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

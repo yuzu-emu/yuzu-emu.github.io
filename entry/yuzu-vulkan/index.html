@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="New Feature Release - Vulkan &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-vulkan/" />
+    <meta property="og:description" content="A very good day to all you yuz-ers out there.
+The curtains are up and the most awaited feature of yuzu is finally here!
+The Vulkan renderer for yuzu is now available for users on Early Access.
+To find out more about it, jump right in!" />
+<meta name="description" content="A very good day to all you yuz-ers out there.
+The curtains are up and the most awaited feature of yuzu is finally here!
+The Vulkan renderer for yuzu is now available for users on Early Access.
+To find out more about it, jump right in!" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-vulkan/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-vulkan/"> 
+
+    <title>New Feature Release - Vulkan - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/help/">
+                help
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/home/">
+                dev wiki
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> github
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+<div class="container">
+    <div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-vulkan/banner.png')">
+        <div>
+            <span class="title px-md py-sm has-background-dark">New Feature Release - Vulkan</span>
+        </div>
+        
+        <div class="mt-lg">
+            <span class="h3 px-md py-sm has-background-dark">
+                Written by <a href="https://community.citra-emu.org/users/CaptV0rt3x">CaptV0rt3x</a> 
+                on December 03 2019
+            </span> 
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <p>A very good day to all you yuz-ers out there.
+The curtains are up and the most awaited feature of yuzu is finally here!
+The Vulkan renderer for yuzu is now available for users on Early Access.
+To find out more about it, jump right in!</p>
+
+<h2 id="vulkan-for-yuzu">Vulkan for yuzu</h2>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vulk_smo.png" title=" Super Mario Odyssey">
+                <img src="./vulk_smo.png" alt=" Super Mario Odyssey">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Super Mario Odyssey</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vulk_astral.png" title=" Astral Chain">
+                <img src="./vulk_astral.png" alt=" Astral Chain">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Astral Chain</p>
+        
+    </div>
+    
+</div>
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vulk_zla_1.png" title=" Link&#39;s Awakening">
+                <img src="./vulk_zla_1.png" alt=" Link&#39;s Awakening">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Link&#39;s Awakening</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vulk_botw.png" title=" Breath of the Wild">
+                <img src="./vulk_botw.png" alt=" Breath of the Wild">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Breath of the Wild</p>
+        
+    </div>
+    
+</div>
+
+
+<p>For the past year, the most awaited and requested feature for yuzu has been the Vulkan Renderer.
+Many users, especially those with AMD GPUs, have been patiently waiting for this day. <br>
+Download the latest <a href="https://yuzu-emu.org/help/early-access/">Early Access</a> build via the installer now to try it out!
+After you download the build, go to <code>Emulation -&gt; Configure -&gt; Graphics</code> and select <code>Vulkan</code> in the API dropdown.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./Vulkan_GUI.png" title=" yuzu Configuration">
+                <img src="./Vulkan_GUI.png" alt=" yuzu Configuration">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> yuzu Configuration</p>
+        
+    </div>
+    
+</div>
+
+
+<blockquote>
+<p style="color:lawngreen;"><b>We highly recommend using the latest drivers, or beta drivers, as vendors are actively fixing bugs in their Vulkan drivers. Nvidia appears to encounter the least bugs, but it is still strongly recommended to keep your drivers up to date.</b></p>
+</blockquote>
+
+<h2 id="how-it-all-started">How It All Started&hellip;</h2>
+
+<p>Barely a year had passed since the Nintendo Switch launched, but there it was, <code>yuzu - The Nintendo Switch Emulator</code> - already running several games with stellar performance and stunning graphics.
+But it came with a caveat; to deliver that performance, yuzu exclusively needed an Nvidia GPU among several other hardware requirements.</p>
+
+<p>This was mainly due to the low performance on AMD GPUs OpenGL Windows drivers.
+For AMD users, this meant that they either had to start using Linux, where the drivers were a <strong><em>little</em></strong> better, or had to buy an Nvidia GPU, and neither of those was an easy choice.
+Thus we quickly realized the need for a way to deliver the same performance to our AMD users, and Vulkan seemed to be the answer!</p>
+
+<p>To tackle this, one of our resident GPU emulation experts - <a href="https://github.com/ReinUsesLisp">Rodrigo</a> (aka ReinUsesLisp) - set out to master Vulkan and implement a renderer in yuzu using this API.
+<a href="https://github.com/ReinUsesLisp">Rodrigo</a> started experimental work on the Vulkan renderer, with the customary <code>Hello World</code> - by rendering a <code>RED screen</code>.</p>
+
+<p>He used existing switch homebrew like <code>SpaceNX</code> and <code>Push A button</code>, and later wrote his own homebrew app of a <code>blinking screen</code> and got them to render using the Vulkan renderer successfully.
+With some progress, it was now time for him to implement shaders on the Vulkan renderer.
+(If you are interested, you can check out the homebrew <a href="./clear-color.nro">here</a>.) <br></p>
+
+<p>&nbsp;</p>
+
+<h4 id="before-we-get-into-deeper-technical-details-we-need-to-understand-a-few-things">Before we get into deeper technical details, we need to understand a few things:</h4>
+
+<ul>
+<li>The Nintendo Switch has an Nvidia GPU and games can use either OpenGL or NVN API (Nvidia proprietary API), to communicate with the GPU and render visuals. (Games might use Vulkan, but we are yet to see any games using it)</li>
+<li>GPUs use small programs called shaders to control the GPU rendering pipeline. <a href="https://www.khronos.org/opengl/wiki/Rendering_Pipeline_Overview">For more info, read here.</a></li>
+<li>Shaders have instructions inside them for the GPU to perform various types of operations.</li>
+<li>yuzu decodes these shader instructions from games to guest GPU (Switch), turns them into GLSL (OpenGL Shading Language) code, and then rebuilds those shaders to work on the Host GPU (User GPU) to get games rendering.</li>
+<li>SPIR-V is an intermediate language for defining shaders in Vulkan, which is sort of similar to OpenGL&rsquo;s GLSL. <a href="https://www.khronos.org/registry/spir-v/">For more info, read here.</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h4 id="now-that-we-have-some-context-let-s-dive-deeper">Now that we have some context, let&rsquo;s dive deeper!</h4>
+
+<p><a href="https://github.com/ReinUsesLisp">Rodrigo</a> wrote <a href="https://github.com/ReinUsesLisp/sirit"><strong>Sirit</strong></a> - a runtime SPIR-V assembler to generate SPIR-V code easily.
+Basically, there isn&rsquo;t a built-in way to generate SPIR-V code.
+Most game developers actually use a high level shader language and compile them statically.
+And as yuzu could only convert the game shaders to GLSL, he used <code>Sirit</code> to generate SPIR-V shaders, instead of GLSL, for Vulkan.</p>
+
+<blockquote>
+<p style="color:lawngreen;"><b>Game developers usually write shaders using GLSL or HLSL and compile it to SPIR-V with a compiler and send that to the driver.
+However, yuzu Vulkan generates SPIR-V on the go and sends that to the driver.</b></p>
+</blockquote>
+
+<p>When development began, yuzu didn&rsquo;t have a shader IR (intermediate representation).
+As a result, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> had to copy and adapt many parts of the code, to the point that it became bug ridden and unmaintainable.
+At this stage, we decided to write a shader IR that would allow us to share the shader decoding logic on both GLSL and SPIR-V.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_bork1.png" title="">
+                <img src="./vulk_bork1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_bork2.png" title="">
+                <img src="./vulk_bork2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Vulkan experiments - Super Mario Odyssey (broken)</p>
+
+
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>What is shader IR?</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        An IR (intermediate representation) is a representation of the program &ldquo;between&rdquo; source and target languages. A shader IR in yuzu&rsquo;s context would be the representation of game shaders decoded from their actual form and before they were rebuilt for GLSL or SPIR-V.
+    </div>
+</article>
+
+
+<p>In regards to Shader IR, <a href="https://github.com/FernandoS27">Blinkhawk</a> rewrote how guest shaders are analysed in control flow (the code that tells how a shader diverges in execution) from the ground up.
+He created a decompiler that removes stack based branches which result in under performant shaders in Intel and AMD, and created a more advanced decompiler that could convert all the branches in the shaders into higher level structures (ifs, loops, etc).
+He also corrected control flow in SPIR-V shaders and fixed some crashes that occured on AMD due to unoptimized control flow structures.</p>
+
+<p>Simply put, he redid the whole system on which shader IR is based, after <a href="https://github.com/ReinUsesLisp">Rodrigo</a> converted most of the instructions into IR and setup the foundation. <br>
+<p style="color:lawngreen;"><b><i>Kind of like reorganizing a messy closet, after segregating its contents.</i></b></p></p>
+
+<p>While the shader IR was being worked on, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> was parallelly working on the Vulkan renderer, and managed to get more homebrew working, but soon ran into further issues.
+As a result, development of Vulkan didn&rsquo;t continue for a few months, and quite some time was spent implementing the Shader IR.</p>
+
+<h2 id="problems-and-solutions">Problems and Solutions&hellip;</h2>
+
+<h4 id="problem-1-texture-cache">Problem 1: Texture Cache</h4>
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>What is a Texture Cache?</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        The texture cache handles everything related to texture management.
+When a game asks to sample a texture, we create a texture like the game wants and we fill its texels (pixels) from guest data.
+When the game wants to render to a texture, we do the same process.
+The texture cache is full of border cases that need to be properly handled.
+    </div>
+</article>
+
+
+<p><a href="https://github.com/ReinUsesLisp">Rodrigo</a> and <a href="https://github.com/FernandoS27">Blinkhawk</a>, our GPU emulation experts, had just started working on the shader IR and <a href="https://github.com/ReinUsesLisp">Rodrigo</a> ran into issues with the Vulkan renderer.
+Upon investigation, they realized that the existing texture cache was too heavily embedded in OpenGL and there was no easy way to make it API agnostic.
+In other words, they found it was very difficult to decouple the texture cache&rsquo;s backend logic from the frontend, so that they could use it for both OpenGL and Vulkan.</p>
+
+<p>Though <a href="https://github.com/ReinUsesLisp">Rodrigo</a> (with some help from <a href="https://github.com/FernandoS27">Blinkhawk</a>) implemented a primitive texture cache on Vulkan to get <code>Sonic Mania</code> &amp; <code>Cave Story+</code> rendering, <a href="https://github.com/FernandoS27">Blinkhawk</a> saw the need for a better approach to solve this problem.
+He (<a href="https://github.com/FernandoS27">Blinkhawk</a>) then reimplemented the texture cache from scratch, using some of <a href="https://github.com/ReinUsesLisp">Rodrigo&rsquo;s</a> ideas and some inspiration from the original texture cache.
+This is a generic texture cache that is able to handle all of the border cases, in generic code that can be implemented on both OpenGL and Vulkan.</p>
+
+<p>&nbsp;</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/phz9zJqAv2I" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<p>&nbsp;</p>
+
+<h4 id="problem-2-buffer-cache">Problem 2: Buffer cache</h4>
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>What is a Buffer Cache?</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        A buffer cache stores &amp; caches most guest GPU memory objects (like vertex data, index data, constant buffers, global memory and others) into host GPU memory objects, thus avoiding having to continuously upload/download data in between Host &amp; Guest GPUs.
+This is needed because the Host GPU can&rsquo;t normally use Guest GPU&rsquo;s data directly.
+<code>Host GPU = yuzu user's GPU</code> &amp;  <code>Guest GPU = Switch GPU</code>
+    </div>
+</article>
+
+
+<p>yuzu&rsquo;s original buffer cache was a stream based buffer, which was brought from Citra.
+<a href="https://github.com/ReinUsesLisp">Rodrigo</a> observed that this buffer cache couldn&rsquo;t handle large buffers properly.
+So he made a dual cache - with a stream buffer for small buffers and a single buffer for large buffers, which allowed him to handle memory more easily on Vulkan.</p>
+
+<p>Later, <a href="https://github.com/FernandoS27">Blinkhawk</a> took over and sought to improve it further by using ideas from texture cache.
+While it worked as an experiment, it had some performance issues.
+So, he rewrote the buffer cache from scratch, based on a completely new approach, so that it was compatible with both OpenGL and Vulkan.
+This new approach for the buffer cache was to map 1:1 guest GPU memory with host GPU memory i.e., yuzu will now automatically allocate GPU memory chunks depending on the game&rsquo;s utilization and a single chunk on guest memory will be mapped to a single chunk on host memory.</p>
+
+<h4 id="benefits-of-a-buffer-texture-cache">Benefits of a buffer/texture cache</h4>
+
+<ul>
+<li>Improves performance significantly,</li>
+<li>reduces syncing between Guest/Emulated GPU and Host GPU,</li>
+<li>allows controlling host memory capacity, etc.</li>
+</ul>
+
+<blockquote>
+<p style="color:lawngreen;"><b><i>Trivia: The Buffer Cache is what got animations working on Smash Ultimate (along with compute shaders)</i></b></p>
+</blockquote>
+
+<h2 id="vulkan-continued">Vulkan Continued&hellip;</h2>
+
+<p>As a result of fixing the aforementioned problems, we had managed to abstract away the OpenGL backend from the frontend.
+This was very crucial for the progress of Vulkan development, as it allowed us to narrow down issues from <code>something is broken and I don't know what it is</code> to <code>this is a Vulkan exclusive bug</code>.
+Along the way, we fixed many long standing bugs on popular games like fog and water interactions in Super Mario Odyssey, and found new ones, like broken shadows in the same game.</p>
+
+<h4 id="now-let-s-get-to-the-part-that-everyone-cares-about">Now, let&rsquo;s get to the part that everyone cares about:</h4>
+
+<p><code>How is the performance compared to OpenGL?</code> <br>
+With Vulkan on yuzu, AMD GPUs now perform mostly on par with Nvidia GPUs.
+As an added benefit, Intel onboard graphics now have better or around the same overall performance too.
+On average, the performance is still a bit lower than what you&rsquo;d observe on OpenGL, but that could change very soon with future optimisations.</p>
+
+<blockquote>
+<p style="color:lawngreen;"><b><i>Note 1: <br>
+Some games don't yet work with Vulkan on Nvidia GPUs. This is a known issue and we are investigating. </i></b></p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./Vulkan_AMD.png" title=" yuzu Vulkan vs OpenGL (on AMD GPU)">
+                <img src="./Vulkan_AMD.png" alt=" yuzu Vulkan vs OpenGL (on AMD GPU)">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> yuzu Vulkan vs OpenGL (on AMD GPU)</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./Vulkan_Nvidia.png" title=" yuzu Vulkan vs OpenGL (on Nvidia GPU)">
+                <img src="./Vulkan_Nvidia.png" alt=" yuzu Vulkan vs OpenGL (on Nvidia GPU)">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> yuzu Vulkan vs OpenGL (on Nvidia GPU)</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./Vulkan_Intel.png" title=" yuzu Vulkan vs OpenGL (on Intel iGPU)">
+                <img src="./Vulkan_Intel.png" alt=" yuzu Vulkan vs OpenGL (on Intel iGPU)">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> yuzu Vulkan vs OpenGL (on Intel iGPU)</p>
+        
+    </div>
+    
+</div>
+
+
+<blockquote>
+<p style="color:lawngreen;"><b><i>Note 2: <br>
+Some games perform worse with Vulkan due to how they change framebuffers. <br>
+This is a result of how the games were developed, and might change with vendor driver improvements.</i></b></p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vulk_intel.png" title=" yuzu Vulkan (on Intel iGPU)">
+                <img src="./vulk_intel.png" alt=" yuzu Vulkan (on Intel iGPU)">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> yuzu Vulkan (on Intel iGPU)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>One noticeable improvement is the shader build times.
+We didn&rsquo;t profile the others, but Nvidia&rsquo;s SPIR-V compiler is surprisingly fast.
+Where some effects on OpenGL GLSL may take 4 to 5 seconds to build, Vulkan SPIR-V may take only a few milliseconds.</p>
+
+<p>yuzu&rsquo;s OpenGL and Vulkan backends are now close in feature parity, but both still lack some features the other has.
+<a href="https://github.com/Rodrigo">Rodrigo</a> has been recently experimenting with adding tessellation shaders to Vulkan instead of OpenGL, since the Vulkan codebase is better laid out which makes things easier to implement for him.
+Vulkan also lacks a few texture formats that we have yet to add, since we haven&rsquo;t seen games using them.</p>
+
+<blockquote>
+<p style="color:lawngreen;"><b><i>Fun Fact: Tessellation shaders are used in the recently released Luigi's Mansion 3!</i></b></p>
+</blockquote>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vulk_tess.png" title=" Testing Tessellation shaders in Vulkan">
+                <img src="./vulk_tess.png" alt=" Testing Tessellation shaders in Vulkan">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Testing Tessellation shaders in Vulkan</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="behold-vulkan-in-all-it-s-glory">Behold - Vulkan in All It&rsquo;s Glory!</h2>
+
+<p>Here are a few screenshots taken with yuzu using the Vulkan renderer.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_smo_1.png" title="">
+                <img src="./vulk_smo_1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_smo_2.png" title="">
+                <img src="./vulk_smo_2.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_smo_3.png" title="">
+                <img src="./vulk_smo_3.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_smo_4.png" title="">
+                <img src="./vulk_smo_4.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Super Mario Odyssey</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_zla_2.png" title="">
+                <img src="./vulk_zla_2.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_zla_3.png" title="">
+                <img src="./vulk_zla_3.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_zla_4.png" title="">
+                <img src="./vulk_zla_4.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_zla_5.png" title="">
+                <img src="./vulk_zla_5.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Link&#39;s Awakening</p>
+
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vulk_marvel.png" title=" Marvel Ultimate Alliance 3">
+                <img src="./vulk_marvel.png" alt=" Marvel Ultimate Alliance 3">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Marvel Ultimate Alliance 3</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vulk_oni_1.png" title=" Onimusha: Warlords">
+                <img src="./vulk_oni_1.png" alt=" Onimusha: Warlords">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Onimusha: Warlords</p>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vulk_re4.png" title=" Resident Evil 4">
+                <img src="./vulk_re4.png" alt=" Resident Evil 4">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Resident Evil 4</p>
+        
+    </div>
+    
+</div>
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_sw_1.png" title="">
+                <img src="./vulk_sw_1.png" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./vulk_sw_2.png" title="">
+                <img src="./vulk_sw_2.png" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Pokémon Sword/Shield</p>
+
+
+
+<h2 id="vulkan-and-its-shortcomings">Vulkan and Its Shortcomings</h2>
+
+<p>While many uninformed users believe Vulkan to be a saviour and a single answer to all performance issues with OpenGL, even though their issues were because of their old hardware, Vulkan is not without any shortcomings.
+To understand these, let us first understand the situation with the Nintendo Switch&rsquo;s GPU.</p>
+
+<p>Maxwell and Pascal Nvidia GPUs are heavily optimized in hardware for D3D11 and OpenGL software.
+It seems that whenever Nvidia gets a chance to put something in the hardware, they take it.
+Since the Nintendo Switch&rsquo;s GPU is a 2nd generation Maxwell GPU, it comes with additional features like <a href="https://www.khronos.org/opengl/wiki/ASTC_Texture_Compression">ASTC</a> textures and efficient <a href="https://en.wikipedia.org/wiki/Half-precision_floating-point_format">half-precision float</a> math.</p>
+
+<p>Nvidia&rsquo;s OpenGL driver is a scary monstrosity, it&rsquo;s <code>really</code> fast.
+And to achieve this Nvidia has, over the years, invested resources heavily to make their OpenGL software (the driver) and their hardware really efficient.
+They have not only optimized their software to be fast for OpenGL, but also their hardware.</p>
+
+<p>Both NVN and OpenGL expose Nvidia&rsquo;s Maxwell hardware at its greatest.
+Lots of OpenGL features that are (sometimes wrongly) considered &ldquo;legacy&rdquo;, &ldquo;old&rdquo;, or even &ldquo;emulated by the driver&rdquo; are actually natively supported by the hardware (in the case of Nvidia).
+The problem arises when Switch games use these features.</p>
+
+<p>Vulkan wasn&rsquo;t designed with these features in mind.
+Some of these features were intentionally left out of the standard and the committee does not want to add them (not even as extensions) unless they really have to, or big companies behind CAD software require it.
+To sum it up, if a Switch game uses <code>X feature</code> supported natively by the hardware, and this feature is not available on Vulkan; it has to be emulated with a slower path or not emulated at all.</p>
+
+<p style="color:lawngreen;"><b>Here is a reduced list of features that are supported by Nvidia Maxwell hardware - exposed in OpenGL, but not supported in Vulkan:</b></p>
+
+<table>
+<thead>
+<tr>
+<th>OpenGL Feature</th>
+<th>Games that use it</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Minus one to one depth space - <code>(-1 to +1)</code></td>
+<td>Used in nearly all Nintendo games</td>
+</tr>
+
+<tr>
+<td>Quads, quad strips, polygons and line loops primitive topologies (e.g. rendering geometry with quads instead of triangles)</td>
+<td>Used by Xenoblade Chronicles 2</td>
+</tr>
+
+<tr>
+<td>Bindless textures</td>
+<td>Used by Super Mario Party, Super Mario Odyssey and others</td>
+</tr>
+
+<tr>
+<td>Legacy varyings (vertex attributes from the D3D9 era, like front colors and fog coordinates)</td>
+<td>Used by Dragon Quest Builders</td>
+</tr>
+
+<tr>
+<td><code>GL_CLAMP</code> texture filtering</td>
+<td>Used by Hollow Knight</td>
+</tr>
+
+<tr>
+<td><code>uint8</code> indices (available as an extension, not supported on all vendors)</td>
+<td>Used by Pokémon Let&rsquo;s Go: Eevee and many others</td>
+</tr>
+
+<tr>
+<td>Conditional rendering (available as an extension, but not exposed on AMD&rsquo;s proprietary driver)</td>
+<td>Used by Super Mario Odyssey and others</td>
+</tr>
+
+<tr>
+<td>Copying depth images to color images and vice-versa (only on Nvidia)</td>
+<td>Used by Super Mario Odyssey, Zelda Breath of the Wild and others</td>
+</tr>
+
+<tr>
+<td>Alpha testing (eliminating pixels with some transparency)</td>
+<td>Used by Smash Ultimate, Bayonetta and Astral Chain</td>
+</tr>
+</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<p>Not having these features forces the Vulkan renderer to emulate them with slower techniques.
+At the moment of writing this article, features that are not known to be used by Switch games and some with extensions widely available, have been excluded from the above list.</p>
+
+<p>In addition to these, Vulkan also doesn&rsquo;t yet support a feature that has been supported by OpenGL since 1992 - <code>a mutable pipeline state</code>.
+In Vulkan, to define how a triangle is going to be rendered, you create a PSO (Pipeline State Object).
+For instance: &ldquo;the clockwise side of a triangle is the front face&rdquo;, &ldquo;cull the back face of the triangle&rdquo;, &ldquo;render triangles&rdquo;, &ldquo;enable blending (transparency)&rdquo;, &ldquo;use these shaders&rdquo;.</p>
+
+<p>In case you want to change <strong><em>any</em></strong> of these attributes, an entire new pipeline has to be created.
+This has the advantage of eliminating &ldquo;shader recompilations&rdquo; that cause micro-stutter at boot on some games.
+The problem is that, again, Nvidia hardware can change this atomically.</p>
+
+<p>If you want to change what faces of a triangle to cull (to render shadows for instance); you just queue the change on the GPU and it&rsquo;s done.
+And on OpenGL too, it&rsquo;s the same thing.
+yuzu currently doesn&rsquo;t take much advantage of this feature, but we do have plans to optimize the current OpenGL backend for this.</p>
+
+<p>In summary, for Switch emulation, OpenGL is the API to rule them all (unless Nvidia decides to release NVN on desktop, but that&rsquo;s doubtful).
+Vulkan is great to take advantage of hardware that is not OpenGL friendly and it receives more love from some vendors and the market, so better tools, more extensions and better driver support will appear in the future.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p style="color:cyan;"><b>Vulkan is still EXPERIMENTAL!</b></p>
+
+<p>The Vulkan renderer for yuzu is still experimental and doesn&rsquo;t yet have all the features implemented.
+In addition to that, the Vulkan renderer currently <code>DOES NOT</code> support shader caches and the infamous <code>Resolution rescaler</code> is not yet integrated into the Vulkan renderer.
+While some games like Zelda: Link&rsquo;s Awakening work really well on Vulkan, many games like ARMS, Crash Team Racing, and Luigi&rsquo;s Mansion 3 crash on it.</p>
+
+<blockquote>
+<p style="color:lawngreen;"><b>As this feature release is a monumental one, we want to make sure that all the rough edges are polished before making it available to normal users.
+And as such, the Vulkan release will take more time to become available on Mainline. We'll be slowly rolling it out in December.</b></p>
+</blockquote>
+
+<p>As always, we’re so thankful to our supporters.
+Please enjoy testing out Vulkan on your own games, and remember to reach out to us with any feedback/bugs you experience on our Discord&rsquo;s exclusive Patreon channels!</p>
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, checkout our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/166401">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2019 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>
