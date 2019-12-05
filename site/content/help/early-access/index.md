@@ -26,7 +26,13 @@ Otherwise, you need to become a Patron at the `Early Access tier.` [**Click here
 >}}
 
 #### Step 2
-Next, login to your [**yuzu profile page**](https://profile.yuzu-emu.org/) with your yuzu, Google, or GitHub account.
+Next, you need to login to your yuzu profile page.
+Click on the link given below to proceed.<br>
+<a href="https://profile.yuzu-emu.org/" target="_blank"><b>yuzu profile page</b></a><br>
+
+><p style="color:lawngreen;"><b><i>By clicking on the link, a new tab will open, redirecting you to the Citra Community forum.
+As both Citra and yuzu share a common Discourse forum, you'll have to either log in with those credentials or create a new account there.
+Users also have the option of signing in using their existing Google or GitHub account.</i></b></p>
 
 {{< imgs
     "./2.png|yuzu Profile Login"
@@ -78,3 +84,9 @@ If all of the above steps were completed successfully, verification should succe
 >}}
 
 As long as you keep your Patreon subscription valid, you will continue to receive Patreon-specific updates, as well as regular yuzu updates, automatically by just running `yuzu Early Access` from your Start menu.
+
+## Additional Step
+All Patreon subscribers with a pledge of 5$ or above, are eligible for Discord rewards.
+Patrons need to link their Discord account with their Patreon account to gain access to exclusive support channels on our [Discord server](https://discord.gg/u77vRWY).
+
+For instructions on how to link your Discord account with your Patreon account, <a href="https://support.patreon.com/hc/en-us/articles/212052266-Get-my-Discord-role" target="_blank"><b>click here!</b></a><br>
