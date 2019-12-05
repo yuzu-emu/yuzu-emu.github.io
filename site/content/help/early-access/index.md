@@ -53,7 +53,7 @@ You should now find that you have `early-access` as one of your Active release c
 >}}
 
 #### Step 5
-Now that your account is linked, Copy your login token:
+Now that your account is linked, copy your login token by highlighting the text and pressing `CTRL + C` on your keyboard.
 
 {{< imgs
     "./5.png|yuzu Profile token"
@@ -70,7 +70,7 @@ You should see an option to select the `Early Access` release channel.
 >}}
 
 #### Step 7
-On the next page of the installer, paste the token that you previously copied in `Step 4`, and click `Verify Token.`
+On the next page of the installer, paste the token you previously copied in `Step 4` by selecting the `Token Entry Box` and pressing `CTRL + V` on your keyboard, and then click `Verify Token` to authenticate.
 
 {{< imgs
     "./7.png|Verify token"
