@@ -49,11 +49,11 @@ This process should take about 60 to 90 minutes.
 - [Copy Script](https://yuzu-emu.org/help/quickstart/yuzu_copy.bat)
 - [HacDiskMount](https://files.sshnuke.net/HacDiskMount1055.zip)
 - [microSD Card Reader](https://www.amazon.com/dp/B006T9B6R2) -- If your computer has one built-in, you can use that
-- [RCM Jig](https://www.amazon.com/Nintendo-Switch-Short-Connector-Recovery/dp/B07J9JJRRG) <-- We highly recommend one like this, but you could use any of the methods outlined [here](https://noirscape.github.io/RCM-Guide/)
+- [RCM Jig](https://www.amazon.com/dp/B07J9JJRRG) <-- We highly recommend one like this, but you could use any of the methods outlined [here](https://noirscape.github.io/RCM-Guide/)
 
 `%YUZU_DIR%` is the home directory for yuzu on your computer:
 
-    - For Windows, this is '%APPDATA%\yuzu' or 'C:\Users\{username}\AppData\yuzu'
+    - For Windows, this is '%APPDATA%\yuzu' or 'C:\Users\{username}\AppData\Roaming\yuzu'
     - For Linux, this is '~/.local/share/yuzu'
 
 
