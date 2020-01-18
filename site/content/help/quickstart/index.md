@@ -31,7 +31,9 @@ If your Switch is patched, you will be unable to complete the following steps.
 The Switch v2 (Mariko) and the Switch Lite are both patched and you will not be able to complete the following steps.
 
 This guide will help you copy all your system files, games, updates, and DLC from your switch to your computer and organize them in a format yuzu understands.
-**IMPORTANT**: __Make sure to place your Nintendo Switch into Airplane Mode before starting this guide.__ System Settings -> Airplane Mode -> Airplane Mode **ON**
+
+**IMPORTANT: Make sure to place your Nintendo Switch into Airplane Mode before starting this guide.** System Settings -> Airplane Mode -> Airplane Mode **ON**
+
 This process should take about 60 to 90 minutes.
 
 # Prerequisites
@@ -39,7 +41,7 @@ This process should take about 60 to 90 minutes.
 - A Nintendo Switch vulnerable to the fusée gelée RCM exploit -- Visit https://damota.me/ssnc/checker and test your Switch's serial number
 - An SD card with at least 29 GB of free space (an almost empty 32GB card will work)
 - A USB-C to USB-A or USB-C to USB-C Cable to connect your Switch to your computer
-- [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases)
+- [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases) -- Download the TegraRcmGUI installer
 - [Hekate](https://github.com/CTCaer/hekate/releases) -- Download the `hekate` zip file
 - [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases) -- Download both the `atmosphere` zip file and `fusee-primary.bin`
 - [Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases) -- Download `Lockpick_RCM.bin`
