@@ -132,44 +132,44 @@ This process should take about 60 to 90 minutes.
 
 # Dumping Cartridge Games
 
-5. We will now dump the `Cartridge Image (XCI)` files from your game cartridge, to use in yuzu. Insert the game cartridge of your choice.
-    - 5a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f), and make sure it is connected to your computer.
-    - 5b. Run TegraRcmGUI, and in the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
-    - 5c. Click on `Inject Payload`, and your Switch will boot into the Hekate menu.
-    - 5d. When it has successfully booted into the Hekate menu, tap on `Payloads`. This will show a list of payloads.
-    - 5e. Tap on `fusee-primary.bin` in the list of payloads.
-    - 5f. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, click/tap on the Album application. This will launch the Homebrew Menu.
-    - 5g. Either use the touchscreen or navigate using your controller, and choose `nxdumptool`.
-    - 5h. Choose the `Dump gamecard content` option.
-    - 5i. Choose the `Cartridge Image (XCI) dump` option.
-    - 5j. Make sure to dump the certificate with the cartridge. The options can be toggled by pressing `left` or `right`.
-    - 5k. Once the cartridge image has been dumped, power off your switch by holding the power button for a few seconds, then select the Power Options > Turn off.
-    - 5l. With your Switch powered off, remove the SD card.
-    - 5m. Insert your SD card into your computer. If the XCI was dumped in parts combine them with this command, for example: `copy /b "Super Mario Odyssey.xc0" + "Super Mario Odyssey.xc1" "Super Mario Odyssey.xci"`. Now you can place this XCI in a game directory of your choice.
+6. We will now dump the `Cartridge Image (XCI)` files from your game cartridge, to use in yuzu. Insert the game cartridge of your choice.
+    - 6a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f), and make sure it is connected to your computer.
+    - 6b. Run TegraRcmGUI, and in the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
+    - 6c. Click on `Inject Payload`, and your Switch will boot into the Hekate menu.
+    - 6d. When it has successfully booted into the Hekate menu, tap on `Payloads`. This will show a list of payloads.
+    - 6e. Tap on `fusee-primary.bin` in the list of payloads.
+    - 6f. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, click/tap on the Album application. This will launch the Homebrew Menu.
+    - 6g. Either use the touchscreen or navigate using your controller, and choose `nxdumptool`.
+    - 6h. Choose the `Dump gamecard content` option.
+    - 6i. Choose the `Cartridge Image (XCI) dump` option.
+    - 6j. Make sure to dump the certificate with the cartridge. The options can be toggled by pressing `left` or `right`.
+    - 6k. Once the cartridge image has been dumped, power off your switch by holding the power button for a few seconds, then select the Power Options > Turn off.
+    - 6l. With your Switch powered off, remove the SD card.
+    - 6m. Insert your SD card into your computer. If the XCI was dumped in parts combine them with this command, for example: `copy /b "Super Mario Odyssey.xc0" + "Super Mario Odyssey.xc1" "Super Mario Odyssey.xci"`. Now you can place this XCI in a game directory of your choice.
 
 # Dumping Save Files (Optional)
 
-6. We will now dump the games' save files from your switch to use in yuzu.
-    - 6a. Download [Checkpoint.nro](https://github.com/FlagBrew/Checkpoint/releases)
-    - 6b. Insert your SD card into your computer.
-    - 6c. Create a folder named `Checkpoint` within the `switch` folder of your SD card, and place the `Checkpoint.nro` file into the `Checkpoint` folder you have just created.
-    - 6d. Eject your SD card and place it in your Switch.
-    - 6e. Boot your Nintendo Switch into RCM mode (steps 2d to 2f), and make sure it is connected to your computer.
-    - 6f. Run TegraRcmGUI, and in the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
-    - 6g. Click on `Inject Payload`, and your Switch will boot into the Hekate menu.
-    - 6h. When it has successfully booted into the Hekate menu, tap on `Payloads`. This will show a list of payloads.
-    - 6i. Tap on `fusee-primary.bin` in the list of payloads.
-    - 6j. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, click/tap on the Album application. This will launch the Homebrew Menu.
-    - 6k. Either use the touchscreen or navigate using your controller, and choose `Checkpoint`.
-    - 6l. Pick the games that you want to dump their save files (multiselect with the `Y` button), and press the `L` button to backup the saves.
-    - 6m. Once you have backed up the save files, power off your switch by holding the power button for a few seconds, then select the Power Options > Turn off.
-    - 6n. With your Switch powered off, remove the SD card.
-    - 6o. Insert your SD card into your computer. Your save files will be located in the `switch/Checkpoint` folder.
+7. We will now dump the games' save files from your switch to use in yuzu.
+    - 7a. Download [Checkpoint.nro](https://github.com/FlagBrew/Checkpoint/releases)
+    - 7b. Insert your SD card into your computer.
+    - 7c. Create a folder named `Checkpoint` within the `switch` folder of your SD card, and place the `Checkpoint.nro` file into the `Checkpoint` folder you have just created.
+    - 7d. Eject your SD card and place it in your Switch.
+    - 7e. Boot your Nintendo Switch into RCM mode (steps 2d to 2f), and make sure it is connected to your computer.
+    - 7f. Run TegraRcmGUI, and in the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
+    - 7g. Click on `Inject Payload`, and your Switch will boot into the Hekate menu.
+    - 7h. When it has successfully booted into the Hekate menu, tap on `Payloads`. This will show a list of payloads.
+    - 7i. Tap on `fusee-primary.bin` in the list of payloads.
+    - 7j. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, click/tap on the Album application. This will launch the Homebrew Menu.
+    - 7k. Either use the touchscreen or navigate using your controller, and choose `Checkpoint`.
+    - 7l. Pick the games that you want to dump their save files (multiselect with the `Y` button), and press the `L` button to backup the saves.
+    - 7m. Once you have backed up the save files, power off your switch by holding the power button for a few seconds, then select the Power Options > Turn off.
+    - 7n. With your Switch powered off, remove the SD card.
+    - 7o. Insert your SD card into your computer. Your save files will be located in the `switch/Checkpoint` folder.
 
 # Running yuzu
 
-7. We will now run yuzu to verify that your keys and system files were dumped and are being read correctly by yuzu.
-    - 7a. Run either the `yuzu` or `yuzu Early Access` shortcuts that were created by the yuzu installer tool. If you have moved your `Nintendo` folder from your SD card to `%YUZU_DIR%/sdmc` you should see your SD installed games populate.
-    - 7b. If you extracted your `XCI` files from your Nintendo Switch cartridges, then, in yuzu, click on `+ Add New Game Directory` in the browser, and navigate to the folder where you placed your `XCI` files.
+8. We will now run yuzu to verify that your keys and system files were dumped and are being read correctly by yuzu.
+    - 8a. Run either the `yuzu` or `yuzu Early Access` shortcuts that were created by the yuzu installer tool. If you have moved your `Nintendo` folder from your SD card to `%YUZU_DIR%/sdmc` you should see your SD installed games populate.
+    - 8b. If you extracted your `XCI` files from your Nintendo Switch cartridges, then, in yuzu, click on `+ Add New Game Directory` in the browser, and navigate to the folder where you placed your `XCI` files.
 
 ### If you need any help during this process or get a strange error during or while using yuzu, feel free to ask for help on the yuzu discord! Happy Emulating!
