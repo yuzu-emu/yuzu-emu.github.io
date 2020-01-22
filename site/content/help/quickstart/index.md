@@ -26,20 +26,22 @@ Sample Image:
 # yuzu Quickstart Guide
 
 To start playing games, yuzu needs a couple of system files and folders from your switch in order to play them properly.
-To see if your Switch is hackable, visit https://damota.me/ssnc/checker and test your Switch's serial number.
-If your Switch is patched, you will be unable to complete the following steps.
-The Switch v2 (Mariko) and the Switch Lite are both patched and you will not be able to complete the following steps.
+To check if your Switch is hackable, visit https://damota.me/ssnc/checker and test your Switch's serial number.
+
+    - If your Switch is patched, you will be unable to complete the following steps.
+    - The Switch v2 (Mariko) and the Switch Lite are both patched and you will not be able to complete the following steps.
 
 This guide will help you copy all your system files, games, updates, and DLC from your switch to your computer and organize them in a format yuzu understands.
-
-**IMPORTANT: Make sure to place your Nintendo Switch into Airplane Mode before starting this guide.** System Settings -> Airplane Mode -> Airplane Mode **ON**
-
 This process should take about 60 to 90 minutes.
+
+**IMPORTANT: <br>
+Make sure to place your Nintendo Switch into Airplane Mode before starting this guide.** <br>
+`System Settings -> Airplane Mode -> Airplane Mode "ON"`
 
 # Prerequisites
 
 - A Nintendo Switch vulnerable to the fusée gelée RCM exploit -- Visit https://damota.me/ssnc/checker and test your Switch's serial number
-- An SD card with at least 29 GB of free space (an almost empty 32GB card will work)
+- An SD card with at least 30 GB of free space (an almost empty 32GB card will work)
 - A USB-C to USB-A or USB-C to USB-C Cable to connect your Switch to your computer
 - [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases) -- Download the TegraRcmGUI installer
 - [Hekate](https://github.com/CTCaer/hekate/releases) -- Download the `hekate` zip file
@@ -62,10 +64,13 @@ This process should take about 60 to 90 minutes.
 1. We will now prepare the microSD card.
     - 1a. Extract the contents of the `atmosphere` and `hekate` zip files into the root of your SD card.
     - 1b. Place the `fusee-primary.bin` and `Lockpick_RCM.bin` files into the `bootloader/payloads` folder of the SD card.
-    - 1c. Create a folder named `nxdumptool` within the `switch` folder of your SD card, and place the `nxdumptool.nro` file into the `nxdumptool` folder you have just created.
+    - 1c. Create a folder named `nxdumptool` within the `switch` folder of your SD card and place the `nxdumptool.nro` file inside it.
     - 1d. Once done, eject the SD card and place it into your Nintendo Switch.
         ![SD_Template](./sd_template.png)
-    Your SD card should look like this.
+
+{{< imgs
+    "./sd_template.png|Your SD card should look like this."
+>}}
 
 # Dumping BIS Keys
 
@@ -77,7 +82,7 @@ This process should take about 60 to 90 minutes.
     - 2e. Insert your RCM jig into the right joy-con slot, make sure it is seated securely at the base, and then press VOL+ and Power buttons at the same time. Nothing should happen on your Switch; if the switch starts to turn on normally, go back to the beginning of step 1d and try again.
     - 2f. In the program TegraRcmGUI you should see the Nintendo Switch icon in the lower left corner flash green and state `RCM O.K.`
     - 2g. In the `Tools` tab of TegraRcmGUI, click on `biskeydump (by rajkosto)`.
-    - 2h. Your Switch will briefly flash with a blue QR code, you may or may not see this, and your computer will prompt you to save a text document titled `BIS_keys.txt`. Navigate to `%YUZU_DIR%/keys` and save the file as `console.keys`. Open the file to make sure you have the following key entries.
+    - 2h. Your Switch will briefly flash with a blue QR code (you may or may not see this) and your computer will prompt you to save a text document titled `BIS_keys.txt`. Navigate to `%YUZU_DIR%/keys` and save the file as `console.keys`. Open the file to make sure you have the following key entries.
         - `HWI`
         - `SBK`
         - `TSEC KEY`
@@ -95,49 +100,49 @@ This process should take about 60 to 90 minutes.
 # Dumping Prod.keys and Title.keys
 
 3. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
-    - 3a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f), and make sure it is connected to your computer.
+    - 3a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f) and make sure it is connected to your computer.
     - 3b. Extract the `hekate.bin` file from the `hekate` zip file you downloaded from the prerequisites.
-    - 3c. Run TegraRcmGUI, and in the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier.
-    - 3d. Click on `Inject Payload`, and your Switch will boot into the Hekate menu.
+    - 3c. Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier.
+    - 3d. Click on `Inject Payload` and your Switch will boot into the Hekate menu.
     - 3e. When it has successfully booted into the Hekate menu, tap on `Payloads`. This will show a list of payloads.
     - 3f. Tap on `Lockpick_RCM.bin` in the list of payloads.
     - 3g. After Lockpick_RCM has successfully booted, press the power button to select `Dump from SysNAND`. 
     - 3h. It will automatically boot to sept and start deriving the keys. Wait for it to finish deriving the keys.
     - 3i. After Lockpick_RCM has finished deriving the keys, please make note of the location of the key files. Default is: `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
     - 3j. Press any key to return to the menu, then navigate with the VOL+/VOL- buttons to highlight and select `Power Off` by pressing the power button.
-    - 3h. With your Switch powered off, remove the SD card.
+    - 3h. Once your Switch is powered off, remove the SD card.
     - 3i. Insert your SD card into your computer and copy both `prod.keys` and `title.keys` to the `%YUZU_DIR%/keys` directory.
 
 # Backing up System Files
 
 4. We will now boot Hekate to dump your system files:
-    - 4a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f), and make sure it is connected to your computer.
-    - 4b. Run TegraRcmGUI, and in the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
-    - 4c. Click on `Inject Payload`, and your Switch will boot into the Hekate menu.
+    - 4a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f) and make sure it is connected to your computer.
+    - 4b. Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
+    - 4c. Click on `Inject Payload` and your Switch will boot into the Hekate menu.
     - 4d. Select `Tools`, the wrench icon at the top of the screen, and select `Backup eMMC`. Underneath the `Full` section, tap on `eMMC BOOT0 & BOOT1`. This may take a few seconds to load. After it is finished filling the progress bar it should say `Finished and verified!`. Beneath `Filepath:` you will see the location of the dump. 
-    - 4e. Click `Close` and select `eMMC RAW GPP`. This should take some time as the Switch's rawnand.bin is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is Hekate verifying the data. This should take between 15-45 minutes depending on the quality/speed of your SD card and the default verification setting. Please keep note of the location the output file is placed.
-    - 4f. Power off your switch to avoid damage to your SD card by selecting `Back` and then selecting `Power Off` and then eject your SD card. Insert your SD card into your computer and use your file explorer to open the contents. Place the `yuzu_copy.bat` file you downloaded earlier into the root of your SD card. Double-click it to start combining your `rawnand.bin` if it was dumped into sections i.e. `rawnand.bin.00`. If your rawnand.bin dumped as one ~30gb file, then proceed with the guide. 
-    - 4g. If you needed to dump the rawnand.bin into sections due to lack of space on your sd card, transfer the files that did dump to a new folder on your desktop, and then resume the backup of your `eMMC RAW GPP`. After you have obtained all of the `rawnand.bin` files, add them to the same folder as before, place the `yuzu_copy.bat` file you downloaded earlier into that same folder and double-click to run. After they are combined, please proceed with the guide.
+    - 4e. Click `Close` and select `eMMC RAW GPP`. This should take some time as the Switch's `rawnand.bin` is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is Hekate verifying the data. This should take between 15-45 minutes depending on the quality/speed of your SD card and the default verification setting. Please keep note of the location the output file is placed.
+    - 4f. Power off your switch to avoid damage to your SD card by selecting `Back` and then selecting `Power Off` and then eject your SD card. Insert your SD card into your computer and use your file explorer to open the contents. Place the `yuzu_copy.bat` file you downloaded earlier into the root of your SD card. Double-click it to start combining your `rawnand.bin` if it was dumped into sections i.e. `rawnand.bin.00`. If your `rawnand.bin` dumped as one ~30gb file, then proceed with the guide. 
+    - 4g. If you needed to dump the `rawnand.bin` into sections due to lack of space on your sd card, transfer the files that did dump to a new folder on your desktop, and then resume the backup of your `eMMC RAW GPP`. After you have obtained all of the `rawnand.bin` files, add them to the same folder as before, place the `yuzu_copy.bat` file you downloaded earlier into that same folder and double-click to run. After they are combined, please proceed with the guide.
 
 # Moving SYSTEM and USER to the yuzu directory
 
-5. We will now extract the necessary directories from your rawnand.bin for yuzu to read your system files. 
+5. We will now extract the necessary directories from your `rawnand.bin` for yuzu to read your system files. 
     - 5a. Open `HacDiskMount` as Administrator (Right-click and select Run As Administrator) and go to `File > Open file` and select your `rawnand.bin`.
     - 5b. Double-click on the row marked `PRODINFO`. Under the dump to file area, click browse and pick somewhere easy to get to, like your Desktop. Dump the file as `PRODINFO.bin`. Click start and wait for it to complete. Then close the window. (NOTE: There is no need to enter any keys in the boxes at the top of the dialog at this moment.)
     - 5c. Select the row named `BCPKG2-1-Normal-Main`. Under the dump to file area, click browse and pick somewhere easy to get to, like your Desktop. Dump the file as `BCPKG2-1-Normal-Main.bin`. Click start and wait for it to complete. Again, no keys are necessary at this point. After it finishes, close the window.
     - 5d. Copy the `PRODINFO.bin` and `BCPKG2-1-Normal-Main.bin` files to the `%YUZU_DIR%/sysdata` directory.
     - 5e. Double-click on the row named `SYSTEM`. In the keys box, enter the `bis_key2_crypt` key in the crypt box and the `bis_key2_tweak` key in the tweak box and click test. If the text is red, double check your keys. If the text is blue, click on `Install` and wait until it says `Driver (ver XXXXX) installed, Service is running` where XXXXX is anything, then select `Y:` in the dropdown and click `Mount`. The application may become unresponsive for a moment. Press Windows-R and type `Y:` into the box and click OK and there will be a couple of folders with some named `Contents` and `save`. Copy all of these into `%YUZU_DIR%/nand/system`. After this is done, click `Unmount` and close the window.
-    - 5f. Double-click on the row named `USER`. Enter the same key. Click `Mount`, and the tool may become unresponsive again. Once this mounts, open the new drive and copy the `Contents` and `save` folders to `%YUZU_DIR%/nand/user`. After, click `Unmount` and close the window and then the program.
+    - 5f. Double-click on the row named `USER`. Enter the same key and click `Mount` (the tool may become unresponsive again). Once this mounts, open the new drive and copy the `Contents` and `save` folders to `%YUZU_DIR%/nand/user`. After this, click `Unmount` and close the window and then the program.
     - 5g. If you have games or game data stored on your SD card, copy the `Nintendo` folder of your SD card into `%YUZU_DIR%/sdmc`.
 
 <h1 id="cart"><br></h1>
 
 # Dumping Cartridge Games
 
-6. We will now dump the `Cartridge Image (XCI)` files from your game cartridge, to use in yuzu. Insert the game cartridge of your choice.
-    - 6a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f), and make sure it is connected to your computer.
-    - 6b. Run TegraRcmGUI, and in the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
-    - 6c. Click on `Inject Payload`, and your Switch will boot into the Hekate menu.
+6. We will now dump the `Cartridge Image (XCI)` file from your game cartridge(s), to use in yuzu. Insert the game cartridge of your choice.
+    - 6a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f) and make sure it is connected to your computer.
+    - 6b. Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
+    - 6c. Click on `Inject Payload` and your Switch will boot into the Hekate menu.
     - 6d. When it has successfully booted into the Hekate menu, tap on `Payloads`. This will show a list of payloads.
     - 6e. Tap on `fusee-primary.bin` in the list of payloads.
     - 6f. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, click/tap on the Album application. This will launch the Homebrew Menu.
@@ -154,11 +159,11 @@ This process should take about 60 to 90 minutes.
 7. We will now dump the games' save files from your switch to use in yuzu.
     - 7a. Download [Checkpoint.nro](https://github.com/FlagBrew/Checkpoint/releases)
     - 7b. Insert your SD card into your computer.
-    - 7c. Create a folder named `Checkpoint` within the `switch` folder of your SD card, and place the `Checkpoint.nro` file into the `Checkpoint` folder you have just created.
+    - 7c. Create a folder named `Checkpoint` within the `switch` folder of your SD card and place the `Checkpoint.nro` file inside it.
     - 7d. Eject your SD card and place it in your Switch.
-    - 7e. Boot your Nintendo Switch into RCM mode (steps 2d to 2f), and make sure it is connected to your computer.
-    - 7f. Run TegraRcmGUI, and in the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
-    - 7g. Click on `Inject Payload`, and your Switch will boot into the Hekate menu.
+    - 7e. Boot your Nintendo Switch into RCM mode (steps 2d to 2f) and make sure it is connected to your computer.
+    - 7f. Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier. (step 3b)
+    - 7g. Click on `Inject Payload` and your Switch will boot into the Hekate menu.
     - 7h. When it has successfully booted into the Hekate menu, tap on `Payloads`. This will show a list of payloads.
     - 7i. Tap on `fusee-primary.bin` in the list of payloads.
     - 7j. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, click/tap on the Album application. This will launch the Homebrew Menu.
