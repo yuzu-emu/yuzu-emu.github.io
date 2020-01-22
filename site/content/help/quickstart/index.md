@@ -66,7 +66,6 @@ Make sure to place your Nintendo Switch into Airplane Mode before starting this 
     - 1b. Place the `fusee-primary.bin` and `Lockpick_RCM.bin` files into the `bootloader/payloads` folder of the SD card.
     - 1c. Create a folder named `nxdumptool` within the `switch` folder of your SD card and place the `nxdumptool.nro` file inside it.
     - 1d. Once done, eject the SD card and place it into your Nintendo Switch.
-        ![SD_Template](./sd_template.png)
 
 {{< imgs
     "./sd_template.png|Your SD card should look like this."
