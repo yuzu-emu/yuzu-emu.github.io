@@ -3,7 +3,7 @@ title: Quickstart Guide
 description: A guide designed to get you started with yuzu quickly.
 ---
 
-{{< youtube RwojT7zPVhI >}}
+{{< youtube j0fXerrGjF4 >}}
 
 <h1 id="hardware"><br></h1>
 
@@ -78,7 +78,7 @@ Make sure to place your Nintendo Switch into Airplane Mode before starting this 
     - 2b. In the `Settings` tab, click on `Install Driver` which will install the drivers necessary for your computer to interface with your Nintendo Switch. 
     - 2c. After the drivers have been installed, plug your Nintendo Switch into your computer.
     - 2d. Power off your Switch while it is still connected to your computer.
-    - 2e. Insert your RCM jig into the right joy-con slot, make sure it is seated securely at the base, and then press VOL+ and Power buttons at the same time. Nothing should happen on your Switch; if the switch starts to turn on normally, go back to the beginning of step 1d and try again.
+    - 2e. Insert your RCM jig into the right joy-con slot, make sure it is seated securely at the base, and then press VOL+ and Power buttons at the same time. Nothing should happen on your Switch; if the switch starts to turn on normally, go back to the beginning of step 2d and try again.
     - 2f. In the program TegraRcmGUI you should see the Nintendo Switch icon in the lower left corner flash green and state `RCM O.K.`
     - 2g. In the `Tools` tab of TegraRcmGUI, click on `biskeydump (by rajkosto)`.
     - 2h. Your Switch will briefly flash with a blue QR code (you may or may not see this) and your computer will prompt you to save a text document titled `BIS_keys.txt`. Navigate to `%YUZU_DIR%/keys` and save the file as `console.keys`. Open the file to make sure you have the following key entries.
