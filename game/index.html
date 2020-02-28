@@ -25,19 +25,30 @@
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
-
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
     
     <script type="text/javascript">
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-112443698-1');
+	
+	function allowSortTable(){
+		let tid = "#compatibilityTable";
+		let headers = document.querySelectorAll(tid + " th");
+
+		headers.forEach(function(element, i) {
+			element.addEventListener("click", function() {
+				w3.sortHTML(tid, ".item", "td:nth-child(" + (i + 1) + ")");
+			});
+		});
+	}
     </script>
     
     
 </head>
 
-<body>
+<body onload="allowSortTable()">
         <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="container">
     <div class="navbar-brand">
@@ -341,7 +352,7 @@
                 <div class="column is-two-thirds">
                     
 <div class="section pt-xs">
-    <table class="table is-fullwidth">
+    <table id="compatibilityTable" class="table is-fullwidth w3-table-all">
         <thead>
             <tr>
                 <th>Game Title</th>
