@@ -15,30 +15,30 @@
         ]
     },
     {
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "Blinkhawk",
+        "Status": "Completed",
         "Description": "Develop a proper fix for mutex corruption issues.",
-        "Response": null,
+        "Response": "Fixed by PR 3195",
         "Requestors": [
             {
                 "DateSubmitted": "11-06-2019",
                 "Name": "bunnei",
                 "Amount": "$225 USD",
-                "Paid": false
+                "Paid": paid
             }
         ]
     },
     {
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "bunnei",
+        "Status": "Completed",
         "Description": "Get Super Smash Bros. Ultimate fully playable, in such that one can play several matches without crashes or hangs.",
-        "Response": null,
+        "Response": "Fixed by PR 3563",
         "Requestors": [
             {
                 "DateSubmitted": "11-06-2019",
                 "Name": "bunnei",
                 "Amount": "$225 USD",
-                "Paid": false
+                "Paid": paid
             }
         ]
     },
@@ -92,74 +92,74 @@
         ]
     },
     {
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "ogniK5377",
+        "Status": "Completed",
         "Description": "Be able to boot The Legend of Zelda Link's Awakening.",
-        "Response": null,
+        "Response": "Fixed by PR 2873",
         "Requestors": [
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "Jon S",
                 "Amount": "$20 USD",
-                "Paid": false
+                "Paid": paid
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "Tobi",
                 "Amount": "€20 EUR",
-                "Paid": false
+                "Paid": paid
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "Eloeri",
                 "Amount": "$50 USD",
-                "Paid": false
+                "Paid": paid
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "Bunnei",
                 "Amount": "$100 USD",
-                "Paid": false
+                "Paid": paid
             }
         ]
     },
     {
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "ogniK5377",
+        "Status": "Completed",
         "Description": "Be able to beat the first dungeon of Link's Awakening.",
-        "Response": null,
+        "Response": "Fixed by PR 2873",
         "Requestors": [
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "Flame Sage",
                 "Amount": "$50 USD",
-                "Paid": false
+                "Paid": paid
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "MelonSpeedruns",
                 "Amount": "$10 USD",
-                "Paid": false
+                "Paid": paid
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "jroweboy",
                 "Amount": "$50 USD",
-                "Paid": false
+                "Paid": paid
             }
         ]
     },
     {
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "Rodrigo",
+        "Status": "Completed",
         "Description": "Fixing a major graphics glitch that inhibits gameplay in Link's Awakening, if one should exist.",
-        "Response": null,
+        "Response": "Fixed by PR 3337",
         "Requestors": [
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "jroweboy",
                 "Amount": "$50 USD",
-                "Paid": false
+                "Paid": paid
             }
         ]
     },
@@ -178,16 +178,16 @@
         ]
     },
     {
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "Blinkhawk",
+        "Status": "Completed",
         "Description": "Fix softlocks in Pokemon Let's Go games.",
-        "Response": null,
+        "Response": "Fixed by PR 3195",
         "Requestors": [
             {
                 "DateSubmitted": "11-20-2018",
                 "Name": "Flame Sage",
                 "Amount": "$50 USD",
-                "Paid": false
+                "Paid": paid
             }
         ]
     },
@@ -235,10 +235,10 @@
         ]
     },
     {
-        "Developer": null,
-        "Status": "Unassigned",
+        "Developer": "Blinkhawk",
+        "Status": "Completed",
         "Description": "Fix core timing issues in Snipperclips, Cut it out Together!",
-        "Response": null,
+        "Response": "Fixed by PR 2129,
         "Requestors": [
             {
                 "DateSubmitted": "12-10-2018",
@@ -280,6 +280,21 @@
                 "Name": "KennyRoody",
                 "Amount": "$35 USD",
                 "Paid": true
+            }
+        ]
+    },
+	{
+        "Developer": null,
+        "Status": "Unassigned",
+        "Description": "Get Animal Crossing: New Horizons booting in-game",
+        "Response": null,
+        "Requestors": [
+            {
+                "DateSubmitted": "04-12-2020",
+                "Name": "bunnei",
+                "Amount": "$1000 USD",
+				"DateExpires": "06-01-2020"
+                "Paid": false
             }
         ]
     },
