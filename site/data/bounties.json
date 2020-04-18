@@ -24,7 +24,7 @@
                 "DateSubmitted": "11-06-2019",
                 "Name": "bunnei",
                 "Amount": "$225 USD",
-                "Paid": paid
+                "Paid": true
             }
         ]
     },
@@ -38,7 +38,7 @@
                 "DateSubmitted": "11-06-2019",
                 "Name": "bunnei",
                 "Amount": "$225 USD",
-                "Paid": paid
+                "Paid": true
             }
         ]
     },
@@ -101,25 +101,25 @@
                 "DateSubmitted": "09-18-2019",
                 "Name": "Jon S",
                 "Amount": "$20 USD",
-                "Paid": paid
+                "Paid": true
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "Tobi",
                 "Amount": "€20 EUR",
-                "Paid": paid
+                "Paid": true
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "Eloeri",
                 "Amount": "$50 USD",
-                "Paid": paid
+                "Paid": true
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "Bunnei",
                 "Amount": "$100 USD",
-                "Paid": paid
+                "Paid": true
             }
         ]
     },
@@ -133,19 +133,19 @@
                 "DateSubmitted": "09-18-2019",
                 "Name": "Flame Sage",
                 "Amount": "$50 USD",
-                "Paid": paid
+                "Paid": true
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "MelonSpeedruns",
                 "Amount": "$10 USD",
-                "Paid": paid
+                "Paid": true
             },
             {
                 "DateSubmitted": "09-18-2019",
                 "Name": "jroweboy",
                 "Amount": "$50 USD",
-                "Paid": paid
+                "Paid": true
             }
         ]
     },
@@ -159,7 +159,7 @@
                 "DateSubmitted": "09-18-2019",
                 "Name": "jroweboy",
                 "Amount": "$50 USD",
-                "Paid": paid
+                "Paid": true
             }
         ]
     },
@@ -187,7 +187,7 @@
                 "DateSubmitted": "11-20-2018",
                 "Name": "Flame Sage",
                 "Amount": "$50 USD",
-                "Paid": paid
+                "Paid": true
             }
         ]
     },
@@ -238,7 +238,7 @@
         "Developer": "Blinkhawk",
         "Status": "Completed",
         "Description": "Fix core timing issues in Snipperclips, Cut it out Together!",
-        "Response": "Fixed by PR 2129,
+        "Response": "Fixed by PR 2129",
         "Requestors": [
             {
                 "DateSubmitted": "12-10-2018",
@@ -293,7 +293,7 @@
                 "DateSubmitted": "04-12-2020",
                 "Name": "bunnei",
                 "Amount": "$1000 USD",
-				"DateExpires": "06-01-2020"
+                "DateExpires": "06-01-2020",
                 "Paid": false
             }
         ]
