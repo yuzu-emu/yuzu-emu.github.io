@@ -93,7 +93,7 @@ On the topic of formats, implementing the `RG32` and `RGB32` vertex formats fixe
 Great work, [Rodrigo](https://github.com/ReinUsesLisp)!
 
 {{< imgs
-    "./13.png| It works!"
+    "./13.PNG| It works!"
   >}}
   
 ## Paving the road for even bigger changes
