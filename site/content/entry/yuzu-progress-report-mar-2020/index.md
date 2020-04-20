@@ -1,11 +1,11 @@
 +++
-date = "2020-04-19T04:00:00-03:00"
+date = "2020-04-20T07:11:00-03:00"
 title = "Progress Report March 2020"
 author = "GoldenX86"
 forum = 217502
 +++ 
 
-How are you doing in this quarantine, yuz-ers? We hope you are all staying in your homes safe and sound.
+How are you doing in this quarantine, yuzu fans? We hope you are all staying in your homes safe and sound.
 Today, we are bringing you a report on a few changes from the past month for both the Early Access and regular Mainline versions of yuzu.
 <!--more-->
 
