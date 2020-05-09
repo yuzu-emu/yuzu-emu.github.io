@@ -17,10 +17,9 @@ In modern society, it symbolizes the strive for scientific knowledge.
 The Prometheus Project is about that - the journey to new emulation techniques.
 ```
 
-{{< imgs
-    "./acnh.png| Animal Crossing: New Horizons"
->}}
-  
+Since we cannot really show performance boosts in pictures, here is a video by BSoD Gaming that takes you through all the improvements.
+{{< youtube rbNd67vIO78 >}}
+
 ## What is Multicore CPU emulation?
 
 As many of you might know, yuzu is considered a HLE (high level emulation) emulator.
@@ -179,6 +178,10 @@ The original solution was to modify scheduling to support it but that proved ver
 After a while, we figured out a pretty easy solution without having to modify anything.
 We would create a kernel thread for each core and make that kernel thread pass control from and to the CPU Manager to the emulation.
 
+{{< imgs
+    "./acnh.png| Animal Crossing: New Horizons"
+>}}
+
 ## What to expect with games?
 
 Many of you may be eager for multicore but have in mind that there are other bottlenecks as well.
@@ -210,9 +213,6 @@ AMD's drivers for OpenGL are terrible while NVIDIA's are great.
 Lastly, be aware that RAM speed, amount of RAM, and the type of processor in your system, will also influence your experience.
 The initial release may use additional memory (100mb to 3Gb depending on the game). 
 We are currently stability-testing a fix for this additional memory usage.
-
-Since we cannot really show performance boosts in pictures, here is a video by BSoD Gaming that takes you through all the improvements.
-{{< youtube rbNd67vIO78 >}}
 
 ### Current Known Issues
 
