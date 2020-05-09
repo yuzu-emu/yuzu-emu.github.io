@@ -212,7 +212,7 @@ The initial release may use additional memory (100mb to 3Gb depending on the gam
 We are currently stability-testing a fix for this additional memory usage.
 
 Since we cannot really show performance boosts in pictures, here is a video by BSoD Gaming that takes you through all the improvements.
-{{< youtube rbNd67vIO7 >}}
+{{< youtube rbNd67vIO78 >}}
 
 ### Current Known Issues
 
