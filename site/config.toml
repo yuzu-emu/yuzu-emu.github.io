@@ -20,10 +20,10 @@ paginate = 20
   url = "/downloads"
 
 [[menu.main]]
-  name = "help"
+  name = "faq"
   weight = 3
-  identifier = "help"
-  url = "/help/"
+  identifier = "faq"
+  url = "/wiki/faq"
 
 [[menu.main]]
   name = "compatibility"
@@ -32,22 +32,22 @@ paginate = 20
   url = "/game"
 
 [[menu.main]]
-  name = "dev wiki"
-  weight = 5
-  identifier = "devwiki"
-  url = "/wiki/home/"
-
-[[menu.main]]
   name = "screenshots"
-  weight = 6
+  weight = 5
   identifier = "screenshots"
   url = "/screenshots"
 
 [[menu.main]]
   name = "patreon"
-  weight = 7
+  weight = 6
   identifier = "patreon"
   url = "https://www.patreon.com/yuzuteam"
+
+[[menu.main]]
+  name = "profile"
+  weight = 7
+  identifier = "profile"
+  url = "https://profile.yuzu-emu.org"
 
 [Params]
   Tenant = "yuzu"
