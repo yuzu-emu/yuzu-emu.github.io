@@ -141,7 +141,7 @@ After fixing these issues, we were finally able to boot *Super Mario Odyssey* on
 Mutex Corruption happens due to issues with exclusive memory handling in ARMv8.
 As it turned out, [dynarmic](https://github.com/MerryMage/dynarmic) had to be modified to fix it.
 
-After looking into it, [Blinkhawk](https://github.com/MerryMage/dynarmic) realized exclusive memory in [dynarmic](https://github.com/MerryMage/dynarmic) was prone to a race condition when the exclusive address was written by a non-exclusive write.
+After looking into it, [Blinkhawk](https://github.com/FernandoS27) realized exclusive memory in [dynarmic](https://github.com/MerryMage/dynarmic) was prone to a race condition when the exclusive address was written by a non-exclusive write.
 The solution was to save the current value on exclusive read and then atomic exchange it with a new value on exclusive write.
 By fixing this, most of the games were able to go in-game and many of them were fully playable.
 
