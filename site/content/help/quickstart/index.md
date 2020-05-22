@@ -11,10 +11,12 @@ description: A guide designed to get you started with yuzu quickly.
 
 |   	|  CPU 	|  GPU	|  RAM	|
 |-------|-------|-------|-------|
-|**Minimum (for 2D games)**|Intel Core i3-6100 / AMD Ryzen 3 1200|Intel HD Graphics 520 / NVIDIA GeForce GT 1030 / AMD Radeon R7 240|8GB|
-|**Recommended (for 3D games)**|Intel Core i5-8600K / AMD Ryzen 5 3600|NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 470 8GB|16GB| 
+|**Minimum**|Intel Core i5-4570 / AMD Ryzen 3 1200|Intel HD Graphics 520 / NVIDIA GeForce GT 1030 / AMD Radeon R7 240|8GB|
+|**Recommended**|Intel Core i5-10400 / AMD Ryzen 5 3600|NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 470 8GB|16GB| 
 
 - Our recommended specifications don't guarantee perfect performance in most games, but rather strive to provide a cost effective recommendation while still considering performance.
+
+- Mobile CPUs will not reach the same performance as desktop parts.
 
 - **GPUs must support OpenGL 4.5 (or higher) & OpenGL Compatibility profile, or Vulkan 1.1.**<br>
 To find out if your GPU meets these requirements, visit https://opengl.gpuinfo.org or https://vulkan.gpuinfo.org/ and check your GPU details.<br>
