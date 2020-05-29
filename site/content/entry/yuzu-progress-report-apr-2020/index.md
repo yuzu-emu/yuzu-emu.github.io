@@ -175,7 +175,7 @@ Now it works as intended again, with no more fog stripes on trees.
     "./18.png"
   >}}
 
-[Rodrigo](https://github.com/ReinUsesLisp) fixed a regression found on `Puyo Puyo Tetris` while running in OpenGL. 
+[Rodrigo](https://github.com/ReinUsesLisp) fixed a regression found in `Puyo Puyo Tetris` while running in OpenGL. 
 With it in place, character portraits have their proper white border rendered.
 
 {{< single-title-imgs
