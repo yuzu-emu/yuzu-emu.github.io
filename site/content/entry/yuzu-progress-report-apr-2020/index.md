@@ -111,7 +111,7 @@ sticks. Additionally, the sliders now show percentages, making them easier to re
     "./07.png| Precision"
   >}}
 
-And to top it off, he also added a way to restore the default value for a hotkey. An important part of the user experience is having a tidy, and useful interface.
+And to top it off, he also added a way to restore the default value for a hotkey. An important part of the user experience is having a tidy and useful interface.
 
 {{< imgs
     "./08.png| More customization"
