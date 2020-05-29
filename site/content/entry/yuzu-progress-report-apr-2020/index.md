@@ -122,13 +122,13 @@ And to top it off, he also added a way to restore the default value for a hotkey
 {{< single-title-imgs
     "The old errors"
     "./19.png"
-    "./21.png"
+    "./21_b.png"
   >}}
   
 {{< single-title-imgs
     "The new errors"
-    "./20.png"
-    "./22.png"
+    "./20_b.png"
+    "./22_b.png"
   >}}
 
 Waluigi is not part of Smash, yet, but that doesn't mean he can't enjoy some limelight. 
@@ -159,8 +159,8 @@ A good example of this is `The Legend of Zelda: Breath of the Wild` with the lat
 
 {{< single-title-imgs
     "Milk baths are over Link, go save Zelda or something (Legend of Zelda: Breath of the Wild)"
-    "./35.png"
-    "./36.png"
+    "./35_b.png"
+    "./36_b.png"
   >}}
 
 ## Fixed regressions
