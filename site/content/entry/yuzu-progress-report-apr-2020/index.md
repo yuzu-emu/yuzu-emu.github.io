@@ -12,7 +12,7 @@ We have lots of material to cover in this April progress report: some new additi
 ## The Big Changes
 
 This month brought us huge improvements to compatibility, fidelity and resource management. 
-[bunnei](https://github.com/bunnei), our master of serendipity, fixed a softlock in `FINAL FANTASY VIII Remastered`. 
+Our master of serendipity, [bunnei](https://github.com/bunnei), fixed a softlock in `FINAL FANTASY VIII Remastered`. 
 What he didn’t know at the time is that this small fix also made `Super Smash Bros. Ultimate` playable. Thanks to this, you can now enjoy local multiplayer battles with your friends, either locally or even via Parsec!
 
 For quite a while, Nvidia Turing users (GTX 16 series and RTX 20 series GPUs) had to deal with several rendering bugs, like black and white terrain in `Fire Emblem: Three Houses`, or black areas in `Super Monkey Ball: Banana Blitz HD`. 
