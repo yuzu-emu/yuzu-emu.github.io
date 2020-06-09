@@ -71,7 +71,7 @@ was in place.
 `Animal Crossing: New Horizons` does it in a “device” profile, so yuzu had to be accommodated for that.
 [Pull Request #3665.](https://github.com/yuzu-emu/yuzu/pull/3665)
 
-##Xenoblade specific fixes
+## Xenoblade specific fixes
 
 Rendering bugs are abundant in Xenoblade games, and they are not of the “easy to solve” sort due to how these games are coded. 
 [Rodrigo](https://github.com/ReinUsesLisp) managed to fix most of them by improving the texture cache, you can see the results 
