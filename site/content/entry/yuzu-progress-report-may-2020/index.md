@@ -133,6 +133,14 @@ Our good shark [ogniK](https://github.com/ogniK5377) also fixed keyboard emulati
 able to have proper direct input from your keyboards now.
 [Pull Request #3926.](https://github.com/yuzu-emu/yuzu/pull/3926)
 
+[Morph](https://github.com/Morph1984) implemented the missung support for `R8G8UI` textures, fixing both the performance problems and saving crashes `The Walking Dead` games experienced.
+[Pull Request #3839.](https://github.com/yuzu-emu/yuzu/pull/3839)
+
+{{< single-title-imgs
+    "Thank you Toxa for the screenshot (The Walking Dead: The Final Season)"
+    "./08.png"
+  >}}
+
 One small but important annoyance when running a fullscreen program is the mouse being in front of everything you are doing. 
 [Tobi](https://github.com/FearlessTobi) implemented an option to automatically hide the mouse once it has been inactive after 
 some time.
