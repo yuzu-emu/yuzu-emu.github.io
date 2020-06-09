@@ -74,7 +74,7 @@ was in place.
 ## Xenoblade specific fixes
 
 Rendering bugs are abundant in Xenoblade games, and they are not of the “easy to solve” sort due to how these games are coded. 
-[Rodrigo](https://github.com/ReinUsesLisp) managed to fix most of them by improving the texture cache, you can see the results 
+[Rodrigo](https://github.com/ReinUsesLisp) managed to fix most of them by improving the texture cache, this is thanks to work done by [gdkchan](https://github.com/gdkchan) from [Ryujinx](https://github.com/Ryujinx/Ryujinx). You can see the results 
 bellow.
 https://github.com/yuzu-emu/yuzu/pull/3991
 
