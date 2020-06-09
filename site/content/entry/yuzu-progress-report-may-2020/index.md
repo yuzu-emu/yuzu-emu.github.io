@@ -52,7 +52,7 @@ Xenoblade games.
 ## Animal Crossing: New Horizons changes
 
 [Rodrigo](https://github.com/ReinUsesLisp) fixed Animal Crossing: New Horizons terrain borders in Vulkan by implementing 
-constant attributes. This is not a native extension, constant attributes has to be completely emulated in Vulkan as there is no 
+constant attributes. This is not a native extension, constant attributes has to be emulated in Vulkan as there is no 
 current official support for it.
 [Pull Request #3930.]( https://github.com/yuzu-emu/yuzu/pull/3930)
 
@@ -154,7 +154,7 @@ In days past there was no common language for the recently added shading units i
 decided to create a proper standardised shading language to use, made considering the hardware limitations of the time. In broad
 terms, this is assembly language to communicate with the GPU, so it is very hard to work with, and the set of debugging tools 
 available is very limited.
-In the present it has been mostly deprecated in favour of easier to work with, high level shading languages like GLSL or SPIR-V.
+In the present it has been mostly deprecated in favour of easier to work with, high level shader representations like GLSL or SPIR-V.
 While this means faster results for the game developers due to less time spent looking at the code, it has the disadvantage of 
 being far slower for emulators that have to constantly intercept, decode and recompile shaders on the fly. 
 Luckily, and for no apparent sane reason, Nvidia decided to keep offering support for such an old feature, even on the latest 
@@ -163,7 +163,7 @@ You have the crazy driver team, but you also need a crazy and very patient devel
 [Rodrigo](https://github.com/ReinUsesLisp) decides to take on this, with only [apitrace](https://apitrace.github.io/) as his 
 debug tool.
 With this initial assembly shading support in place, Nvidia OpenGL users can enjoy extremely fast shader compilation times. 
-And due to being closer to the native hardware of the Nintendo Switch, we can also expect some precision fixes.
+And due to being closer to the native hardware of the Nintendo Switch, we can also expect some precision fixes, with more coming in the future.
 Now, it has some limitations too, to list some of them:
 * This is an Nvidia only and OpenGL only feature, other vendors offer support for assembly shaders only for the feature sets of 
 the old games that used to require it, and that’s very unlikely to change.
