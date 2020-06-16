@@ -169,7 +169,7 @@ Unfortunately, GLASM has some limitations. To list some of them:
 I can’t say much here, but there is something going on with both `Project Viper` and `Project Hearn`.
 
 That’s all for now, folks! See you in the June article!
-Special thanks to BSoD Gaming for the comparative GLASM video.
+Special thanks to BSoD Gaming for the comparative GLASM video, and Toxa for providing some screenshots.
 
 &nbsp;
 <h4 style="text-align:center;">
