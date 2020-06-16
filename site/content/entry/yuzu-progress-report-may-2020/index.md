@@ -63,9 +63,8 @@ Xenoblade games.
 
 ## Xenoblade specific fixes
 
-Rendering bugs are abundant in Xenoblade games, and they are not trivial to solve due to how the games are programmed. 
-However, [Rodrigo](https://github.com/ReinUsesLisp) managed to fix most of them by [improving the texture cache](https://github.com/yuzu-emu/yuzu/pull/3991), this is thanks to work done by [gdkchan](https://github.com/gdkchan) from [Ryujinx](https://github.com/Ryujinx/Ryujinx). You can see the results 
-below.
+Rendering bugs are abundant in Xenoblade games, due to the complexity of their engine, they are not trivial to solve. 
+However, with the help of [gdkchan](https://github.com/gdkchan), and using this [Pull Request](https://github.com/Ryujinx/Ryujinx/pull/1277) from [Ryujinx](https://github.com/Ryujinx/Ryujinx), [Rodrigo](https://github.com/ReinUsesLisp) fixed one of the major rendering issues in `Xenoblade Chronicles 2` related to [front face flipping](https://github.com/yuzu-emu/yuzu/pull/3996). Additional [improvements to texture depth samplings](https://github.com/yuzu-emu/yuzu/pull/3991) resolved some rendering glitches, found for example in clouds and the start menu. Additionally, a better handling of [mipmap overlaps](https://github.com/yuzu-emu/yuzu/pull/4012) solved the constantly moving textures the games previously had. You can see the results below.
 
 {{< single-title-imgs
     "Who said yuzu can’t run JRPGs? (Xenoblade Chronicles 2)"
