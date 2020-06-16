@@ -25,8 +25,8 @@ helping the project [manage dependencies](https://github.com/yuzu-emu/yuzu/pull/
 
 With the previous VMM rewrite reducing memory use, the dependencies updated, and all the groundwork done, [Blinkhawk](https://github.com/FernandoS27) 
 pressed the metaphorical nuclear launch button and [released Project Prometheus](https://github.com/yuzu-emu/yuzu/pull/3955).
-yuzu can now use up to 6 to 7 CPU threads (in ideal conditions) 
-compared to the previous 2 to 3. You should expect a performance boost in a lot of games, but still see some titles perform mostly the same due to being coded to only use a single thread.
+yuzu can now use up to 6 or 7 CPU threads (in ideal conditions) 
+compared to the previous 2 or 3. You should expect a performance boost in a lot of games, but still see some titles perform mostly the same due to being coded to only use a single thread.
 
 Now, some clarifications are needed for this change. Multicore support can’t be merged into our [Mainline](https://github.com/yuzu-emu/yuzu-mainline) release for now due to incompatibilities between Multicore and the [Master](https://github.com/yuzu-emu/yuzu) branch of yuzu. Work is being done to resolve the conflicts, but please have patience.
 Additionally, users with 2 cores, and either 2 or 4 threads, should not enable multicore as it will most likely result in a performance 
@@ -62,8 +62,8 @@ Xenoblade games.
 
 ## Xenoblade specific fixes
 
-Rendering bugs are abundant in Xenoblade games, due to the complexity of their engine, they are not trivial to solve. 
-However, with the help of [gdkchan](https://github.com/gdkchan), and using this [Pull Request](https://github.com/Ryujinx/Ryujinx/pull/1277) from [Ryujinx](https://github.com/Ryujinx/Ryujinx), [Rodrigo](https://github.com/ReinUsesLisp) fixed one of the major rendering issues in `Xenoblade Chronicles 2` related to [front face flipping](https://github.com/yuzu-emu/yuzu/pull/3996). Additional [improvements to texture depth samplings](https://github.com/yuzu-emu/yuzu/pull/3991) resolved some rendering glitches, found for example in clouds and the start menu. Additionally, a better handling of [mipmap overlaps](https://github.com/yuzu-emu/yuzu/pull/4012) solved the constantly moving textures the games previously had. You can see the results below.
+Rendering bugs are abundant in Xenoblade games due to the complexity of their engine, and they are not trivial to solve. 
+However, with the help of [gdkchan](https://github.com/gdkchan) and using this [Pull Request](https://github.com/Ryujinx/Ryujinx/pull/1277) from [Ryujinx](https://github.com/Ryujinx/Ryujinx), [Rodrigo](https://github.com/ReinUsesLisp) fixed one of the major rendering issues in `Xenoblade Chronicles 2` related to [front face flipping](https://github.com/yuzu-emu/yuzu/pull/3996). Additional [improvements to texture depth samplings](https://github.com/yuzu-emu/yuzu/pull/3991) resolved some rendering glitches, such as the clouds and start menu. Additionally, a better handling of [mipmap overlaps](https://github.com/yuzu-emu/yuzu/pull/4012) solved the constantly moving textures the games previously had. You can see the results below.
 
 {{< single-title-imgs
     "Who said yuzu can’t run JRPGs? (Xenoblade Chronicles 2)"
@@ -157,7 +157,7 @@ Unfortunately, `GLASM` has some limitations. To list some of them:
   
 {{< youtube Oj5ntdszfyQ >}}
 
-## Future Projects
+## Future projects
 
 I can’t say much here, but there is something going on with both `Project Viper` and `Project Hearn`.
 
