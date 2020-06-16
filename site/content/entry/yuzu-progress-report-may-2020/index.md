@@ -25,7 +25,7 @@ helping the project [manage dependencies](https://github.com/yuzu-emu/yuzu/pull/
 
 With the previous VMM rewrite reducing memory use, the dependencies updated, and all the groundwork done, [Blinkhawk](https://github.com/FernandoS27) 
 pressed the metaphorical nuclear launch button and [released Project Prometheus](https://github.com/yuzu-emu/yuzu/pull/3955).
-yuzu now use up to 6 to 7 CPU threads (in ideal conditions) 
+yuzu can now use up to 6 to 7 CPU threads (in ideal conditions) 
 compared to the previous 2 to 3. You should expect a performance boost in a lot of games, but still see some titles perform mostly the same due to being coded to only use a single thread.
 
 Now, some clarifications are needed for this change. Multicore support can’t be merged into our [Mainline](https://github.com/yuzu-emu/yuzu-mainline) release for now due to incompatibilities between Multicore and the [Master](https://github.com/yuzu-emu/yuzu) branch of yuzu. Work is being done to resolve the conflicts, but please have patience.
@@ -58,8 +58,7 @@ Xenoblade games.
 
 [bunnei](https://github.com/bunnei) implemented [time zone support](https://github.com/yuzu-emu/yuzu/pull/3909), and Windows users will find that yuzu automatically detects their time zone. For those not on Windows (or want to spice up their life), you can manually change your system time via the "Custom RTC" option in the System settings. Previously, yuzu always assumed the user was located in the GMT+0 time zone.
 
-[bunnei](https://github.com/bunnei) also improved the [saving mechanism](https://github.com/yuzu-emu/yuzu/pull/3665). Most games save their data in each user profile, but 
-`Animal Crossing: New Horizons` does it via a “device” profile, so yuzu had to accommodate for that.
+[bunnei](https://github.com/bunnei) also improved the [saving mechanism](https://github.com/yuzu-emu/yuzu/pull/3665). Most games save their data in each user profile, but `Animal Crossing: New Horizons` does it via a “device” profile, so yuzu had to accommodate for that.
 
 ## Xenoblade specific fixes
 
