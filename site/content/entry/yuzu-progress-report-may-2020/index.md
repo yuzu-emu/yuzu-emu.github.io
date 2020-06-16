@@ -126,13 +126,13 @@ Recently released in the Early Access build, and coming soon to Mainline, is sup
 refered to as `ARB shaders`.
 &nbsp;
 
-A couple decades ago, there was no common language for the newly added programable shading units in GPUs, so the `OpenGL Architecture Review Board` decided to create a proper standardised shading language they called `GLASM`. In broad terms, this is an assembly language used to communicate with the GPU. This makes it very difficult to work with, and the difficulty is only exacerbated by the limited set of debugging tools available. Furthermore, the language was developed with the hardware limitations of the time in mind.
-In the present, `GLASM` has been mostly deprecated in favour of easier-to-work-with, high level shader representations like `GLSL` or `SPIR-V`.
-While this means faster results for game developers due to less time spent looking at the code, it also has the disadvantage of being far slower for emulators that have to constantly intercept, decode and recompile shaders on the fly. 
+A couple decades ago, there was no common language for the then newly added programmable shading units in GPUs, so the `OpenGL Architecture Review Board` decided to create a proper standardised shading language they called `GLASM`. In broader terms, this is an assembly language used to communicate with the GPU. This makes it very difficult to work with, and the difficulty is only exacerbated by the limited set of debugging tools available. Furthermore, the language was developed with the hardware limitations of the time in mind.
+In the present, `GLASM` has been mostly deprecated in favour of easier-to-work-with, high-level shader representations like `GLSL` or `SPIR-V`.
+While this means faster results for game developers due to less time spent looking at the code, it also has the disadvantage of being far slower for emulators that have to constantly intercept, decode, and recompile shaders on the fly. 
 &nbsp;
 
-In the beggining, support for `GLASM` started as just an experiment. Armed with [apitrace](https://apitrace.github.io/) as his only debug tool, [Rodrigo](https://github.com/ReinUsesLisp) set to his task. 
-Luckily, and for no apparent sane reason, since Nvidia still maintains support for such an old feature, even on the latest OpenGL versions. As such, support for `GLASM` soon became a reality and with this initial [assembly shading](https://github.com/yuzu-emu/yuzu/pull/3964) support in place, Nvidia OpenGL users can enjoy extremely fast shader compilation times.
+In the beginning, support for `GLASM` started as just an experiment. Armed with [apitrace](https://apitrace.github.io/) as his only debug tool, [Rodrigo](https://github.com/ReinUsesLisp) set to his task. 
+Luckily, and for no apparent sane reason, Nvidia still maintains support for such an old feature, even on the latest OpenGL versions. As such, support for `GLASM` soon became a reality and with this initial [assembly shading](https://github.com/yuzu-emu/yuzu/pull/3964) support in place, Nvidia OpenGL users can enjoy extremely fast shader compilation times.
 &nbsp;
 
 Due to being closer to the native hardware of the Nintendo Switch, we can also expect some precision fixes, with more coming in the future.
@@ -140,9 +140,9 @@ Due to being closer to the native hardware of the Nintendo Switch, we can also e
 
 Unfortunately, `GLASM` has some limitations. To list some of them:
 
-- This is an Nvidia only and OpenGL only feature — other vendors (AMD and Intel) only offer support for the specific assembly shaders that old games require and this is highly unlikely to change in the future.
+- This is an Nvidia and OpenGL only feature — other vendors (AMD and Intel) only offer support for the specific assembly shaders that old games require and this is highly unlikely to change in the future.
 
-- Currently some games experience bugs that will need to be ironed out, such as: `Luigi’s Mansion 3`, `Astral Chain` or `The Legend of Zelda: Link’s Awakening`.
+- Currently, some games experience bugs that will need to be ironed out, such as: `Luigi’s Mansion 3`, `Astral Chain`, and `The Legend of Zelda: Link’s Awakening`.
 
 - There are architecture specific bugs; a Pascal GPU may face different issues than a Turing or Kepler GPU.
 
@@ -164,7 +164,7 @@ Unfortunately, `GLASM` has some limitations. To list some of them:
 I can’t say much here, but there is something going on with both `Project Viper` and `Project Hearn`.
 
 That’s all for now, folks! See you in the June article!
-Special thanks to BSoD Gaming for the comparative GLASM video, and Toxa for providing some screenshots.
+Special thanks to BSoD Gaming for the comparative `GLASM` video, and Toxa for providing some screenshots.
 
 &nbsp;
 <h4 style="text-align:center;">
