@@ -124,28 +124,29 @@ Although objectively a small issue, the mouse cursor didn't hide when running yu
 ## An elegant feature of a more civilized age
 
 Recently released in the Early Access build, and coming soon to Mainline, is support for `assembly shaders` (`GLASM`), usually 
-just called `ARB shaders`.
-Decades ago, there was no common language for the recently added shading units in GPUs, so the `OpenGL Architecture Review Board`
+refered to as `ARB shaders`.
+&nbsp;
+
+Decades ago, there was no common language for the recently added programable shading units in GPUs, so the `OpenGL Architecture Review Board`
 decided to create a proper standardised shading language to use, made considering the hardware limitations of the time. In broad
-terms, this is assembly language to communicate with the GPU, so it is very hard to work with, and the set of debugging tools 
+terms, this is assembly language used to communicate with the GPU, so it is very hard to work with, and the set of debugging tools 
 available is very limited.
 In the present it has been mostly deprecated in favour of easier to work with, high level shader representations like GLSL or SPIR-V.
 While this means faster results for the game developers due to less time spent looking at the code, it has the disadvantage of 
 being far slower for emulators that have to constantly intercept, decode and recompile shaders on the fly. 
-Luckily, and for no apparent sane reason, Nvidia decided to keep offering support for such an old feature, even on the latest 
-OpenGL version.
-You have the crazy driver team, but you also need a crazy and very patient developer to implement this in yuzu, so 
-[Rodrigo](https://github.com/ReinUsesLisp) decides to take on this, with only [apitrace](https://apitrace.github.io/) as his 
-debug tool.
-With this initial assembly shading support in place, Nvidia OpenGL users can enjoy extremely fast shader compilation times. 
-And due to being closer to the native hardware of the Nintendo Switch, we can also expect some precision fixes, with more coming in the future.
-Now, it has some limitations too, to list some of them:
-..* This is an Nvidia only and OpenGL only feature, other vendors offer support for assembly shaders only for the feature sets of 
-the old games that used to require it, and that’s very unlikely to change.
-..* Currently some games like `Luigi’s Mansion 3`, `Astral Chain` or `The Legend of Zelda: Link’s Awakening` experience bugs that 
-have to be ironed out.
-..* There are architecture specific bugs, so a Pascal GPU may face different issues than a Turing or Kepler GPU.
-[Pull Request #3964.](https://github.com/yuzu-emu/yuzu/pull/3964)
+&nbsp;
+
+In the beggining, support for GLASM started as just an experiment. Armed with [apitrace](https://apitrace.github.io/) as his only debug tool, [Rodrigo](https://github.com/ReinUsesLisp) set to his task. 
+Luckily, and for no apparent sane reason, since Nvidia decided to maintain support for such an old feature even on the latest OpenGL versions, this feature soon became a reality and with this initial [assembly shading](https://github.com/yuzu-emu/yuzu/pull/3964) support in place, Nvidia OpenGL users can enjoy extremely fast shader compilation times. 
+&nbsp;
+
+Due to being closer to the native hardware of the Nintendo Switch, we can also expect some precision fixes, with more coming in the future.
+&nbsp;
+
+Unfortunately, GLASM has some limitations. To list some of them:
++ This is an Nvidia only and OpenGL only feature, other vendors (AMD and Intel) offer support for assembly shaders only for the feature sets of the old games that used to require it. This is very unlikely to change in the future.
++ Currently some games like `Luigi’s Mansion 3`, `Astral Chain` or `The Legend of Zelda: Link’s Awakening` experience bugs that will need to be ironed out.
++ There are architecture specific bugs, so a Pascal GPU may face different issues than a Turing or Kepler GPU.
 
 {{< single-title-imgs
     "You can see the progress from simple things… (Cave Story)"
