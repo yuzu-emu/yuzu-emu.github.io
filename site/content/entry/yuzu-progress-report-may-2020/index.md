@@ -127,7 +127,7 @@ refered to as `ARB shaders`.
 &nbsp;
 
 A couple decades ago, there was no common language for the newly added programable shading units in GPUs, so the `OpenGL Architecture Review Board` decided to create a proper standardised shading language they called `GLASM`. In broad terms, this is an assembly language used to communicate with the GPU. This makes it very difficult to work with, and the difficulty is only exacerbated by the limited set of debugging tools available. Furthermore, the language was developed with the hardware limitations of the time in mind.
-In the present, `GLASM` has been mostly deprecated in favour of easier-to-work-with, high level shader representations like GLSL or SPIR-V.
+In the present, `GLASM` has been mostly deprecated in favour of easier-to-work-with, high level shader representations like `GLSL` or `SPIR-V`.
 While this means faster results for game developers due to less time spent looking at the code, it also has the disadvantage of being far slower for emulators that have to constantly intercept, decode and recompile shaders on the fly. 
 &nbsp;
 
