@@ -144,8 +144,11 @@ Due to being closer to the native hardware of the Nintendo Switch, we can also e
 &nbsp;
 
 Unfortunately, GLASM has some limitations. To list some of them:
+
 - This is an Nvidia only and OpenGL only feature, other vendors (AMD and Intel) offer support for assembly shaders only for the feature sets of the old games that used to require it. This is very unlikely to change in the future.
+
 - Currently some games like `Luigi’s Mansion 3`, `Astral Chain` or `The Legend of Zelda: Link’s Awakening` experience bugs that will need to be ironed out.
+
 - There are architecture specific bugs, so a Pascal GPU may face different issues than a Turing or Kepler GPU.
 
 {{< single-title-imgs
@@ -160,6 +163,9 @@ Unfortunately, GLASM has some limitations. To list some of them:
   >}}
   
 <div style="width: 100%; height: 0px; position: relative; padding-bottom: 56.250%;"><iframe src="https://streamable.com/e/hlpjgb" frameborder="0" width="100%" height="100%" allowfullscreen style="width: 100%; height: 100%; position: absolute;"></iframe></div>
+{{< single-title-imgs
+    "Thanks to BSoD Gaming for this comparative video (Super Smash Bros. Ultimate)"
+    >}}
 
 ## Future Projects
 
