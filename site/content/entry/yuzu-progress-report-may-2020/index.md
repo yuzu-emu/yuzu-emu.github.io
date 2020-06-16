@@ -5,43 +5,40 @@ author = "GoldenX86"
 forum = 0
 +++ 
 
-Hello yuzu users! How are you doing?
+Hello yu-zers! How are you all doing?
 
-In this episode of yuzu: Trials and Tribulations, we offer you: major rewrites, massive performance gains, 
+In this monthly episode of "yuzu — Trials and Tribulations", we offer you: major rewrites, massive performance gains, 
 stability improvements, bug fixes and graphical corrections.
-More, after the break.
+*More after the commercial break.*
 <!--more-->
 
 ## The worst kept secret
 
-It has its own [article](https://yuzu-emu.org/entry/yuzu-prometheus/), and it has been already guessed to hell and back before the official announcement.
-`Project Prometheus`, teased so much in yuzu’s official Discord server, is a proper multithreaded emulation of the 4 CPU cores the Nintendo Switch offers.
-This brings a massive performance boost to users with CPUs with 4 physical cores or more. But for this to happen, a lot of groundwork was needed.
-Besides changes previously discussed in the past reports, old external libraries (which yuzu needs to operate) needed to be updated,
+It has its own [article](https://yuzu-emu.org/entry/yuzu-prometheus/), and it has been guessed to hell and back before the official announcement.
+`Project Prometheus` is a proper multithreaded emulation of the 4 CPU cores the Nintendo Switch offers.
+This brings a massive performance boost to users with CPUs with 4 physical cores or more, but for this to happen, a lot of groundwork was needed.
+Besides changes previously discussed in past reports, old external libraries (which yuzu needs to operate) needed to be updated,
 and with that, some changes were needed for our Linux users. 
 
-Thanks to [jroweboy’s](https://github.com/jroweboy) work, yuzu now uses [conan](https://conan.io/),
-helping the project manage dependencies, and letting Linux distributions use their native ones when possible. 
-[Pull Request #3735.](https://github.com/yuzu-emu/yuzu/pull/3735)
+Thanks to [jroweboy’s](https://github.com/jroweboy) work, yuzu now uses [Conan](https://conan.io/),
+helping the project [manage dependencies](https://github.com/yuzu-emu/yuzu/pull/3735), and letting Linux distributions use their native ones when possible.
 
-With the memory use reduced, dependencies updated, and all the groundwork done, [Blinkhawk](https://github.com/FernandoS27) 
-pressed the nuclear button and released Project Prometheus, making yuzu use up to 6 to 7 CPU threads in ideal conditions 
+Thanks to the previous VMM rewrite reducing memory use, the dependencies updated, and all the groundwork done, [Blinkhawk](https://github.com/FernandoS27) 
+pressed the metaphorical nuclear launch button and [released Project Prometheus](https://github.com/yuzu-emu/yuzu/pull/3955).
+yuzu use up to 6 to 7 CPU threads in ideal conditions 
 compared to the previous 2 to 3. Expect a performance boost in a lot of games, while others will stay mostly the same due to 
 being coded to only use a single thread of the possible 3 the Switch offers to games.
-[Pull Request #3955.](https://github.com/yuzu-emu/yuzu/pull/3955)
 
-Now, some clarifications are needed on this change. Multicore support can’t hit mainline for now due to incompatibilities with 
-its code and the Master branch of yuzu. Those are being resolved, but please have patience.
-Also, users with 2 cores and either 2 or 4 threads should not enable multicore as it will most likely result in a performance 
+Now, some clarifications are needed for this change. Multicore support can’t be merged into our [Mainline](https://github.com/yuzu-emu/yuzu-mainline) release for now due to incompatibilities between Multicore and the [Master](https://github.com/yuzu-emu/yuzu) branch of yuzu. Work is being done to resolve the conflicts, but please have patience.
+Additionally, users with 2 cores, and either 2 or 4 threads, should not enable multicore as it will most likely result in a performance 
 loss for them due to the lack of physical cores on their CPUs. Our [hardware recommendations](https://yuzu-emu.org/help/quickstart/#hardware) 
 have been updated accordingly.
 
 ## Unreal Engine fixes
 
-[Rodrigo](https://github.com/ReinUsesLisp) implemented rendering more than one slice of 3D textures, fixing the most glaring 
+[Rodrigo](https://github.com/ReinUsesLisp) implemented [rendering more than one slice of 3D textures](https://github.com/yuzu-emu/yuzu/pull/4027), fixing the most glaring 
 issue in Unreal Engine 4 games, known as “the Rainbow”. This also improves the previous implementation that was used in 
 Xenoblade games.
-[Pull Request #4027.](https://github.com/yuzu-emu/yuzu/pull/4027)
 
 {{< single-title-imgs
     "Your Excellency (OCTOPATH TRAVELER)"
@@ -51,10 +48,8 @@ Xenoblade games.
 
 ## Animal Crossing: New Horizons changes
 
-[Rodrigo](https://github.com/ReinUsesLisp) fixed Animal Crossing: New Horizons terrain borders in Vulkan by implementing 
-constant attributes. This is not a native extension, constant attributes has to be emulated in Vulkan as there is no 
-current official support for it.
-[Pull Request #3930.]( https://github.com/yuzu-emu/yuzu/pull/3930)
+[Rodrigo](https://github.com/ReinUsesLisp) fixed `Animal Crossing: New Horizons` terrain borders in Vulkan by implementing 
+constant attributes. This is not a native extension, [constant attributes](https://github.com/yuzu-emu/yuzu/pull/3930) have to be emulated in Vulkan as there is currently no official support for it.
 
 {{< single-title-imgs
     "Beautiful beaches, now in Vulkan too (Animal Crossing: New Horizons)"
@@ -62,21 +57,16 @@ current official support for it.
     "./05.png"
   >}}
 
-Some more “internal” fixes were also done to Nook Inc.’s escape package, [bunnei](https://github.com/bunnei) added a time zone 
-mechanism to show the correct time in game depending on where our users live, previously yuzu always assumed a GMT+0 timezone 
-was in place.
-[Pull Request #3909.](https://github.com/yuzu-emu/yuzu/pull/3909)
+Some more “internal” fixes were also done to Nook Inc.’s escape package, [bunnei](https://github.com/bunnei) implemented [time zone support](https://github.com/yuzu-emu/yuzu/pull/3909), and Windows users will find that yuzu automatically detects their time zone. For those not on Windows (or want to spice up their life), you can manually change your system time via the "Custom RTC" option in the System settings. Previously yuzu always assumed a GMT+0 timezone was in place.
 
-[bunnei](https://github.com/bunnei) also improved the saving mechanism. Normal games save their data on each user profile, but 
-`Animal Crossing: New Horizons` does it in a “device” profile, so yuzu had to be accommodated for that.
-[Pull Request #3665.](https://github.com/yuzu-emu/yuzu/pull/3665)
+[bunnei](https://github.com/bunnei) also improved the [saving mechanism](https://github.com/yuzu-emu/yuzu/pull/3665). Most games save their data in each user profile, but 
+`Animal Crossing: New Horizons` does it via a “device” profile, so yuzu had to accommodate for that.
 
 ## Xenoblade specific fixes
 
-Rendering bugs are abundant in Xenoblade games, and they are not of the “easy to solve” sort due to how these games are coded. 
-[Rodrigo](https://github.com/ReinUsesLisp) managed to fix most of them by improving the texture cache, this is thanks to work done by [gdkchan](https://github.com/gdkchan) from [Ryujinx](https://github.com/Ryujinx/Ryujinx). You can see the results 
-bellow.
-https://github.com/yuzu-emu/yuzu/pull/3991
+Rendering bugs are abundant in Xenoblade games, and they are not trivial to solve due to how these games are programmed. 
+However, [Rodrigo](https://github.com/ReinUsesLisp) managed to fix most of them by [improving the texture cache](https://github.com/yuzu-emu/yuzu/pull/3991), this is thanks to work done by [gdkchan](https://github.com/gdkchan) from [Ryujinx](https://github.com/Ryujinx/Ryujinx). You can see the results 
+below.
 
 {{< single-title-imgs
     "Who said yuzu can’t run JRPGs? (Xenoblade Chronicles 2)"
@@ -84,40 +74,32 @@ https://github.com/yuzu-emu/yuzu/pull/3991
     "./07.png"
   >}}
 
-[Rodrigo](https://github.com/ReinUsesLisp) also optimized the performance in Xenoblade games, one method was profiling the 
-texture cache line by line and finding where it bottlenecks. By improving the code you get a faster frametime, which translates 
+[Rodrigo](https://github.com/ReinUsesLisp) also optimized the performance in Xenoblade games, one method of which was [profiling the texture cache](https://github.com/yuzu-emu/yuzu/pull/3999) line by line and finding where it bottlenecks. By improving the code, you get a faster frametime, which translates 
 to better performance.
-[Pull Request #3999.](https://github.com/yuzu-emu/yuzu/pull/3999)
 
-Another way, and not an expected one, is to log less information, this avoids saturating the GPU thread, giving more room to 
+Another way, and not an expected one, was to [log less information](https://github.com/yuzu-emu/yuzu/pull/4007). This avoids saturating the GPU thread, giving more room to 
 actual processing and rendering.
-[Pull Request #4007.](https://github.com/yuzu-emu/yuzu/pull/4007)
 
 ## General performance improvements
 
-[ogniK](https://github.com/ogniK5377) wrote a new Macro JIT (Just In Time) to improve the performance of games spending too 
+[ogniK](https://github.com/ogniK5377) wrote a new [Macro JIT](https://github.com/yuzu-emu/yuzu/pull/4009) (Just In Time) to improve the performance of games that spend too 
 much time in the macro interpreter. This should be a global performance boost independent of GPU vendor or API.
-[Pull Request #4009.](https://github.com/yuzu-emu/yuzu/pull/4009)
 
-When [Rodrigo](https://github.com/ReinUsesLisp) improved yuzu’s ASTC decoding in the past, he also added a rule to use native 
-hardware decoding whenever possible. The Nvidia driver informs such capabilities, but they use an internal software decoder, 
-and turns out, it is far slower than our own implementation. Ignoring the Nvidia driver level software decoder gave a massive 
-performance improvement when facing the dreaded ASTC texture format in games. It will still be immediate on Intel GPUs,
-no software optimizations will beat a dedicated hardware decoder.
-[Pull Request #4014.](https://github.com/yuzu-emu/yuzu/pull/4014)
+When [Rodrigo](https://github.com/ReinUsesLisp) improved yuzu’s ASTC decoding, he also added a rule to use native 
+hardware decoding whenever possible. The Nvidia driver tells yuzu it supports ASTC decoding, but as it turns out, they actually use an internal software decoder that is much slower than our own implementation. [Ignoring the Nvidia driver-level software decoder](https://github.com/yuzu-emu/yuzu/pull/4014) produced a massive 
+performance improvement when facing the dreaded ASTC texture format in games. It will still be immediate with Intel GPUs,
+as no software optimizations will beat a dedicated hardware decoder.
 
 ## Bug fixes and improvements
 
-Vulkan is an ongoing process in yuzu, and it has stability problems as expected of a relatively new and complex feature. 
-[Blinkhawk](https://github.com/FernandoS27) did a couple of critical changes to Vulkan and Asynchronous GPU, improving stability 
+Vulkan development is an ongoing process in yuzu, and it has stability problems as expected of a relatively new and complex feature. 
+[Blinkhawk](https://github.com/FernandoS27) made a couple of [critical changes to Vulkan and Asynchronous GPU](https://github.com/yuzu-emu/yuzu/pull/3905), improving stability 
 considerably.
-[Pull Request #3905.](https://github.com/yuzu-emu/yuzu/pull/3905)
 
-Speaking about Vulkan, many 2D games have their sprites flipped or completely wrong, but once again, we currently lack the 
-extension required to fix this, so [Rodrigo](https://github.com/ReinUsesLisp) implemented support for `NV_viewport_swizzle`, 
-this Nvidia only extension is the only way to solve this problem in a clean manner for now. An universal method is being 
+Speaking of Vulkan, many 2D games had their sprites flipped or completely wrong, and once again, we currently lack the 
+extension required to fix this. Therefore, [Rodrigo](https://github.com/ReinUsesLisp) implemented [support for `NV_viewport_swizzle`.](https://github.com/yuzu-emu/yuzu/pull/3885) 
+This Nvidia-exclusive extension is the only way to solve this problem in a clean manner for now, but a universal method is being 
 developed.
-[Pull Request #3885.](https://github.com/yuzu-emu/yuzu/pull/3885)
 
 {{< single-title-imgs
     "Quack (Duck Game)"
@@ -125,32 +107,25 @@ developed.
     "./11.png"
   >}}
 
-The updated libraries also gave us a new version of our [cubeb](https://github.com/kinetiknz/cubeb) audio engine which adds 
-support for 6 channel audio, [ogniK](https://github.com/ogniK5377) added the support for surround sound with this change.
-[Pull Request #3827.](https://github.com/yuzu-emu/yuzu/pull/3827)
+The updated libraries (that the migration to Conan brought us) also gave us a new version of the [cubeb](https://github.com/kinetiknz/cubeb) audio engine which adds 
+support for 6 channel audio, allowing [ogniK](https://github.com/ogniK5377) to add [support for surround sound](https://github.com/yuzu-emu/yuzu/pull/3827) with this change.
 
-Our good shark [ogniK](https://github.com/ogniK5377) also fixed keyboard emulation support, so expect compatible games to be 
-able to have proper direct input from your keyboards now.
-[Pull Request #3926.](https://github.com/yuzu-emu/yuzu/pull/3926)
+Our good shark, [ogniK](https://github.com/ogniK5377), also fixed [keyboard emulation support](https://github.com/yuzu-emu/yuzu/pull/3926), so expect compatible games to have proper direct input from your keyboards now.
 
-[Morph](https://github.com/Morph1984) implemented the missung support for `R8G8UI` textures, fixing both the performance problems and saving crashes `The Walking Dead` games experienced.
-[Pull Request #3839.](https://github.com/yuzu-emu/yuzu/pull/3839)
+[Morph](https://github.com/Morph1984) implemented the missing support for [`R8G8UI` textures](https://github.com/yuzu-emu/yuzu/pull/3839), fixing both the performance problems and saving crashes that `The Walking Dead` games experienced.
 
 {{< single-title-imgs
     "Thank you Toxa for the screenshot (The Walking Dead: The Final Season)"
     "./08.png"
   >}}
 
-One small but important annoyance when running a fullscreen program is the mouse being in front of everything you are doing. 
-[Tobi](https://github.com/FearlessTobi) implemented an option to automatically hide the mouse once it has been inactive after 
-some time.
-[Pull Request #3892.](https://github.com/yuzu-emu/yuzu/pull/3892)
+Although objectively a small issue, the mouse cursor didn't hide when running yuzu in full screen, causing a subjectively significant annoyance. Thankfully, [Tobi](https://github.com/FearlessTobi) implemented an [option to automatically hide the mouse](https://github.com/yuzu-emu/yuzu/pull/3892) once it has been inactive after some time.
 
-## An elegant feature of a more civilized age.
+## An elegant feature of a more civilized age
 
-Recently released in the Early Access build and coming soon to Mainline is support for `assembly shaders`, or `GLASM`, usually 
+Recently released in the Early Access build, and coming soon to Mainline, is support for `assembly shaders` (`GLASM`), usually 
 just called `ARB shaders`.
-In days past there was no common language for the recently added shading units in GPUs, so the `OpenGL Architecture Review Board`
+Decades ago, there was no common language for the recently added shading units in GPUs, so the `OpenGL Architecture Review Board`
 decided to create a proper standardised shading language to use, made considering the hardware limitations of the time. In broad
 terms, this is assembly language to communicate with the GPU, so it is very hard to work with, and the set of debugging tools 
 available is very limited.
@@ -165,11 +140,11 @@ debug tool.
 With this initial assembly shading support in place, Nvidia OpenGL users can enjoy extremely fast shader compilation times. 
 And due to being closer to the native hardware of the Nintendo Switch, we can also expect some precision fixes, with more coming in the future.
 Now, it has some limitations too, to list some of them:
-* This is an Nvidia only and OpenGL only feature, other vendors offer support for assembly shaders only for the feature sets of 
+..* This is an Nvidia only and OpenGL only feature, other vendors offer support for assembly shaders only for the feature sets of 
 the old games that used to require it, and that’s very unlikely to change.
-* Currently some games like `Luigi’s Mansion 3`, `Astral Chain` or `The Legend of Zelda: Link’s Awakening` experience bugs that 
+..* Currently some games like `Luigi’s Mansion 3`, `Astral Chain` or `The Legend of Zelda: Link’s Awakening` experience bugs that 
 have to be ironed out.
-* There are architecture specific bugs, so a Pascal GPU may face different issues than a Turing or Kepler GPU.
+..* There are architecture specific bugs, so a Pascal GPU may face different issues than a Turing or Kepler GPU.
 [Pull Request #3964.](https://github.com/yuzu-emu/yuzu/pull/3964)
 
 {{< single-title-imgs
@@ -185,7 +160,7 @@ have to be ironed out.
 
 ## Future Projects
 
-I can’t say much here, but there is something going on with both Project Viper and Project Hearn.
+I can’t say much here, but there is something going on with both `Project Viper` and `Project Hearn`.
 
 That’s all for now, folks! See you in the June article!
 
