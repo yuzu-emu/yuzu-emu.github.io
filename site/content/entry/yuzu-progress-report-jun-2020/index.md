@@ -17,7 +17,7 @@ How should we start? Oh, I know! With [Morph](https://github.com/Morph1984) fixi
 
 {{< single-title-imgs
     "Here you can see the bug affecting an attack (Kirby Star Allies)"
-    "./kirby_before.png"
+    "./Kirby_before.png"
     "./kirby_after.png"
   >}}
   
