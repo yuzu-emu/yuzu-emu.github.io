@@ -1461,6 +1461,11 @@ concat-with-sourcemaps@^1.0.0:
   dependencies:
     source-map "^0.6.1"
 
+concurrent-transform@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/concurrent-transform/-/concurrent-transform-1.0.0.tgz#7a0fdea2f8096239487fdb0addb5edaa7f596f6c"
+  integrity sha1-eg/eovgJYjlIf9sK3bXtqn9Zb2w=
+
 configstore@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/configstore/-/configstore-5.0.1.tgz#d365021b5df4b98cdd187d6a3b0e3f6a7cc5ed96"
@@ -3311,6 +3316,11 @@ gulp-postcss@^8.0.0:
     postcss "^7.0.2"
     postcss-load-config "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.1"
+
+gulp-rename@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-rename/-/gulp-rename-2.0.0.tgz#9bbc3962b0c0f52fc67cd5eaff6c223ec5b9cf6c"
+  integrity sha512-97Vba4KBzbYmR5VBs9mWmK+HwIf5mj+/zioxfZhOKeXtx5ZjBk57KFlePf5nxq9QsTtFl0ejnHE3zTC9MHXqyQ==
 
 gulp-sass@^4.1.0:
   version "4.1.0"

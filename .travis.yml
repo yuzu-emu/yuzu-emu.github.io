@@ -2,7 +2,7 @@
 
 language: node_js
 node_js:
-  - "11"
+  - "lts/erbium"
 cache: yarn
 
 install:
