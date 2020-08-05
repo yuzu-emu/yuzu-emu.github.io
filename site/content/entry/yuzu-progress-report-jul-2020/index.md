@@ -1,5 +1,5 @@
 +++
-date = "2020-08-05T12:00:00-03:00"
+date = "2020-08-04T12:00:00-03:00"
 title = "Progress Report July 2020"
 author = "Morph & GoldenX86"
 forum = 0
