@@ -5,7 +5,7 @@ author = "Morph & GoldenX86"
 forum = 0
 +++ 
 
-Hey yuz-ers, what is up and welcome back to the… progress report. In this monthly report we offer you mayor rewrites to critical components, another sliced cut to slow shader compilation, tons of game fixes, and the promise of a very bright future ahead. Let’s get started!
+Hey yuz-ers, what is up and welcome back to the… progress report. In this monthly report we offer you major rewrites to critical components, another sliced cut to slow shader compilation, tons of game fixes, and the promise of a very bright future ahead. Let’s get started!
 
 <!--more-->
 
