@@ -37,7 +37,7 @@ To begin with, [Rodrigo](https://github.com/ReinUsesLisp) implemented several fi
 
 ## New GPU Virtual Memory Manager
 
-[bunnei](https://github.com/bunnei) brings the big guns. The complete [rewrite of the `GPU Virtual Memory Manager`](https://github.com/yuzu-emu/yuzu/pull/4430) fixes *several* bugs in many games, with the two strongest examples being `Mario Kart 8 Deluxe` and `Super Smash Bros. Ultimate`. Now several graphical bugs are fixed in Mario Kart 8, including tracks that show invisible terrain or missing grahpics. In Smash's case, there are no more vertex explosions now.
+[bunnei](https://github.com/bunnei) brings the big guns. The complete [rewrite of the `GPU Virtual Memory Manager`](https://github.com/yuzu-emu/yuzu/pull/4430) fixes *several* bugs in many games, with the two strongest examples being `Mario Kart 8 Deluxe` and `Super Smash Bros. Ultimate`. Now several graphical bugs are fixed in Mario Kart 8, including tracks that show invisible terrain or missing graphics. In Smash's case, there are no more vertex explosions now.
 
 This rewrite also should reduce commited memory a bit, hopefully reducing the size of the required page file, and opens the possibility to implement new features in the future. We have to clarify that this doesn't fix the high VRAM usage in Vulkan.
 
