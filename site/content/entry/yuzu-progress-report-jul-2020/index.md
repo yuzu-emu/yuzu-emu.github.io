@@ -60,7 +60,7 @@ For this service to work, the user needs to dump the system archives from their 
     "./smbud.png"
   >}}
 
-This is tradition by now. [Morph](https://github.com/Morph1984) fixed another bug in `Kirby Star Allies`, this time by [implementing MirrorOnceClampOGL](https://github.com/yuzu-emu/yuzu/pull/4082). This is done by using the `GL_EXT_texture_mirror_clamp` extension on the OpenGL drivers that support it. The Intel driver doesn’t, so the older `GL_MIRROR_CLAMP_TO_EDGE` property is used.
+This is tradition by now. [Morph](https://github.com/Morph1984) fixed another bug in `Kirby Star Allies`, this time by [implementing MirrorOnceClampOGL](https://github.com/yuzu-emu/yuzu/pull/4082). This is done by using the `GL_EXT_texture_mirror_clamp` extension on the OpenGL drivers that support it. The Intel driver doesn’t, so, with those GPUs, yuzu fallbacks to `GL_MIRROR_CLAMP_TO_EDGE`.
 
 Improvements to the texture cache by [implementing additional checks](https://github.com/yuzu-emu/yuzu/pull/4176) done by [Rodrigo](https://github.com/ReinUsesLisp) fixed crashing issues on Turing GPUs (RTX 2000 and GTX 1600 series) experienced in `The Legend of Zelda: Breath of the Wild`. Now you can load saves normally, so, get moving, save the princess!
 
