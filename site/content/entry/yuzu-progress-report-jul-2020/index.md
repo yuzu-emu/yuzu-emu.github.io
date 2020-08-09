@@ -78,7 +78,7 @@ Thanks to help from [gdkchan](https://github.com/gdkchan) and [Blinkhawk](https:
 
 [toastUnlimited](https://github.com/lat9nq), along with [Rodrigo](https://github.com/ReinUsesLisp), started preliminary work to fix crashes only happening in recent Nvidia Linux Vulkan drivers. Through trial and error, it was found that [increasing the Vulkan device allocable size](https://github.com/yuzu-emu/yuzu/pull/4283) mititagates this issue on most GPUs, but some still remain affected for now.
 
-[epicboy](https://github.com/ameerj) is working on [implementing support for Gamecube adpaters](https://github.com/yuzu-emu/yuzu/pull/4137), allowing players to use original Gamecube gamepads! Veteran Smash players will surely enjoy it.
+[epicboy](https://github.com/ameerj) is working on [implementing support for GameCube adpaters](https://github.com/yuzu-emu/yuzu/pull/4137), allowing players to use original GameCube controllers! Veteran Smash players will surely enjoy it.
 
 `Project Prometheus` introduced so many changes, that we are still working on adding settings or features that used to work with the old single core method. [ogniK](https://github.com/ogniK5377) [improved the audio timing](https://github.com/yuzu-emu/yuzu/pull/4219), fixing audio bugs that started happening after the introduction of the new multicore and single core emulation methods.
 
