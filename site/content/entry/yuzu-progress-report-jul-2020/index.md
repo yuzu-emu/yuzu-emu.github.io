@@ -50,7 +50,7 @@ This rewrite also should reduce commited memory a bit, hopefully reducing the si
 ## Bug fixes and improvements
 
 Accompanying the recent addition of 32 bit emulation support, [bunnei](https://github.com/bunnei) implemented [support for the creation of random and default Miis](https://github.com/yuzu-emu/yuzu/pull/4292). This does not include full support for custom ones for now.
-With Miis in place games like `Mario Kart 8 Deluxe` or `New Super Mario Bros. U Deluxe` can now get past their menus and become playable. 
+With Miis in place, games like `Mario Kart 8 Deluxe` or `New Super Mario Bros. U Deluxe` can now get past their menus and become playable. 
 
 For this service to work, the user needs to dump the system archives from their Nintendo Switch.
 
