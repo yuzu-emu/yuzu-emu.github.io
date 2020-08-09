@@ -76,7 +76,7 @@ We talked about this in the previous June progress report. [Rodrigo](https://git
 
 Thanks to help from [gdkchan](https://github.com/gdkchan) and [Blinkhawk](https://github.com/FernandoS27), [Rodrigo](https://github.com/ReinUsesLisp) added support for [copying 2D arrays of pixels into 3D voxels](https://github.com/yuzu-emu/yuzu/pull/4242), fixing rendering bugs in games like `LEGO Marvel Super Heroes 2` and possibly some others.
 
-[toastUnlimited](https://github.com/lat9nq) along with [Rodrigo](https://github.com/ReinUsesLisp) started preliminary work to fix crashes only happening in recent Nvidia Linux Vulkan drivers. Through trial and error, it was found that [increasing the Vulkan device allocable size](https://github.com/yuzu-emu/yuzu/pull/4283) mititagates this issue on most GPUs, but some still remain affected for now.
+[toastUnlimited](https://github.com/lat9nq), along with [Rodrigo](https://github.com/ReinUsesLisp), started preliminary work to fix crashes only happening in recent Nvidia Linux Vulkan drivers. Through trial and error, it was found that [increasing the Vulkan device allocable size](https://github.com/yuzu-emu/yuzu/pull/4283) mititagates this issue on most GPUs, but some still remain affected for now.
 
 [epicboy](https://github.com/ameerj) is working on [implementing support for Gamecube adpaters](https://github.com/yuzu-emu/yuzu/pull/4137), allowing players to use original Gamecube gamepads! Veteran Smash players will surely enjoy it.
 
