@@ -54,7 +54,7 @@ With Miis in place, games like `Mario Kart 8 Deluxe` or `New Super Mario Bros. U
 
 For this service to work, the user needs to dump the system archives from their Nintendo Switch. The process requires the [Goldleaf homebrew](https://github.com/XorTroll/Goldleaf).
 
-To obtain the files, you must open Goldleaf from the Homebrew menu, select "Console and Goldleaf settings", select "Firmware and updates", then pick "Export update", confirm on the "Directory" option and the files will be dumped in the `switch\Goldleaf\dump\update` location. After that, just copy the files to `C:\User\YOUR_USER\AppData\Roaming\yuzu\nand\system\Contents\registered`.
+To obtain the files, you must open Goldleaf from the Homebrew menu, select "Console and Goldleaf settings", select "Firmware and updates", then pick "Export update", confirm on the "Directory" option and the files will be dumped in the `switch\Goldleaf\dump\update` location. After that, just copy the files to `%AppData%\yuzu\nand\system\Contents\registered`.
 
 {{< single-title-imgs
     "Ports, ports everywhere! (Mario Kart 8 Deluxe & New Super Mario Bros. U Deluxe)"
