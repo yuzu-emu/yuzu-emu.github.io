@@ -52,7 +52,9 @@ This rewrite also should reduce commited memory a bit, hopefully reducing the si
 Accompanying the recent addition of 32 bit emulation support, [bunnei](https://github.com/bunnei) implemented [support for the creation of random and default Miis](https://github.com/yuzu-emu/yuzu/pull/4292). This does not include full support for custom ones for now.
 With Miis in place, games like `Mario Kart 8 Deluxe` or `New Super Mario Bros. U Deluxe` can now get past their menus and become playable. 
 
-For this service to work, the user needs to dump the system archives from their Nintendo Switch.
+For this service to work, the user needs to dump the system archives from their Nintendo Switch. The process requires the [Goldleaf homebrew](https://github.com/XorTroll/Goldleaf).
+
+To obtain the files, you must open Goldleaf from the Homebrew menu, select "Console and Goldleaf settings", select "Firmware and updates", then pick "Export update", confirm on the "Directory" option and the files will be dumped in the `switch\Goldleaf\dump\update` location. After that, just copy the files to `C:\User\YOUR_USER\AppData\Roaming\yuzu\nand\system\Contents\registered`.
 
 {{< single-title-imgs
     "Ports, ports everywhere! (Mario Kart 8 Deluxe & New Super Mario Bros. U Deluxe)"
