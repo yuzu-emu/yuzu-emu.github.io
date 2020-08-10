@@ -2,7 +2,7 @@
 date = "2020-08-04T12:00:00-03:00"
 title = "Progress Report July 2020"
 author = "Morph & GoldenX86"
-forum = 0
+forum = 290819
 +++ 
 
 Hey yuz-ers, what is up and welcome back to the… progress report. In this monthly report, we offer you major rewrites to critical components, another successful attack on shader compilation times, tons of game fixes, and the promise of a very bright future ahead. Let’s get started!
