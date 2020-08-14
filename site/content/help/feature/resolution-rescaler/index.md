@@ -3,6 +3,8 @@ title = "Resolution Rescaler"
 description = "How to use the resolution rescaler feature."
 +++
 
+> **PSA:** Due to some stability issues and not working on other GPU vendors (Intel/AMD), the feature has been removed and is currently absent in the latest Mainline/Early Access builds. Resolution scaling will return at a later date once the aforementioned issues are fixed by the development team.
+
 yuzu has a powerful resolution rescaler allowing for the upscaling of the game's docked and undocked render resolution.
 
 ### Accessing the feature
@@ -12,14 +14,14 @@ in the `Graphics` tab, under `Internal Resolution`:
 
 {{< imgs
    "./scanner.png"
->}}
+  >}}
 
 Clicking on the `Internal Resolution` dropdown list displays options for the upscaling factor, alongside its respective 
 resolution that it will output for `(Undocked/Docked)`:
 
 {{< imgs
    "./scanner+dropdown.png"
->}}
+  >}}
 
 ### Profile Scanner
 
@@ -38,4 +40,4 @@ for use in other computers.
 
 {{< imgs
    "./gameUI.png"
->}}
+  >}}
