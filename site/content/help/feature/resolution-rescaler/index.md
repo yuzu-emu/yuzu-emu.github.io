@@ -14,14 +14,14 @@ in the `Graphics` tab, under `Internal Resolution`:
 
 {{< imgs
    "./scanner.png"
-  >}}
+>}}
 
 Clicking on the `Internal Resolution` dropdown list displays options for the upscaling factor, alongside its respective 
 resolution that it will output for `(Undocked/Docked)`:
 
 {{< imgs
    "./scanner+dropdown.png"
-  >}}
+>}}
 
 ### Profile Scanner
 
@@ -40,4 +40,4 @@ for use in other computers.
 
 {{< imgs
    "./gameUI.png"
-  >}}
+>}}
