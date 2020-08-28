@@ -3,6 +3,12 @@ title = "Resolution Rescaler"
 description = "How to use the resolution rescaler feature."
 +++
 
+<article class="message has-text-weight-semibold">
+<div class="message-body">
+<p>PSA: Due to some stability issues and not working on other GPU vendors (Intel/AMD), the feature has been removed and is currently absent in the latest Mainline/Early Access builds. Resolution scaling will return at a later date once the aforementioned issues are fixed by the development team.</p>
+</div>
+</article>
+
 yuzu has a powerful resolution rescaler allowing for the upscaling of the game's docked and undocked render resolution.
 
 ### Accessing the feature
