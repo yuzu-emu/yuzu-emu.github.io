@@ -31,7 +31,7 @@
     "merge-stream": "^2.0.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.10",
-    "xo": "^0.32.1"
+    "browser-sync": "^2.26.12",
+    "xo": "^0.33.1"
   }
 }
