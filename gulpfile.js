@@ -51,10 +51,10 @@ gulp.task('assets:images', () => {
     const screenshotImages = gulp.src('build/images/screenshots/*')
         .pipe(imageResize({width: 640, height: 360, crop: false}))
         .pipe(gulp.dest('build/images/screenshots/thumbs'));
-    const postImages = gulp.src('build/entry/*/*.png')
+    const postImages = gulp.src('build/**/*.png')
         .pipe(parallel(imageResize({quality: 0.8, format: 'jpg', percentage: 80})), os.cpus().length)
         .pipe(rename({extname: '.png.jpg'}))
-        .pipe(gulp.dest('build/entry/'));
+        .pipe(gulp.dest('build/'));
 
     return merge(baseImages, jumbotronImages, bannerImages, boxartImages, iconImages, screenshotImages, postImages);
 });
