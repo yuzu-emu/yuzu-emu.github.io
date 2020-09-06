@@ -187,7 +187,7 @@ The number of threads used for asynchronous shader compilation (along with examp
 | CPU Threads | Shader Threads | Example CPUs |
 | :-----------: | :--------------: | ------------ |
 | 1 - 7 | 1 | R3-1200, i3-6100 |
-| 8 - 11 | 2 | R5-3300X, i7-7700K |
+| 8 - 11 | 2 | R3-3300X, i7-7700K |
 | 12 - 15 | 3 | R5-3600, i7-8700K |
 | 16+ | 4 | R7-3700X, i7-10700K |
 
