@@ -200,6 +200,8 @@ Our users reported that some checkboxes were duplicated after the addition of Vu
 
 Whispers of more audio changes have been heard, and a certain shark will be responsible for this.
 
+[Devs uh... find a way.](https://www.youtube.com/watch?v=D8zlUUrFK-M)
+
 &nbsp;
 <h4 style="text-align:center;">
 <b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
