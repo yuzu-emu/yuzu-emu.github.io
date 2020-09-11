@@ -14,7 +14,7 @@ forum = 302337
 
 ### Part 1 - Input Rewrite
 
-Let's start with the biggest change. One of yuzu's weakest aspects was its input support. It was riddled with bugs, not very intuitive, and lacked several critical features. Earlier this year, [jroweboy](https://github.com/jroweboy) and [Rei](https://github.com/Its-Rei) decided to start working on what would end up a complete rewrite of the input UI and its internal workings, dubbed Project Aphrodite.
+Let's start with the biggest change. One of yuzu's weakest aspects was its input support. It was riddled with bugs, not very intuitive, and lacked several critical features. Earlier this year, [jroweboy](https://github.com/jroweboy) and [Rei](https://github.com/Its-Rei) decided to start working on what would end up a complete rewrite of the input UI and its internal workings, dubbed `Project Aphrodite`.
 
 {{< imgs
     "./oldinput.png| Never gonna give you up"
@@ -55,7 +55,7 @@ The games that demonstrated the most benefit from these fixes are `Pokemon Let's
 
 ### Part 2 - Controller Applet
 
-Morph began on [Part 2](https://github.com/yuzu-emu/yuzu/pull/4597) knowing that yuzu lacked an implementation of a Controller Applet, which is crucial for a lot of multiplayer games such as Super Mario Maker 2, Kirby Star Allies, Hyrule Warriors: Definitive Edition and many more. It had previously been [attempted](https://github.com/yuzu-emu/yuzu/pull/1940) by [DarkLordZach](https://github.com/DarkLordZach) but was riddled with issues due to the immature input implementation at the time. Therefore, Morph decided that it was time to implement it after gaining knowledge of and fixing HID in [Part 1](https://github.com/yuzu-emu/yuzu/pull/4530).
+Morph began on [Part 2](https://github.com/yuzu-emu/yuzu/pull/4597) knowing that yuzu lacked an implementation of a Controller Applet, which is crucial for a lot of multiplayer games such as `Super Mario Maker 2`, `Kirby Star Allies`, `Hyrule Warriors: Definitive Edition` and many more. It had previously been [attempted](https://github.com/yuzu-emu/yuzu/pull/1940) by [DarkLordZach](https://github.com/DarkLordZach) but was riddled with issues due to the immature input implementation at the time. Therefore, Morph decided that it was time to implement it after gaining knowledge of and fixing HID in [Part 1](https://github.com/yuzu-emu/yuzu/pull/4530).
 
 While Morph was completing the backend implementation of the applet, Rei was designing the UI that was inspired by DarkLordZach's initial implementation, with an error box showing all the issues with the current controller configuration as shown.
 
@@ -63,7 +63,7 @@ While Morph was completing the backend implementation of the applet, Rei was des
     "./firstapplet.png| The very first concept of the Controller Applet inspired by DarkLordZach's initial implementation"
   >}}
 
-After taking a look at this first concept, they decided that it wasn't very intuitive for the user. One morning, as Morph was about to finish the backend implementation, [Rei](https://github.com/Its-Rei) had an epiphany to replicate the Switch's native UI for the Controller Applet and whipped up the concept design you see below:
+After taking a look at this first concept, they decided that it wasn't very intuitive for the user. One morning, as Morph was about to finish the backend implementation, [Rei](https://github.com/Its-Rei) had an epiphany to replicate the Switch's native UI for the `Controller Applet` and whipped up the concept design you see below:
 
 {{< imgs
     "./secondapplet.png| The one that started it all"
@@ -110,7 +110,7 @@ Below are comparisons between the Nintendo Switch's and yuzu's Controller Applet
 
 There is always room for improvement, keep your eyes peeled for future additions and features!
 
-As we cannot fit in all the changes present in both parts, our more tech savvy users can read about all the changes in the following PRs: [[Mjölnir Part 1,]](https://github.com/yuzu-emu/yuzu/pull/4530) [[Mjölnir Part 2.]](https://github.com/yuzu-emu/yuzu/pull/4597)
+As we cannot fit in all the changes present in both parts, our more tech savvy users can read about all the changes in the following PRs: [[Mjölnir Part 1]](https://github.com/yuzu-emu/yuzu/pull/4530), [[Mjölnir Part 2]](https://github.com/yuzu-emu/yuzu/pull/4597).
 
 ## Bugfixes and improvements
 
