@@ -73,7 +73,7 @@ Make sure to place your Nintendo Switch into Airplane Mode before starting this 
     "./sd_template.png|Your SD card should look like this."
 >}}
 
-# Dumping BIS Keys
+# Dumping BIS Keys (Optional)
 
 2. We will now dump your BIS (Built-In Storage) keys for use in later decryption.
     - 2a. Run the TegraRcmGUI installer you downloaded from the prerequisites, and after installation, start the program. 
@@ -114,7 +114,7 @@ Make sure to place your Nintendo Switch into Airplane Mode before starting this 
     - 3h. Once your Switch is powered off, remove the SD card.
     - 3i. Insert your SD card into your computer and copy both `prod.keys` and `title.keys` to the `%YUZU_DIR%/keys` directory.
 
-# Backing up System Files
+# Backing up System Files (Optional but Recommended)
 
 4. We will now boot Hekate to dump your system files:
     - 4a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f) and make sure it is connected to your computer.
@@ -125,7 +125,7 @@ Make sure to place your Nintendo Switch into Airplane Mode before starting this 
     - 4f. Power off your switch to avoid damage to your SD card by selecting `Back` and then selecting `Power Off` and then eject your SD card. Insert your SD card into your computer and use your file explorer to open the contents. Place the `yuzu_copy.bat` file you downloaded earlier into the root of your SD card. Double-click it to start combining your `rawnand.bin` if it was dumped into sections i.e. `rawnand.bin.00`. If your `rawnand.bin` dumped as one ~30gb file, then proceed with the guide. 
     - 4g. If you needed to dump the `rawnand.bin` into sections due to lack of space on your sd card, transfer the files that did dump to a new folder on your desktop, and then resume the backup of your `eMMC RAW GPP`. After you have obtained all of the `rawnand.bin` files, add them to the same folder as before, place the `yuzu_copy.bat` file you downloaded earlier into that same folder and double-click to run. After they are combined, please proceed with the guide.
 
-# Moving SYSTEM and USER to the yuzu directory
+# Moving SYSTEM and USER to the yuzu directory (Optional)
 
 5. We will now extract the necessary directories from your `rawnand.bin` for yuzu to read your system files. 
     - 5a. Open `HacDiskMount` as Administrator (Right-click and select Run As Administrator) and go to `File > Open file` and select your `rawnand.bin`.
