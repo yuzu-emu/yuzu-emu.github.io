@@ -105,3 +105,8 @@ a:hover {
 .dl-button, #platform-unsupported {
   display: none;
 }
+
+// Fix manual download button text
+#view-package-listing-button {
+  color: #363636;
+}
