@@ -28,6 +28,20 @@ Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/y
     "./menu.png| For now, just the menu and soundtrack sections! (Super Mario 3D All-Stars)"
   >}}
   
+## Bug fixes and improvements
+
+`VK_KHR_timeline_semaphore` is a very recent Vulkan extension only supported by *desktop or laptop* GPUs. [Adding support for it on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use a small amount, and it will pave the way for more important changes coming to our Vulkan implementation later on. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition!
+
+Some users have been reporting input latency, so [Tobi](https://github.com/FearlessTobi) decided to [test some changes](https://github.com/yuzu-emu/yuzu/pull/4643) and see if the situation improves. To further help on this issue if you experience it, be sure to enable `Radeon Anti-Lag` or `Nvidia Ultra-Low Latency` in your respective driver control panel.
+
+`Clubhouse Games: 51 Worldwide Classics` now manages to boot and with a save, load the board games. [Morph](https://github.com/Morph1984) managed this by [implemention the `Get/SetNpadHandheldActivationMode` function](https://github.com/yuzu-emu/yuzu/pull/4683). The game will render almost everything in black for now, so don't consider it playable yet.
+
+{{< single-title-imgs
+    "Paint it all black (Clubhouse Games: 51 Worldwide Classics)"
+    "./51a.png"
+    "./51b.png"
+  >}}
+
 ## Nvidia specific fixes
 
 Recent Nvidia Geforce drivers (past the 446.14 version) introduced a performance regression, important enough that we had to recommend our users to stay on older driver versions until we could figure out what was going on. Turns out, the newer drivers don't seem to like how Qt handles VSync, so [Rodrigo](https://github.com/ReinUsesLisp) fixed it by [calling `SwapBuffers` from the emulation thread](https://github.com/yuzu-emu/yuzu/pull/4692). This change means that Nvidia users are free to use the latest driver version without fearing low framerates.
@@ -38,21 +52,7 @@ Recent Nvidia Geforce drivers (past the 446.14 version) introduced a performance
     "./nvidiafix.png"
   >}}
 
-
-
-## Bug fixes and improvements
-
-`VK_KHR_timeline_semaphore` is a very recent Vulkan extension only supported by *desktop or laptop* GPUs. [Adding support for it on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use a small amount, and it will pave the way for more important changes coming to our Vulkan implementation later on. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition!
-
-
-
-`Clubhouse Games: 51 Worldwide Classics` now manages to boot and with a save, load the board games. [Morph](https://github.com/Morph1984) managed this by [implemention the `Get/SetNpadHandheldActivationMode` function](https://github.com/yuzu-emu/yuzu/pull/4683). The game will render almost everything in black for now, so don't consider it playable yet.
-
-{{< single-title-imgs
-    "Paint it all black (Clubhouse Games: 51 Worldwide Classics)"
-    "./51a.png"
-    "./51b.png"
-  >}}
+As mentioned in [July's progress report](https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/), [toastUnlimited](https://github.com/lat9nq) continued to work in solving crashes only experienced with recent Nvidia Vulkan drivers in Linux. Thanks to work done by DXVK, the [current implementation aims to be more global](https://github.com/yuzu-emu/yuzu/pull/4724), hopefully finally solving this problem for good.
 
 ## Future projects
 
