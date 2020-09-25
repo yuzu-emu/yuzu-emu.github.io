@@ -38,7 +38,7 @@ A small PSA for our Linux users, the [Qt requirement has been raised to `Qt 5.12
 
 Some users have been reporting input latency, so [Tobi](https://github.com/FearlessTobi) decided to [test some changes](https://github.com/yuzu-emu/yuzu/pull/4643) and see if the situation improves. To further help on this issue if you experience it, be sure to enable `Radeon Anti-Lag` or `Nvidia Ultra-Low Latency` in your respective driver control panel.
 
-Now [Gamecube controllers will be autoconfigured!](https://github.com/yuzu-emu/yuzu/pull/4618) Thanks to work done by [Naii the Baf](https://github.com/german77), now the Gamecube Adapter controllers will show up as devices in the input window, and their buttons will be mapped automatically.
+Now [Gamecube controllers will be autoconfigured!](https://github.com/yuzu-emu/yuzu/pull/4618) Thanks to work done by [german77](https://github.com/german77), now the Gamecube Adapter controllers will show up as devices in the input window, and their buttons will be mapped automatically.
 
 `Clubhouse Games: 51 Worldwide Classics` now manages to boot and with a save, load the board games. [Morph](https://github.com/Morph1984) managed this by [implemention the `Get/SetNpadHandheldActivationMode` function](https://github.com/yuzu-emu/yuzu/pull/4683). The game will render almost everything in black for now, so don't consider it playable yet.
 
