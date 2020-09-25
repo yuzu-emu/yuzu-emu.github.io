@@ -10,7 +10,7 @@ Greetings Yuz-ers! Welcome to September's progress report. This month we offer y
 
 <!--more-->
 
-## Feel the motion
+## Ya like to (move it!)
 
 
 
@@ -41,6 +41,8 @@ Recent Nvidia Geforce drivers (past the 446.14 version) introduced a performance
 
 
 ## Bug fixes and improvements
+
+`VK_KHR_timeline_semaphore` is a very recent Vulkan extension only supported by *desktop or laptop* GPUs. [Adding support for it on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use a small amount, and it will pave the way for more important changes coming to our Vulkan implementation later on. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition!
 
 
 
