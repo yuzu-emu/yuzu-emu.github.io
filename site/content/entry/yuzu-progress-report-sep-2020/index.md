@@ -10,6 +10,10 @@ Greetings Yuz-ers! Welcome to September's progress report. This month we offer y
 
 <!--more-->
 
+## Feel the motion
+
+
+
 ## An emulator inside an emulator
 
 `Super Mario 3D All-Stars` is a special case, in several aspects. For starters the game is just a container for several other binary executables (known as `Program NCAs`), each one with their own Title ID. Step one to get this game to boot is to handle [a particular case like this](https://github.com/yuzu-emu/yuzu/pull/4675), a job [Morph](https://github.com/Morph1984) did. 
@@ -21,7 +25,7 @@ Next step, unimplemented functions. [Morph](https://github.com/Morph1984) did a 
 Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/yuzu-emu/yuzu/pull/4676). The end result is getting the game-selector/menu working.
 
 {{< imgs
-    "./menu.png| For now, just the menu and soundtrack sections (Super Mario 3D All-Stars)"
+    "./menu.png| For now, just the menu and soundtrack sections! (Super Mario 3D All-Stars)"
   >}}
   
 ## Nvidia specific fixes
@@ -39,6 +43,14 @@ Recent Nvidia Geforce drivers (past the 446.14 version) introduced a performance
 ## Bug fixes and improvements
 
 
+
+`Clubhouse Games: 51 Worldwide Classics` now manages to boot and with a save, load the board games. [Morph](https://github.com/Morph1984) managed this by [implemention the `Get/SetNpadHandheldActivationMode` function](https://github.com/yuzu-emu/yuzu/pull/4683). The game will render almost everything in black for now, so don't consider it playable yet.
+
+{{< single-title-imgs
+    "Paint it all black (Clubhouse Games: 51 Worldwide Classics)"
+    "./51a.png"
+    "./51b.png"
+  >}}
 
 ## Future projects
 
