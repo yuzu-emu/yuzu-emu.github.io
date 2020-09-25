@@ -23,6 +23,14 @@ Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/y
 {{< imgs
     "./menu.png| For now, just the menu and soundtrack sections (Super Mario 3D All-Stars)"
   >}}
+  
+## Nvidia specific fixes
+
+Recent Nvidia Geforce drivers introduced a performance regression, important enough that we had to recommend our users to stay on older driver versions until we could figure out what was going on. Turns out, the newer drivers don't seem to like how Qt handles VSync, so [Rodrigo](https://github.com/ReinUsesLisp) fixed it by [calling `SwapBuffers` from the emulation thread](https://github.com/yuzu-emu/yuzu/pull/4692). This change means that Nvidia users are free to use the latest driver version without fearing low framerate.
+
+Just in time for Ampere's release, eh!
+
+
 
 ## Bug fixes and improvements
 
