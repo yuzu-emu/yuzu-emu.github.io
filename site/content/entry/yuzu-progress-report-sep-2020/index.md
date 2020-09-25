@@ -30,7 +30,9 @@ Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/y
   
 ## Bug fixes and improvements
 
-`VK_KHR_timeline_semaphore` is a very recent Vulkan extension only supported by *desktop or laptop* GPUs. [Adding support for it on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use a small amount, and it will pave the way for more important changes coming to our Vulkan implementation later on. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition!
+`VK_KHR_timeline_semaphore` is a very recent Vulkan extension only supported by *desktop or laptop* GPUs. [Adding support for it on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use in a small amount, and it will pave the way for more important changes coming to our Vulkan implementation later on. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition! The end result should be transparent for the user.
+
+A small PSA for our Linux users, the [Qt requirement has been raised to `Qt 5.12.8`](https://github.com/yuzu-emu/yuzu/pull/4638) now. Thanks [Morph](https://github.com/Morph1984) for the update!
 
 Some users have been reporting input latency, so [Tobi](https://github.com/FearlessTobi) decided to [test some changes](https://github.com/yuzu-emu/yuzu/pull/4643) and see if the situation improves. To further help on this issue if you experience it, be sure to enable `Radeon Anti-Lag` or `Nvidia Ultra-Low Latency` in your respective driver control panel.
 
