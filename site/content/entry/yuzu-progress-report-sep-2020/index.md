@@ -50,13 +50,7 @@ Now [Gamecube controllers will be autoconfigured!](https://github.com/yuzu-emu/y
 
 ## Nvidia specific fixes
 
-Recent Nvidia Geforce drivers (past the 446.14 version) introduced a performance regression, important enough that we had to recommend our users to stay on older driver versions until we could figure out what was going on. Turns out, the newer drivers don't seem to like how Qt handles VSync, so [Rodrigo](https://github.com/ReinUsesLisp) fixed it by [calling `SwapBuffers` from the emulation thread](https://github.com/yuzu-emu/yuzu/pull/4692). This change means that Nvidia users are free to use the latest driver version without fearing low framerates.
-
-{{< single-title-imgs
-    "Just in time for Ampere's release, eh!"
-    "./nvidiabug.png"
-    "./nvidiafix.png"
-  >}}
+Recent Nvidia Geforce drivers (past the 446.14 version) introduced a performance regression mainly affecting `Super Smash Bros. Ultimate` and `Paper Mario: The Origami King`, important enough that we had to recommend our users to stay on older driver versions until we could figure out what was going on. Turns out, the new drivers don't seem to like how Qt handles VSync, so [Rodrigo](https://github.com/ReinUsesLisp) fixed it by [calling `SwapBuffers` from the emulation thread](https://github.com/yuzu-emu/yuzu/pull/4692). This change means that Nvidia users are free to use the latest driver version without fearing low framerates.
 
 As mentioned in [July's progress report](https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/), [toastUnlimited](https://github.com/lat9nq) continued to work in solving crashes only experienced with recent Nvidia Vulkan drivers in Linux. Thanks to work done by DXVK, the [current implementation aims to be more global](https://github.com/yuzu-emu/yuzu/pull/4724), hopefully finally solving this problem for good.
 
