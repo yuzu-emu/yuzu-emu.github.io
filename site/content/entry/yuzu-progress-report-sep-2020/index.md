@@ -58,7 +58,7 @@ Recent Nvidia Geforce drivers (past the 446.14 version) introduced a performance
     "./SSBU-fixed.mp4"
   >}}
 
-As mentioned in [July's progress report](https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/), [toastUnlimited](https://github.com/lat9nq) continued to work in solving crashes only experienced with recent Nvidia Vulkan drivers in Linux. Thanks to work done by DXVK, the [current implementation aims to be more global](https://github.com/yuzu-emu/yuzu/pull/4724), hopefully finally solving this problem for good.
+As mentioned in [July's progress report](https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/), [toastUnlimited](https://github.com/lat9nq) continued to work in solving crashes only experienced with recent Nvidia Vulkan drivers in Linux. Thanks to work done by DXVK, the [current implementation aims to be global](https://github.com/yuzu-emu/yuzu/pull/4724), and so far we haven't got any report on getting the issue or any sort of regression. Please feel free to contact us if you are still affected by this issue.
 
 ## Future projects
 
