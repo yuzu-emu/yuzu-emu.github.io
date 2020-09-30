@@ -20,7 +20,9 @@ It's finally here! After such a long wait, and thanks to the work made by [ogniK
 
 We have an entire article dedicated to showing how this feature came to be, how it works, its challenges and current limitations [here.](https://yuzu-emu.org/entry/yuzu-nvdec-emulation/) So please take your time to read it, it also includes a list of games confirmed working and not-so-working yet.
 
-
+{{< imgs
+    "./mk8.mp4| (Mario Kart 8 Deluxe)"
+  >}}
 
 ## An emulator inside an emulator
 
@@ -38,7 +40,13 @@ Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/y
   
 ## Bug fixes and improvements
 
-`VK_KHR_timeline_semaphore` is a very recent Vulkan extension only supported by *desktop or laptop* GPUs. [Adding support for it on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use in a small amount, and it will pave the way for more important changes coming to our Vulkan implementation later on. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition! The end result should be transparent for the user.
+`VK_KHR_timeline_semaphore` is a very recent Vulkan extension only supported by *desktop or laptop* GPUs. In the past, resources were being assigned with `VkFence`, and freed when arbitrarily asked, leading to a possible small pileup. With `VK_KHR_timeline_semaphore` each resource is tied to a periodically checked "GPU tick" and you only need to verify on which tick you are at the moment.
+
+{{< imgs
+    "./vk.png| "
+  >}}
+
+[Adding support for timeline semaphore on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use in a small amount, and will pave the way for more important changes coming to our Vulkan implementation later on. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition! The end result should be transparent for the user.
 
 A missing feature in the input rewrite was the ability to merge two separate single left and right Joy-Cons into a single dual Joy-Con, a function `Super Mario Odyssey` needs. [Morph](https://github.com/Morph1984) [implemented `MergeSingleJoyasDualJoy`](https://github.com/yuzu-emu/yuzu/pull/4629), so this is no longer a problem for Mario.
 
