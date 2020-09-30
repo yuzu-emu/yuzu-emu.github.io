@@ -82,11 +82,9 @@ As mentioned in [July's progress report](https://yuzu-emu.org/entry/yuzu-progres
 
 Not a fix in yuzu's code, but in fact a fix AMD implemented in their drivers. As mentioned in the previous [August progress report](https://yuzu-emu.org/entry/yuzu-progress-report-aug-2020/), `VK_EXT_extended_dynamic_state` was giving problems on the AMD Vulkan Windows driver. This has been fixed in the latest 20.9.2 driver version, allowing [yours truly](https://github.com/goldenx86) to [remove the previously needed blacklisting.](https://github.com/yuzu-emu/yuzu/pull/4735) No more nightmares when playing `Super Mario Odyssey`.
 
-Intel, at the time of writing, still doesn't offer support for this extension.
-
 ## Future projects
 
-Not much information can be given right now, but you all should know that [Project Raptor](https://www.youtube.com/watch?v=zHalXjs0cDA) is advancing at a very impressive speed. Our devs are so preoccupied with whether they could, they didn't stop to think if they should.
+Not much information can be given right now, but you all should know that [Project Raptor](https://www.youtube.com/watch?v=zHalXjs0cDA) is advancing at a very impressive speed. Our devs are so preoccupied with whether they can, they don't stop to think if they should.
 
 That's all she wrote, folks! See you next time in the October progress report!
 
