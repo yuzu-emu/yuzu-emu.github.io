@@ -40,7 +40,7 @@ Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/y
 
 `VK_KHR_timeline_semaphore` is a very recent Vulkan extension only supported by *desktop or laptop* GPUs. [Adding support for it on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use in a small amount, and it will pave the way for more important changes coming to our Vulkan implementation later on. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition! The end result should be transparent for the user.
 
-A missing feature in the input rewrite was the ability to merge two separate single left and right Joycons into a single dual Joycon, a function `Super Mario Odyssey` needs. [Morph](https://github.com/Morph1984) [implemented `MergeSingleJoyasDualJoy`](https://github.com/yuzu-emu/yuzu/pull/4629), so this is no longer a problem for Mario.
+A missing feature in the input rewrite was the ability to merge two separate single left and right Joy-Cons into a single dual Joy-Con, a function `Super Mario Odyssey` needs. [Morph](https://github.com/Morph1984) [implemented `MergeSingleJoyasDualJoy`](https://github.com/yuzu-emu/yuzu/pull/4629), so this is no longer a problem for Mario.
 
 A small PSA for our Linux users, the [Qt requirement has been raised to `Qt 5.12.8`](https://github.com/yuzu-emu/yuzu/pull/4638) now. Thanks [Morph](https://github.com/Morph1984) for the update!
 
@@ -56,7 +56,7 @@ Now [Gamecube controllers will be autoconfigured!](https://github.com/yuzu-emu/y
     "./51b.png"
   >}}
 
-
+One of those little annoying details. If you ran a game in fullscreen and a pop-up needed to show up (for example, naming a character), it used to render behind the main yuzu window, forcing you to exit fullscreen, focus the pop-up, address the reason for it, and then continue with your game. Quite annoying indeed. [Morph](https://github.com/Morph1984) is our saviour for this one, by [using the `Qt::WindowStaysOnTopHint` flag](https://github.com/yuzu-emu/yuzu/pull/4728), the pop-ups will now show up on top of your game. Thanks a lot, poyo.
 
 ## Nvidia specific fixes
 
@@ -70,9 +70,15 @@ Recent Nvidia Geforce drivers (past the 446.14 version) introduced a performance
 
 As mentioned in [July's progress report](https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/), [toastUnlimited](https://github.com/lat9nq) continued to work in solving crashes only experienced with recent Nvidia Vulkan drivers in Linux. Thanks to work done by DXVK, the [current implementation aims to be global](https://github.com/yuzu-emu/yuzu/pull/4724), and so far we haven't got any report on getting the issue or any sort of regression. Please feel free to contact us if you are still affected by this issue.
 
+## AMD specific fixes
+
+Not a fix in yuzu's code, but in fact a fix AMD implemented in their drivers. As mentioned in the previous [August progress report](https://yuzu-emu.org/entry/yuzu-progress-report-aug-2020/), `VK_EXT_extended_dynamic_state` was giving problems on the AMD Vulkan Windows driver. This has been fixed in the latest 20.9.2 driver version, allowing [yours truly](https://github.com/goldenx86) to [remove the previously needed blacklisting.](https://github.com/yuzu-emu/yuzu/pull/4735) No more nightmares when playing `Super Mario Odyssey`.
+
+Intel, at the time of writing, still doesn't offer support for this extension.
+
 ## Future projects
 
-
+Not much information can be given right now, but you all should know that [Project Raptor](https://www.youtube.com/watch?v=zHalXjs0cDA) is advancing at a very impressive speed. Our devs are so preoccupied with whether they could, they didn't stop to think if they should.
 
 That's all she wrote, folks! See you next time in the October progress report!
 
