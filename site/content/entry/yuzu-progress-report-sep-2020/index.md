@@ -6,11 +6,19 @@ coauthor = "GoldenX86"
 forum = 0
 +++ 
 
-Greetings Yuz-ers! Welcome to September's progress report. This month we offer you more input fixes and additions, small Vulkan improvements, and the initial ground work needed to get Super Mario 3D All-Stars playable.
+Greetings Yuz-ers! Welcome to September's progress report. This month we offer you actual dancing, pictures per second, more input fixes and additions, small Vulkan improvements, and the initial ground work needed to get `Super Mario 3D All-Stars` playable.
 
 <!--more-->
 
 ## Ya like to (move it!)
+
+
+
+## [Video Killed the Radio Star](https://www.youtube.com/watch?v=W8r-tXRLazs)
+
+It's finally here! After such a long wait, and thanks to the work made by [ogniK](https://github.com/ogniK5377) and [epicboy](https://github.com/ameerj), [yuzu can now play videos in-game!](https://github.com/yuzu-emu/yuzu/pull/4729)
+
+We have an entire article dedicated to showing how this feature came to be, how it works, its challenges and current limitations [here.](https://yuzu-emu.org/entry/yuzu-nvdec-emulation/) So please take your time to read it, it also includes a list of games confirmed working and not-so-working yet.
 
 
 
@@ -47,6 +55,8 @@ Now [Gamecube controllers will be autoconfigured!](https://github.com/yuzu-emu/y
     "./51a.png"
     "./51b.png"
   >}}
+
+
 
 ## Nvidia specific fixes
 
