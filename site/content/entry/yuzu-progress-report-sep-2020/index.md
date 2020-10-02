@@ -3,7 +3,7 @@ date = "2020-09-30T12:00:00-03:00"
 title = "Progress Report September 2020"
 author = "Honghoa"
 coauthor = "GoldenX86"
-forum = 0
+forum = 310318
 +++ 
 
 Greetings Yuz-ers! Welcome to September's progress report. This month we offer you actual dancing, pictures per second, more input fixes and additions, small Vulkan improvements, and the initial ground work needed to get Super Mario 3D All-Stars playable.
@@ -44,7 +44,7 @@ While this should work with games such as `Super Mario Odyssey` and others, do n
 
 ## Remember the Rumble Pak?
 
-Also thanks to [german77](https://github.com/german77), yuzu can now proudly boast [Rumble support](https://github.com/yuzu-emu/yuzu/pull/4291). Any SDL2 compatible device will vibrate when aksed by your Switch games. This includes but is not limited to DualShock, Xbox and Nintendo controllers.
+Also thanks to [german77](https://github.com/german77), yuzu can now proudly boast [Rumble support](https://github.com/yuzu-emu/yuzu/pull/4291). Any SDL2 compatible device will vibrate when asked by your Switch games. This includes but is not limited to DualShock, Xbox and Nintendo controllers.
 
 HD Rumble is not possible because both the SDL2 specification is not compatible, and not everyone will play with Nintendo pripherals. This means that a Pro Controller or a pair of Joy-Cons will not be able to reach that level of precision, for now. Additionally, some games seem to use different ways to ask for rumble and are not supported yet, we are investigating this.
 
