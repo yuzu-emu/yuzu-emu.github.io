@@ -25,7 +25,7 @@ german77 was aware of the existence of a previously discontinued [PR for motion]
 After a long period of extensive testing, and with the help of [theboy181](https://github.com/theboy181) (who focused on testing the feature on different games), german77 finally realized the root of problem laid in part of the logic of the implementation: There was an error in the transformation of a [quaternion](https://en.wikipedia.org/wiki/Quaternion) into a [rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix). For the people allergic to math, you can think of a quaternion as a system to describe orientations and rotations in a 3D space, and a rotation matrix as a "translation" from the quaternion system into the ol' (x, y, z) Cartesian coordinate system we all know and love. When the translation fails, it's only natural that the results will be completely wrong! But thankfully, once this error was fixed, almost all the games that showed problems started to work flawlessly!
 
 {{< imgs
-    "./motion2.mp4|"
+    "./motion2.mp4| "
 >}}
 
 {{< imgs
