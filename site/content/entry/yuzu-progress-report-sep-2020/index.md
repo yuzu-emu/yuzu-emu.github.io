@@ -32,7 +32,8 @@ After a long period of extensive testing, and with the help of [theboy181](https
     "./motion3.mp4| Motion in action. Top: 'Super Mario Odyssey', bottom: 'The Legend of Zelda: Breath of the Wild'."
 >}}
 
-This feature currently works with Wiimotes, Joy-Cons, Pro Controllers, DualShock 4 Wireless Controllers, and even cellphones, provided they have an accelerometer and a gyroscope. Make sure to try it out!
+This feature currently works with Wiimotes, Joy-Cons, Pro Controllers, DualShock 4 Wireless Controllers, and even cellphones, provided they have an accelerometer and a gyroscope. It's worth noting that since this implementation makes use of the DSU protocol (also known as "CemuHook UDP"), users will need to bridge their favorite device to yuzu with betterjoy (for Nintendo controllers), ds4windows (For Sony controllers), or any app that supports CemuHook for cellphones and or other compatible devices. Make sure to try it out!
+
 Do note other devices such as generic copies of official Nintendo or Sony controllers as well as Xbox controllers may work, although it's not guaranteed. Needless to say, no matter how hard you shake your keyboad and mouse, that's not going to work, so please don't do it!
 
 ## I have no motion, and I must shake
