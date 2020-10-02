@@ -21,8 +21,8 @@ What is [NVDEC](https://en.wikipedia.org/wiki/Nvidia_NVDEC)?
 NVDEC stands for **Nvidia Video Decoder** and is a feature in Nvidia GPUs that performs video decoding.
 And since the Switch has an Nvidia Tegra X1 SoC, it too makes use of its NVDEC module to offload all CPU intensive video decoding tasks to the GPU.
 
-NVDEC supports video codecs like `MPEG2`, `VC1`, `H264 (AVC)`, `H265 (HEVC)`, `VP8`, and `VP9`, but Nintendo only exposes `H264`, `H265`, `VP8` and `VP9`.
-Most games seem to use `H264` because of its wide support and efficiency ratio. 
+NVDEC supports video codecs like `MPEG-2`, `VC-1`, `H.264 (AVC)`, `H.265 (HEVC)`, `VP8`, and `VP9`, but Nintendo only exposes `H.264`, `H.265`, `VP8` and `VP9`.
+Most games seem to use `H.264` because of its wide support and efficiency ratio. 
 But many first party games are known to use `VP9` too - eg. Super Smash Bros. Ultimate, Pokémon: Let's Go, Pikachu/Eevee!
 
 With NVDEC support, users no longer have to rely on old save files or crazy button mashing to bypass broken cutscenes. 
@@ -46,7 +46,7 @@ NVDEC and VIC work together to decode incoming videos and the process usually go
 
 Although this seems fairly simple, implementing it was quite the task.
 [epicboy](https://github.com/ameerj) began working on this by implementing the service/command calls to NVDEC and VIC.
-It was decided to use the [FFmpeg](https://github.com/FFmpeg/FFmpeg) library to decode the frame data once we knew its codec (`H264` or `VP9`).	
+It was decided to use the [FFmpeg](https://github.com/FFmpeg/FFmpeg) library to decode the frame data once we knew its codec (`H.264` or `VP9`).	
 
 &nbsp;
 {{< youtube EGDodmeKGWY >}}
@@ -74,13 +74,13 @@ We are currently researching these edge cases to properly fix it for all games.
 {{< youtube xHYYntEB05o >}}
 &nbsp;
 
-### H264
+### H.264
 
-`H264` was relatively easier compared to `VP9`.
-Each `H264` frame contains two headers and raw frame data with it.
-Unlike `VP9`, `H264` doesn't have different headers for each frame but has same headers for entire video.
+`H.264` was relatively easier compared to `VP9`.
+Each `H.264` frame contains two headers and raw frame data with it.
+Unlike `VP9`, `H.264` doesn't have different headers for each frame but has same headers for entire video.
 
-[ogniK](https://github.com/ogniK5377) had, long ago, already implemented `H264` support in his experimental branch.
+[ogniK](https://github.com/ogniK5377) had, long ago, already implemented `H.264` support in his experimental branch.
 [epicboy](https://github.com/ameerj) based his work off of [ogniK](https://github.com/ogniK5377)'s and fixed a bug in it which caused distorted videos.
 It turned out that [ogniK](https://github.com/ogniK5377) was using incorrect dimensions when writing the pixel location.
 
@@ -93,9 +93,9 @@ And in the future, this will allow yuzu to offload video decoding to the host GP
 {{< youtube ImXim7BXl0E >}}
 &nbsp;
 
-### VP8 & H265
+### VP8 & H.265
 
-The Switch officially supports `VP8` and `H265` too, along with `VP9` and `H264`.
+The Switch officially supports `VP8` and `H.265` too, along with `VP9` and `H.264`.
 However, we are yet to see games make use of these codecs for in-game videos and hence support for these codecs remains unimplemented for now.
 
 # Testing
