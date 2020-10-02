@@ -33,13 +33,14 @@ This feature currently works with Wiimotes, Joy-Cons, Pro Controllers, DualShock
 Do note other devices such as generic copies of official Nintendo or Sony controllers as well as Xbox controllers may work, although it's not guaranteed. Needless to say, no matter how hard you shake your keyboad and mouse, that's not going to work, so please don't do it!
 
 ## I have no motion, and I must shake
+
 If your favorite controller has no support for motion controls, don't worry, not everything is lost. After developing the code necessary to support this feature into the emulator, german77 also made this follow-up PR to [implement a button to simulate a shake](https://github.com/yuzu-emu/yuzu/pull/4677). This will allow to configure any key of your liking to work as if you were physically swinging your controller and activate the in-game mechanics just as well as the real thing.
 
 This should work with games such as `Super Mario Odyssey` and others, although we can't guarantee it will perform as needed for every title.
 
 ## Remember the Rumble Pak?
 
-Thanks to [german77](https://github.com/german77), yuzu can now boast [Rumble support](https://github.com/yuzu-emu/yuzu/pull/4291). Any SDL2 compatible device will vibrate when aksed by your Switch games. This includes but is not limited to DualShock, Xbox and Nintendo controllers.
+Also thanks to [german77](https://github.com/german77), yuzu can now proudly boast [Rumble support](https://github.com/yuzu-emu/yuzu/pull/4291). Any SDL2 compatible device will vibrate when aksed by your Switch games. This includes but is not limited to DualShock, Xbox and Nintendo controllers.
 
 HD Rumble is not possible because both the SDL2 specification is not compatible, and not everyone will play with Nintendo pripherals. This means that a Pro Controller or a pair of Joy-Cons will not be able to reach that level of precision, for now. Additionally, some games seem to use different ways to ask for rumble and are not supported yet, we are investigating this.
 
