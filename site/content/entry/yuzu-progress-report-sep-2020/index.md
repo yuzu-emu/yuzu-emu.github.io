@@ -12,7 +12,30 @@ Greetings Yuz-ers! Welcome to September's progress report. This month we offer y
 
 ## Ya like to (move it!)
 
+Many of the most popular titles for the Nintendo Switch have mechanics that were designed with motion controls in mind, so naturally this has been a long-awaited feature a lot of people wanted to see implemented in yuzu. We are very happy to announce that, thanks to the efforts of the developer [german77](https://github.com/german77), it is now possible to [use any controller that supports motion sensing](https://github.com/yuzu-emu/yuzu/pull/4594) and play these games the way they were meant to be. Just be careful not to hit anything when you shake it!
 
+{{< imgs
+    "./motion1.mp4| Functional Motion Input (`A SixAxis tester by German77`, homebrew)."
+>}}
+
+The development of this feature began back in July, when german77 was working on the implementation of a [native Joy-Con adapter for yuzu](https://github.com/yuzu-emu/yuzu/pull/4411) (a task which is still in the works). While he was analyzing the data sent by the controllers, he realized he could read the values reported by the accelerometer and the gyroscope too. Feeling curious about what could be done with this knowledge, he decided to experiment and see what happened if he tried implementing some buttons and analog axes and feeding them with the input from these sensors. The result was quite satisfactory: Not only this actually worked, but it would become the main motivation to investigate and implement motion controls the way it works on the Switch.
+
+german77 was aware of the existence of a previously discontinued [PR for motion](https://github.com/yuzu-emu/yuzu/pull/3882) by [anirudhb](https://github.com/anirudhb), and decided the best course of action would be to take it from there, fixing any incompatibilities, adding new code and sorting out the subsequent bugs it produced. As he ironed out the implementation, he tested how it performed with the game `Captain Toad: Treasure Tracker`. The results this time, however, were far from satisfactory: The controls didn't feel natural and responded quite differently as they did on the Switch, indicating that there was an error in how the values sent by the controllers were processed. In order to have a better understanding of the problem, german77 developed two homebrew applications to identify and fix these deviations.
+
+After a long period of extensive testing, and with the help of [theboy181](https://github.com/theboy181) (who focused on testing the feature on different games), german77 finally realized the root of problem laid in part of the logic of the implementation: There was an error in the transformation of a [quaternion](https://en.wikipedia.org/wiki/Quaternion) into a [rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix). For the people allergic to math, you can think of a quaternion as a system to describe orientations and rotations in a 3D space, and a rotation matrix as a "translation" from the quaternion system into the ol' (x, y, z) Cartesian coordinate system we all know and love. When the translation fails, it's only natural that the results will be completely wrong! But thankfully, once this error was fixed, almost all the games that showed problems started to work flawlessly!
+
+{{<
+single-title-imgs
+"Meme text" "./motion2.mp4" "./motion3.mp4"
+>}}
+
+This feature currently works with Wiimotes, Joy-Cons, Pro Controllers, DualShock 4 Wireless Controllers, and even cellphones, provided they have an accelerometer and a gyroscope. Make sure to try it out!
+Do note other devices such as generic copies of official Nintendo or Sony controllers as well as Xbox controllers may work, although it's not guaranteed. Needless to say, no matter how hard you shake your keyboad and mouse, that's not going to work, so please don't do it!
+
+## I have no motion, and I must shake
+If your favorite controller has no support for motion controls, don't worry, not everything is lost. After developing the code necessary to support this feature into the emulator, german77 also made this follow-up PR to [implement a button to simulate a shake](https://github.com/yuzu-emu/yuzu/pull/4677). This will allow to configure any key of your liking to work as if you were physically swinging your controller and activate the in-game mechanics just as well as the real thing.
+
+This should work with games such as `Super Mario Odyssey` and others, although we can't guarantee it will perform as needed for every title.
 
 ## Remember the Rumble Pak?
 
