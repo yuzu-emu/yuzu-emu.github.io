@@ -121,7 +121,7 @@ Not a fix in yuzu's code, but in fact a fix AMD implemented in their drivers. As
 
 ## Future projects
 
-Not much information can be given right now, but you all should know that [Project Raptor](https://www.youtube.com/watch?v=zHalXjs0cDA) is advancing at a very impressive speed. Our devs are so preoccupied with whether they can, they don't stop to think if they should.
+Not much information can be given right now, but you all should know that [Raptor](https://www.youtube.com/watch?v=zHalXjs0cDA) is advancing at a very impressive speed. Our devs are so preoccupied with whether they can, they don't stop to think if they should.
 
 That's all she wrote, folks! See you next time in the October progress report!
 
