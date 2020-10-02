@@ -83,7 +83,7 @@ One of those little annoying details. If you ran a game in fullscreen and a pop-
 Recent Nvidia Geforce drivers (past the 446.14 version) introduced a performance regression mainly affecting `Paper Mario: The Origami King` and `Super Smash Bros. Ultimate's` menus, important enough that we had to recommend our users to stay on older driver versions until we could figure out what was going on. Turns out, the new drivers don't seem to like how Qt handles VSync, so [Rodrigo](https://github.com/ReinUsesLisp) fixed it by [calling `SwapBuffers` from the emulation thread](https://github.com/yuzu-emu/yuzu/pull/4692). This change means that Nvidia users are free to use the latest driver version without fearing low framerates.
 
 {{< single-title-imgs
-    "Just in time for Ampere, eh! (Super Smash Bros. Ultimate)"
+    "Just in time for Ampere, eh! Good luck getting one for now (Super Smash Bros. Ultimate)"
     "./SSBU-broken.mp4"
     "./SSBU-fixed.mp4"
   >}}
