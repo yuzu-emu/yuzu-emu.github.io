@@ -6,7 +6,7 @@ coauthor = "GoldenX86"
 forum = 0
 +++ 
 
-Greetings Yuz-ers! Welcome to September's progress report. This month we offer you actual dancing, pictures per second, more input fixes and additions, small Vulkan improvements, and the initial ground work needed to get `Super Mario 3D All-Stars` playable.
+Greetings Yuz-ers! Welcome to September's progress report. This month we offer you actual dancing, pictures per second, more input fixes and additions, small Vulkan improvements, and the initial ground work needed to get Super Mario 3D All-Stars playable.
 
 <!--more-->
 
