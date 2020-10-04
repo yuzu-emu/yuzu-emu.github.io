@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Progress Report July 2020 &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/" />
+    <meta property="og:description" content="Hey yuz-ers, what is up and welcome back to the… progress report. In this monthly report, we offer you major rewrites to critical components, another successful attack on shader compilation times, tons of game fixes, and the promise of a very bright future ahead. Let’s get started!" />
+<meta name="description" content="Hey yuz-ers, what is up and welcome back to the… progress report. In this monthly report, we offer you major rewrites to critical components, another successful attack on shader compilation times, tons of game fixes, and the promise of a very bright future ahead. Let’s get started!" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/"> 
+
+    <title>Progress Report July 2020 - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/faq">
+                faq
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://profile.yuzu-emu.org">
+                profile
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> github
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+<div class="container">
+    <div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/banner.png')">
+        <div>
+            <span class="title px-md py-sm has-background-dark">Progress Report July 2020</span>
+        </div>
+        
+        <div>
+            <span class="h3 px-md py-sm has-background-dark">
+                Written on August 04 2020
+            </span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <p>Hey yuz-ers, what is up and welcome back to the… progress report. In this monthly report, we offer you major rewrites to critical components, another successful attack on shader compilation times, tons of game fixes, and the promise of a very bright future ahead. Let’s get started!</p>
+
+<h2 id="paper-mario-the-origami-king-fixes">Paper Mario: The Origami King fixes</h2>
+
+<p>To begin with, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> implemented several fixes to make <code>Paper Mario: The Origami King</code> playable:</p>
+
+<ul>
+<li>By <a href="https://github.com/yuzu-emu/yuzu/pull/4359">clamping the host’s compute shared memory limit</a>, the game doesn’t get stuck when trying to start rendering.</li>
+</ul>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./pmm.png" title=" Now in A4 format! (Paper Mario: The Origami King)">
+                <img src="./pmm.png.jpg" alt=" Now in A4 format! (Paper Mario: The Origami King)">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Now in A4 format! (Paper Mario: The Origami King)</p>
+        
+    </div>
+    
+</div>
+
+
+<ul>
+<li>Some graphical artifacts affecting OpenGL can be fixed in GLASM by executing the shader instruction <a href="https://github.com/yuzu-emu/yuzu/pull/4360">BAR inside control flow</a>.</li>
+</ul>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./pmcastlebug.png" title="">
+                <img src="./pmcastlebug.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./pmcastlefix.png" title="">
+                <img src="./pmcastlefix.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">That is one big sheet of paper! (Paper Mario: The Origami King)</p>
+
+
+
+<ul>
+<li>Lighting issues were fixed by <a href="https://github.com/yuzu-emu/yuzu/pull/4361">implementing the S2R.LaneId instruction in the shader decoder</a>.</li>
+</ul>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./pmintrobug.png" title="">
+                <img src="./pmintrobug.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./pmintrofix.png" title="">
+                <img src="./pmintrofix.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Lights, please! (Paper Mario: The Origami King)</p>
+
+
+
+<h2 id="new-gpu-virtual-memory-manager">New GPU Virtual Memory Manager</h2>
+
+<p><a href="https://github.com/bunnei">bunnei</a> brings the big guns. The complete <a href="https://github.com/yuzu-emu/yuzu/pull/4430">rewrite of the <code>GPU Virtual Memory Manager</code></a> fixes <em>several</em> bugs in many games, with the two strongest examples being <code>Mario Kart 8 Deluxe</code> and <code>Super Smash Bros. Ultimate</code>. Now several graphical bugs are fixed in Mario Kart 8, including tracks that show invisible terrain or missing graphics. In Smash&rsquo;s case, there are no more vertex explosions now.</p>
+
+<p>This rewrite also should reduce commited memory a bit, hopefully reducing the size of the required page file, and opens the possibility to implement new features in the future. We have to clarify that this doesn&rsquo;t fix the high VRAM usage in Vulkan.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./mk8bug.png" title="">
+                <img src="./mk8bug.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./mk8fix.png" title="">
+                <img src="./mk8fix.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">That&#39;s not what I meant when I said Anti-Gravity! (Mario Kart 8 Deluxe)</p>
+
+
+
+<h2 id="bug-fixes-and-improvements">Bug fixes and improvements</h2>
+
+<p>Accompanying the recent addition of 32-bit emulation support, <a href="https://github.com/bunnei">bunnei</a> implemented <a href="https://github.com/yuzu-emu/yuzu/pull/4292">support for the creation of random and default Miis</a>. This does not include full support for custom ones for now.
+With Miis in place, games like <code>Mario Kart 8 Deluxe</code> and <code>New Super Mario Bros. U Deluxe</code> can now get past their menus and become playable.</p>
+
+<p>For this service to work, the user needs to dump the system archives from their Nintendo Switch. The process requires the <a href="https://github.com/XorTroll/Goldleaf">Goldleaf homebrew</a>.</p>
+
+<p>To obtain the files, you must open Goldleaf from the Homebrew menu, select &ldquo;Console and Goldleaf settings,&rdquo; select &ldquo;Firmware and updates,&rdquo; pick &ldquo;Export update,&rdquo; confirm on the &ldquo;Directory&rdquo; option, and the files will be dumped in the <code>switch\Goldleaf\dump\update</code> location. After that, just copy the files to <code>%AppData%\yuzu\nand\system\Contents\registered</code>.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./mk8.png" title="">
+                <img src="./mk8.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smbud.png" title="">
+                <img src="./smbud.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Ports, ports everywhere! (Mario Kart 8 Deluxe &amp; New Super Mario Bros. U Deluxe)</p>
+
+
+
+<p>This is tradition by now. <a href="https://github.com/Morph1984">Morph</a> fixed another bug in <code>Kirby Star Allies</code>, this time by <a href="https://github.com/yuzu-emu/yuzu/pull/4082">implementing MirrorOnceClampOGL</a>. This is done by using the <code>GL_EXT_texture_mirror_clamp</code> extension on the OpenGL drivers that support it. The Intel driver doesn’t, so, with those GPUs, yuzu falls back to <code>GL_MIRROR_CLAMP_TO_EDGE</code>.</p>
+
+<p>Improvements to the texture cache by <a href="https://github.com/yuzu-emu/yuzu/pull/4176">implementing additional checks</a>, done by <a href="https://github.com/ReinUsesLisp">Rodrigo</a>, fixed crashing issues on Turing GPUs (RTX 2000 and GTX 1600 series) in <code>The Legend of Zelda: Breath of the Wild</code>. Now you can load saves normally! So get moving and save the princess!</p>
+
+<p>Our GLASM users experienced black textures on top of the vegetation in <code>The Legend of Zelda: Link’s Awakening</code>. By using the extensions <a href="https://github.com/yuzu-emu/yuzu/pull/4168"><code>NV_shader_buffer_load</code> and <code>NV_shader_buffer_store</code></a>, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> solved this issue for good.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./zlabug.png" title="">
+                <img src="./zlabug.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./zlafix.png" title="">
+                <img src="./zlafix.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Beware of the dark weeds, legend says rupoors lay there (The Legend of Zelda: Link&#39;s Awakening)</p>
+
+
+
+<p>We talked about this in the previous June progress report, and we&rsquo;re happy to announce that <a href="https://github.com/ReinUsesLisp">Rodrigo</a> finished <a href="https://github.com/yuzu-emu/yuzu/pull/4150">implementing support for <code>VK_EXT_extended_dynamic_state</code></a>. This fixes the “triangle glitch” that affects <code>Super Mario Odyssey</code> on all Vulkan drivers that support this new extension.</p>
+
+<p>Thanks to help from <a href="https://github.com/gdkchan">gdkchan</a> and <a href="https://github.com/FernandoS27">Blinkhawk</a>, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> added support for <a href="https://github.com/yuzu-emu/yuzu/pull/4242">copying 2D arrays of pixels into 3D voxels</a>, fixing rendering bugs in games like <code>LEGO Marvel Super Heroes 2</code> and possibly others.</p>
+
+<p><a href="https://github.com/lat9nq">toastUnlimited</a>, along with <a href="https://github.com/ReinUsesLisp">Rodrigo</a>, started preliminary work to fix crashes only happening in recent Nvidia Linux Vulkan drivers. Through trial and error, it was found that <a href="https://github.com/yuzu-emu/yuzu/pull/4283">increasing the Vulkan device allocable size</a> mitigates this issue on most GPUs, but some still remain affected for now.</p>
+
+<p><a href="https://github.com/ameerj">epicboy</a> is working on <a href="https://github.com/yuzu-emu/yuzu/pull/4137">implementing support for GameCube adapters</a>, allowing players to use original GameCube controllers! Veteran Smash players will surely enjoy it.</p>
+
+<p><a href="https://yuzu-emu.org/entry/yuzu-prometheus/"><code>Project Prometheus</code></a> introduced so many changes that we are still working on reaching feature parity with the original single-core implementation. <a href="https://github.com/ogniK5377">ogniK</a> <a href="https://github.com/yuzu-emu/yuzu/pull/4219">improved the audio timing</a>, fixing audio bugs that were introduced with the implementation of the new multicore and single-core emulation methods.</p>
+
+<p>Since its introduction, enabling multicore was the only way to reach stable gameplay on Linux systems, as the single-core option would lead to a crash in every game. Thanks to <a href="https://github.com/yuzu-emu/yuzu/issues/4424">comex&rsquo;s report</a>, <a href="https://github.com/lioncash">Lioncache</a> fixed it by <a href="https://github.com/yuzu-emu/yuzu/pull/4426">using the return value of Lock() in the nvflinger surface compositor</a>. Thanks to this fix, games that are not yet stable with multicore, like <code>Luigi’s Mansion 3</code>, can now be safely played in the Tux OS (Linux).</p>
+
+<h2 id="project-kobra">Project Kobra</h2>
+
+<p>Six months ago, <a href="https://github.com/Morph1984">Morph</a> proposed an <a href="https://github.com/yuzu-emu/yuzu/pull/3385">implementation of a batch installer to yuzu</a>, which allowed users to install many updates and DLCs at the same time. This was a boon for many users, but it remained in Early Access for a long time due to several issues and anticipation of a new VFS implementation dubbed <code>Project Viper</code>. With renewed hope and motivation from the shark (<a href="https://github.com/ogniK5377">ogniK</a>), <a href="https://github.com/Morph1984">Morph</a> went on to fix all of its remaining issues, allowing it to finally be merged into the master/Mainline branch of yuzu.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./batch_install.png" title=" I can finally install all the DLCs of Super Smash Bros. Ultimate!">
+                <img src="./batch_install.png.jpg" alt=" I can finally install all the DLCs of Super Smash Bros. Ultimate!">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> I can finally install all the DLCs of Super Smash Bros. Ultimate!</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Additionally, as <code>Project Viper</code> has been delayed until further notice, <a href="https://github.com/Morph1984">Morph</a> took it upon himself to fix the list of Virtual File System (VFS) bugs that had been plaguing yuzu.</p>
+
+<p>It was well known that yuzu had problems with installing Updates and DLC into the NAND and reading them correctly. Due to the inability to easily remove individual game files, users had to delete all their installed game files just to ensure that their new Update or DLC got detected properly.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./uninstall_before_fix.png" title=" Not again, my precious write cycles! *sobs*">
+                <img src="./uninstall_before_fix.png.jpg" alt=" Not again, my precious write cycles! *sobs*">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Not again, my precious write cycles! *sobs*</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Upon closer inspection of the inner workings of the VFS, <a href="https://github.com/Morph1984">Morph</a> found that the previous Updates or DLC were not removed when a newer one was being installed, leading to issues with the detection of these files in yuzu. He solved this by <a href="https://github.com/yuzu-emu/yuzu/pull/4249">properly removing the previous update or DLC if it exists on installation</a>. In addition to this, he also <a href="https://github.com/yuzu-emu/yuzu/pull/4250">corrected a small oversight in the way yuzu stores autogenerated titlekeys</a>. Now invalid titlekeys will no longer be written into the <code>title.keys_autogenerated</code> file, ensuring that only valid ones are written. If your game, update or DLC is not being detected by yuzu, ensure you have the latest key files dumped from your switch, as newer game updates and DLC require newer firmware keys to decrypt.
+With these fixes in place, yuz-ers no longer have to delete all installed game files to install a newer update or DLC as this properly overwrites the previously installed ones.</p>
+
+<p>Next, he looked into fixing one of the oldest and well known VFS bugs - the <code>Luigi's Mansion 3</code> autosave issue. Every time an autosave was triggered, the game would softlock. This had also affected other games such as <code>KATANA KAMI: A Way of the Samurai Story</code> and <code>Okami HD</code>. Building upon the initial research by theboy181 (the creator of the mod that bypassed the Luigi&rsquo;s Mansion saving issue), Morph dug into the VFS code and found that files were not closed prior to being renamed or moved, leading to a <a href="https://github.com/yuzu-emu/yuzu/pull/4265">simple fix</a> for any games that use this function.</p>
+
+<p>Keeping the ball rolling, he went on to find out why <code>Diablo III: Eternal Collection</code> was not able to get past the EULA screen and thus needing a save file to bypass it. It turned out that an <a href="https://github.com/yuzu-emu/yuzu/pull/1012">old PR</a> was causing <em>folders</em> instead of <em>files</em> to be created. After this discovery, the PR was immediately removed from Mainline/Early Access and closed as it was no longer needed.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./diablo3fixed.png" title=" EULAs can&#39;t stop me! (Diablo III)">
+                <img src="./diablo3fixed.png.jpg" alt=" EULAs can&#39;t stop me! (Diablo III)">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> EULAs can&#39;t stop me! (Diablo III)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Looking for the next meal, Morph took a bite at the saving issues of the Bioshock Trilogy. These games were unable to save due to checking for free space prior to saving. This was fixed by <a href="https://github.com/yuzu-emu/yuzu/pull/4282">ensuring that the NAND partition sizes were set to their defaults</a> and are read correctly by the relevant filesystem service commands.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./bioshock_out_of_space.png" title="">
+                <img src="./bioshock_out_of_space.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./bioshock_saved.png" title="">
+                <img src="./bioshock_saved.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Game saves are for the weak! (Bioshock Remastered)</p>
+
+
+
+<p>After this little treat, the Kirby embarked on an adventure to fix the last remaining issues with the VFS. After 3 days of debugging the Pokemon Sword and Shield RomFS weather bug, he discovered that these games contained a 0 byte file called <code>global_setting.bin</code> which caused the file right after it called <code>weather_data.bin</code> to be skipped entirely. And you may have guessed by now - this file contains all the data for weather and without it, no weather can be generated within the game! This eureka moment led to an extremely simple fix which <a href="https://github.com/yuzu-emu/yuzu/pull/4309">accomodates for 0 byte files during RomFS building</a>.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./swsh_weather.png" title="">
+                <img src="./swsh_weather.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./swsh_weather2.png" title="">
+                <img src="./swsh_weather2.png.jpg" alt="">
+            </a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light"> Let it snow, let it snow, let it snow! (Pokemon Sword and Shield)</p>
+
+
+
+<p><a href="https://github.com/Morph1984">Morph&rsquo;s</a> adventures have led him to save <del>Zelda</del> Link from the eternal softlocks after awakening from his slumber, seems like Ganon may have known Zelda&rsquo;s plan after all. Our Kirby traveled to the shattered Kingdom of Hyrule and foiled Ganon&rsquo;s plans by <a href="https://github.com/yuzu-emu/yuzu/pull/4345">creating the save subdirectories</a> that would allow Link to save his progress. Finally, he can save the princess without wasting his time eternally stuck after his slumber.</p>
+
+<p>Hearing stories of Nook Inc&rsquo;s deserted islands, Kirby flew off to visit some of them, only to be met by a barrier preventing access to the other realms. He managed to bypass the barrier by <a href="https://github.com/yuzu-emu/yuzu/pull/4456">stubbing two filesystem service commands</a> which were blocking access to the islands. Now he can view all the latest treats added in the islands since the last update.</p>
+
+<p>Wrapping up his adventures, he went and brought peace to Dreamland once again by adding an option to <a href="https://github.com/yuzu-emu/yuzu/pull/4372">remove individual NAND or SDMC installed games, updates, and DLCs</a> and fixing the last remaining issues with the game list, such as <a href="https://github.com/yuzu-emu/yuzu/pull/4381">opening the Save/Mod Data Location of installed titles</a>, <a href="https://github.com/yuzu-emu/yuzu/pull/4450">game list subdirectory scanning</a>, and <a href="https://github.com/yuzu-emu/yuzu/pull/4448">game list metadata detection</a>.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./title_removal.png" title=" Removal of installed game files has never been easier!">
+                <img src="./title_removal.png.jpg" alt=" Removal of installed game files has never been easier!">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Removal of installed game files has never been easier!</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="the-old-guard">The old guard</h2>
+
+<p>When yuzu started using <a href="https://conan.io/">Conan</a>, most of yuzu&rsquo;s dependencies were migrated to it. Unfortunately, our audio decoding dependency, Opus, had bad settings in the Conan version. These settings forced the use of the <code>AVX/AVX2 instruction set</code> even on old CPUs that don&rsquo;t support it, such as AMD Phenom CPUs or any Intel Pentium, Celeron, or Atom CPU. This caused some games to crash when processing audio on the affected CPUs. <a href="https://github.com/ogniK5377">ogniK</a> fixed this by <a href="https://github.com/yuzu-emu/yuzu/pull/4218">replacing our included Opus version</a>.</p>
+
+<p><a href="https://github.com/MerryMage">Merry</a> finished the preliminary work needed to <a href="https://github.com/yuzu-emu/yuzu/pull/4294">fix a performance regression affecting CPUs that lack the <code>FMA instruction set</code></a>. This includes AMD Phenom series or older, Intel 3rd generation Core-i series or older, and all Pentium, Celeron and Atom CPUs. For now this shows up as a debug CPU configuration in yuzu’s settings. We recommend that our users not play with these settings, as altering them will only produce a worse experience than the default settings.</p>
+
+<h2 id="ui-changes">UI changes</h2>
+
+<p>A very requested feature from our users. <a href="https://github.com/lat9nq">toastUnlimited</a> rose to the challenge and decided to <a href="https://github.com/yuzu-emu/yuzu/pull/4098">add per-game configurations</a> to yuzu! For now it lacks support for input settings, but this will be added in the future. To access this new feature,  right click a game in yuzu&rsquo;s game list and select Properties.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./settings.png" title=" No need to remember specific settings before booting a game!">
+                <img src="./settings.png.jpg" alt=" No need to remember specific settings before booting a game!">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> No need to remember specific settings before booting a game!</p>
+        
+    </div>
+    
+</div>
+
+
+<p><a href="https://github.com/Morph1984">Morph</a> added <a href="https://github.com/yuzu-emu/yuzu/pull/4377">a new theme for our anti-light themes users</a>, <code>Midnight Blue</code>! You can access it in Configuration &gt; General &gt; UI.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./midnight.png" title=" Oooh, Spooky">
+                <img src="./midnight.png.jpg" alt=" Oooh, Spooky">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Oooh, Spooky</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Fixing small annoyances is something that is overlooked most of the time, but very appreciated when done. <a href="https://github.com/FearlessTobi">Tobi</a> <a href="https://github.com/yuzu-emu/yuzu/pull/4297">removed the need to confirm which Switch profile to use when there is only a single one created</a>. Thank you so much Tobi.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./profile.png" title=" Bye little fella!">
+                <img src="./profile.png.jpg" alt=" Bye little fella!">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Bye little fella!</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="the-sharkman-episode-one">The Sharkman, episode one</h2>
+
+<p><a href="https://github.com/ogniK5377">ogniK</a> has been working for a long time on a <a href="https://github.com/yuzu-emu/yuzu/pull/4310">major audio rewrite</a> for yuzu. To avoid a very long explanation of the complexity of Nintendo’s audio renderer systems, we recommend our more tech savvy readers to read the Pull Request’s description where you will find more detailed information.</p>
+
+<p>This is “Part 1,” several fixes and more complex (or annoying to code) features will be finished at a later date. Right now the results speak for themselves. Tons of games with broken audio of any kind - like missing sound effects, fading music, mixing errors, crackling or even no sound at all - are either running perfectly or are starting to sound a lot more like the native hardware. Some bugs are to be expected for now, for example, <code>Shovel Knight</code> and <code>Fast RMX</code> experience choppy audio, and the voices in <code>Animal Crossing: New Horizons</code> will play from only one ear.</p>
+
+<p>You would think that this is enough, but <a href="https://github.com/ogniK5377">ogniK</a> has another fantastic gift for us. Up until now, when several new shaders had to be built during gameplay, they could only be done one at a time. Thanks to some good help provided by <a href="https://github.com/Exzap">Exzap</a>, Cemu&rsquo;s lead developer, <a href="https://github.com/yuzu-emu/yuzu/pull/4273">yuzu can now decode shaders asynchronously!</a> This means that, depending on the amount of threads your CPU has, the shader compilation will happen on several threads at the same time. Thus cutting down shader build time significantly, especially if you can also use assembly shaders.</p>
+
+<p>To top it off, <a href="https://github.com/ameerj">epicboy</a> added <a href="https://github.com/yuzu-emu/yuzu/pull/4443">async shader support for Vulkan</a>!</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./async.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Thanks to BSoD Gaming for the video comparison (Super Smash Bros. Ultimate)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Due to limitations in the AMD Windows OpenGL driver, we recommend that you avoid using asynchronous shaders in OpenGL if you have a Radeon GPU, as it will only produce frame skipping and lead to a very poor gameplay experience. The Linux OpenGL drivers are unaffected by this, as well as any of the Vulkan drivers.</p>
+
+<p>The number of threads used for asynchronous shader compilation (along with example CPUs to illustrate the number of CPU threads) are as follows:</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">CPU Threads</th>
+<th align="center">Shader Threads</th>
+<th>Example CPUs</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1 - 7</td>
+<td align="center">1</td>
+<td>R3-1200, i3-6100</td>
+</tr>
+
+<tr>
+<td align="center">8 - 11</td>
+<td align="center">2</td>
+<td>R3-3300X, i7-7700K</td>
+</tr>
+
+<tr>
+<td align="center">12 - 15</td>
+<td align="center">3</td>
+<td>R5-3600, i7-8700K</td>
+</tr>
+
+<tr>
+<td align="center">16+</td>
+<td align="center">4</td>
+<td>R7-3700X, i7-10700K</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="future-projects">Future projects</h2>
+
+<p><a href="https://github.com/ReinUsesLisp">Rodrigo</a> started rewriting the Texture Cache and once the work is finished, this should positively affect both OpenGL and Vulkan by introducing bug fixes, better performance, and a better experience in Vulkan in particular.</p>
+
+<p>There are also some other yet undisclosed but very impressive projects that we will reveal soon enough. Stay tuned!</p>
+
+<p>That’s all for now, folks! Until the August progress report!</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./starallies.png" title="">
+                <img src="./starallies.png.jpg" alt="">
+            </a>
+        
+        
+    </div>
+    
+</div>
+
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, check out our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/290819">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2020 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

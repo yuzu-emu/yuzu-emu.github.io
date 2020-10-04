@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Quickstart Guide &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/help/quickstart/" />
+    <meta property="og:description" content="A guide designed to get you started with yuzu quickly." />
+<meta name="description" content="A guide designed to get you started with yuzu quickly." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://yuzu-emu.org/logo.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/help/quickstart/"> 
+
+    <title>Quickstart Guide - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/faq">
+                faq
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://profile.yuzu-emu.org">
+                profile
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> github
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+<section class="section" style="padding-bottom: 0px;">
+    <div class="container">
+        <a href="/help/">
+            <article class="message">
+                <div class="message-body">
+                    <span class="icon">
+                        <i class="fas fa-arrow-circle-left"></i>
+                    </span>
+                    Return to the previous page.
+                </div>
+            </article>
+        </a>
+    </div>
+</section>
+
+
+    
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section">
+    <h1 class="title">Quickstart Guide</h1>
+    <div class="content">
+        
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/j0fXerrGjF4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<h1 id="hardware"><br></h1>
+
+<h1 id="hardware-requirements">Hardware Requirements</h1>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CPU</th>
+<th>GPU</th>
+<th>RAM</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Minimum</strong></td>
+<td>Intel Core i5-4430 / AMD Ryzen 3 1200</td>
+<td>Intel HD Graphics 520 / NVIDIA GeForce GT 1030 / AMD Radeon R7 240</td>
+<td>8GB</td>
+</tr>
+
+<tr>
+<td><strong>Recommended</strong></td>
+<td>Intel Core i7-8700 / AMD Ryzen 5 3600</td>
+<td>NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 470 8GB</td>
+<td>16GB</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><p>Our recommended specifications don&rsquo;t guarantee perfect performance in most games, but rather strive to provide a cost effective recommendation while still considering performance.</p></li>
+
+<li><p>Mobile CPUs will not reach the same performance as their desktop counterparts due to thermal, power, and technical limitations.</p></li>
+
+<li><p><strong>GPUs must support OpenGL 4.5 (or higher) &amp; OpenGL Compatibility profile, or Vulkan 1.1.</strong><br>
+To find out if your GPU meets these requirements, visit <a href="https://opengl.gpuinfo.org">https://opengl.gpuinfo.org</a> or <a href="https://vulkan.gpuinfo.org/">https://vulkan.gpuinfo.org/</a> and check your GPU details.<br></p></li>
+</ul>
+
+<p>Sample Image:</p>
+
+<p><img src="./gpu_info.png" alt="GPUInfo" /></p>
+
+<h1 id="yuzu-quickstart-guide">yuzu Quickstart Guide</h1>
+
+<p>To start playing games, yuzu needs a couple of system files and folders from your switch in order to play them properly.
+To check if your Switch is hackable, visit <a href="https://damota.me/ssnc/checker">https://damota.me/ssnc/checker</a> and test your Switch&rsquo;s serial number.</p>
+
+<pre><code>- If your Switch is patched, you will be unable to complete the following steps.
+- The Switch v2 (Mariko) and the Switch Lite are both patched and you will not be able to complete the following steps.
+</code></pre>
+
+<p>This guide will help you copy all your system files, games, updates, and DLC from your switch to your computer and organize them in a format yuzu understands.
+This process should take about 60 to 90 minutes.</p>
+
+<p><strong>IMPORTANT: <br>
+Make sure to place your Nintendo Switch into Airplane Mode before starting this guide.</strong> <br>
+<code>System Settings -&gt; Airplane Mode -&gt; Airplane Mode &quot;ON&quot;</code></p>
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<ul>
+<li>A Nintendo Switch vulnerable to the fusée gelée RCM exploit &ndash; Visit <a href="https://damota.me/ssnc/checker">https://damota.me/ssnc/checker</a> and test your Switch&rsquo;s serial number</li>
+<li>An SD card with at least 30 GB of free space (an almost empty 32GB card will work)</li>
+<li>A USB-C to USB-A or USB-C to USB-C Cable to connect your Switch to your computer</li>
+<li><a href="https://github.com/eliboa/TegraRcmGUI/releases">TegraRcmGUI</a> &ndash; Download the TegraRcmGUI installer</li>
+<li><a href="https://github.com/CTCaer/hekate/releases">Hekate</a> &ndash; Download the <code>hekate</code> zip file</li>
+<li><a href="https://github.com/Atmosphere-NX/Atmosphere/releases">Atmosphere</a> &ndash; Download both the <code>atmosphere</code> zip file and <code>fusee-primary.bin</code></li>
+<li><a href="https://github.com/shchmue/Lockpick_RCM/releases">Lockpick_RCM</a> &ndash; Download <code>Lockpick_RCM.bin</code></li>
+<li><a href="https://github.com/DarkMatterCore/nxdumptool/releases">nxdumptool</a> &ndash; Download <code>nxdumptool.nro</code></li>
+<li><a href="https://yuzu-emu.org/help/quickstart/yuzu_copy.bat">Copy Script</a></li>
+<li><a href="https://files.sshnuke.net/HacDiskMount1055.zip">HacDiskMount</a></li>
+<li><a href="https://www.amazon.com/dp/B006T9B6R2">microSD Card Reader</a> &ndash; If your computer has one built-in, you can use that</li>
+<li><a href="https://www.amazon.com/dp/B07J9JJRRG">RCM Jig</a> &lt;&ndash; We highly recommend one like this, but you could use any of the methods outlined <a href="https://noirscape.github.io/RCM-Guide/">here</a></li>
+</ul>
+
+<p><code>%YUZU_DIR%</code> is the home directory for yuzu on your computer:</p>
+
+<pre><code>- For Windows, this is '%APPDATA%\yuzu' or 'C:\Users\{username}\AppData\Roaming\yuzu'
+- For Linux, this is '~/.local/share/yuzu'
+</code></pre>
+
+<h1 id="preparing-the-microsd-card">Preparing the microSD Card</h1>
+
+<ol>
+<li>We will now prepare the microSD card.
+
+<ul>
+<li>1a. Extract the contents of the <code>atmosphere</code> and <code>hekate</code> zip files into the root of your SD card.</li>
+<li>1b. Place the <code>fusee-primary.bin</code> and <code>Lockpick_RCM.bin</code> files into the <code>bootloader/payloads</code> folder of the SD card.</li>
+<li>1c. Create a folder named <code>nxdumptool</code> within the <code>switch</code> folder of your SD card and place the <code>nxdumptool.nro</code> file inside it.</li>
+<li>1d. Once done, eject the SD card and place it into your Nintendo Switch.</li>
+</ul></li>
+</ol>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./sd_template.png" title="Your SD card should look like this.">
+                <img src="./sd_template.png.jpg" alt="Your SD card should look like this.">
+            </a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light">Your SD card should look like this.</p>
+        
+    </div>
+    
+</div>
+
+
+<h1 id="dumping-bis-keys-optional">Dumping BIS Keys (Optional)</h1>
+
+<ol>
+<li>We will now dump your BIS (Built-In Storage) keys for use in later decryption.
+
+<ul>
+<li>2a. Run the TegraRcmGUI installer you downloaded from the prerequisites, and after installation, start the program.</li>
+<li>2b. In the <code>Settings</code> tab, click on <code>Install Driver</code> which will install the drivers necessary for your computer to interface with your Nintendo Switch.</li>
+<li>2c. After the drivers have been installed, plug your Nintendo Switch into your computer.</li>
+<li>2d. Power off your Switch while it is still connected to your computer.</li>
+<li>2e. Insert your RCM jig into the right joy-con slot, make sure it is seated securely at the base, and then press VOL+ and Power buttons at the same time. Nothing should happen on your Switch; if the switch starts to turn on normally, go back to the beginning of step 2d and try again.</li>
+<li>2f. In the program TegraRcmGUI you should see the Nintendo Switch icon in the lower left corner flash green and state <code>RCM O.K.</code></li>
+<li>2g. In the <code>Tools</code> tab of TegraRcmGUI, click on <code>biskeydump (by rajkosto)</code>.</li>
+<li>2h. Your Switch will briefly flash with a blue QR code (you may or may not see this) and your computer will prompt you to save a text document titled <code>BIS_keys.txt</code>. Navigate to <code>%YUZU_DIR%/keys</code> and save the file as <code>console.keys</code>. Open the file to make sure you have the following key entries.
+
+<ul>
+<li><code>HWI</code></li>
+<li><code>SBK</code></li>
+<li><code>TSEC KEY</code></li>
+<li><code>BIS KEY 0 (crypt)</code></li>
+<li><code>BIS KEY 0 (tweak)</code></li>
+<li><code>BIS KEY 1 (crypt)</code></li>
+<li><code>BIS KEY 1 (tweak)</code></li>
+<li><code>BIS KEY 2 (crypt)</code></li>
+<li><code>BIS KEY 2 (tweak)</code></li>
+<li><code>BIS KEY 3 (crypt)</code></li>
+<li><code>BIS KEY 3 (tweak)</code></li>
+</ul></li>
+</ul></li>
+</ol>
+
+<h1 id="keys"><br></h1>
+
+<h1 id="dumping-prod-keys-and-title-keys">Dumping Prod.keys and Title.keys</h1>
+
+<ol>
+<li>We will now dump your <code>prod.keys</code> and <code>title.keys</code> for decryption of your game files.
+
+<ul>
+<li>3a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f) and make sure it is connected to your computer.</li>
+<li>3b. Extract the <code>hekate.bin</code> file from the <code>hekate</code> zip file you downloaded from the prerequisites.</li>
+<li>3c. Run TegraRcmGUI. In the <code>Payload</code> tab of TegraRcmGUI, click on the folder icon and navigate to the <code>hekate.bin</code> file you extracted earlier.</li>
+<li>3d. Click on <code>Inject Payload</code> and your Switch will boot into the Hekate menu.</li>
+<li>3e. When it has successfully booted into the Hekate menu, tap on <code>Payloads</code>. This will show a list of payloads.</li>
+<li>3f. Tap on <code>Lockpick_RCM.bin</code> in the list of payloads.</li>
+<li>3g. After Lockpick_RCM has successfully booted, press the power button to select <code>Dump from SysNAND</code>.</li>
+<li>3h. It will automatically boot to sept and start deriving the keys. Wait for it to finish deriving the keys.</li>
+<li>3i. After Lockpick_RCM has finished deriving the keys, please make note of the location of the key files. Default is: <code>sd:/switch/prod.keys</code> and <code>sd:/switch/title.keys</code>.</li>
+<li>3j. Press any key to return to the menu, then navigate with the VOL+/VOL- buttons to highlight and select <code>Power Off</code> by pressing the power button.</li>
+<li>3h. Once your Switch is powered off, remove the SD card.</li>
+<li>3i. Insert your SD card into your computer and copy both <code>prod.keys</code> and <code>title.keys</code> to the <code>%YUZU_DIR%/keys</code> directory.</li>
+</ul></li>
+</ol>
+
+<h1 id="backing-up-system-files-optional-but-recommended">Backing up System Files (Optional but Recommended)</h1>
+
+<ol>
+<li>We will now boot Hekate to dump your system files:
+
+<ul>
+<li>4a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f) and make sure it is connected to your computer.</li>
+<li>4b. Run TegraRcmGUI. In the <code>Payload</code> tab of TegraRcmGUI, click on the folder icon and navigate to the <code>hekate.bin</code> file you extracted earlier. (step 3b)</li>
+<li>4c. Click on <code>Inject Payload</code> and your Switch will boot into the Hekate menu.</li>
+<li>4d. Select <code>Tools</code>, the wrench icon at the top of the screen, and select <code>Backup eMMC</code>. Underneath the <code>Full</code> section, tap on <code>eMMC BOOT0 &amp; BOOT1</code>. This may take a few seconds to load. After it is finished filling the progress bar it should say <code>Finished and verified!</code>. Beneath <code>Filepath:</code> you will see the location of the dump.</li>
+<li>4e. Click <code>Close</code> and select <code>eMMC RAW GPP</code>. This should take some time as the Switch&rsquo;s <code>rawnand.bin</code> is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is Hekate verifying the data. This should take between 15-45 minutes depending on the quality/speed of your SD card and the default verification setting. Please keep note of the location the output file is placed.</li>
+<li>4f. Power off your switch to avoid damage to your SD card by selecting <code>Back</code> and then selecting <code>Power Off</code> and then eject your SD card. Insert your SD card into your computer and use your file explorer to open the contents. Place the <code>yuzu_copy.bat</code> file you downloaded earlier into the root of your SD card. Double-click it to start combining your <code>rawnand.bin</code> if it was dumped into sections i.e. <code>rawnand.bin.00</code>. If your <code>rawnand.bin</code> dumped as one ~30gb file, then proceed with the guide.</li>
+<li>4g. If you needed to dump the <code>rawnand.bin</code> into sections due to lack of space on your sd card, transfer the files that did dump to a new folder on your desktop, and then resume the backup of your <code>eMMC RAW GPP</code>. After you have obtained all of the <code>rawnand.bin</code> files, add them to the same folder as before, place the <code>yuzu_copy.bat</code> file you downloaded earlier into that same folder and double-click to run. After they are combined, please proceed with the guide.</li>
+</ul></li>
+</ol>
+
+<h1 id="moving-system-and-user-to-the-yuzu-directory-optional">Moving SYSTEM and USER to the yuzu directory (Optional)</h1>
+
+<ol>
+<li>We will now extract the necessary directories from your <code>rawnand.bin</code> for yuzu to read your system files.
+
+<ul>
+<li>5a. Open <code>HacDiskMount</code> as Administrator (Right-click and select Run As Administrator) and go to <code>File &gt; Open file</code> and select your <code>rawnand.bin</code>.</li>
+<li>5b. Double-click on the row marked <code>PRODINFO</code>. Under the dump to file area, click browse and pick somewhere easy to get to, like your Desktop. Dump the file as <code>PRODINFO.bin</code>. Click start and wait for it to complete. Then close the window. (NOTE: There is no need to enter any keys in the boxes at the top of the dialog at this moment.)</li>
+<li>5c. Select the row named <code>BCPKG2-1-Normal-Main</code>. Under the dump to file area, click browse and pick somewhere easy to get to, like your Desktop. Dump the file as <code>BCPKG2-1-Normal-Main.bin</code>. Click start and wait for it to complete. Again, no keys are necessary at this point. After it finishes, close the window.</li>
+<li>5d. Copy the <code>PRODINFO.bin</code> and <code>BCPKG2-1-Normal-Main.bin</code> files to the <code>%YUZU_DIR%/sysdata</code> directory.</li>
+<li>5e. Double-click on the row named <code>SYSTEM</code>. In the keys box, enter the <code>bis_key2_crypt</code> key in the crypt box and the <code>bis_key2_tweak</code> key in the tweak box and click test. If the text is red, double check your keys. If the text is blue, click on <code>Install</code> and wait until it says <code>Driver (ver XXXXX) installed, Service is running</code> where XXXXX is anything, then select <code>Y:</code> in the dropdown and click <code>Mount</code>. The application may become unresponsive for a moment. Press Windows-R and type <code>Y:</code> into the box and click OK and there will be a couple of folders with some named <code>Contents</code> and <code>save</code>. Copy all of these into <code>%YUZU_DIR%/nand/system</code>. After this is done, click <code>Unmount</code> and close the window.</li>
+<li>5f. Double-click on the row named <code>USER</code>. Enter the same key and click <code>Mount</code> (the tool may become unresponsive again). Once this mounts, open the new drive and copy the <code>Contents</code> and <code>save</code> folders to <code>%YUZU_DIR%/nand/user</code>. After this, click <code>Unmount</code> and close the window and then the program.</li>
+<li>5g. If you have games or game data stored on your SD card, copy the <code>Nintendo</code> folder of your SD card into <code>%YUZU_DIR%/sdmc</code>.</li>
+</ul></li>
+</ol>
+
+<h1 id="cart"><br></h1>
+
+<h1 id="dumping-cartridge-games">Dumping Cartridge Games</h1>
+
+<ol>
+<li>We will now dump the <code>Cartridge Image (XCI)</code> file from your game cartridge(s), to use in yuzu. Insert the game cartridge of your choice.
+
+<ul>
+<li>6a. Boot your Nintendo Switch into RCM mode (steps 2d to 2f) and make sure it is connected to your computer.</li>
+<li>6b. Run TegraRcmGUI. In the <code>Payload</code> tab of TegraRcmGUI, click on the folder icon and navigate to the <code>hekate.bin</code> file you extracted earlier. (step 3b)</li>
+<li>6c. Click on <code>Inject Payload</code> and your Switch will boot into the Hekate menu.</li>
+<li>6d. When it has successfully booted into the Hekate menu, tap on <code>Payloads</code>. This will show a list of payloads.</li>
+<li>6e. Tap on <code>fusee-primary.bin</code> in the list of payloads.</li>
+<li>6f. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, click/tap on the Album application. This will launch the Homebrew Menu.</li>
+<li>6g. Either use the touchscreen or navigate using your controller, and choose <code>nxdumptool</code>.</li>
+<li>6h. Choose the <code>Dump gamecard content</code> option.</li>
+<li>6i. Choose the <code>Cartridge Image (XCI) dump</code> option.</li>
+<li>6j. Make sure to dump the certificate with the cartridge. The options can be toggled by pressing <code>left</code> or <code>right</code>.</li>
+<li>6k. Once the cartridge image has been dumped, power off your switch by holding the power button for a few seconds, then select the Power Options &gt; Turn off.</li>
+<li>6l. With your Switch powered off, remove the SD card.</li>
+<li>6m. Insert your SD card into your computer. If the XCI was dumped in parts combine them with this command, for example: <code>copy /b &quot;Super Mario Odyssey.xc0&quot; + &quot;Super Mario Odyssey.xc1&quot; &quot;Super Mario Odyssey.xci&quot;</code>. Now you can place this XCI in a game directory of your choice.</li>
+</ul></li>
+</ol>
+
+<h1 id="dumping-save-files-optional">Dumping Save Files (Optional)</h1>
+
+<ol>
+<li>We will now dump the games&rsquo; save files from your switch to use in yuzu.
+
+<ul>
+<li>7a. Download <a href="https://github.com/FlagBrew/Checkpoint/releases">Checkpoint.nro</a></li>
+<li>7b. Insert your SD card into your computer.</li>
+<li>7c. Create a folder named <code>Checkpoint</code> within the <code>switch</code> folder of your SD card and place the <code>Checkpoint.nro</code> file inside it.</li>
+<li>7d. Eject your SD card and place it in your Switch.</li>
+<li>7e. Boot your Nintendo Switch into RCM mode (steps 2d to 2f) and make sure it is connected to your computer.</li>
+<li>7f. Run TegraRcmGUI. In the <code>Payload</code> tab of TegraRcmGUI, click on the folder icon and navigate to the <code>hekate.bin</code> file you extracted earlier. (step 3b)</li>
+<li>7g. Click on <code>Inject Payload</code> and your Switch will boot into the Hekate menu.</li>
+<li>7h. When it has successfully booted into the Hekate menu, tap on <code>Payloads</code>. This will show a list of payloads.</li>
+<li>7i. Tap on <code>fusee-primary.bin</code> in the list of payloads.</li>
+<li>7j. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, click/tap on the Album application. This will launch the Homebrew Menu.</li>
+<li>7k. Either use the touchscreen or navigate using your controller, and choose <code>Checkpoint</code>.</li>
+<li>7l. Pick the games that you want to dump their save files (multiselect with the <code>Y</code> button), and press the <code>L</code> button to backup the saves.</li>
+<li>7m. Once you have backed up the save files, power off your switch by holding the power button for a few seconds, then select the Power Options &gt; Turn off.</li>
+<li>7n. With your Switch powered off, remove the SD card.</li>
+<li>7o. Insert your SD card into your computer. Your save files will be located in the <code>switch/Checkpoint</code> folder.</li>
+</ul></li>
+</ol>
+
+<h1 id="running-yuzu">Running yuzu</h1>
+
+<ol>
+<li>We will now run yuzu to verify that your keys and system files were dumped and are being read correctly by yuzu.
+
+<ul>
+<li>8a. Run either the <code>yuzu</code> or <code>yuzu Early Access</code> shortcuts that were created by the yuzu installer tool. If you have moved your <code>Nintendo</code> folder from your SD card to <code>%YUZU_DIR%/sdmc</code> you should see your SD installed games populate.</li>
+<li>8b. If you extracted your <code>XCI</code> files from your Nintendo Switch cartridges, then, in yuzu, click on <code>+ Add New Game Directory</code> in the browser, and navigate to the folder where you placed your <code>XCI</code> files.</li>
+</ul></li>
+</ol>
+
+<h3 id="if-you-need-any-help-during-this-process-or-get-a-strange-error-during-or-while-using-yuzu-feel-free-to-ask-for-help-on-the-yuzu-discord-happy-emulating">If you need any help during this process or get a strange error during or while using yuzu, feel free to ask for help on the yuzu discord! Happy Emulating!</h3>
+
+    </div>
+</section>
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2020 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

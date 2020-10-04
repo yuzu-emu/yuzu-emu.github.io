@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>yuzu on yuzu </title>
+    <link>https://yuzu-emu.org/</link>
+    <language>en-US</language>
+    <author>Citra</author>
+    <rights>Copyright (c) 2017, Citra; all rights reserved.</rights>
+    <updated>Sun, 04 Oct 2020 05:09:02 UTC</updated>
+    
+    <item>
+      <title>New Feature Release - NVDEC emulation!</title>
+      <link>https://yuzu-emu.org/entry/yuzu-nvdec-emulation/</link>
+      <pubDate>Tue, 29 Sep 2020 23:20:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-nvdec-emulation/</guid>
+      <description>&lt;p&gt;Hello, yuzu fans!
+Tired of broken cutscenes and having to mash your controller buttons in hopes of skipping them? Well, look no further!
+Thanks to the efforts of &lt;a href=&#34;https://github.com/ameerj&#34;&gt;epicboy&lt;/a&gt;, yuzu can now play (most of) your favorite in-game cutscene videos.
+Jump right in to find out more!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report August 2020</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-aug-2020/</link>
+      <pubDate>Sun, 30 Aug 2020 12:00:00 -0300</pubDate>
+      <author>Flamboyant_Ham</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-aug-2020/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=s28a3nVHCLo&#34;&gt;Yahallo&lt;/a&gt; yuz-ers! We hope you are doing well. This monthly report has a few critical topics to cover. Yet another major rewrite is done, some graphical bugs are fixed, the UI is further refined, and ghosts from our past are expelled. Here we go!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report July 2020</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/</link>
+      <pubDate>Tue, 04 Aug 2020 12:00:00 -0300</pubDate>
+      <author>Morph</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-jul-2020/</guid>
+      <description>&lt;p&gt;Hey yuz-ers, what is up and welcome back to the… progress report. In this monthly report, we offer you major rewrites to critical components, another successful attack on shader compilation times, tons of game fixes, and the promise of a very bright future ahead. Let’s get started!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report June 2020</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-jun-2020/</link>
+      <pubDate>Wed, 01 Jul 2020 12:00:00 -0300</pubDate>
+      <author>GoldenX86</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-jun-2020/</guid>
+      <description>&lt;p&gt;Hello fellow yuz-ers! We hope you are doing well. Once again, we&amp;rsquo;re here to tell you about some of the exciting changes that were implemented last month in both yuzu Mainline and Early Access.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report May 2020</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-may-2020/</link>
+      <pubDate>Sun, 07 Jun 2020 03:15:00 -0300</pubDate>
+      <author>GoldenX86</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-may-2020/</guid>
+      <description>&lt;p&gt;Hello yuz-ers! How are you all doing?&lt;/p&gt;
+
+&lt;p&gt;In this monthly episode of &amp;ldquo;yuzu — Trials and Tribulations,&amp;rdquo; we offer you: major rewrites, massive performance gains,
+stability improvements, bug fixes and graphical corrections.
+&lt;em&gt;More after the commercial break.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report April 2020</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-apr-2020/</link>
+      <pubDate>Thu, 28 May 2020 12:00:00 -0300</pubDate>
+      <author>GoldenX86</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-apr-2020/</guid>
+      <description>&lt;p&gt;Hello awesome yuz-ers! We hope you are all doing well.
+We have lots of material to cover in this April progress report: some new additions, bug and regression fixes, and the groundwork for future improvements that affect both Mainline and Early Access. But first, let&amp;rsquo;s discuss a few really big changes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New Feature Release - Prometheus</title>
+      <link>https://yuzu-emu.org/entry/yuzu-prometheus/</link>
+      <pubDate>Sat, 09 May 2020 05:37:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-prometheus/</guid>
+      <description>&lt;p&gt;Hello there, yuzu fans!
+We are very excited to share the news of another major feature release.
+Thanks to the efforts of our dev Blinkhawk, yuzu now supports &lt;code&gt;Multicore CPU emulation&lt;/code&gt;.
+Hop right in, to read more about it!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report March 2020</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-mar-2020/</link>
+      <pubDate>Mon, 20 Apr 2020 07:11:00 -0300</pubDate>
+      <author>GoldenX86</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-mar-2020/</guid>
+      <description>&lt;p&gt;How are you doing in this quarantine, yuzu fans? We hope you are all staying in your homes safe and sound.
+Today, we are bringing you a report on a few changes from the past month for both the Early Access and regular Mainline versions of yuzu.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New Feature Release - Vulkan</title>
+      <link>https://yuzu-emu.org/entry/yuzu-vulkan/</link>
+      <pubDate>Tue, 03 Dec 2019 21:17:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-vulkan/</guid>
+      <description>&lt;p&gt;A very good day to all you yuz-ers out there.
+The curtains are up and the most awaited feature of yuzu is finally here!
+The Vulkan renderer for yuzu is now available for users on Early Access.
+To find out more about it, jump right in!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Introducing yuzu Early Access</title>
+      <link>https://yuzu-emu.org/entry/yuzu-early-access/</link>
+      <pubDate>Sun, 01 Dec 2019 20:15:00 &#43;0530</pubDate>
+      <author>bunnei</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-early-access/</guid>
+      <description>&lt;p&gt;A very good day to you all out there!
+Today, we are excited to announce a new yuzu official release channel for our Patreon subscribers — yuzu Early Access.
+It comes with all the perks you&amp;rsquo;re already accustomed to and more.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>yuzu Patreon Release October 2019</title>
+      <link>https://yuzu-emu.org/entry/yuzu-patreon-preview-oct-2019/</link>
+      <pubDate>Tue, 08 Oct 2019 04:00:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-patreon-preview-oct-2019/</guid>
+      <description>&lt;p&gt;Hey there &lt;strong&gt;&lt;em&gt;yuz-ers&lt;/em&gt;&lt;/strong&gt;!
+Curious about what we have in store for you?
+It&amp;rsquo;s the October Patreon preview release!
+This build showcases the new game in town, &lt;strong&gt;The Legend of Zelda: Link&amp;rsquo;s Awakening&lt;/strong&gt;, in yuzu!
+Hop right in to find out more.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>yuzu - The Migration</title>
+      <link>https://yuzu-emu.org/entry/yuzu-migration/</link>
+      <pubDate>Mon, 07 Oct 2019 06:20:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-migration/</guid>
+      <description>&lt;p&gt;A very good day to all the &lt;strong&gt;&lt;em&gt;yuz-ers&lt;/em&gt;&lt;/strong&gt; out there!
+We are currently in the process of merging both the Canary and Nightly versions of yuzu into a single release channel.
+Jump right in to find out more about this!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>yuzu Patreon Preview Release September 2019</title>
+      <link>https://yuzu-emu.org/entry/yuzu-patreon-preview-sept-2019/</link>
+      <pubDate>Mon, 09 Sep 2019 01:18:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-patreon-preview-sept-2019/</guid>
+      <description>&lt;p&gt;Good Day yuz-ers! (&lt;em&gt;yeah, that&amp;rsquo;s sticking!&lt;/em&gt;)
+Many of you thought that yuzu&amp;rsquo;s development slowed down, didn&amp;rsquo;t you?
+Well, guess again - The team has been working tirelessly to bring you this exciting new feature!
+What is it? Jump right in to find out!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mini-Series - Dev Interview #2</title>
+      <link>https://yuzu-emu.org/entry/yuzu-mini-dev-2/</link>
+      <pubDate>Fri, 09 Aug 2019 11:48:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-mini-dev-2/</guid>
+      <description>&lt;p&gt;Good day, yuz-ers (&lt;del&gt;bad pun, I know&lt;/del&gt;)!
+While our devs are hard at work trying to bring you more performance improvements and game compatibility, we are back again with something a little bit more interesting - &lt;strong&gt;Dev Interview #2&lt;/strong&gt;.
+Jump right in, to find out who we&amp;rsquo;re interviewing this time.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>yuzu Patreon Preview Release July 2019</title>
+      <link>https://yuzu-emu.org/entry/yuzu-patreon-preview-july-2019/</link>
+      <pubDate>Tue, 02 Jul 2019 21:55:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-patreon-preview-july-2019/</guid>
+      <description>&lt;p&gt;Hey there, people! You won’t believe what we’ve got in store for you this time!
+The new Patreon preview has a big surprise waiting for you.
+Hop in now, to find out more details.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mini-Series - Dev Interview #1</title>
+      <link>https://yuzu-emu.org/entry/yuzu-mini-dev-1/</link>
+      <pubDate>Sun, 16 Jun 2019 23:00:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-mini-dev-1/</guid>
+      <description>&lt;p&gt;Hey there, people!
+This is a new mini-series of dev interviews, with which we sneak a peek into the lives of our developers.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>yuzu Patreon Preview Release June 12th</title>
+      <link>https://yuzu-emu.org/entry/yuzu-patreon-preview-jun-12/</link>
+      <pubDate>Wed, 12 Jun 2019 03:48:00 &#43;0530</pubDate>
+      <author>flamesage</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-patreon-preview-jun-12/</guid>
+      <description>&lt;p&gt;Good day, yuzu fans! Today we bring you another exciting yuzu update with the June 2019 Patreon Preview Release! We heard your feedback - this time around, we have some major graphical fixes!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New Feature - Boxcat</title>
+      <link>https://yuzu-emu.org/entry/yuzu-boxcat/</link>
+      <pubDate>Thu, 23 May 2019 23:00:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-boxcat/</guid>
+      <description>&lt;p&gt;Good day, yuzu fans!
+Today we bring you another exciting Switch feature which will create opportunities, for new in-game content across various games!
+Without further ado, let&amp;rsquo;s get started!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>yuzu Patreon Preview Release</title>
+      <link>https://yuzu-emu.org/entry/yuzu-patreon-preview/</link>
+      <pubDate>Mon, 11 Feb 2019 03:48:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-patreon-preview/</guid>
+      <description>&lt;p&gt;A very good day to all you yuzu fans out there!
+Today we are here to share with you some very exciting news for our biggest supporters!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report 2018 Part 4</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p4/</link>
+      <pubDate>Mon, 03 Dec 2018 04:00:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p4/</guid>
+      <description>&lt;p&gt;Sorry for keeping you guys waiting!
+A whole slew of new updates and a ton of progress await you.
+Let&amp;rsquo;s not waste anymore time and get the party started.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report 2018 Part 3</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p3/</link>
+      <pubDate>Tue, 11 Sep 2018 22:00:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p3/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s only been over a month since our last report, and we have made so much progress already that we simply can&amp;rsquo;t wait to share it with you guys.
+Without further ado, let&amp;rsquo;s dive in.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report 2018 Part 2</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p2/</link>
+      <pubDate>Sat, 21 Jul 2018 20:00:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p2/</guid>
+      <description>&lt;p&gt;We bring you part 2 of the extensive coverage on yuzu&amp;rsquo;s tremendous progress. So buckle up for an
+exciting ride, cause its gonna blow your mind!
+&amp;nbsp;
+&lt;h5 style=&#34;text-align: center;&#34;&gt;
+&lt;strong&gt;&lt;em&gt;Haven&amp;rsquo;t read the first part yet? Read it &lt;a href=&#34;https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1&#34;&gt;here&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;
+&lt;/h5&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Progress Report 2018 Part 1</title>
+      <link>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1/</link>
+      <pubDate>Sat, 14 Jul 2018 08:00:00 &#43;0530</pubDate>
+      <author>CaptV0rt3x</author>
+      <guid>https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been a bumpy ride. We have had lots of stuff happen to yuzu and we are excited to share that
+with you. Let&amp;rsquo;s get started!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>First games are running!</title>
+      <link>https://yuzu-emu.org/entry/first-games-are-running/</link>
+      <pubDate>Sun, 15 Apr 2018 01:18:00 -0500</pubDate>
+      <author>jmc47</author>
+      <guid>https://yuzu-emu.org/entry/first-games-are-running/</guid>
+      <description>&lt;p&gt;A major milestone in yuzu has been reached, as it can now boot a handful of the Nintendo Switch&amp;rsquo;s more primitive games.  Don&amp;rsquo;t believe us?  Take a look!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
+
