@@ -88,7 +88,7 @@ Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/y
 
 ## Bug fixes and improvements
 
-A missing feature in the input rewrite was the ability to merge two separate single left and right Joy-Cons into a single dual Joy-Con, a function `Super Mario Odyssey` needs. [Morph](https://github.com/Morph1984) [implemented `MergeSingleJoyasDualJoy`](https://github.com/yuzu-emu/yuzu/pull/4629), so this is no longer a problem for Mario. He can return to work once again for nothing, 39 years and no rewards for the best hero the Mushroom Kingdom ever saw.
+A missing feature in the input rewrite was the ability to merge two separate single left and right Joy-Cons into a single dual Joy-Con, a function `Super Mario Odyssey` needs. [Morph](https://github.com/Morph1984) [implemented `MergeSingleJoyasDualJoy`](https://github.com/yuzu-emu/yuzu/pull/4629), so this is no longer a problem for Mario. He can return to work once again for nothing. Thirty-nine years and no rewards for the best hero the Mushroom Kingdom ever saw.
 
 A small PSA for our Linux users, the [Qt required version has been raised to `5.12.8`](https://github.com/yuzu-emu/yuzu/pull/4638) now. Thanks [Morph](https://github.com/Morph1984) for the update! We need those new Plasma functions.
 
