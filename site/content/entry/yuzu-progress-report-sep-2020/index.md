@@ -84,7 +84,7 @@ Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/y
     "./vk.png| Our implementation is not that complex. This is just an example provided by Khronos"
   >}}
 
-[Adding support for timeline semaphores on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use in a small amount, and will pave the way for more important changes coming to our Vulkan implementation later on with the finalization of the `Texture Cache rewrite`. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition! The end result should be transparent for the user, no perceptible change besides a bit of VRAM savings.
+[Adding support for timeline semaphores on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, improves VRAM use a small amount, and paves the way for the finalization of the `Texture Cache rewrite`. Thank you, [Rodrigo](https://github.com/ReinUsesLisp), for its addition! The result should be transparent for the user with no perceptible change besides a bit of VRAM savings.
 
 ## Bug fixes and improvements
 
