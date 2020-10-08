@@ -81,7 +81,7 @@ Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/y
 `VK_KHR_timeline_semaphore` is a relatively recent Vulkan extension only supported by *desktop or laptop* GPUs. In the past, resources were being assigned with `VkFence`, and freed when arbitrarily asked, leading to a possible small pileup. With `VK_KHR_timeline_semaphore` each resource is tied to a periodically checked "GPU tick" and you only need to verify on which tick you are at the moment to know if that resource is now free.
 
 {{< imgs
-    "./vk.png| Our implementation is not that complex, this is just an example provided by Khronos"
+    "./vk.png| Our implementation is not that complex. This is just an example provided by Khronos"
   >}}
 
 [Adding support for timeline semaphores on yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, should improve VRAM use in a small amount, and will pave the way for more important changes coming to our Vulkan implementation later on with the finalization of the `Texture Cache rewrite`. Thank you [Rodrigo](https://github.com/ReinUsesLisp) for its addition! The end result should be transparent for the user, no perceptible change besides a bit of VRAM savings.
