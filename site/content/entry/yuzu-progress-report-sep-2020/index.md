@@ -32,7 +32,7 @@ After a long period of extensive testing, and with the help of [theboy181](https
     "./motion3.mp4| Motion in action. Top: 'Super Mario Odyssey', bottom: 'The Legend of Zelda: Breath of the Wild'."
 >}}
 
-Motion controls currently work with Wiimotes, Joy-Cons, Pro Controllers, DualShock 4 Wireless Controllers, and even cellphones provided they have an accelerometer and a gyroscope. To bridge these devices to yuzu, the implementation makes use of the DSU protocol (also known as "CemuHook UDP"), so users need to utilize [BetterJoy](https://github.com/Davidobot/BetterJoy) (for Nintendo controllers), [ds4windows](http://ds4windows.com/) (for Sony controllers), or any app that supports CemuHook for cellphones or other compatible devices. Make sure to try it out!
+Motion controls currently work with Wiimotes, Joy-Cons, Pro Controllers, DualShock 4 Wireless Controllers, and even cellphones provided they have an accelerometer and a gyroscope. To bridge these devices to yuzu, the implementation makes use of the DSU protocol (also known as "CemuHook UDP"), so users need to utilize [BetterJoy](https://github.com/Davidobot/BetterJoy) (for Nintendo controllers), [ds4windows](http://ds4windows.com/) (for Sony controllers), or any app that supports CemuHook for cellphones or other compatible devices. You can check [this guide](https://wiki.cemu.info/wiki/Motion_Controls) for more information regarding how to set up your controller. Make sure to try it out!
 
 Bear in mind that devices such as generic copies of official Nintendo or Sony controllers may work, although it's not guaranteed. Needless to say, no matter how hard you shake your keyboard and mouse, that's not going to work, so please don't do it!
 
