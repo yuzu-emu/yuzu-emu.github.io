@@ -60,7 +60,7 @@ It's finally here! After such a long wait, and thanks to the work made by [ogniK
   
 This is possible by using [FFmpeg.](https://ffmpeg.org/) For now, decoding happens in a single CPU thread, support for multiple threads and GPU decoding is currently being worked on.
 
-We have an entire article dedicated to showing how this feature came to be, how it works, its challenges and current limitations in more detail [here.](https://yuzu-emu.org/entry/yuzu-nvdec-emulation/) So please take your time to read it, it also includes a list of games confirmed working and not-so-working yet.
+We have an entire article dedicated to showing how this feature came to be, how it works, its challenges, and current limitations in more detail [here.](https://yuzu-emu.org/entry/yuzu-nvdec-emulation/) Please take your time to read it: it also includes a list of games confirmed working and not-so-working yet.
 
 ## An emulator inside an emulator
 
