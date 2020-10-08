@@ -34,7 +34,7 @@ After a long period of extensive testing, and with the help of [theboy181](https
 
 This feature currently works with Wiimotes, Joy-Cons, Pro Controllers, DualShock 4 Wireless Controllers, and even cellphones, provided they have an accelerometer and a gyroscope. To bridge these devices to yuzu, the implementation makes use of the DSU protocol (also known as "CemuHook UDP"), so users will need to utilize BetterJoy (for Nintendo controllers), ds4windows (for Sony controllers), or any app that supports CemuHook for cellphones and or other compatible devices in order to connect them. Make sure to try it out!
 
-Bear in mind that devices such as generic copies of official Nintendo or Sony controllers may work, although it's not guaranteed. Needless to say, no matter how hard you shake your keyboad and mouse, that's not going to work, so please don't do it!
+Bear in mind that devices such as generic copies of official Nintendo or Sony controllers may work, although it's not guaranteed. Needless to say, no matter how hard you shake your keyboard and mouse, that's not going to work, so please don't do it!
 
 ## I have no motion, and I must shake
 
