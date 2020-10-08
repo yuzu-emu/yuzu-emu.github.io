@@ -104,7 +104,7 @@ Now [Gamecube controllers will be autoconfigured!](https://github.com/yuzu-emu/y
     "./51b.png"
   >}}
 
-One of those little annoying details. If you ran a game in fullscreen and a pop-up needed to show up (for example, naming a character), it used to render behind the main yuzu window, forcing you to exit fullscreen, focus the pop-up, address the reason for it, and then continue with your game. Quite annoying indeed. [Morph](https://github.com/Morph1984) is our saviour for this one, by [using the `Qt::WindowStaysOnTopHint` flag](https://github.com/yuzu-emu/yuzu/pull/4728), the pop-ups will now show up on top of your game. Thanks a lot, poyo.
+If you ran a game in fullscreen and a pop-up needed to show up (for example, naming a character), it used to render behind the main yuzu window, forcing you to exit fullscreen, focus the pop-up, address the reason for it, and then continue with your game. Quite annoying indeed. [Morph](https://github.com/Morph1984) is our savior for this one, by [using the `Qt::WindowStaysOnTopHint` flag](https://github.com/yuzu-emu/yuzu/pull/4728), the pop-ups will now show up on top of your game. Thanks a lot, poyo.
 
 ## GPU vendor specific fixes and changes
 
