@@ -104,7 +104,7 @@ Users have been reporting input latency, so [Tobi](https://github.com/FearlessTo
     "./51b.png"
   >}}
 
-If you ran a game in fullscreen and a pop-up needed to display (for example, naming a character), it used to render behind the main yuzu window, forcing you to exit fullscreen, focus the pop-up, complete the action, and then continue with your game. Quite annoying indeed. [Morph](https://github.com/Morph1984) is our savior for this one, by [using the `Qt::WindowStaysOnTopHint` flag](https://github.com/yuzu-emu/yuzu/pull/4728), the pop-ups will now show up on top of your game. Thanks a lot, poyo.
+If you ran a game in fullscreen and a pop-up needed to display (for example, naming a character), it used to render behind the main yuzu window, forcing you to exit fullscreen, focus the pop-up, complete the action, and then continue with your game. Quite annoying indeed. [Morph](https://github.com/Morph1984) is our savior for this one, by [using the `Qt::WindowStaysOnTopHint` flag](https://github.com/yuzu-emu/yuzu/pull/4728), the pop-ups will now display on top of your game. Thanks a lot, poyo.
 
 ## GPU vendor specific fixes and changes
 
