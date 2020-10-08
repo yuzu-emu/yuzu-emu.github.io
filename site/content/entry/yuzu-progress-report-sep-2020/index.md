@@ -44,7 +44,7 @@ While this should work with games such as `Super Mario Odyssey` and others, do n
 
 ## Remember the Rumble Pak?
 
-Also thanks to [german77](https://github.com/german77), yuzu can now proudly boast [Rumble support](https://github.com/yuzu-emu/yuzu/pull/4291). Any SDL2 compatible device will vibrate when asked by your Switch games. This includes but is not limited to DualShock, Xbox and Nintendo controllers.
+Also thanks to [german77](https://github.com/german77), yuzu can now proudly boast [Rumble support](https://github.com/yuzu-emu/yuzu/pull/4291). Any SDL2 compatible device will vibrate when asked by your Switch games. This includes but is not limited to DualShock, Xbox, and Nintendo controllers.
 
 HD Rumble is not possible because both the SDL2 specification is not compatible, and not everyone will play with Nintendo pripherals. This means that a Pro Controller or a pair of Joy-Cons will not be able to reach that level of precision, for now. Additionally, some games seem to use different ways to ask for rumble and are not supported yet, we are investigating this.
 
