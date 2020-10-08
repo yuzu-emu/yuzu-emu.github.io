@@ -52,7 +52,7 @@ In the near future, german77 has plans to add native Joy-Con pairing support, th
 
 ## Video decoding, or how to suffer for so long with a single codec
 
-It's finally here! After such a long wait, and thanks to the work made by [ogniK](https://github.com/ogniK5377) and [epicboy](https://github.com/ameerj), [yuzu can now play videos in-game!](https://github.com/yuzu-emu/yuzu/pull/4729) For now, `H.264` and `VP9` videos are supported, this thankfully seems to cover all released games until now. Support for `H.265` and `VP8` will come later.
+It's finally here! After such a long wait, and thanks to the work from [ogniK](https://github.com/ogniK5377) and [epicboy](https://github.com/ameerj), [yuzu can now play videos in-game!](https://github.com/yuzu-emu/yuzu/pull/4729) For now, `H.264` and `VP9` videos are supported, which thankfully seems to cover all released games until now. Support for `H.265` and `VP8` will come later.
 
 {{< imgs
     "./mk8.mp4| Video Killed the Radio Star (Mario Kart 8 Deluxe)"
