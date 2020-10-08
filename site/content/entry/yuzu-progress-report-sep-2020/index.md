@@ -48,7 +48,7 @@ Also thanks to [german77](https://github.com/german77), yuzu can now proudly boa
 
 HD Rumble is not possible because both the SDL2 specification is not compatible, and not everyone will play with Nintendo pripherals. This means that a Pro Controller or a pair of Joy-Cons will not be able to reach that level of precision, for now. Additionally, some games seem to use different ways to ask for rumble and are not supported yet, we are investigating this.
 
-In the near future, german77 has plans to add native Joy-Con pairing support, this will allow for real HD Rumble compatibility.
+Soon, german77 has plans to add native Joy-Con pairing support. This will allow for real HD Rumble compatibility.
 
 ## Video decoding, or how to suffer for so long with a single codec
 
