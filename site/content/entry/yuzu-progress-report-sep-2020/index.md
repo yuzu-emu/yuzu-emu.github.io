@@ -38,7 +38,7 @@ Bear in mind that devices such as generic copies of official Nintendo or Sony co
 
 ## I have no motion, and I must shake
 
-If your favorite controller has no support for motion controls (such as xbox controllers), don't worry, not everything is lost. After developing the code necessary to support this feature into the emulator, [german77](https://github.com/german77) also made this follow-up PR to [implement a button to simulate a shake](https://github.com/yuzu-emu/yuzu/pull/4677). This will allow you to configure any key of your liking to work as if you were physically swinging your controller and activate the in-game motion mechanics.
+If your favorite controller has no support for motion controls (such as Xbox controllers), don't worry, not everything is lost. After developing the code necessary to support this feature into the emulator, [german77](https://github.com/german77) also made this follow-up PR to [implement a button to simulate a shake](https://github.com/yuzu-emu/yuzu/pull/4677). This will allow you to configure any key of your liking to work as if you were physically swinging your controller and activating the in-game motion mechanics.
 
 While this should work with games such as `Super Mario Odyssey` and others, do note it won't be able to cover all cases or titles. Every game is different, and the required input is not always just a shake.
 
