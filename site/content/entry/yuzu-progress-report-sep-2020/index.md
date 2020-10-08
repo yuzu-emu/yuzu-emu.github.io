@@ -12,7 +12,7 @@ Greetings Yuz-ers! Welcome to September's progress report. This month we offer y
 
 ## Ya like to (move it!)
 
-Many of the most popular titles for the Nintendo Switch have mechanics that were designed with motion controls in mind, so naturally this has been a long-awaited feature a lot of people wanted to see implemented in yuzu. We are very happy to announce that, thanks to the efforts of the developer [german77](https://github.com/german77), it is now possible to [use any controller that supports motion sensing](https://github.com/yuzu-emu/yuzu/pull/4594) and play these games the way they were meant to be. Just be careful not to hit anything when you shake it!
+Many popular Nintendo Switch titles have mechanics designed with motion controls in mind, so naturally, this was a long-awaited feature a lot of people wanted to see implemented in yuzu. We are very happy to announce that, thanks to the efforts of the developer [german77](https://github.com/german77), it is now possible to [use any controller that supports motion sensing](https://github.com/yuzu-emu/yuzu/pull/4594) and play these games the way they were meant to be. Just be careful not to hit anything when you shake it!
 
 {{< imgs
     "./motion1.mp4| Functional Motion Input ('A SixAxis tester by German77', a homebrew application)."
