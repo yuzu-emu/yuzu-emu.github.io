@@ -96,7 +96,7 @@ Users have been reporting input latency, so [Tobi](https://github.com/FearlessTo
 
 [Gamecube controllers will now be autoconfigured!](https://github.com/yuzu-emu/yuzu/pull/4618) Thanks to work done by [german77](https://github.com/german77), Gamecube Adapter controllers will show up as devices in the input window, and their buttons will be mapped automatically. Laziness is the best.
 
-`Clubhouse Games: 51 Worldwide Classics` now manages to boot and, with a save, load the board games. [Morph](https://github.com/Morph1984) managed this by [implementing the `Get/SetNpadHandheldActivationMode` function](https://github.com/yuzu-emu/yuzu/pull/4683). However, the game will still render almost everything in black, so don't consider it playable yet.
+`Clubhouse Games: 51 Worldwide Classics` now manages to boot and, with a save, load the board games. [Morph](https://github.com/Morph1984) managed this by [implementing the `Get/SetNpadHandheldActivationMode` functions](https://github.com/yuzu-emu/yuzu/pull/4683). However, the game will still render almost everything in black, so don't consider it playable yet.
 
 {{< single-title-imgs
     "Paint it all black (Clubhouse Games: 51 Worldwide Classics)"
