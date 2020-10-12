@@ -86,6 +86,8 @@ Similarly, [`GetPreviousProgramIndex` needed to be stubbed](https://github.com/y
 
 [Adding support for timeline semaphores in yuzu](https://github.com/yuzu-emu/yuzu/pull/4674) helps simplify the code a lot, improves VRAM use a small amount, and paves the way for the finalization of the `Texture Cache rewrite`. Thank you, [Rodrigo](https://github.com/ReinUsesLisp), for its addition! The result should be transparent for the user with no perceptible change besides a bit of VRAM savings.
 
+Users report that this change improved the stability of `Fire Emblem: Three Houses`.
+
 ## Bug fixes and improvements
 
 A missing feature in the input rewrite was the ability to merge two separate single left and right Joy-Cons into a single dual Joy-Con, a function `Super Mario Odyssey` needs. [Morph](https://github.com/Morph1984) [implemented `MergeSingleJoyasDualJoy`](https://github.com/yuzu-emu/yuzu/pull/4629), so this is no longer a problem for Mario. He can return to work once again for nothing. Thirty-nine years and no rewards for the best hero the Mushroom Kingdom ever saw.
