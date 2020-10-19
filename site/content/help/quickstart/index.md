@@ -25,8 +25,6 @@ description: A guide designed to get you started with yuzu quickly.
 - **GPUs must support OpenGL 4.5 (or higher) & OpenGL Compatibility profile, or Vulkan 1.1.**<br>
 To find out if your GPU meets these requirements, visit https://opengl.gpuinfo.org or https://vulkan.gpuinfo.org/ and check your GPU details.<br>
 
-- Due to Intel's driver lacking the required OpenGL or Vulkan support in Windows, Gen 8 Graphics (HD 5300 to Iris Pro P6300) will only work on Linux. Older generations will not work.
-
 Sample Image:
 
 ![GPUInfo](./gpu_info.png)
