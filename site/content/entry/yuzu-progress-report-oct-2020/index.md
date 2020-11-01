@@ -94,7 +94,7 @@ By [implementing CUBE textures and fixing an issue with arrays,](https://github.
 In a minor change to Vulkan, [Rodrigo](https://github.com/ReinUsesLisp) [changed the way GPU devices are sorted in yuzu,](https://github.com/yuzu-emu/yuzu/pull/4765) helping pick the best GPU according to yuzu's current compatibility and needs.
 
 {{< imgs
-    "./vklist.png| One of our developer's system, gotta render 'em all!
+    "./vklist.png| One of our developer's system, gotta render 'em all!"
   >}}
 
 The current method will give priority to the GPU vendor following the `Nvidia > AMD > Intel` order. Then, dedicated hardware will take priority over integrated, for example an RX 570 will have a higher priority than an Intel UHD630. Finally, the device name will be considered, a GTX 1650 will be selected over a GTX 1060.
@@ -127,6 +127,7 @@ I personally want to thank [Lioncache.](https://github.com/lioncash) He's not me
 There are some important core fixes in the works, NVDEC has more plans in its way, and there is now a roadmap of what will follow the Texture Cache Rewrite once its done, but we will tell you more about that later.
 
 And that's all folks! Thank you so much for reading, and see you all in the next progress report!
+Thanks RodrigoTR for the pics!
 
 &nbsp;
 <h4 style="text-align:center;">
