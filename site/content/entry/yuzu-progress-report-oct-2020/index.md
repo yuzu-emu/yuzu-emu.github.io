@@ -117,7 +117,7 @@ In the previous progress report we mentioned that we removed a blacklist on AMD 
 With the demo just released, [Rodrigo](https://github.com/ReinUsesLisp) started the work to get `Hyrule Warriors: Age of Calamity - Demo Version` playable. By implementing [FCMP immediate](https://github.com/yuzu-emu/yuzu/pull/4853) and [texture CUBE array shadows](https://github.com/yuzu-emu/yuzu/pull/4854) the game starts to render.
 
 {{< imgs
-    "./aoc.png| Where are my glasses? (Hyrule Warriors: Age of Calamity - Demo Version)
+    "./aoc.png| Where are my glasses? (Hyrule Warriors: Age of Calamity - Demo Version)"
   >}}
   
 I personally want to thank [Lioncache.](https://github.com/lioncash) He's not mentioned much in the progress reports due to how technical are the changes and fixes he implements, but he is without a doubt the biggest contributor to the project. Thank you Lion, for the patience you have, and the huge help you give us.
