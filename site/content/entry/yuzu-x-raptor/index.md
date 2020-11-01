@@ -1,13 +1,12 @@
 +++
-date = "2020-10-31T04:00:00+05:30"
-title = "yuzu x Raptor Partnership"
+date = "2020-11-02T00:45:00+05:30"
+title = "Introducing Early Nintendo Switch Online Support"
 author = "CaptV0rt3x"
 forum = 319939
 +++
 
 Hey there, yuzu fans!
 We are very excited to announce that yuzu now has beta support for online services!
-Jump right in to find out more!
 <!--more-->
 
 ## Wait, what?!
@@ -23,27 +22,24 @@ In **Super Mario Maker 2**, you can upload and share custom levels with others, 
 play hide-and-go-seek in Luigi's Balloon World or share high scores in minigames on the leaderboards.
 Reverse engineering new games is an arduous task, but the service is in continuous development, so keep your eyes peeled for future updates.
 
-Raptor also allows you to set a nickname and profile image, which is used to identify you in games. 
-In addition to this, Raptor allows you to friend other people across the internet! 
+Raptor Network also allows you to set a nickname and profile image, which is used to identify you in games. 
+In addition to this, it allows you to friend other people across the internet! 
 You can then interact with your friends in supported games, such as viewing courses made by them in **Super Mario Maker 2**.
 
 Special thanks to developers [fincs](https://github.com/fincs/) and [yellows8](https://github.com/yellows8/), widely known for their contributions to Switch reverse engineering. 
 Without their help, it would've probably taken us significantly longer to implement the client side functionality required for Raptor.
 
-## Here is video of our staff playing SMO & SMM2 on Raptor Network
-** INSERT VIDEO HERE **
-
 ## How can I try it?
 
 To use the online service, you need an `active` yuzu Early Access subscription to connect to Raptor Network.
-Simply download the latest Early Access build and follow the instructions below to obtain access to raptor network on your yuzu acccount.
+Simply download the latest Early Access build and follow the instructions below to obtain access to Raptor Network on your yuzu acccount.
 
 >**Note:<br>
-If you are new to yuzu early access, then please visit our [yuzu Early Access guide](https://yuzu-emu.org/help/early-access/) to setup your yuzu account.**
+If you are new to yuzu Early Access, then please visit our [yuzu Early Access guide](https://yuzu-emu.org/help/early-access/) to setup your yuzu account.**
 
 #### Step 1
-Once you've linked your patreon account to your yuzu profile and activated your early access subscription, navigate to https://profile.yuzu-emu.org and scroll down.
-At the bottom, you will find a `Raptor` under a section titled `Your other services`.
+Once you've linked your patreon account to your yuzu profile and activated your Early Access subscription, navigate to https://profile.yuzu-emu.org and scroll down.
+At the bottom, you will find `Raptor` under a section titled `Your other services`.
 {{< imgs
     "./rapt_act.png| Raptor service"
 >}}
@@ -69,48 +65,53 @@ Scroll to the top of page and copy your login token.
 >}}
 
 #### Step 5
-Now, open yuzu and navigate to `Emulation -> Configure... -> Online`, and enter your `token` and click `verify` to verify your client.
+Now, open yuzu and navigate to `Emulation -> Configure... -> Online`. 
+Paste your `token` in the textbox and click `verify` to verify your client.
 {{< imgs
     "./rapt_act_5.png| Paste your token"
     "./rapt_act_6.png| Yay! Verified!"
 >}}
 
 #### Step 6
-Once your yuzu token is verified, you will be able to connect to the network without any additional configuration.
+Once your yuzu token is verified, you will be able to connect to Raptor Network without any additional configuration.
 You can also check your connection status to Raptor Network at the bottom right corner of yuzu.
 {{< imgs
     "./rapt_cntd.png| "
 >}}
 
 ## Screenshots
-Here are some screenshots from our private beta testing:
+Here are some screenshots from our internal testing:
 
 {{< single-title-imgs
-    "Raptor Beta Test"
-    "./rapt1.png"
-    "./rapt2.png"
-    "./rapt3.png"
+    "Raptor : Super Mario Odyssey"
+    "./smo_1.png"
+    "./smo_2.png"
 >}}
 
 {{< single-title-imgs
     "Raptor : Super Mario Odyssey"
-    ""
-    ""
-    ""
-    ""
+    "./smo_3.png"
+    "./smo_4.png"
+    "./smo_5.png"
+>}}
+&nbsp;
+
+{{< single-title-imgs
+    "Raptor : Super Mario Maker 2"
+    "./smm2_2.png"
+    "./smm2_1.png"
 >}}
 
 {{< single-title-imgs
     "Raptor : Super Mario Maker 2"
-    ""
-    ""
-    ""
-    ""
+    "./smm2_3.png"
+    "./smm2_4.png"
+    "./smm2_5.png"
 >}}
 
 ## Fin
 
-Please keep in mind that Raptor Network is a seperate service and we are parterning with them to bring this to our users.
+Please keep in mind that Raptor Network is a separate service and we are partnering with them to bring this to our users.
 You can keep an eye out for the status of Raptor servers [here](https://status.raptor.network/) and for news and updates check [here](https://news.raptor.network/).
 
 As always, we thank all of our patrons for their continued love and support!
