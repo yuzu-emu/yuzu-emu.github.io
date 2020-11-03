@@ -1,5 +1,5 @@
 +++
-date = "2020-11-02T00:45:00+05:30"
+date = "2020-11-02T18:00:00-08:00"
 title = "Introducing Early Nintendo Switch Online Support"
 author = "CaptV0rt3x"
 forum = 319939
@@ -28,6 +28,8 @@ You can then interact with your friends in supported games, such as viewing cour
 
 Special thanks to developers [fincs](https://github.com/fincs/) and [yellows8](https://github.com/yellows8/), widely known for their contributions to Switch reverse engineering. 
 Without their help, it would've probably taken us significantly longer to implement the client side functionality required for Raptor.
+
+{{< youtube 4UEIxa7J1Io >}}
 
 ## How can I try it?
 
