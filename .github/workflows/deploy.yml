@@ -28,7 +28,7 @@ jobs:
         hugo version
     - name: Build
       env:
-        GITHUB_WIKI_URL: 'https://github.com/yuzu-emu/yuzu-games-wiki.wiki.git'
+        GITHUB_WIKI_URL: 'https://github.com/yuzu-emu/yuzu.wiki.git'
         TENANT: 'yuzu'
       run: |
          echo '========== Starting gulp deploy task =========='
