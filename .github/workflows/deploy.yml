@@ -26,6 +26,9 @@ jobs:
     - name: Build
       run: |
          echo '========== Starting gulp deploy task =========='
+         # Install dependencies one-by-one to avoid race-conditions
+         pushd ./scripts/shared-hugo-scripts/wiki/ && yarn && popd
+         pushd ./scripts/shared-hugo-scripts/compatdb/ && yarn && popd
          yarn run build
     - name: Deploy
       if: ${{ ! github.base_ref }}
