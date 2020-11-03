@@ -26,9 +26,6 @@ Raptor Network also allows you to set a nickname and profile image, which is use
 In addition to this, it allows you to friend other people across the internet! 
 You can then interact with your friends in supported games, such as viewing courses made by them in **Super Mario Maker 2**.
 
-Special thanks to developers [fincs](https://github.com/fincs/) and [yellows8](https://github.com/yellows8/), widely known for their contributions to Switch reverse engineering. 
-Without their help, it would've probably taken us significantly longer to implement the client side functionality required for Raptor.
-
 {{< youtube 4UEIxa7J1Io >}}
 
 ## How can I try it?
