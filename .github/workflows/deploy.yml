@@ -1,0 +1,38 @@
+name: Deploy Site
+
+on:
+  push:
+    branches: [ hugo ]
+  pull_request:
+    branches: [ hugo ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: Install dependencies
+      run: |
+        echo '========== Installing gulp & dependencies =========='
+        sudo apt-get install graphicsmagick
+        wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.52/hugo_0.52_Linux-64bit.deb
+        sudo dpkg -i hugo.deb
+        yarn install
+        hugo version
+    - name: Build
+      run: |
+         echo '========== Starting gulp deploy task =========='
+         yarn run build
+    - name: Deploy
+      if: ${{ ! github.base_ref }}
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: master
+        FOLDER: build
+        CLEAN: true
+        SINGLE_COMMIT: true
