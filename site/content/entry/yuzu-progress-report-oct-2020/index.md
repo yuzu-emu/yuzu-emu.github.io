@@ -47,9 +47,14 @@ Crashes will still be experienced in specific chapters of the game, like Ch. 15 
 
 ## Emuception
 
-[bunnei](https://github.com/bunnei) seems to have a personal vendetta with `Super Mario 3D All-Stars`.
+[bunnei](https://github.com/bunnei) seems to have a personal vendetta with `Super Mario 3D All-Stars`. He has:
 
-He has [implemented the nvhost_as_gpu::FreeSpace service](https://github.com/yuzu-emu/yuzu/pull/4783), [BufferQueue::CancelBuffer service](https://github.com/yuzu-emu/yuzu/pull/4784), [stubbed IManagerForApplication::StoreOpenContext](https://github.com/yuzu-emu/yuzu/pull/4793), [rework the program loader to better handle multiple processes](https://github.com/yuzu-emu/yuzu/pull/4799), [fix crashes when trying to launch subsequent games](https://github.com/yuzu-emu/yuzu/pull/4832) and finally [improve GPU synchronization.](https://github.com/yuzu-emu/yuzu/pull/4869). 
+- [Implemented the nvhost_as_gpu::FreeSpace service.](https://github.com/yuzu-emu/yuzu/pull/4783) 
+- [Implemented the BufferQueue::CancelBuffer service.](https://github.com/yuzu-emu/yuzu/pull/4784)
+- [Stubbed IManagerForApplication::StoreOpenContext.](https://github.com/yuzu-emu/yuzu/pull/4793)
+- [Reworked the program loader to better handle multiple processes.](https://github.com/yuzu-emu/yuzu/pull/4799)
+- [Fixed crashes when trying to launch subsequent games.](https://github.com/yuzu-emu/yuzu/pull/4832)
+- [Improved GPU synchronization.](https://github.com/yuzu-emu/yuzu/pull/4869). 
 
 The last one also improves stability in games like `Luigi's Mansion 3`. Only thing missing to get `Super Mario 3D All-Stars` rendering is the `Texture Cache Rewrite`.
 
