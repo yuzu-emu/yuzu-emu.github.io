@@ -134,6 +134,10 @@ There are some important core fixes in the works, NVDEC has more plans in its wa
 And that's all folks! Thank you so much for reading, and see you all in the next progress report!
 Thanks RodrigoTR for the pics!
 
+{{< imgs
+    "./burgy.png| "
+  >}}
+
 &nbsp;
 <h4 style="text-align:center;">
 <b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
