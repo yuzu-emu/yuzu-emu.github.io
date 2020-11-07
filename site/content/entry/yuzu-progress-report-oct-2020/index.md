@@ -25,7 +25,7 @@ The second part took care of implementing the `Controller Applet`: a service use
 And now, at last, comes the third part of this project, introducing bug fixes, `Controller Profiles`, and also an overhaul to the implementation of `Rumble` realized by [german77](https://github.com/german77).
 
 {{< imgs
-	"./load_profile.gif| Loading a profile for a Sony DS4 controller."
+	"./load_profile.mp4| Loading a profile for a Sony DS4 controller."
   >}}
 
 `Controller Profiles` had been a placeholder since Part 1 of `Project Mjölnir`. They allow users to set up the configuration of their gamepads and save them in a file, which can be loaded and marked with a distinctive name. This is particularly useful for people who own more than one type of controller, since they store all button and axis information, as well as the port and engine used to read the input data. Changing between one configuration and another then becomes as simple as clicking a dropdown menu and choosing the desired profile, and all the settings will then be applied automatically. Users now can create a profile by simply clicking on the "New" button and writing a descriptive name to save it.
