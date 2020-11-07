@@ -25,7 +25,7 @@ The second part took care of implementing the `Controller Applet`: a service use
 And now, at last, comes the third part of this project, introducing bug fixes, `Controller Profiles`, and also an overhaul to the implementation of `Rumble` realized by [german77](https://github.com/german77).
 
 {{< imgs
-	"./load_profile.mp4| Loading a profile for a Sony DS4 controller."
+	"./load_profile.mp4| Loading a profile for a Sony DS4 controller"
   >}}
 
 `Controller Profiles` had been a placeholder since Part 1 of `Project Mjölnir`. They allow users to set up the configuration of their gamepads and save them in a file, which can be loaded and marked with a distinctive name. This is particularly useful for people who own more than one type of controller, since they store all button and axis information, as well as the port and engine used to read the input data. Changing between one configuration and another then becomes as simple as clicking a dropdown menu and choosing the desired profile, and all the settings will then be applied automatically. Users now can create a profile by simply clicking on the "New" button and writing a descriptive name to save it.
@@ -46,7 +46,7 @@ Previously, some people using certain types of wireless controllers reported in-
 - Successive state changes with the same amplitude value (i.e. identical amplitude vibrations) are excluded in order to reduce the amount of state changes sent into the device.
 
 {{< imgs
-	"./configure_vibration.png| Vibration Configuration Window."
+	"./configure_vibration.png| Vibration Configuration Window"
   >}}
 
 These changes were enough to fix the stutters experienced by these users. In order to toggle `Accurate Vibrations` on, the user should navigate to `Emulation > Configure... > Controls` and click on "Configure" under the "Vibrations" tickbox. They can also change the intensity of the vibrations for each player, if desired.
@@ -56,7 +56,7 @@ Furthermore, an additional check has been implemented when initializing a vibrat
 On top of these changes, work has been done so that anyone can plug in their favorite controller and, if it supports vibrations, all configuration related to it will be applied automatically. In the case the controller doesn’t, however, rumble will be disabled on the backend.
 
 {{< imgs
-	"./mapping.png| Vibration Configuration Window."
+	"./mapping.png| Manually mapping an analog stick"
   >}}
 
 It is worth noting that, in case the automatic configuration process fails, users can map their analog sticks manually by clicking on any of the axis mappings. This solves issues with certain controllers that have their axis mapped as digital buttons.
