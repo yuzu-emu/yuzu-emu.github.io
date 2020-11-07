@@ -152,6 +152,7 @@ In a minor change to Vulkan, [Rodrigo](https://github.com/ReinUsesLisp) [changed
   >}}
 
 The current method follows these rules:
+
 - Priority will be given to the GPU vendor following the `Nvidia > AMD > Intel` order.
 - Dedicated hardware will take priority over integrated. For example an RX 570 will have a higher priority than an Intel UHD630.
 - The device name will be considered, a GTX 1650 will be selected over a GTX 1060. Most of the time, newer architecture generations offer better performance benefits than pure raw performance.
