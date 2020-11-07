@@ -1,12 +1,12 @@
 +++
 date = "2020-10-25T12:00:00-03:00"
 title = "Progress Report October 2020"
-author = "GoldenX86"
-coauthor = "Honghoa"
+author = "Honghoa"
+coauthor = "GoldenX86"
 forum = 0
 +++ 
 
-How is it going, yuz-ers? Here work continues. This month's report offers you input fixes, changes and additions, Vulkan and OpenGL stability fixes, and news on the continued fight to make Super Mario 3D All-Stars render. 
+How is it going, yuz-ers? Here work continues. This month's report offers you mythological hammers dropping, Vulkan and OpenGL stability fixes, and some news on the continued fight to make Super Mario 3D All-Stars render.
 
 <!--more-->
 
@@ -14,47 +14,46 @@ How is it going, yuz-ers? Here work continues. This month's report offers you in
 
 ### Part 3 - Smite as hard as you desire
 
-[Morph1984](https://github.com/Morph1984) strikes again with [part 3 of Project Mjölnir](https://github.com/yuzu-emu/yuzu/pull/4866) - a major rewrite of yuzu's Human Interface Device (HID). This concludes months of hard work that also involved the contributions of [Its-Rei](https://github.com/its-rei) (who designed the new user interface) and [jroweboy](https://github.com/jroweboy) (who started the original HID rewrite that later Morph continued).
+[Morph](https://github.com/Morph1984) strikes again with [part 3 of `Project Mjölnir`](https://github.com/yuzu-emu/yuzu/pull/4866) - a major rewrite of yuzu's `Human Interface Device (HID)`. This concludes months of hard work that also involved the contributions of [Its-Rei](https://github.com/its-rei) (who designed the new user interface) and [jroweboy](https://github.com/jroweboy) (who started the original HID rewrite that later Morph continued).
 
 Just as [three different gifts](https://en.wikipedia.org/wiki/Mj%C3%B6lnir#Origins_in_the_Prose_Edda) were given to the Nordic gods by the dwarves (including the iconic hammer of Thor), this project was divided in three parts focused on different aspects of emulating the input control of the Nintendo Switch.
 
 The first part was centered in overhauling the user interface, as well as modifying and fixing errors in the backend that handled the mapping and detection of controllers. These changes allowed yuzu's implementation of input to behave more closely to the hardware, improved the user experience and also paved the way for the subsequent improvements in the following PRs.
 
-The second part took care of implementing the Controller Applet: a service used by games to communicate and set up the kind of controller input they can accept, how many players will use them, what character they will control, etc.
+The second part took care of implementing the `Controller Applet`: a service used by games to communicate and set up the kind of controller input they can accept, how many players will use them, what character they will control, etc.
 
-And now, at last, comes the third part of this project, introducing bug fixes, Controller Profiles, and also an overhaul to the implementation of Rumble realized by [german77](https://github.com/german77).
+And now, at last, comes the third part of this project, introducing bug fixes, `Controller Profiles`, and also an overhaul to the implementation of `Rumble` realized by [german77](https://github.com/german77).
 
 {{< imgs
 	"./01_load_profile.gif | Loading a profile for a Sony DS4 controller."
   >}}
 
-Controller Profiles had been a placeholder since Part 1 of Project Mjölnir. They allow users to set up the configuration of their gamepads and save them in a file, which can be loaded and marked with a distinctive name. This is particularly useful for people who own more than one type of controller, since they store all button and axis information, as well as the port and engine used to read the input data. Changing between one configuration and another then becomes as simple as clicking a dropdown menu and choosing the desired profile, and all the settings will then be applied automatically. Users now can create a Profile by simply clicking on the "New" button and writing a descriptive name to save it.
+`Controller Profiles` had been a placeholder since Part 1 of `Project Mjölnir`. They allow users to set up the configuration of their gamepads and save them in a file, which can be loaded and marked with a distinctive name. This is particularly useful for people who own more than one type of controller, since they store all button and axis information, as well as the port and engine used to read the input data. Changing between one configuration and another then becomes as simple as clicking a dropdown menu and choosing the desired profile, and all the settings will then be applied automatically. Users now can create a profile by simply clicking on the "New" button and writing a descriptive name to save it.
 
-[Modifier Buttons](https://github.com/yuzu-emu/yuzu/pull/4809) was also another feature that wasn't working well since Part 1. A modifier button allows the user to change the range of an axis on the fly by pressing it, which is particularly useful when said axis is mapped to digital buttons instead of an analog stick. This is because digital buttons are interpreted as a "virtual axis" that is being pushed from the minimum value (0%) to its maximum value (100%) every time they are pressed. With this change, now it is possible to set the maximum value of this axis to a value lower than 100%, effectively limiting its range.
+[Modifier Buttons](https://github.com/yuzu-emu/yuzu/pull/4809) was also another feature that wasn't working well since Part 1. A `Modifier Button` allows the user to change the range of an axis on the fly by pressing it, which is particularly useful when said axis is mapped to digital buttons instead of an analog stick. This is because digital buttons are interpreted as a "virtual axis" that is being pushed from the minimum value (0%) to its maximum value (100%) every time they are pressed. With this change, now it is possible to set the maximum value of this axis to a value lower than 100%, effectively limiting its range. Useful for walking or sneaking!
 
-Next on the list of fixed bugs, we have a [controller reconnection issue](https://github.com/yuzu-emu/yuzu/pull/4816). Sometimes, a controller instance was being pushed back into memory right after being disconnected. This faulty behaviour was a bug that prevented the controller from being recognized by yuzu when it was reconnected by the user again. Morph implemented a simple guard to avoid this and solved the problem.
+Next on the list of fixed bugs, we have a [controller reconnection issue](https://github.com/yuzu-emu/yuzu/pull/4816). Sometimes, a controller instance was being pushed back into memory right after being disconnected. This faulty behaviour was a bug that prevented the controller from being recognized by yuzu when it was reconnected by the user again. [Morph](https://github.com/Morph1984) implemented a simple guard to avoid this and solved the problem.
 
-For some games, vibrations didn't work properly, or at all. To understand why this was happening, I will need to explain a bit of what’s going on behind the curtains of abstraction, so please bear with me here.
+For some games, vibrations didn't work properly, or at all. To understand why this was happening, We will need to explain a bit of what’s going on behind the curtains of abstraction, so please bear with me here.
 
-Rumble in the Nintendo Switch is physically generated by a pair of identical [Eccentric Rotating Mass (ERM) motors](https://en.wikipedia.org/wiki/Rotating_unbalance) that can emit a wide range of frequencies on the low and high spectrum, independently from each other. This contrasts with the approach used in other controllers, which typically have a low frequency ERM at the left side and a high frequency ERM at the right side; depending on the desired frequency band at which one wants to make those controllers vibrate, it is possible to send signals to one or the other and thus accomplish low and high frequency rumble. The Nintendo Switch also characterizes vibration in such a way that it's possible for games to distinguish between the left and right motors of different players. This is because each device has an identifier handler that is used to send the correct vibration commands to the right place.
+`Rumble` in the Nintendo Switch is physically generated by a pair of identical [Eccentric Rotating Mass (ERM) motors](https://en.wikipedia.org/wiki/Rotating_unbalance) that can emit a wide range of frequencies on the low and high spectrum, independently from each other. This contrasts with the approach used in other controllers, which typically have a low frequency ERM at the left side and a high frequency ERM at the right side; depending on the desired frequency band at which one wants to make those controllers vibrate, it is possible to send signals to one or the other and thus accomplish low and high frequency rumble. The Nintendo Switch also characterizes vibration in such a way that it's possible for games to distinguish between the left and right motors of different players. This is because each device has an identifier handler that is used to send the correct vibration commands to the right place.
 
-Prior to this PR, the functions that processed this handler information weren’t coded yet, or they were stubbed and returned incorrect information. This exceeded the capabilities of the [SDL library](https://www.libsdl.org/) (an [API](https://en.wikipedia.org/wiki/API) that yuzu uses to communicate with the hardware of the input devices), which was designed to work with generic gamepads that do not present any of these features. As a result, the rumble wasn't being processed correctly. This resulted in inaccurate behaviour, such as the lack of vibration for the controllers of players other than player one, since this handler information wasn't available for SDL to distinguish where to send the vibration signals other than for “controller 0”. In order to make vibrations work as intended, Morph investigated how this information was characterized and implemented the functions to process these handlers, so that the vibration data could be sent to the appropriate devices and players. The addition of these functions also fixed a number of games, such as `Xenoblade: Definitive Edition`, `Xenoblade 2`, `Hollow Knight`, and many others that previously didn't exhibit rumble at all.
+Prior to this PR, the functions that processed this handler information weren’t coded yet, or they were stubbed and returned incorrect information. Even with those limitations, this exceeded the capabilities of the [SDL library](https://www.libsdl.org/) (an [API](https://en.wikipedia.org/wiki/API) that yuzu uses to communicate with the hardware of the input devices), which was designed to work with generic gamepads that do not present any of these unique features of the Nintendo Switch. As a result, the rumble wasn't being processed correctly. This resulted in inaccurate behaviour, such as the lack of vibration for the controllers of players other than player one, since this handler information wasn't available for SDL to distinguish where to send the vibration signals other than for "controller 0". In order to make vibrations work as intended, [Morph](https://github.com/Morph1984) investigated how this information was characterized and implemented the functions to process these handlers, so that the vibration data could be sent to the appropriate devices and players. The addition of these functions also fixed a number of games, such as `Xenoblade Chronicles: Definitive Edition`, `Xenoblade Chronicles 2`, `Hollow Knight`, and many others that previously didn't exhibit rumble at all.
 
-Previously, some people using certain types of wireless controllers reported in-game performance losses whenever their gamepads rumbled. The problem of this issue lied in the rate at which the vibration states were being updated to these controllers, so german77 implemented a solution to reduce the rate to 50 Hz and filter out some of the vibrations. But it was later reported that some vibration effects were missing in games such as `Super Smash Bros. Ultimate` due to this filter, so an alternative solution was needed. For this reason, Morph implemented "Accurate Vibrations", a toggle option (off by default) that switches between a full implementation and one with the effective vibration rate reduced through heuristics. If this option is disabled, the following actions are performed:
+Previously, some people using certain types of wireless controllers reported in-game performance losses whenever their gamepads rumbled. The problem of this issue lied in the rate at which the vibration states were being updated to these controllers, so [german77](https://github.com/german77) implemented a solution to reduce the rate to 50 Hz and filter out some of the vibrations. But it was later reported that some vibration effects were missing in games such as `Super Smash Bros. Ultimate` due to this filter, so an alternative solution was needed. For this reason, [Morph](https://github.com/Morph1984) implemented `Accurate Vibrations`, a toggle option (off by default) that switches between a full implementation and one with the effective vibration rate reduced through heuristics. If this option is disabled, the following actions are performed:
 
-- The vibration rate is limited to 100 vibrations per second, excluding vibrations with an amplitude value of 0 (which is considered as the "not vibrating" state). This rate was determined to be safe through testing by Morph and [Ren](https://github.com/renA21).
+- The vibration rate is limited to 100 vibrations per second, excluding vibrations with an amplitude value of 0 (which is considered as the "not vibrating" state). This rate was determined to be safe through testing by [Morph](https://github.com/Morph1984) and [Ren](https://github.com/renA21).
 - Successive state changes with the same amplitude value (i.e. identical amplitude vibrations) are excluded in order to reduce the amount of state changes sent into the device.
 
 {{< imgs
 	"./02_configure_vibration.png | Vibration Configuration Window."
   >}}
 
-These changes were enough to fix the stutters experienced by these users. In order to toggle "Accurate Vibrations" on, the user should navigate to `Emulation > Controls` and click on "Configure", under the tickbox "Vibrations". They can also change the intensity of the vibrations for each player, if desired.
+These changes were enough to fix the stutters experienced by these users. In order to toggle `Accurate Vibrations` on, the user should navigate to `Emulation > Configure... > Controls` and click on "Configure" under the "Vibrations" tickbox. They can also change the intensity of the vibrations for each player, if desired.
 
 Furthermore, an additional check has been implemented when initializing a vibration device to determine if a controller is apt to rumble or not. It consists in sending vibrations with an amplitude value of 0 and reading the value sent back from the controller. While this approach works fine for the GameCube Adapter, SDL returns an incorrect value if two vibration signals with identical amplitudes are sent to the device. To work around this problem, yuzu first sends a vibration with an amplitude of 1/65535, then one with amplitude 0, and just then reads the value returned from the device. This check is extremely important, because it helps in implementing the necessary functions that tell the games if the vibration device is properly mounted and capable of rumble, and it also makes it possible for yuzu to disable rumble capabilities in the backend automatically if a controller doesn't support it.
 
- -- Hong: Expand when it works, what is needed to make them work, etc. Basically, what the user should expect to be done manually and what is automatic.
-On top of these changes, work has been done so that anybody can plug in their favorite controller and, if it supports vibrations, all configuration related to it will be applied automatically. In the case the controller doesn’t, however, rumble will be disabled on the backend.
+On top of these changes, work has been done so that anyone can plug in their favorite controller and, if it supports vibrations, all configuration related to it will be applied automatically. In the case the controller doesn’t, however, rumble will be disabled on the backend.
 
 {{< imgs
 	"./03_mapping.png | Vibration Configuration Window."
@@ -62,15 +61,15 @@ On top of these changes, work has been done so that anybody can plug in their fa
 
 It is worth noting that, in case the automatic configuration process fails, users can map their analog sticks manually by clicking on any of the axis mappings. This solves issues with certain controllers that have their axis mapped as digital buttons.
 
-Project Mjölnir has come a long way since it started. Major parts of yuzu’s original code for input were rewritten, tested and ironed out. A vast part of the input frontend and backend was overhauled in favour of a more user friendly interface, aiming to make it easy to configure your controllers in the most intuitive way (and many of these configurations are also being applied automatically). Much of the effort done by the devs is easily perceivable, but there’s also a lot of work that went into making things run perfectly behind the scenes. Hours of investigation, lining up the details, and polishing every addition. Indeed, our devs gave it their best, just like the dwarves in the Eddas, to present you with this gift. The Nordic gods debated which among the three presents they received was the best, and they concluded the hammer was, without any doubts, the most precious of them. It is our most sincere wish that you will accept this hammer from us, and smite as hard as you desire!
+`Project Mjölnir` has come a long way since it started. Major parts of yuzu’s original code for input were rewritten, tested and ironed out. A vast part of the input frontend and backend was overhauled in favour of a more user friendly interface, aiming to make it easy to configure your controllers in the most intuitive way (and many of these configurations are also being applied automatically). Much of the effort done by the devs is easily perceivable, but there’s also a lot of work that went into making things run perfectly behind the scenes. Hours of investigation, lining up the details, and polishing every addition. Indeed, our devs gave it their best, just like the dwarves in the Eddas, to present you with this gift. The Nordic gods debated which among the three presents they received was the best, and they concluded the hammer was, without any doubts, the most precious of them. It is our most sincere wish that you will accept this hammer from us, and smite as hard as you desire!
 
-As a small sidenote: In the Edda, the dwarves happened to ask for Loki’s head as compensation for the gifts. But don’t worry, we won’t go that far with you! (Yet).
+As a small sidenote: In the Edda, the dwarves happened to ask for Loki’s head as compensation for the gifts. But don’t worry, we won’t go that far with you! *(Yet)*.
 
 ## Back to the Pokéfuture
 
 A very requested fix, and understandably so. Pokémon has long been a franchise that uses time as a game mechanic, and in yuzu, this feature was not working as intended in `Sword and Shield`. What would normally be saving, closing yuzu and coming later expecting time to naturally pass, ends up as if nothing happened, rendering several events (like berries respawn, changing weather, Pokéjobs, different Pokémon spawns, or just simple time of day changing) useless. We don't have a proper fix to naturally progress time yet, but for now, thanks to work done by [bunnei](https://github.com/bunnei), it is posible to [bypass this problem by changing the clock in real time from yuzu's settings while playing.](https://github.com/yuzu-emu/yuzu/pull/4792)
 
-You can find the setting in Emulation > Configure > System, enable `Custom RTC` and time travel!
+You can find the setting in `Emulation > Configure... > System`, enable `Custom RTC` and time travel!
 
 {{< imgs
     "./rtc.png| Try to avoid changing the divergence value, Doc!"
@@ -124,7 +123,7 @@ Additionally, games like `FINAL FANTASY XII THE ZODIAC AGE`, `The Legend of Zeld
   
 And not least important, NVDEC is now in Mainline too! Anyone can now enjoy they in-game videos in yuzu. As tradition for all merged Pull Requests, [Lioncache](https://github.com/lioncash) didn't take long to [clean it up.](https://github.com/yuzu-emu/yuzu/pull/4837)
   
-## Yes, even more input changes
+## Non-mythological input changes
 
 We have some great changes, work of [german77](https://github.com/german77). Thank you!
 
@@ -134,7 +133,7 @@ Up next, some devices have access to an accelerometer, but lack a gyroscope. Whi
 
 And finally, for our traditional fighters out there, improvements in GC adapters. Now [adapters can be hotplugged, basic rumble support was added and compatibility with more vendors was improved.](https://github.com/yuzu-emu/yuzu/pull/4781)
 
-[FrogTheFrog](https://github.com/FrogTheFrog) tuned up [the shake values](https://github.com/yuzu-emu/yuzu/pull/4727) to improve compatibility with the rare `Steam Controller`. Wouldn't having Portal and Portal 2 on Switch be awesome?
+A new challenger approaches! [FrogTheFrog](https://github.com/FrogTheFrog) tuned up [the shake values](https://github.com/yuzu-emu/yuzu/pull/4727) to improve compatibility with the rare `Steam Controller`. Wouldn't having Portal and Portal 2 on Switch be awesome?
 
 ## Bug fixes and improvements
 
@@ -152,7 +151,10 @@ In a minor change to Vulkan, [Rodrigo](https://github.com/ReinUsesLisp) [changed
     "./vklist.png| One of our developer's system, gotta render 'em all!"
   >}}
 
-The current method will give priority to the GPU vendor following the `Nvidia > AMD > Intel` order. Then, dedicated hardware will take priority over integrated, for example an RX 570 will have a higher priority than an Intel UHD630. Finally, the device name will be considered, a GTX 1650 will be selected over a GTX 1060.
+The current method follos these rules:
+- Priority will be given to the GPU vendor following the `Nvidia > AMD > Intel` order.
+- Dedicated hardware will take priority over integrated. For example an RX 570 will have a higher priority than an Intel UHD630.
+- The device name will be considered, a GTX 1650 will be selected over a GTX 1060. Most of the time, newer architecture generations offer better performance benefits than pure raw performance.
 
 In the previous progress report we mentioned that we removed a blacklist on AMD GPUs for the `VK_EXT_extended_dynamic_state` Vulkan extension. Turns out, RDNA1 GPUs crash to desktop while using this extension, so [Rodrigo](https://github.com/ReinUsesLisp) (while using your writer's PC) had to [manually add a new blacklist only including current Navi based GPUs.](https://github.com/yuzu-emu/yuzu/pull/4772) One would expect that an informed extension is tested before releasing the drivers that start supporting it... Latest 20.10.1 driver version from AMD seems to revert to an older Vulkan version lacking this extension, so the Red Team is aware of the issue.
 
@@ -160,10 +162,12 @@ In the previous progress report we mentioned that we removed a blacklist on AMD 
 
 | CPU Threads | Shader Threads | Example CPUs |
 | :-----------: | :--------------: | ------------ |
-| 1 - 7 | 1 | R3 3200G, i3-6100 |
-| 8 | 2 | R3 3300X, i3-10100 |
+| 1 - 7 | 1 | R3 3200G, i5-9400 |
+| 8 | 2 | R3 3100, i3-10100 |
 | 12 | 4 | R5 3600, i5-10400 |
 | 16 | 6 | R7 3700X, i7-10700K |
+| 32 | 14 | R9 3950X, i9-9960X |
+| 128 | 62 | Threadripper 3990X |
 
 [Kewlan](https://github.com/Kewlan) is back again, fixing another important UI bug. This time, yuzu will [no longer ask for a profile if there is a single one created.](https://github.com/yuzu-emu/yuzu/pull/4817) The devil is in the details.
 
@@ -174,12 +178,14 @@ With the demo just released, [Rodrigo](https://github.com/ReinUsesLisp) started 
 {{< imgs
     "./aoc.png| Where are my glasses? (Hyrule Warriors: Age of Calamity - Demo Version)"
   >}}
-  
-I personally want to thank [Lioncache.](https://github.com/lioncash) He's not mentioned much in the progress reports due to the technical nature of the changes and fixes, but he is without a doubt one of the top contributors to the project. Thank you Lion, for the patience you have, and the huge help you give us.
+
+&nbsp;
+
+We personally want to thank [Lioncache.](https://github.com/lioncash) He's not mentioned much in the progress reports due to the technical nature of his work, but he is without a doubt one of the top contributors to the project. Thank you Lion, for the patience you have, and the huge help you give us.
 
 ## Future changes
 
-There are some important core fixes in the works, NVDEC has more plans in its way, and there is now a roadmap of what will follow the Texture Cache Rewrite once its done, but we will tell you more about that later.
+There are some important core fixes incoming, `Local Wireless` emulation continues to progress well, `NVDEC` has more plans in its way, and there is now a roadmap of what will follow the `Texture Cache Rewrite` once it's finished, but we will tell you more about that later.
 
 As an early gift, here's a preview of the Texture Cache Rewrite's progress:
 
@@ -188,7 +194,7 @@ As an early gift, here's a preview of the Texture Cache Rewrite's progress:
   >}}
 
 And that's all folks! Thank you so much for reading, and see you all in the next progress report!
-Thanks RodrigoTR for the pics!
+Thanks RodrigoTR and GG for the pics!
 
 {{< imgs
     "./burgy.png| "
