@@ -122,7 +122,7 @@ And last but not least, NVDEC is now in Mainline too! Anyone can now enjoy they 
   
 ## Non-mythological input changes
 
-We have some great changes, work of [german77](https://github.com/german77). Thank you!
+We have some great changes made possible from the work of [german77](https://github.com/german77). Thank you!
 
 To start with, now [buttons that are impossible to use on certain input configurations are now blocked](https://github.com/yuzu-emu/yuzu/pull/4742). For example, if an emulated Pro Controller is changed to a left Joy-Con, the right stick, A, X, Y and Z will no longer be accessible to the games. No cheating!
 
