@@ -86,7 +86,7 @@ On the GLASM side, and helping the most for our Nvidia users, [implementing robu
   
 Crashes will still be experienced in specific chapters of the game, like Ch. 15 and Ch. 17. For those cases, we can offer you a workaround:
 
-1. You need to get old `yuzu 66`from [here](https://github.com/yuzu-emu/yuzu-mainline/releases?after=mainline-0-70). 
+1. You need to get old `yuzu 66` or `yuzu 41` from [here](https://github.com/yuzu-emu/yuzu-mainline/releases?after=mainline-0-70). 
 2. Set it up as a standalone version by extracting it and creating an `user` folder where `yuzu.exe` is located.
 3.  This folder will replace `%appdata%\yuzu`, so you need to extract a copy of your keys there, along with any save data you want to transfer to get past the crashes. Make sure to also copy your `nand` folder so you can transfer all DLC and updates to the standalone yuzu 66.
 4. Play the game, expect tons of glitches and pretty bad performance for such an old build. Save after the crashing area and transfer that save to the latest `Mainline/Early Access` version you are using, and continue playing regularly from there.
@@ -118,7 +118,7 @@ Additionally, games like `FINAL FANTASY XII THE ZODIAC AGE`, `The Legend of Zeld
     "./onimusha.png| Happy moments (Onimusha: Warlords)"
   >}}
   
-And not least important, NVDEC is now in Mainline too! Anyone can now enjoy they in-game videos in yuzu. As tradition for all merged Pull Requests, [Lioncache](https://github.com/lioncash) didn't take long to [clean it up.](https://github.com/yuzu-emu/yuzu/pull/4837)
+And last but not least, NVDEC is now in Mainline too! Anyone can now enjoy they in-game videos in yuzu. As tradition for all merged Pull Requests, [Lioncache](https://github.com/lioncash) didn't take long to [clean it up.](https://github.com/yuzu-emu/yuzu/pull/4837)
   
 ## Non-mythological input changes
 
