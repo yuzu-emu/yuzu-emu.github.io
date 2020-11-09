@@ -74,7 +74,7 @@ You can find the setting in `Emulation > Configure... > System`, enable `Custom 
 
 ## [Greetings Professor!](https://www.youtube.com/watch?v=xr-aIARiea4) Fixes to report!
 
-[Rodrigo](https://github.com/ReinUsesLisp) has for us a couple of stability improvements for `Fire Emblem: Three Houses`, for now involving Vulkan and assembly shaders (GLASM).
+[Rodrigo](https://github.com/ReinUsesLisp) has for us a couple of stability improvements for `Fire Emblem: Three Houses`, involving Vulkan and assembly shaders (GLASM) for now.
 
 On the Vulkan side, [managing primitive topologies as fixed state](https://github.com/yuzu-emu/yuzu/pull/4782) fixes regressions introduced by recent Nvidia drivers, but it has been reported to also help AMD Radeon users quite a bit too.
 
