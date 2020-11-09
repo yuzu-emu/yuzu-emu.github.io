@@ -50,7 +50,7 @@ These changes were enough to fix the stutters experienced by these users. In ord
 
 Furthermore, an additional check has been implemented when initializing a vibration device to determine if a controller is apt to rumble or not. It consists in sending vibrations with an amplitude value of 0 and reading the value sent back from the controller. While this approach works fine for the GameCube Adapter, SDL returns an incorrect value if two vibration signals with identical amplitudes are sent to the device. To work around this problem, yuzu first sends a vibration with an amplitude of 1/65535, then one with amplitude 0, and just then reads the value returned from the device. This check is extremely important, because it helps in implementing the necessary functions that tell the games if the vibration device is properly mounted and capable of rumble, and it also makes it possible for yuzu to disable rumble capabilities in the backend automatically if a controller doesn't support it.
 
-On top of these changes, work has been done so that anyone can plug in their favorite controller and, if it supports vibrations, all configuration related to it will be applied automatically. In the case the controller doesn’t, however, rumble will be disabled on the backend.
+On top of these changes, work has been done so that anyone can plug in their favorite controller and, if it supports vibrations, all configuration related to it will be applied automatically. In the case that the controller doesn’t, however, rumble will be disabled on the backend.
 
 {{< imgs
 	"./mapping.png| Manually mapping an analog stick"
