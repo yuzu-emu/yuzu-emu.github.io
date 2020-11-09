@@ -134,7 +134,7 @@ A new challenger approaches! [FrogTheFrog](https://github.com/FrogTheFrog) tuned
 
 ## Bug fixes and improvements
 
-[bunnei](https://github.com/bunnei) [changed the values for `Multicore`, `Asynchronous GPU` and `Assembly Shaders`](https://github.com/yuzu-emu/yuzu/pull/4805) to enabled by default. This will help provide a much better experience out of the box to all users that haven't changed those values already. Some other advanced settings like `Asynchronous shaders` are not altered by this change as they still require further testing and bug-fixing.
+[bunnei](https://github.com/bunnei) [changed the values for `Multicore`, `Asynchronous GPU` and `Assembly Shaders`](https://github.com/yuzu-emu/yuzu/pull/4805) to be enabled by default. This will help provide a much better experience out of the box to all users that haven't changed those values already. Some other advanced settings like `Asynchronous shaders` are not altered by this change as they still require further testing and bug-fixing.
 
 By [implementing CUBE textures and fixing an issue with arrays,](https://github.com/yuzu-emu/yuzu/pull/4766) [Rodrigo](https://github.com/ReinUsesLisp) made the `Pikmin 3: Deluxe Demo` playable. This will most likely help in making the final game playable.
 
