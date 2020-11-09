@@ -118,7 +118,7 @@ Additionally, games like `FINAL FANTASY XII THE ZODIAC AGE`, `The Legend of Zeld
     "./onimusha.png| Happy moments (Onimusha: Warlords)"
   >}}
   
-And last but not least, NVDEC is now in Mainline too! Anyone can now enjoy they in-game videos in yuzu. As tradition for all merged Pull Requests, [Lioncache](https://github.com/lioncash) didn't take long to [clean it up.](https://github.com/yuzu-emu/yuzu/pull/4837)
+And last but not least, NVDEC is now in Mainline too! Anyone can now enjoy they in-game videos in yuzu. As the tradition for all merged Pull Requests, [Lioncache](https://github.com/lioncash) didn't take long to [clean it up.](https://github.com/yuzu-emu/yuzu/pull/4837)
   
 ## Non-mythological input changes
 
