@@ -106,7 +106,7 @@ The last one also improves stability in games like `Luigi's Mansion 3`. The only
 
 ## NVDEC improvements
 
-Work on video decoding continues, thanks to [epicboy](https://github.com/ameerj). Some games like `Onimusha: Warlords` or `Ni no Kuni`had an incompatible `BGRA8` format in our first NVDEC implementation. Now they render correctly.
+Work on video decoding continues, thanks to [epicboy](https://github.com/ameerj). Some games like `Onimusha: Warlords` or `Ni no Kuni` had an incompatible `BGRA8` format in our first NVDEC implementation. Now they render correctly.
 
 {{< imgs
     "./ninokuni.png| Working menu rendering (Ni no Kuni)"
