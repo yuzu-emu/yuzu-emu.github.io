@@ -64,7 +64,7 @@ As a small sidenote: In the Edda, the dwarves happened to ask for Loki’s head 
 
 ## Back to the Pokéfuture
 
-A very requested fix, and understandably so. Pokémon has long been a franchise that uses time as a game mechanic, and in yuzu, this feature was not working as intended in `Sword and Shield`. What would normally be saving, closing yuzu and coming later expecting time to naturally pass, ends up as if nothing happened, rendering several events (like berries respawn, changing weather, Pokéjobs, different Pokémon spawns, or just simple time of day changing) useless. We don't have a proper fix to naturally progress time yet, but for now, thanks to work done by [bunnei](https://github.com/bunnei), it is posible to [bypass this problem by changing the clock in real time from yuzu's settings while playing.](https://github.com/yuzu-emu/yuzu/pull/4792)
+A very requested fix, and understandably so. Pokémon has long been a franchise that uses time as a game mechanic, and in yuzu, this feature was not working as intended in `Sword and Shield`. What would normally be saving, closing yuzu and coming later expecting time to naturally pass, ends up as if nothing happened, rendering several events (like berries respawn, changing weather, Pokéjobs, different Pokémon spawns, or just simple time of day changing) useless. We don't have a proper fix to naturally progress the time yet, but for now, thanks to the work done by [bunnei](https://github.com/bunnei), it is now possible to [bypass this problem by changing the clock in real time from yuzu's settings while playing.](https://github.com/yuzu-emu/yuzu/pull/4792)
 
 You can find the setting in `Emulation > Configure... > System`, enable `Custom RTC` and time travel!
 
