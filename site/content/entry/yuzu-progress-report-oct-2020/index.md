@@ -102,7 +102,7 @@ Crashes will still be experienced in specific chapters of the game, like Ch. 15 
 - [Fixed crashes when trying to launch subsequent games.](https://github.com/yuzu-emu/yuzu/pull/4832)
 - [Improved GPU synchronization.](https://github.com/yuzu-emu/yuzu/pull/4869). 
 
-The last one also improves stability in games like `Luigi's Mansion 3`. Only thing missing to get `Super Mario 3D All-Stars` rendering is the `Texture Cache Rewrite`.
+The last one also improves stability in games like `Luigi's Mansion 3`. The only thing missing to get `Super Mario 3D All-Stars` rendering is the `Texture Cache Rewrite`.
 
 ## NVDEC improvements
 
