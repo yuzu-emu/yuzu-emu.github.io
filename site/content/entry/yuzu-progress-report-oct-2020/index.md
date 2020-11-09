@@ -169,7 +169,7 @@ In the previous progress report, we mentioned that we removed a blacklist on AMD
 
 [Kewlan](https://github.com/Kewlan) is back again, fixing another important UI bug. This time, yuzu will [no longer ask for a profile if there is a single one created.](https://github.com/yuzu-emu/yuzu/pull/4817) The devil is in the details.
 
-[Morph](https://github.com/Morph1984) [added a check to see if a directory is a `nullptr`.](https://github.com/yuzu-emu/yuzu/pull/4785) This fixes the creation of a save in `Hades`. More work is needed to get the game playable.
+[Morph](https://github.com/Morph1984) [added a check to see if a directory is a `nullptr`.](https://github.com/yuzu-emu/yuzu/pull/4785) This fixes save file creation in `Hades`. More work is needed to get the game playable.
 
 With the demo just released, [Rodrigo](https://github.com/ReinUsesLisp) started the work to get `Hyrule Warriors: Age of Calamity - Demo Version` playable. By implementing [FCMP immediate](https://github.com/yuzu-emu/yuzu/pull/4853) and [texture CUBE array shadows](https://github.com/yuzu-emu/yuzu/pull/4854) the game starts to render.
 
