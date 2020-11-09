@@ -22,7 +22,7 @@ The first part was centered in overhauling the user interface, as well as modify
 
 The second part took care of implementing the `Controller Applet`: a service used by games to communicate and set up the kind of controller input they can accept, how many players will use them, what character they will control, etc.
 
-And now, at last, comes the third part of this project, introducing bug fixes, `Controller Profiles`, and also an overhaul to the implementation of `Rumble` realized by [german77](https://github.com/german77).
+And now, at last, comes the third part of this project: introducing bug fixes, `Controller Profiles`, and also an overhaul to the implementation of `Rumble` realized by [german77](https://github.com/german77).
 
 {{< imgs
 	"./load_profile.mp4| Loading a profile for a Sony DS4 controller"
