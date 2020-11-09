@@ -16,7 +16,7 @@ How is it going, yuz-ers? Here work continues. This month's report offers you my
 
 [Morph](https://github.com/Morph1984) strikes again with [part 3 of `Project Mjölnir`](https://github.com/yuzu-emu/yuzu/pull/4866) - a major rewrite of yuzu's `Human Interface Device (HID)`. This concludes months of hard work that also involved the contributions of [Rei](https://github.com/its-rei) (who designed the new user interface) and [jroweboy](https://github.com/jroweboy) (who started the original HID rewrite that later Morph continued).
 
-Just as [three different gifts](https://en.wikipedia.org/wiki/Mj%C3%B6lnir#Origins_in_the_Prose_Edda) were given to the Nordic gods by the dwarves (including the iconic hammer of Thor), this project was divided in three parts focused on different aspects of emulating the input control of the Nintendo Switch.
+Just as [three different gifts](https://en.wikipedia.org/wiki/Mj%C3%B6lnir#Origins_in_the_Prose_Edda) were given to the Nordic gods by the dwarves (including the iconic hammer of Thor), this project was divided into three parts focused on different aspects of emulating the input control of the Nintendo Switch.
 
 The first part was centered in overhauling the user interface, as well as modifying and fixing errors in the backend that handled the mapping and detection of controllers. These changes allowed yuzu's implementation of input to behave more closely to the hardware, improved the user experience and also paved the way for the subsequent improvements in the following PRs.
 
