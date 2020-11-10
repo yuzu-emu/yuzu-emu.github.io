@@ -1,5 +1,5 @@
 +++
-date = "2020-10-25T12:00:00-03:00"
+date = "2020-11-10T12:00:00-03:00"
 title = "Progress Report October 2020"
 author = "Honghoa"
 coauthor = "GoldenX86"
