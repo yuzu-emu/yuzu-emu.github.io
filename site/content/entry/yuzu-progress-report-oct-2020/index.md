@@ -3,7 +3,7 @@ date = "2020-10-25T12:00:00-03:00"
 title = "Progress Report October 2020"
 author = "Honghoa"
 coauthor = "GoldenX86"
-forum = 0
+forum = 324017
 +++ 
 
 How's it going, yuz-ers? Here work continues. This month's report offers you mythological hammers dropping, Vulkan and OpenGL stability fixes, and some news on the continued fight to make Super Mario 3D All-Stars render.
