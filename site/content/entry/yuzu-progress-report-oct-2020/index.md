@@ -112,7 +112,7 @@ Work on video decoding continues, thanks to [epicboy](https://github.com/ameerj)
     "./ninokuni.png| Working menu rendering (Ni no Kuni)"
   >}}
   
-Additionally, games like `FINAL FANTASY XII THE ZODIAC AGE`, `The Legend of Zelda: Link's Awakening` or `Onimusha: Warlords` had problems with memory addressing, causing poor performance and glitches. Consider this resolved.
+Additionally, games like `FINAL FANTASY XII THE ZODIAC AGE`, `The Legend of Zelda: Link's Awakening` or `Onimusha: Warlords` had problems with memory addressing, causing incorrect video decoding and various graphical glitches. Consider this resolved.
 
 {{< imgs
     "./onimusha.png| Happy moments (Onimusha: Warlords)"
