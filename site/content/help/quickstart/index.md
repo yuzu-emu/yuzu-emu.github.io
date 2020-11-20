@@ -234,16 +234,16 @@ Make sure to place your Nintendo Switch into Airplane Mode before starting this 
     - 8i. Once you're done, safely unmount the SD card from your computer. Return to the Switch's screen and tap on `Close`.
     - 8j. Tap on `Close` again to return to the Tools menu.
     - 8k. Tap on the `Home` tab to return to the Hekate Home menu.
-    - 8h. Tap on `Payloads`. This will show a list of payloads.
-    - 8i. Tap on `fusee-primary.bin` in the list of payloads.
-    - 8j. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, press and hold the `R` button on your controller and launch a game. This will launch the Homebrew Menu in `title override mode`.
-    - 8k. Either use the touchscreen or navigate using your controller, and choose `Checkpoint`.
-    - 8l. Pick the games that you want to dump their save files (multiselect with the `Y` button), and press the `L` button to backup the saves.
-    - 8m. Once you have backed up the save files, press any button to return to the previous menu and then press `+` to return to the Homebrew Menu.
-    - 8n. Select `Reboot to Payload` and then press `-` on your controller to return to the Hekate menu.
-    - 8o. Repeat steps 8e. to 8g.
-    - 8p. Navigate to your SD card drive. Your save files will be located in the `switch/Checkpoint` folder.
-    - 8q. Once you're done transferring your save files, safely unmount the SD card from your computer. Return to the Switch's screen and tap on `Close`.
+    - 8l. Tap on `Payloads`. This will show a list of payloads.
+    - 8m. Tap on `fusee-primary.bin` in the list of payloads.
+    - 8n. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, press and hold the `R` button on your controller and launch a game. This will launch the Homebrew Menu in `title override mode`.
+    - 8o. Either use the touchscreen or navigate using your controller, and choose `Checkpoint`.
+    - 8p. Pick the games that you want to dump their save files (multiselect with the `Y` button), and press the `L` button to backup the saves.
+    - 8q. Once you have backed up the save files, press any button to return to the previous menu and then press `+` to return to the Homebrew Menu.
+    - 8r. Select `Reboot to Payload` and then press `-` on your controller to return to the Hekate menu.
+    - 8s. Repeat steps 8e. to 8g.
+    - 8t. Navigate to your SD card drive. Your save files will be located in the `switch/Checkpoint` folder.
+    - 8u. Once you're done transferring your save files, safely unmount the SD card from your computer. Return to the Switch's screen and tap on `Close`.
 
 # Running yuzu
 
