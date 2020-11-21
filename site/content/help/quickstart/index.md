@@ -3,13 +3,30 @@ title: Quickstart Guide
 description: A guide designed to get you started with yuzu quickly.
 ---
 
-# Downloading and Installing yuzu
+## Table of Contents
+
+* [Downloading and Installing yuzu](#downloading-and-installing-yuzu)
+* [Hardware Requirements](#hardware-requirements)
+* [yuzu Quickstart Guide](#yuzu-quickstart-guide)
+* [Prerequisites](#prerequisites)
+* [Preparing the microSD card](#preparing-the-microsd-card)
+* [Booting into RCM](#booting-into-rcm)
+* [Booting into Hekate](#booting-into-hekate)
+* [Mounting the microSD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate)
+* [Dumping Prod.keys and Title.keys](#dumping-prodkeys-and-titlekeys)
+* [Backing up Switch NAND (Optional but Recommended)](#backing-up-switch-nand-optional-but-recommended)
+* [Dumping System Update Firmware](#dumping-system-update-firmware)
+* [Dumping Cartridge Games](#dumping-cartridge-games)
+* [Dumping Installed Titles (eShop)](#dumping-installed-titles-eshop)
+* [Dumping Save Files (Optional)](#dumping-save-files-optional)
+* [Rebooting the Switch Back to its Normal State](#rebooting-the-switch-back-to-its-normal-state)
+* [Running yuzu](#running-yuzu)
+
+## Downloading and Installing yuzu
 
 {{< youtube j0fXerrGjF4 >}}
 
-<h1 id="hardware"><br></h1>
-
-# Hardware Requirements
+## Hardware Requirements
 
 |   	|  CPU 	|  GPU	|  RAM	|
 |-------|-------|-------|-------|
@@ -31,7 +48,7 @@ Sample Image:
 
 ![GPUInfo](./gpu_info.png)
 
-# yuzu Quickstart Guide
+### yuzu Quickstart Guide
 
 To start playing commercial games, yuzu needs a couple of system files and folders from your switch in order to play them properly.
 To check if your Switch is hackable, visit https://damota.me/ssnc/checker and test your Switch's serial number.
@@ -53,7 +70,7 @@ This process should take about 60 to 90 minutes.
 **Make sure to place your Nintendo Switch into Airplane Mode before starting this guide.**  
 `System Settings -> Airplane Mode -> Airplane Mode "ON"`
 
-# Prerequisites
+## Prerequisites
 
 - A Nintendo Switch vulnerable to the fusée gelée RCM exploit -- Visit https://damota.me/ssnc/checker and test your Switch's serial number
 - An SD card with at least 30 GB of free space (an almost empty 32GB card will work)
@@ -73,7 +90,7 @@ This process should take about 60 to 90 minutes.
     - For Windows, this is '%APPDATA%\yuzu' or 'C:\Users\{username}\AppData\Roaming\yuzu'
     - For Linux, this is '~/.local/share/yuzu'
 
-# Preparing the microSD Card
+## Preparing the microSD Card
 
 1. We will now prepare the microSD card.
     - 1a. Extract the contents of the `atmosphere` and `hekate` zip files into the root of your SD card.
@@ -87,7 +104,7 @@ This process should take about 60 to 90 minutes.
     "./sd_template.png|Your SD card should look like this."
 >}}
 
-# Booting into RCM
+## Booting into RCM
 
 2. We will now boot your Nintendo Switch into RCM mode
     - 2a. Run the TegraRcmGUI installer you downloaded from the prerequisites, and after installation, start the program. 
@@ -97,14 +114,14 @@ This process should take about 60 to 90 minutes.
     - 2e. Insert your RCM jig into the right joy-con slot, make sure it is seated securely at the base, and then press VOL+ and Power buttons at the same time. Nothing should happen on your Switch; if the switch starts to turn on normally, go back to the beginning of step 2d and try again.
     - 2f. If you see the Nintendo Switch icon in the lower left corner flash green and state `RCM O.K.`, your switch has successfully entered RCM mode.
 
-# Booting into Hekate
+## Booting into Hekate
 
 3. We will now boot your Nintendo Switch (already in [RCM mode](#booting-into-rcm)) into Hekate, a custom bootloader.
     - 3a. Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate` zip file you downloaded from the prerequisites.
     - 3b. Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate_ctcaer_X.X.X.bin` file you extracted earlier.
     - 3c. Click on `Inject Payload` and your Switch will boot into the Hekate menu.
     
-# Mounting the microSD card to your computer in Hekate
+## Mounting the microSD card to your computer in Hekate
 
 _**NOTE:** These steps will be used in other sections of the guide. If you followed through [step 3.](#booting-into-rcm) for the first time, skip this section for now._
 
@@ -119,7 +136,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 5a. Tap on `Close` again to return to the Tools menu.
     - 5b. Tap on the `Home` tab to return to the Hekate Home menu.
 
-# Dumping Prod.keys and Title.keys
+## Dumping Prod.keys and Title.keys
 
 6. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
     - 6a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
@@ -135,7 +152,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 6k. Navigate to your SD card drive and copy both `prod.keys` and `title.keys` to the `%YUZU_DIR%/keys` directory.
     - 6l. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
 
-# Backing up Switch NAND (Optional but Recommended)
+## Backing up Switch NAND (Optional but Recommended)
 
 7. We will now boot Hekate to dump your switch's NAND. This step is optional, but highly recommended to ensure you have a backup of your Switch's data in its internal storage.
     - 7a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
@@ -148,7 +165,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 7h. Navigate to your SD card drive and copy the `backup` folder to your computer.
     - 7i. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
 
-# Dumping System Update Firmware
+## Dumping System Update Firmware
 
 8. Some games such as `Mario Kart 8 Deluxe` require the use of files found inside the `Nintendo Switch System Update Firmware` to be playable. In this step, we will now dump the firmware files from your Switch for use in yuzu.
     - 8a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
@@ -168,7 +185,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 8o. Navigate to your SD card drive and copy the contents in the firmware folder (step 5l.) to `%YUZU_DIR%/nand/system/Contents/registered`. Alternatively, you can write `%appdata%\yuzu\nand\system\Contents\registered` in the address bar of a file explorer.
     - 8p. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
 
-# Dumping Cartridge Games
+## Dumping Cartridge Games
 
 9. We will now dump the `Cartridge Image (XCI)` file from your game cartridge(s), to use in yuzu. Insert the game cartridge of your choice.
     - 9a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
@@ -192,7 +209,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 9s. After completing these steps, the parts are ready to be merged. Select `Merge Dump` and the program will merge the parts into a complete XCI located in the `Output` folder. Repeat these steps for all other games dumped as parts.
     - 9t. Once you're done merging, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
 
-# Dumping Installed Titles (eShop)
+## Dumping Installed Titles (eShop)
 
 10. We will now dump the `Nintendo Submission Package (NSP)` file from your installed eShop game(s), to use in yuzu.
     - 10a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
@@ -220,7 +237,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 10w. After completing these steps, the parts are ready to be merged. Select `Merge Dump` and the program will merge the parts into a complete NSP located in the `Output` folder. Repeat these steps for all folder NSPs.
     - 10x. Once you're done merging, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
 
-# Dumping Save Files (Optional)
+## Dumping Save Files (Optional)
 
 11. We will now dump the games' save files from your switch to use in yuzu.
     - 11a. Download [Checkpoint.nro](https://github.com/FlagBrew/Checkpoint/releases)
@@ -240,14 +257,14 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 8t. Navigate to your SD card drive. Your save files will be located in the `switch/Checkpoint` folder.
     - 8u. Once you're done transferring your save files, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
     
-# Rebooting the Switch Back to its Normal State
+## Rebooting the Switch Back to its Normal State
 
 12. If you're done following the sections you needed for yuzu, we will now reboot the Switch back to its normal state.
     - 12a. From the Hekate Home Menu, tap on `Reboot`.
     - 12b. Tap on `OFW`.
     - 12c. You Switch will now reboot into the original firmware.
 
-# Running yuzu
+## Running yuzu
 
 9. We will now run yuzu to verify that your dumped keys and games are being read correctly.
     - 9a. Run either the `yuzu` or `yuzu Early Access` shortcuts that were created by the yuzu installer tool.
