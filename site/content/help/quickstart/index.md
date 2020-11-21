@@ -48,19 +48,19 @@ Sample Image:
 
 ![GPUInfo](./gpu_info.png)
 
-## yuzu Quickstart Guide
+### yuzu Quickstart Guide
 
 To start playing commercial games, yuzu needs a couple of system files and folders from your switch in order to play them properly.
 To check if your Switch is hackable, visit https://damota.me/ssnc/checker and test your Switch's serial number.
 
 <article class="message has-text-weight-semibold">
-<div class="message-body">
-<p>NOTE:</p>
-<ul>
-    <li>If your Switch is patched, you will be unable to complete the following steps.</li>
-    <li>The Switch v2 (Mariko/Red Box) and the Switch Lite are both patched and you will not be able to complete the following steps.</li>
-</ul>
-</div>
+    <div class="message-body">
+        <p>NOTE:</p>
+        <ul>
+            <li>If your Switch is patched, you will be unable to complete the following steps.</li>
+            <li>The Switch v2 (Mariko/Red Box/HAC-001(-01)) and the Switch Lite are both patched and you will not be able to complete the following steps.</li>
+        </ul>
+    </div>
 </article>
 
 This guide will help you copy all your system files, games, updates, and DLC from your switch to your computer and organize them in a format yuzu understands.
@@ -262,7 +262,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
 12. If you're done following the sections you needed for yuzu, we will now reboot the Switch back to its normal state.
     - 12a. From the Hekate Home Menu, tap on `Reboot`.
     - 12b. Tap on `OFW`.
-    - 12c. You Switch will now reboot into the original firmware.
+    - 12c. Your Switch will now reboot into the original firmware.
 
 ## Running yuzu
 
