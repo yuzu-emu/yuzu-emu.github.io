@@ -104,7 +104,7 @@ Make sure to place your Nintendo Switch into Airplane Mode before starting this 
 # Dumping Prod.keys and Title.keys
 
 3. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
-    - 3a. Boot your Nintendo Switch into RCM mode[Booting into RCM](#booting-into-rcm) and make sure it is connected to your computer.
+    - 3a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) and make sure it is connected to your computer.
     - 3b. Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate` zip file you downloaded from the prerequisites.
     - 3c. Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate.bin` file you extracted earlier.
     - 3d. Click on `Inject Payload` and your Switch will boot into the Hekate menu.
