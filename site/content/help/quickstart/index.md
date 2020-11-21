@@ -48,7 +48,7 @@ Sample Image:
 
 ![GPUInfo](./gpu_info.png)
 
-### yuzu Quickstart Guide
+## yuzu Quickstart Guide
 
 To start playing commercial games, yuzu needs a couple of system files and folders from your switch in order to play them properly.
 To check if your Switch is hackable, visit https://damota.me/ssnc/checker and test your Switch's serial number.
