@@ -155,7 +155,7 @@ A feature that will be added shortly later will be `Accelerated Texture Decoding
 
 The next project [Rodrigo](https://github.com/ReinUsesLisp) is working on is the `Buffer Cache Rewrite`. This work promises to solve more rendering issues (for example font rendering problems) and seriously improve performance, especially on memory bandwidth starved hardware like integrated GPUs.
 
-That's all folks! That's the overview for the Texture Cache Rewrite. Please report any bugs or problems you face with this new feature on our [Discord server](https://discord.gg/u77vRWY) or on our [Forums!](https://community.citra-emu.org/c/yuzu-support/)
+And with that, our overview of the Texture Cache Rewrite is finished! Please report any bugs or problems you face with this new feature on our [Discord server](https://discord.gg/u77vRWY) or on our [Forums.](https://community.citra-emu.org/c/yuzu-support/)
 
 {{< imgs
     "./ugg.png| HONK"
