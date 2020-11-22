@@ -3,7 +3,7 @@ date = "2020-11-22T16:00:00-03:00"
 title = "New Feature Release - Texture Cache Rewrite"
 author = "GoldenX86"
 coauthor = "BSoD"
-forum = 0
+forum = 328431
 +++
 
 Hi yuz-ers! We’re very excited to offer you one of the biggest code rewrites in yuzu’s history: The Texture Cache Rewrite! Now available to our Early Access members, continue reading to learn more.
