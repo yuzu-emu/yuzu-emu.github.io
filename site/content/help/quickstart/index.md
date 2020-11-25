@@ -78,10 +78,10 @@ This process should take about 60 to 90 minutes.
 - [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases/latest) -- Download the TegraRcmGUI installer
 - [Hekate](https://github.com/CTCaer/hekate/releases/latest) -- Download the `hekate` zip file
 - [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases/latest) -- Download both the `atmosphere` zip file and `fusee-primary.bin`
-- [Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases/latest/download/Lockpick_RCM.bin) -- Download `Lockpick_RCM.bin`
-- [nxdumptool](https://github.com/DarkMatterCore/nxdumptool/releases/latest/download/nxdumptool.nro) -- Download `nxdumptool.nro`
+- [Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases/latest) -- Download `Lockpick_RCM.bin`
+- [nxdumptool](https://github.com/DarkMatterCore/nxdumptool/releases/latest) -- Download `nxdumptool.nro`
 - [nxDumpMerger](https://github.com/emiyl/nxDumpMerger/releases/latest) -- Download the `nxDumpMerger_Windows.7z` zip file (Note: You need [7-zip](https://www.7-zip.org/) to extract this zip archive)
-- [Goldleaf](https://github.com/XorTroll/Goldleaf/releases) -- Download `Goldleaf.nro`
+- [Goldleaf](https://github.com/XorTroll/Goldleaf/releases/latest) -- Download `Goldleaf.nro`
 - [microSD Card Reader](https://www.amazon.com/dp/B006T9B6R2) -- If your computer has one built-in, you can use that
 - [RCM Jig](https://www.amazon.com/dp/B07J9JJRRG) <-- We highly recommend one like this, but you could use any of the methods outlined [here](https://noirscape.github.io/RCM-Guide/)
 
