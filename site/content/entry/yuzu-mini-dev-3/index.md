@@ -1,12 +1,15 @@
-Hey there yuzers! We are back with the third installment of this mini series. This is Dev interview #3, let's jump right into the good stuff.
++++ date = "2020-11-27T19:00:00+01:00" title = "Mini-Series - Dev Interview #3" author = "MysticExile" forum = 0 +++
 
+Hey there yuzers! We are back with the third installment of this mini series. This is Dev interview #3, let's jump right into the good stuff.
+<!--more-->
+***
 Welcome to the third Developer Interview! This time we're interviewing the myth, the legend, Epicboy! [Epicboy](https://github.com/ameerj) is the main reason why we have NVDEC now!
-If you didn't know already, NVDEC is the Nintendo Switch's video decoder. Without Epicboy we wouldn't be able to watch videos like Fire Emblem: Three House's intro or The Legend of Zelda: Breath of the Wild's memories.
-But that's not the only thing Epicboy has done! Epicboy is also responsible for Asynchronous shader compilation on Vulkan and for GameCube Controller support.
-Let's jump right into the question!
+If you didn't know already, NVDEC is Nvidia's video decoder used by the Nintendo Switch. Without Epicboy we wouldn't be able to watch videos like Fire Emblem: Three House's intro or The Legend of Zelda: Breath of the Wild's memories.
+But that's not the only thing Epicboy has done! Epicboy was also responsible for asynchronous shader compilation on Vulkan and for GameCube Controller support.
+Let's jump right into the interview!
 ***
 
-**Q: Hey Epicboy, why don't you start telling us a bit about yourself?**
+**Q: Hey Epicboy, why don't you start by telling us a bit about yourself?**
 
 **E:** I'm just a typical college student majoring in Computer Science. I'm in my fourth year of studies out of five, pursuing both a BS and MS degree. 
 To be honest, I've been suffering from imposter syndrome in my classes, so I wanted to put my programming skills to the test. 
@@ -19,7 +22,7 @@ I continued to follow the project's progress and was inspired by the never endin
 Soon after SSBU was announced as playable on the emulator, which sounded too good to be true, I gave the emulator a shot and was blown away at the compatibility. 
 Of course, it wasn't perfect, especially given that my beloved controller of choice, the Nintendo GameCube controller, was not compatible with the emulator. 
 
-**Q: So you decided that it was time to take matters in your own hands and add supoort yourself?**
+**Q: So you decided that it was time to take matters into your own hands and add support yourself?**
 
 **E:** Knowing that other emulators, notably [Dolphin](https://dolphin-emu.org/) had proper support for the official GameCube adapter, 
 and considering I was looking to sharpen my programming skillset, 
@@ -60,16 +63,16 @@ I found myself spending countless hours reading the VP9, and analyzing the video
 
 **Q: Quite the task I imagine. Why did you opt for FFMpeg as library instead of other alternatives?**
 
-**E:** FFmpeg was kind of a no-brainer. It's fast, it's open sourced, and it's well documented. It handles decoding with little effort on the programmer's part. 
+**E:** [FFmpeg](https://ffmpeg.org/) was kind of a no-brainer. It's fast, it's open sourced, and it's well documented. It handles decoding with little effort on the programmer's part. 
 It also provides API's to re-scale and convert video formats which proved to be useful. 
 The other alternative would have been writing my own software decoder from scratch, but there's no point in reinventing the wheel!
 
-**Q: No kidding! Is there anything we can expect from you in the future?**
+**Q: No kidding! Is there anything you're currently working on?**
 
 **E:** Of course! I'm always looking for the next opportunity to contribute to the project, while continuing to learn and grow as a programmer as well. 
 There's still some work left for me to finish up for the NVDEC implementation, so I haven't decided on what I'd like to tackle next. All I can say for now is that I genuinely enjoyed GPU related programming.
 
-**Q: We expect great thing from you! Is there anything else you would like to share to our users?**
+**Q: We look forward to your future contributions! Is there anything else you would like to share to our users?**
 
 **E:** I'd like to say "thank you" to all the yuzers! They are always appreciative of the work the yuzu developers put into the emulator, and are always excited to know what's next for the project. 
 Their demands can sometimes be overwhelming, but it continues to motivate the developers, and it's always gratifying to see the positive reaction they have when a feature they've been looking forward to finally becoming a reality.
@@ -77,3 +80,6 @@ Their demands can sometimes be overwhelming, but it continues to motivate the de
 
 A huge thanks to Epicboy for taking the time to sit down with us to give us some insight on NVDEC and himself.
 We hope you all enjoyed it, and we will be back soon with another featured yuzu dev to bring you behind the curtain again. Until then, thank you for your support and stay tuned!
+
+**Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!**
+**If you would like to contribute to this project, checkout our [GitHub](https://github.com/yuzu-emu/yuzu)!**
