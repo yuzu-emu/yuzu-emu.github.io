@@ -1,4 +1,9 @@
-+++ date = "2020-11-27T19:00:00+01:00" title = "Mini-Series - Dev Interview #3" author = "MysticExile" forum = 0 +++
++++
+date = "2020-11-27T19:00:00+01:00"
+title = "Mini-Series - Dev Interview #3"
+author = "MysticExile" 
+forum = 0 
++++
 
 Hey there yuzers! We are back with the third installment of this mini series. This is Dev interview #3, let's jump right into the good stuff.
 <!--more-->
