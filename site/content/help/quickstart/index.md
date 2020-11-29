@@ -13,7 +13,7 @@ description: A guide designed to get you started with yuzu quickly.
 * [Booting into RCM](#booting-into-rcm)
 * [Booting into Hekate](#booting-into-hekate)
 * [Mounting the microSD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate)
-* [Dumping Prod.keys and Title.keys](#dumping-prodkeys-and-titlekeys)
+* [Dumping Decryption Keys](#dumping-decryption-keys)
 * [Backing up Switch NAND (Optional but Recommended)](#backing-up-switch-nand-optional-but-recommended)
 * [Dumping System Update Firmware](#dumping-system-update-firmware)
 * [Dumping Cartridge Games](#dumping-cartridge-games)
@@ -136,7 +136,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 5a. Tap on `Close` again to return to the Tools menu.
     - 5b. Tap on the `Home` tab to return to the Hekate Home menu.
 
-## Dumping Prod.keys and Title.keys
+## Dumping Decryption Keys
 
 6. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
     - 6a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
@@ -146,8 +146,8 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 6e. After Lockpick_RCM has successfully booted, press the power button to select `Dump from SysNAND`. 
     - 6f. It will automatically boot to sept and start deriving the keys. Wait for it to finish deriving the keys.
     - 6g. After Lockpick_RCM has finished deriving the keys, please make note of the location of the key files. Default is: `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
-    - 6h. Press any button to return to the menu, then navigate with the VOL+/VOL- buttons to highlight and select `Reboot (RCM)` by pressing the power button.
-    - 6i. Once the screen is off, [boot back into Hekate](#booting-into-hekate) (steps 3b. to 3c.) If you receive a `Payload already injected.` warning in TegraRcmGUI, click `Yes`.
+    - 6h. Press any button to return to the menu, then navigate with the VOL+/VOL- buttons to highlight and select `Payloads...` by pressing the power button.
+    - 6i. Select ``reboot_payload.bin`` from the list of payloads. You should now be booted back into Hekate.
     - 6j. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
     - 6k. Navigate to your SD card drive and copy both `prod.keys` and `title.keys` to the `%YUZU_DIR%/keys` directory.
     - 6l. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
