@@ -76,6 +76,7 @@ This process should take about 60 to 90 minutes.
 - An SD card with at least 30 GB of free space (an almost empty 32GB card will work)
 - A USB-C to USB-A or USB-C to USB-C Cable to connect your Switch to your computer
 - [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases/latest) -- Download the TegraRcmGUI installer
+- [Guiformat](http://ridgecrop.co.uk/index.htm?guiformat.htm) -- click on the picture to download the program (Note: be sure to backup the contents of your sd card before formatting as fat32, as formatting will erase everything on the drive during formatting)
 - [Hekate](https://github.com/CTCaer/hekate/releases/latest) -- Download the `hekate` zip file
 - [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases/latest) -- Download both the `atmosphere` zip file and `fusee-primary.bin`
 - [Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases/latest) -- Download `Lockpick_RCM.bin`
@@ -93,12 +94,13 @@ This process should take about 60 to 90 minutes.
 ## Preparing the microSD Card
 
 1. We will now prepare the microSD card.
-    - 1a. Extract the contents of the `atmosphere` and `hekate` zip files into the root of your SD card.
-    - 1b. Rename the `hekate_ctcaer_X.X.X.bin` file to `reboot_payload.bin` and move it into the `atmosphere` folder. Replace the file when prompted.
-    - 1c. Place the `fusee-primary.bin` and `Lockpick_RCM.bin` files into the `bootloader\payloads` folder of the SD card.
-    - 1d. Place the `Goldleaf.nro` file in the `switch` folder of the SD card.
-    - 1e. Create a folder named `nxdumptool` within the `switch` folder of your SD card and place the `nxdumptool.nro` file inside it.
-    - 1f. Once done, eject the microSD card and insert it into your Nintendo Switch.
+    - 1a. Use the program Guiformat to format your sd card as fat32.
+    - 1b. After formatting is complete, extract the contents of the `atmosphere` and `hekate` zip files into the root of your SD card.
+    - 1c. Rename the `hekate_ctcaer_X.X.X.bin` file to `reboot_payload.bin` and move it into the `atmosphere` folder. Replace the file when prompted.
+    - 1d. Place the `fusee-primary.bin` and `Lockpick_RCM.bin` files into the `bootloader\payloads` folder of the SD card.
+    - 1e. Place the `Goldleaf.nro` file in the `switch` folder of the SD card.
+    - 1f. Create a folder named `nxdumptool` within the `switch` folder of your SD card and place the `nxdumptool.nro` file inside it.
+    - 1g. Once done, eject the microSD card and insert it into your Nintendo Switch.
 
 {{< imgs
     "./sd_template.png|Your SD card should look like this."
