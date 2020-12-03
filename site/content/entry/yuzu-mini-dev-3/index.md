@@ -68,7 +68,7 @@ The Switch GPU provided me with the frame data, but the headers needed to be man
 I found myself spending countless hours reading the VP9 specification, and analyzing the video frame-by-frame in a tool that displays each frame's headers. Ultimately, it paid off, and many VP9 videos are decoded accurately.
 
 {{< imgs
-    "./sbbu_2.mp4| Footage of Super Smash Bros. Ultimate's intro video early in development."
+    "./ssbu_2.mp4| Footage of Super Smash Bros. Ultimate's intro video early in development."
   >}}
 
 **Q: Quite the task I imagine. Why did you opt for the FFMpeg library instead of other alternatives?**
