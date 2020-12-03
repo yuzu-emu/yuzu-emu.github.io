@@ -8,10 +8,10 @@ forum = 0
 Hey there yuz-ers, welcome to the third Developer Interview! It's been a while since the last installment of this mini-series, so let's jump right into the good stuff.
 <!--more-->
 ***
-This time we're interviewing the myth, the legend, [epicboy](https://github.com/ameerj)! He is the main reason why we have NVDEC now!
+This time we're interviewing the myth, the legend, [epicboy](https://github.com/ameerj)! He is the main reason why we have [NVDEC](https://github.com/yuzu-emu/yuzu/pull/4729) now!
 If you didn't know already, NVDEC is Nvidia's video decoder used by the Nintendo Switch. Without him, we wouldn't be able to watch videos like `Fire Emblem: Three House's` intro or `The Legend of Zelda: Breath of the Wild's` memories.
 But that's not the only thing he has done! 
-He was also responsible for asynchronous shader compilation on the Vulkan renderer, GameCube Controller support, and [Alpha Test Culling on the Vulkan renderer](https://github.com/yuzu-emu/yuzu/pull/4946).
+He was also responsible for [asynchronous shader compilation on the Vulkan renderer](https://github.com/yuzu-emu/yuzu/pull/4443), [GameCube Controller support](https://github.com/yuzu-emu/yuzu/pull/4137), and [Alpha Test Culling on the Vulkan renderer](https://github.com/yuzu-emu/yuzu/pull/4946).
 And now, on to the interview!!
 ***
 
@@ -43,7 +43,7 @@ I learned that [ogniK](https://github.com/ogniK5377) had attempted to implement 
 Before I knew it, I had access to the repository with the old implementation's code and was encouraged to find a way to finish it off.
 
 It was intimidating at first, but the encouragement and mentorship from ogniK kept me motivated. 
-It was also the first glimpse I had at the guts of yuzu, and found the work that has gone into the emulation of the Switch's GPU to be very interesting.
+It was also the first glimpse I had at the guts of yuzu, and found the work that has gone into the emulation of the Nintendo Switch's GPU to be very interesting.
 
 {{< single-title-imgs
     "The Legend of Zelda: Link's Awakening"
