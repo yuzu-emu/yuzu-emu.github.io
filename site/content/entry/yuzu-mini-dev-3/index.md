@@ -67,7 +67,7 @@ In order to decode VP9, I needed the frame data along with a "compressed" and "u
 The Switch GPU provided me with the frame data, but the headers needed to be manually constructed based on meta data provided by the GPU. 
 I found myself spending countless hours reading the VP9 specification, and analyzing the video frame-by-frame in a tool that displays each frame's headers. Ultimately, it paid off, and many VP9 videos are decoded accurately.
 
-<video width="1280" height="720" autoplay>
+<video width="1280" height="720" controls>
   <source src="./ssbu_2.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
