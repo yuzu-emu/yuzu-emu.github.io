@@ -67,13 +67,14 @@ In order to decode VP9, I needed the frame data along with a "compressed" and "u
 The Switch GPU provided me with the frame data, but the headers needed to be manually constructed based on meta data provided by the GPU. 
 I found myself spending countless hours reading the VP9 specification, and analyzing the video frame-by-frame in a tool that displays each frame's headers. Ultimately, it paid off, and many VP9 videos are decoded accurately.
 
-{{< imgs
-    "./ssbu_2.mp4| Footage of Super Smash Bros. Ultimate's intro video early in development."
-  >}}
+<video width="1280" height="720" autoplay>
+  <source src="./ssbu_2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 **Q: Quite the task I imagine. Why did you opt for the FFMpeg library instead of other alternatives?**
 
-**E:** [FFmpeg](https://ffmpeg.org/) was kind of a no-brainer. It's fast, it's open sourced, and it's well documented. It handles decoding with little effort on the programmer's part. 
+**E:** FFmpeg was kind of a no-brainer. It's fast, it's open sourced, and it's well documented. It handles decoding with little effort on the programmer's part. 
 It also provides API's to re-scale and convert video formats, which proved to be useful. 
 The other alternative would have been writing my own software decoder from scratch, but there's no point in reinventing the wheel!
 
