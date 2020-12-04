@@ -1,8 +1,8 @@
 +++
-date = "2020-11-27T19:00:00+01:00"
+date = "2020-12-03T1:45:00+01:00"
 title = "Mini-Series - Dev Interview #3"
 author = "MysticExile" 
-forum = 0 
+forum = 332192 
 +++
 
 Hey there yuz-ers, welcome to the third Developer Interview! It's been a while since the last installment of this mini-series, so let's jump right into the good stuff.
