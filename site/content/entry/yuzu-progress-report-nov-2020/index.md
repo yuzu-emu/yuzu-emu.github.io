@@ -12,7 +12,7 @@ Salutations, yuz-ers! This is the November progress report, which for an unlimit
 
 ## 4-JITs, four of a kind
 
-[bunnei](https://github.com/bunnei) and [FernandoS27](https://github.com/FernandoS27) have been taking a look at yuzu's implementation of the kernel, searching for bugs or code that could be refactored — that is to say, rewritten to gain performance or make it easier to read, without changing the core functionality.
+[bunnei](https://github.com/bunnei) and [Blinkhawk](https://github.com/FernandoS27) have been taking a look at yuzu's implementation of the kernel, searching for bugs or code that could be refactored — that is to say, rewritten to gain performance or make it easier to read, without changing the core functionality.
 
 [This PR](https://github.com/yuzu-emu/yuzu/pull/4996) focuses on modifying how the JIT (Just-in-time) Compiler, an elemental tool to emulate the Nintendo Switch's CPU, is being used in yuzu. These changes greatly benefit the user, since they will mitigate the need to set up a huge pagefile for the emulator: Now, defaulting the pagefile size to `auto` should be sufficient, although some games, like `Super Smash Bros. Ultimate`, might still need a pagefile with a more reasonable size due to the sheer amount of resources being allocated; to cover these worst-case scenarios, the user can set the pagefile size to 10000MB, if they wish to do so.
 
@@ -127,7 +127,7 @@ yuzu has always been unstable when stopping emulation, and there are several rea
 You’ve been asking for it for ages, and [german77](https://github.com/german77) delivers. [Mouse support is here!](https://github.com/yuzu-emu/yuzu/pull/4939) With this, users can now set their mouse as they desire, bet it an analog stick, buttons, motion, or touch screen emulation. A controller with motion support is still the recommended input method, but a mouse can save you in a pinch.
 
 {{< imgs
-	"./mouse.mp4| Keep in mind that a mouse can't emulate all three dimetional space axis"
+	"./mouse.mp4| Keep in mind that a mouse can't emulate all three dimensional space axis"
   >}}
 
 As an extra gift for keyboard users, [german77](https://github.com/german77) also added support for [better analog emulation with keyboard inputs.](https://github.com/yuzu-emu/yuzu/pull/4905) With this change, keyboard players can now “drift” the emulated analog stick to get any angle, not just the fixed eight ones you can get by pressing keys combinations.
@@ -142,7 +142,7 @@ By [using `NpadStyleSet`,](https://github.com/yuzu-emu/yuzu/pull/4959) [Morph](h
 
 [german77](https://github.com/german77) [tweaked the rumble amplification function,](https://github.com/yuzu-emu/yuzu/pull/4950) making it more linear and less aggressive. This should help when low strength percentage values are used.
 
-By [stubbing both](https://github.com/yuzu-emu/yuzu/pull/5021) `set NpadCommunicationMode` and `get NpadCommunicationMode`, [german77](https://github.com/german77) made `Borderlands: Game of the Year Edition` and `Borderlands 2: Game of the Year Edition` playable!
+By [stubbing both](https://github.com/yuzu-emu/yuzu/pull/5021) `SetNpadCommunicationMode` and `GetNpadCommunicationMode`, [german77](https://github.com/german77) made `Borderlands: Game of the Year Edition` and `Borderlands 2: Game of the Year Edition` playable!
 
 ## A silent Guardian, a watchful Protector
 
