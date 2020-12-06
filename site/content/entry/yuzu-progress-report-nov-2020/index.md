@@ -48,15 +48,13 @@ bunnei is still working on more cleanups and looking for things that can be furt
 
 We’ve already spoken in detail about [this feature](https://github.com/yuzu-emu/yuzu/pull/4967) in its [dedicated article](https://yuzu-emu.org/entry/yuzu-tcr/), so in short, the `Texture Cache Rewrite` (which is not a shader cache change) is a work done by [Rodrigo](https://github.com/ReinUsesLisp) to reimplement the old texture cache yuzu used, which was forked from [Citra.]() This work took over 10000 lines of code, fixing graphical bugs on uncountable games and improving performance along the way.
 
-some pics
-
 This paves the way for future important changes that will come later, like the `Buffer Cache Rewrite`, which is expected to not only continue to improve render accuracy, but to raise performance by optimizing the “hottest” code in the GPU section of our source, according to profiling.
-
-more pics
 
 Expected soon-ish is the `Compute Texture Decoders`, leveraging the compute shader capabilities of GPUs to decode the texture formats handled by the Nintendo Switch games. This includes even elusive formats like `ASTC`, the main cause of non-shader related stuttering on non-Intel GPUs.
 
-finishing pic or vid
+{{< imgs
+	"./botw.mp4| Prettiest fast-traveling (The Legend of Zelda: Breath of the Wild)"
+  >}}
 
 One sad point of this rewrite is that the “Vulkan memory manager”, now called the `Texture Reaper`, which was expected to help reduce VRAM use in Vulkan, will take longer to implement due to technical complications that surfaced during its development. There is more detailed information in the dedicated article.
 
@@ -102,7 +100,7 @@ More vulkan fixes! Now by [epicboy.](https://github.com/ameerj) Our resident fis
     "./talesfix.png"
   >}}
 
-While we are speaking about [epicboy](https://github.com/ameerj), he also improved the quality of the NVDEC video decoder, by [queueing all frames](https://github.com/yuzu-emu/yuzu/pull/5002) plus some cleaning up of the code. This results in reduced skipped frames, and severely improves videos encoded in `VP9`.
+While we are speaking about [epicboy](https://github.com/ameerj), he also improved the quality of the NVDEC video decoder, by [queueing all frames](https://github.com/yuzu-emu/yuzu/pull/5002) plus some cleaning up of the code. This results in reduced skipped frames, and greatly improves videos encoded in `VP9`.
 
 {{< single-title-imgs
     "Do you need a hand? (Super Smash Bros. Ultimate)"
