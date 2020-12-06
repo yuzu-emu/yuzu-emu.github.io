@@ -160,6 +160,8 @@ More multicore changes are incoming, along with input improvements...
 
 ...And a [certain legend](https://github.com/comex) of iOS hacking has been contributing to the project, time will tell what will this bring us.
 
+That's all folks! Thank you so much for taking the time to read this progress report. See you next month, maybe Christmas will come early!
+
 &nbsp;
 <h4 style="text-align:center;">
 <b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
