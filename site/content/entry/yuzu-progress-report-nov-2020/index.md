@@ -69,8 +69,10 @@ Nintendo Switch games have access to a `web applet`, used to show tutorials or g
 {{< imgs
 	"./webapplet.png| Working tutorials in Super Smash Bros. Ultimate"
   >}}
+  
+Previously non-rendering applets are now working, this includes the few cases where games got stuck due to the previous implementation, like in `Super Smash Bros. Ultimate`. Mods that bypass the applet are no longer required, like in `Super Mario Odyssey`.
 
-There are limitations listed in the Pull Request that we will continue to work on. Expect this change to force our minimum Ubuntu requirement to 20.10 in the future due to the need to update Qt to version 5.14.2.
+There are limitations listed in the Pull Request that we will continue to work on. Expect this change to force our minimum Ubuntu version requirement to 20.10 in the future due to the need to update Qt to version 5.14.2 or higher.
 
 {{< imgs
 	"./yuzu.png| yuzuception!"
