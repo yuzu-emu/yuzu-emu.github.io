@@ -154,7 +154,7 @@ The `Buffer Cache Rewrite` has been progressing with no delays so far, and Rodri
 
 More multicore changes are incoming, along with input improvements...
 
-...And a [certain legend](https://github.com/comex) of Jailbreaks has been contributing to the project, time will tell what will this bring us.
+...And a [certain legend](https://github.com/comex) of iOS hacking has been contributing to the project, time will tell what will this bring us.
 
 &nbsp;
 <h4 style="text-align:center;">
