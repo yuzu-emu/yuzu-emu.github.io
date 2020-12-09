@@ -130,11 +130,11 @@ yuzu has always been unstable when stopping emulation, and there are several rea
 
 You’ve been asking for it for ages, and [german77](https://github.com/german77) delivers. [Mouse support is here!](https://github.com/yuzu-emu/yuzu/pull/4939) With this, users can now set their mouse as they desire, be it an analog stick, buttons, motion, or touch screen emulation. A controller with motion support is still the recommended input method, but a mouse can save you in a pinch.
 
+As an extra gift for keyboard users, [german77](https://github.com/german77) also added support for [better analog emulation with keyboard inputs.](https://github.com/yuzu-emu/yuzu/pull/4905) With this change, keyboard players can now “drift” the emulated analog stick to get any angle, not just the fixed eight directions you can get by pressing key combinations.
+
 {{< imgs
 	"./analogkey.png| You can find this setting in Emuation > Configure... > Controls > Advanced > Emulate Analog with Keyboard Input"
   >}}
-
-As an extra gift for keyboard users, [german77](https://github.com/german77) also added support for [better analog emulation with keyboard inputs.](https://github.com/yuzu-emu/yuzu/pull/4905) With this change, keyboard players can now “drift” the emulated analog stick to get any angle, not just the fixed eight directions you can get by pressing key combinations.
 
 [german77](https://github.com/german77) also enabled the use of [up to 8 different UDP servers.](https://github.com/yuzu-emu/yuzu/pull/4937) This allows for motion controls for each player.
 
