@@ -3,7 +3,7 @@ date = "2020-12-09T12:00:00-03:00"
 title = "Progress Report November 2020"
 author = "GoldenX86"
 coauthor = "Honghoa"
-forum = 0
+forum = 334353
 +++ 
 
 Salutations, yuz-ers! This is the November progress report which, for an unlimited time, will offer you hundreds of graphical fixes, improved performance, kernel changes, input additions, and major code cleanups. 
