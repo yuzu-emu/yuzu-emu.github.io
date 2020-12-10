@@ -6,7 +6,7 @@ coauthor = "Honghoa"
 forum = 0
 +++ 
 
-Salutations, yuz-ers! This is the November progress rreport which, for an unlimited time, will offer you hundreds of graphical fixes, improved performance, kernel changes, input additions, and major code cleanups. 
+Salutations, yuz-ers! This is the November progress report which, for an unlimited time, will offer you hundreds of graphical fixes, improved performance, kernel changes, input additions, and major code cleanups. 
 
 <!--more-->
 
@@ -133,7 +133,7 @@ You’ve been asking for it for ages, and [german77](https://github.com/german77
 As an extra gift for keyboard users, [german77](https://github.com/german77) also added support for [better analog emulation with keyboard inputs.](https://github.com/yuzu-emu/yuzu/pull/4905) With this change, keyboard players can now “drift” the emulated analog stick to get any angle, not just the fixed eight directions you can get by pressing key combinations.
 
 {{< imgs
-	"./analogkey.png| You can find this setting in Emuation > Configure... > Controls > Advanced > Emulate Analog with Keyboard Input"
+	"./analogkey.png| You can find this setting in Emulation > Configure... > Controls > Advanced > Emulate Analog with Keyboard Input"
   >}}
 
 [german77](https://github.com/german77) also enabled the use of [up to 8 different UDP servers.](https://github.com/yuzu-emu/yuzu/pull/4937) This allows for motion controls for each player.
