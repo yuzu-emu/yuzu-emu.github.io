@@ -154,11 +154,7 @@ By [stubbing both](https://github.com/yuzu-emu/yuzu/pull/5021) `SetNpadCommunica
 
 ## Future projects
 
-The `Buffer Cache Rewrite` has been progressing very fast with no delays so far, and Rodrigo is very enthusiastic about starting `Project Hades` after finishing it.
-
-More multicore changes are incoming, along with input improvements...
-
-...And a [certain legend](https://github.com/comex) of iOS hacking has been contributing to the project, time will tell what this will bring us.
+The `Buffer Cache Rewrite` has been progressing very fast with no delays so far, and Rodrigo is very enthusiastic about starting `Project Hades` after finishing it. More multicore changes are incoming, along with input improvements.
 
 That's all folks! Thank you so much for taking the time to read this progress report. See you next month, maybe Christmas will come early!
 
