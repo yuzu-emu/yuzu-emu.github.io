@@ -5,6 +5,8 @@ on:
     branches: [ hugo ]
   pull_request:
     branches: [ hugo ]
+  schedule:
+    - cron: 0 0 * * *
 
 jobs:
   build:
