@@ -136,7 +136,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 5a. Tap on `Close` again to return to the Tools menu.
     - 5b. Tap on the `Home` tab to return to the Hekate Home menu.
 
-## Dumping Decryption Keys
+## Dumping Prod.keys and Title.keys
 
 6. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
     - 6a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
