@@ -146,8 +146,8 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 6e. After Lockpick_RCM has successfully booted, press the power button to select `Dump from SysNAND`. 
     - 6f. It will automatically boot to sept and start deriving the keys. Wait for it to finish deriving the keys.
     - 6g. After Lockpick_RCM has finished deriving the keys, please make note of the location of the key files. Default is: `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
-    - 6h. Press any button to return to the menu, then navigate with the VOL+/VOL- buttons to highlight and select `Reboot (RCM)` by pressing the power button.
-    - 6i. Once the screen is off, [boot back into Hekate](#booting-into-hekate) (steps 3b. to 3c.) If you receive a `Payload already injected.` warning in TegraRcmGUI, click `Yes`.
+    - 6h. Press any button to return to the menu, then navigate with the VOL+/VOL- buttons to highlight and select `Payloads...` by pressing the power button.
+    - 6i. Select ``reboot_payload.bin`` from the list of payloads. You should now be booted back into Hekate.
     - 6j. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
     - 6k. Navigate to your SD card drive and copy both `prod.keys` and `title.keys` to the `%YUZU_DIR%/keys` directory.
     - 6l. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
