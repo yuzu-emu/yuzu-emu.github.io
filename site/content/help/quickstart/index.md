@@ -77,7 +77,7 @@ This process should take about 60 to 90 minutes.
 - A USB-C to USB-A or USB-C to USB-C Cable to connect your Switch to your computer
 - [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases/latest) -- Download the TegraRcmGUI installer
 - [Hekate](https://github.com/CTCaer/hekate/releases/latest) -- Download the `hekate` zip file
-- [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases/latest) -- Download both the `atmosphere` zip file and `fusee-primary.bin`
+- [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases/) -- Download both the `atmosphere` zip file and `fusee-primary.bin`
 - [Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases/latest) -- Download `Lockpick_RCM.bin`
 - [nxdumptool](https://github.com/DarkMatterCore/nxdumptool/releases/latest) -- Download `nxdumptool.nro`
 - [nxDumpMerger](https://github.com/emiyl/nxDumpMerger/releases/latest) -- Download the `nxDumpMerger_Windows.7z` zip file (Note: You need [7-zip](https://www.7-zip.org/) to extract this zip archive)
