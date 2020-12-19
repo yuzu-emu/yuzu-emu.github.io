@@ -24,7 +24,7 @@ If you are a Patreon subscriber, the "Early Access" channel will be available to
 
 <article class="message has-text-weight-semibold">
 <div class="message-body">
-<p style="color:cyan;margin-bottom: 0px;">yuzu requires the following dependencies for the most common distributions.</p>
+<p style="color:cyan;margin-bottom: 0px;">yuzu requires a number of dependencies. The following commands are listed for the most common distributions.</p>
 </div>
 </article>
 {{< message "Ubuntu 20.04 / Debian Bullseye / Linux Mint 20 or newer" >}}
