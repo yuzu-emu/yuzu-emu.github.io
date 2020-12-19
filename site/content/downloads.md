@@ -34,7 +34,7 @@ If you are a Patreon subscriber, the "Early Access" channel will be available to
 {{< message "Fedora 32 or newer" >}}
 `$ sudo dnf update && sudo dnf install SDL2 ffmpeg-libs libzip qt5-qtbase qt5-qtbase-gui qt5-qtwebengine`
 
-RPM Fusion is required: https://rpmfusion.org/Configuration
+RPM Fusion free is required: https://rpmfusion.org/Configuration
 {{</ message >}}
 
 {{< message "Arch Linux / Manjaro" >}}
