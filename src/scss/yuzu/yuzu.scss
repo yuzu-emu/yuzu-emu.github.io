@@ -94,7 +94,17 @@ a:hover {
 
 // Fix background color of monospaced text
 .content :not(pre) > code {
-  background: $dark;
+  background: #101010;
+}
+
+code {
+  color: #FFFFFF;
+  font-size: 0.875em;
+  font-weight: 400;
+  padding: 0.15em 0.25em 0.15em 0.25em;
+  border: 1px solid #585d66;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.125);
 }
 
 // Workaround for browsers without JavaScript for the downloads page
