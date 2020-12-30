@@ -48,6 +48,17 @@ a:hover {
   width: 55%;
 }
 
+// Fix switch svg scaling and image overlay alignment. 
+// (for bulma 0.9.0)
+.container {
+  flex-grow: 0;
+}
+
+.container.is-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 // Ensure that arrows consume the entire overlay's height.
 .glide__arrow {
   height: 100%;
