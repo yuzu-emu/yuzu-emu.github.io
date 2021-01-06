@@ -30,7 +30,7 @@ function releaseCallback(v, count, e) {
 
         var release_date = moment(release.published_at).fromNow();
 
-        var release_commit = release.assets[0].name.split('-').pop().trim().split('.')[0];
+        var release_commit = release.assets[1].name.split('-').pop().trim().split('.')[0];
         var release_commit_url = `https://github.com/yuzu-emu/yuzu-${v}/commit/${release_commit}`;
 
         var release_title = '';
