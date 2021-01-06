@@ -11,7 +11,7 @@ paginate = 20
   name = "blog"
   weight = 1
   identifier = "blog"
-  url = "/"
+  url = "/entry"
 
 [[menu.main]]
   name = "download"
