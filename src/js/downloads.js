@@ -48,7 +48,7 @@ function releaseCallback(v, count, e) {
             if (asset.name.includes('nupkg')) return;
             if (asset.name.includes('.7z')) return;
             if (asset.name.includes('RELEASES')) return;
-            if (asset.name.includes('.tar.xz') && (asset.name.includes('windows'))) return;
+            if (asset.name.includes('.tar.xz')) return;
             if (asset.name.includes('-debugsymbols.zip')) return;
 
             /* We only want to provide the msvc builds on the downloads page for Windows. */
@@ -61,7 +61,7 @@ function releaseCallback(v, count, e) {
             if (asset.name.includes('windows')) env_icon = 'windows';
             else if (asset.name.includes('exe')) env_icon = 'windows';
             else if (asset.name.includes('osx')) env_icon = 'apple';
-            else if (asset.name.includes('linux')) env_icon = 'linux';
+            else if (asset.name.includes('AppImage')) env_icon = 'linux';
 
             var download_url = `https://github.com/yuzu-emu/yuzu-${v}/releases/download/${release.tag_name}/${asset.name}`;
 
