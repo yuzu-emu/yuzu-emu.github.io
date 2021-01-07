@@ -26,7 +26,7 @@ If you are a Patreon subscriber, the "Early Access" channel will be available to
 
 <article class="message has-text-weight-semibold">
 <div class="message-body">
-<p style="color:cyan;margin-bottom: 0px;">We have yuzu as an AppImage now! This relaxes dependency requires for yuzu, as well as enabling it to run on a lot of older distributions.</p>
+<p style="color:cyan;margin-bottom: 0px;">We have yuzu as an AppImage now! This relaxes dependency requirements for yuzu, as well as enabling it to run on a lot of older distributions.</p>
 </div>
 </article>
 
