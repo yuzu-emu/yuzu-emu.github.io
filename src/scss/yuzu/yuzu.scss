@@ -4,6 +4,7 @@ $switch-yellow: #e6ff00;
 $switch-deeppink: #ff3278;
 $switch-lime: #1edc00;
 $switch-gray: #828282;
+$code-bg: #101010;  // code tag background color
 
 @each $name, $color in ("orangered", $switch-orangered), ("deepskyblue", $switch-deepskyblue),
         ("yellow", $switch-yellow), ("deeppink", $switch-deeppink), ("lime", $switch-lime), ("gray", $switch-gray) {
@@ -103,12 +104,27 @@ a:hover {
   line-height: 1.45;
 }
 
-// Fix background color of monospaced text
+// Fix background color for single line monospaced text
 .content :not(pre) > code {
-  background: #101010;
+  background: $code-bg;
 }
 
-code {
+// Multiline code block container
+.content pre {
+    padding: 16px;
+    overflow: auto;
+    line-height: 1.45;
+    background-color: $code-bg;
+    border-radius: 6px;
+}
+
+// Text color of multilne code block
+pre > code {
+  color: #FFFFFF;
+}
+
+// Style of single line code block
+:not(pre) > code {
   color: #FFFFFF;
   font-size: 0.875em;
   font-weight: 400;
