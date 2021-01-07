@@ -26,21 +26,14 @@ If you are a Patreon subscriber, the "Early Access" channel will be available to
 
 <article class="message has-text-weight-semibold">
 <div class="message-body">
-<p style="color:cyan;margin-bottom: 0px;">yuzu requires a number of dependencies. The following commands are listed for the most common distributions.</p>
+<p style="color:cyan;margin-bottom: 0px;">We have yuzu as an AppImage now! This relaxes dependency requirements for yuzu, as well as enabling it to run on a lot of older distributions.</p>
 </div>
 </article>
-{{< message "Ubuntu 20.04 / Debian Bullseye / Linux Mint 20 or newer" >}}
-`$ sudo apt update && sudo apt upgrade && sudo apt install libqt5core5a libqt5gui5 libqt5webenginewidgets5 libqt5widgets5 libsdl2-2.0-0 libswscale5 libzip5`
-{{</ message >}}
 
-{{< message "Fedora 32 or newer" >}}
-`$ sudo dnf update && sudo dnf install SDL2 ffmpeg-libs libzip qt5-qtbase qt5-qtbase-gui qt5-qtwebengine`
+To run yuzu as an AppImage, first download it, then add the executable bit from the terminal:
 
-RPM Fusion free is required: https://rpmfusion.org/Configuration
-{{</ message >}}
+```
+chmod a+x yuzu-*.AppImage
+```
 
-{{< message "Arch Linux / Manjaro" >}}
-`$ sudo pacman -Syu --needed ffmpeg libzip qt5-base qt5-webengine sdl2`
-
-GLIBC 2.31 or newer required.
-{{</ message >}}
+Or with the GUI, right click the AppImage, click Properties, then Permissions, then click "Allow this file to run as a program". After that, double-click the AppImage to run it.
