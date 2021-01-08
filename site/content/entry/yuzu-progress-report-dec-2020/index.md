@@ -29,9 +29,15 @@ Going in hand with these synchronization changes, [epicboy](https://github.com/a
 ## General improvements and bug fixes
 
 [epicboy](https://github.com/ameerj) has also been busy squashing bugs, in this case [killing two with one PR.](https://github.com/yuzu-emu/yuzu/pull/5201) In some instances, we were trying to read data from an nvflinger buffer, before it even existed. By adding a check, now `Yoshi’s Crafted World` now boots, albeit with several graphical glitches.
-This PR also fixes how buffers in general are accessed making several games boot for the first time. Some examples include but are not limited to `Katana ZERO`, DELTARUNE Chapter 1`, `Dragon Ball FighterZ` and `Wonder Boy: The Dragon’s Trap`.
+This PR also fixes how buffers in general are accessed making several games boot for the first time. Some examples include but are not limited to `Katana ZERO`, `DELTARUNE Chapter 1`, `Dragon Ball FighterZ` and `Wonder Boy: The Dragon’s Trap`.
 
-pics
+{{< imgs
+	"./katanazero.png| "
+  >}}
+
+{{< imgs
+	"./wonderboy.png| Now booting!"
+  >}}
 
 A PSA for our Intel graphics users, the (at the time of writing) latest `27.20.100.9126` Windows driver version adds support for not only the much needed `VK_EXT_robustness2`, but also `VK_EXT_custom_border_color` improving performance and stability with the former extension and solving rendering issues in `The Legend of Zelda: Breath of the Wild` in the latter. Nothing better than free improvements for our integrated graphics crew running Vulkan. Latest is best!
 
@@ -40,11 +46,17 @@ In the future, Early Access will finally be able to be distributed pre-compiled 
 
 During the time the Texture Cache Rewrite spent in Early Access, several regressions were being fixed. One of the notorious ones is related to the camera rune in `The Legend of Zelda: Breath of the Wild`
 
-pic
+{{< imgs
+	"./camera.png| "
+  >}}
 
 As you can clearly see with [Rodrigo’s](https://github.com/ReinUsesLisp)... art, the game informs two different size values for the same texture, named `pitch` and `width`, so yuzu didn’t transfer needed information between them as yuzu considered them different textures. By changing this behaviour, entities like animals, flowers, enemies, etc., are properly registered by the camera now.
 
-pics of donkey Tony get the boulder
+{{< single-title-imgs
+    "Tony get the boulder (The Legend of Zelda: Breath of the Wild)"
+    "./botwbug.png"
+    "./botwfix.png"
+  >}}
 
 There were some crashes when exiting yuzu that were related to the telemetry process. [Tobi](https://github.com/FearlessTobi) ported a fix from [Citra](https://github.com/citra-emu/citra) that [changes the type of `AddField` to a string,](https://github.com/yuzu-emu/yuzu/pull/5127) squashing one bug down.
 
@@ -52,17 +64,23 @@ A common issue that users reported when asking for support is that configuration
 
 [Morph](https://github.com/Morph1984) implemented the [new OSS fonts](https://github.com/yuzu-emu/yuzu/pull/5200) [Rei](https://github.com/Its-Rei) has been working on. With this, users no longer require to dump the Switch firmware to get proper button fonts in-game. The firmware dumping process is still needed for games that have Mii related content.
 
-button pics
-
-It’s far cleaner to have ZL and ZR as a trigger button, than just the letters alone, don’t you agree?
+{{< single-title-imgs
+    "It’s far cleaner to have ZL and ZR as a trigger button, than just the letters alone, don’t you agree? (Super Mario Maker 2)"
+    "./smm2fontbug.png"
+    "./smm2fontfix.png"
+  >}}
 
 A separate PR [added +/-](https://github.com/yuzu-emu/yuzu/pull/5205) to the fonts.
 
-+ sephi pic
+{{< single-title-imgs
+    "THE anime swordsman (Super Smash Bros. Ultimate)"
+    "./smashfontbug.png"
+    "./smashfontfix.png"
+  >}}
 
-rei wip pic
-
-Some insight in the process behind this.
+{{< imgs
+	"./fonts.png| Some insight in the process behind this."
+  >}}
 
 Some games report the wrong device handle when sending vibration signals, like `NEKOPARA Vol. 3` (don’t Google this series). [Morph](https://github.com/Morph1984) fixed this by [validating the device handles before use.](https://github.com/yuzu-emu/yuzu/pull/5190) Man of culture.
 
@@ -70,8 +88,9 @@ Some games report the wrong device handle when sending vibration signals, like `
 
 Finally, a very needed User Interface change, [language support](https://github.com/yuzu-emu/yuzu/pull/5239) is here. Thanks to work done by [Tobi](https://github.com/FearlessTobi) and many, *many* members of the community from around the globe, we can now offer support for 11 different languages, plus regional variations. ¡Muchas gracias!
 
-language list pic
-You can find this in Emulation > Configure > General > UI > Interface language.
+{{< imgs
+	"./language.png| You can find this in Emulation > Configure > General > UI > Interface language"
+  >}} 
 
 Anyone is welcome to help [expand the available language list.](https://www.transifex.com/yuzu-emulator/yuzu)
 
@@ -88,13 +107,19 @@ Thinking of our fast typers, [toastUnlimited](https://github.com/lat9nq) added s
 
 [german77](https://github.com/german77) added the option to [resize yuzu’s window to 1920x1080](https://github.com/yuzu-emu/yuzu/pull/5178), on top of the traditional 1280x720. This ensures a perfect 1:1 pixel ratio with native 1080p games while playing windowed, for those with high resolution displays.
 
+{{< imgs
+	"./resize.png| "
+  >}} 
+
 ## Input changes
 
 [german77](https://github.com/yuzu-emu/yuzu/pull/5178) is back in action with a couple of input improvements.
 
 Adding a way to invert an analog stick axis was a problem we didn’t expect to have on XBox and PlayStation controllers, but some alternative brands don’t seem to follow the specifications very closely. [Now if you right click an axis, you get the option to invert it.](https://github.com/yuzu-emu/yuzu/pull/5233) 
 
-pic
+{{< imgs
+	"./invert.png| "
+  >}} 
 
 This is also a great way to invert a camera if a game doesn’t allow it in its own settings, for example in `Star Wars Jedi Knight II: Jedi Outcast`.
 
@@ -106,7 +131,9 @@ A few games like `Voez` require specific touch gestures, and to achieve that, [m
 
 While we sadly couldn’t give you a Christmas present in the form of the `Buffer Cache Rewrite` (or BCR for short), the preliminary work needed to have it ready has started. [Rodrigo](https://github.com/ReinUsesLisp) has his hands full with cleaning up the TCR recently merged into Mainline, the current internal work and testing on the BCR, and his first steps with `Project Hades`. “Sleep is for the weak” indeed.
 
-SEL watercooler pic
+{{< imgs
+	"./rodrigo.png| And you don't seem to understand"
+  >}} 
 
 We will go in-depth once BCR is completed, but one of the required features is [having access to Vulkan at all times](https://github.com/yuzu-emu/yuzu/pull/5225) to make use of `interop`, a driver feature (or as Rodrigo calls it, a monstrosity) that allows developers to crosscode between different graphics APIs on Nvidia and AMD products. This way, [Vulkan can be used from OpenGL if it offers a better solution to a problem.](https://github.com/yuzu-emu/yuzu/pull/5230)
 
