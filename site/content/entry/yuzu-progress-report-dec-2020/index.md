@@ -147,6 +147,7 @@ It’s no surprise, but the `Buffer Cache Rewrite` is close to release. Vulkan p
 Plus we also have some other interesting things we’ll reveal later on.
 
 That’s all folks! Thank you so much for sticking around. See you next time in the January progress report!
+Thanks to Darkerm and Morph for helping with the pictures!
 
 &nbsp;
 <h4 style="text-align:center;">
