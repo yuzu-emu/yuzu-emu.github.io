@@ -132,7 +132,7 @@ A few games like `Voez` require specific touch gestures, and to achieve that, [m
 While we sadly couldn’t give you a Christmas present in the form of the `Buffer Cache Rewrite` (or BCR for short), the preliminary work needed to have it ready has started. [Rodrigo](https://github.com/ReinUsesLisp) has his hands full with cleaning up the TCR recently merged into Mainline, the current internal work and testing on the BCR, and his first steps with `Project Hades`. “Sleep is for the weak” indeed.
 
 {{< imgs
-	"./rodrigo.png| And you don't seem to understand"
+	"./rodrigo.png| And you don't seem to understand (Rodrigo sleeping)"
   >}} 
 
 We will go in-depth once BCR is completed, but one of the required features is [having access to Vulkan at all times](https://github.com/yuzu-emu/yuzu/pull/5225) to make use of `interop`, a driver feature (or as Rodrigo calls it, a monstrosity) that allows developers to crosscode between different graphics APIs on Nvidia and AMD products. This way, [Vulkan can be used from OpenGL if it offers a better solution to a problem.](https://github.com/yuzu-emu/yuzu/pull/5230)
