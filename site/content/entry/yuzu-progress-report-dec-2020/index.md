@@ -44,7 +44,7 @@ As you can clearly see with [Rodrigo’s](https://github.com/ReinUsesLisp)... ar
 
 There were some crashes when exiting yuzu that were related to the telemetry process. [Tobi](https://github.com/FearlessTobi) ported a fix from [Citra](https://github.com/citra-emu/citra) that [changes the type of `AddField` to a string,](https://github.com/yuzu-emu/yuzu/pull/5127) squashing one bug down.
 
-A common issue that users reported when asking for support is that configuration changes are lost if yuzu crashes. [toastUnlimited](https://github.com/lat9nq) changed this behaviour, to simply [save the current settings before a game boots.](https://github.com/yuzu-emu/yuzu/pull/5217) This change saves several headaches.
+A commonly reported issue was that configuration changes are lost if yuzu crashes. [toastUnlimited](https://github.com/lat9nq) changed this behaviour to simply [save the current settings before booting a game.](https://github.com/yuzu-emu/yuzu/pull/5217) This change saves several headaches.
 
 [Morph](https://github.com/Morph1984) implemented the [new OSS fonts](https://github.com/yuzu-emu/yuzu/pull/5200) that [Rei](https://github.com/Its-Rei) has been working on. With this, users no longer require to dump the Switch firmware to get proper button fonts in-game. The firmware dumping process is still needed for games that have Mii related content.
 
