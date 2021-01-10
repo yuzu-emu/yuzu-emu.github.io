@@ -6,7 +6,7 @@ coauthor = "GoldenX86"
 forum = 0
 +++ 
 
-Happy New Year, dear yuz-ers! 2020 finally tumbled down. Follow us for a summary of the last changes yuzu saw in 2020, and a small preview of what will come. This time we offer you kernel changes, new input and user interface additions, and the first changes applied to get the Buffer Cache Rewrite finished.
+Happy New Year, dear yuz-ers! 2020 is finally behind us, so what better way to start 2021 than with a progress report? Follow us for a summary of the last changes yuzu saw in 2020, and a small preview of what will come. This time we offer you kernel changes, new input and user interface additions, and the first changes applied to get the Buffer Cache Rewrite finished.
 
 <!--more-->
 
@@ -37,7 +37,7 @@ During the time the Texture Cache Rewrite spent in Early Access, several regress
 As you can clearly see with [Rodrigo’s](https://github.com/ReinUsesLisp)... art, the game informs two different size values for the same texture, named `pitch` and `width`, so yuzu didn’t transfer needed information between them as it considered them different textures. By changing this behaviour, entities like animals, flowers, enemies, etc. are properly registered by the camera now.
 
 {{< single-title-imgs
-    "Tony get the boulder (The Legend of Zelda: Breath of the Wild)"
+    "Tony, get the boulder (The Legend of Zelda: Breath of the Wild)"
     "./botwbug.png"
     "./botwfix.png"
   >}}
@@ -138,7 +138,7 @@ A few games like `Voez` and `The Room` require specific touch gestures, and to a
 While we sadly couldn’t give you a Christmas present in the form of the `Buffer Cache Rewrite` (or BCR for short), the preliminary work needed to have it ready has started. [Rodrigo](https://github.com/ReinUsesLisp) has his hands full with cleaning up the TCR recently merged into Mainline, the current internal work and testing on the BCR, and his first steps with `Project Hades`. *“Sleep is for the weak”* indeed.
 
 {{< imgs
-	"./rodrigo.png| And you don't seem to understand (Rodrigo sleeping)"
+	"./rodrigo.png| And you don't seem to understand... (Rodrigo sleeping)"
   >}} 
 
 We will go in-depth once BCR is completed, but one of the required features is [having access to Vulkan at all times](https://github.com/yuzu-emu/yuzu/pull/5225) to make use of `interop`, a driver feature (or as Rodrigo calls it, a monstrosity) that allows developers to cross-code between different graphics APIs on Nvidia and AMD products. This way, [Vulkan can be used from OpenGL if it offers a better solution to a problem.](https://github.com/yuzu-emu/yuzu/pull/5230)
@@ -152,8 +152,8 @@ Lastly, [additional granularity in the CPU pages.](https://github.com/yuzu-emu/y
 It’s no surprise, but the `Buffer Cache Rewrite` is close to release. Vulkan performance and stability improvements are planned, with kernel improvements continuing to be a high priority.
 Plus we also have some other interesting things we’ll reveal later on.
 
-That’s all folks! Thank you so much for sticking around. See you next time in the January progress report!
-Thanks to Darkerm and Morph for helping with the pictures!
+That’s all folks! Thank you so much for sticking around. See you next time in the January progress report! Take care and stay safe!
+Thanks to Darkerm and Morph for helping with the pictures.
 
 &nbsp;
 <h4 style="text-align:center;">
