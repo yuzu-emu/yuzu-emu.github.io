@@ -147,7 +147,7 @@ Lastly, [additional granularity in the CPU pages.](https://github.com/yuzu-emu/y
 
 ## Future projects
 
-It’s no surprise, but the `Buffer Cache Rewrite` is close to release. Vulkan performance and stability improvements are planned. Kernel improvements continue to be a high priority.
+It’s no surprise, but the `Buffer Cache Rewrite` is close to release. Vulkan performance and stability improvements are planned, with kernel improvements continuing to be a high priority.
 Plus we also have some other interesting things we’ll reveal later on.
 
 That’s all folks! Thank you so much for sticking around. See you next time in the January progress report!
