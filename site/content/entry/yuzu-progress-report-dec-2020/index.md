@@ -28,7 +28,7 @@ A PSA for our Intel graphics users, (at the time of writing) the latest `27.20.1
 What was promised is debt, Linux distributions compatibility, and the dependency issues that come with it, have been a long problem for our Tux users, until now. [toastUnlimited](https://github.com/lat9nq) has given us [AppImage builds,](https://appimage.org/) simplifying the installation process considerably, eliminating any dependencies issues, and bringing back support for Ubuntu 18.04, Debian Buster, CentOS 8, and similar older distributions.
 In the future, Early Access will finally be able to be distributed pre-compiled like this. Thanks to the reduced source code compilation work hours, the CPU Union approves of this change.
 
-During the time the Texture Cache Rewrite spent in Early Access, several regressions were being fixed. One of the notorious ones is related to the camera rune in `The Legend of Zelda: Breath of the Wild`
+During the time the Texture Cache Rewrite spent in Early Access, several regressions have been fixed. One of the notorious ones is related to the camera rune in `The Legend of Zelda: Breath of the Wild`.
 
 {{< imgs
 	"./camera.png| "
