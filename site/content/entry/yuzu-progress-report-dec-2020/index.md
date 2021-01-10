@@ -23,7 +23,7 @@ This PR also fixes how buffers are accessed, so several games now boot for the f
 	"./wonderboy.png| Now booting!"
   >}}
 
-A PSA for our Intel graphics users. With the release of the Windows driver version `27.20.100.9126`, Intel adds support for not only the much needed `VK_EXT_robustness2`, but also `VK_EXT_custom_border_color`, improving performance and stability with the former extension and solving rendering issues in `The Legend of Zelda: Breath of the Wild` with the latter. Nothing better than free improvements for our integrated graphics crew running Vulkan. Latest is best!
+A PSA for our Intel graphics users. With the release of the Windows driver version `27.20.100.9126`, Intel added support for not only the much needed `VK_EXT_robustness2`, but also `VK_EXT_custom_border_color`, improving performance and stability with the former extension and solving rendering issues in `The Legend of Zelda: Breath of the Wild` with the latter. Nothing better than free improvements for our integrated graphics crew running Vulkan. Latest is best!
 
 Linux distributions compatibility, and the dependency issues that come with it, have been a long standing problem for our tuxedo-wearing users... Until now.
 
