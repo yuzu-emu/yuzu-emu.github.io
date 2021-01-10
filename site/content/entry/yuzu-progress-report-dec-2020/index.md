@@ -115,7 +115,7 @@ Thinking of our fast typers, [toastUnlimited](https://github.com/lat9nq) added s
 
 [german77](https://github.com/yuzu-emu/yuzu/pull/5178) is back in action with a couple of input improvements.
 
-Adding a way to invert an analog stick axis was a problem we didn’t expect to have on Xbox and PlayStation controllers, but some alternative brands don’t seem to follow the specifications very closely. [Now if you right click on an axis, you get the option to invert it.](https://github.com/yuzu-emu/yuzu/pull/5233) 
+Adding a way to invert an analog stick axis was a problem we did not expect to have on Xbox and PlayStation controllers, but some alternative brands don’t seem to follow the specifications very closely. Now if you right-click on an axis, you get the [option to invert it.](https://github.com/yuzu-emu/yuzu/pull/5233) 
 
 {{< imgs
 	"./invert.png| "
