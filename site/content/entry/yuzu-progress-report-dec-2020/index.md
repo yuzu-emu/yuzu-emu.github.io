@@ -133,7 +133,7 @@ A few games like `Voez` and `The Room` require specific touch gestures, and to a
 
 ## Preliminary work for the Buffer Cache Rewrite
 
-While we sadly couldn’t give you a Christmas present in the form of the `Buffer Cache Rewrite` (or BCR for short), the preliminary work needed to have it ready has started. [Rodrigo](https://github.com/ReinUsesLisp) has his hands full with cleaning up the TCR recently merged into Mainline, the current internal work and testing on the BCR, and his first steps with `Project Hades`. “Sleep is for the weak” indeed.
+While we sadly couldn’t give you a Christmas present in the form of the `Buffer Cache Rewrite` (or BCR for short), the preliminary work needed to have it ready has started. [Rodrigo](https://github.com/ReinUsesLisp) has his hands full with cleaning up the TCR recently merged into Mainline, the current internal work and testing on the BCR, and his first steps with `Project Hades`. *“Sleep is for the weak”* indeed.
 
 {{< imgs
 	"./rodrigo.png| And you don't seem to understand (Rodrigo sleeping)"
