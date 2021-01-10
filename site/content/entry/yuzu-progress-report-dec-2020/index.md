@@ -94,7 +94,7 @@ Finally, a very needed User Interface change, [language support](https://github.
 
 Anyone is welcome to help [expand the available language list.](https://www.transifex.com/yuzu-emulator/yuzu)
 
-For our command line or shortcut lovers. [Morph](https://github.com/Morph1984) adds [command line arguments.](https://github.com/yuzu-emu/yuzu/pull/5229) Current options are:
+For our command-line or shortcut lovers, [Morph](https://github.com/Morph1984) adds [command-line arguments.](https://github.com/yuzu-emu/yuzu/pull/5229) Current options are:
 
 - `yuzu.exe "path_to_game"` - Launches a game at `path_to_game`.
 - `yuzu.exe -f` - Launches the next game in fullscreen.
