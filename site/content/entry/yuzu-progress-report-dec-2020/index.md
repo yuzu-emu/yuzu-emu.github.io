@@ -46,7 +46,7 @@ There were some crashes when exiting yuzu that were related to the telemetry pro
 
 A commonly reported issue was that configuration changes are lost if yuzu crashes. [toastUnlimited](https://github.com/lat9nq) changed this behaviour to simply [save the current settings before booting a game.](https://github.com/yuzu-emu/yuzu/pull/5217) This change saves several headaches.
 
-[Morph](https://github.com/Morph1984) implemented the [new OSS fonts](https://github.com/yuzu-emu/yuzu/pull/5200) that [Rei](https://github.com/Its-Rei) has been working on. With this, users no longer require to dump the Switch firmware to get proper button fonts in-game. The firmware dumping process is still needed for games that have Mii related content.
+[Morph](https://github.com/Morph1984) implemented the [new OSS fonts](https://github.com/yuzu-emu/yuzu/pull/5200) that [Rei](https://github.com/Its-Rei) put together. With this, users no longer require to dump the Switch firmware to get proper button fonts. The firmware dumping process is still needed for games that have Mii related content.
 
 {{< single-title-imgs
     "It’s far cleaner to have ZL and ZR as a trigger button, than just the letters alone, don’t you agree? (Super Mario Maker 2)"
