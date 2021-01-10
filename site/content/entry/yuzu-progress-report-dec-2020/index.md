@@ -145,7 +145,7 @@ We will go in-depth once BCR is completed, but one of the required features is [
 
 A rather interesting change needed is [related](https://github.com/MerryMage/dynarmic/pull/566) to [Dynarmic](https://github.com/MerryMage/dynarmic). By [masking data in three lower pointer bits](https://github.com/yuzu-emu/yuzu/pull/5249) before reading them, Rodrigo can now store required information of the page tables without needing to use a lock, saving precious execution time and, at most, some 128MB of system memory.
 
-Lastly, [additional granularity in the CPU pages.](https://github.com/yuzu-emu/yuzu/pull/5262) This Pull Request allows informing if the CPU or the GPU modified a range of data in the CPU page. If the specific range was modified by the CPU, it must be uploaded to the GPU. Processors supporting the `BMI1` instruction set will get a slim performance improvement, these include Intel Haswell (Gen. 4) or newer, and AMD Piledriver (2nd Gen. FX)/Jaguar or newer.
+Lastly, [additional granularity in the CPU pages.](https://github.com/yuzu-emu/yuzu/pull/5262) This PR allows informing if the CPU or the GPU modified a range of data in the CPU page. If the relevant range was modified by the CPU, it must be uploaded to the GPU. Processors supporting the `BMI1` instruction set will get a slim performance improvement, these include Intel Haswell (Gen. 4) or newer, and AMD Piledriver (2nd Gen. FX)/Jaguar or newer.
 
 ## Future projects
 
