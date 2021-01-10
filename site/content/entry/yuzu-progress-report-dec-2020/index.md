@@ -12,7 +12,7 @@ Happy New Year, dear yuz-ers! 2020 finally tumbled down. Follow us for a summary
 
 ## General improvements and bug fixes
 
-[epicboy](https://github.com/ameerj) has been busy squashing bugs, in this case [killing two with one PR.](https://github.com/yuzu-emu/yuzu/pull/5201) In some instances, we were trying to read data from an nvflinger buffer, before it even existed. By adding a check, `Yoshi’s Crafted World` now boots, albeit with several graphical glitches.
+[epicboy](https://github.com/ameerj) has been busy squashing bugs, in this case [killing two with one PR.](https://github.com/yuzu-emu/yuzu/pull/5201) In some instances, we were trying to read data from an nvflinger buffer before it even existed. By adding a check, `Yoshi’s Crafted World` now boots, albeit with several graphical glitches.
 This PR also fixes how buffers are accessed, so several games now boot for the first time. Some examples include: `Katana ZERO`, `DELTARUNE Chapter 1`, `Dragon Ball FighterZ` and `Wonder Boy: The Dragon’s Trap`.
 
 {{< imgs
