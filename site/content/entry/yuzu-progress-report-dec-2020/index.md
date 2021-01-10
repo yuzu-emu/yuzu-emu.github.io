@@ -34,7 +34,7 @@ During the time the Texture Cache Rewrite spent in Early Access, several regress
 	"./camera.png| "
   >}}
 
-As you can clearly see with [Rodrigo’s](https://github.com/ReinUsesLisp)... art, the game informs two different size values for the same texture, named `pitch` and `width`, so yuzu didn’t transfer needed information between them as yuzu considered them different textures. By changing this behaviour, entities like animals, flowers, enemies, etc., are properly registered by the camera now.
+As you can clearly see with [Rodrigo’s](https://github.com/ReinUsesLisp)... art, the game informs two different size values for the same texture, named `pitch` and `width`, so yuzu didn’t transfer needed information between them as it considered them different textures. By changing this behaviour, entities like animals, flowers, enemies, etc. are properly registered by the camera now.
 
 {{< single-title-imgs
     "Tony get the boulder (The Legend of Zelda: Breath of the Wild)"
