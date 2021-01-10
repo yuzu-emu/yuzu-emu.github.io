@@ -6,7 +6,7 @@ coauthor = "GoldenX86"
 forum = 0
 +++ 
 
-Happy New Year, dear yuz-ers! 2020 finally tumbled down. Follow us for a summary of the last changes yuzu saw in 2020, and a small preview of what will come!
+Happy New Year, dear yuz-ers! 2020 finally tumbled down. Follow us for a summary of the last changes yuzu saw in 2020, and a small preview of what will come. This time we offer you kernel changes, new input and user interface additions, and the first changes applied to get the Buffer Cache Rewrite finished.
 
 <!--more-->
 
