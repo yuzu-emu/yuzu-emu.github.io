@@ -123,7 +123,7 @@ Adding a way to invert an analog stick axis was a problem we didn’t expect to 
 
 This is also a great way to invert a camera if a game doesn’t allow it in its own settings, for example in `Star Wars Jedi Knight II: Jedi Outcast`.
 
-Analog triggers were sometimes mapped inverted to what the user intended. As a way to avoid some bad moments to our users, now [the program takes two samples when mapping an analog trigger,](https://github.com/yuzu-emu/yuzu/pull/5265) to better determine the direction of movement. This was [ported from Citra](https://github.com/citra-emu/citra/pull/5509), so thanks guys!
+Analog triggers were sometimes mapped inverted to what the user intended. As a way to avoid some bad moments to our users, now [the program takes two samples when mapping an analog trigger,](https://github.com/yuzu-emu/yuzu/pull/5265) to better determine the direction of movement. This was [ported from Citra](https://github.com/citra-emu/citra/pull/5509), so thanks, guys!
 
 A few games like `Voez` and `The Room` require specific touch gestures, and to achieve that, [multitouch support was added.](https://github.com/yuzu-emu/yuzu/pull/5270) With this, yuzu now offers support for up to 16 touch inputs with the keyboard, touch screen or via UDP services.
 
