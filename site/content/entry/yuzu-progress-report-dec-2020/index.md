@@ -139,7 +139,7 @@ While we sadly couldn’t give you a Christmas present in the form of the `Buffe
 	"./rodrigo.png| And you don't seem to understand (Rodrigo sleeping)"
   >}} 
 
-We will go in-depth once BCR is completed, but one of the required features is [having access to Vulkan at all times](https://github.com/yuzu-emu/yuzu/pull/5225) to make use of `interop`, a driver feature (or as Rodrigo calls it, a monstrosity) that allows developers to crosscode between different graphics APIs on Nvidia and AMD products. This way, [Vulkan can be used from OpenGL if it offers a better solution to a problem.](https://github.com/yuzu-emu/yuzu/pull/5230)
+We will go in-depth once BCR is completed, but one of the required features is [having access to Vulkan at all times](https://github.com/yuzu-emu/yuzu/pull/5225) to make use of `interop`, a driver feature (or as Rodrigo calls it, a monstrosity) that allows developers to cross-code between different graphics APIs on Nvidia and AMD products. This way, [Vulkan can be used from OpenGL if it offers a better solution to a problem.](https://github.com/yuzu-emu/yuzu/pull/5230)
 
 A rather interesting change needed is [related](https://github.com/MerryMage/dynarmic/pull/566) to [Dynarmic](https://github.com/MerryMage/dynarmic). By [masking data in three lower pointer bits](https://github.com/yuzu-emu/yuzu/pull/5249) before reading them, Rodrigo can now store required information of the page tables without needing to use a lock, saving precious execution time and, at most, some 128MB of system memory.
 
