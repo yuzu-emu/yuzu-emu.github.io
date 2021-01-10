@@ -103,7 +103,7 @@ For our command line or shortcut lovers. [Morph](https://github.com/Morph1984) a
 
 Feel free to create desktop shortcuts of all of your games!
 
-Thinking of our fast typers, [toastUnlimited](https://github.com/lat9nq) added several [menubar access hot-keys](https://github.com/yuzu-emu/yuzu/pull/5223). Now for example an user can press `Alt + F, R, 2` to load the second most played game. Look ma, no mouse!
+Thinking of our fast typers, [toastUnlimited](https://github.com/lat9nq) added several [menubar access hot-keys](https://github.com/yuzu-emu/yuzu/pull/5223). Now, for example, an user can press `Alt + F, R, 2` to load the second most played game. Look Ma! No mouse!
 
 [german77](https://github.com/german77) added the option to [resize yuzu’s window to 1920x1080](https://github.com/yuzu-emu/yuzu/pull/5178), on top of the traditional 1280x720. This ensures a perfect 1:1 pixel ratio with native 1080p games while playing windowed, for those with high resolution displays.
 
