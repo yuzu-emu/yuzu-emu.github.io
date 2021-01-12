@@ -138,7 +138,7 @@ Lioncash refactored, cleaned and made improvements / optimizations to the GPU co
 ## Service HLE
 
 With the latest documentation available on [Switchbrew](https://switchbrew.org/index.php/Main_Page), we have made various bug fixes to our service implementations and also added new services as well.
-Lioncash, [mailwl](https://github.com/mailwl), and [Hexagon12](https://github.com/hexagon12) worked on stubbing the `HID` (Human Interface Devices) service and also made a few improvements there as well.
+Lioncash, [mailwl](https://github.com/mailwl), and Hexagon12 worked on stubbing the `HID` (Human Interface Devices) service and also made a few improvements there as well.
 
 The `HID` service basically manages the controllers.
 It stores all sorts of information related to controllers in a shared memory region, which we read from.

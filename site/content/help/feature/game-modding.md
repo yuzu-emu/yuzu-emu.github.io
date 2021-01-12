@@ -24,7 +24,7 @@ These types of mods typically alter game behavior or logic.
 Currently this translates to two types of patches: `IPS` and `IPSwitch`.
 
 To use an `IPS` patch, create a file with the NSO build ID as the name and `.ips` as the extension and put it in the ExeFS dir.
-More details on the `IPS` format can be found on [ZeroSoft](https://zerosoft.zophar.net/ips.php) and [SMWiki](http://old.smwiki.net/wiki/IPS_file_format).
+More details on the `IPS` format can be found on [ZeroSoft](https://zerosoft.zophar.net/ips.php).
 
 For `IPSwitch`, the filename can be whatever you want as long as the extension is `.pchtxt` and it contains a NSO build ID.
 More details on the `IPSwitch` format can be found on it's [GitHub repo](https://github.com/3096/ipswitch).

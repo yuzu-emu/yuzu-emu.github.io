@@ -19,7 +19,7 @@ Software development best practices dictate that one should reuse code whenever 
 In line with this rule, yuzu began as a fork of the Citra code base with the core emulation code stripped out.
 This allows yuzu to focus on the core switch emulation while still having a very functional user interface, but after some time, the code for the user interface will slowly start to diverge.
 Several people chipped in to bringing the improvements over from Citra, most notably [Lioncash](https://github.com/lioncash), who over a period of time, has made many number of changes to bring yuzu up to date.
-We also ported over some of Citra's recent features like the new fmtlib-based logging backend (thanks to [jroweboy](https://github.com/b0b_d0e) & [daniellimws](https://github.com/daniellimws) ), 'About' dialog, full-screen rendering support, and themes support.
+We also ported over some of Citra's recent features like the new fmtlib-based logging backend (thanks to [jroweboy](https://github.com/jroweboy) & [daniellimws](https://github.com/daniellimws) ), 'About' dialog, full-screen rendering support, and themes support.
 
 We have also implemented features like:
 
