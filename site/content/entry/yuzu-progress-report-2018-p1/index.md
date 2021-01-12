@@ -81,7 +81,7 @@ engineering and bug fixes. Lately, bunnei and him have been working on GPU emula
 He has done a lot of Switch OS RE, which helps us to get yuzu booting games further. He has contributed
 a lot, mostly in audio, kernel, and services.
 
-[shinyquagsire](https://github.com/shinyquagsire), another Citra developer, came forward and implemented
+[shinyquagsire](https://github.com/shinyquagsire23), another Citra developer, came forward and implemented
 user input and various other things. [Lioncash](https://github.com/lioncash) and [MerryMage](https://github.com/merrymage)
 worked tirelessly on adding ARMv8 support to dynarmic, and thanks to their efforts we are now using
 [dynarmic](https://github.com/MerryMage/dynarmic) for CPU emulation. Apart from these people, there

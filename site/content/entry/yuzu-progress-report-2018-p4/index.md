@@ -372,7 +372,7 @@ It seems that the ordering of output parameters within a `HWOpus` function - `De
 		"./lgpe-6.png"
 >}}
 
-[Hexagon12](https://github.com/Hexagon12) implemented a missing predicate comparison, which fixed trainer battle crashes in the games.
+Hexagon12 implemented a missing predicate comparison, which fixed trainer battle crashes in the games.
 With these, yuzu was finally able to boot into the game properly but it still crashed when naming the characters.
 Because the software keyboard applet wasn't implemented in yuzu, the games couldn't load the applet and hence crashed.
 [DarkLordZach](https://github.com/DarkLordZach) was already working on implementing the applet and with a bit of research and testing, he was able to complete his implementation.
