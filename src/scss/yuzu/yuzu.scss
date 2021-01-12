@@ -147,3 +147,11 @@ pre > code {
 #view-package-listing-button {
   color: #363636;
 }
+
+// Fix anchor jumps (https://stackoverflow.com/a/28824157)
+:target::before {
+  content: "";
+  display: block;
+  height: 64px; /* fixed header height*/
+  margin: -64px 0 0; /* negative fixed header height */
+}
