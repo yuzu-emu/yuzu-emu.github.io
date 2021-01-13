@@ -4,7 +4,7 @@
 
 /* 2. Set the derived variables */
 @import "./yuzu/yuzu_before_derived.scss";
-@import "./node_modules/bulma/sass/utilities/derived-variables.scss";
+@import "./node_modules/bulma/sass/utilities/derived-variables.sass";
 @import "./yuzu/yuzu_after_derived.scss";
 
 /* 3. Misc customization of Bulma */
