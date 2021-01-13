@@ -18,20 +18,20 @@
   },
   "homepage": "https://github.com/yuzu-emu/yuzu-emu.github.io#readme",
   "dependencies": {
-    "bulma": "0.9.0",
+    "bulma": "0.9.1",
     "concurrent-transform": "^1.0.0",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-image-resize": "^0.13.1",
-    "gulp-postcss": "^8.0.0",
+    "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-util": "^3.0.8",
     "merge-stream": "^2.0.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.12",
-    "xo": "^0.33.1"
+    "browser-sync": "^2.26.13",
+    "xo": "^0.37.1"
   }
 }
