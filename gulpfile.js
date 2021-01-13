@@ -2,7 +2,8 @@ const fs = require('fs');
 const exec = require('child_process').exec;
 
 const gulp = require('gulp');
-const util = require('gulp-util');
+const log = require('fancy-log');
+const parseArgs = require('minimist');
 const merge = require('merge-stream');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
@@ -110,7 +111,8 @@ gulp.task('final:publish', (done) => {
 const cname = 'yuzu-emu.org';
 let finalCommand = null;
 
-if (util.env.production) {
+if (parseArgs(process.argv).production) {
+    process.env.NODE_ENV = 'production';
     process.env.HUGO_ENV = 'PRD';
     process.env.HUGO_BASEURL = `https://${cname}`;
     finalCommand = 'final:publish';
@@ -120,8 +122,8 @@ if (util.env.production) {
     finalCommand = 'final:serve';
 }
 
-util.log(`process.env.HUGO_ENV = '${process.env.HUGO_ENV}'`);
-util.log(`process.env.HUGO_BASEURL = '${process.env.HUGO_BASEURL}'`);
+log.info(`process.env.HUGO_ENV = '${process.env.HUGO_ENV}'`);
+log.info(`process.env.HUGO_BASEURL = '${process.env.HUGO_BASEURL}'`);
 
 gulp.task('default', gulp.series(gulp.parallel('assets:js', 'assets:scss'), 'hugo', 'assets:images', finalCommand));
 gulp.task('all', gulp.series(gulp.parallel('scripts:compatdb', 'scripts:wiki'), gulp.parallel('assets:js', 'assets:scss'), 'hugo', 'assets:images', finalCommand));
