@@ -50,6 +50,7 @@ function releaseCallback(v, count, e) {
             if (asset.name.includes('RELEASES')) return;
             if (asset.name.includes('.tar.xz')) return;
             if (asset.name.includes('-debugsymbols.zip')) return;
+            if (asset.name.includes('.zsync')) return;
 
             /* We only want to provide the msvc builds on the downloads page for Windows. */
             if (asset.name.includes('-mingw-')) return;
