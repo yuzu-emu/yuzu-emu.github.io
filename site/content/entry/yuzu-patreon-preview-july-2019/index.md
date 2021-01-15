@@ -43,7 +43,7 @@ Grab our latest - Patreon preview build now, to check it out.
 
 Phew, that’s quite a few new implementations.
 It’s thanks to the hard work of the yuzu development team, that all of these functions are now ready for testing.
-A big shout out to [Hexagon12](https://www.github.com/Hexagon12) for hunting down all of the service functions that were necessary to get `Super Mario Maker 2` in game, and also to [DarkLordZach](https://www.github.com/DarkLordZach) for orchestrating the entire project.
+A big shout out to Hexagon12 for hunting down all of the service functions that were necessary to get `Super Mario Maker 2` in game, and also to [DarkLordZach](https://www.github.com/DarkLordZach) for orchestrating the entire project.
 
 Here are some in-game screenshots from the Patreon preview build, just for you guys.
 

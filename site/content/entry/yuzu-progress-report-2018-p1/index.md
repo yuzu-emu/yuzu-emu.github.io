@@ -125,7 +125,7 @@ working on a loader and file system service for yuzu. Citra's loader and file sy
 reused and modified heavily to support Switch game dump files ([here](https://github.com/yuzu-emu/yuzu/pull/123)).
 Further fixes and improvements to the loader were done by [ogniK](https://github.com/ogniK5377),
 [Rozelette](https://github.com/Rozelette), [gdkchan](https://github.com/gdkchan), and
-[shinyquagsire](https://github.com/shinyquagsire).
+[shinyquagsire](https://github.com/shinyquagsire23).
 
 Next, we would need a way for games to read or load save data. Subv believed that the save data in
 the Switch has a similar behavior as the save data in the 3DS. He implemented the file system and save
@@ -214,7 +214,7 @@ Hence we've reused Citra's code here as well.
 >}}
 
 As we now have some games booting, the next step along the line would be adding HID (user input support).
-[shinyquagsire](https://github.com/shinyquagsire) worked on getting initial HID support and made further
+[shinyquagsire](https://github.com/shinyquagsire23) worked on getting initial HID support and made further
 fixes along the way. HID services maps some shared memory region to which the games can read to, get
 user input state and gamepad input writes to this. yuzu now supports handheld inputs with analog sticks
 and buttons. We still have a lot to implement in HID, like support for all 9 controllers, rumble, LEDs,
@@ -233,7 +233,7 @@ seen so far were getting stuck, either hanging or deadlocking because they were 
 Apart from the work mentioned above, we have also had minor fixes which helped us boot further in
 games like Super Mario Odyssey, 1-2-Switch, and The Binding of Issac.
 
-***Check out the next part of this report [here](https://yuzu-emu.org/entry/yuzu-progress-report-2018-p1-2)***
+***Check out the next part of this report [here](https://yuzu-emu.org/entry/yuzu-progress-report-2018-p2)***
 
 <h3 align="center">
 <b><a href="https://github.com/yuzu-emu/yuzu/">Contributions are always welcome !</a></b>
