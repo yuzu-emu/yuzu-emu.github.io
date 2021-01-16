@@ -25,25 +25,19 @@ The satellaview and baseball costumes are available for purchase in the shop if 
     "./hint-2-1.png|Located in the big city."
 >}}
 
-**Hint Art #3 -- By MelonSpeedruns**
-
-{{< imgs
-    "./hint-3-1.png|Located on cliffs in lava."
->}}
-
-**Hint Art #4 -- By MysticExile**
+**Hint Art #3 -- By MysticExile**
 
 {{< imgs
     "./hint-4-1.png|Located where the beast slumbers."
 >}}
 
-**Hint Art #5 -- By Tobi**
+**Hint Art #4 -- By Tobi**
 
 {{< imgs
     "./hint-5-1.png|Located above the big forest."
 >}}
 
-**Hint Art #6 -- By Flamboyant Ham**
+**Hint Art #5 -- By Flamboyant Ham**
 
 {{< imgs
     "./hint-6-1.png|Running around in circles."
