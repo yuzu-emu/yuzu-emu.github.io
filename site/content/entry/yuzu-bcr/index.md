@@ -42,24 +42,24 @@ the usage of particular instructions, or the frequency and duration of function 
 {{< /message >}}
 
 The problem lay in the fact that games aren't exactly streaming data all the time.
-So using immediate uploads (on OpenGL) and faster caching yielded much better performance than having a stream buffer and caching large resources, atleast for Nvidia.
+So using immediate uploads (on OpenGL) and faster caching yielded much better performance than having a stream buffer and caching large resources, at least for Nvidia.
 Upon further testing, we found that this turned out to be false for non-Nvidia drivers on OpenGL (AMD, Intel, and Mesa) and hence had to add a stream buffer for small uploads in these drivers.
 
 ## What's changed now?
 
 The technical design goals for the Buffer Cache Rewrite were the same as our Texture Cache Rewrite.
 
-- Cleaner code: No more virtual function calls or shared pointers, meaning easier maintanence in the future.
+- Cleaner code: No more virtual function calls or shared pointers, meaning easier maintenence in the future.
 - Improved efficiency and improved performance.
 
-Resolving which buffer existed in which memory region was a very expensive operation in our old buffer cache implemenation.
+Resolving which buffer existed in which memory region was a very expensive operation in our old buffer cache implementation.
 This is why the stream buffer existed — to make it faster.
 
 The new Buffer Cache has vastly improved tracking for the various buffers it caches.
-In the new implemenation, when buffers are created in the memory, they are forcibly aligned to 4K [pages](https://en.wikipedia.org/wiki/Page_(computer_memory)) (4096 bytes - starting at zero).
-And to efficently know what buffer exists on what address, the cache uses a flat array 32 MiB wide to translate from the current CPU page where the buffer exists to what buffer resides in it.
-`e.g. if the address is 4096 or 7000, that is page 1 & if it is 8192, that is page 2.`
-Thus the new Buffer Cache can track what pages of a buffer have been modified on a page basis instead of being a binary state.
+In the new implementation, when buffers are created in the memory, they are forcibly aligned to 4K [pages](https://en.wikipedia.org/wiki/Page_(computer_memory)) (4096 bytes - starting at zero).
+And to efficiently know what buffer exists on what address, the cache uses a flat array 32 MiB wide to translate from the current CPU page where the buffer exists to what buffer resides in it.
+`e.g., if the address is 4096 or 7000, that is page 1 & if it is 8192, that is page 2.`
+Thus, the new Buffer Cache can track what pages of a buffer have been modified on a page basis instead of being a binary state.
 
 Imagine if a buffer has a size of 524288 bytes and a game modifies only 1 byte of the buffer.
 Since buffers are now aligned to 4096 bytes as mentioned earlier, only those 4096 bytes are uploaded to the GPU.
@@ -105,9 +105,9 @@ AMD on the other hand, represented by a small RX550, shows an up to 55% improvem
     "./amdbench.mp4| "
   >}}
 
-Regarding Intel, an expected problem is found. All currently released products bottleneck due to immature drivers and simply lacking the raw power for Switch emulation. This results in very small or no improvements with this rewrite. Hopefully this can be improved with future improvements to both yuzu, and Intel's future drivers and hardware releases.
+Regarding Intel, an unsurprising problem arises. All currently released products bottleneck due to immature drivers and simply lacking the raw power for Switch emulation. This results in little to no performance improvements with this rewrite. Hopefully this can be addressed with future improvements to both yuzu and Intel's future drivers and hardware releases.
 
-As a special mention, AMD Vega based integrated GPUs show an up to 223% increase in Paper Mario the Origami King, reaching the same level of performance as dedicated cards of much higher caliber.
+As a special mention, AMD Vega based integrated GPUs show an up to 223% increase in Paper Mario the Origami King, reaching the same level of performance as dedicated cards of much higher calibre.
 
 ## Fin
 
