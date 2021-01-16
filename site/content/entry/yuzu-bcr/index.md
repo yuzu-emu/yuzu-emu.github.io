@@ -92,8 +92,22 @@ The main focus of this work is in improving performance, but some graphical corr
     "./xbdebug.mp4"
   >}}
 
-With that out of the way, let's talk about performance. Of course it will vary greatly depending of the hardware and API in use.
+With that out of the way, let's talk about performance. Of course metrics will vary greatly depending of the hardware and API in use.
+Here are some examples measured after a couple of runs in the most demanding or common areas of the games listed.
 
+Nvidia, in this example represented by an RTX3070, shows up to 84% improved performance in OpenGL
+{{< imgs
+    "./nvbench.mp4| "
+  >}}
+
+AMD on the other hand, represented by a small RX550, shows an up to 55% improvement in Vulkan.
+{{< imgs
+    "./amdbench.mp4| "
+  >}}
+
+Regarding Intel, an expected problem is found. All currently released products bottleneck due to immature drivers and simply lacking the raw power for Switch emulation. This results in very small or no improvements with this rewrite. Hopefully this can be improved with future improvements to both yuzu, and Intel's future drivers and hardware releases.
+
+As a special mention, AMD Vega based integrated GPUs show an up to 223% increase in Paper Mario the Origami King, reaching the same level of performance as dedicated cards of much higher caliber.
 
 ## Fin
 
