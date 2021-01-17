@@ -89,7 +89,7 @@ The main focus of this work is in improving performance, but some graphical corr
 {{< single-title-imgs
     "Item drops stop flickering in Xenoblade Chronicles Definitive Edition"
     "./xbdebug.mp4"
-    "./xbdebug.mp4"
+    "./xbdefix.mp4"
   >}}
 
 With that out of the way, let's talk about performance. Of course metrics will vary greatly depending of the hardware and API in use.
@@ -97,12 +97,12 @@ Here are some examples measured after a couple of runs in the most demanding or 
 
 Nvidia, in this example represented by an RTX3070, shows up to 84% improved performance in OpenGL
 {{< imgs
-    "./nvbench.mp4| "
+    "./nvbench.png| "
   >}}
 
 AMD on the other hand, represented by a small RX550, shows an up to 55% improvement in Vulkan.
 {{< imgs
-    "./amdbench.mp4| "
+    "./amdbench.png| "
   >}}
 
 Regarding Intel, an unsurprising problem arises. All currently released products bottleneck due to immature drivers and simply lacking the raw power for Switch emulation. This results in little to no performance improvements with this rewrite. Hopefully this can be addressed with future improvements to both yuzu and Intel's future drivers and hardware releases.
