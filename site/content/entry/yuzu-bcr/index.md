@@ -72,7 +72,7 @@ This results in fewer instructions yielding the same results (much faster).
 
 ## All right, let's talk performance gains!
 
-The main focus of this work is in improving performance, but some graphical corrections also make its way thanks to the rewrite.
+The main focus of this work is to improve performance, but some graphical improvements also resulted from this rewrite.
 
 {{< single-title-imgs
     "Vertex explosions are no longer a problem in OCTOPATH TRAVELER"
@@ -92,10 +92,10 @@ The main focus of this work is in improving performance, but some graphical corr
     "./xbdefix.mp4"
   >}}
 
-With that out of the way, let's talk about performance. Of course metrics will vary greatly depending of the hardware and API in use.
-Here are some examples measured after a couple of runs in the most demanding or common areas of the games listed.
+With that out of the way, let's talk about performance. Of course, metrics will vary greatly depending on the hardware and API in use.
+Here are some examples measured after a couple of runs in the most demanding or common areas of the games listed:
 
-Nvidia, in this example represented by an RTX3070, shows up to 84% improved performance in OpenGL
+Nvidia, in this example represented by an RTX3070, shows up to 84% improved performance in OpenGL.
 {{< imgs
     "./nvbench.png| "
   >}}
@@ -107,7 +107,7 @@ AMD on the other hand, represented by a small RX550, shows an up to 55% improvem
 
 Regarding Intel, an unsurprising problem arises. All currently released products bottleneck due to immature drivers and simply lacking the raw power for Switch emulation. This results in little to no performance improvements with this rewrite. Hopefully this can be addressed with future improvements to both yuzu and Intel's future drivers and hardware releases.
 
-As a special mention, AMD Vega based integrated GPUs show an up to 223% increase in Paper Mario the Origami King, reaching the same level of performance as dedicated cards of much higher calibre.
+As a special mention, AMD Vega based integrated GPUs show an up to 223% increase in `Paper Mario the Origami King`, reaching the same level of performance as dedicated cards of a much higher calibre.
 
 ## Fin
 
