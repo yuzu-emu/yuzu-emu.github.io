@@ -3,7 +3,7 @@ date = "2021-01-16T21:00:00-03:00"
 title = "New Feature Release - Buffer Cache Rewrite"
 author = "CaptV0rt3x"
 coauthor = "GoldenX86"
-forum = 0
+forum = 348059
 +++
 
 Hey there, yuz-ers! The follow-up to our [previous big code rewrite](https://yuzu-emu.org/entry/yuzu-tcr/) is finally here: the Buffer Cache Rewrite!
