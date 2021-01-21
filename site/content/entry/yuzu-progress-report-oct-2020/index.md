@@ -192,7 +192,7 @@ As an early gift, here's a preview of the Texture Cache Rewrite's progress:
   >}}
 
 And that's all folks! Thank you so much for reading, and see you all in the next progress report!
-Thanks RodrigoTR and GG for the pics!
+Thanks GG for the pics!
 
 {{< imgs
     "./burgy.png| Image by https://twitter.com/JamesTurner_42"
