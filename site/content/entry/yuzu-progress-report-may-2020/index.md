@@ -121,7 +121,7 @@ Although objectively a small issue, the mouse cursor didn't hide when running yu
 ## An elegant feature of a more civilized age
 
 Recently released in the Early Access build, and coming soon to Mainline, is support for `assembly shaders` (`GLASM`), usually 
-refered to as `ARB shaders`.
+referred to as `ARB shaders`.
 &nbsp;
 
 A couple decades ago, there was no common language for the then newly added programmable shading units in GPUs, so the `OpenGL Architecture Review Board` decided to create a proper standardised shading language they called `GLASM`. In broader terms, this is an assembly language used to communicate with the GPU. This makes it very difficult to work with, and the difficulty is only exacerbated by the limited set of debugging tools available. Furthermore, the language was developed with the hardware limitations of the time in mind.

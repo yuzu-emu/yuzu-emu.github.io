@@ -272,7 +272,7 @@ This works well for `AudOut` games, but games that use `AudRen` could use variab
 Because we were always playing all sounds at 48000Hz, even though it was working properly, the sounds would be audible but would often sound sped-up or with incorrect pitch.
 
 {{< single-title-imgs
-    "One Piece Unlimted World"
+    "One Piece Unlimited World"
 		"./opuw.png"
 		"./opuw_1.png"
 >}}

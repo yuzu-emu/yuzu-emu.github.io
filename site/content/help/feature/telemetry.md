@@ -40,6 +40,6 @@ identity.
 Telemetry is an extremely useful developer tool, as they allow the developer to
 be more aware of the users' needs and priorities accurately, rather than guessing.
 But it is only as useful as the data obtained, which is why we urge users to not
-opt-out, so the data can be as accurate and correct as possible. Just as innacurate
-measurements can damage a device during calibration, innacurate statistical data
+opt-out, so the data can be as accurate and correct as possible. Just as inaccurate
+measurements can damage a device during calibration, inaccurate statistical data
 will only cause damage to yuzu.

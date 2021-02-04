@@ -88,7 +88,7 @@ An IR (intermediate representation) is a representation of the program "between"
 
 In regards to Shader IR, [Blinkhawk](https://github.com/FernandoS27) rewrote how guest shaders are analysed in control flow (the code that tells how a shader diverges in execution) from the ground up.
 He created a decompiler that removes stack based branches which result in under performant shaders in Intel and AMD, and created a more advanced decompiler that could convert all the branches in the shaders into higher level structures (ifs, loops, etc).
-He also corrected control flow in SPIR-V shaders and fixed some crashes that occured on AMD due to unoptimized control flow structures.
+He also corrected control flow in SPIR-V shaders and fixed some crashes that occurred on AMD due to unoptimized control flow structures.
 
 Simply put, he redid the whole system on which shader IR is based, after [Rodrigo](https://github.com/ReinUsesLisp) converted most of the instructions into IR and setup the foundation. <br>
 <p style="color:lawngreen;"><b><i>Kind of like reorganizing a messy closet, after segregating its contents.</i></b></p>
