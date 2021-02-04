@@ -174,7 +174,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 8e. After TegraExplorer has successfully booted, press any button after the `Grabbing keys from prod.keys... Done` message is displayed to proceed to the main menu.  
     - 8f. Navigate through the menu using the `VOL+/VOL-` buttons to highlight and select `Dump Firmware` by pressing the `POWER` button.
     - 8g. Once the dumping process is finished, the `.nca` files will be located in your SD card at `sd:/tegraexplorer/Firmware/` in a folder named after the firmware revision dumped.
-    - 8h. Press any button to go return to the main menu.
+    - 8h. Press any button to return to the main menu.
     - 8i. Select the `Reboot to bootloader/update.bin` option. You should now be booted back into Hekate.
     - 8j. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
     - 8k. Navigate to your SD card drive and copy the contents in the firmware folder (step 8g.) to `%YUZU_DIR%/nand/system/Contents/registered`. Alternatively, you can write `%appdata%\yuzu\nand\system\Contents\registered` in the address bar of a file explorer. The `registered` folder should be full of `.nca` files.
