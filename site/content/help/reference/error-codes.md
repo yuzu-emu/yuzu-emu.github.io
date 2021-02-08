@@ -41,7 +41,7 @@ description: "A list of common error codes and how to resolve them."
 | `0008-0009` | `ErrorBadPFSHeader` |
 | `0008-000A` | `ErrorIncorrectPFSFileSize` |
 | `0008-0013` | `ErrorInvalidRightsID` |
-| `0008-0017` | `ErrorXCIMissingProgramNCA` <br> In some rare cases, this has been known to appear with missing keys. Try rederiving your keys and if that dosen't work contact the devs. |
+| `0008-0017` | `ErrorXCIMissingProgramNCA` <br> In some rare cases, this has been known to appear with missing keys. Try rederiving your keys and if that doesn't work contact the devs. |
 | `0008-0019` | `ErrorNoExeFS` |
 | `0008-001A` | `ErrorBadXCIHeader` |
 | `0008-001B` | `ErrorXCIMissingPartition` <br> If you trimmed your XCI, it might have been done improperly. Try avoiding trimming. |

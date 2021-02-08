@@ -16,7 +16,7 @@ Jump right in to find out more!
 
 # NVDEC - What is it?
 
-For a long time, one of the most noticable missing features of yuzu was support for NVDEC. <br>
+For a long time, one of the most noticeable missing features of yuzu was support for NVDEC. <br>
 What is [NVDEC](https://en.wikipedia.org/wiki/Nvidia_NVDEC)?
 NVDEC stands for **Nvidia Video Decoder** and is a feature in Nvidia GPUs that performs video decoding.
 And since the Switch has an Nvidia Tegra X1 SoC, it too makes use of its NVDEC module to offload all CPU intensive video decoding tasks to the GPU.
@@ -61,7 +61,7 @@ Frames usually refer to previously decoded frames, along with transformations to
 This is done in an effort to reduce the memory footprint of each frame.
 
 Here is where things got complicated.
-On the Switch, these headers are parsed by the Nvidia library in the games; therefore, NVDEC never recieves this data.
+On the Switch, these headers are parsed by the Nvidia library in the games; therefore, NVDEC never receives this data.
 But for us to decode the frames using FFmpeg, we need to provide it with the full frame - Two headers and raw frame data from NVDEC.
 And since NVDEC hardware doesn't expose all of the data of the two `VP9` headers, [epicboy](https://github.com/ameerj) had to manually compose these headers from the provided information.
 
@@ -86,7 +86,7 @@ It turned out that [ogniK](https://github.com/ogniK5377) was using incorrect dim
 
 Currently NVDEC operations are synchronous, but are asynchronous compatible.
 This means that in the future, NVDEC operations can be made asynchronous thus yielding even better performance.
-Also, thanks to the FFmpeg library, we have access to hardware accelaration for faster decoding.
+Also, thanks to the FFmpeg library, we have access to hardware acceleration for faster decoding.
 And in the future, this will allow yuzu to offload video decoding to the host GPU (user's GPU).
 
 &nbsp;
@@ -110,7 +110,7 @@ This led to data corruption when we wrote frame data to wrong memory locations.
 &nbsp;
 
 [epicboy](https://github.com/ameerj) and our testers spent tens of hours testing various games in yuzu to make sure any minor issues were ironed out.
-This rigourous testing also brought to our attention more games that exhibit weird edge cases.
+This rigorous testing also brought to our attention more games that exhibit weird edge cases.
 Over the next couple of weeks, we plan to fix these bugs and make our decoding even more accurate.
 
 Huge shoutout to our testers for testing and compiling these lists.
