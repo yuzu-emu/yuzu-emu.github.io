@@ -41,7 +41,7 @@ description: A guide designed to get you started with yuzu quickly.
 
 - Mobile CPUs will not reach the same performance as their desktop counterparts due to thermal, power, and technical limitations. 
 
-- **GPUs must support OpenGL 4.5 (or higher) & OpenGL Compatibility profile, or Vulkan 1.1.**<br>
+- **GPUs must support OpenGL 4.6 & OpenGL Compatibility profile, or Vulkan 1.1 or higher.**<br>
 To find out if your GPU meets these requirements, visit https://opengl.gpuinfo.org or https://vulkan.gpuinfo.org/ and check your GPU details.<br>
 
 Sample Image:
