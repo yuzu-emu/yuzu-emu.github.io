@@ -37,7 +37,7 @@ description: A guide designed to get you started with yuzu quickly.
 
 - Most games are playable on older Nvidia GPUs from the Fermi family (400 series) or later, but at least Pascal (1000 series) is strongly recommended.
 
-- CPUs lacking the FMA instruction set will produce very poor results. Intel Core gen 3 series or older, AMD phenom II or older and all Pentium/Celeron CPUs will not produce optimal results.
+- CPUs lacking the FMA instruction set will produce very poor results. Intel Core gen 3 series or older, AMD phenom II or older and all Pentium/Celeron/Atom CPUs will not produce optimal results.
 
 - Mobile CPUs will not reach the same performance as their desktop counterparts due to thermal, power, and technical limitations. 
 
