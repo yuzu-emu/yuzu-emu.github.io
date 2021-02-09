@@ -183,6 +183,10 @@ The reason is quite simple: most software, including games, ignore the sign and 
 
 MerryMage also submitted [a PR to prevent flushing the cache when a ISB instruction is executed](https://github.com/yuzu-emu/yuzu/pull/5831), fixing a wide range of games that ran at 1-2fps, such as `Cobra Kai`, `Megadimension Neptunia VII`, `Super Robot Wars series`, `Windbound`, and many others.
 
+{{< imgs
+	"./mn7.png| Megadimension Neptunia VII"
+  >}}
+
 In order to process instructions faster, modern CPUs read program code from memory and store it in a cache, because access times are much faster that way.
 But processing these instructions isn't an instantaneous task.
 First, an instruction is fetched from the cache, decoded, executed, and the result is written back to a register or memory.
@@ -204,6 +208,10 @@ This way, performance is not affected anymore, as yuzu doesn’t need to rebuild
 On a different note, [bunnei](https://github.com/bunnei) has been continuing with his work on the kernel.
 The first change introduced last month was [a PR to rewrite threads to be more accurate](https://github.com/yuzu-emu/yuzu/pull/5779).
 While there are not many visible benefits for the user due to the low-level nature of the change, it helped to fix a lot of smaller inaccuracies, including the softlocks in `Animal Crossing: New Horizons` when transitioning between scenes.
+
+{{< imgs
+	"./acnh.png| We don't judge you, Isabelle (Animal Crossing: New Horizons)"
+  >}}
 
 Originally, yuzu started as a fork of [Citra](https://github.com/citra-emu/citra), the 3DS emulator.
 Naturally, there is a remnant of code that was used on Citra and later modified to work for the Nintendo Switch.
