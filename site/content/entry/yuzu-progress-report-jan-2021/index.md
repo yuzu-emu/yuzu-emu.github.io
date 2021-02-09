@@ -163,7 +163,7 @@ However, this also boosts the performance of games that make heavy use of NaN va
 This setting can be found in `Emulation > Configure > CPU > Unsafe` as a toggle option, `Inaccurate NaN handling`.
 
 {{< imgs
-	"./LM3_1.mp4| Luigi's Mansion 3, before and after the change. The general performance of the game improved drastically thanks to this PR.
+	"./LM3_1.mp4| Luigi's Mansion 3, before and after the change. The general performance of the game improved drastically thanks to this PR."
   >}}
 
 On any digital system, all numbers are represented in a binary base in order to be stored and perform operations with them.
