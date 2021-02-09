@@ -47,7 +47,7 @@ We recommend users to play with this setting to find the optimal performance, bu
 	"./bcr.png| While there are big improvements across the board, this graph shows the limitations of integrated GPUs constantly fighting the CPU for RAM resources, having your own fast dedicated on-board VRAM is very important for performance."
   >}}
 
-Small analysis time. If you compare this graph to the one of the RX550 in the dedicated article, you will notice that a small integrated Vega manages to beat a dedicated Polaris card in `Fire Emblem: Three Houses` by a few frames, this is because newer GPU architectures offer features that are useful for Switch emulation. Ray tracing is not the only cool kid in town!
+Analysis time. If you compare this graph to the one of the RX550 in the dedicated article, you will notice that a small integrated Vega manages to beat a dedicated Polaris card in `Fire Emblem: Three Houses` by a few frames, this is because newer GPU architectures offer features that are useful for Switch emulation. Ray tracing is not the only cool kid in town!
 
 The Tegra X1 SoC in the Nintendo Switch offers native support for FP16 with a 2:1 performance ratio, allowing games to double their performance over the regular FP32 when doing floating point calculations. A simple way to achieve a higher frame rate on limited hardware.
 Vega (GCN 5.0), Turing, Gen 9 Intel Graphics and newer offer native support for FP16, or as AMD calls it, “Rapid Packed Math”. 
