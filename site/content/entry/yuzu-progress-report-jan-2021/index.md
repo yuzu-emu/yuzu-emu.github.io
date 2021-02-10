@@ -1,9 +1,9 @@
 +++
-date = "2021-02-08T12:00:00-03:00"
+date = "2021-02-10T12:00:00-03:00"
 title = "Progress Report January 2021"
 author = "GoldenX86"
 coauthor = "Honghoa"
-forum = 0
+forum = 359093
 +++ 
 
 Welcome yuz-ers, to the first progress report of 2021! We have quite a bit in store for you: from kernel and CPU emulation improvements to another major graphical rewrite. Here are the most important changes of January.
@@ -54,7 +54,7 @@ Vega (GCN 5.0), Turing, Gen 9 Intel Graphics and newer offer native support for 
 Series like Polaris (GCN 4.0), Pascal and older may offer support in their drivers but don’t provide a performance advantage, and in the case of Pascal, it reduces performance considerably (64 times slower than FP32). 
 In those cases FP32 is used to emulate FP16, obviously resulting in no performance gains.
 
-This is the main reason our [Hardware Requirements](https://yuzu-emu.org/help/quickstart/#hardware-requirements) lists Gen 9.5, Vega and Turing cards, as the recommended GPUs. Maxwell v2, Vega, Gen9 and later series also offer `conservative rasterization`, a very useful feature that yuzu can take advantage of in the future.
+This is the main reason our [Hardware Requirements](https://yuzu-emu.org/help/quickstart/#hardware-requirements) lists Gen 9.5, Vega, and Turing cards, as the recommended GPUs. Maxwell v2, Vega, Gen9 and later series also offer `conservative rasterization`, a very useful feature that yuzu can take advantage of in the future.
 
 ## General bug fixes and improvements
 
@@ -241,7 +241,7 @@ This is a relatively small change, but since these calculations are performed of
 
 What can be better than QoL changes that you didn’t know you wanted until you saw them?
 [german77](https://github.com/german77) gives us just that by [animating the controller input settings image](https://github.com/yuzu-emu/yuzu/pull/5339) on player actions.
-You can see the results by yourself:
+You can see the results yourself:
 
 {{< single-title-imgs
     "I like to move it, move it!"
