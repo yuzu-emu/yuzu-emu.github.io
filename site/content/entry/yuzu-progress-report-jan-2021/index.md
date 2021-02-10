@@ -11,7 +11,7 @@ Welcome yuz-ers, to the first progress report of 2021! We have quite a bit in st
 
 ## The Buffer Cache Rewrite
 
-WWhile we have a [dedicated article detailing the improvements from the Buffer Cache Rewrite](https://yuzu-emu.org/entry/yuzu-bcr/) [(BCR)](https://github.com/yuzu-emu/yuzu/pull/5741), [Rodrigo](https://github.com/ReinUsesLisp) didn't sit idle and continued to improve the buffer cache. These new changes and improvements deserve some time in the spotlight. For the full context, we advise reading the dedicated article before continuing.
+While we have a [dedicated article detailing the improvements from the Buffer Cache Rewrite](https://yuzu-emu.org/entry/yuzu-bcr/) [(BCR)](https://github.com/yuzu-emu/yuzu/pull/5741), [Rodrigo](https://github.com/ReinUsesLisp) didn't sit idle and continued to improve the buffer cache. These new changes and improvements deserve some time in the spotlight. For the full context, we advise reading the dedicated article before continuing.
 
 {{< single-title-imgs
     "The BCR offers performance and rendering improvements (Xenoblade Chronicles Definitive Edition)"
@@ -117,7 +117,7 @@ That way (after a long period of shader compilation at boot), stuttering will be
 Thanks to [Exzap](https://github.com/Exzap) from [Cemu](https://cemu.info/) for the help!
 
 Our resident shark, [ogniK,](https://github.com/ogniK5377) [implemented the missing services to have `Stereo Vision`,](https://github.com/yuzu-emu/yuzu/pull/5810) the Nintendo Switch’s implementation of Virtual Reality using a `Nintendo Labo` “headset”. 
-Games like `The Legend of Zelda: Breath of the Wild`, `Super Mario Odyssey`, `Super Smash Bros. Ultimate` and `Captain Toad: Treasure Tracker` can now render for both eyes.
+Games like `The Legend of Zelda: Breath of the Wild`, `Super Mario Odyssey`, `Super Smash Bros. Ultimate`, and `Captain Toad: Treasure Tracker` can now render for both eyes.
 
 While this doesn’t offer full VR support for PC compatible headsets yet, it allows users to make their own cardboard headsets à la Google, so long as they are handicraft-inclined.
 Pro tip, stream to a phone or tablet.
@@ -257,14 +257,14 @@ Input lag, the worst enemy of competitive games… And [german77](https://github
 
 `Pokémon Let’s Go Eevee/Pikachu` may disconnect the emulated controller, or fail to recognise the connection.
 By [applying a delay to this process](https://github.com/yuzu-emu/yuzu/pull/5805), [german77](https://github.com/german77) improves the stability of input emulation for this series of games.
-Handheld or single Joy-Con input modes are still needed to play this game, be sure to check your input settings in `Emulation > Configure… > Controls. Swap the default Pro Controller to, for example, Handheld`.
+Handheld or single Joy-Con input modes are still needed to play this game, be sure to check your input settings in `Emulation > Configure… > Controls`. Swap the default Pro Controller to, for example, Handheld.
 
 Users discovered that some games may continue to send vibration signals, this is due to the game never sending a 0 amplitude signal. 
 [Morph](https://github.com/Morph1984) fixes those erroneous vibrations by [adding a 1 second maximum time for any vibration.](https://github.com/yuzu-emu/yuzu/pull/5800)
 
 In a double combo, [Morph](https://github.com/Morph1984) and [german77](https://github.com/german77) hit us with fixes regarding Handheld mode.
-[A wrong behaviour regarding player 1 was addressed](https://github.com/yuzu-emu/yuzu/pull/5743), which used to result in input changes not saving, especially in handheld mode.
-[A check was added to ensure handheld mode is connected](https://github.com/yuzu-emu/yuzu/pull/5757) only in the correct `npad_index` value.
+[A wrong behaviour regarding player 1 was addressed](https://github.com/yuzu-emu/yuzu/pull/5743), which used to result in input changes not saving, especially in Handheld mode.
+[A check was added to ensure Handheld mode is connected](https://github.com/yuzu-emu/yuzu/pull/5757) only in the correct `npad_index` value.
 
 Holding a button would sometimes stutter, resulting in unstable behaviour. [Morph](https://github.com/Morph1984) [adds a new method to check the duration of the press or hold of the buttons](https://github.com/yuzu-emu/yuzu/pull/5366), resulting in stable behaviour.
 
