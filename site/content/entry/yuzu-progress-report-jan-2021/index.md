@@ -98,7 +98,7 @@ In the past, we blacklisted the `VK_EXT_extended_dynamic_state` Vulkan extension
 “Navi“ users can expect several graphical fixes thanks to this change.
 
 Blue team’s turn. On the topic of blacklists, [Rodrigo](https://github.com/ReinUsesLisp) had to [disable FP16 math support from Intel Windows Vulkan drivers](https://github.com/yuzu-emu/yuzu/pull/5798) to solve stability issues affecting `Astral Chain`. 
-For now, half float operations will be emulated using FP32 math. This will result in lower performance if the game manages to make full use of the compute capabilities of the GPU. Usually on current Intel graphics, rasterization will be bottlenecking before this happens.
+For now, half float operations will be emulated using FP32 math. This will result in lower performance if the game manages to make full use of the compute capabilities of the GPU. Usually on current Intel graphics, rasterization (to put it simple, the raw power of the GPU) will be bottlenecking before floating point performance is relevant.
 
 Thanks to this change and Intel’s native ASTC texture decoding support, Intel Graphics now has the best rendering quality in this particular game. 
 We’re waiting for a driver fix to come relatively soon, so as always, keep your drivers updated!
