@@ -172,7 +172,7 @@ On any digital system, all numbers are represented in a binary base in order to 
 Naturally, there is a limit to the amount of numbers and the precision with which they can be represented, not to mention that a number can be expressed in many ways by just declaring it as a different type (e.g. integer, [floating-point](https://en.wikipedia.org/wiki/Floating-point_arithmetic) number, etc.).
 Likewise, there are also many mathematical elements that aren't numbers per se, but special cases that result from mathematical operations.
 Think, for example, about the square root of a negative number: although the result of this operation is a valid [complex number](https://en.wikipedia.org/wiki/Complex_number), it's not a defined type (i.e. a number that the computer understands), therefore, it becomes *something else*.
-Or think about dividing any number by zero: this mathematical operation is undefined, and thus it yields a result.
+Or think about dividing any number by zero: this mathematical operation is undefined, and thus it yields a similar result.
 
 These types of indeterminations are defined as a special floating-point value called [`NaN`](https://en.wikipedia.org/wiki/NaN) - which stands for "Not a Number".
 The architecture of the CPU of the Nintendo Switch (`ARM`) handles these NaN values differently from the architecture used by any computer CPU (`AMD64`).
