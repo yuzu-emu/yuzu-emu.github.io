@@ -37,11 +37,11 @@ description: A guide designed to get you started with yuzu quickly.
 
 - Most games are playable on older Nvidia GPUs from the Fermi family (400 series) or later, but at least Pascal (1000 series) is strongly recommended.
 
-- CPUs lacking the FMA instruction set will produce very poor results. Intel Core gen 3 series or older, AMD phenom II or older and all Pentium/Celeron CPUs will not produce optimal results.
+- CPUs lacking the FMA instruction set will produce very poor results. Intel Core gen 3 series or older, AMD phenom II or older and all Pentium/Celeron/Atom CPUs will not produce optimal results.
 
 - Mobile CPUs will not reach the same performance as their desktop counterparts due to thermal, power, and technical limitations. 
 
-- **GPUs must support OpenGL 4.5 (or higher) & OpenGL Compatibility profile, or Vulkan 1.1.**<br>
+- **GPUs must support OpenGL 4.6 & OpenGL Compatibility profile, or Vulkan 1.1 (or higher).**<br>
 To find out if your GPU meets these requirements, visit https://opengl.gpuinfo.org or https://vulkan.gpuinfo.org/ and check your GPU details.<br>
 
 Sample Image:
@@ -81,7 +81,7 @@ This process should take about 60 to 90 minutes.
 - [Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases/latest) -- Download `Lockpick_RCM.bin`
 - [nxdumptool](https://github.com/DarkMatterCore/nxdumptool/releases/latest) -- Download `nxdumptool.nro`
 - [nxDumpMerger](https://github.com/emiyl/nxDumpMerger/releases/latest) -- Download the `nxDumpMerger_Windows.7z` zip file (Note: You need [7-zip](https://www.7-zip.org/) to extract this zip archive)
-- [Goldleaf](https://github.com/XorTroll/Goldleaf/releases/latest) -- Download `Goldleaf.nro`
+- [TegraExplorer](https://github.com/suchmememanyskill/TegraExplorer/releases/latest) -- Download `TegraExplorer.bin`
 - [microSD Card Reader](https://www.amazon.com/dp/B006T9B6R2) -- If your computer has one built-in, you can use that
 - [RCM Jig](https://www.amazon.com/dp/B07J9JJRRG) <-- We highly recommend one like this, but you could use any of the methods outlined [here](https://noirscape.github.io/RCM-Guide/)
 
@@ -95,10 +95,9 @@ This process should take about 60 to 90 minutes.
 1. We will now prepare the microSD card.
     - 1a. Extract the contents of the `atmosphere` and `hekate` zip files into the root of your SD card.
     - 1b. Rename the `hekate_ctcaer_X.X.X.bin` file to `reboot_payload.bin` and move it into the `atmosphere` folder. Replace the file when prompted.
-    - 1c. Place the `fusee-primary.bin` and `Lockpick_RCM.bin` files into the `bootloader\payloads` folder of the SD card.
-    - 1d. Place the `Goldleaf.nro` file in the `switch` folder of the SD card.
-    - 1e. Create a folder named `nxdumptool` within the `switch` folder of your SD card and place the `nxdumptool.nro` file inside it.
-    - 1f. Once done, eject the microSD card and insert it into your Nintendo Switch.
+    - 1c. Place the `fusee-primary.bin`, `Lockpick_RCM.bin` and `TegraExplorer.bin` files into the `bootloader\payloads` folder of the SD card.
+    - 1d. Create a folder named `nxdumptool` within the `switch` folder of your SD card and place the `nxdumptool.nro` file inside it.
+    - 1e. Once done, eject the microSD card and insert it into your Nintendo Switch.
 
 {{< imgs
     "./sd_template.png|Your SD card should look like this."
@@ -147,7 +146,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 6f. It will automatically boot to sept and start deriving the keys. Wait for it to finish deriving the keys.
     - 6g. After Lockpick_RCM has finished deriving the keys, please make note of the location of the key files. Default is: `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
     - 6h. Press any button to return to the menu, then navigate with the VOL+/VOL- buttons to highlight and select `Payloads...` by pressing the power button.
-    - 6i. Select ``reboot_payload.bin`` from the list of payloads. You should now be booted back into Hekate.
+    - 6i. Select `reboot_payload.bin` from the list of payloads. You should now be booted back into Hekate.
     - 6j. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
     - 6k. Navigate to your SD card drive and copy both `prod.keys` and `title.keys` to the `%YUZU_DIR%/keys` directory.
     - 6l. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
@@ -171,19 +170,15 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 8a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
     - 8b. Boot into [Hekate](#booting-into-hekate) (steps 3b. to 3c.)
     - 8c. When it has successfully booted into the Hekate Home menu, tap on `Payloads`. This will show a list of payloads.
-    - 8d. Tap on `fusee-primary.bin` in the list of payloads.
-    - 8e. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the HOME Menu, press and hold the `R` button on your controller and launch a game. This will launch the Homebrew Menu in `title override mode`.
-    - 8f. Either use the touchscreen or navigate using your controller, and select `Goldleaf`.
-    - 8g. Select `Console and Goldleaf settings` near the bottom.
-    - 8h. Select `Firmware and updates`.
-    - 8i. Select `Export update`.
-    - 8j. Select `Directory`.
-    - 8k. Once the exporting process finishes, the `.nca` files will be located in your SD card in `sd:/switch/Goldleaf/dump/update` in a folder named after the firmware revision dumped.
-    - 8l. Press `+` on your controller to return to the Homebrew Menu.
-    - 8m. Select `Reboot to Payload` and then press `-` on your controller to return to the Hekate Home menu.
-    - 8n. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
-    - 8o. Navigate to your SD card drive and copy the contents in the firmware folder (step 5l.) to `%YUZU_DIR%/nand/system/Contents/registered`. Alternatively, you can write `%appdata%\yuzu\nand\system\Contents\registered` in the address bar of a file explorer.
-    - 8p. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
+    - 8d. Tap on `TegraExplorer.bin` in the list of payloads.
+    - 8e. After TegraExplorer has successfully booted, press any button after the `Grabbing keys from prod.keys... Done` message is displayed to proceed to the main menu.  
+    - 8f. Navigate through the menu using the `VOL+/VOL-` buttons to highlight and select `Dump Firmware` by pressing the `POWER` button.
+    - 8g. Once the dumping process is finished, the `.nca` files will be located in your SD card at `sd:/tegraexplorer/Firmware/` in a folder named after the firmware revision dumped.
+    - 8h. Press any button to return to the main menu.
+    - 8i. Select the `Reboot to bootloader/update.bin` option. You should now be booted back into Hekate.
+    - 8j. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
+    - 8k. Navigate to your SD card drive and copy the contents in the firmware folder (step 8g.) to `%YUZU_DIR%/nand/system/Contents/registered`. Alternatively, you can write `%appdata%\yuzu\nand\system\Contents\registered` in the address bar of a file explorer. The `registered` folder should be full of `.nca` files.
+    - 8l. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
 
 ## Dumping Cartridge Games
 

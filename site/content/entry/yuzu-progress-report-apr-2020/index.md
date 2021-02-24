@@ -30,7 +30,7 @@ For quite a while, Nvidia Turing users (GTX 16 series and RTX 20 series GPUs) ha
     "./28.png"
   >}}
   
-Speaking of shader decoding accuracy, [Rodrigo](https://github.com/ReinUsesLisp) improved the precision of the `HADD2` and `HMUL2` instructions, fixing some long standing bugs like the fog in `Fire Emblem: Three Houses` and the excessive brigthness in most maps in `Super Smash Bros. Ultimate`.
+Speaking of shader decoding accuracy, [Rodrigo](https://github.com/ReinUsesLisp) improved the precision of the `HADD2` and `HMUL2` instructions, fixing some long standing bugs like the fog in `Fire Emblem: Three Houses` and the excessive brightness in most maps in `Super Smash Bros. Ultimate`.
 
 {{< single-title-imgs
     "You can now take off your sunglasses (Super Smash Bros. Ultimate)"

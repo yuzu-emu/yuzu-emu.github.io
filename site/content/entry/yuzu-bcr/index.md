@@ -49,7 +49,7 @@ Upon further testing, we found that this turned out to be false for non-Nvidia d
 
 The technical design goals for the Buffer Cache Rewrite were the same as our Texture Cache Rewrite.
 
-- Cleaner code: No more virtual function calls or shared pointers, meaning easier maintenence in the future.
+- Cleaner code: No more virtual function calls or shared pointers, meaning easier maintenance in the future.
 - Improved efficiency and improved performance.
 
 Resolving which buffer existed in which memory region was a very expensive operation in our old buffer cache implementation.

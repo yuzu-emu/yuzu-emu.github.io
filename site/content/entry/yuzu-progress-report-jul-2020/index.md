@@ -40,7 +40,7 @@ To begin with, [Rodrigo](https://github.com/ReinUsesLisp) implemented several fi
 
 [bunnei](https://github.com/bunnei) brings the big guns. The complete [rewrite of the `GPU Virtual Memory Manager`](https://github.com/yuzu-emu/yuzu/pull/4430) fixes *several* bugs in many games, with the two strongest examples being `Mario Kart 8 Deluxe` and `Super Smash Bros. Ultimate`. Now several graphical bugs are fixed in Mario Kart 8, including tracks that show invisible terrain or missing graphics. In Smash's case, there are no more vertex explosions now.
 
-This rewrite also should reduce commited memory a bit, hopefully reducing the size of the required page file, and opens the possibility to implement new features in the future. We have to clarify that this doesn't fix the high VRAM usage in Vulkan.
+This rewrite also should reduce committed memory a bit, hopefully reducing the size of the required page file, and opens the possibility to implement new features in the future. We have to clarify that this doesn't fix the high VRAM usage in Vulkan.
 
 {{< single-title-imgs
     "That's not what I meant when I said Anti-Gravity! (Mario Kart 8 Deluxe)"
@@ -122,7 +122,7 @@ Looking for the next meal, Morph took a bite at the saving issues of the Bioshoc
     "./bioshock_saved.png"
   >}}
 
-After this little treat, the Kirby embarked on an adventure to fix the last remaining issues with the VFS. After 3 days of debugging the Pokemon Sword and Shield RomFS weather bug, he discovered that these games contained a 0 byte file called `global_setting.bin` which caused the file right after it called `weather_data.bin` to be skipped entirely. And you may have guessed by now - this file contains all the data for weather and without it, no weather can be generated within the game! This eureka moment led to an extremely simple fix which [accomodates for 0 byte files during RomFS building](https://github.com/yuzu-emu/yuzu/pull/4309).
+After this little treat, the Kirby embarked on an adventure to fix the last remaining issues with the VFS. After 3 days of debugging the Pokemon Sword and Shield RomFS weather bug, he discovered that these games contained a 0 byte file called `global_setting.bin` which caused the file right after it called `weather_data.bin` to be skipped entirely. And you may have guessed by now - this file contains all the data for weather and without it, no weather can be generated within the game! This eureka moment led to an extremely simple fix which [accommodates for 0 byte files during RomFS building](https://github.com/yuzu-emu/yuzu/pull/4309).
 
 {{< single-title-imgs
     " Let it snow, let it snow, let it snow! (Pokemon Sword and Shield)"
