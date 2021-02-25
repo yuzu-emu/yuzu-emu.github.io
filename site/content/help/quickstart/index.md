@@ -19,7 +19,7 @@ description: A guide designed to get you started with yuzu quickly.
 * [Dumping Cartridge Games](#dumping-cartridge-games)
 * [Dumping Installed Titles (eShop)](#dumping-installed-titles-eshop)
 * [Dumping Save Files (Optional)](#dumping-save-files-optional)
-* [Rebooting the Switch Back to its Normal State](#rebooting-the-switch-back-to-its-normal-state)
+* [Rebooting the Switch Back to its Original State](#rebooting-the-switch-back-to-its-original-state)
 * [Running yuzu](#running-yuzu)
 
 ## Downloading and Installing yuzu
@@ -58,7 +58,7 @@ To check if your Switch is hackable, visit https://damota.me/ssnc/checker and te
         <p>NOTE:</p>
         <ul>
             <li>If your Switch is patched, you will be unable to complete the following steps.</li>
-            <li>The Switch v2 (Mariko/Red Box/HAC-001(-01)) and the Switch Lite are both patched and you will not be able to complete the following steps.</li>
+            <li>The 2019 Switch revision (Mariko/Red Box/HAC-001(-01)) and the Switch Lite are both patched and you will not be able to complete the following steps.</li>
         </ul>
     </div>
 </article>
@@ -75,12 +75,12 @@ This process should take about 60 to 90 minutes.
 - A Nintendo Switch vulnerable to the fusée gelée RCM exploit -- Visit https://damota.me/ssnc/checker and test your Switch's serial number
 - An SD card with at least 30 GB of free space (an almost empty 32GB card will work)
 - A USB-C to USB-A or USB-C to USB-C Cable to connect your Switch to your computer
-- [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases/latest) -- Download the TegraRcmGUI installer
-- [Hekate](https://github.com/CTCaer/hekate/releases/latest) -- Download the `hekate` zip file
-- [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases/) -- Download both the `atmosphere` zip file and `fusee-primary.bin`
+- [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases/latest) -- Download `TegraRcmGUI_v2.6_Installer.msi`
+- [Hekate](https://github.com/CTCaer/hekate/releases/latest) -- Download `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip`
+- [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases/latest) -- Download both `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` and `fusee-primary.bin`
 - [Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases/latest) -- Download `Lockpick_RCM.bin`
 - [nxdumptool](https://github.com/DarkMatterCore/nxdumptool/releases/latest) -- Download `nxdumptool.nro`
-- [nxDumpMerger](https://github.com/emiyl/nxDumpMerger/releases/latest) -- Download the `nxDumpMerger_Windows.7z` zip file (Note: You need [7-zip](https://www.7-zip.org/) to extract this zip archive)
+- [nxDumpMerger](https://github.com/emiyl/nxDumpMerger/releases/latest) -- Download `nxDumpMerger_Windows.zip`
 - [TegraExplorer](https://github.com/suchmememanyskill/TegraExplorer/releases/latest) -- Download `TegraExplorer.bin`
 - [microSD Card Reader](https://www.amazon.com/dp/B006T9B6R2) -- If your computer has one built-in, you can use that
 - [RCM Jig](https://www.amazon.com/dp/B07J9JJRRG) <-- We highly recommend one like this, but you could use any of the methods outlined [here](https://noirscape.github.io/RCM-Guide/)
@@ -93,9 +93,9 @@ This process should take about 60 to 90 minutes.
 ## Preparing the microSD Card
 
 1. We will now prepare the microSD card.
-    - 1a. Extract the contents of the `atmosphere` and `hekate` zip files into the root of your SD card.
+    - 1a. Extract the contents inside the `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` and `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` files into the root of your microSD card. Just drag and drop the contents, do not create any new folders.
     - 1b. Rename the `hekate_ctcaer_X.X.X.bin` file to `reboot_payload.bin` and move it into the `atmosphere` folder. Replace the file when prompted.
-    - 1c. Place the `fusee-primary.bin`, `Lockpick_RCM.bin` and `TegraExplorer.bin` files into the `bootloader\payloads` folder of the SD card.
+    - 1c. Place the `fusee-primary.bin`, `Lockpick_RCM.bin` and `TegraExplorer.bin` files into the `payloads` folder, which is inside the `bootloader` folder in your microSD card.
     - 1d. Create a folder named `nxdumptool` within the `switch` folder of your SD card and place the `nxdumptool.nro` file inside it.
     - 1e. Once done, eject the microSD card and insert it into your Nintendo Switch.
 
@@ -116,13 +116,13 @@ This process should take about 60 to 90 minutes.
 ## Booting into Hekate
 
 3. We will now boot your Nintendo Switch (already in [RCM mode](#booting-into-rcm)) into Hekate, a custom bootloader.
-    - 3a. Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate` zip file you downloaded from the prerequisites.
+    - 3a. Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` file you downloaded from the prerequisites to any accessible directory on your computer.
     - 3b. Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate_ctcaer_X.X.X.bin` file you extracted earlier.
     - 3c. Click on `Inject Payload` and your Switch will boot into the Hekate menu.
     
 ## Mounting the microSD card to your computer in Hekate
 
-_**NOTE:** These steps will be used in other sections of the guide. If you followed through [step 3.](#booting-into-rcm) for the first time, skip this section for now._
+_**NOTE:** These steps will be used in other sections below. Do **not** follow this section yet if you are [booted into Hekate for the first time.](#booting-into-rcm) Skip to the [next section](#dumping-prod-keys-and-title-keys) for now._
 
 4. We will now mount the microSD card as a drive from your Switch to your computer in Hekate, via USB.
     - 4a. In the Hekate Home menu, tap on the `Tools` tab to show the Tools menu.
@@ -171,11 +171,10 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 8b. Boot into [Hekate](#booting-into-hekate) (steps 3b. to 3c.)
     - 8c. When it has successfully booted into the Hekate Home menu, tap on `Payloads`. This will show a list of payloads.
     - 8d. Tap on `TegraExplorer.bin` in the list of payloads.
-    - 8e. After TegraExplorer has successfully booted, press any button after the `Grabbing keys from prod.keys... Done` message is displayed to proceed to the main menu.  
-    - 8f. Navigate through the menu using the `VOL+/VOL-` buttons to highlight and select `Dump Firmware` by pressing the `POWER` button.
-    - 8g. Once the dumping process is finished, the `.nca` files will be located in your SD card at `sd:/tegraexplorer/Firmware/` in a folder named after the firmware revision dumped.
+    - 8e. After TegraExplorer has successfully booted, navigate through the menu using the `VOL+/VOL-` buttons to highlight and select `Dump Firmware` by pressing the `POWER` button.
+    - 8f. Once the dumping process is finished, the `.nca` files will be located in your SD card at `sd:/tegraexplorer/Firmware/` inside a folder with a name of the firmware revision.
     - 8h. Press any button to return to the main menu.
-    - 8i. Select the `Reboot to bootloader/update.bin` option. You should now be booted back into Hekate.
+    - 8i. Select the `Reboot to bootloader/update.bin` option. (Alternatively, you can select the `reboot_payload.bin` option if `update.bin` is not available.) You should now be booted back into Hekate.
     - 8j. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
     - 8k. Navigate to your SD card drive and copy the contents in the firmware folder (step 8g.) to `%YUZU_DIR%/nand/system/Contents/registered`. Alternatively, you can write `%appdata%\yuzu\nand\system\Contents\registered` in the address bar of a file explorer. The `registered` folder should be full of `.nca` files.
     - 8l. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
@@ -196,11 +195,11 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 9k. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
     - 9l. Navigate to your SD card drive. XCI dumps are located under `sd:/switch/nxdumptool/XCI`.
     - 9m. If your XCIs are dumped in parts with `.xc0`, `.xc1`, `.xc2`, etc extensions, use the `nxDumpMerger` tool you have downloaded in the prerequisites to assist in merging these parts into a complete XCI. If they were dumped as complete XCI files with the `.xci` extension, you can proceed to copy these to a game directory of your choice.
-    - 9n. Extract the contents of `nxDumpMerger` into a new folder and start the program.
+    - 9n. Extract the contents of `nxDumpMerger_Windows.zip` into a new folder and start the program.
     - 9o. Select the button with the triple dots `...` next to the `Input` field. This will open a file selector.
     - 9p. Find and select one of the parts and click `Open`.
     - 9q. Next, select the button with the triple dots `...` next to the `Output` field. This will open a folder selector.
-    - 9r. Select a folder where you would like your games stored and click `Select Folder`.
+    - 9r. Select a folder where you would like your games stored in your computer and then click `Select Folder`. (**NOTE:** Do not select a folder inside the SD card or you will quickly run out of space and experience slow transfer speeds in the merging process.)
     - 9s. After completing these steps, the parts are ready to be merged. Select `Merge Dump` and the program will merge the parts into a complete XCI located in the `Output` folder. Repeat these steps for all other games dumped as parts.
     - 9t. Once you're done merging, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
 
@@ -228,7 +227,7 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 10s. Select the button with the triple dots `...` next to the `Input` field. This will open a file selector.
     - 10t. Find a NSP that is dumped as a folder with parts. Select one of the parts within the folder and click `Open`.
     - 10u. Next, select the button with the triple dots `...` next to the `Output` field. This will open a folder selector.
-    - 10v. Select a folder where you would like your games stored and click `Select Folder`.
+    - 10v. Select a folder where you would like your games stored in your computer and then click `Select Folder`. (**NOTE:** Do not select a folder inside the SD card or you will quickly run out of space and experience slow transfer speeds in the merging process.)
     - 10w. After completing these steps, the parts are ready to be merged. Select `Merge Dump` and the program will merge the parts into a complete NSP located in the `Output` folder. Repeat these steps for all folder NSPs.
     - 10x. Once you're done merging, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
 
@@ -249,12 +248,13 @@ _**NOTE:** These steps will be used in other sections of the guide. If you follo
     - 11l. Once you have backed up the save files, press any button to return to the previous menu and then press `+` to return to the Homebrew Menu.
     - 11m. Select `Reboot to Payload` and then press `-` on your controller to return to the Hekate menu.
     - 11n. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
-    - 8t. Navigate to your SD card drive. Your save files will be located in the `switch/Checkpoint` folder.
-    - 8u. Once you're done transferring your save files, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
+    - 11o. Navigate to your SD card drive. Your save files will be located in the `switch/Checkpoint` folder.
+    - 11p. Follow the instructions in the [How do I add a Save to my Game](https://yuzu-emu.org/wiki/faq/#how-do-i-add-a-save-to-my-game) section of our [FAQ.](https://yuzu-emu.org/wiki/faq/)
+    - 11q. Once you're done transferring your save files, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
     
-## Rebooting the Switch Back to its Normal State
+## Rebooting the Switch Back to its Original State
 
-12. If you're done following the sections you needed for yuzu, we will now reboot the Switch back to its normal state.
+12. If you're done following the sections you needed for yuzu, we will now reboot the Switch back to its original state.
     - 12a. From the Hekate Home Menu, tap on `Reboot`.
     - 12b. Tap on `OFW`.
     - 12c. Your Switch will now reboot into the original firmware.
