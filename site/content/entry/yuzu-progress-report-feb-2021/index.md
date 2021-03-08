@@ -112,8 +112,8 @@ Our devs are working hard to solve these, so we ask our tuxfriends to be patient
 ## General bug fixes and improvements
 
 `Pokémon Sword and Shield` players can enjoy one less reason to crash the game. 
-Boss [bunnei](https://github.com/bunnei) [fixed LDN initialization,](https://github.com/yuzu-emu/yuzu/pull/5920) eliminating the crash that occurred if the player pressed `Y` during gameplay, by mistake activating online services that yuzu lacks.
-An error window will still pop up, but emulation will continue after closing it.
+Boss [bunnei](https://github.com/bunnei) [fixed LDN initialization,](https://github.com/yuzu-emu/yuzu/pull/5920) eliminating the crash that occurred if the player pressed `Y` during gameplay, activating online services that yuzu lacks by mistake.
+An error window will still pop up, but emulation will continue.
 
 Another `Animal Crossing: New Horizons` update, another service to stub or implement to regain playability.
 This time, [stubbing GetSaveDataBackupSetting](https://github.com/yuzu-emu/yuzu/pull/5892) made 1.7.0 and later versions playable again.
@@ -136,7 +136,7 @@ Finally, [implementing glDepthRangeIndexeddNV](https://github.com/yuzu-emu/yuzu/
 
 vids of d6
 
-[Rodrigo](https://github.com/ReinUsesLisp) [fixed a bug in Vulkan’s stream buffer,](https://github.com/yuzu-emu/yuzu/pull/5919) improving performance and reducing VRAM use, while also making better use of the integrated VRAM, instead of falling back to shared VRAM, better known as just system RAM.
+[Rodrigo](https://github.com/ReinUsesLisp) [fixed a bug in Vulkan’s stream buffer,](https://github.com/yuzu-emu/yuzu/pull/5919) improving performance and reducing VRAM use, while also making better use of the dedicated VRAM, instead of falling back to shared VRAM, better known as just system RAM.
 
 By [using dirty flags](https://github.com/yuzu-emu/yuzu/pull/5923), [Rodrigo](https://github.com/ReinUsesLisp) also managed another slim but measurable Vulkan performance bump. Reducing draw calls always helps!
 
@@ -146,7 +146,7 @@ This makes the driver assign less memory for command buffers, saving a considera
 For example, in `Pokèmon Sword/Shield`, Vulkan’s use of system RAM goes from 707MB, to just 2MB.
 
 To end the day, [Rodrigo](https://github.com/ReinUsesLisp) fixed a regression introduced by the `Buffer Cache Rewrite`. Some games benefit from skipping the cache, but others lose performance. For example `Animal Crossing: New Horizons` was severely affected in Vulkan.
-By [implementing a way to heuristically decide when to skip the cache,](https://github.com/yuzu-emu/yuzu/pull/6021) performance was restored.
+By [implementing a way to heuristically decide when to skip the cache,](https://github.com/yuzu-emu/yuzu/pull/6021) performance was not only restored, but also increased.
 
 ## Input improvements
 
@@ -170,16 +170,16 @@ This solves issues experienced in `Super Mario 3D World + Bowser’s Fury`.
 [Jatoxo](https://github.com/Jatoxo) gives us a feature we didn’t know we wanted. [Added depth to the analog sticks](https://github.com/yuzu-emu/yuzu/pull/5894) of the Pro Controller in the controls preview.
 See the result for yourself!
 
-gif
+gifs
 
 ## Audio achievements
 
 One of our most requested fixes is finally here! 
 `Fire Emblem: Three Houses` no longer echoes voices!
-[ogniK](https://github.com/ogniK5377) is responsible for this fix, which [implemented I3dl2Reverb.](https://github.com/yuzu-emu/yuzu/pull/5909)
+[ogniK](https://github.com/ogniK5377) is responsible for this fix, which properly [implemented I3dl2Reverb.](https://github.com/yuzu-emu/yuzu/pull/5909)
 
-If you paused emulation and some time later resumed it, you would experience severe stuttering until the audio catched up.
-[german77](https://github.com/german77) solved this by [preventing overscheduling audio events,](https://github.com/yuzu-emu/yuzu/pull/5868) allowing for a seamless experience after resuming emulation.
+If you paused emulation and some time later resumed it, you would experience severe stuttering until the audio catched up to the rendering.
+[german77](https://github.com/german77) solved this pleasant experience by [preventing overscheduling audio events,](https://github.com/yuzu-emu/yuzu/pull/5868) allowing for a seamless experience after resuming emulation.
 
 ## Future projects
 
