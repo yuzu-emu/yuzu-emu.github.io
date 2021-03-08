@@ -162,13 +162,7 @@ By default, pressing Ctrl +  F9 toggles this feature.
 
 vid
 
-A [separate PR](https://github.com/yuzu-emu/yuzu/pull/5929) improves panning functionality even more, by:
-
-Providing smoother movement
-Reset the pointer less frequently to the center with slow movements.
-Add a dead zone boost. This increases the responsiveness.
-Letting the mouse slowly drift to the center. This produces fewer hard stops.
-Adding a max range limit, allowing faster changes in direction.
+A [separate PR](https://github.com/yuzu-emu/yuzu/pull/5929) improves panning functionality even more, giving it a more natural control.
 
 [Morph](https://github.com/Morph1984) [implemented the Finalize request](https://github.com/yuzu-emu/yuzu/pull/5908) on the inline keyboard emulation, allowing it to exit in a stable, graceful way instead of looping indefinitely. 
 This solves issues experienced in `Super Mario 3D World + Bowser’s Fury`.
