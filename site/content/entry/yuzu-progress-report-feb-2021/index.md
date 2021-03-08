@@ -134,7 +134,11 @@ A similar change [was needed for OpenGL.](https://github.com/yuzu-emu/yuzu/pull/
 
 Finally, [implementing glDepthRangeIndexeddNV](https://github.com/yuzu-emu/yuzu/pull/5997) solves out of range issues in the depth buffer.
 
-vids of d6
+{{< single-title-imgs
+    "Disgaea 6: Defiance of Destiny"
+    "./d6bug.mp4"
+    "./d6fix.mp4"
+  >}}
 
 [Rodrigo](https://github.com/ReinUsesLisp) [fixed a bug in Vulkan’s stream buffer,](https://github.com/yuzu-emu/yuzu/pull/5919) improving performance and reducing VRAM use, while also making better use of the dedicated VRAM, instead of falling back to shared VRAM, better known as just system RAM.
 
@@ -160,7 +164,9 @@ Another new feature [german77](https://github.com/german77) added is [mouse pann
 This allows to set the mouse as an analog stick, allowing very comfortable gameplay on games that for example use the right analog stick as camera control.
 By default, pressing Ctrl +  F9 toggles this feature.
 
-vid
+{{< imgs
+	"./panning.mp4| Keyobard warriors rejoyce! (The Legend of Zelda: Breath of the Wild)"
+  >}}
 
 A [separate PR](https://github.com/yuzu-emu/yuzu/pull/5929) improves panning functionality even more, giving it a more natural control.
 
@@ -170,7 +176,11 @@ This solves issues experienced in `Super Mario 3D World + Bowser’s Fury`.
 [Jatoxo](https://github.com/Jatoxo) gives us a feature we didn’t know we wanted. [Added depth to the analog sticks](https://github.com/yuzu-emu/yuzu/pull/5894) of the Pro Controller in the controls preview.
 See the result for yourself!
 
-gifs
+{{< single-title-imgs
+    "Nothing beats quality of life changes like this"
+    "./stickold.mp4"
+    "./sticknew.mp4"
+  >}}
 
 ## Audio achievements
 
