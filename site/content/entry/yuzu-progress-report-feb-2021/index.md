@@ -84,7 +84,12 @@ One of such cases was the [use of compute shaders to decode ATSC textures](https
 The Nintendo Switch is capable of decoding these textures natively in hardware, but it's a feature that most PC GPUs vendors lack in their products, with the exception of Intel Graphics, being the only vendor that offers native support.
 The decoding of these textures is therefore a non-trivial task that can have a huge impact on performance, as seen in games such as `Astral Chain` and `Luigi's Mansion 3`.
 
-astral chain vid
+This feature works as intended on all GPU vendors on Windows, although there are a few problems on Linux (more especifically, the `AMDGPU-PRO` driver) that still need to be ironed out.
+Our devs are working hard to solve these bugs, so we ask our tuxfriends to be patient and stay tuned!
+
+{{< imgs
+	"./astral_chain_atsc.mp4| Comparison between the old and the new implementation of the ATSC decoder.
+  >}}
 
 This led to the implementation of an `ATSC` decoder through the processor, which was faster than what GPUs could do with their lack of support, but was still far from being a satisfactory solution since it consumed CPU resources and consequently slowed down games that made extensive use of this format.
 The solution, thus, was to implement the decoding through compute shaders.
@@ -93,21 +98,26 @@ This way, the load on the CPU will be shifted to the GPU, allowing emulation to 
 As a side benefit, now textures remain in the GPU memory all the time, since they don't need to be transferred between CPU and GPU for decoding.
 This means that there won't be time spent downloading the texture to CPU and then uploading it back to the GPU after the decoding is done, like in the old implementation.
 
-bgr picset 1
+{{< single-title-imgs
+    "Color-swapped and properly swizzled versions of `Octopath Traveler`'s title screen.
+    "./octopath1.jpg"
+    "./octopath2.jpg"
+  >}}
 
 Since compute programs were originally meant to manipulate image data, they also worked out nicely to fix a problem with one of the rendering APIs used in yuzu, by [using compute shaders to swizzle BGR textures on copy](https://github.com/yuzu-emu/yuzu/pull/5891).
 In OpenGL, colours are stored in channels, and the way they are laid out varies depending on the format used.
 For example, the `RGB` format stores the color channels in the order "Red, Green and Blue", while the `BGR` format stores the channels in the order "Blue, Green and Red".
 Unfortunately, this latter format isn't supported internally in OpenGL, which caused problems with a number of games that made use of `BGR` textures: their Red and Blue channels were swapped and the final images looked blue-ish.
 
-bgr picset 2
+{{< single-title-imgs
+    "Blue Christina looks nice, but the red in its right place definitely suits the Nixie Tubes much better in `Steins;Gate My Darling's Embrace`.
+    "./sg1.jpg"
+    "./g2.jpg"
+  >}}
 
 The solution to this problem then was to reorder the Blue and Red channels in the copy uploaded into the GPU.
 Reordering the graphical information of an image to process it in the graphic card is called swizzling, so what this PR does is to copy the values of the Red channel into the Blue channel and vice-versa, a process that can be exploited through parallel computation.
 This way, the problem with OpenGL is directly bypassed on the GPU, and games can render as they should on the screen.
-
-This feature works as intended on all GPU vendors on Windows, although there are a few problems on Linux that still need to be ironed out.
-Our devs are working hard to solve these, so we ask our tuxfriends to be patient and stay tuned!
 
 ## General bug fixes and improvements
 
