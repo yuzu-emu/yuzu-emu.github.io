@@ -45,7 +45,7 @@ Previously, these calculations would use 128-bit math for high precision, which 
 However, there was a bug introduced with these optimizations, and the timing math would result in an integer overflow.
 This PR fixed the bug by preventing the wall-clock from overflowing, and now things are back to working as intended.
 
-bunnei also continues on his campaign to rewrite the kernel and its codebase. This time, he has been tidying up the [memory management code](https://github.com/yuzu-emu/yuzu/pull/5953) and refactoring the implementation to be closer to the latest firmware up to date, in order to make it easier to import code from newer firmware easier.
+bunnei also continues on his campaign to rewrite the kernel and its codebase. This time, he has been tidying up the [memory management code](https://github.com/yuzu-emu/yuzu/pull/5953) and refactoring the implementation to be closer to the latest firmware up to date, in order to make it easier to import code from newer firmware.
 
 Going along with kernel work, he also changed the implementation of [fibers](https://en.wikipedia.org/wiki/Fiber_(computer_science)) to [use unique_ptr instead of shared_ptr](https://github.com/yuzu-emu/yuzu/pull/6006).
 Fibers are similar to threads, except they can't be executed in parallel.
@@ -74,7 +74,7 @@ Originally, these subroutines were used to calculate light levels, darkness, col
 Thus, these programs were promptly named as [shaders](https://en.wikipedia.org/wiki/Shader).
 
 Modern GPUs are designed to break down their workload into smaller sized problems, which in turn are processed simultaneously in the many computing units of the card (entities akin to cores in a CPU).
-The reason for this design choice is simply because parallelisation is a very efficient scheme to process computer graphics, since a single instruction is capable of operating over many components of data at the same time, like the vertices and textures of a 3D scene, increasing the throughput of information (especially when compared against the performance of performing the same operations in a CPU).
+The reason for this design choice is simply because parallelisation is a very efficient scheme to process computer graphics, since a single instruction is capable of operating over many components of data at the same time, such as the vertices and textures of a 3D scene, thus increasing the throughput of information (especially when compared against the performance of performing the same operations in a CPU).
 But their potential isn't limited to just these functions.
 It is possible to write programs that won't necessarily operate over graphics, yet still benefit from these characteristics.
 This is known as `GPGPU` - [General-purpose computing on graphics processing units](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) - and it's intended to be used when there is a problem that can be separate into a number of parallel tasks in order to be processed more efficiently. These problems are commonly called `embarrassingly parallel problems`.
@@ -85,7 +85,7 @@ The Nintendo Switch is capable of decoding these textures natively in hardware, 
 The decoding of these textures is therefore a non-trivial task that can have a huge impact on performance, as seen in games such as `Astral Chain` and `Luigi's Mansion 3`.
 
 {{< imgs
-	"./astral_chain_atsc.mp4| Comparison between the old and the new implementation of the ATSC decoder.
+	"./astral_chain_atsc.mp4| Comparison between the old and the new implementation of the ATSC decoder"
   >}}
 
 This led to the implementation of an `ATSC` decoder through the processor, which was faster than what GPUs could do with their lack of support, but was still far from being a satisfactory solution since it consumed CPU resources and consequently slowed down games that made extensive use of this format.
@@ -101,7 +101,7 @@ Our devs are working hard to solve these bugs, so we ask our tuxfriends to be pa
 Since compute programs were originally meant to manipulate image data, they also worked out nicely to fix a problem with one of the rendering APIs used in yuzu, by [using compute shaders to swizzle BGR textures on copy](https://github.com/yuzu-emu/yuzu/pull/5891).
 
 {{< single-title-imgs
-    "Color-swapped and properly swizzled versions of `Octopath Traveler`'s title screen.
+    "Color-swapped and properly swizzled versions of `Octopath Traveler`'s title screen"
     "./octopath1.jpg"
     "./octopath2.jpg"
   >}}
@@ -111,7 +111,7 @@ For example, the `RGB` format stores the color channels in the order "Red, Green
 Unfortunately, this latter format isn't supported internally in OpenGL, which caused problems with a number of games that made use of `BGR` textures: their Red and Blue channels were swapped and the final images looked blue-ish.
 
 {{< single-title-imgs
-    "Blue Christina looks nice, but the red in its right place definitely suits the Nixie Tubes much better in `Steins;Gate My Darling's Embrace`.
+    "Blue Christina looks nice, but the red in its right place definitely suits the Nixie Tubes much better in `Steins;Gate My Darling's Embrace`"
     "./sg1.jpg"
     "./g2.jpg"
   >}}
