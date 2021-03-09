@@ -28,7 +28,7 @@ Multi GPU systems must have all their drivers updated, even for integrated graph
 [Merry](https://github.com/MerryMage) recently catched a bug in the implementation of yuzu's `SPSC` ring buffer, and fixed it by [removing the granularity template argument](https://github.com/yuzu-emu/yuzu/pull/5885).
 What does this mean?
 
-A buffer is a data structure that reserves space of memory as slots to store information temporarily (for example, an audio buffer).
+A buffer is a data structure that reserves space of memory as slots to store information temporarily: for example, an audio buffer.
 In particular, a [ring buffer](https://en.wikipedia.org/wiki/Circular_buffer) is a special type of buffer where the slot next to the final one is the first slot in the buffer (so the start and the end are connected).
 Once it's full, no new data is added until some information has been extracted from the buffer and processed.
 
@@ -74,18 +74,15 @@ Originally, these subroutines were used to calculate light levels, darkness, col
 Thus, these programs were promptly named as [shaders](https://en.wikipedia.org/wiki/Shader).
 
 Modern GPUs are designed to break down their workload into smaller sized problems, which in turn are processed simultaneously in the many computing units of the card (entities akin to cores in a CPU).
-The reason for this design choice is simply because parallelisation is a very efficient scheme to process computer graphics, since a single instruction is capable of operating over many components of data at the same time (like the vertices and textures of a 3D scene), increasing the throughput of information (especially when compared against the performance of performing the same operations in a CPU).
+The reason for this design choice is simply because parallelisation is a very efficient scheme to process computer graphics, since a single instruction is capable of operating over many components of data at the same time, like the vertices and textures of a 3D scene, increasing the throughput of information (especially when compared against the performance of performing the same operations in a CPU).
 But their potential isn't limited to just these functions.
 It is possible to write programs that won't necessarily operate over graphics, yet still benefit from these characteristics.
-This is known as `GPGPU` - [General-purpose computing on graphics processing units](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) - and it's intended to be used when there is a problem that can be separate into a number of parallel tasks in order to be processed more efficiently - also known as `embarrassingly parallel` problems.
+This is known as `GPGPU` - [General-purpose computing on graphics processing units](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) - and it's intended to be used when there is a problem that can be separate into a number of parallel tasks in order to be processed more efficiently. These problems are commonly called `embarrassingly parallel problems`.
 
 One of such cases was the [use of compute shaders to decode ATSC textures](https://github.com/yuzu-emu/yuzu/pull/5927).
 `ATSC` stands for "Adaptable Scalable Texture Compression", and it's a fairly new image compression format mainly aimed at mobile devices.
-The Nintendo Switch is capable of decoding these textures natively in hardware, but it's a feature that most PC GPUs vendors lack in their products, with the exception of Intel Graphics, being the only vendor that offers native support.
+The Nintendo Switch is capable of decoding these textures natively in hardware, but it's a feature that most PC GPUs vendors lack in their products (with the exception of Intel Graphics, being the only vendor that offers native support).
 The decoding of these textures is therefore a non-trivial task that can have a huge impact on performance, as seen in games such as `Astral Chain` and `Luigi's Mansion 3`.
-
-This feature works as intended on all GPU vendors on Windows, although there are a few problems on Linux (more especifically, the `AMDGPU-PRO` driver) that still need to be ironed out.
-Our devs are working hard to solve these bugs, so we ask our tuxfriends to be patient and stay tuned!
 
 {{< imgs
 	"./astral_chain_atsc.mp4| Comparison between the old and the new implementation of the ATSC decoder.
@@ -98,13 +95,17 @@ This way, the load on the CPU will be shifted to the GPU, allowing emulation to 
 As a side benefit, now textures remain in the GPU memory all the time, since they don't need to be transferred between CPU and GPU for decoding.
 This means that there won't be time spent downloading the texture to CPU and then uploading it back to the GPU after the decoding is done, like in the old implementation.
 
+This feature works as intended on all GPU vendors on Windows, although there are a few problems on Linux (more especifically, the `AMDGPU-PRO` driver) that still need to be ironed out.
+Our devs are working hard to solve these bugs, so we ask our tuxfriends to be patient and stay tuned!
+
+Since compute programs were originally meant to manipulate image data, they also worked out nicely to fix a problem with one of the rendering APIs used in yuzu, by [using compute shaders to swizzle BGR textures on copy](https://github.com/yuzu-emu/yuzu/pull/5891).
+
 {{< single-title-imgs
     "Color-swapped and properly swizzled versions of `Octopath Traveler`'s title screen.
     "./octopath1.jpg"
     "./octopath2.jpg"
   >}}
 
-Since compute programs were originally meant to manipulate image data, they also worked out nicely to fix a problem with one of the rendering APIs used in yuzu, by [using compute shaders to swizzle BGR textures on copy](https://github.com/yuzu-emu/yuzu/pull/5891).
 In OpenGL, colours are stored in channels, and the way they are laid out varies depending on the format used.
 For example, the `RGB` format stores the color channels in the order "Red, Green and Blue", while the `BGR` format stores the channels in the order "Blue, Green and Red".
 Unfortunately, this latter format isn't supported internally in OpenGL, which caused problems with a number of games that made use of `BGR` textures: their Red and Blue channels were swapped and the final images looked blue-ish.
