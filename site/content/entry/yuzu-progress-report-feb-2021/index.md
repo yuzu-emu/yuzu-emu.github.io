@@ -113,7 +113,7 @@ Unfortunately, this latter format isn't supported internally in OpenGL, which ca
 {{< single-title-imgs
     "Blue Christina looks nice, but the red in its right place definitely suits the Nixie Tubes much better in `Steins;Gate My Darling's Embrace`"
     "./sg1.jpg"
-    "./g2.jpg"
+    "./sg2.jpg"
   >}}
 
 The solution to this problem then was to reorder the Blue and Red channels in the copy uploaded into the GPU.
