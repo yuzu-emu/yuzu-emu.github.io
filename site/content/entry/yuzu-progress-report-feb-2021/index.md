@@ -176,7 +176,7 @@ This allows to set the mouse as an analog stick, allowing very comfortable gamep
 By default, pressing Ctrl +  F9 toggles this feature.
 
 {{< imgs
-	"./panning.mp4| Keyobard warriors rejoyce! (The Legend of Zelda: Breath of the Wild)"
+	"./panning.mp4| Keyboard warriors rejoyce! (The Legend of Zelda: Breath of the Wild)"
   >}}
 
 A [separate PR](https://github.com/yuzu-emu/yuzu/pull/5929) improves panning functionality even more, giving it a more natural control.
