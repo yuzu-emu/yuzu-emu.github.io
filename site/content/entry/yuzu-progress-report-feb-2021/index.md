@@ -14,10 +14,11 @@ Welcome back yuz-ers, welcome to ~~City 17~~ Febraury’s progress report! This 
 
 Thanks to Linux’s mesa drivers progress, we recently modified our minimum graphics requirements.
 
-[yuzu now requires OpenGL 4.6](https://github.com/yuzu-emu/yuzu/pull/5888), any compatible hardware achieves this with its latest GPU drivers installed. Even old Fermi or GCN1.0 series products.
-Laptop users, like desktop users, should visit the GPU’s manufacturer site ([AMD](https://www.amd.com/en/support), [Intel](https://downloadcenter.intel.com/product/80939/Graphics), [Nvidia](https://www.nvidia.com/en-us/geforce/drivers/) instead of the vendor’s site of the laptop (HP, Lenovo, Asus, etc.), as it will provide compatible and much more updated drivers. Thanks [Morph](https://github.com/Morph1984) for the change!
+[yuzu now requires OpenGL 4.6](https://github.com/yuzu-emu/yuzu/pull/5888), any previously compatible hardware reaches this requirement with its latest GPU drivers installed. Even old Fermi or GCN1.0 series products.
+Laptop users, like desktop users, should visit the GPU’s manufacturer site ([AMD](https://www.amd.com/en/support), [Intel](https://downloadcenter.intel.com/product/80939/Graphics), [Nvidia](https://www.nvidia.com/en-us/geforce/drivers/) instead of the vendor’s site of the laptop (HP, Lenovo, Asus, etc.), as it will provide compatible and much more updated drivers. 
+Thanks [Morph](https://github.com/Morph1984) for the change!
 
-On the flip side, we still keep our requirement of Vulkan 1.1, but as stated in previous articles, [Rodrigo](https://github.com/ReinUsesLisp) made `VK_EXT_robustness2` [a hard requirement now.](https://github.com/yuzu-emu/yuzu/pull/5917)
+On the flip side, while the requirement of Vulkan 1.1 hasn't changed, as stated in previous articles, [Rodrigo](https://github.com/ReinUsesLisp) made `VK_EXT_robustness2` [a hard requirement now.](https://github.com/yuzu-emu/yuzu/pull/5917)
 This means that updated drivers are critical now, as lacking this extension will stop yuzu from booting games while on Vulkan.
 AMD users still require to install the latest `Optional` driver version to get support for robustness2. At the time of writing, the latest version is 21.2.3, but yuzu will work with drivers as old as 20.12.1.
 
@@ -122,17 +123,18 @@ This way, the problem with OpenGL is directly bypassed on the GPU, and games can
 
 ## General bug fixes and improvements
 
-`Pokémon Sword and Shield` players can enjoy one less reason to crash the game. 
-Boss [bunnei](https://github.com/bunnei) [fixed LDN initialization,](https://github.com/yuzu-emu/yuzu/pull/5920) eliminating the crash that occurred if the player pressed `Y` during gameplay, activating online services that yuzu lacks by mistake.
+`Pokémon Sword and Shield` players can enjoy one less frequent crashes. 
+Boss [bunnei](https://github.com/bunnei) [fixed a problem on LDN initialization,](https://github.com/yuzu-emu/yuzu/pull/5920) eliminating the crash that occurred if the player pressed `Y` during gameplay, activating online services that yuzu lacks.
 An error window will still pop up, but emulation will continue.
 
-Another `Animal Crossing: New Horizons` update, another service to stub or implement to regain playability.
+Yet another `Animal Crossing: New Horizons` update, yet another service to stub or implement to regain playability.
 This time, [stubbing GetSaveDataBackupSetting](https://github.com/yuzu-emu/yuzu/pull/5892) made 1.7.0 and later versions playable again.
 Thanks [german77!](https://github.com/german77)
 
-Under certain conditions, the `WebApplet` would crash yuzu when opening, for example, the Action Guide in `Super Mario Odyssey`. [aleasto](https://github.com/aleasto) managed to solve this by [fixing an out of bounds read.](https://github.com/yuzu-emu/yuzu/pull/5878) 
+Under certain conditions, the `WebApplet` would crash yuzu when opening for example, the Action Guide in `Super Mario Odyssey`. 
+[aleasto](https://github.com/aleasto) managed to solve this by [fixing an out of bounds read.](https://github.com/yuzu-emu/yuzu/pull/5878) 
 
-A common annoyance that affected new users was asking for placing the derivation keys in the correct `keys` folder, a folder that had to be manually created until now. 
+A common annoyance that affected new users was asking for placing the derivation keys in the correct `keys` folder, a folder which had to be manually created until now. 
 Thanks to [Morph,](https://github.com/Morph1984) now there is an empty `keys` folder created by default as part of the installation process of yuzu, ready to be populated by the user’s own Switch’s keys.
 
 ## Graphics improvements
@@ -141,38 +143,42 @@ Thanks to [Morph,](https://github.com/Morph1984) now there is an empty `keys` fo
 
 First, Vulkan needed some [corrected offsets](https://github.com/yuzu-emu/yuzu/pull/5936) for `TexelFetch` and `TextureGather`, types of texture instructions.
 
-A similar change [was needed for OpenGL.](https://github.com/yuzu-emu/yuzu/pull/5980) this work also includes better handling of `signed atomics`, improving precision. Thanks to [Ryujinx](https://github.com/Ryujinx/Ryujinx) for helping here.
+A similar change [was needed for OpenGL.](https://github.com/yuzu-emu/yuzu/pull/5980) this work also includes better handling of `signed atomics`, improving precision. 
+Thanks to [Ryujinx](https://github.com/Ryujinx/Ryujinx) for helping here.
 
 Finally, [implementing glDepthRangeIndexeddNV](https://github.com/yuzu-emu/yuzu/pull/5997) solves out of range issues in the depth buffer.
 
 {{< single-title-imgs
-    "Disgaea 6: Defiance of Destiny"
+    "The result of Maide's work (Disgaea 6: Defiance of Destiny)"
     "./d6bug.mp4"
     "./d6fix.mp4"
   >}}
 
-[Rodrigo](https://github.com/ReinUsesLisp) [fixed a bug in Vulkan’s stream buffer,](https://github.com/yuzu-emu/yuzu/pull/5919) improving performance and reducing VRAM use, while also making better use of the dedicated VRAM, instead of falling back to shared VRAM, better known as just system RAM.
+[Rodrigo](https://github.com/ReinUsesLisp) [fixed a bug in Vulkan’s stream buffer,](https://github.com/yuzu-emu/yuzu/pull/5919) improving performance and reducing VRAM use, while also making better use of the dedicated VRAM, instead of falling back to shared VRAM, which is better known as just system RAM.
 
-By [using dirty flags](https://github.com/yuzu-emu/yuzu/pull/5923), [Rodrigo](https://github.com/ReinUsesLisp) also managed another slim but measurable Vulkan performance bump. Reducing draw calls always helps!
+By [using dirty flags](https://github.com/yuzu-emu/yuzu/pull/5923), [Rodrigo](https://github.com/ReinUsesLisp) also managed another slim but measurable Vulkan performance bump. 
+Reducing draw calls always helps!
 
 After a lot of time of experimentation, [Rodrigo](https://github.com/ReinUsesLisp) [reduced the size of Vulkan’s command pool](https://github.com/yuzu-emu/yuzu/pull/5989), from 4096 to just 4.
 This makes the driver assign less memory for command buffers, saving a considerable amount of system RAM.
 
 For example, in `Pokèmon Sword/Shield`, Vulkan’s use of system RAM goes from 707MB, to just 2MB.
 
-To end the day, [Rodrigo](https://github.com/ReinUsesLisp) fixed a regression introduced by the `Buffer Cache Rewrite`. Some games benefit from skipping the cache, but others lose performance. For example `Animal Crossing: New Horizons` was severely affected in Vulkan.
+To end the day, [Rodrigo](https://github.com/ReinUsesLisp) fixed a regression introduced by the `Buffer Cache Rewrite`. 
+Some games benefit from skipping the cache, but others lose performance. `Animal Crossing: New Horizons` was an example severely affected in Vulkan.
 By [implementing a way to heuristically decide when to skip the cache,](https://github.com/yuzu-emu/yuzu/pull/6021) performance was not only restored, but also increased.
 
 ## Input improvements
 
 First and foremost, [german77](https://github.com/german77) finished implementing [native Gamecube controller support!](https://github.com/yuzu-emu/yuzu/pull/4940) 
-With this change games will now detect GC controllers as such, instead of emulated Pro Controllers, for example.
-Planned for the future is support for analog triggers, right now they are mapped as buttons, but they will be handled correctly in coming changes.
+With this change games will now detect GC controllers as such, instead of, for example, emulated Pro Controllers.
+Planned for the future is support for analog triggers. 
+Right now triggers are mapped as buttons, but they will be handled correctly in coming changes.
 
 [Morph](https://github.com/Morph1984) later added [vibration support for the GC controller.](https://github.com/yuzu-emu/yuzu/pull/5944)
 
-Another new feature [german77](https://github.com/german77) added is [mouse panning.](https://github.com/yuzu-emu/yuzu/pull/5869)
-This allows to set the mouse as an analog stick, allowing very comfortable gameplay on games that for example use the right analog stick as camera control.
+Another new feature [german77](https://github.com/german77) added is stick [mouse panning.](https://github.com/yuzu-emu/yuzu/pull/5869)
+This allows to set the mouse as an analog stick, allowing very comfortable gameplay on titles that use the right analog stick as camera control.
 By default, pressing Ctrl +  F9 toggles this feature.
 
 {{< imgs
@@ -181,10 +187,11 @@ By default, pressing Ctrl +  F9 toggles this feature.
 
 A [separate PR](https://github.com/yuzu-emu/yuzu/pull/5929) improves panning functionality even more, giving it a more natural control.
 
-[Morph](https://github.com/Morph1984) [implemented the Finalize request](https://github.com/yuzu-emu/yuzu/pull/5908) on the inline keyboard emulation, allowing it to exit in a stable, graceful way instead of looping indefinitely. 
+[Morph](https://github.com/Morph1984) [implemented the Finalize request](https://github.com/yuzu-emu/yuzu/pull/5908) on the inline keyboard implementation, allowing it to exit in a stable, graceful way instead of looping indefinitely. 
 This solves issues experienced in `Super Mario 3D World + Bowser’s Fury`.
 
-[Jatoxo](https://github.com/Jatoxo) gives us a feature we didn’t know we wanted. [Added depth to the analog sticks](https://github.com/yuzu-emu/yuzu/pull/5894) of the Pro Controller in the controls preview.
+[Jatoxo](https://github.com/Jatoxo) gives us a feature we didn’t know we wanted. 
+[Added depth to the analog sticks](https://github.com/yuzu-emu/yuzu/pull/5894) of the Pro Controller in the controls preview.
 See the result for yourself!
 
 {{< single-title-imgs
@@ -195,11 +202,11 @@ See the result for yourself!
 
 ## Audio achievements
 
-One of our most requested fixes is finally here! 
+One of our most requested fixes is finally here. 
 `Fire Emblem: Three Houses` no longer echoes voices!
 [ogniK](https://github.com/ogniK5377) is responsible for this fix, which properly [implemented I3dl2Reverb.](https://github.com/yuzu-emu/yuzu/pull/5909)
 
-If you paused emulation and some time later resumed it, you would experience severe stuttering until the audio catched up to the rendering.
+If you paused emulation and resumed it some time later, you would experience severe stuttering until the audio catched up to the rendering.
 [german77](https://github.com/german77) solved this pleasant experience by [preventing overscheduling audio events,](https://github.com/yuzu-emu/yuzu/pull/5868) allowing for a seamless experience after resuming emulation.
 
 ## Future projects
