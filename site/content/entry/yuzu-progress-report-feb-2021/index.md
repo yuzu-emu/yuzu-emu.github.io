@@ -101,7 +101,7 @@ Our devs are working hard to solve these bugs, so we ask our tuxfriends to be pa
 Since compute programs were originally meant to manipulate image data, they also worked out nicely to fix a problem with one of the rendering APIs used in yuzu, by [using compute shaders to swizzle BGR textures on copy](https://github.com/yuzu-emu/yuzu/pull/5891).
 
 {{< single-title-imgs
-    "Color-swapped and properly swizzled versions of `Octopath Traveler`'s title screen"
+    "Color-swapped and properly swizzled versions of Octopath Traveler's title screen"
     "./octopath1.jpg"
     "./octopath2.jpg"
   >}}
