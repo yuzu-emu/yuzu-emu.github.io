@@ -1,9 +1,9 @@
 +++
-date = "2021-03-08T12:00:00-03:00"
+date = "2021-03-10T12:00:00-03:00"
 title = "Progress Report February 2021"
 author = "GoldenX86"
 coauthor = "Honghoa"
-forum = 0
+forum = 375270
 +++ 
 
 Welcome back yuz-ers, welcome to ~~City 17~~ February’s progress report! This time we will talk about Vulkan performance improvements, audio changes, how to make good use of compute shaders, new input additions, and more kernel rewrites.
