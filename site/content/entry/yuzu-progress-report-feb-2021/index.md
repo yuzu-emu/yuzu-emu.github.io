@@ -83,7 +83,7 @@ It is possible to write programs that won't necessarily operate over graphics, b
 This is known as `GPGPU` - [General-purpose computing on graphics processing units](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) - and it's intended to be used when there is a problem that can be separated into a number of parallel tasks in order to be processed more efficiently. These problems are commonly called `embarrassingly parallel problems`.
 
 One of these cases was the [use of compute shaders to decode ASTC textures](https://github.com/yuzu-emu/yuzu/pull/5927).
-`ASTC` stands for "Adaptable Scalable Texture Compression," and it's a fairly new image compression format mainly aimed at mobile devices.
+`ASTC` stands for "Adaptable Scalable Texture Compression," and it's a fairly new image compression format developed by ARM and AMD mainly aimed at mobile devices.
 The Nintendo Switch is capable of decoding these textures natively in hardware, but it's a feature that most PC GPU vendors lack in their products (with the exception of Intel Graphics, being the only vendor that offers native support).
 The decoding of these textures is therefore a non-trivial task that can have a huge impact on performance, as seen in games such as `Astral Chain` and `Luigi's Mansion 3`.
 
