@@ -143,10 +143,10 @@ Thanks to [Morph,](https://github.com/Morph1984) now there is an empty `keys` fo
 
 First, Vulkan needed some [corrected offsets](https://github.com/yuzu-emu/yuzu/pull/5936) for `TexelFetch` and `TextureGather`, types of texture instructions.
 
-A similar change [was needed for OpenGL.](https://github.com/yuzu-emu/yuzu/pull/5980) this work also includes better handling of `signed atomics`, improving precision. 
+A similar change [was needed for OpenGL.](https://github.com/yuzu-emu/yuzu/pull/5980) This code also includes better handling of `signed atomics`, improving precision. 
 Thanks to [Ryujinx](https://github.com/Ryujinx/Ryujinx) for helping here.
 
-Finally, [implementing glDepthRangeIndexeddNV](https://github.com/yuzu-emu/yuzu/pull/5997) solves out of range issues in the depth buffer.
+Finally, [implementing glDepthRangeIndexedNV](https://github.com/yuzu-emu/yuzu/pull/5997) solves out of range issues in the depth buffer.
 
 {{< single-title-imgs
     "The result of Maide's work (Disgaea 6: Defiance of Destiny)"
@@ -156,13 +156,13 @@ Finally, [implementing glDepthRangeIndexeddNV](https://github.com/yuzu-emu/yuzu/
 
 [Rodrigo](https://github.com/ReinUsesLisp) [fixed a bug in Vulkan’s stream buffer,](https://github.com/yuzu-emu/yuzu/pull/5919) improving performance and reducing VRAM use, while also making better use of the dedicated VRAM, instead of falling back to shared VRAM, which is better known as just system RAM.
 
-By [using dirty flags](https://github.com/yuzu-emu/yuzu/pull/5923), [Rodrigo](https://github.com/ReinUsesLisp) also managed another slim but measurable Vulkan performance bump. 
+By [using dirty flags](https://github.com/yuzu-emu/yuzu/pull/5923), [Rodrigo](https://github.com/ReinUsesLisp) also managed another slim, but measurable, Vulkan performance bump. 
 Reducing draw calls always helps!
 
-After a lot of time of experimentation, [Rodrigo](https://github.com/ReinUsesLisp) [reduced the size of Vulkan’s command pool](https://github.com/yuzu-emu/yuzu/pull/5989), from 4096 to just 4.
+After a lot of time spent experimenting, [Rodrigo](https://github.com/ReinUsesLisp) [reduced the size of Vulkan’s command pool](https://github.com/yuzu-emu/yuzu/pull/5989), from 4096 to just 4.
 This makes the driver assign less memory for command buffers, saving a considerable amount of system RAM.
 
-For example, in `Pokèmon Sword/Shield`, Vulkan’s use of system RAM goes from 707MB, to just 2MB.
+For example, in `Pokèmon Sword and Shield`, Vulkan’s use of system RAM goes from 707MB, to just 2MB.
 
 To end the day, [Rodrigo](https://github.com/ReinUsesLisp) fixed a regression introduced by the `Buffer Cache Rewrite`. 
 Some games benefit from skipping the cache, but others lose performance. `Animal Crossing: New Horizons` was an example severely affected in Vulkan.
