@@ -93,7 +93,7 @@ The decoding of these textures is therefore a non-trivial task that can have a h
 
 This led to the implementation of an `ASTC` decoder through the CPU, which was faster than what GPUs could do with their lack of support, but was still far from being a satisfactory solution since it consumed CPU resources and consequently slowed down games that made extensive use of this format.
 The solution, thus, was to implement the decoding through compute shaders.
-Since this is an embarrassingly parallel process, it's more fit to be performed on the GPU by manipulating the data through `GPGPU`.
+Since this is an embarrassingly parallel process, seeing as how every block of pixels can be decoded independently, it's more fit to be performed on the GPU by manipulating the data through `GPGPU`.
 This way, the load on the CPU will be shifted to the GPU, allowing emulation to run in parallel with the texture decoding.
 As a side benefit, now textures remain in the GPU memory all the time, since they don't need to be transferred between CPU and GPU for decoding.
 This means that there won't be time spent downloading the texture to the CPU and then uploading it back to the GPU after the decoding is done, like in the old implementation.
