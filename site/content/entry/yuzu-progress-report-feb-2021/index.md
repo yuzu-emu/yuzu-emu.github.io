@@ -14,11 +14,11 @@ Welcome back yuz-ers, welcome to ~~City 17~~ February’s progress report! This 
 
 Thanks to progress in Linux’s mesa drivers, we've recently modified our minimum graphics requirements.
 
-[yuzu now requires OpenGL 4.6](https://github.com/yuzu-emu/yuzu/pull/5888). However, any previously compatible hardware reaches this requirement with its latest GPU drivers installed, even old Fermi or GCN1.0 series products.
+[yuzu now requires OpenGL 4.6](https://github.com/yuzu-emu/yuzu/pull/5888). However, any previously compatible hardware reaches this requirement with its latest GPU drivers installed, even old Fermi or GCN 1.0 series products.
 Laptop users, like desktop users, should visit the GPU manufacturer's site ([AMD](https://www.amd.com/en/support), [Intel](https://downloadcenter.intel.com/product/80939/Graphics), and [Nvidia](https://www.nvidia.com/en-us/geforce/drivers/)) instead of the laptop vendor’s site (HP, Lenovo, Asus, etc.), as it will provide compatible and up-to-date drivers. 
 Thanks [Morph](https://github.com/Morph1984) for the change!
 
-On the flip side, while the requirement of Vulkan 1.1 hasn't changed, as stated in previous articles, [Rodrigo](https://github.com/ReinUsesLisp) made `VK_EXT_robustness2` [a hard requirement now.](https://github.com/yuzu-emu/yuzu/pull/5917)
+On the flip side, while the requirement of Vulkan 1.1 hasn't changed, as stated in previous articles, [Rodrigo](https://github.com/ReinUsesLisp) made `VK_EXT_robustness2` [a hard requirement.](https://github.com/yuzu-emu/yuzu/pull/5917)
 This means that updated drivers are critical now, as lacking this extension will stop yuzu from booting games while on Vulkan.
 AMD users still require to install the latest `Optional` driver version to get support for `VK_EXT_robustness2`. At the time of writing, the latest version is `21.2.3`, but yuzu will work with drivers as old as `20.12.1`.
 
@@ -33,13 +33,13 @@ A buffer is a data structure that reserves space in memory as slots to store inf
 In particular, a [ring buffer](https://en.wikipedia.org/wiki/Circular_buffer) is a special type of buffer where the slot next to the final one is the first slot in the buffer (so the start and the end are connected).
 Once it's full, no new data is added until some information has been extracted from the buffer and processed.
 
-`SPSC` stands for "Single-Producer-Single-Consumer," and is a model that comes from the [Producer-Consumer problem](https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem) proposed by computer scientists to deal with the problem of proper synchronization when various simultaneous processes write and read from the same buffer.
+`SPSC` stands for "Single-Producer/Single-Consumer," and is a model that comes from the [Producer-Consumer problem](https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem) proposed by computer scientists to deal with the problem of proper synchronization when various simultaneous processes write and read from the same buffer.
 In this case, only one thread at a time can insert data into the buffer (the Single-Producer), and only one thread at a time can remove elements from the buffer (the Single-Consumer).
 
 It's possible to choose a minimal size for each "slot" of the buffer in order to exploit regularities of the information stored.
 The entities inside these slots are then considered a single "unit" of information, an *information granule*, from which the term "granularity" stems from.
 The ring buffer implementation in yuzu was meant to be as general as possible, which is why granularity was a parameter that the programmer could modify to fit their needs.
-Merry noticed there was a small bug when pushing data into the buffer with a granularity different from `1`, but since there is no use case for a granularity different from `1` in yuzu, Merry decided to remove the parameter altogether, in favour of simplifying the codebase.
+Merry noticed there was a small bug when pushing data into the buffer with a granularity different from `1`, but since there is no use case for a granularity different from `1` in yuzu, Merry decided to remove the parameter altogether, in favor of simplifying the codebase.
 
 [bunnei](https://github.com/bunnei) has been taking a look at the timing code and [fixed an integer overflow in the wall-clock](https://github.com/yuzu-emu/yuzu/pull/5964) - a tool used to measure the passage of time in the emulator.
 Previously, these calculations would use 128-bit math for high precision, which can be quite expensive on the processor, so a few optimizations were done to perform 64-bit math instead.
@@ -61,19 +61,19 @@ For this reason, bunnei changed the implementation to use a different kind of ob
 Thus, the referenced memory will be free only when the original pointer is deleted, regardless of how many other `weak_ptr` references to the same memory exist, eliminating the memory leaks caused by the old implementation.
 
 One of the many tasks of the kernel is to assign resources to processes whenever they ask for them.
-For this reason, [epicboy](https://github.com/ameerj) started the work necessary to [utilize a more accurate resource_limit implementation](https://github.com/yuzu-emu/yuzu/pull/5877), in order to match the hardware behaviour more closely.
+For this reason, [epicboy](https://github.com/ameerj) started the work necessary to [utilize a more accurate resource_limit implementation](https://github.com/yuzu-emu/yuzu/pull/5877), in order to match the hardware behavior more closely.
 
 Be it memory, threads, or ports, the kernel checks for their availability and keeps track of them through a variable called `resource limit`.
 By comparing the current amount of resources being used against the resource limit, the kernel can determine whether to deny a request or not.
 This stems from the fact that resources are finite, especially in weaker hardware such as that in the Nintendo Switch.
 A PC, on the other hand, isn't as restricted as a Nintendo Switch.
 Until now, whenever a process requested resources, yuzu would create its own instance of `resource limit` instead of using a system-wide variable to keep track of it.
-This PR is just the initial step in preparation to reverse engineer the correct behaviour and implement it in the emulator.
+This PR is just the initial step in preparation to reverse engineer the correct behavior and implement it in the emulator.
 
 ## Paint me like one of your french bits
 
 [epicboy](https://github.com/ameerj) has also been busy this month implementing two features through [compute kernels](https://en.wikipedia.org/wiki/Compute_kernel), a special kind of program that is written to run in the GPU instead of the CPU.
-Originally, these subroutines were used to calculate light levels, darkness, colours, and other properties to render 3D images on the screen.
+Originally, these subroutines were used to calculate light levels, darkness, colors, and other properties to render 3D images on the screen.
 Thus, these programs were promptly named as [shaders](https://en.wikipedia.org/wiki/Shader).
 
 Modern GPUs are designed to break down their workload into smaller sized problems, which in turn are processed simultaneously in the many compute units of the card (entities akin to cores in a CPU).
@@ -85,13 +85,13 @@ This is known as `GPGPU` - [General-purpose computing on graphics processing uni
 One of these cases was the [use of compute shaders to decode ASTC textures](https://github.com/yuzu-emu/yuzu/pull/5927).
 `ASTC` stands for "Adaptable Scalable Texture Compression," and it's a fairly new image compression format developed by ARM and AMD mainly aimed at mobile devices.
 The Nintendo Switch is capable of decoding these textures natively in hardware, but it's a feature that most PC GPU vendors lack in their products (with the exception of Intel Graphics, being the only vendor that offers native support).
-The decoding of these textures is therefore a non-trivial task that can have a huge impact on performance, as seen in games such as `Astral Chain` and `Luigi's Mansion 3`.
+The decoding of these textures is therefore a non-trivial task that can have a huge impact on performance. Two notable examples are `Astral Chain` and `Luigi's Mansion 3`, since both games make extensive use of this format, but it can also be observed to varying degrees in other titles, where these textures are generally used in menu icons, minimaps, etc.
 
 {{< imgs
 	"./astral_chain_atsc.mp4| Comparison between the old and the new implementation of the ASTC decoder"
   >}}
 
-This led to the implementation of an `ASTC` decoder through the CPU, which was faster than what GPUs could do with their lack of support, but was still far from being a satisfactory solution since it consumed CPU resources and consequently slowed down games that made extensive use of this format.
+This led to the implementation of an `ASTC` decoder through the CPU, which was faster than what GPUs could do with their lack of native support. The CPU decoder was still far from being a satisfactory solution, since it consumed precious CPU resources and, consequently, slowed down to a halt when running games that made extensive use of this format.
 The solution, thus, was to implement the decoding through compute shaders.
 Since this is an embarrassingly parallel process, seeing as how every block of pixels can be decoded independently, it's more fit to be performed on the GPU by manipulating the data through `GPGPU`.
 This way, the load on the CPU will be shifted to the GPU, allowing emulation to run in parallel with the texture decoding.
@@ -109,7 +109,7 @@ Since compute programs were originally meant to manipulate image data, they also
     "./octopath2.jpg"
   >}}
 
-In OpenGL, colours are stored in channels, and the way they are laid out varies depending on the format used.
+In OpenGL, colors are stored in channels, and the way they are laid out varies depending on the format used.
 For example, the `RGB` format stores the color channels in the order "Red, Green and, Blue," while the `BGR` format stores the channels in the order "Blue, Green, and Red".
 Unfortunately, this latter format isn't supported internally by OpenGL, which caused problems with a number of games that made use of `BGR` textures: their Red and Blue channels were swapped and the final images looked blue-ish.
 
