@@ -123,19 +123,19 @@ This way, the problem with OpenGL is directly bypassed on the GPU, and games can
 
 ## General bug fixes and improvements
 
-`Pokémon Sword and Shield` players can enjoy one less frequent crashes. 
-Boss [bunnei](https://github.com/bunnei) [fixed a problem on LDN initialization,](https://github.com/yuzu-emu/yuzu/pull/5920) eliminating the crash that occurred if the player pressed `Y` during gameplay, activating online services that yuzu lacks.
+`Pokémon Sword and Shield` players can enjoy one less frequent crash. 
+Boss [bunnei](https://github.com/bunnei) [fixed a problem on LDN initialization,](https://github.com/yuzu-emu/yuzu/pull/5920) eliminating the crash that occurred if the player pressed `Y` during gameplay (activating online services that yuzu lacks).
 An error window will still pop up, but emulation will continue.
 
 Yet another `Animal Crossing: New Horizons` update, yet another service to stub or implement to regain playability.
-This time, [stubbing GetSaveDataBackupSetting](https://github.com/yuzu-emu/yuzu/pull/5892) made 1.7.0 and later versions playable again.
-Thanks [german77!](https://github.com/german77)
+This time, [stubbing GetSaveDataBackupSetting](https://github.com/yuzu-emu/yuzu/pull/5892) made `1.7.0` and later versions playable again.
+Thanks [german77](https://github.com/german77)!
 
-Under certain conditions, the `WebApplet` would crash yuzu when opening for example, the Action Guide in `Super Mario Odyssey`. 
+Under certain conditions, the `WebApplet` would crash yuzu when opening, for example, the Action Guide in `Super Mario Odyssey`. 
 [aleasto](https://github.com/aleasto) managed to solve this by [fixing an out of bounds read.](https://github.com/yuzu-emu/yuzu/pull/5878) 
 
-A common annoyance that affected new users was asking for placing the derivation keys in the correct `keys` folder, a folder which had to be manually created until now. 
-Thanks to [Morph,](https://github.com/Morph1984) now there is an empty `keys` folder created by default as part of the installation process of yuzu, ready to be populated by the user’s own Switch’s keys.
+A common annoyance that affected new users was a prompt asking for the derivation keys to be placed in the correct `keys` folder, a folder which had to be manually created until now. 
+Thanks to [Morph,](https://github.com/Morph1984) now there is an empty `keys` folder created by default as part of the installation process of yuzu, ready to be populated by the user’s own Switch keys.
 
 ## Graphics improvements
 
