@@ -205,12 +205,12 @@ One of our most requested fixes is finally here.
 `Fire Emblem: Three Houses` no longer echoes voices!
 [ogniK](https://github.com/ogniK5377) is responsible for this fix, which properly [implemented I3dl2Reverb.](https://github.com/yuzu-emu/yuzu/pull/5909)
 
-If you paused emulation and resumed it some time later, you would experience severe stuttering until the audio catched up to the rendering.
-[german77](https://github.com/german77) solved this pleasant experience by [preventing overscheduling audio events,](https://github.com/yuzu-emu/yuzu/pull/5868) allowing for a seamless experience after resuming emulation.
+If you paused emulation and resumed it some time later, you would experience severe stuttering until the audio caught up to the rendering.
+[german77](https://github.com/german77) resolved this unpleasant experience by [preventing overscheduling audio events,](https://github.com/yuzu-emu/yuzu/pull/5868) allowing for a seamless experience after resuming emulation.
 
 ## Future projects
 
-Project Kraken is underway. Project Gaia started. Project Hades, the shader decompiler rewrite is progressing steadily, if it continues like this, it will be released before Memory Reaper. As you’ve seen in this article, bunnei continues to suffer with Kernel changes.
+Project Kraken is underway. Project Gaia started. Project Hades, the shader decompiler rewrite, is progressing steadily. If it continues like this, it will be released before Memory Reaper. As you’ve seen in this article, bunnei continues to suffer through implementing Kernel changes.
 
 That’s all folks! As always, thank you for reading until the end, and see you next time!
 
