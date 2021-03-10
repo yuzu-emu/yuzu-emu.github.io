@@ -34,7 +34,7 @@ In particular, a [ring buffer](https://en.wikipedia.org/wiki/Circular_buffer) is
 Once it's full, no new data is added until some information has been extracted from the buffer and processed.
 
 `SPSC` stands for "Single-Producer-Single-Consumer," and is a model that comes from the [Producer-Consumer problem](https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem) proposed by computer scientists to deal with the problem of proper synchronization when various simultaneous processes write and read from the same buffer.
-In this case, one thread will insert data into the buffer (the producer), while the other will take the data from it (the consumer).
+In this case, only one thread at a time can insert data into the buffer (the Single-Producer), and only one thread at a time can remove elements from the buffer (the Single-Consumer).
 
 It's possible to choose a minimal size for each "slot" of the buffer in order to exploit regularities of the information stored.
 The entities inside these slots are then considered a single "unit" of information, an *information granule*, from which the term "granularity" stems from.
