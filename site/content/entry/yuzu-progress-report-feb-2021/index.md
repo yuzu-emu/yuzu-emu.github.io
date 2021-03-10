@@ -48,15 +48,17 @@ This PR fixed the bug by preventing the wall-clock from overflowing, and now thi
 
 bunnei also continues on his campaign to rewrite the kernel and its codebase. This time, he has been tidying up the [memory management code](https://github.com/yuzu-emu/yuzu/pull/5953) and refactoring the implementation to be closer to the latest Switch firmware in order to make it easier to import code from newer firmware.
 
-Additionally, he changed the implementation of [fibers](https://en.wikipedia.org/wiki/Fiber_(computer_science)) to [use unique_ptr instead of shared_ptr](https://github.com/yuzu-emu/yuzu/pull/6006).
+Additionally, he changed the implementation of [fibers](https://en.wikipedia.org/wiki/Fiber_(computer_science)) to [use unique_ptr instead of shared_ptr](https://github.com/yuzu-emu/yuzu/pull/6006), and later [changed it again to use weak_ptr](https://github.com/yuzu-emu/yuzu/pull/6041) since it's a solution more appropiate for this case.
+
 Fibers are similar to threads, except they can't be executed in parallel.
 Instead, they *yield* control to other fibers in a process.
 In yuzu, they're used to have better control over thread scheduling, working as tools for the kernel to quickly pause and resume emulated guest threads from within the application, without having to rely on the OS scheduler.
 
 Previously, fibers were managed through a special object called a `shared pointer`, a kind of variable that stores the memory addresses of other objects - it “references” them.
-In particular, this variable keeps track of how many references to an object exist in the program, and the memory won't be freed until the total amount of references is zero (i.e. when the object isn't being used anymore).
+In particular, this variable keeps track of how many `shared_ptr` references to an object exist in the program, and the memory won't be freed until the total amount of references is zero (i.e. when the object isn't being used anymore).
 If these references aren't managed with proper care, some pointers may retain memory and never free it, resulting in memory leaks.
-For this reason, bunnei changed the implementation to use a different kind of object, a `unique pointer`, which is similar to the `shared pointer` but it doesn't allow the existence of more than one reference to the object, solving the problem of loose references causing memory leaks.
+For this reason, bunnei changed the implementation to use a different kind of object, a `weak pointer`, which is similar to the `shared pointer` but it doesn't increase the reference counter, nor is it capable of deleting the original referenced object.
+Thus, the referenced memory will be free only when the original pointer is deleted, regardless of how many other `weak_ptr` references to the same memory exist, eliminating the memory leaks caused by the old implementation.
 
 One of the many tasks of the kernel is to assign resources to processes whenever they ask for them.
 For this reason, [epicboy](https://github.com/ameerj) started the work necessary to [utilize a more accurate resource_limit implementation](https://github.com/yuzu-emu/yuzu/pull/5877), in order to match the hardware behaviour more closely.
@@ -124,7 +126,7 @@ This way, the problem with OpenGL is directly bypassed on the GPU, and games can
 ## General bug fixes and improvements
 
 `Pokémon Sword and Shield` players can enjoy one less frequent crash. 
-Boss [bunnei](https://github.com/bunnei) [fixed a problem on LDN initialization,](https://github.com/yuzu-emu/yuzu/pull/5920) eliminating the crash that occurred if the player pressed `Y` during gameplay (activating online services that yuzu lacks).
+Boss [bunnei](https://github.com/bunnei) [fixed a problem on LDN initialization](https://github.com/yuzu-emu/yuzu/pull/5920), eliminating the crash that occurred if the player pressed `Y` during gameplay (activating online services that yuzu lacks).
 An error window will still pop up, but emulation will continue.
 
 Yet another `Animal Crossing: New Horizons` update, yet another service to stub or implement to regain playability.
@@ -135,7 +137,7 @@ Under certain conditions, the `WebApplet` would crash yuzu when opening, for exa
 [aleasto](https://github.com/aleasto) managed to solve this by [fixing an out of bounds read.](https://github.com/yuzu-emu/yuzu/pull/5878) 
 
 A common annoyance that affected new users was a prompt asking for the derivation keys to be placed in the correct `keys` folder, a folder which had to be manually created until now. 
-Thanks to [Morph,](https://github.com/Morph1984) now there is an empty `keys` folder created by default as part of the installation process of yuzu, ready to be populated by the user’s own Switch keys.
+Thanks to [Morph](https://github.com/Morph1984), now there is an empty `keys` folder created by default as part of the installation process of yuzu, ready to be populated by the user’s own Switch keys.
 
 ## Graphics improvements
 
@@ -154,7 +156,7 @@ Finally, [implementing glDepthRangeIndexedNV](https://github.com/yuzu-emu/yuzu/p
     "./d6fix.mp4"
   >}}
 
-[Rodrigo](https://github.com/ReinUsesLisp) [fixed a bug in Vulkan’s stream buffer,](https://github.com/yuzu-emu/yuzu/pull/5919) improving performance and reducing VRAM use, while also making better use of the dedicated VRAM, instead of falling back to shared VRAM, which is better known as just system RAM.
+[Rodrigo](https://github.com/ReinUsesLisp) [fixed a bug in Vulkan’s stream buffer](https://github.com/yuzu-emu/yuzu/pull/5919), improving performance and reducing VRAM use, while also making better use of the dedicated VRAM, instead of falling back to shared VRAM, which is better known as just system RAM.
 
 By [using dirty flags](https://github.com/yuzu-emu/yuzu/pull/5923), [Rodrigo](https://github.com/ReinUsesLisp) also managed another slim, but measurable, Vulkan performance bump. 
 Reducing draw calls always helps!
@@ -166,7 +168,7 @@ For example, in `Pokémon Sword and Shield`, Vulkan’s use of system RAM goes f
 
 To end the day, [Rodrigo](https://github.com/ReinUsesLisp) fixed a regression introduced by the `Buffer Cache Rewrite`. 
 Some games benefit from skipping the cache, but others lose performance. `Animal Crossing: New Horizons` was an example severely affected in Vulkan.
-By [implementing a way to heuristically decide when to skip the cache,](https://github.com/yuzu-emu/yuzu/pull/6021) performance was not only restored, but also increased.
+By [implementing a way to heuristically decide when to skip the cache](https://github.com/yuzu-emu/yuzu/pull/6021), performance was not only restored, but also increased.
 
 ## Input improvements
 
