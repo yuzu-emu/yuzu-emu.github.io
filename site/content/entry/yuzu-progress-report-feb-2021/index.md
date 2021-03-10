@@ -24,38 +24,38 @@ AMD users still require to install the latest `Optional` driver version to get s
 
 Multi-GPU systems must have all their drivers updated, even for integrated graphics that are functional but not in use.
 
-## Technical ~~suffering~~ bugfixes
+## Technical bugfixes
 
-[Merry](https://github.com/MerryMage) recently catched a bug in the implementation of yuzu's `SPSC` ring buffer, and fixed it by [removing the granularity template argument](https://github.com/yuzu-emu/yuzu/pull/5885).
-What does this mean?
+[Merry](https://github.com/MerryMage) recently caught a bug in the implementation of yuzu's `SPSC` ring buffer and fixed it by [removing the granularity template argument](https://github.com/yuzu-emu/yuzu/pull/5885).
+What does this mean exactly? Let's explain!
 
-A buffer is a data structure that reserves space of memory as slots to store information temporarily: for example, an audio buffer.
+A buffer is a data structure that reserves space in memory as slots to store information temporarily: for example, an audio buffer.
 In particular, a [ring buffer](https://en.wikipedia.org/wiki/Circular_buffer) is a special type of buffer where the slot next to the final one is the first slot in the buffer (so the start and the end are connected).
 Once it's full, no new data is added until some information has been extracted from the buffer and processed.
 
-`SPSC` stands for "Single-Producer-Single-Consumer", and it's a model that comes from to the [Producer-Consumer problem](https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem) proposed by computer scientists to deal with the problem of proper synchronization when various simultaneous processes write and read from the same buffer.
-In this case, one thread will generate data into the buffer (the producer), while the other will take the data from it (the consumer).
+`SPSC` stands for "Single-Producer-Single-Consumer," and is a model that comes from the [Producer-Consumer problem](https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem) proposed by computer scientists to deal with the problem of proper synchronization when various simultaneous processes write and read from the same buffer.
+In this case, one thread will insert data into the buffer (the producer), while the other will take the data from it (the consumer).
 
-It's possible to choose a minimal size for each "slot" of the buffer, in order to exploit regularities of the information stored.
+It's possible to choose a minimal size for each "slot" of the buffer in order to exploit regularities of the information stored.
 The entities inside these slots are then considered a single "unit" of information, an *information granule*, from which the term "granularity" stems from.
 The ring buffer implementation in yuzu was meant to be as general as possible, which is why granularity was a parameter that the programmer could modify to fit their needs.
 Merry noticed there was a small bug when pushing data into the buffer with a granularity different from `1`, but since there is no use case for a granularity different from `1` in yuzu, Merry decided to remove the parameter altogether, in favour of simplifying the codebase.
 
-[bunnei](https://github.com/bunnei) has been taking a look at the at the timing code and [fixed a integer overflow in the wall-clock](https://github.com/yuzu-emu/yuzu/pull/5964) - a tool used to measure the passage of time in the emulator.
+[bunnei](https://github.com/bunnei) has been taking a look at the timing code and [fixed an integer overflow in the wall-clock](https://github.com/yuzu-emu/yuzu/pull/5964) - a tool used to measure the passage of time in the emulator.
 Previously, these calculations would use 128-bit math for high precision, which can be quite expensive on the processor, so a few optimizations were done to perform 64-bit math instead.
 However, there was a bug introduced with these optimizations, and the timing math would result in an integer overflow.
 This PR fixed the bug by preventing the wall-clock from overflowing, and now things are back to working as intended.
 
-bunnei also continues on his campaign to rewrite the kernel and its codebase. This time, he has been tidying up the [memory management code](https://github.com/yuzu-emu/yuzu/pull/5953) and refactoring the implementation to be closer to the latest firmware up to date, in order to make it easier to import code from newer firmware.
+bunnei also continues on his campaign to rewrite the kernel and its codebase. This time, he has been tidying up the [memory management code](https://github.com/yuzu-emu/yuzu/pull/5953) and refactoring the implementation to be closer to the latest Switch firmware in order to make it easier to import code from newer firmware.
 
-Going along with kernel work, he also changed the implementation of [fibers](https://en.wikipedia.org/wiki/Fiber_(computer_science)) to [use unique_ptr instead of shared_ptr](https://github.com/yuzu-emu/yuzu/pull/6006).
+Additionally, he changed the implementation of [fibers](https://en.wikipedia.org/wiki/Fiber_(computer_science)) to [use unique_ptr instead of shared_ptr](https://github.com/yuzu-emu/yuzu/pull/6006).
 Fibers are similar to threads, except they can't be executed in parallel.
 Instead, they *yield* control to other fibers in a process.
 In yuzu, they're used to have better control over thread scheduling, working as tools for the kernel to quickly pause and resume emulated guest threads from within the application, without having to rely on the OS scheduler.
 
-Previously, fibers were managed through a special object called `shared pointer`, a kind of variable that holds as value the memory of address of other objects - it “references” them.
+Previously, fibers were managed through a special object called a `shared pointer`, a kind of variable that stores the memory addresses of other objects - it “references” them.
 In particular, this variable keeps track of how many references to an object exist in the program, and the memory won't be freed until the total amount of references is zero (i.e. when the object isn't being used anymore).
-If these references aren't managed with proper care, there could always remain some pointers holding memory and never freeing it, resulting in memory leaks.
+If these references aren't managed with proper care, some pointers may retain memory and never free it, resulting in memory leaks.
 For this reason, bunnei changed the implementation to use a different kind of object, a `unique pointer`, which is similar to the `shared pointer` but it doesn't allow the existence of more than one reference to the object, solving the problem of loose references causing memory leaks.
 
 One of the many tasks of the kernel is to assign resources to processes whenever they ask for them.
@@ -63,10 +63,10 @@ For this reason, [epicboy](https://github.com/ameerj) started the work necessary
 
 Be it memory, threads, or ports, the kernel checks for their availability and keeps track of them through a variable called `resource limit`.
 By comparing the current amount of resources being used against the resource limit, the kernel can determine whether to deny a request or not.
-This stems from the fact that resources are finite, especially in a small hardware such as the Nintendo Switch.
+This stems from the fact that resources are finite, especially in weaker hardware such as that in the Nintendo Switch.
 A PC, on the other hand, isn't as restricted as a Nintendo Switch.
 Until now, whenever a process requested resources, yuzu would create its own instance of `resource limit` instead of using a system-wide variable to keep track of it.
-This PR is just the initial step in preparation to reverse engineer the correct behaviour and implement it on the emulator.
+This PR is just the initial step in preparation to reverse engineer the correct behaviour and implement it in the emulator.
 
 ## Paint me like one of your french bits
 
