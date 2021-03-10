@@ -74,32 +74,32 @@ This PR is just the initial step in preparation to reverse engineer the correct 
 Originally, these subroutines were used to calculate light levels, darkness, colours, and other properties to render 3D images on the screen.
 Thus, these programs were promptly named as [shaders](https://en.wikipedia.org/wiki/Shader).
 
-Modern GPUs are designed to break down their workload into smaller sized problems, which in turn are processed simultaneously in the many computing units of the card (entities akin to cores in a CPU).
-The reason for this design choice is simply because parallelisation is a very efficient scheme to process computer graphics, since a single instruction is capable of operating over many components of data at the same time, such as the vertices and textures of a 3D scene, thus increasing the throughput of information, especially when compared against the performance of performing the same operations in a CPU.
-Their potential isn't limited to just these functions, though.
+Modern GPUs are designed to break down their workload into smaller sized problems, which in turn are processed simultaneously in the many compute units of the card (entities akin to cores in a CPU).
+The reason for this design choice is simply because parallelisation is a very efficient scheme to process computer graphics. Since a single instruction is capable of operating over many components of data at the same time, such as the vertices and textures of a 3D scene, this increases the throughput of information, especially when compared against the performance of running the same operations on a CPU.
+Their potential isn't limited to just these functions though.
 It is possible to write programs that won't necessarily operate over graphics, yet still benefit from these characteristics.
-This is known as `GPGPU` - [General-purpose computing on graphics processing units](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) - and it's intended to be used when there is a problem that can be separate into a number of parallel tasks in order to be processed more efficiently. These problems are commonly called `embarrassingly parallel problems`.
+This is known as `GPGPU` - [General-purpose computing on graphics processing units](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) - and it's intended to be used when there is a problem that can be separated into a number of parallel tasks in order to be processed more efficiently. These problems are commonly called `embarrassingly parallel problems`.
 
-One of such cases was the [use of compute shaders to decode ATSC textures](https://github.com/yuzu-emu/yuzu/pull/5927).
-`ATSC` stands for "Adaptable Scalable Texture Compression", and it's a fairly new image compression format mainly aimed at mobile devices.
-The Nintendo Switch is capable of decoding these textures natively in hardware, but it's a feature that most PC GPUs vendors lack in their products (with the exception of Intel Graphics, being the only vendor that offers native support).
+One of these cases was the [use of compute shaders to decode ASTC textures](https://github.com/yuzu-emu/yuzu/pull/5927).
+`ASTC` stands for "Adaptable Scalable Texture Compression," and it's a fairly new image compression format mainly aimed at mobile devices.
+The Nintendo Switch is capable of decoding these textures natively in hardware, but it's a feature that most PC GPU vendors lack in their products (with the exception of Intel Graphics, being the only vendor that offers native support).
 The decoding of these textures is therefore a non-trivial task that can have a huge impact on performance, as seen in games such as `Astral Chain` and `Luigi's Mansion 3`.
 
 {{< imgs
-	"./astral_chain_atsc.mp4| Comparison between the old and the new implementation of the ATSC decoder"
+	"./astral_chain_atsc.mp4| Comparison between the old and the new implementation of the ASTC decoder"
   >}}
 
-This led to the implementation of an `ATSC` decoder through the processor, which was faster than what GPUs could do with their lack of support, but was still far from being a satisfactory solution since it consumed CPU resources and consequently slowed down games that made extensive use of this format.
+This led to the implementation of an `ASTC` decoder through the CPU, which was faster than what GPUs could do with their lack of support, but was still far from being a satisfactory solution since it consumed CPU resources and consequently slowed down games that made extensive use of this format.
 The solution, thus, was to implement the decoding through compute shaders.
 Since this is an embarrassingly parallel process, it's more fit to be performed on the GPU by manipulating the data through `GPGPU`.
 This way, the load on the CPU will be shifted to the GPU, allowing emulation to run in parallel with the texture decoding.
 As a side benefit, now textures remain in the GPU memory all the time, since they don't need to be transferred between CPU and GPU for decoding.
-This means that there won't be time spent downloading the texture to CPU and then uploading it back to the GPU after the decoding is done, like in the old implementation.
+This means that there won't be time spent downloading the texture to the CPU and then uploading it back to the GPU after the decoding is done, like in the old implementation.
 
-This feature works as intended on all GPU vendors on Windows, although there are a few problems on Linux (more especifically, the `AMDGPU-PRO` driver) that still need to be ironed out.
-Our devs are working hard to solve these bugs, so we ask our tuxfriends to be patient and stay tuned!
+This feature works as intended on all GPU vendors on Windows, although there are a few problems on Linux (more specifically, the `AMDGPU-PRO` driver) that still need to be ironed out.
+Our devs are working hard to solve these bugs, so we ask our tux-friends to be patient and stay tuned!
 
-Since compute programs were originally meant to manipulate image data, they also worked out nicely to fix a problem with one of the rendering APIs used in yuzu, by [using compute shaders to swizzle BGR textures on copy](https://github.com/yuzu-emu/yuzu/pull/5891).
+Since compute programs were originally meant to manipulate image data, they also worked out nicely to fix a problem with one of the rendering APIs used in yuzu: by [using compute shaders to swizzle BGR textures on copy](https://github.com/yuzu-emu/yuzu/pull/5891).
 
 {{< single-title-imgs
     "Color-swapped and properly swizzled versions of Octopath Traveler's title screen"
@@ -108,17 +108,17 @@ Since compute programs were originally meant to manipulate image data, they also
   >}}
 
 In OpenGL, colours are stored in channels, and the way they are laid out varies depending on the format used.
-For example, the `RGB` format stores the color channels in the order "Red, Green and Blue", while the `BGR` format stores the channels in the order "Blue, Green and Red".
-Unfortunately, this latter format isn't supported internally in OpenGL, which caused problems with a number of games that made use of `BGR` textures: their Red and Blue channels were swapped and the final images looked blue-ish.
+For example, the `RGB` format stores the color channels in the order "Red, Green and, Blue," while the `BGR` format stores the channels in the order "Blue, Green, and Red".
+Unfortunately, this latter format isn't supported internally by OpenGL, which caused problems with a number of games that made use of `BGR` textures: their Red and Blue channels were swapped and the final images looked blue-ish.
 
 {{< single-title-imgs
-    "Blue Christina looks nice, but the red in its right place definitely suits the Nixie Tubes much better in `Steins;Gate My Darling's Embrace`"
+    "Blue Christina looks nice, but the red hue definitely suits the Nixie Tubes much better in Steins;Gate: My Darling's Embrace"
     "./sg1.jpg"
     "./sg2.jpg"
   >}}
 
 The solution to this problem then was to reorder the Blue and Red channels in the copy uploaded into the GPU.
-Reordering the graphical information of an image to process it in the graphic card is called swizzling, so what this PR does is to copy the values of the Red channel into the Blue channel and vice-versa, a process that can be exploited through parallel computation.
+Reordering the graphical information of an image to process it in the graphics card is called swizzling, so what this PR does is copy the values of the Red channel into the Blue channel and vice-versa, a process that can be exploited through parallel computation.
 This way, the problem with OpenGL is directly bypassed on the GPU, and games can render as they should on the screen.
 
 ## General bug fixes and improvements
