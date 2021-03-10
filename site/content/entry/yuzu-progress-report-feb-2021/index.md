@@ -121,7 +121,7 @@ Unfortunately, this latter format isn't supported internally by OpenGL, which ca
 
 The solution to this problem then was to reorder the Blue and Red channels of `BGR` textures in the copy uploaded to the GPU.
 Reordering the graphical information of an image to process it in the graphics card is called swizzling, so what this PR does is copy the values of the Red channel into the Blue channel and vice-versa, a process that can be exploited through parallel computation.
-This way, the problem with OpenGL is directly bypassed on the GPU, and games can render as they should on the screen.
+This way, the limitation with OpenGL is directly bypassed on the GPU, and these textures are rendered as intended on screen.
 
 ## General bug fixes and improvements
 
