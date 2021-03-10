@@ -48,7 +48,7 @@ This PR fixed the bug by preventing the wall-clock from overflowing, and now thi
 
 bunnei also continues on his campaign to rewrite the kernel and its codebase. This time, he has been tidying up the [memory management code](https://github.com/yuzu-emu/yuzu/pull/5953) and refactoring the implementation to be closer to the latest Switch firmware in order to make it easier to import code from newer firmware.
 
-Additionally, he changed the implementation of [fibers](https://en.wikipedia.org/wiki/Fiber_(computer_science)) to [use unique_ptr instead of shared_ptr](https://github.com/yuzu-emu/yuzu/pull/6006), but later [changed it again to use weak_ptr](https://github.com/yuzu-emu/yuzu/pull/6041) as it's more appropiate in this use case.
+Additionally, he changed the implementation of [fibers](https://en.wikipedia.org/wiki/Fiber_(computer_science)) to [use unique_ptr instead of shared_ptr](https://github.com/yuzu-emu/yuzu/pull/6006), but later [changed it again to use weak_ptr](https://github.com/yuzu-emu/yuzu/pull/6041) as it's more appropriate in this use case.
 
 Fibers are similar to threads, except they can't be executed in parallel.
 Instead, they *yield* control to other fibers in a process.
@@ -110,7 +110,7 @@ Since compute programs were originally meant to manipulate image data, they also
   >}}
 
 In OpenGL, colors are stored in channels, and the way they are laid out varies depending on the format used.
-For example, the `RGB` format stores the color channels in the order "Red, Green and, Blue," while the `BGR` format stores the channels in the order "Blue, Green, and Red".
+For example, the `RGB` format stores the color channels in the order "Red, Green, and Blue," while the `BGR` format stores the channels in the order "Blue, Green, and Red."
 Unfortunately, this latter format isn't supported internally by OpenGL, which caused problems with a number of games that made use of `BGR` textures: their Red and Blue channels were swapped and the final images looked blue-ish.
 
 {{< single-title-imgs
