@@ -48,7 +48,7 @@ This PR fixed the bug by preventing the wall-clock from overflowing, and now thi
 
 bunnei also continues on his campaign to rewrite the kernel and its codebase. This time, he has been tidying up the [memory management code](https://github.com/yuzu-emu/yuzu/pull/5953) and refactoring the implementation to be closer to the latest Switch firmware in order to make it easier to import code from newer firmware.
 
-Additionally, he changed the implementation of [fibers](https://en.wikipedia.org/wiki/Fiber_(computer_science)) to [use unique_ptr instead of shared_ptr](https://github.com/yuzu-emu/yuzu/pull/6006), and later [changed it again to use weak_ptr](https://github.com/yuzu-emu/yuzu/pull/6041) since it's a solution more appropiate for this case.
+Additionally, he changed the implementation of [fibers](https://en.wikipedia.org/wiki/Fiber_(computer_science)) to [use unique_ptr instead of shared_ptr](https://github.com/yuzu-emu/yuzu/pull/6006), but later [changed it again to use weak_ptr](https://github.com/yuzu-emu/yuzu/pull/6041) as it's more appropiate in this use case.
 
 Fibers are similar to threads, except they can't be executed in parallel.
 Instead, they *yield* control to other fibers in a process.
