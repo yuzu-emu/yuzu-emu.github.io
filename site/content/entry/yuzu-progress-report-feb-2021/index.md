@@ -6,23 +6,23 @@ coauthor = "Honghoa"
 forum = 0
 +++ 
 
-Welcome back yuz-ers, welcome to ~~City 17~~ Febraury’s progress report! This time we will talk about Vulkan performance improvements, audio changes, how to make good use of compute shaders, new input additions, and more kernel rewrites.
+Welcome back yuz-ers, welcome to ~~City 17~~ February’s progress report! This time we will talk about Vulkan performance improvements, audio changes, how to make good use of compute shaders, new input additions, and more kernel rewrites.
 
 <!--more-->
 
 ## New minimum requirements
 
-Thanks to Linux’s mesa drivers progress, we recently modified our minimum graphics requirements.
+Thanks to progress in Linux’s mesa drivers, we've recently modified our minimum graphics requirements.
 
-[yuzu now requires OpenGL 4.6](https://github.com/yuzu-emu/yuzu/pull/5888), any previously compatible hardware reaches this requirement with its latest GPU drivers installed. Even old Fermi or GCN1.0 series products.
-Laptop users, like desktop users, should visit the GPU’s manufacturer site ([AMD](https://www.amd.com/en/support), [Intel](https://downloadcenter.intel.com/product/80939/Graphics), [Nvidia](https://www.nvidia.com/en-us/geforce/drivers/) instead of the vendor’s site of the laptop (HP, Lenovo, Asus, etc.), as it will provide compatible and much more updated drivers. 
+[yuzu now requires OpenGL 4.6](https://github.com/yuzu-emu/yuzu/pull/5888). However, any previously compatible hardware reaches this requirement with its latest GPU drivers installed, even old Fermi or GCN1.0 series products.
+Laptop users, like desktop users, should visit the GPU manufacturer's site ([AMD](https://www.amd.com/en/support), [Intel](https://downloadcenter.intel.com/product/80939/Graphics), and [Nvidia](https://www.nvidia.com/en-us/geforce/drivers/)) instead of the laptop vendor’s site (HP, Lenovo, Asus, etc.), as it will provide compatible and up-to-date drivers. 
 Thanks [Morph](https://github.com/Morph1984) for the change!
 
 On the flip side, while the requirement of Vulkan 1.1 hasn't changed, as stated in previous articles, [Rodrigo](https://github.com/ReinUsesLisp) made `VK_EXT_robustness2` [a hard requirement now.](https://github.com/yuzu-emu/yuzu/pull/5917)
 This means that updated drivers are critical now, as lacking this extension will stop yuzu from booting games while on Vulkan.
-AMD users still require to install the latest `Optional` driver version to get support for robustness2. At the time of writing, the latest version is 21.2.3, but yuzu will work with drivers as old as 20.12.1.
+AMD users still require to install the latest `Optional` driver version to get support for `VK_EXT_robustness2`. At the time of writing, the latest version is `21.2.3`, but yuzu will work with drivers as old as `20.12.1`.
 
-Multi GPU systems must have all their drivers updated, even for integrated graphics that are operative but not in use.
+Multi-GPU systems must have all their drivers updated, even for integrated graphics that are functional but not in use.
 
 ## Technical ~~suffering~~ bugfixes
 
