@@ -162,7 +162,7 @@ Reducing draw calls always helps!
 After a lot of time spent experimenting, [Rodrigo](https://github.com/ReinUsesLisp) [reduced the size of Vulkan’s command pool](https://github.com/yuzu-emu/yuzu/pull/5989), from 4096 to just 4.
 This makes the driver assign less memory for command buffers, saving a considerable amount of system RAM.
 
-For example, in `Pokèmon Sword and Shield`, Vulkan’s use of system RAM goes from 707MB, to just 2MB.
+For example, in `Pokémon Sword and Shield`, Vulkan’s use of system RAM goes from 707MB, to just 2MB.
 
 To end the day, [Rodrigo](https://github.com/ReinUsesLisp) fixed a regression introduced by the `Buffer Cache Rewrite`. 
 Some games benefit from skipping the cache, but others lose performance. `Animal Crossing: New Horizons` was an example severely affected in Vulkan.
@@ -206,7 +206,7 @@ One of our most requested fixes is finally here.
 [ogniK](https://github.com/ogniK5377) is responsible for this fix, which properly [implemented I3dl2Reverb.](https://github.com/yuzu-emu/yuzu/pull/5909)
 
 If you paused emulation and resumed it some time later, you would experience severe stuttering until the audio caught up to the rendering.
-[german77](https://github.com/german77) resolved this unpleasant experience by [preventing overscheduling audio events,](https://github.com/yuzu-emu/yuzu/pull/5868) allowing for a seamless experience after resuming emulation.
+[german77](https://github.com/german77) resolved this unpleasant experience by [preventing overscheduling audio events](https://github.com/yuzu-emu/yuzu/pull/5868), allowing for a seamless experience after resuming emulation.
 
 ## Future projects
 
