@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="New Feature Release - Buffer Cache Rewrite &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-bcr/" />
+    <meta property="og:description" content="Hey there, yuz-ers! The follow-up to our previous big code rewrite is finally here: the Buffer Cache Rewrite!
+This massive undertaking not only improves performance significantly, but also simplifies the code for our developers.
+Now let&rsquo;s get this article started!" />
+<meta name="description" content="Hey there, yuz-ers! The follow-up to our previous big code rewrite is finally here: the Buffer Cache Rewrite!
+This massive undertaking not only improves performance significantly, but also simplifies the code for our developers.
+Now let&rsquo;s get this article started!" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-bcr/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-bcr/"> 
+
+    <title>New Feature Release - Buffer Cache Rewrite - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/entry">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/faq">
+                faq
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://profile.yuzu-emu.org">
+                profile
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> Discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> Twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> GitHub
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+
+<div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-bcr/banner.png');background-repeat:no-repeat;background-size:contain;background-position:center;"></div>
+<div class="has-text-centered">
+    <div>
+        <span class="title px-md py-sm">New Feature Release - Buffer Cache Rewrite</span>
+    </div>
+    
+    
+    <div>
+        <p class="h3 px-md py-sm">
+            Written by <a href="https://community.citra-emu.org/users/CaptV0rt3x">CaptV0rt3x</a>
+            
+            
+            
+            and <a href="https://community.citra-emu.org/users/GoldenX86">GoldenX86</a>
+            
+            on January 16 2021
+        </p>
+    </div>
+    
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <br>
+    <p>Hey there, yuz-ers! The follow-up to our <a href="https://yuzu-emu.org/entry/yuzu-tcr/">previous big code rewrite</a> is finally here: the Buffer Cache Rewrite!
+This massive undertaking not only improves performance significantly, but also simplifies the code for our developers.
+Now let&rsquo;s get this article started!</p>
+
+<h2 id="so-what-does-a-buffer-cache-do">So, what does a Buffer Cache do?</h2>
+
+<p>As the name implies, a Buffer Cache — well — caches (stores) buffers.
+That might not have made much sense, but that&rsquo;s what it does.</p>
+
+<p>In graphics programming, for the GPU to render anything it needs data like position, color, etc.
+Usually, this data is supplied by the application.
+But when we have large applications dealing with large volumes of data, it becomes increasingly difficult to constantly supply the GPU
+with data and have it render.
+Hence, buffer objects were introduced.</p>
+
+<p>Buffer objects are memory objects that store the render data in the GPU memory — thereby increasing reusability significantly.
+There are various types of bindings, commonly referred to as buffer types, like index buffers, vertex buffers, and uniform buffers (among others).
+This improves the rendering performance because the data is now readily available for the GPU to use.</p>
+
+<h3 id="yuzu-s-buffer-cache">yuzu&rsquo;s Buffer Cache</h3>
+
+<p>Coming back to yuzu&rsquo;s case, yuzu initially inherited a stream buffer — originally implemented for <a href="https://citra-emu.org">Citra</a> by <a href="https://github.com/degasus">degasus</a>.
+A stream buffer works in a modify/use cycle, meaning you frequently update the buffer object and you bind that region.
+<a href="https://github.com/ReinUsesLisp">Rodrigo</a> and <a href="https://github.com/FernandoS27">Blinkhawk</a> later implemented our existing buffer cache to work alongside the stream buffer.</p>
+
+<p>There was nothing inherently wrong with it; stream buffers are in fact one of the fastest ways to upload data to the GPU.
+But when <a href="https://github.com/ReinUsesLisp">Rodrigo</a> profiled yuzu, the cache management and upload copies were something that kept popping up as slow.</p>
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Profiling</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        In software engineering, profiling (&ldquo;program profiling&rdquo;, &ldquo;software profiling&rdquo;) is a form of dynamic program analysis that measures, for example, the space (memory) or time complexity of a program,
+the usage of particular instructions, or the frequency and duration of function calls. Most commonly, profiling information serves to aid program optimization.
+    </div>
+</article>
+
+
+<p>The problem lay in the fact that games aren&rsquo;t exactly streaming data all the time.
+So using immediate uploads (on OpenGL) and faster caching yielded much better performance than having a stream buffer and caching large resources, at least for Nvidia.
+Upon further testing, we found that this turned out to be false for non-Nvidia drivers on OpenGL (AMD, Intel, and Mesa) and hence had to add a stream buffer for small uploads in these drivers.</p>
+
+<h2 id="what-s-changed-now">What&rsquo;s changed now?</h2>
+
+<p>The technical design goals for the Buffer Cache Rewrite were the same as our Texture Cache Rewrite.</p>
+
+<ul>
+<li>Cleaner code: No more virtual function calls or shared pointers, meaning easier maintenance in the future.</li>
+<li>Improved efficiency and improved performance.</li>
+</ul>
+
+<p>Resolving which buffer existed in which memory region was a very expensive operation in our old buffer cache implementation.
+This is why the stream buffer existed — to make it faster.</p>
+
+<p>The new Buffer Cache has vastly improved tracking for the various buffers it caches.
+In the new implementation, when buffers are created in the memory, they are forcibly aligned to 4K <a href="https://en.wikipedia.org/wiki/Page_(computer_memory)">pages</a> (4096 bytes - starting at zero).
+And to efficiently know what buffer exists on what address, the cache uses a flat array 32 MiB wide to translate from the current CPU page where the buffer exists to what buffer resides in it.
+<code>e.g., if the address is 4096 or 7000, that is page 1 &amp; if it is 8192, that is page 2.</code>
+Thus, the new Buffer Cache can track what pages of a buffer have been modified on a page basis instead of being a binary state.</p>
+
+<p>Imagine if a buffer has a size of 524288 bytes and a game modifies only 1 byte of the buffer.
+Since buffers are now aligned to 4096 bytes as mentioned earlier, only those 4096 bytes are uploaded to the GPU.
+The same thing happens when the GPU tries to update the cache with data modified by the CPU.</p>
+
+<p>This tracking is done by making use of bit arrays in the buffers.
+Each value represents the state of the page - 1 being modified, 0 being clear.
+Keeping things in a bit array allows us to use efficient bit operations like <code>std::countr_zero</code> and <code>std::countr_one</code> (C++20).
+This results in fewer instructions yielding the same results (much faster).</p>
+
+<h2 id="all-right-let-s-talk-performance-gains">All right, let&rsquo;s talk performance gains!</h2>
+
+<p>The main focus of this work is to improve performance, but some graphical improvements also resulted from this rewrite.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./otbug.png" title=""><img src="./otbug.png.jpg" alt="Vertex explosions are no longer a problem in OCTOPATH TRAVELER"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./otfix.png" title=""><img src="./otfix.png.jpg" alt="Vertex explosions are no longer a problem in OCTOPATH TRAVELER"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Vertex explosions are no longer a problem in OCTOPATH TRAVELER</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./acnhbug.png" title=""><img src="./acnhbug.png.jpg" alt="Font rendering is now working for all GPU vendors in Animal Crossing: New Horizons"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./acnhfix.png" title=""><img src="./acnhfix.png.jpg" alt="Font rendering is now working for all GPU vendors in Animal Crossing: New Horizons"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Font rendering is now working for all GPU vendors in Animal Crossing: New Horizons</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./xbdebug.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./xbdefix.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Item drops stop flickering in Xenoblade Chronicles Definitive Edition</p>
+
+
+
+<p>With that out of the way, let&rsquo;s talk about performance. Of course, metrics will vary greatly depending on the hardware and API in use.
+Here are some examples measured after a couple of runs in the most demanding or common areas of the games listed:</p>
+
+<p>Nvidia, in this example represented by an RTX3070, shows up to 84% improved performance in OpenGL.
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./nvbench.png" title=" "><img src="./nvbench.png.jpg" alt=" "></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> </p>
+        
+    </div>
+    
+</div>
+</p>
+
+<p>AMD on the other hand, represented by a small RX550, shows an up to 55% improvement in Vulkan.
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./amdbench.png" title=" "><img src="./amdbench.png.jpg" alt=" "></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> </p>
+        
+    </div>
+    
+</div>
+</p>
+
+<p>Regarding Intel, an unsurprising problem arises. All currently released products bottleneck due to immature drivers and simply lacking the raw power for Switch emulation. This results in little to no performance improvements with this rewrite. Hopefully this can be addressed with future improvements to both yuzu and Intel&rsquo;s future drivers and hardware releases.</p>
+
+<p>As a special mention, AMD Vega based integrated GPUs show an up to 223% increase in <code>Paper Mario the Origami King</code>, reaching the same level of performance as dedicated cards of a much higher calibre.</p>
+
+<h2 id="fin">Fin</h2>
+
+<p>With that, we conclude our coverage of the new Buffer Cache Rewrite.
+As always, we would like to remind users that the features released in <a href="https://yuzu-emu.org/help/early-access/">Early Access</a> are still being worked on.
+If you come across any bugs, issues, performance loss, crashes, or regressions with this new feature, please
+reach out to us on our <a href="https://discord.com/invite/u77vRWY">Discord server</a> and share your findings.</p>
+
+<p>See you next time, <br>
+    - yuzu development team!</p>
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, check out our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/348059">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2021 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

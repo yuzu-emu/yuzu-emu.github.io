@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Progress Report November 2020 &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-progress-report-nov-2020/" />
+    <meta property="og:description" content="Salutations, yuz-ers! This is the November progress report which, for an unlimited time, will offer you hundreds of graphical fixes, improved performance, kernel changes, input additions, and major code cleanups." />
+<meta name="description" content="Salutations, yuz-ers! This is the November progress report which, for an unlimited time, will offer you hundreds of graphical fixes, improved performance, kernel changes, input additions, and major code cleanups." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-progress-report-nov-2020/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-progress-report-nov-2020/"> 
+
+    <title>Progress Report November 2020 - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/entry">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/faq">
+                faq
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://profile.yuzu-emu.org">
+                profile
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> Discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> Twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> GitHub
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+
+<div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-progress-report-nov-2020/banner.png');background-repeat:no-repeat;background-size:contain;background-position:center;"></div>
+<div class="has-text-centered">
+    <div>
+        <span class="title px-md py-sm">Progress Report November 2020</span>
+    </div>
+    
+    
+    <div>
+        <p class="h3 px-md py-sm">
+            Written by <a href="https://community.citra-emu.org/users/GoldenX86">GoldenX86</a>
+            
+            
+            
+            and <a href="https://community.citra-emu.org/users/Honghoa">Honghoa</a>
+            
+            on December 09 2020
+        </p>
+    </div>
+    
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <br>
+    <p>Salutations, yuz-ers! This is the November progress report which, for an unlimited time, will offer you hundreds of graphical fixes, improved performance, kernel changes, input additions, and major code cleanups.</p>
+
+<h2 id="4-jits-four-of-a-kind">4-JITs, four of a kind</h2>
+
+<p><a href="https://github.com/bunnei">bunnei</a> and <a href="https://github.com/FernandoS27">Blinkhawk</a> have been taking a look at yuzu&rsquo;s implementation of the kernel, searching for bugs or code that could be refactored — that is to say, rewritten to gain performance or make it easier to read, without changing the core functionality.</p>
+
+<p><a href="https://github.com/yuzu-emu/yuzu/pull/4996">This kernel refactor PR</a> focuses on modifying how the JIT (Just-in-time) compiler, an essential tool to emulate the Nintendo Switch&rsquo;s CPU, is being used in yuzu. These changes greatly benefit the user since they will mitigate the need to set up a huge pagefile for the emulator. Setting the default pagefile size to <code>auto</code> should now be sufficient, although some games, like <code>Super Smash Bros. Ultimate</code>, might still need a pagefile with a more reasonable size due to the sheer amount of resources being allocated. Users may want to set the pagefile size to 10000MB to cover these worst-case scenarios.</p>
+
+<p>Speaking of <code>Super Smash Bros. Ultimate</code>, these changes have also fixed a softlock that occurred quite frequently when the Final Smash of the DLC character “Hero” was used. You can now freely kick your opponents off the screen with all your might without needing to hold your breath and cross your fingers.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./hero.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Hero’s Final Smash (Super Smash Bros. Ultimate)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Additionally, the stutters experienced in many games have disappeared. This includes those found while changing character costumes in <code>Super Smash Bros. Ultimate</code> and right before the world map and tutorial videos play in <code>Super Mario Odyssey</code> (the videos also play much more smoothly).</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./smobug.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./smofix.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">World map in Super Mario Odyssey, before (left) and after (right) the changes, now stutter-free!</p>
+
+
+
+<p>So, you might be wondering, what exactly is happening behind the curtains?</p>
+
+<p>Computer programs, such as games, are usually written in high-level programming languages. These programs basically consist of a series of statements that will be carried out by the processor in sequential order to accomplish different tasks. The processor, however, does not understand these high-level instructions, so they are converted into a set of more elemental operations in binary called <a href="https://en.wikipedia.org/wiki/Machine_code">machine code</a>, which is directly compatible with the hardware of the system. The process of converting source code into machine code is called <code>compilation</code>, and this produces a file that can be loaded into memory and executed by the processor from there.</p>
+
+<p>The Nintendo Switch uses a 4-core ARM-based CPU, so naturally the generated machine code of any Switch game will be fully compatible with that architecture. This arises a problem, however, since yuzu was designed to run on computers using a processor with a AMD64 architecture, which is not capable of understanding these instructions. For this reason, they must be interpreted or translated from guest machine code (ARM) to host machine code (AMD64). There are different approaches to accomplish this, and yuzu does so by using <a href="https://github.com/MerryMage/dynarmic">Dynarmic</a>: a dynamic recompiler written by <a href="https://github.com/MerryMage">MerryMage</a> that performs this translation in real time. This process, the so-called JIT Compilation, reads chunks of the program in memory, decodes the instructions, and emits the translated code so the host CPU can run it. By invoking Dynarmic, it is possible to recompile game code into machine code that runs natively on the host architecture.</p>
+
+<p>Previously, yuzu would create one instance of Dynarmic per guest thread being emulated on the Switch. This resulted in having multiple instances of the JIT running at the same time, which could be as many as twenty, if not more! As a consequence, a lot of resources were being wasted unnecessarily like this. But with the changes introduced in this PR, yuzu now creates only four instances of Dynarmic: one per core, which is a more efficient solution. The chart shown below compares the usage of memory among some popular titles before and after this PR was implemented; the test was performed during the internal testing phase, while yuzu was being run along Google Chrome and Discord. As it can be seen, the differences in memory usage vary between 3 GB and 6.4 GB, depending on the game. Similar results have been observed across other titles.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./memgraph.png" title=" Memory usage before and after implementing 4-JITs"><img src="./memgraph.png.jpg" alt=" Memory usage before and after implementing 4-JITs"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Memory usage before and after implementing 4-JITs</p>
+        
+    </div>
+    
+</div>
+
+
+<p>bunnei is still working on more cleanups and looking for things that can be further improved, so expect more updates in the future.</p>
+
+<h2 id="the-texture-cache-rewrite">The Texture Cache Rewrite</h2>
+
+<p>We’ve already spoken in detail about <a href="https://github.com/yuzu-emu/yuzu/pull/4967">the Texture Cache Rewrite</a> in its <a href="https://yuzu-emu.org/entry/yuzu-tcr/">dedicated article</a>, so in short, the <code>Texture Cache Rewrite</code> (which is not a shader cache change) is work done by <a href="https://github.com/ReinUsesLisp">Rodrigo</a> to reimplement the old texture cache yuzu used, which was forked from <a href="https://github.com/citra-emu/citra">Citra.</a> This effort took over 10000 lines of code, fixing graphical bugs in numerous games and improving performance along the way.</p>
+
+<p>This paves the way for future important changes, like the <code>Buffer Cache Rewrite</code>, which is expected to not only continue to improve render accuracy, but to raise performance by optimizing the “hottest” code in the GPU section of our source, according to profiling. Afterwards, development of <code>Project Hades</code> is planned. This is a rewrite of the <code>Shader Cache</code>, with its main focus being improved precision and stability, and increased performance in Intel GPUs that are bottlenecked by the current implementation.</p>
+
+<p>Expected soon-ish are the <code>Compute Texture Decoders</code> which will leverage the compute shader capabilities of GPUs to decode the texture formats handled by the Nintendo Switch games. This includes even elusive formats like <code>ASTC</code>, the main cause of non-shader related stuttering on non-Intel GPUs.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./botw.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Prettiest fast-traveling (The Legend of Zelda: Breath of the Wild)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>One sad point of this rewrite is that the “Vulkan memory manager”, now called the <code>Texture Reaper</code>, which was expected to help reduce VRAM use in Vulkan, will take longer to implement due to technical complications that surfaced during its development. There is more detailed information in the dedicated article.</p>
+
+<p>A small PSA, AMD users should install the <code>20.11.3</code> driver version or newer, as it adds <code>VK_EXT_robustness2</code> to all missing Radeon products, helping in stability and precision.</p>
+
+<h2 id="project-aether-or-how-to-visit-yuzu-from-within-yuzu">Project Aether, or how to visit yuzu from within yuzu</h2>
+
+<p>Nintendo Switch games have access to a <code>web applet</code> that is typically used to show tutorials or guides while playing. Our original implementation using <a href="https://doc.qt.io/qt-5/qtwebengine-index.html">QtWebEngine</a> had some lasting bugs that impeded gameplay in some cases, like the tutorials on a first boot of <code>Super Smash Bros. Ultimate</code>.</p>
+
+<p><a href="https://github.com/Morph1984">Morph</a> <a href="https://github.com/yuzu-emu/yuzu/pull/5042">rewrote yuzu’s web applet</a>, still based on QtWebEngine, but completely overhauled. The web applet now accepts controller input instead of only touch emulation via mouse, and rendering fonts extracted from the native OS on the Switch, or using Open Source Software fallbacks.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./webapplet.png" title=" Working tutorials in Super Smash Bros. Ultimate"><img src="./webapplet.png.jpg" alt=" Working tutorials in Super Smash Bros. Ultimate"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Working tutorials in Super Smash Bros. Ultimate</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Previously non-rendering applets are now working. This includes the few cases where games got stuck due to the previous implementation, like in <code>Super Smash Bros. Ultimate</code>. Mods that bypass the applet are no longer required, like in <code>Super Mario Odyssey</code>.</p>
+
+<p>There are limitations listed in the Pull Request that we will continue to work on. Expect this change to force our minimum Ubuntu version requirement to 20.10 in the future due to the need to update Qt to version 5.14.2 or higher.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./yuzu.png" title=" yuzuception!"><img src="./yuzu.png.jpg" alt=" yuzuception!"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> yuzuception!</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="general-bug-fixes-and-improvements">General bug fixes and improvements</h2>
+
+<p><a href="https://github.com/ReinUsesLisp">Rodrigo</a> brings the Xenoblade fans a nice little fix. <a href="https://github.com/yuzu-emu/yuzu/pull/5013">Implementing <code>early fragment tests</code></a> fixes ghost geometry problems that resulted in dark rendering areas.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./xcdebug.png" title=""><img src="./xcdebug.png.jpg" alt="Like night and day! (Xenoblade Chronicles Definitive Edition)"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./xcdefix.png" title=""><img src="./xcdefix.png.jpg" alt="Like night and day! (Xenoblade Chronicles Definitive Edition)"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Like night and day! (Xenoblade Chronicles Definitive Edition)</p>
+
+
+
+<p>This fix will be a Vulkan exclusive for now to avoid invalidating the current OpenGL shader cache.</p>
+
+<p>More vulkan fixes, now by <a href="https://github.com/ameerj">epicboy!</a> He <a href="https://github.com/yuzu-emu/yuzu/pull/4946">implemented the missing <code>alpha test culling</code> feature</a> from Vulkan, resolving transparency related rendering bugs. This could be easily spotted in the main menu of <code>Super Smash Bros. Ultimate</code> or the vegetation of <code>Tales of Vesperia: Definitive Edition</code>.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smashbug.png" title=""><img src="./smashbug.png.jpg" alt=" "></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smashfix.png" title=""><img src="./smashfix.png.jpg" alt=" "></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light"> </p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./talesbug.png" title=""><img src="./talesbug.png.jpg" alt="Those are some weird plants (Tales of Vesperia: Definitive Edition)"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./talesfix.png" title=""><img src="./talesfix.png.jpg" alt="Those are some weird plants (Tales of Vesperia: Definitive Edition)"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Those are some weird plants (Tales of Vesperia: Definitive Edition)</p>
+
+
+
+<p>While we are speaking about <a href="https://github.com/ameerj">epicboy</a>, he also improved the quality of the NVDEC video decoder, by <a href="https://github.com/yuzu-emu/yuzu/pull/5002">queueing all frames</a> and cleaning up the code. This results in reduced skipped frames, and greatly improves videos encoded in <code>VP9</code>.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./introbug.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./introfix.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Do you need a hand? (Super Smash Bros. Ultimate)</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./smovidbug.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./smovidfix.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">An example of embedded videos during gamplay (Super Mario Odyssey)</p>
+
+
+
+<p>There has been some progress in World of Light playability, the single player campaign of <code>Super Smash Bros. Ultimate</code>. The main problem is not fixed yet, but thanks to <a href="https://github.com/bunnei">bunnei</a> <a href="https://github.com/yuzu-emu/yuzu/pull/4901">stubbing <code>GetAlbumFileList3AaeAruid</code>,</a> now users can do a single fight in World of Light, save, restart yuzu, and do another one. We’re slowly getting there!</p>
+
+<p>Later updates of <code>Animal Crossing: New Horizons</code> fail to load, but by <a href="https://github.com/yuzu-emu/yuzu/pull/4951">stubbing <code>OLSC Initialize</code> and <code>SetSaveDataBackupSettingEnabled</code></a>, <a href="https://github.com/bunnei">bunnei</a> restored playability once again. You can now enjoy all the new content and events added with the latest update.</p>
+
+<p><a href="https://github.com/ogniK5377">ogniK</a> <a href="https://github.com/yuzu-emu/yuzu/pull/4932">started preliminary work</a> on future fixes for audio emulation. This change currently improves fidelity in games like <code>Shovel Knight</code> and the <code>LEGO</code> series. Expect more audio related changes soon.</p>
+
+<p>yuzu has always been unstable when stopping emulation, and there are several reasons for this. <a href="https://github.com/bunnei">bunnei</a> fixed two distinct cases, when <a href="https://github.com/yuzu-emu/yuzu/pull/4978">closing while shaders were compiling, </a> and when closing <a href="https://github.com/yuzu-emu/yuzu/pull/4977">early during the boot process.</a> Quality of life fixes are always welcome.</p>
+
+<h2 id="input-improvements">Input improvements</h2>
+
+<p>You’ve been asking for it for ages, and <a href="https://github.com/german77">german77</a> delivers. <a href="https://github.com/yuzu-emu/yuzu/pull/4939">Mouse support is here!</a> With this, users can now set their mouse as they desire, be it an analog stick, buttons, motion, or touch screen emulation. A controller with motion support is still the recommended input method, but a mouse can save you in a pinch.</p>
+
+<p>As an extra gift for keyboard users, <a href="https://github.com/german77">german77</a> also added support for <a href="https://github.com/yuzu-emu/yuzu/pull/4905">better analog emulation with keyboard inputs.</a> With this change, keyboard players can now “drift” the emulated analog stick to get any angle, not just the fixed eight directions you can get by pressing key combinations.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./analogkey.png" title=" You can find this setting in Emulation &gt; Configure... &gt; Controls &gt; Advanced &gt; Emulate Analog with Keyboard Input"><img src="./analogkey.png.jpg" alt=" You can find this setting in Emulation &gt; Configure... &gt; Controls &gt; Advanced &gt; Emulate Analog with Keyboard Input"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> You can find this setting in Emulation &gt; Configure... &gt; Controls &gt; Advanced &gt; Emulate Analog with Keyboard Input</p>
+        
+    </div>
+    
+</div>
+
+
+<p><a href="https://github.com/german77">german77</a> also enabled the use of <a href="https://github.com/yuzu-emu/yuzu/pull/4937">up to 8 different UDP servers.</a> This allows for motion controls for each player.</p>
+
+<p>By <a href="https://github.com/yuzu-emu/yuzu/pull/4959">using <code>NpadStyleSet</code>,</a> <a href="https://github.com/Morph1984">Morph</a> now limits the available input options depending on the game. For example, in <code>Pokémon: Let’s Go</code>, the options are now limited to either Handheld, Left Joy-Con, or Right Joy-Con.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./limit.png" title=" No cheating!"><img src="./limit.png.jpg" alt=" No cheating!"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> No cheating!</p>
+        
+    </div>
+    
+</div>
+
+
+<p><a href="https://github.com/german77">german77</a> <a href="https://github.com/yuzu-emu/yuzu/pull/4950">tweaked the rumble amplification function,</a> making it more linear and less aggressive. This should help when low strength percentage values are used.</p>
+
+<p>By <a href="https://github.com/yuzu-emu/yuzu/pull/5021">stubbing both</a> <code>SetNpadCommunicationMode</code> and <code>GetNpadCommunicationMode</code>, <a href="https://github.com/german77">german77</a> made <code>Borderlands: Game of the Year Edition</code> and <code>Borderlands 2: Game of the Year Edition</code> playable!</p>
+
+<h2 id="a-silent-guardian-a-watchful-protector">A silent Guardian, a watchful Protector</h2>
+
+<p><a href="https://github.com/lioncash">Lioncache</a>, our harsh but fair code reviewer, has been <a href="https://github.com/yuzu-emu/yuzu/pull/5028">removing</a> the <code>global variable accessor</code> from the whole project (the linked PR is just the latest section), work that has taken months. yuzu used to be able to run a single global system instance, but with this change, yuzu can now create as many emulated instances as needed, all separate from each other. This provides full control over the life cycle of the emulated system, allowing among other things, faster game boot times, and maybe more importantly, forcing the devs to keep up cleaner code, which is easier to maintain in the future.</p>
+
+<h2 id="future-projects">Future projects</h2>
+
+<p>The <code>Buffer Cache Rewrite</code> has been progressing very fast with no delays so far, and Rodrigo is very enthusiastic about starting <code>Project Hades</code> after finishing it. More multicore changes are incoming, along with input improvements.</p>
+
+<p>That&rsquo;s all folks! Thank you so much for taking the time to read this progress report. See you next month, maybe Christmas will come early!</p>
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, check out our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/334353">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2021 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

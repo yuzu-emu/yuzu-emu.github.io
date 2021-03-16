@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="New Feature Release - NVDEC emulation! &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-nvdec-emulation/" />
+    <meta property="og:description" content="Hello, yuzu fans!
+Tired of broken cutscenes and having to mash your controller buttons in hopes of skipping them? Well, look no further!
+Thanks to the efforts of epicboy, yuzu can now play (most of) your favorite in-game cutscene videos.
+Jump right in to find out more!" />
+<meta name="description" content="Hello, yuzu fans!
+Tired of broken cutscenes and having to mash your controller buttons in hopes of skipping them? Well, look no further!
+Thanks to the efforts of epicboy, yuzu can now play (most of) your favorite in-game cutscene videos.
+Jump right in to find out more!" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-nvdec-emulation/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-nvdec-emulation/"> 
+
+    <title>New Feature Release - NVDEC emulation! - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/entry">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/faq">
+                faq
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://profile.yuzu-emu.org">
+                profile
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> Discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> Twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> GitHub
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+
+<div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-nvdec-emulation/banner.png');background-repeat:no-repeat;background-size:contain;background-position:center;"></div>
+<div class="has-text-centered">
+    <div>
+        <span class="title px-md py-sm">New Feature Release - NVDEC emulation!</span>
+    </div>
+    
+    
+    <div>
+        <span class="h3 px-md py-sm">
+            Written by <a href="https://community.citra-emu.org/users/CaptV0rt3x">CaptV0rt3x</a>
+            on September 29 2020
+        </span>
+    </div>
+    
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <br>
+    <p>Hello, yuzu fans!
+Tired of broken cutscenes and having to mash your controller buttons in hopes of skipping them? Well, look no further!
+Thanks to the efforts of <a href="https://github.com/ameerj">epicboy</a>, yuzu can now play (most of) your favorite in-game cutscene videos.
+Jump right in to find out more!</p>
+
+<p>&nbsp;
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/usvAZosD16o" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+
+<h1 id="nvdec-what-is-it">NVDEC - What is it?</h1>
+
+<p>For a long time, one of the most noticeable missing features of yuzu was support for NVDEC. <br>
+What is <a href="https://en.wikipedia.org/wiki/Nvidia_NVDEC">NVDEC</a>?
+NVDEC stands for <strong>Nvidia Video Decoder</strong> and is a feature in Nvidia GPUs that performs video decoding.
+And since the Switch has an Nvidia Tegra X1 SoC, it too makes use of its NVDEC module to offload all CPU intensive video decoding tasks to the GPU.</p>
+
+<p>NVDEC supports video codecs like <code>MPEG-2</code>, <code>VC-1</code>, <code>H.264 (AVC)</code>, <code>H.265 (HEVC)</code>, <code>VP8</code>, and <code>VP9</code>, but Nintendo only exposes <code>H.264</code>, <code>H.265</code>, <code>VP8</code> and <code>VP9</code>.
+Most games seem to use <code>H.264</code> because of its wide support and efficiency ratio.
+But many first party games are known to use <code>VP9</code> too - eg. Super Smash Bros. Ultimate, Pokémon: Let&rsquo;s Go, Pikachu/Eevee!</p>
+
+<p>With NVDEC support, users no longer have to rely on old save files or crazy button mashing to bypass broken cutscenes.
+Grab the latest yuzu Early Access build to try it out now!</p>
+
+<p>&nbsp;
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/XsXpxZE2rcc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+&nbsp;</p>
+
+<h1 id="development">Development</h1>
+
+<p>The Switch uses NVDEC along with VIC (Video Image Composer) in the GPU for video decoding.
+Games are exposed to higher level APIs by Nintendo which abstract the configuration of these modules.</p>
+
+<p>NVDEC and VIC work together to decode incoming videos and the process usually goes like this:</p>
+
+<pre><code>- Allocate memory
+- Place encoded video frame data in known memory location
+- Decode and place frame data into GPU memory
+- Clear intermediary allocated memory
+</code></pre>
+
+<p>Although this seems fairly simple, implementing it was quite the task.
+<a href="https://github.com/ameerj">epicboy</a> began working on this by implementing the service/command calls to NVDEC and VIC.
+It was decided to use the <a href="https://github.com/FFmpeg/FFmpeg">FFmpeg</a> library to decode the frame data once we knew its codec (<code>H.264</code> or <code>VP9</code>).</p>
+
+<p>&nbsp;
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/EGDodmeKGWY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+&nbsp;</p>
+
+<h3 id="vp9">VP9</h3>
+
+<p><code>VP9</code> was the biggest challenge as its decoding required knowledge on the different attributes of a specific frame.
+Each frame carries two headers and raw frame data with it.
+The headers contain the information as to which previous frame the current frame refers to or depends on.
+Frames usually refer to previously decoded frames, along with transformations to be done on various parts of those, to compose new frames.
+This is done in an effort to reduce the memory footprint of each frame.</p>
+
+<p>Here is where things got complicated.
+On the Switch, these headers are parsed by the Nvidia library in the games; therefore, NVDEC never receives this data.
+But for us to decode the frames using FFmpeg, we need to provide it with the full frame - Two headers and raw frame data from NVDEC.
+And since NVDEC hardware doesn&rsquo;t expose all of the data of the two <code>VP9</code> headers, <a href="https://github.com/ameerj">epicboy</a> had to manually compose these headers from the provided information.</p>
+
+<p><a href="https://github.com/ameerj">epicboy</a> took an interesting approach to this problem - he buffered two frames in advance.
+As the frame data from NVDEC holds some data on previous frames, knowing two frames in advance was useful.
+But this wasn&rsquo;t sufficient as a few games resulted in issues with this approach.
+We are currently researching these edge cases to properly fix it for all games.</p>
+
+<p>&nbsp;
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/xHYYntEB05o" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+&nbsp;</p>
+
+<h3 id="h-264">H.264</h3>
+
+<p><code>H.264</code> was relatively easier compared to <code>VP9</code>.
+Each <code>H.264</code> frame contains two headers and raw frame data with it.
+Unlike <code>VP9</code>, <code>H.264</code> doesn&rsquo;t have different headers for each frame but has same headers for entire video.</p>
+
+<p><a href="https://github.com/ogniK5377">ogniK</a> had, long ago, already implemented <code>H.264</code> support in his experimental branch.
+<a href="https://github.com/ameerj">epicboy</a> based his work off of <a href="https://github.com/ogniK5377">ogniK</a>&rsquo;s and fixed a bug in it which caused distorted videos.
+It turned out that <a href="https://github.com/ogniK5377">ogniK</a> was using incorrect dimensions when writing the pixel location.</p>
+
+<p>Currently NVDEC operations are synchronous, but are asynchronous compatible.
+This means that in the future, NVDEC operations can be made asynchronous thus yielding even better performance.
+Also, thanks to the FFmpeg library, we have access to hardware acceleration for faster decoding.
+And in the future, this will allow yuzu to offload video decoding to the host GPU (user&rsquo;s GPU).</p>
+
+<p>&nbsp;
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/ImXim7BXl0E" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+&nbsp;</p>
+
+<h3 id="vp8-h-265">VP8 &amp; H.265</h3>
+
+<p>The Switch officially supports <code>VP8</code> and <code>H.265</code> too, along with <code>VP9</code> and <code>H.264</code>.
+However, we are yet to see games make use of these codecs for in-game videos and hence support for these codecs remains unimplemented for now.</p>
+
+<h1 id="testing">Testing</h1>
+
+<p>As development work progressed, there were a lot of challenges and issues with games.
+<strong>Link&rsquo;s Awakening</strong>, for example, wasn&rsquo;t providing the proper memory locations to write frame data to and
+the NVDEC/VIC service/command calls were inaccurate as well.
+This led to data corruption when we wrote frame data to wrong memory locations.</p>
+
+<p>&nbsp;
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/4Lz1NqZsYlA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+&nbsp;</p>
+
+<p><a href="https://github.com/ameerj">epicboy</a> and our testers spent tens of hours testing various games in yuzu to make sure any minor issues were ironed out.
+This rigorous testing also brought to our attention more games that exhibit weird edge cases.
+Over the next couple of weeks, we plan to fix these bugs and make our decoding even more accurate.</p>
+
+<p>Huge shoutout to our testers for testing and compiling these lists.</p>
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Games that work</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        The following games were tested by our team and work well with minor occasional glitches:</p>
+
+<ul>
+<li>1-2-Switch</li>
+<li>AI: The Somnium Files</li>
+<li>Animal Crossing: New Horizons</li>
+<li>Attack on Titan 2</li>
+<li>Atelier Ryza: Ever Darkness &amp; the Secret Hideout</li>
+<li>Bloodstained: Ritual of the Night</li>
+<li>Bulletstorm</li>
+<li>Children of Morta</li>
+<li>Dark Souls Remastered</li>
+<li>Deadly Premonition Origins</li>
+<li>Devil May Cry</li>
+<li>Devil May Cry 2</li>
+<li>Devil May Cry 3</li>
+<li>Disgaea 5 Complete</li>
+<li>Donkey Kong Country: Tropical Freeze</li>
+<li>Dragon&rsquo;s Dogma</li>
+<li>Dragon Quest Builders</li>
+<li>Dragon Quest XI:S</li>
+<li>Dragons: Dawn Of New Riders</li>
+<li>Fairy Tail</li>
+<li>Final Fantasy IX</li>
+<li>Fire Emblem: Three Houses</li>
+<li>Fire Emblem Warriors</li>
+<li>Go Vacation</li>
+<li>Hollow Knight</li>
+<li>Huntdown</li>
+<li>Hyrule Warriors: Definitive Edition</li>
+<li>Indivisible</li>
+<li>Just Dance 2020</li>
+<li>Kirby Star Allies</li>
+<li>LEGO City Undercover</li>
+<li>Mario Kart 8 Deluxe</li>
+<li>Marvel Ultimate Alliance</li>
+<li>Monster Boy and the Cursed Kingdom</li>
+<li>ŌKAMI HD</li>
+<li>Paper Mario: The Origami King</li>
+<li>Pokkén Tournament DX</li>
+<li>Psyvariar Delta</li>
+<li>Resident Evil</li>
+<li>Resident Evil 0</li>
+<li>Resident Evil 4</li>
+<li>Resident Evil 5</li>
+<li>Resident Evil 6</li>
+<li>Resident Evil Revelations</li>
+<li>Resident Evil Revelations 2</li>
+<li>Ring Fit Adventure</li>
+<li>Rune Factory 4 Special</li>
+<li>Shantae and the Seven Sirens</li>
+<li>Star Ocean First Departure R</li>
+<li>Steins;Gate Elite</li>
+<li>Super Mario 3D All-Stars</li>
+<li>Super Mario Odyssey</li>
+<li>Super Smash Bros. Ultimate</li>
+<li>TLOZ - Breath of the Wild</li>
+<li>Tokyo Mirage Sessions #FE Encore</li>
+<li>Trials of Mana</li>
+<li>Xenoblade Chronicles Definitive Edition</li>
+<li>Yu-Gi-Oh: Legacy of the Duelist</li>
+</ul>
+
+    </div>
+</article>
+
+
+<article class="message">
+    <div class="message-header is-dropdown">
+        <p>Games with known issues</p>
+
+        <span class="icon">
+            <i class="fas fa-lg fa-arrow-circle-down"></i>
+        </span>
+    </div>
+    <div class="message-body is-dropdown-target">
+        The following games are known to have issues, and we are actively working on fixing them:</p>
+
+<ul>
+<li>Alien: Isolation</li>
+<li>Ni no Kuni: Wrath of the White Witch</li>
+<li>Onimusha: Warlords</li>
+<li>Persona 5 Scramble</li>
+<li>Resident Evil 0</li>
+<li>TLOZ: Link&rsquo;s Awakening</li>
+<li>The Legend of Heroes: Trails of Cold Steel III</li>
+<li>Final Fantasy VIII Remastered</li>
+<li>Pokémon Let&rsquo;s Go</li>
+<li>Pokémon Sword</li>
+</ul>
+
+    </div>
+</article>
+
+
+<h1 id="fin">Fin</h1>
+
+<p>As always, we would like to remind users that the features released on Early Access are still being worked on.
+Hence not all games might behave in the way we want them to.
+If you come across more games (other than the ones mentioned above) that encounter bugs or issues, feel free to
+reach out to us on our <a href="https://discord.com/invite/u77vRWY">Discord server</a> and share your findings.</p>
+
+<p>See you next time, <br>
+    - yuzu development team!</p>
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, check out our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/309130">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2021 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

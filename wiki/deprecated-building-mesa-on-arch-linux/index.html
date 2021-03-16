@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="[Deprecated] Building Mesa on Arch Linux &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/wiki/deprecated-building-mesa-on-arch-linux/" />
+    <meta property="og:description" content="This guide will remain here as a reference. However, Chaotic-AUR now provides Mesa compiled using LLVM 12, so there is no need for this guide now. Just enable the repo, install mesa-git, and you should be good to go.
+Currently, users of AMD GPUs have two options to get decent performance on yuzu. One could use the Vulkan backend in Windows, however, this comes with poor stability as yuzu&rsquo;s Vulkan implementation lacks proper memory management." />
+<meta name="description" content="This guide will remain here as a reference. However, Chaotic-AUR now provides Mesa compiled using LLVM 12, so there is no need for this guide now. Just enable the repo, install mesa-git, and you should be good to go.
+Currently, users of AMD GPUs have two options to get decent performance on yuzu. One could use the Vulkan backend in Windows, however, this comes with poor stability as yuzu&rsquo;s Vulkan implementation lacks proper memory management." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://yuzu-emu.org/logo.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/wiki/deprecated-building-mesa-on-arch-linux/"> 
+
+    <title>[Deprecated] Building Mesa on Arch Linux - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/entry">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/faq">
+                faq
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://profile.yuzu-emu.org">
+                profile
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> Discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> Twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> GitHub
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    <section class="section" style="padding-bottom: 0px;">
+    <div class="container">
+        <article class="message">
+            <div class="message-body">
+                <p>The below wiki article is based on user submitted content. Please verify <strong>all</strong> hyperlinks and terminal commands below!</p>
+                <p>See a mistake? Want to contribute? <a href="https://github.com/yuzu-emu/yuzu/wiki/[deprecated]-building-mesa-on-arch-linux/_edit/">Edit this article on Github</a></p>
+            </div>
+        </article>
+    </div>
+</section>
+
+    
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section">
+    <h1 class="title">[Deprecated] Building Mesa on Arch Linux</h1>
+    <div class="content">
+        
+
+<p><strong>This guide will remain here as a reference. However, <a href="https://lonewolf.pedrohlc.com/chaotic-aur/">Chaotic-AUR</a> now provides Mesa compiled using LLVM 12, so there is no need for this guide now. Just enable the repo, install <code>mesa-git</code>, and you should be good to go.</strong></p>
+
+<hr />
+
+<p>Currently, users of AMD GPUs have two options to get decent performance on yuzu. One could use the Vulkan backend in Windows, however, this comes with poor stability as yuzu&rsquo;s Vulkan implementation lacks proper memory management. The other option is to use the OpenGL backend in Linux with <a href="https://mesa3d.org/">Mesa</a>&rsquo;s open-source RadeonSI driver. Decent stability can be achieved on Linux, but the current stable version of Mesa found in most Linux distributions causes unrecoverable crashes in many games on yuzu. Some crashes are caused by an old Mesa version, and many more are caused by the old, stable version of <a href="https://llvm.org/">LLVM</a> required by Mesa to compile shaders.</p>
+
+<p>Most crashes are solved upstream on both Mesa and LLVM, so this is a guide about installing the latest LLVM and Mesa versions to an <a href="https://www.archlinux.org/">Arch Linux</a> or <a href="https://manjaro.org/">Manjaro</a> computer.</p>
+
+<h2 id="preparations">Preparations</h2>
+
+<p>For this guide, either an install of Arch Linux or any distro derived from Arch Linux, such as Manjaro, is necessary to follow along. If you are a beginner with Linux, Manjaro is easier to set up and install to your computer than Arch Linux, and it can be downloaded <a href="https://manjaro.org/get-manjaro/">here</a>. Arch Linux can be found <a href="https://www.archlinux.org/download/">here</a>. General setup of the operating system is outside the scope of this guide, but here is <a href="https://manjaro.org/support/firststeps/">Manjaro&rsquo;s installation guide</a>, and here is <a href="https://wiki.archlinux.org/index.php/Installation_guide">Arch Linux&rsquo;s installation guide</a>.</p>
+
+<p>Once installed, update your packages with <code>pacman</code>, the <a href="https://wiki.archlinux.org/index.php/Pacman">package manager in Arch Linux</a>.</p>
+
+<pre><code>sudo pacman -Syu
+</code></pre>
+
+<p>There are a few dependencies needed to complete this guide, as well. Run the following command to install the dependencies. If you have already followed yuzu&rsquo;s <a href="https://github.com/yuzu-emu/yuzu/wiki/Building-for-Linux">Building for Linux</a> guide, then this next step is unnecessary.</p>
+
+<pre><code>sudo pacman -S --needed git base-devel
+</code></pre>
+
+<h2 id="using-chaotic-aur-to-install-llvm-git">Using Chaotic-AUR to Install <code>llvm-git</code></h2>
+
+<p>The first step is to add the <a href="https://lonewolf.pedrohlc.com/chaotic-aur/">Chaotic-AUR</a> <a href="https://wiki.archlinux.org/index.php/Unofficial_user_repositories">repository</a> to your machine. This will give us access to a daily build of llvm-git (version 12.0.0 as of writing), which we need for building <code>mesa-git</code> later. Since it updates periodically, follow <a href="https://lonewolf.pedrohlc.com/chaotic-aur/">their instructions</a> to install the repository on to your system.</p>
+
+<p>Afterwards, update your package lists and packages:</p>
+
+<pre><code>sudo pacman -Syu
+</code></pre>
+
+<p>LLVM will be installed later automatically when <code>mesa-git</code> is being built. This section was just setup to make that happen later.</p>
+
+<p>Chaotic-AUR provides access to many packages, including <code>mesa-tkg-git</code> and <code>mesa-aco-git</code>. <strong>Do not install Mesa from Chaotic-AUR.</strong> These packages are updated daily, and while there is nothing wrong with them in their own right, they use LLVM stable (version 10) which is not suitable for yuzu.</p>
+
+<h2 id="installing-mesa-git">Installing <code>mesa-git</code></h2>
+
+<p>The next step is building Mesa from source. Clone the <a href="https://aur.archlinux.org/packages/mesa-git/"><code>mesa-git</code></a> build script from the <a href="https://wiki.archlinux.org/index.php/Arch_User_Repository">Arch User Repository</a>:</p>
+
+<pre><code>git clone https://aur.archlinux.org/mesa-git.git
+</code></pre>
+
+<p>Then change the working directory over to the newly cloned directory:</p>
+
+<pre><code>cd mesa-git
+</code></pre>
+
+<p>This gives us a <a href="https://wiki.archlinux.org/index.php/PKGBUILD"><code>PKGBUILD</code></a>, a script that helps us build a package (hence the name).</p>
+
+<p>In order to use the daily version of LLVM from Chaotic-AUR, the <a href="https://wiki.archlinux.org/index.php/Environment_variables">environment variable</a> <code>MESA_WHICH_LLVM</code> needs to be set to <code>3</code>. Without it, <code>mesa-git</code> is configured to build with the stable version of LLVM. Run <a href="https://wiki.archlinux.org/index.php/Makepkg"><code>makepkg</code></a> from inside the <code>mesa-git</code> directory to build and install Mesa:</p>
+
+<pre><code>MESA_WHICH_LLVM=3 makepkg -si
+</code></pre>
+
+<p><code>makepkg</code> will run <code>pacman</code> during the install and require credentials. It will ask to install <code>llvm-git</code>, <code>llvm-libs-git</code>, and <code>clang-git</code> over <code>llvm</code>, <code>llvm-libs</code>, and <code>clang</code>, respectively. Press <code>y</code> and hit <code>ENTER</code> to allow it to do so for each package. <code>mesa-git</code> should take a while to build.</p>
+
+<p>Once it has finished building, it may ask for credentials again. <code>pacman</code> will ask to replace more packages. Press <code>y</code> and hit <code>ENTER</code> to allow it to replace these with <code>mesa-git</code>. Once <code>pacman</code> finishes installing it, <code>mesa-git</code> should be installed. Restart your machine to let all the changes take effect.</p>
+
+<h3 id="verify-the-installation">Verify the Installation</h3>
+
+<p>To verify that the build was successful, install the <code>mesa-demos</code> package and run <code>glxinfo</code> in the terminal:</p>
+
+<pre><code>glxinfo | grep &quot;OpenGL renderer&quot;
+</code></pre>
+
+<p>The command output should be similar to this, adjusted for your own graphics card:</p>
+
+<pre><code>OpenGL renderer string: AMD Radeon (TM) R5 340 (OLAND, DRM 3.37.0, 5.7.12-arch1-1, LLVM 12.0.0)
+</code></pre>
+
+<p>Of particular note is the LLVM version. If it is greater than or equal to 12.0.0, then the installation was successful.</p>
+
+<h3 id="updating-mesa-git">Updating <code>mesa-git</code></h3>
+
+<p>After a some time has passed, improvements to Mesa will happen upstream and become available. Updating <code>mesa-git</code> requires ensuring the <code>PKGBUILD</code> is updated and then running <code>makepkg</code> again.</p>
+
+<p>Ensure the <code>PKGBUILD</code> is updated:</p>
+
+<pre><code>cd mesa-git
+git pull
+</code></pre>
+
+<p>Then run <code>makepkg</code> again:</p>
+
+<pre><code>MESA_WHICH_LLVM=3 makepkg -si
+</code></pre>
+
+<h3 id="optional-prevent-pacman-from-updating-mesa-git-automatically">Optional: Prevent <code>pacman</code> From Updating <code>mesa-git</code> Automatically</h3>
+
+<p>Though <code>mesa-git</code> is now installed, running <code>sudo pacman -Syu</code> right now will overwrite the package with one from a repository (likely <code>mesa-aco-git</code> from Chaotic-AUR). To prevent this, <code>pacman</code> needs to ignore that package for updates. Edit the <code>IgnorePkg</code> line in <code>/etc/pacman.conf</code>:</p>
+
+<pre><code>#IgnorePkg   =
+</code></pre>
+
+<p>Add <code>mesa-git</code> to this list and remove the comment marker <code>#</code> if need be:</p>
+
+<pre><code>IgnorePkg   = mesa-git
+</code></pre>
+
+<p>Use commas to separate multiple package names if other packages are already listed there.</p>
+
+<p>It is important to note this will freeze the <code>mesa-git</code> version. This means if other packages update around it, then the installed <code>mesa-git</code> version may become incompatible with the rest of the system. Update <code>mesa-git</code> from time-to-time following the guide above.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>yuzu will be much more stable on an AMD GPU now with the updated Mesa and LLVM versions. Some games cannot be helped for now, like crashes in Fire Emblem: Three Houses or rendering issues in Pokemon: Sword/Shield, but most other games will crash far less frequently. Any concerns/questions had in this guide can be discussed on the <a href="https://community.citra-emu.org/c/yuzu-support">yuzu forum</a> or in our <a href="https://discord.gg/u77vRWY">Discord server</a>.</p>
+
+    </div>
+</section>
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2021 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Progress Report October 2020 &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-progress-report-oct-2020/" />
+    <meta property="og:description" content="How&rsquo;s it going, yuz-ers? Here work continues. This month&rsquo;s report offers you mythological hammers dropping, Vulkan and OpenGL stability fixes, and some news on the continued fight to make Super Mario 3D All-Stars render." />
+<meta name="description" content="How&rsquo;s it going, yuz-ers? Here work continues. This month&rsquo;s report offers you mythological hammers dropping, Vulkan and OpenGL stability fixes, and some news on the continued fight to make Super Mario 3D All-Stars render." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-progress-report-oct-2020/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-progress-report-oct-2020/"> 
+
+    <title>Progress Report October 2020 - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/entry">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/faq">
+                faq
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://profile.yuzu-emu.org">
+                profile
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> Discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> Twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> GitHub
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+
+<div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-progress-report-oct-2020/banner.png');background-repeat:no-repeat;background-size:contain;background-position:center;"></div>
+<div class="has-text-centered">
+    <div>
+        <span class="title px-md py-sm">Progress Report October 2020</span>
+    </div>
+    
+    
+    <div>
+        <p class="h3 px-md py-sm">
+            Written by <a href="https://community.citra-emu.org/users/Honghoa">Honghoa</a>
+            
+            
+            
+            and <a href="https://community.citra-emu.org/users/GoldenX86">GoldenX86</a>
+            
+            on November 10 2020
+        </p>
+    </div>
+    
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <br>
+    <p>How&rsquo;s it going, yuz-ers? Here work continues. This month&rsquo;s report offers you mythological hammers dropping, Vulkan and OpenGL stability fixes, and some news on the continued fight to make Super Mario 3D All-Stars render.</p>
+
+<h2 id="project-mjölnir">Project Mjölnir</h2>
+
+<h3 id="part-3-smite-as-hard-as-you-desire">Part 3 - Smite as hard as you desire</h3>
+
+<p><a href="https://github.com/Morph1984">Morph</a> strikes again with <a href="https://github.com/yuzu-emu/yuzu/pull/4866">part 3 of <code>Project Mjölnir</code></a> - a major rewrite of yuzu&rsquo;s <code>Human Interface Device (HID)</code>. This concludes months of hard work that also involved the contributions of <a href="https://github.com/its-rei">Rei</a> (who designed the new user interface) and <a href="https://github.com/jroweboy">jroweboy</a> (who started the original HID rewrite that later Morph continued).</p>
+
+<p>Just as <a href="https://en.wikipedia.org/wiki/Mj%C3%B6lnir#Origins_in_the_Prose_Edda">three different gifts</a> were given to the Nordic gods by the dwarves (including the iconic hammer of Thor), this project was divided into three parts focused on different aspects of emulating the input control of the Nintendo Switch.</p>
+
+<p>The first part was centered on overhauling the user interface, as well as modifying and fixing errors in the backend that handled the mapping and detection of controllers. These changes allowed yuzu&rsquo;s implementation of input to behave more closely to the hardware, improved the user experience, and also paved the way for the subsequent improvements in the following PRs.</p>
+
+<p>The second part took care of implementing the <code>Controller Applet</code>: a service used by games to communicate and set up the kind of controller input they can accept, how many players will use them, what character they will control, etc.</p>
+
+<p>And now, at last, comes the third part of this project: introducing bug fixes, <code>Controller Profiles</code>, and an overhaul to the implementation of <code>Rumble</code> realized by <a href="https://github.com/german77">german77</a>.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./load_profile.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Loading a profile for a Sony DS4 controller</p>
+        
+    </div>
+    
+</div>
+
+
+<p><code>Controller Profiles</code> had been a placeholder since Part 1 of <code>Project Mjölnir</code>. They allow users to set up the configuration of their gamepads and save them in a file, which can be loaded and marked with a distinctive name. This is particularly useful for people who own more than one type of controller, since they store all button and axis information, as well as the port and engine used to read the input data. Changing between one configuration and another becomes as simple as clicking a dropdown menu and choosing the desired profile, and all the settings will then be applied automatically. Users now can create a profile by simply clicking on the &ldquo;New&rdquo; button and writing a descriptive name to save it.</p>
+
+<p><a href="https://github.com/yuzu-emu/yuzu/pull/4809">Modifier Buttons</a> was also another feature that wasn&rsquo;t working well since Part 1. A <code>Modifier Button</code> allows the user to change the range of an axis on the fly by pressing it, which is particularly useful when said axis is mapped to digital buttons instead of an analog stick. This is because digital buttons are interpreted as a &ldquo;virtual axis&rdquo; that is being pushed from the minimum value (0%) to its maximum value (100%) every time they are pressed. With this change, it is now possible to set the maximum value of this axis to a value lower than 100%, effectively limiting its range. Useful for walking or sneaking!</p>
+
+<p>Next on the list of fixed bugs, we had a <a href="https://github.com/yuzu-emu/yuzu/pull/4816">controller reconnection issue</a>. Sometimes, a controller instance was being pushed back into memory right after being disconnected. This faulty behaviour was a bug that prevented the controller from being recognized by yuzu when it was reconnected by the user again. <a href="https://github.com/Morph1984">Morph</a> implemented a simple guard to avoid this and solved the problem.</p>
+
+<p>For some games, vibrations didn&rsquo;t work properly, or at all. To understand why this was happening, we will need to explain a bit of what’s going on behind the curtains of abstraction, so please bear with us here.</p>
+
+<p><code>Rumble</code> in the Nintendo Switch is physically generated by a pair of identical <a href="https://en.wikipedia.org/wiki/Linear_actuator">Linear Resonant Actuator motors</a> that can emit a wide range of frequencies on the low and high spectrum, independently from each other. This contrasts with the approach used in other controllers, which typically have low frequency <a href="https://en.wikipedia.org/wiki/Rotating_unbalance">Eccentric Rotating Mass (ERM) motors</a> at the left side and a high frequency ERM at the right side; depending on the desired frequency band at which one wants to make those controllers vibrate, it is possible to send signals to one or the other and thus accomplish low and high frequency rumble. The Nintendo Switch also characterizes vibration in such a way that it&rsquo;s possible for games to distinguish between the left and right motors of different players. This is because each device has an identifier handler that is used to send the correct vibration commands to the right place.</p>
+
+<p>Prior to this PR, the functions that processed this handler information weren’t coded yet, or they were stubbed and returned incorrect information. Even with those limitations, this exceeded the capabilities of the <a href="https://www.libsdl.org/">SDL library</a> (an <a href="https://en.wikipedia.org/wiki/API">API</a> that yuzu uses to communicate with the hardware of the input devices), which was designed to work with generic gamepads that do not present any of these unique features of the Nintendo Switch. As a result, the rumble wasn&rsquo;t being processed correctly. This resulted in inaccurate behaviour, such as the lack of vibration for the controllers of players other than player one, since this handler information wasn&rsquo;t available for SDL to distinguish where to send the vibration signals other than for &ldquo;controller 0&rdquo;. In order to make vibrations work as intended, <a href="https://github.com/Morph1984">Morph</a> investigated how this information was characterized and implemented the functions to process these handlers, so that the vibration data could be sent to the appropriate devices and players. The addition of these functions also fixed a number of games, such as <code>Xenoblade Chronicles: Definitive Edition</code>, <code>Xenoblade Chronicles 2</code>, <code>Hollow Knight</code>, and many others that previously didn&rsquo;t exhibit rumble at all.</p>
+
+<p>Previously, some people using certain types of wireless controllers reported in-game performance losses whenever their gamepads rumbled. The root of this issue lied in the rate at which the vibration states were being updated to these controllers, so <a href="https://github.com/german77">german77</a> implemented a solution to reduce the rate to 50 Hz and filter out some of the vibrations. But it was later reported that some vibration effects were missing in games such as <code>Super Smash Bros. Ultimate</code> due to this filter, so an alternative solution was needed. For this reason, <a href="https://github.com/Morph1984">Morph</a> implemented <code>Accurate Vibrations</code>, a toggle option (off by default) that switches between a full implementation and one with the effective vibration rate reduced through heuristics. If this option is disabled, the vibration rate is limited to 100 vibrations per second, excluding vibrations with an amplitude value of 0 (which is considered as the &ldquo;not vibrating&rdquo; state). This rate was determined to be safe through testing done by <a href="https://github.com/Morph1984">Morph</a> and <a href="https://github.com/renA21">Ren</a>.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./configure_vibration.png" title=" Vibration Configuration Window"><img src="./configure_vibration.png.jpg" alt=" Vibration Configuration Window"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Vibration Configuration Window</p>
+        
+    </div>
+    
+</div>
+
+
+<p>These changes were enough to fix the stutters experienced by these users. In order to toggle <code>Accurate Vibrations</code> on, the user should navigate to <code>Emulation &gt; Configure... &gt; Controls</code> and click on &ldquo;Configure&rdquo; under the &ldquo;Vibrations&rdquo; tickbox. They can also change the intensity of the vibrations for each player, if desired.</p>
+
+<p>Furthermore, an additional check has been implemented when initializing a vibration device to determine if a controller is apt to rumble or not. It consists in sending vibrations with an amplitude value of 0 and reading the value sent back from the controller. While this approach works fine for the GameCube Adapter, SDL returns an incorrect value if two vibration signals with identical amplitudes are sent to the device. To work around this problem, yuzu first sends a vibration with an amplitude of <sup>1</sup>&frasl;<sub>65535</sub>, then one with amplitude 0, and then reads the value returned from the device. This check is extremely important, because it helps in implementing the necessary functions that tell the games if the vibration device is properly mounted and capable of rumble, and it also makes it possible for yuzu to disable rumble capabilities in the backend automatically if a controller doesn&rsquo;t support it.</p>
+
+<p>On top of these changes, work has been done so that anyone can plug in their favorite controller and, if it supports vibrations, all configuration related to it will be applied automatically. In the case that the controller doesn’t, however, rumble will be disabled on the backend.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./mapping.png" title=" Manually mapping an analog stick"><img src="./mapping.png.jpg" alt=" Manually mapping an analog stick"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Manually mapping an analog stick</p>
+        
+    </div>
+    
+</div>
+
+
+<p>It is worth noting that, in case the automatic configuration process fails, users can map their analog sticks manually by clicking on any of the axis mappings. This solves issues with certain controllers that have their axis mapped as digital buttons.</p>
+
+<p><code>Project Mjölnir</code> has come a long way since it started. Major parts of yuzu’s original code for input were rewritten, tested, and ironed out. Vast parts of the input frontend and backend were overhauled in favour of a more user friendly interface, aiming to make it easy to configure your controllers in the most intuitive way (and many of these configurations are also being applied automatically). Much of the effort done by the devs is easily perceivable, but there’s also a lot of work that went into making things run perfectly behind the scenes. Hours of investigation, lining up the details, and polishing every addition. Indeed, our devs gave it their best, just like the dwarves in the Eddas, to present you with this gift. The Nordic gods debated which among the three presents they received was the best, and they concluded the hammer was, without any doubts, the most precious of them. It is our most sincere wish that you will accept this hammer from us, and smite as hard as you desire!</p>
+
+<p>As a small sidenote: In the Edda, the dwarves happened to ask for Loki’s head as compensation for the gifts. But don’t worry, we won’t go that far with you! <em>(Yet)</em>.</p>
+
+<h2 id="back-to-the-pokéfuture">Back to the Pokéfuture</h2>
+
+<p>A highly requested fix, and understandably so. Pokémon has long been a franchise that uses time as a game mechanic. In yuzu, this feature was not working as intended with <code>Sword and Shield</code>. What would normally be saving, closing yuzu, and loading in later expecting time to naturally pass, ends up as if nothing happened, rendering several events (like berry respawns, changing weather, Pokéjobs, different Pokémon spawns, or just simple time of day changing) useless. We don&rsquo;t have a proper fix to naturally progress the time yet, but for now, thanks to the work done by <a href="https://github.com/bunnei">bunnei</a>, it is now possible to <a href="https://github.com/yuzu-emu/yuzu/pull/4792">bypass this problem by changing the clock from yuzu&rsquo;s settings during gameplay.</a></p>
+
+<p>You can find the setting in <code>Emulation &gt; Configure... &gt; System</code>, enable <code>Custom RTC</code>, and then enjoy time travelling!</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./rtc.png" title=" Try to avoid changing the divergence value, Doc!"><img src="./rtc.png.jpg" alt=" Try to avoid changing the divergence value, Doc!"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Try to avoid changing the divergence value, Doc!</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="greetings-professor-https-www-youtube-com-watch-v-xr-aiariea4-fixes-to-report"><a href="https://www.youtube.com/watch?v=xr-aIARiea4">Greetings, Professor!</a> Fixes to report!</h2>
+
+<p><a href="https://github.com/ReinUsesLisp">Rodrigo</a> has for us a couple of stability improvements for <code>Fire Emblem: Three Houses</code>, only involving Vulkan and assembly shaders (GLASM) for now.</p>
+
+<p>On the Vulkan side, <a href="https://github.com/yuzu-emu/yuzu/pull/4782">managing primitive topologies as fixed state</a> fixes regressions introduced by recent Nvidia drivers, but it has been reported to also help AMD Radeon users quite a bit too.</p>
+
+<p>On the GLASM side, and benefitting our Nvidia users the most, <a href="https://github.com/yuzu-emu/yuzu/pull/4807">implementing robust buffer operations</a> like it is done in GLSL helps make the game playable when using this very useful shader implementation.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./fe3h.png" title=" I have something to ask of you (Fire Emblem: Three Houses)"><img src="./fe3h.png.jpg" alt=" I have something to ask of you (Fire Emblem: Three Houses)"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> I have something to ask of you (Fire Emblem: Three Houses)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Crashes will still be experienced in specific chapters of the game, like Ch. 15 and Ch. 17. For those cases, we can offer you a workaround:</p>
+
+<ol>
+<li>You need to download one of the following old builds: <a href="https://github.com/yuzu-emu/yuzu-mainline/releases/tag/mainline-0-66">yuzu 66</a> or <a href="https://github.com/yuzu-emu/yuzu-mainline/releases/tag/mainline-0-41">yuzu 41</a>.</li>
+<li>Set it up as a standalone version by extracting it and creating a <code>user</code> folder where <code>yuzu.exe</code> is located.</li>
+<li>This folder will replace <code>%appdata%\yuzu</code>, so you need to extract a copy of your keys there, along with any save data you want to transfer to get past the crashes. Make sure to also copy your <code>nand</code> folder so you can transfer all DLC and updates to the standalone yuzu build.</li>
+<li>Play the game, expect tons of glitches and pretty bad performance for such an old build. Save after progressing past the crashing area and transfer that save to the latest <code>Mainline/Early Access</code> version you are using, and continue playing regularly from there.</li>
+</ol>
+
+<h2 id="emuception">Emuception</h2>
+
+<p><a href="https://github.com/bunnei">bunnei</a> seems to have a personal vendetta with <code>Super Mario 3D All-Stars</code>. He has:</p>
+
+<ul>
+<li><a href="https://github.com/yuzu-emu/yuzu/pull/4783">Implemented the nvhost_as_gpu::FreeSpace service.</a></li>
+<li><a href="https://github.com/yuzu-emu/yuzu/pull/4784">Implemented the BufferQueue::CancelBuffer service.</a></li>
+<li><a href="https://github.com/yuzu-emu/yuzu/pull/4793">Stubbed IManagerForApplication::StoreOpenContext.</a></li>
+<li><a href="https://github.com/yuzu-emu/yuzu/pull/4799">Reworked the program loader to better handle multiple processes.</a></li>
+<li><a href="https://github.com/yuzu-emu/yuzu/pull/4832">Fixed crashes when trying to launch subsequent games.</a></li>
+<li><a href="https://github.com/yuzu-emu/yuzu/pull/4869">Improved GPU synchronization.</a>.</li>
+</ul>
+
+<p>The last one also improves stability in games like <code>Luigi's Mansion 3</code>. The only thing missing to get <code>Super Mario 3D All-Stars</code> rendering is the <code>Texture Cache Rewrite</code>.</p>
+
+<h2 id="nvdec-improvements">NVDEC improvements</h2>
+
+<p>Work on video decoding continues, thanks to <a href="https://github.com/ameerj">epicboy</a>. Some games like <code>Onimusha: Warlords</code> and <code>Ni no Kuni</code> had an incompatible <code>BGRA8</code> format in our first NVDEC implementation. Now they render correctly.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./ninokuni.png" title=" Working menu rendering (Ni no Kuni)"><img src="./ninokuni.png.jpg" alt=" Working menu rendering (Ni no Kuni)"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Working menu rendering (Ni no Kuni)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>Unfortunately, a select few games like <code>FINAL FANTASY XII THE ZODIAC AGE</code>, <code>The Legend of Zelda: Link's Awakening</code>, and <code>Onimusha: Warlords</code> currently have problems with memory addressing, causing incorrect video decoding and various graphical glitches (flashing/flickering). While there is a workaround in place in Early Access builds, this fix is not stable enough to be considered mergeable. Once a more elegant solution is found, we will let you all know.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./onimusha.png" title=" Happy moments (Onimusha: Warlords)"><img src="./onimusha.png.jpg" alt=" Happy moments (Onimusha: Warlords)"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Happy moments (Onimusha: Warlords)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>And last but not least, NVDEC is now in Mainline! Anyone can now enjoy the in-game videos in yuzu. As the tradition for all merged Pull Requests, <a href="https://github.com/lioncash">Lioncache</a> didn&rsquo;t take long to <a href="https://github.com/yuzu-emu/yuzu/pull/4837">clean it up.</a></p>
+
+<h2 id="non-mythological-input-changes">Non-mythological input changes</h2>
+
+<p>We have some great changes made possible from the work of <a href="https://github.com/german77">german77</a>. Thank you!</p>
+
+<p>To start with, <a href="https://github.com/yuzu-emu/yuzu/pull/4742">buttons that are impossible to use on certain input configurations are now blocked</a>. For example, if an emulated Pro Controller is changed to a left Joy-Con, the right stick, A, X, Y and Z will no longer be accessible to the games. No cheating!</p>
+
+<p>Up next, some devices have access to an accelerometer, but lack a gyroscope. While this setup is basically useless for full motion, it can be used to detect simple shaking motions, <a href="https://github.com/yuzu-emu/yuzu/pull/4757">so we don&rsquo;t see why we shouldn&rsquo;t add support for that.</a></p>
+
+<p>And finally, for our traditional fighters out there, we have some improvements for GC adapters. <a href="https://github.com/yuzu-emu/yuzu/pull/4781">Adapters can now be hotplugged, basic rumble support was added, and compatibility with more vendors was improved.</a></p>
+
+<p>A new challenger approaches! <a href="https://github.com/FrogTheFrog">FrogTheFrog</a> tuned up <a href="https://github.com/yuzu-emu/yuzu/pull/4727">the shake values</a> to improve compatibility with the rare <code>Steam Controller</code>. Wouldn&rsquo;t having Portal and Portal 2 on the Switch be awesome?</p>
+
+<h2 id="bug-fixes-and-improvements">Bug fixes and improvements</h2>
+
+<p><a href="https://github.com/bunnei">bunnei</a> <a href="https://github.com/yuzu-emu/yuzu/pull/4805">changed the values for <code>Multicore</code>, <code>Asynchronous GPU</code>, and <code>Assembly Shaders</code></a> to be enabled by default. This will help provide a much better experience out of the box to all users that haven&rsquo;t changed those values already. Some other advanced settings like <code>Asynchronous shaders</code> are not altered by this change as they still require further testing and bug-fixing.</p>
+
+<p>By <a href="https://github.com/yuzu-emu/yuzu/pull/4766">implementing CUBE textures and fixing an issue with arrays,</a> <a href="https://github.com/ReinUsesLisp">Rodrigo</a> made the <code>Pikmin 3: Deluxe Demo</code> playable. This will most likely help in making the final game playable too.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./pikmin3.png" title=" Thanks GG for the capture! (Pikmin 3: Deluxe Demo)"><img src="./pikmin3.png.jpg" alt=" Thanks GG for the capture! (Pikmin 3: Deluxe Demo)"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Thanks GG for the capture! (Pikmin 3: Deluxe Demo)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>In a minor change to Vulkan, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> <a href="https://github.com/yuzu-emu/yuzu/pull/4765">changed the way GPU devices are sorted in yuzu,</a> helping pick the best GPU according to yuzu&rsquo;s current compatibility and needs.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./vklist.png" title=" A developer&#39;s system, gotta render &#39;em all!"><img src="./vklist.png.jpg" alt=" A developer&#39;s system, gotta render &#39;em all!"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> A developer&#39;s system, gotta render &#39;em all!</p>
+        
+    </div>
+    
+</div>
+
+
+<p>The current method follows these rules:</p>
+
+<ul>
+<li>Priority will be given to the GPU vendor following the <code>Nvidia &gt; AMD &gt; Intel</code> order.</li>
+<li>Dedicated hardware will take priority over integrated. For example an RX 570 will have a higher priority than an Intel UHD630.</li>
+<li>The device name will be considered, a GTX 1650 will be selected over a GTX 1060. Most of the time, newer architecture generations offer better performance benefits than pure raw performance.</li>
+</ul>
+
+<p>In the previous progress report, we mentioned that we removed a blacklist on AMD GPUs for the <code>VK_EXT_extended_dynamic_state</code> Vulkan extension. Turns out, RDNA1 GPUs crash to the desktop while using this extension, so <a href="https://github.com/ReinUsesLisp">Rodrigo</a> (while using your writer&rsquo;s PC) had to <a href="https://github.com/yuzu-emu/yuzu/pull/4772">manually add a new blacklist only including current Navi based GPUs.</a> One would expect that a reported extension is tested before releasing the drivers that start supporting it&hellip; The 20.10.1 driver version from AMD seems to revert to an older Vulkan version lacking this extension, so the Red Team is aware of the issue.</p>
+
+<p><a href="https://github.com/ameerj">epicboy</a> changed how <code>Asynchronous Shaders</code> <a href="https://github.com/yuzu-emu/yuzu/pull/4865">determines the amount of threads to use,</a> increasing it for higher thread count CPUs. Past the 8 threads mark, one shader thread is added every two CPU threads.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">CPU Threads</th>
+<th align="center">Shader Threads</th>
+<th>Example CPUs</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1 - 7</td>
+<td align="center">1</td>
+<td>R3 3200G, i5-9400</td>
+</tr>
+
+<tr>
+<td align="center">8</td>
+<td align="center">2</td>
+<td>R3 3100, i3-10100</td>
+</tr>
+
+<tr>
+<td align="center">12</td>
+<td align="center">4</td>
+<td>R5 3600, i5-10400</td>
+</tr>
+
+<tr>
+<td align="center">16</td>
+<td align="center">6</td>
+<td>R7 3700X, i7-10700K</td>
+</tr>
+
+<tr>
+<td align="center">32</td>
+<td align="center">14</td>
+<td>R9 3950X, i9-9960X</td>
+</tr>
+
+<tr>
+<td align="center">128</td>
+<td align="center">62</td>
+<td>Threadripper 3990X</td>
+</tr>
+</tbody>
+</table>
+
+<p><a href="https://github.com/Kewlan">Kewlan</a> is back again, fixing another important UI bug. This time, yuzu will <a href="https://github.com/yuzu-emu/yuzu/pull/4817">no longer ask for a profile if there is a single one created.</a> The devil is in the details.</p>
+
+<p><a href="https://github.com/Morph1984">Morph</a> <a href="https://github.com/yuzu-emu/yuzu/pull/4785">added a check to see if a directory is a <code>nullptr</code>.</a> This fixes save file creation in <code>Hades</code>. However, more work is needed to get the game playable.</p>
+
+<p>With the demo just released, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> started the work to get <code>Hyrule Warriors: Age of Calamity - Demo Version</code> playable. By implementing <a href="https://github.com/yuzu-emu/yuzu/pull/4853">FCMP immediate</a> and <a href="https://github.com/yuzu-emu/yuzu/pull/4854">texture CUBE array shadows</a> the game starts to render.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./aoc.png" title=" Where are my glasses? (Hyrule Warriors: Age of Calamity - Demo Version)"><img src="./aoc.png.jpg" alt=" Where are my glasses? (Hyrule Warriors: Age of Calamity - Demo Version)"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Where are my glasses? (Hyrule Warriors: Age of Calamity - Demo Version)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>We personally want to thank <a href="https://github.com/lioncash">Lioncache.</a> He&rsquo;s not mentioned much in the progress reports due to the technical nature of his work, but he is without a doubt one of the top contributors to the project. Thank you Lion, for the patience you have, and the huge help you give us.</p>
+
+<h2 id="future-changes">Future changes</h2>
+
+<p>There are some important core fixes incoming: <code>Local Wireless</code> emulation continues to progress well, we have more plans for <code>NVDEC</code> progress on their way, and there is now a roadmap of what will follow the <code>Texture Cache Rewrite</code> once it&rsquo;s finished, but we will tell you more about that later.</p>
+
+<p>As an early gift, here&rsquo;s a preview of the Texture Cache Rewrite&rsquo;s progress:</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./tcr.png" title=" "><img src="./tcr.png.jpg" alt=" "></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> </p>
+        
+    </div>
+    
+</div>
+
+
+<p>And that&rsquo;s all folks! Thank you so much for reading, and see you all in the next progress report!
+Thanks GG for the pics!</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./burgy.png" title=" Image by https://twitter.com/JamesTurner_42"><img src="./burgy.png.jpg" alt=" Image by https://twitter.com/JamesTurner_42"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Image by https://twitter.com/JamesTurner_42</p>
+        
+    </div>
+    
+</div>
+
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, check out our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/324017">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2021 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

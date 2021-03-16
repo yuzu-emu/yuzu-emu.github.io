@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="Progress Report February 2021 &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/" />
+    <meta property="og:description" content="Welcome back yuz-ers, welcome to City 17 February’s progress report! This time we will talk about Vulkan performance improvements, audio changes, how to make good use of compute shaders, new input additions, and more kernel rewrites." />
+<meta name="description" content="Welcome back yuz-ers, welcome to City 17 February’s progress report! This time we will talk about Vulkan performance improvements, audio changes, how to make good use of compute shaders, new input additions, and more kernel rewrites." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/"> 
+
+    <title>Progress Report February 2021 - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/entry">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/faq">
+                faq
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://profile.yuzu-emu.org">
+                profile
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> Discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> Twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> GitHub
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+
+<div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/banner.png');background-repeat:no-repeat;background-size:contain;background-position:center;"></div>
+<div class="has-text-centered">
+    <div>
+        <span class="title px-md py-sm">Progress Report February 2021</span>
+    </div>
+    
+    
+    <div>
+        <p class="h3 px-md py-sm">
+            Written by <a href="https://community.citra-emu.org/users/GoldenX86">GoldenX86</a>
+            
+            
+            
+            and <a href="https://community.citra-emu.org/users/Honghoa">Honghoa</a>
+            
+            on March 10 2021
+        </p>
+    </div>
+    
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <br>
+    <p>Welcome back yuz-ers, welcome to <del>City 17</del> February’s progress report! This time we will talk about Vulkan performance improvements, audio changes, how to make good use of compute shaders, new input additions, and more kernel rewrites.</p>
+
+<h2 id="new-minimum-requirements">New minimum requirements</h2>
+
+<p>Thanks to progress in Linux’s mesa drivers, we&rsquo;ve recently modified our minimum graphics requirements.</p>
+
+<p><a href="https://github.com/yuzu-emu/yuzu/pull/5888">yuzu now requires OpenGL 4.6</a>. However, any previously compatible hardware reaches this requirement with its latest GPU drivers installed, even old Fermi or GCN 1.0 series products.
+Laptop users, like desktop users, should visit the GPU manufacturer&rsquo;s site (<a href="https://www.amd.com/en/support">AMD</a>, <a href="https://downloadcenter.intel.com/product/80939/Graphics">Intel</a>, and <a href="https://www.nvidia.com/en-us/geforce/drivers/">Nvidia</a>) instead of the laptop vendor’s site (HP, Lenovo, Asus, etc.), as it will provide compatible and up-to-date drivers.
+Thanks <a href="https://github.com/Morph1984">Morph</a> for the change!</p>
+
+<p>On the flip side, while the requirement of Vulkan 1.1 hasn&rsquo;t changed, as stated in previous articles, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> made <code>VK_EXT_robustness2</code> <a href="https://github.com/yuzu-emu/yuzu/pull/5917">a hard requirement.</a>
+This means that updated drivers are critical now, as lacking this extension will stop yuzu from booting games while on Vulkan.
+AMD users still require to install the latest <code>Optional</code> driver version to get support for <code>VK_EXT_robustness2</code>. At the time of writing, the latest version is <code>21.2.3</code>, but yuzu will work with drivers as old as <code>20.12.1</code>.</p>
+
+<p>Multi-GPU systems must have all their drivers updated, even for integrated graphics that are functional but not in use.</p>
+
+<h2 id="technical-bugfixes">Technical bugfixes</h2>
+
+<p><a href="https://github.com/MerryMage">Merry</a> recently caught a bug in the implementation of yuzu&rsquo;s <code>SPSC</code> ring buffer and fixed it by <a href="https://github.com/yuzu-emu/yuzu/pull/5885">removing the granularity template argument</a>.
+What does this mean exactly? Let&rsquo;s explain!</p>
+
+<p>A buffer is a data structure that reserves space in memory as slots to store information temporarily: for example, an audio buffer.
+In particular, a <a href="https://en.wikipedia.org/wiki/Circular_buffer">ring buffer</a> is a special type of buffer where the slot next to the final one is the first slot in the buffer (so the start and the end are connected).
+Once it&rsquo;s full, no new data is added until some information has been extracted from the buffer and processed.</p>
+
+<p><code>SPSC</code> stands for &ldquo;Single-Producer/Single-Consumer,&rdquo; and is a model that comes from the <a href="https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem">Producer-Consumer problem</a> proposed by computer scientists to deal with the problem of proper synchronization when various simultaneous processes write and read from the same buffer.
+In this case, only one thread at a time can insert data into the buffer (the Single-Producer), and only one thread at a time can remove elements from the buffer (the Single-Consumer).</p>
+
+<p>It&rsquo;s possible to choose a minimal size for each &ldquo;slot&rdquo; of the buffer in order to exploit regularities of the information stored.
+The entities inside these slots are then considered a single &ldquo;unit&rdquo; of information, an <em>information granule</em>, from which the term &ldquo;granularity&rdquo; stems from.
+The ring buffer implementation in yuzu was meant to be as general as possible, which is why granularity was a parameter that the programmer could modify to fit their needs.
+Merry noticed there was a small bug when pushing data into the buffer with a granularity different from <code>1</code>, but since there is no use case for a granularity different from <code>1</code> in yuzu, Merry decided to remove the parameter altogether, in favor of simplifying the codebase.</p>
+
+<p><a href="https://github.com/bunnei">bunnei</a> has been taking a look at the timing code and <a href="https://github.com/yuzu-emu/yuzu/pull/5964">fixed an integer overflow in the wall-clock</a> - a tool used to measure the passage of time in the emulator.
+Previously, these calculations would use 128-bit math for high precision, which can be quite expensive on the processor, so a few optimizations were done to perform 64-bit math instead.
+However, there was a bug introduced with these optimizations, and the timing math would result in an integer overflow.
+This PR fixed the bug by preventing the wall-clock from overflowing, and now things are back to working as intended.</p>
+
+<p>bunnei also continues on his campaign to rewrite the kernel and its codebase. This time, he has been tidying up the <a href="https://github.com/yuzu-emu/yuzu/pull/5953">memory management code</a> and refactoring the implementation to be closer to the latest Switch firmware in order to make it easier to import code from newer firmware.</p>
+
+<p>Additionally, he changed the implementation of <a href="https://en.wikipedia.org/wiki/Fiber_(computer_science)">fibers</a> to <a href="https://github.com/yuzu-emu/yuzu/pull/6006">use unique_ptr instead of shared_ptr</a>, but later <a href="https://github.com/yuzu-emu/yuzu/pull/6041">changed it again to use weak_ptr</a> as it&rsquo;s more appropriate in this use case.</p>
+
+<p>Fibers are similar to threads, except they can&rsquo;t be executed in parallel.
+Instead, they <em>yield</em> control to other fibers in a process.
+In yuzu, they&rsquo;re used to have better control over thread scheduling, working as tools for the kernel to quickly pause and resume emulated guest threads from within the application, without having to rely on the OS scheduler.</p>
+
+<p>Previously, fibers were managed through a special object called a <code>shared pointer</code>, a kind of variable that stores the memory addresses of other objects - it “references” them.
+In particular, this variable keeps track of how many <code>shared_ptr</code> references to an object exist in the program, and the memory won&rsquo;t be freed until the total amount of references is zero (i.e. when the object isn&rsquo;t being used anymore).
+If these references aren&rsquo;t managed with proper care, some pointers may retain memory and never free it, resulting in memory leaks.
+For this reason, bunnei changed the implementation to use a different kind of object, a <code>weak pointer</code>, which is similar to the <code>shared pointer</code> but it doesn&rsquo;t increase the reference counter, nor is it capable of deleting the original referenced object.
+Thus, the referenced memory will be free only when the original pointer is deleted, regardless of how many other <code>weak_ptr</code> references to the same memory exist, eliminating the memory leaks caused by the old implementation.</p>
+
+<p>One of the many tasks of the kernel is to assign resources to processes whenever they ask for them.
+For this reason, <a href="https://github.com/ameerj">epicboy</a> started the work necessary to <a href="https://github.com/yuzu-emu/yuzu/pull/5877">utilize a more accurate resource_limit implementation</a>, in order to match the hardware behavior more closely.</p>
+
+<p>Be it memory, threads, or ports, the kernel checks for their availability and keeps track of them through a variable called <code>resource limit</code>.
+By comparing the current amount of resources being used against the resource limit, the kernel can determine whether to deny a request or not.
+This stems from the fact that resources are finite, especially in weaker hardware such as that in the Nintendo Switch.
+A PC, on the other hand, isn&rsquo;t as restricted as a Nintendo Switch.
+Until now, whenever a process requested resources, yuzu would create its own instance of <code>resource limit</code> instead of using a system-wide variable to keep track of it.
+This PR is just the initial step in preparation to reverse engineer the correct behavior and implement it in the emulator.</p>
+
+<h2 id="paint-me-like-one-of-your-french-bits">Paint me like one of your french bits</h2>
+
+<p><a href="https://github.com/ameerj">epicboy</a> has also been busy this month implementing two features through <a href="https://en.wikipedia.org/wiki/Compute_kernel">compute kernels</a>, a special kind of program that is written to run in the GPU instead of the CPU.
+Originally, these subroutines were used to calculate light levels, darkness, colors, and other properties to render 3D images on the screen.
+Thus, these programs were promptly named as <a href="https://en.wikipedia.org/wiki/Shader">shaders</a>.</p>
+
+<p>Modern GPUs are designed to break down their workload into smaller sized problems, which in turn are processed simultaneously in the many compute units of the card (entities akin to cores in a CPU).
+The reason for this design choice is simply because parallelisation is a very efficient scheme to process computer graphics. A single instruction is capable of operating over many components of data at the same time, such as the vertices and textures of a 3D scene, and produce separate results for each parallel thread of execution, which is generally a pixel. This increases the throughput of information, especially when compared against the performance of running the same operations on a CPU.
+Their potential isn&rsquo;t limited to just these functions though.
+It is possible to write programs that won&rsquo;t necessarily operate over graphics, but can still take advantage of the high levels of parallelisation provided by GPUs.
+This is known as <code>GPGPU</code> - <a href="https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units">General-purpose computing on graphics processing units</a> - and it&rsquo;s intended to be used when there is a problem that can be separated into a number of parallel tasks in order to be processed more efficiently. These problems are commonly called <code>embarrassingly parallel problems</code>.</p>
+
+<p>One of these cases was the <a href="https://github.com/yuzu-emu/yuzu/pull/5927">use of compute shaders to decode ASTC textures</a>.
+<code>ASTC</code> stands for &ldquo;Adaptable Scalable Texture Compression,&rdquo; and it&rsquo;s a fairly new image compression format developed by ARM and AMD mainly aimed at mobile devices.
+The Nintendo Switch is capable of decoding these textures natively in hardware, but it&rsquo;s a feature that most PC GPU vendors lack in their products (with the exception of Intel Graphics, being the only vendor that offers native support).
+The decoding of these textures is therefore a non-trivial task that can have a huge impact on performance. Two notable examples are <code>Astral Chain</code> and <code>Luigi's Mansion 3</code>, since both games make extensive use of this format, but it can also be observed to varying degrees in other titles, where these textures are generally used in menu icons, minimaps, etc.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./astral_chain_atsc.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Comparison between the old and the new implementation of the ASTC decoder</p>
+        
+    </div>
+    
+</div>
+
+
+<p>This led to the implementation of an <code>ASTC</code> decoder through the CPU, which was faster than what GPUs could do with their lack of native support. The CPU decoder was still far from being a satisfactory solution, since it consumed precious CPU resources and, consequently, slowed down to a halt when running games that made extensive use of this format.
+The solution, thus, was to implement the decoding through compute shaders.
+Since this is an embarrassingly parallel process, seeing as how every block of pixels can be decoded independently, it&rsquo;s more fit to be performed on the GPU by manipulating the data through <code>GPGPU</code>.
+This way, the load on the CPU will be shifted to the GPU, allowing emulation to run in parallel with the texture decoding.
+As a side benefit, now textures remain in the GPU memory all the time, since they don&rsquo;t need to be transferred between CPU and GPU for decoding.
+This means that there won&rsquo;t be time spent downloading the texture to the CPU and then uploading it back to the GPU after the decoding is done, like in the old implementation.</p>
+
+<p>This feature works as intended on all GPU vendors on Windows, although there are a few problems on Linux (more specifically, the <code>AMDGPU-PRO</code> driver) that still need to be ironed out.
+Our devs are working hard to solve these bugs, so we ask our tux-friends to be patient and stay tuned!</p>
+
+<p>Since compute programs were originally meant to manipulate image data, they also worked out nicely to fix a problem with one of the rendering APIs used in yuzu: by <a href="https://github.com/yuzu-emu/yuzu/pull/5891">using compute shaders to swizzle BGR textures on copy</a>.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./octopath1.jpg" title=""><img src="./octopath1.jpg" alt="Color-swapped and properly swizzled versions of Octopath Traveler&#39;s title screen"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./octopath2.jpg" title=""><img src="./octopath2.jpg" alt="Color-swapped and properly swizzled versions of Octopath Traveler&#39;s title screen"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Color-swapped and properly swizzled versions of Octopath Traveler&#39;s title screen</p>
+
+
+
+<p>In OpenGL, colors are stored in channels, and the way they are laid out varies depending on the format used.
+For example, the <code>RGB</code> format stores the color channels in the order &ldquo;Red, Green, and Blue,&rdquo; while the <code>BGR</code> format stores the channels in the order &ldquo;Blue, Green, and Red.&rdquo;
+Unfortunately, this latter format isn&rsquo;t supported internally by OpenGL, which caused problems with a number of games that made use of <code>BGR</code> textures: their Red and Blue channels were swapped and the final images looked blue-ish.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./sg1.jpg" title=""><img src="./sg1.jpg" alt="Blue Christina looks nice, but the red hue definitely suits the Nixie Tubes much better in Steins;Gate: My Darling&#39;s Embrace"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./sg2.jpg" title=""><img src="./sg2.jpg" alt="Blue Christina looks nice, but the red hue definitely suits the Nixie Tubes much better in Steins;Gate: My Darling&#39;s Embrace"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Blue Christina looks nice, but the red hue definitely suits the Nixie Tubes much better in Steins;Gate: My Darling&#39;s Embrace</p>
+
+
+
+<p>The solution to this problem then was to reorder the Blue and Red channels of <code>BGR</code> textures in the copy uploaded to the GPU.
+Reordering the graphical information of an image to process it in the graphics card is called swizzling, so what this PR does is copy the values of the Red channel into the Blue channel and vice-versa, a process that can be exploited through parallel computation.
+This way, the limitation with OpenGL is directly bypassed on the GPU, and these textures are rendered as intended on screen.</p>
+
+<h2 id="general-bug-fixes-and-improvements">General bug fixes and improvements</h2>
+
+<p><code>Pokémon Sword and Shield</code> players can enjoy one less frequent crash.
+Boss <a href="https://github.com/bunnei">bunnei</a> <a href="https://github.com/yuzu-emu/yuzu/pull/5920">fixed a problem on LDN initialization</a>, eliminating the crash that occurred if the player pressed <code>Y</code> during gameplay (activating online services that yuzu lacks).
+An error window will still pop up, but emulation will continue.</p>
+
+<p>Yet another <code>Animal Crossing: New Horizons</code> update, yet another service to stub or implement to regain playability.
+This time, <a href="https://github.com/yuzu-emu/yuzu/pull/5892">stubbing GetSaveDataBackupSetting</a> made <code>1.7.0</code> and later versions playable again.
+Thanks <a href="https://github.com/german77">german77</a>!</p>
+
+<p>Under certain conditions, the <code>WebApplet</code> would crash yuzu when opening, for example, the Action Guide in <code>Super Mario Odyssey</code>.
+<a href="https://github.com/aleasto">aleasto</a> managed to solve this by <a href="https://github.com/yuzu-emu/yuzu/pull/5878">fixing an out of bounds read.</a></p>
+
+<p>A common annoyance that affected new users was a prompt asking for the derivation keys to be placed in the correct <code>keys</code> folder, a folder which had to be manually created until now.
+Thanks to <a href="https://github.com/Morph1984">Morph</a>, now there is an empty <code>keys</code> folder created by default as part of the installation process of yuzu, ready to be populated by the user’s own Switch keys.</p>
+
+<h2 id="graphics-improvements">Graphics improvements</h2>
+
+<p><a href="https://github.com/Kelebek1">Maide</a> has been working on improving the recently released <code>Disgaea 6: Defiance of Destiny</code>.</p>
+
+<p>First, Vulkan needed some <a href="https://github.com/yuzu-emu/yuzu/pull/5936">corrected offsets</a> for <code>TexelFetch</code> and <code>TextureGather</code>, types of texture instructions.</p>
+
+<p>A similar change <a href="https://github.com/yuzu-emu/yuzu/pull/5980">was needed for OpenGL.</a> This code also includes better handling of <code>signed atomics</code>, improving precision.
+Thanks to <a href="https://github.com/Ryujinx/Ryujinx">Ryujinx</a> for helping here.</p>
+
+<p>Finally, <a href="https://github.com/yuzu-emu/yuzu/pull/5997">implementing glDepthRangeIndexedNV</a> solves out of range issues in the depth buffer.</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./d6bug.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./d6fix.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">The result of Maide&#39;s work (Disgaea 6: Defiance of Destiny)</p>
+
+
+
+<p><a href="https://github.com/ReinUsesLisp">Rodrigo</a> <a href="https://github.com/yuzu-emu/yuzu/pull/5919">fixed a bug in Vulkan’s stream buffer</a>, improving performance and reducing VRAM use, while also making better use of the dedicated VRAM, instead of falling back to shared VRAM, which is better known as just system RAM.</p>
+
+<p>By <a href="https://github.com/yuzu-emu/yuzu/pull/5923">using dirty flags</a>, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> also managed another slim, but measurable, Vulkan performance bump.
+Reducing draw calls always helps!</p>
+
+<p>After a lot of time spent experimenting, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> <a href="https://github.com/yuzu-emu/yuzu/pull/5989">reduced the size of Vulkan’s command pool</a>, from 4096 to just 4.
+This makes the driver assign less memory for command buffers, saving a considerable amount of system RAM.</p>
+
+<p>For example, in <code>Pokémon Sword and Shield</code>, Vulkan’s use of system RAM goes from 707MB, to just 2MB.</p>
+
+<p>To end the day, <a href="https://github.com/ReinUsesLisp">Rodrigo</a> fixed a regression introduced by the <code>Buffer Cache Rewrite</code>.
+Some games benefit from skipping the cache, but others lose performance. <code>Animal Crossing: New Horizons</code> was an example severely affected in Vulkan.
+By <a href="https://github.com/yuzu-emu/yuzu/pull/6021">implementing a way to heuristically decide when to skip the cache</a>, performance was not only restored, but also increased.</p>
+
+<h2 id="input-improvements">Input improvements</h2>
+
+<p>First and foremost, <a href="https://github.com/german77">german77</a> finished implementing <a href="https://github.com/yuzu-emu/yuzu/pull/4940">native Gamecube controller support!</a>
+With this change, games will now actually register GC controllers instead of registering them as, for example, emulated Pro Controllers.
+Right now Gamecube triggers are mapped as buttons, but they will be correctly handled as analog triggers in coming changes.</p>
+
+<p><a href="https://github.com/Morph1984">Morph</a> later added <a href="https://github.com/yuzu-emu/yuzu/pull/5944">vibration support for the GC controller.</a></p>
+
+<p>Another new feature <a href="https://github.com/german77">german77</a> added is stick <a href="https://github.com/yuzu-emu/yuzu/pull/5869">mouse panning.</a>
+This allows users to set the mouse as an analog stick, enabling very comfortable gameplay on titles that use the right analog stick as camera control.
+By default, pressing Ctrl +  F9 toggles this feature.</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./panning.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Keyboard warriors rejoice! (The Legend of Zelda: Breath of the Wild)</p>
+        
+    </div>
+    
+</div>
+
+
+<p>A <a href="https://github.com/yuzu-emu/yuzu/pull/5929">separate PR</a> improves panning functionality even more, giving it a more natural control.</p>
+
+<p><a href="https://github.com/Morph1984">Morph</a> <a href="https://github.com/yuzu-emu/yuzu/pull/5908">implemented the Finalize request</a> on the inline keyboard implementation, allowing it to exit in a stable and graceful way instead of looping indefinitely.
+This solves issues experienced in <code>Super Mario 3D World + Bowser’s Fury</code>.</p>
+
+<p><a href="https://github.com/Jatoxo">Jatoxo</a> gives us a feature we didn’t know we wanted.
+<a href="https://github.com/yuzu-emu/yuzu/pull/5894">They&rsquo;ve added depth to the analog sticks</a> of the Pro Controller in the controls preview.
+See the result for yourself!</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./stickold.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./sticknew.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Nothing beats quality of life changes like this</p>
+
+
+
+<h2 id="audio-achievements">Audio achievements</h2>
+
+<p>One of our most requested fixes is finally here.
+<code>Fire Emblem: Three Houses</code> no longer echoes voices!
+<a href="https://github.com/ogniK5377">ogniK</a> is responsible for this fix, which properly <a href="https://github.com/yuzu-emu/yuzu/pull/5909">implemented I3dl2Reverb.</a></p>
+
+<p>If you paused emulation and resumed it some time later, you would experience severe stuttering until the audio caught up to the rendering.
+<a href="https://github.com/german77">german77</a> resolved this unpleasant experience by <a href="https://github.com/yuzu-emu/yuzu/pull/5868">preventing overscheduling audio events</a>, allowing for a seamless experience after resuming emulation.</p>
+
+<h2 id="future-projects">Future projects</h2>
+
+<p>Project Kraken is underway. Project Gaia started. Project Hades, the shader decompiler rewrite, is progressing steadily. If it continues like this, it will be released before Memory Reaper. As you’ve seen in this article, bunnei continues to suffer through implementing Kernel changes.</p>
+
+<p>That’s all folks! As always, thank you for reading until the end, and see you next time!</p>
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, check out our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/375270">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2021 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>

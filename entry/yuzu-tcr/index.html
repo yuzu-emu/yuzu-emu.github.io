@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang=" en-us "class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#404040">
+
+    <meta property="og:title" content="New Feature Release - Texture Cache Rewrite &middot; yuzu" />
+    <meta property="og:site_name" content="yuzu" />
+    <meta property="og:url" content="https://yuzu-emu.org/entry/yuzu-tcr/" />
+    <meta property="og:description" content="Hi yuz-ers! We’re very excited to offer you one of the biggest code rewrites in yuzu’s history: The Texture Cache Rewrite! Now available to our Early Access members, continue reading to learn more." />
+<meta name="description" content="Hi yuz-ers! We’re very excited to offer you one of the biggest code rewrites in yuzu’s history: The Texture Cache Rewrite! Now available to our Early Access members, continue reading to learn more." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://yuzu-emu.org/entry/yuzu-tcr/banner.png" />
+
+    <link rel="icon" href="https://yuzu-emu.org/favicon.ico" />
+    <link rel="shortcut icon" href="https://yuzu-emu.org/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://yuzu-emu.org/entry/yuzu-tcr/"> 
+
+    <title>New Feature Release - Texture Cache Rewrite - yuzu</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Dosis" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://yuzu-emu.org/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" type="text/css" />
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112443698-1"></script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112443698-1');
+    </script>
+    
+    
+</head>
+
+<body>
+        <nav class="navbar is-dark is-size-6 is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://yuzu-emu.org">
+            <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2099"
+   xml:space="preserve"
+   viewBox="0 0 862.35199 233.50932"
+   sodipodi:docname="yuzu-logo-banner.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" class="navbar-logo"><metadata
+     id="metadata2105"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs2103"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2115"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2113"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2127"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2125"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2139"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2155"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2153"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2171"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2169"
+         inkscape:connector-curvature="0" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2183"><path
+         d="M 0,175.218 H 630.264 V 0 H 0 Z"
+         id="path2181"
+         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview2101"
+     showgrid="false"
+     inkscape:zoom="1.1712861"
+     inkscape:cx="401.4447"
+     inkscape:cy="59.691513"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="leftjoy"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2107"
+     inkscape:groupmode="layer"
+     inkscape:label="yuzu-logo-banner"
+     transform="matrix(1.3333333,0,0,-1.3333333,21.999999,233.51839)"><g
+       id="z"
+       inkscape:label="#g2109"><g
+         id="g2111"
+         clip-path="url(#clipPath2115)"><g
+           id="g2117"
+           transform="translate(508.6674,2.6911)"><path
+             d="m 0,0 h -103.161 c -0.437,0 -1.062,0.989 -1.062,3.052 0,2.062 1.062,3.456 1.062,3.456 l 93.589,162.059 h -86.499 c -1.155,0.015 -1.132,1.899 -1.132,1.899 0,0 -0.023,1.902 1.132,1.902 0.739,0 90.198,0.178 91.171,0 1.302,-0.238 1.13,-2.238 1.13,-2.238 0,0 -0.109,-1.36 -1.13,-2.981 L -98.843,4.735 H 0 C 1.684,4.479 1.418,2.072 1.418,2.072 1.418,2.072 1.419,0.057 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2119"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="y"
+       inkscape:label="#g2121"><g
+         id="g2123"
+         clip-path="url(#clipPath2127)"><g
+           id="g2129"
+           transform="translate(210.9645,4.9888)"><path
+             d="M 0,0 C 31.819,0 44.729,15.583 44.729,46.738 V 74.572 C 42.243,64.241 37.392,56.015 30.173,49.89 21.822,42.71 11.328,39.124 -1.308,39.124 c -30.242,0 -45.358,15.578 -45.358,46.739 v 84.287 h 4.738 V 86.125 c 0,-11.73 2.931,-21.269 8.802,-28.621 6.992,-8.927 17.601,-13.391 31.818,-13.391 16.925,0 29.334,6.564 37.236,19.693 5.865,9.625 8.801,21.88 8.801,36.761 v 69.583 h 4.739 V 46.476 C 49.468,12.169 35.198,-4.311 0,-4.982"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2131"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u1"
+       inkscape:label="#g2133"><g
+         id="g2135"
+         clip-path="url(#clipPath2139)"><g
+           id="g2141"
+           transform="translate(335.6116,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2143"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2145"
+           transform="translate(335.6116,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2147"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-u2"
+       inkscape:label="#g2149"><g
+         id="g2151"
+         clip-path="url(#clipPath2155)"><g
+           id="g2157"
+           transform="translate(581.3674,2.6911)"><path
+             d="m 0,0 c -18.845,0 -32.088,6.628 -39.728,19.888 -6.112,10.235 -9.168,25.34 -9.168,45.314 v 107.245 h 3.82 V 65.454 C -45.076,25.006 -30.051,4.783 0,4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2159"
+             inkscape:connector-curvature="0" /></g><g
+           id="g2161"
+           transform="translate(581.3674,7.4738)"><path
+             d="m 0,0 c 30.051,0 45.076,19.888 45.076,59.664 v 108.001 h 3.821 V 59.916 C 48.897,39.941 45.841,24.923 39.728,14.853 32.088,1.762 18.845,-4.783 0,-4.783"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2163"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-leftjoy"
+       inkscape:label="#g2165"><g
+         id="g2167"
+         clip-path="url(#clipPath2171)"
+         transform="translate(-16.5)"><g
+           id="g2173"
+           transform="translate(68.9789,174.5876)"><path
+             d="m 0,0 c -38.096,0 -68.979,-30.883 -68.979,-68.979 0,-38.096 30.883,-68.979 68.979,-68.979 z m -5,-5.193 v -127.571 c -32.951,2.558 -58.979,30.189 -58.979,63.785 0,33.597 26.028,61.228 58.979,63.786"
+             style="fill:#0ab9e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2175"
+             inkscape:connector-curvature="0" /></g></g></g><g
+       id="logo-rightjoy"
+       inkscape:label="#g2177"
+       transform="translate(-16.5)"><g
+         id="g2179"
+         clip-path="url(#clipPath2183)"><g
+           id="g2185"
+           transform="translate(86.2236,140.0981)"><path
+             d="m 0,0 v -137.958 c 38.096,0 68.979,30.883 68.979,68.979 C 68.979,-30.883 38.096,0 0,0 m 5,-5.193 c 32.951,-2.558 58.979,-30.19 58.979,-63.786 0,-33.596 -26.028,-61.227 -58.979,-63.785 V -5.193"
+             style="fill:#ff3c28;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path2187"
+             inkscape:connector-curvature="0" /></g></g></g></g></svg>
+        </a>
+
+        <div class="burger navbar-burger is-dark" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+              
+            <a class="navbar-item px-lg" href="/entry">
+                blog
+            </a>
+              
+            <a class="navbar-item px-lg" href="/downloads">
+                download
+            </a>
+              
+            <a class="navbar-item px-lg" href="/wiki/faq">
+                faq
+            </a>
+              
+            <a class="navbar-item px-lg" href="/game">
+                compatibility
+            </a>
+              
+            <a class="navbar-item px-lg" href="/screenshots">
+                screenshots
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://www.patreon.com/yuzuteam">
+                patreon
+            </a>
+              
+            <a class="navbar-item px-lg" href="https://profile.yuzu-emu.org">
+                profile
+            </a>
+             
+
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://discord.gg/u77vRWY" target="_blank">
+                <i class="fab fa-discord mr-sm"></i> Discord
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://twitter.com/yuzuemu" target="_blank">
+                <i class="fab fa-twitter mr-sm"></i> Twitter
+            </a>
+            <a class="navbar-item px-lg is-hidden-desktop" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <i class="fab fa-github mr-sm"></i> GitHub
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            
+            <a class="navbar-item px-lg is-hidden-touch" href="https://discord.gg/u77vRWY" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-discord"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://twitter.com/yuzuemu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </span>
+            </a>
+            <a class="navbar-item px-lg is-hidden-touch" href="https://github.com/yuzu-emu/yuzu" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-2x fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+    
+
+    
+
+
+<div class="mb-md blog-entry-header single" style="background-image: url('https://yuzu-emu.org/entry/yuzu-tcr/banner.png');background-repeat:no-repeat;background-size:contain;background-position:center;"></div>
+<div class="has-text-centered">
+    <div>
+        <span class="title px-md py-sm">New Feature Release - Texture Cache Rewrite</span>
+    </div>
+    
+    
+    <div>
+        <p class="h3 px-md py-sm">
+            Written by <a href="https://community.citra-emu.org/users/GoldenX86">GoldenX86</a>
+            
+            
+            
+            and <a href="https://community.citra-emu.org/users/bsod_gaming">BSoD Gaming</a>
+            
+            on November 22 2020
+        </p>
+    </div>
+    
+</div>
+
+
+    
+    
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    
+<section class="section content pt-sm">
+    <br>
+    <p>Hi yuz-ers! We’re very excited to offer you one of the biggest code rewrites in yuzu’s history: The Texture Cache Rewrite! Now available to our Early Access members, continue reading to learn more.</p>
+
+<h2 id="but-what-is-the-tcr">But what is the TCR?</h2>
+
+<p>yuzu started as a fork of <a href="https://github.com/citra-emu/citra">Citra</a>, so Citra&rsquo;s texture cache (or rasterizer cache, as it was called at the time) was used in the early days of yuzu. However, this cache only supported OpenGL, so one of the first efforts when adding support for <a href="https://yuzu-emu.org/entry/yuzu-vulkan/">Vulkan</a> was to make the code more generic, helping in GPU emulation.</p>
+
+<p>When this was being worked on, we were still learning how the Nintendo Switch&rsquo;s GPU worked (we still are, but even more so then). Some design decisions taken at the time stuck with the codebase making things harder to change in the future. It was also easier to break with unrelated changes.</p>
+
+<p>So out with the old, in with the new. The previous implementation was no longer sufficient, so <a href="https://github.com/ReinUsesLisp">Rodrigo</a> started working on a complete rewrite from scratch. This includes but is not limited to:</p>
+
+<ul>
+<li>Cleaner code. No more virtual calls or shared pointers, this allows for easier maintenance in the future.</li>
+<li>Proper handling for texture swizzling.</li>
+<li>Some operations are now done in the GPU instead of in the CPU, improving performance.</li>
+<li>Control over when to destroy textures.</li>
+<li>Previously, textures were removed from the cache on CPU writes, but now they are flagged as dirty. This allows yuzu to cache already visited image views and render targets, saving time.</li>
+<li>Multiple textures can coexist in the same address now.</li>
+<li>Aliased images are now emulated through copies on demand.</li>
+<li>Rendering to compressed textures is properly emulated.</li>
+<li>3D BC4 textures are emulated with RGBA8.</li>
+<li>Rendering to texture views of different compatible formats is emulated without copies.</li>
+</ul>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./lain.png" title=" A very detailed explanation from our developer"><img src="./lain.png.jpg" alt=" A very detailed explanation from our developer"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> A very detailed explanation from our developer</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="ok-but-how-does-this-help">OK, but how does this help?</h2>
+
+<p>In short: it fixes a lot of graphical bugs, improves performance, and is not limited to any hardware configuration or driver in use. Improvements for everyone, once all parts are finished.</p>
+
+<p>Before we talk about performance, here are just a few examples of the rendering fixes you can expect to see with this release:</p>
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./splatoon_2_before_2.png" title=""><img src="./splatoon_2_before_2.png.jpg" alt=""></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./Splatoon_2_after_2.png" title=""><img src="./Splatoon_2_after_2.png.jpg" alt=""></a>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./Splatoon_2_before.png" title=""><img src="./Splatoon_2_before.png.jpg" alt="Shadows in Splatoon 2 are now rendered correctly, finally allowing us to admire the beautiful cityscape"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./Splatoon_2_after.png" title=""><img src="./Splatoon_2_after.png.jpg" alt="Shadows in Splatoon 2 are now rendered correctly, finally allowing us to admire the beautiful cityscape"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Shadows in Splatoon 2 are now rendered correctly, finally allowing us to admire the beautiful cityscape</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./LM3_before.png" title=""><img src="./LM3_before.png.jpg" alt="Lighting and stencil shadow corruption is now fixed in Luigi&#39;s Mansion 3"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./LM3_After.png" title=""><img src="./LM3_After.png.jpg" alt="Lighting and stencil shadow corruption is now fixed in Luigi&#39;s Mansion 3"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Lighting and stencil shadow corruption is now fixed in Luigi&#39;s Mansion 3</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./AC_before_3.png" title=""><img src="./AC_before_3.png.jpg" alt=""></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./AC_after_3.png" title=""><img src="./AC_after_3.png.jpg" alt=""></a>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./AC_Before_2.png" title=""><img src="./AC_Before_2.png.jpg" alt="Astral Chain no longer exhibits black texture corruption"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./AC_After_2.png" title=""><img src="./AC_After_2.png.jpg" alt="Astral Chain no longer exhibits black texture corruption"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Astral Chain no longer exhibits black texture corruption</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./acnh_OLD.png" title=""><img src="./acnh_OLD.png.jpg" alt=""></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./acnh_NEW.png" title=""><img src="./acnh_NEW.png.jpg" alt=""></a>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./acnh_OLD_2.png" title=""><img src="./acnh_OLD_2.png.jpg" alt="Depth of field issues are gone in Animal Crossing: New Horizons"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./acnh_NEW_2.png" title=""><img src="./acnh_NEW_2.png.jpg" alt="Depth of field issues are gone in Animal Crossing: New Horizons"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Depth of field issues are gone in Animal Crossing: New Horizons</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./xc2b.png" title=""><img src="./xc2b.png.jpg" alt="Xenoblade Chronicles 2 is free from vertex explosions on AMD Vulkan drivers"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./xc2f.png" title=""><img src="./xc2f.png.jpg" alt="Xenoblade Chronicles 2 is free from vertex explosions on AMD Vulkan drivers"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Xenoblade Chronicles 2 is free from vertex explosions on AMD Vulkan drivers</p>
+
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./torna.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Texture swapping &amp; flickering issues are fixed in all Xenoblade Chronicles games</p>
+        
+    </div>
+    
+</div>
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smashb.png" title=""><img src="./smashb.png.jpg" alt=""></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smashf.png" title=""><img src="./smashf.png.jpg" alt=""></a>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smashb2.png" title=""><img src="./smashb2.png.jpg" alt="Jumbotrons now display correctly in Super Smash Bros. Ultimate. Here’s an example running in the radeonsi mesa OpenGL Linux drivers"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./smashf2.png" title=""><img src="./smashf2.png.jpg" alt="Jumbotrons now display correctly in Super Smash Bros. Ultimate. Here’s an example running in the radeonsi mesa OpenGL Linux drivers"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">Jumbotrons now display correctly in Super Smash Bros. Ultimate. Here’s an example running in the radeonsi mesa OpenGL Linux drivers</p>
+
+
+
+
+<div class="columns is-img-preview is-bottom-marginless">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./sf1b.png" title=""><img src="./sf1b.png.jpg" alt="yuzu now has Multisample anti-aliasing (MSAA) support, as shown in SONIC FORCES here"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./sf1f.png" title=""><img src="./sf1f.png.jpg" alt="yuzu now has Multisample anti-aliasing (MSAA) support, as shown in SONIC FORCES here"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./sf2b.png" title=""><img src="./sf2b.png.jpg" alt="yuzu now has Multisample anti-aliasing (MSAA) support, as shown in SONIC FORCES here"></a>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="column is-bottom-paddingless">
+        
+            <a href="./sf2f.png" title=""><img src="./sf2f.png.jpg" alt="yuzu now has Multisample anti-aliasing (MSAA) support, as shown in SONIC FORCES here"></a>
+        
+    </div>
+    
+</div>
+
+
+<p class="has-text-centered is-italic has-text-grey-light">yuzu now has Multisample anti-aliasing (MSAA) support, as shown in SONIC FORCES here</p>
+
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./rain.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Slow rainfall fixed in The Legend of Zelda: Breath of the Wild (Requires High GPU accuracy)</p>
+        
+    </div>
+    
+</div>
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./botw.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Rune transportation renders just like native hardware in The Legend of Zelda: Breath of the Wild</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="but-what-about-performance">But what about performance?</h2>
+
+<p>On top of the rendering improvements, many games show a 10-30% improvement to framerate, with greatly improved frametime stability as demonstrated below:</p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./lm3.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Luigi’s Mansion 3 received some huge leaps in rendering accuracy *and* performance, notice the frametime graph</p>
+        
+    </div>
+    
+</div>
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./smo.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Super Mario Odyssey</p>
+        
+    </div>
+    
+</div>
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./link.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> The Legend of Zelda: Breath of the Wild</p>
+        
+    </div>
+    
+</div>
+
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
+                <source src="./acnh.mp4" type="video/mp4">
+                Your browser doesn't support mp4 video. :(
+            </video>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> Animal Crossing: New Horizons</p>
+        
+    </div>
+    
+</div>
+
+
+<h2 id="current-limitations-and-future-progress">Current limitations and future progress</h2>
+
+<p>Due to these changes, hardware lacking the <code>VK_EXT_robustness2</code> extension will not produce the optimal experience. In Windows, this includes AMD graphics cards older than Vega (Polaris and older series) and all Intel iGPUs to date. You can check the current support <a href="http://vulkan.gpuinfo.org/listdevicescoverage.php?extension=VK_EXT_robustness2&amp;platform=windows">here</a>. Games requesting this extension on unsupported hardware may behave randomly or crash in rare instances. A fallback code path is being worked on. Make sure to be up to date with your drivers, as the GPU vendor may be able to add support in the future if the hardware allows it.</p>
+
+<p>Originally, <code>Bindless Texture</code> support was expected to be added, but several difficulties emerged during development. One of the problems is the lack of native hardware support for ASTC texture decoding. If we used uncompressed textures, GPUs with less than 8GB of VRAM would not be able to load all the game assets, and if we recompressed them in another texture format to avoid this problem, image quality would degrade. True bindless texture support can be considered again in the future.</p>
+
+<p><code>Depth Stencil Blits</code> are not implemented on Vulkan for devices that don&rsquo;t offer native support (any AMD and Intel GPU).</p>
+
+<p>Another complication that emerged during development is related to memory management. The idea was to release the Texture Cache Rewrite with what the team calls the <code>Texture Reaper</code>, a way to remove textures from VRAM that have not been used after some time. While this has been almost working in OpenGL during testing, managing to run Luigi&rsquo;s Mansion 3 in under 300MB of VRAM, Vulkan on the other hand received no benefit.</p>
+
+<p>Vulkan faces one main problem: it fragments the memory when textures need to be mapped to <em>contiguous</em> video memory. There’s no tolerance for fragmentation, so freeing blocks will not help at all if the next texture doesn’t fit in the new empty space. This will require the development of a VRAM defragmentation routine, work that can take quite some time. So we can say that today marks the day <code>Project Texture Reaper</code> starts.</p>
+
+<p>A feature that will be added shortly later will be <code>Accelerated Texture Decoding</code>, which will handle any texture format via <code>Compute Shaders</code>, even formats the GPU doesn’t support natively. <a href="https://github.com/ameerj">epicboy</a> is working on the ASTC compute decoder.</p>
+
+<p>The next project <a href="https://github.com/ReinUsesLisp">Rodrigo</a> is working on is the <code>Buffer Cache Rewrite</code>. This work promises to solve more rendering issues (for example font rendering problems) and seriously improve performance, especially on memory bandwidth starved hardware like integrated GPUs.</p>
+
+<p>And with that, our overview of the Texture Cache Rewrite is finished! Please report any bugs or problems you face with this new feature on our <a href="https://discord.gg/u77vRWY">Discord server</a> or on our <a href="https://community.citra-emu.org/c/yuzu-support/">Forums.</a></p>
+
+<div class="columns is-img-preview">
+    
+    
+    
+    
+    
+    
+    
+    <div class="column has-text-centered">
+        
+            <a href="./ugg.png" title=" HONK"><img src="./ugg.png.jpg" alt=" HONK"></a>
+        
+        
+            <p class="has-text-centered is-italic has-text-grey-light"> HONK</p>
+        
+    </div>
+    
+</div>
+
+
+<p>&nbsp;
+<h4 style="text-align:center;">
+<b>Please consider supporting us on <a href="https://www.patreon.com/yuzuteam">Patreon</a>!<br>
+If you would like to contribute to this project, check out our <a href="https://github.com/yuzu-emu/yuzu">GitHub</a>!</b>
+</h4></p>
+</section>
+
+
+<div class="has-text-centered">
+    <a class="pagination-next" href="https://community.citra-emu.org/t/328431">Continue the discussion on our forums.</a>
+</div>
+
+
+
+                </div>
+                <div class="column">
+                    
+                    <div class="pt-md">
+    
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4126545610079023"
+        data-ad-slot="6276099127"
+        data-ad-format="auto"></ins>
+    <p class="is-size-5 has-text-centered">Advertisement</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container">
+        <footer class="footer">
+            <div class="content has-text-centered">
+    copyright &copy; 2021 yuzu emulator team
+</div>
+        </footer>
+    </div>
+
+    <script src="https://yuzu-emu.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        baguetteBox.run('.is-img-preview');
+    });
+</script>
+
+    <script type="text/javascript">
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+
+</html>
