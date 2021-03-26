@@ -173,11 +173,11 @@ _**NOTE:** These steps will be used in other sections below. Do **not** follow t
     - 8d. Tap on `TegraExplorer.bin` in the list of payloads.
     - 8e. After TegraExplorer has successfully booted, navigate through the menu using the `VOL+/VOL-` buttons to highlight and select `Dump Firmware` by pressing the `POWER` button.
     - 8f. Once the dumping process is finished, the `.nca` files will be located in your SD card at `sd:/tegraexplorer/Firmware/` inside a folder with a name of the firmware revision.
-    - 8h. Press any button to return to the main menu.
-    - 8i. Select the `Reboot to bootloader/update.bin` option. (Alternatively, you can select the `reboot_payload.bin` option if `update.bin` is not available.) You should now be booted back into Hekate.
-    - 8j. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
-    - 8k. Navigate to your SD card drive and copy the contents in the firmware folder (step 8g.) to `%YUZU_DIR%/nand/system/Contents/registered`. Alternatively, you can write `%appdata%\yuzu\nand\system\Contents\registered` in the address bar of a file explorer. The `registered` folder should be full of `.nca` files.
-    - 8l. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
+    - 8g. Press any button to return to the main menu.
+    - 8h. Select the `Reboot to bootloader/update.bin` option. (Alternatively, you can select the `reboot_payload.bin` option if `update.bin` is not available.) You should now be booted back into Hekate.
+    - 8i. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
+    - 8j. Navigate to your SD card drive and copy the contents in the firmware folder (step 8f.) to `%YUZU_DIR%/nand/system/Contents/registered`. Alternatively, you can write `%appdata%\yuzu\nand\system\Contents\registered` in the address bar of a file explorer. The `registered` folder should be full of `.nca` files.
+    - 8k. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
 
 ## Dumping Cartridge Games
 
