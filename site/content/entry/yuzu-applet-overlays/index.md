@@ -97,7 +97,7 @@ The error applet is used by games to crash and report back error codes to the us
 
 # Fin
 
-Both the new keyboard applet and the controller friendly error applet are now available in the latest Early Access build.
+Both the new keyboard applet and the controller friendly error applet are now available in the [latest Early Access build](https://yuzu-emu.org/help/early-access/).
 Since these are currently still under development, we would like to hear more about your experiences and any bugs/issues you might encounter.
 Please don't hesitate to reach out to us on our Discord server's Patreon support channels to report any findings.
 That's all we have for today but, we're sure to be back with more exciting news soon!
