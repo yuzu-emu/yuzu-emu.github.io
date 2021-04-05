@@ -127,7 +127,7 @@ While our graphics devs continue to rewrite all shader instructions, we can info
 Here’s a sneak pic, fresh from the source.
 
 {{< imgs
-	"./wip.png| You can say it's one hell of a feature!"
+	"./wip.png| You can say it's one hell of a rewrite!"
   >}}
 
 On top of that, Rodrigo also implemented a new kind of asynchronous shader “secret technique” that scales better with the number of threads available, and produces zero graphical glitches!
