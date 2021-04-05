@@ -15,9 +15,9 @@ Hi yuz-ers, this is March’s progress report, here to offer you our latest news
 [Morph](https://github.com/Morph1984) to the rescue! [Fixing CalculateSpanBetween](https://github.com/yuzu-emu/yuzu/pull/6053) allows `Super Smash Bros. Ultimate’s` Spirit Board to work!
 A separate PR [improving ClockSnapshot](https://github.com/yuzu-emu/yuzu/pull/6054) fixes the timers.
 
-pic
-
-More work is needed to make World of Light playable, we continue to fight for it!
+{{< imgs
+	"./spirit.png| More work is needed to make World of Light playable, we continue to fight for it! (Super Smash Bros. Ultimate)"
+  >}}
 
 Those who paid attention reading previous progress reports, notice that we sometimes notify when a service is `stubbed` (ignored, basically) to allow a game to progress further.
 This requires manual intervention each and every time a game update or a new game uses a new unimplemented service.
@@ -28,7 +28,9 @@ Not a new invention in any way, several emulators in the past have used this fea
 
 Keep in mind that autostub will be always disabled by default on each boot, so it has to be manually enabled for each session by going to `Emulation > Configure > General > Debug > Enable Auto-Stub`.
 
-pic
+{{< imgs
+	"./stub.png| You can find it here, at the bottom of the picture"
+  >}}
 
 [Morph](https://github.com/Morph1984) took the work to [update the emulated Switch firmware version to 11.0.1](https://github.com/yuzu-emu/yuzu/pull/6070), and [the NgWord version,](https://github.com/yuzu-emu/yuzu/pull/6069) improving compatibility with recent games, and solving some odd bugs.
 For example, `Disgaea` games no longer require a firmware dump to be playable.
@@ -42,14 +44,17 @@ This way, only what is needed for yuzu is built, reducing the size and build tim
 
 [ivan-boikov](https://github.com/ivan-boikov) fixed an [issue that resulted in wrong destination folders](https://github.com/yuzu-emu/yuzu/pull/6092) for our file system configuration if you pressed Cancel. Nothing beats QoL fixes!
 
-Microsoft Visual Studio` by default will compile with the character set of the region of the developer’s PC. 
+`Microsoft Visual Studio` by default will compile with the character set of the region of the developer’s PC. 
 This limitation can cause issues for certain regions like Asia when trying to build our source.
 Morph bypassed this limitation [by forcing the UTF-8 character set.](https://github.com/yuzu-emu/yuzu/pull/6029)
 As an added benefit, some UI elements like up and down arrows started rendering. Free extra.
 
-While ton of work is needed to make `MONSTER HUNTER RISE` run, including finishing the shader decompiler rewrite, and implementing an asynchronous software keyboard, that doesn’t mean [ogniK](https://github.com/ogniK5377) can’t start some preliminary work.
-In this particular case it means improving the [current `Parental Control` emulation,](https://github.com/yuzu-emu/yuzu/pull/6112) bringing it closer to the Switch’s native hardware implementation.
+{{< imgs
+	"./utf8.png| "
+  >}}
 
+While ton of work is needed to make `MONSTER HUNTER RISE` run, including finishing the shader decompiler rewrite, and implementing the asynchronous software keyboard, that doesn’t mean [ogniK](https://github.com/ogniK5377) can’t start some preliminary work.
+In this particular case the focus is to improvie [`Parental Control` emulation,](https://github.com/yuzu-emu/yuzu/pull/6112) bringing it closer to the Switch’s native hardware implementation.
 
 ## Graphic improvements
 
@@ -99,7 +104,9 @@ For this, [german77](https://github.com/german77) implemented a [toggle to hold 
 This way you can ask yuzu to keep pressing a button, freeing your hand and devices from it, while you move to something else! 
 To access this feature, right click the Modifier button in control settings, and select `Toggle button`.
 
-pic
+{{< imgs
+	"./toggle.png| Right click any button or modifier"
+  >}}
 
 For those using [Cemuhook](https://cemuhook.sshnuke.net/) to provide motion via an Android device, [german77](https://github.com/german77) has a nice stability improvement for you! 
 [Each individual socket connection now needs its unique client ID.](https://github.com/yuzu-emu/yuzu/pull/6004) 
@@ -119,7 +126,9 @@ While our graphics devs continue to rewrite all shader instructions, we can info
 
 Here’s a sneak pic, fresh from the source.
 
-pic
+{{< imgs
+	"./wip.png| You can say it's one hell of a feature!"
+  >}}
 
 On top of that, Rodrigo also implemented a new kind of asynchronous shader “secret technique” that scales better with the number of threads available, and produces zero graphical glitches!
 We will expand this information once Hades is out and has its own dedicated article.
