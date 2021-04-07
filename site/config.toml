@@ -8,43 +8,43 @@ theme = "shared-bulma-theme"
 paginate = 20
 
 [[menu.main]]
-  name = "blog"
+  name = "Blog"
   weight = 1
   identifier = "blog"
   url = "/entry"
 
 [[menu.main]]
-  name = "download"
+  name = "Download"
   weight = 2
   identifier = "download"
   url = "/downloads"
 
 [[menu.main]]
-  name = "faq"
+  name = "FAQs"
   weight = 3
   identifier = "faq"
   url = "/wiki/faq"
 
 [[menu.main]]
-  name = "compatibility"
+  name = "Compatibility"
   weight = 4
   identifier = "compatibility"
   url = "/game"
 
 [[menu.main]]
-  name = "screenshots"
+  name = "Screenshots"
   weight = 5
   identifier = "screenshots"
   url = "/screenshots"
 
 [[menu.main]]
-  name = "patreon"
+  name = "Patreon"
   weight = 6
   identifier = "patreon"
   url = "https://www.patreon.com/yuzuteam"
 
 [[menu.main]]
-  name = "profile"
+  name = "Profile"
   weight = 7
   identifier = "profile"
   url = "https://profile.yuzu-emu.org"
