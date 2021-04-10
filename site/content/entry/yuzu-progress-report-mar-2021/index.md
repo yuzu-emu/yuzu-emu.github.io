@@ -24,7 +24,7 @@ This process requires manual intervention each and every time a game update or n
 To mitigate user frustration, [epicboy](https://github.com/ameerj) implemented [Auto-Stubbing](https://github.com/yuzu-emu/yuzu/pull/6062), continuing [previous work](https://github.com/yuzu-emu/yuzu/pull/4237) from [ogniK.](https://github.com/ogniK5377) 
 
 With this toggle, games will just ignore any unimplemented services and continue running, allowing developers to focus on the services that need urgent, proper implementations.
-Not a new invention in any way, several emulators in the past have used this feature to great benefit, reducing the load on developers and providing a better experience for the end user.
+This is not a new invention by any means. Several emulators in the past have used this feature to great benefit, reducing the load on developers and providing a better experience for the end user.
 
 Keep in mind that autostub will be always disabled by default on each boot, so it has to be manually enabled for each session by going to `Emulation > Configure > General > Debug > Enable Auto-Stub`.
 
