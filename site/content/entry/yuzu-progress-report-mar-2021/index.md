@@ -53,7 +53,7 @@ As an added benefit, some UI elements like up and down arrows started rendering.
 	"./utf8.png| There's nothing like a good arrow icon."
   >}}
 
-While ton of work is needed to make `MONSTER HUNTER RISE` run, including finishing the shader decompiler rewrite, and implementing the asynchronous software keyboard, that doesn’t mean [ogniK](https://github.com/ogniK5377) can’t start some preliminary work.
+While a ton of work is needed to make `MONSTER HUNTER RISE` run, including finishing the shader decompiler rewrite and implementing the asynchronous software keyboard, that doesn’t mean [ogniK](https://github.com/ogniK5377) can’t start some preliminary work.
 In this particular case the focus is to improvie [`Parental Control` emulation,](https://github.com/yuzu-emu/yuzu/pull/6112) bringing it closer to the Switch’s native hardware implementation.
 
 ## Graphic improvements
