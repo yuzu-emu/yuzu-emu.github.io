@@ -115,7 +115,7 @@ For those using [Cemuhook](https://cemuhook.sshnuke.net/) to provide motion via 
 In a separate PR, german77 [tests using a single UDP connection per server](https://github.com/yuzu-emu/yuzu/pull/6127) instead of per controller, reducing the error rate thanks to simplified communications.
 The end result of this work is more stable connections for motion devices.
 
-Xbox 360 and Xbox One controllers were wrongly displayed as just `Xinput Controller` in our device list, causing confusion to our users.
+Xbox 360 and Xbox One controllers were incorrectly displayed as just `Xinput Controller` in our device list, causing confusion to our users.
 Additionally, the default Pro Controller mapping had its face buttons swapped by mistake.
 [german77](https://github.com/german77) [fixed both issues.](https://github.com/yuzu-emu/yuzu/pull/6119) Bad defaults are bad.
 
