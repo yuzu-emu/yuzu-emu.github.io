@@ -50,7 +50,7 @@ Morph bypassed this limitation [by forcing the UTF-8 character set.](https://git
 As an added benefit, some UI elements like up and down arrows started rendering. Free bonus.
 
 {{< imgs
-	"./utf8.png| "
+	"./utf8.png| There's nothing like a good arrow icon."
   >}}
 
 While ton of work is needed to make `MONSTER HUNTER RISE` run, including finishing the shader decompiler rewrite, and implementing the asynchronous software keyboard, that doesn’t mean [ogniK](https://github.com/ogniK5377) can’t start some preliminary work.
