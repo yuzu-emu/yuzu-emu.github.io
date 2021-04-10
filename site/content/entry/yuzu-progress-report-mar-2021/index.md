@@ -39,7 +39,7 @@ We now have some new additions to our command line arguments thanks to [german77
 Users can [select which user profile to load](https://github.com/yuzu-emu/yuzu/pull/6116) by adding the `-u #` argument to their command, with `#` being the profile number.
 For example, by using `yuzu.exe -u 1 -g "path_to_game"`, the second profile will be selected.
 
-In an attempt to reduce file size when downloading yuzu, and also reduce the download size when building it from source, [toastUnlimited](https://github.com/lat9nq) reworked [how FFmpeg is linked](https://github.com/yuzu-emu/yuzu/pull/5880).
+In an attempt to reduce file size when downloading yuzu and also reduce the download size when building it from source, [toastUnlimited](https://github.com/lat9nq) reworked [how FFmpeg is linked](https://github.com/yuzu-emu/yuzu/pull/5880).
 This way, only what is needed for yuzu is built, reducing the size and build time required for this module, and as an added bonus Linux users will avoid problems with possible outdated versions included in their distributions. Data capped users rejoice!
 
 [ivan-boikov](https://github.com/ivan-boikov) fixed an [issue that resulted in wrong destination folders](https://github.com/yuzu-emu/yuzu/pull/6092) for our file system configuration if you pressed Cancel. Nothing beats QoL fixes!
