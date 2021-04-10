@@ -78,7 +78,7 @@ Additionally, all floating-point instructions received minor optimizations, and 
 There was also a problem with `AMD` CPUs, where previously dynarmic disabled the use of the `BMI` instruction set (used for bit manipulation), due to being extremely slow in those processors.
 However, on Zen 3 and newer, the performance of these instructions has increased considerably, so now dynarmic allows these `AMD` processors to use `BMI` instructions if the detected CPU is fast enough to perform them.
 
-All of these changes were possible thanks to the contribution of [Wunkolo](https://github.com/Wunkolo) to dynarmic (which eventually made it to yuzu), so shout outs for the great work!
+All of these changes were possible thanks to the contribution of [Wunkolo](https://github.com/Wunkolo) to dynarmic (which eventually made it to yuzu), so shoutouts for the great work!
 
 Going back to kernel updates, [bunnei](https://github.com/bunnei/) [reworked and cleaned the kernel memory management code](https://github.com/yuzu-emu/yuzu/pull/6099).
 As the name implies, this is the part of the OS that allocates memory resources for games when they request them.
