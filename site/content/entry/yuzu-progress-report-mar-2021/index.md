@@ -44,7 +44,7 @@ This way, only what is needed for yuzu is built, reducing the size and build tim
 
 [ivan-boikov](https://github.com/ivan-boikov) fixed an [issue where pressing Cancel would result in the wrong destination folder](https://github.com/yuzu-emu/yuzu/pull/6092) in the file system configuration. Nothing beats quality of life fixes!
 
-`Microsoft Visual Studio` by default will compile with the character set of the region of the developer’s PC. 
+`Microsoft Visual Studio`, by default, will compile applications with the character set corresponding to the region of the local developer’s PC. 
 This limitation can cause issues for certain regions like Asia when trying to build our source.
 Morph bypassed this limitation [by forcing the UTF-8 character set.](https://github.com/yuzu-emu/yuzu/pull/6029)
 As an added benefit, some UI elements like up and down arrows started rendering. Free extra.
