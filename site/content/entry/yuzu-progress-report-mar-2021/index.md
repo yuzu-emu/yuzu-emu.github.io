@@ -92,7 +92,7 @@ As explained in the [previous progress report](https://yuzu-emu.org/entry/yuzu-p
 However, these dummy threads don't actually use fibers.
 With this change, bunnei removed some unnecessary memory overhead by removing the creation of fibers (which would only be needed for "real" emulated threads), thus reducing the memory usage by a bit.
 
-Another bug also fixed by bunnei was related to how [JIT states are saved between page table changes](https://github.com/yuzu-emu/yuzu/pull/6100).
+Another bug that was also fixed by bunnei was related to how [JIT states are saved between page table changes](https://github.com/yuzu-emu/yuzu/pull/6100).
 A [page table](https://en.wikipedia.org/wiki/Page_table) is a scheme used to map physical memory into virtual memory, used to give processes the impression they're working with a unique, contiguous section of memory, regardless of where and how this memory is actually stored.
 Due to the way dynarmic is coded, whenever yuzu changes the page table that is currently in use, it needs to recreate the CPU JIT.
 But, until now, yuzu wasn't saving and restoring the state of this JIT properly when this happened.
