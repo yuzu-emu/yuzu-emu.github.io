@@ -35,7 +35,7 @@ Keep in mind that auto-stub will be always disabled by default on each boot, so 
 [Morph](https://github.com/Morph1984) took it upon himself to [update the emulated Switch firmware version to 11.0.1](https://github.com/yuzu-emu/yuzu/pull/6070), and [the NgWord version,](https://github.com/yuzu-emu/yuzu/pull/6069) improving compatibility with recent games, and solving some odd bugs.
 For example, `Disgaea` games no longer require a firmware dump to be playable.
 
-Some new additions to our command line arguments.
+We now have some new additions to our command line arguments thanks to [german77](https://github.com/german77).
 [german77](https://github.com/german77) now [adds the option to select which user profile to load](https://github.com/yuzu-emu/yuzu/pull/6116) by adding the `-u #` argument, with `#` being the profile number.
 For example, by using `yuzu.exe -u 1 -g "path_to_game"`, the second profile will be selected.
 
