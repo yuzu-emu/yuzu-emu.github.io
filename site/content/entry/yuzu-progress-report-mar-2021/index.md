@@ -36,7 +36,7 @@ Keep in mind that auto-stub will be always disabled by default on each boot, so 
 For example, `Disgaea` games no longer require a firmware dump to be playable.
 
 We now have some new additions to our command line arguments thanks to [german77](https://github.com/german77).
-[german77](https://github.com/german77) now [adds the option to select which user profile to load](https://github.com/yuzu-emu/yuzu/pull/6116) by adding the `-u #` argument, with `#` being the profile number.
+Users can [select which user profile to load](https://github.com/yuzu-emu/yuzu/pull/6116) by adding the `-u #` argument to their command, with `#` being the profile number.
 For example, by using `yuzu.exe -u 1 -g "path_to_game"`, the second profile will be selected.
 
 In an attempt to reduce file size when downloading yuzu, and also reduce the download size when building it from source, [toastUnlimited](https://github.com/lat9nq) reworked [how FFmpeg is linked](https://github.com/yuzu-emu/yuzu/pull/5880).
