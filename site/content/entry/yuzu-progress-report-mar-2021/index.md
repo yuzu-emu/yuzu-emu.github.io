@@ -100,7 +100,7 @@ However, with this change, all the context needed by the JIT is now stored and r
 
 ## Input improvements
 
-Not all devices can do `N-key rollover`, or pressing as many keys/buttons at the same time as you want. 
+Not all devices can do `N-key rollover`, meaning pressing many keys/buttons at the same time without some inputs being missed. 
 For this, [german77](https://github.com/german77) implemented a [toggle to hold a button for you.](https://github.com/yuzu-emu/yuzu/pull/6040)
 This way you can ask yuzu to keep pressing a button, freeing your hand and devices from it, while you move to something else! 
 To access this feature, right click the Modifier button in control settings, and select `Toggle button`.
