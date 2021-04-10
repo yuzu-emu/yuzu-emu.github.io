@@ -26,7 +26,7 @@ To mitigate user frustration, [epicboy](https://github.com/ameerj) implemented [
 With this toggle, games will just ignore any unimplemented services and continue running, allowing developers to focus on the services that need urgent, proper implementations.
 This is not a new invention by any means. Several emulators in the past have used this feature to great benefit, reducing the load on developers and providing a better experience for the end user.
 
-Keep in mind that autostub will be always disabled by default on each boot, so it has to be manually enabled for each session by going to `Emulation > Configure > General > Debug > Enable Auto-Stub`.
+Keep in mind that auto-stub will be always disabled by default on each boot, so it has to be manually enabled for each session by going to `Emulation > Configure > General > Debug > Enable Auto-Stub`.
 
 {{< imgs
 	"./stub.png| You can find it here, at the bottom of the picture"
