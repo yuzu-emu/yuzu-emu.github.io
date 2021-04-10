@@ -67,7 +67,7 @@ Thanks to [theboy181](https://github.com/theboy181) for the suggestion!
 
 [bunnei](https://github.com/bunnei) implemented an optimization that affects all graphic caches (texture, buffer, shader).
 By [using a flat array](https://github.com/yuzu-emu/yuzu/pull/6028), cache performance is improved slightly, with the bonus of some memory bandwidth saved due to better resource allocation.
-A small but measurable 5% performance bump can be experienced for example in `Super Mario Odyssey`.
+A small but measurable 5% performance bump can be experienced, for example, in `Super Mario Odyssey`.
 
 ## Technical fixes, continued
 
