@@ -6,7 +6,7 @@ coauthor = "Honghoa"
 forum = 391903
 +++ 
 
-Hi yuz-ers, we're here with the March progress report to offer you our latest news! We continue to update the Kernel, some considerations have been done for specific hardware, we have several changes and fixes to discuss, and we have a sneak peek at the progress on Project Hades.
+Hi yuz-ers, we're here with the March progress report to offer you our latest news! We continue to update the Kernel, some considerations have been made for specific hardware, we have several changes and fixes to discuss, and we have a sneak peek at the progress on Project Hades.
 
 <!--more-->
 
