@@ -6,7 +6,7 @@ coauthor = "Honghoa"
 forum = 391903
 +++ 
 
-Hi yuz-ers, we're here with the March progress report to offer you our latest news! We continue to update the Kernel, we've implemented a new overlay system, and we have several changes and fixes to discuss.
+Hi yuz-ers, we're here with the March progress report to offer you our latest news! We continue to update the Kernel, we've implemented [a new overlay system](https://yuzu-emu.org/entry/yuzu-applet-overlays/), and we have several changes and fixes to discuss.
 
 <!--more-->
 
