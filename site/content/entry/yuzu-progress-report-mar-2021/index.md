@@ -47,7 +47,7 @@ This way, only what is needed for yuzu is built, reducing the size and build tim
 `Microsoft Visual Studio`, by default, will compile applications with the character set corresponding to the region of the local developer’s PC. 
 This limitation can cause issues for certain regions like Asia when trying to build our source.
 Morph bypassed this limitation [by forcing the UTF-8 character set.](https://github.com/yuzu-emu/yuzu/pull/6029)
-As an added benefit, some UI elements like up and down arrows started rendering. Free extra.
+As an added benefit, some UI elements like up and down arrows started rendering. Free bonus.
 
 {{< imgs
 	"./utf8.png| "
