@@ -6,7 +6,7 @@ coauthor = "Honghoa"
 forum = 0
 +++ 
 
-Hi yuz-ers, this is March’s progress report, here to offer you our latest news! Kernel changes continue to happen, we got a new overlay system, plus several fixes and changes to talk about.
+Hi yuz-ers, we're here with the March progress report to offer you our latest news! We continue to update the Kernel, we've implemented a new overlay system, and we have several changes and fixes to discuss.
 
 <!--more-->
 
