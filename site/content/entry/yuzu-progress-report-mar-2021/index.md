@@ -20,7 +20,7 @@ A separate PR [improving ClockSnapshot](https://github.com/yuzu-emu/yuzu/pull/60
   >}}
 
 Those who have paid attention to our previous progress reports will notice that we sometimes write about when a service is `stubbed` (ignored, basically) to allow a game to progress further.
-This requires manual intervention each and every time a game update or a new game uses a new unimplemented service.
+This process requires manual intervention each and every time a game update or new game uses a new unimplemented service.
 As a way to allow users to just play their games, [epicboy](https://github.com/ameerj) implemented [Auto-Stubbing](https://github.com/yuzu-emu/yuzu/pull/6062), continuing [previous work](https://github.com/yuzu-emu/yuzu/pull/4237) from [ogniK.](https://github.com/ogniK5377) 
 
 With this toggle, games will just ignore any unimplemented service and continue running, allowing developers to focus on the services that need urgent proper implementations.
