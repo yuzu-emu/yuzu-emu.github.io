@@ -112,7 +112,7 @@ To access this feature, right click the Modifier button in control settings, and
 For those using [Cemuhook](https://cemuhook.sshnuke.net/) to provide motion via an Android device, [german77](https://github.com/german77) has a nice stability improvement for you! 
 [Each individual socket connection now needs its unique client ID.](https://github.com/yuzu-emu/yuzu/pull/6004) 
 
-In a separate later PR, german77 [tests using a single UDP connection per server](https://github.com/yuzu-emu/yuzu/pull/6127) instead of per controller, reducing the error rate thanks to simplified communications.
+In a separate PR, german77 [tests using a single UDP connection per server](https://github.com/yuzu-emu/yuzu/pull/6127) instead of per controller, reducing the error rate thanks to simplified communications.
 The end result of this work is more stable connections for motion devices.
 
 Xbox 360 and Xbox One controllers were wrongly displayed as just `Xinput Controller` in our device list, causing confusion to our users.
