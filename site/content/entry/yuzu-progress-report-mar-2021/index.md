@@ -19,7 +19,7 @@ A separate PR [improving ClockSnapshot](https://github.com/yuzu-emu/yuzu/pull/60
 	"./spirit.png| More work is needed to make World of Light playable, we continue to fight for it! (Super Smash Bros. Ultimate)"
   >}}
 
-Those who paid attention reading previous progress reports, notice that we sometimes notify when a service is `stubbed` (ignored, basically) to allow a game to progress further.
+Those who have paid attention to our previous progress reports will notice that we sometimes write about when a service is `stubbed` (ignored, basically) to allow a game to progress further.
 This requires manual intervention each and every time a game update or a new game uses a new unimplemented service.
 As a way to allow users to just play their games, [epicboy](https://github.com/ameerj) implemented [Auto-Stubbing](https://github.com/yuzu-emu/yuzu/pull/6062), continuing [previous work](https://github.com/yuzu-emu/yuzu/pull/4237) from [ogniK.](https://github.com/ogniK5377) 
 
