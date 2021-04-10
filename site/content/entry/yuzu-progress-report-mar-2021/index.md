@@ -71,7 +71,7 @@ A small but measurable 5% performance bump can be experienced, for example, in `
 
 ## Technical fixes, continued
 
-The [dynarmic](https://github.com/MerryMage/dynarmic) submodule has been recently [updated in this PR](https://github.com/yuzu-emu/yuzu/pull/6047), bringing the latest changes to yuzu.
+The [dynarmic](https://github.com/MerryMage/dynarmic) submodule has been recently [updated in this PR](https://github.com/yuzu-emu/yuzu/pull/6047), merging the latest changes with yuzu.
 Thanks to the efforts of [merry](https://github.com/MerryMage/) and [lioncash](https://github.com/lioncash), many `thumb32` instructions (a subset of ARM instructions) were implemented, increasing the amount of instructions supported for 32-bit games on yuzu.
 
 Additionally, all floating-point instructions received minor optimizations, and a couple of bugs in the implementation of [AVX-512 extensions](https://github.com/yuzu-emu/yuzu/pull/6118) were fixed too.
