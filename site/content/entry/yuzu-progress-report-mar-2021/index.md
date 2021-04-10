@@ -88,7 +88,7 @@ As always, these changes make it easier to support any future hardware revisions
 Bunnei also fixed [a memory leak](https://github.com/yuzu-emu/yuzu/pull/6036) caused by `dummy threads`.
 These dummies are used by yuzu to interact with our emulated kernel.
 Every "real" emulated thread has a dummy associated with it.
-As explained in the previous progress report, yuzu utilizes fibers in order to emulate threads.
+As explained in the [previous progress report](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/), yuzu utilizes fibers in order to emulate threads.
 However, these dummy threads don't actually use fibers.
 With this change, bunnei removed some unnecessary memory overhead by removing the creation of fibers (which would only be needed for "real" emulated threads), thus reducing the memory usage by a bit.
 
