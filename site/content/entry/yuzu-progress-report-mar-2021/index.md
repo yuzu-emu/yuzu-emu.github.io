@@ -32,7 +32,7 @@ Keep in mind that auto-stub will be always disabled by default on each boot, so 
 	"./stub.png| You can find it here, at the bottom of the picture in the Advanced section"
   >}}
 
-[Morph](https://github.com/Morph1984) took the work to [update the emulated Switch firmware version to 11.0.1](https://github.com/yuzu-emu/yuzu/pull/6070), and [the NgWord version,](https://github.com/yuzu-emu/yuzu/pull/6069) improving compatibility with recent games, and solving some odd bugs.
+[Morph](https://github.com/Morph1984) took it upon himself to [update the emulated Switch firmware version to 11.0.1](https://github.com/yuzu-emu/yuzu/pull/6070), and [the NgWord version,](https://github.com/yuzu-emu/yuzu/pull/6069) improving compatibility with recent games, and solving some odd bugs.
 For example, `Disgaea` games no longer require a firmware dump to be playable.
 
 Some new additions to our command line arguments.
