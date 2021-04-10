@@ -123,7 +123,7 @@ Additionally, the default Pro Controller mapping had its face buttons swapped by
 
 Project Hades, our rewrite of the shader decompiler, is taking shape.
 On the games that can be booted now, we can already measure performance increases and countless bugs fixed.
-While our graphics devs continue to rewrite all shader instructions, we can inform that the new pipeline cache for Vulkan is fully working, storing and loading just as well as OpenGL’s shader cache.
+While our graphics devs continue to rewrite all shader instructions, we can inform everyone that the new pipeline cache for Vulkan is fully working, storing and loading just as well as OpenGL’s shader cache.
 
 Here’s a sneak peak, fresh from the source.
 
