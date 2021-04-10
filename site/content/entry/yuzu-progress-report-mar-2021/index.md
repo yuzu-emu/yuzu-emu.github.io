@@ -62,7 +62,7 @@ Since the introduction of `Asynchronous shaders`, we noticed that not all driver
 In particular, Intel Windows OpenGL, and the proprietary AMD drivers (for both Windows with Adrenalin, and Linux with AMDGPU-PRO) despise the setting, with Intel ignoring it at a driver level, and AMD outright skipping frames, resulting in massive stuttering.
 
 [toastUnlimited](https://github.com/lat9nq) [added a blacklist](https://github.com/yuzu-emu/yuzu/pull/6095) for our red and blue GPU users, ensuring no performance or graphical regressions occur while attempting to use a feature that their drivers can’t support in OpenGL anyway.
-It’s worth mentioning that Asynchronous shaders work as intended in Vulkan and all free Linux OpenGL drivers, be it from AMD or Intel. Nvidia works as expected on any combination of API or OS with their proprietary drivers.
+It’s worth mentioning that Asynchronous shaders work as intended in Vulkan and all free Linux OpenGL drivers, be it for AMD or Intel. Nvidia works as expected on any combination of API or OS with their proprietary drivers.
 Thanks to [theboy181](https://github.com/theboy181) for the suggestion!
 
 [bunnei](https://github.com/bunnei) implemented an optimization that affects all graphic caches (texture, buffer, shader).
