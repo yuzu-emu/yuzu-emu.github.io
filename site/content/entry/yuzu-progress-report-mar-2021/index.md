@@ -29,7 +29,7 @@ This is not a new invention by any means. Several emulators in the past have use
 Keep in mind that auto-stub will be always disabled by default on each boot, so it has to be manually enabled for each session by going to `Emulation > Configure > General > Debug > Enable Auto-Stub`.
 
 {{< imgs
-	"./stub.png| You can find it here, at the bottom of the picture"
+	"./stub.png| You can find it here, at the bottom of the picture in the Advanced section"
   >}}
 
 [Morph](https://github.com/Morph1984) took the work to [update the emulated Switch firmware version to 11.0.1](https://github.com/yuzu-emu/yuzu/pull/6070), and [the NgWord version,](https://github.com/yuzu-emu/yuzu/pull/6069) improving compatibility with recent games, and solving some odd bugs.
