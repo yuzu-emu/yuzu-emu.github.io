@@ -123,7 +123,6 @@ Additionally, the default Pro Controller mapping had its face buttons swapped by
 
 Project Hades, our rewrite of the shader decompiler, is taking shape.
 On the games that can be booted now, we can already measure performance increases and countless bugs fixed.
-While our graphics devs continue to rewrite all shader instructions, we can inform everyone that the new pipeline cache for Vulkan is fully working, storing and loading just as well as OpenGL’s shader cache.
 
 Here’s a sneak peak, fresh from the source.
 
@@ -131,7 +130,21 @@ Here’s a sneak peak, fresh from the source.
 	"./wip.png| You can say it's one hell of a rewrite!"
   >}}
 
+While our graphics devs continue to rewrite all shader instructions, we can inform everyone that the new pipeline cache for Vulkan is fully working, storing and loading just as well as OpenGL’s shader cache, while even being faster!
+
+{{< single-title-imgs
+    "No more hard crashes (Fire Emblem: Three Houses)"
+    "./wip1.png"
+    "./wip2.png"
+    "./wip3.png"
+  >}}
+
 On top of that, Rodrigo also implemented a new kind of asynchronous shader “secret technique” that scales better with the number of threads available, and produces zero graphical glitches!
+
+{{< imgs
+	"./wip4.png| The Bokoblin Slayer (Hyrule Warriors: Age of Calamity)"
+  >}}
+
 We will expand this information once Hades is out and has its own dedicated article.
 
 That’s all folks! Thank you so much for allowing us to take some of your time, and see you next month!
