@@ -1,3 +1,14 @@
+{{< imgs
+	"./spirit.png| More work is needed to make World of Light playable, we continue to fight for it! (Super Smash Bros. Ultimate)"
+  >}}
+
+{{< single-title-imgs
+    "No more hard crashes (Fire Emblem: Three Houses)"
+    "./wip1.png"
+    "./wip2.png"
+    "./wip3.png"
+  >}}
+
 +++
 date = "2021-05-01T12:00:00-03:00"
 title = "Progress Report April 2021"
@@ -12,21 +23,26 @@ Howdy yuz-ers! Another month gone, another progress report showing up. From new 
 
 ## Project Eleuthia
 
-As described in [its own dedicated article](https://yuzu-emu.org/entry/yuzu-applet-overlays/), 
-[Morph](https://github.com/Morph1984) and [Rei](https://github.com/Its-Rei) have been very busy in [*rei*mplementing the applets](https://github.com/yuzu-emu/yuzu/pull/6133) 
-yuzu uses.
+As described in [its own dedicated article](https://yuzu-emu.org/entry/yuzu-applet-overlays/), [Morph](https://github.com/Morph1984) and [Rei](https://github.com/Its-Rei) have been very busy in [*rei*mplementing the applets](https://github.com/yuzu-emu/yuzu/pull/6133) yuzu uses.
 
 This first step implements the `On-Screen Keyboard` (or OSK) that games use, and the `Error Display` yuzu uses to inform bugs, missing data or crashes.
 
-pic: some examples of the different kinds of keyboards games request
+{{< single-title-imgs
+    "Some examples of the different kinds of keyboards games request"
+    "./osk1.png"
+    "./osk2.png"
+    "./osk3.png"
+  >}}
 
-Another major advantage is adding gamepad support! No need to get out of the couch to grab a keyboard anymore.
+Another major advantage is adding gamepad support! No need to get off the couch to grab a keyboard anymore.
 
-pic: some error examples
+{{< imgs
+	"./error1.png| An error example"
+  >}}
 
 Part of the work included going around Qt’s quirks, so as a by-product users now have the option to select either `Exclusive Fullscreen` (the old method, recommended and used as default on Linux), or the [new](https://github.com/yuzu-emu/yuzu/pull/6135) `Borderless Fullscreen`, recommended for most cases, and to have OSK properly working.
 
-Borderless not only gives us better input support for gamepads, but also reduces tearing and improves clock management related performance issues on some AMD GPUs.
+Borderless not only gives us better input support for gamepads, but also reduces screen tearing and improves clock management related performance issues on some AMD GPUs.
 
 ## Input improvements
 
@@ -35,30 +51,39 @@ This is commonly used for moving the camera with your head when the Switch is in
 
 [german77](https://github.com/german77) [implemented SevenSixAxis and ConsoleSixAxisSensor](https://github.com/yuzu-emu/yuzu/pull/6226), continuing from [previous work](https://github.com/yuzu-emu/yuzu/pull/6224) done by [Morph,](https://github.com/Morph1984) allowing your configured motion device to freely let you look around in compatible games.
 
-pic Please don’t use it like this...
+{{< imgs
+	"./vr.png| Please don't use it like this..."
+  >}}
 
-Both the left and right Joy-Cons map their buttons to different memory locations, as [german77](https://github.com/german77) found out. Turns out, we had the wrong [location for the SL and SR buttons.](https://github.com/yuzu-emu/yuzu/pull/6131) One fix later, and everything is as it should be.
+Both the left and right Joy-Cons map their buttons to different memory locations, as [german77](https://github.com/german77) found out. 
+Turns out, we had the wrong [location for the SL and SR buttons.](https://github.com/yuzu-emu/yuzu/pull/6131) One fix later, and everything is as it should be.
 
 A long standing but when trying to play `Mario Kart 8 Deluxe` in split screen multiplayer was a lock up when closing the controller applet after confirming the input of all players. 
 [Morph](https://github.com/yuzu-emu/yuzu/pull/6205) fixed this crash by [sending the focus state change message](https://github.com/yuzu-emu/yuzu/pull/6205) on applet state changes.
 
-vid: better to crash other players than crash the game!
+{{< imgs
+	"./mk8input.mp4| Better to crash other players than crash the game!"
+  >}}
 
 Thank you EmulationFanatic and riperiperi for the help!
 
 Taking inspiration from [RPCS3](https://rpcs3.net/), [Morph](https://github.com/yuzu-emu/yuzu/pull/6205) [sets the default keyboard input](https://github.com/yuzu-emu/yuzu/pull/6241) to something more suitable for PC users.
 You just can’t beat WASD movement, especially when combined with mouse aiming.
 
-pic Rip and tear, press and click until it is done
+{{< imgs
+	"./keys.png| Rip and tear, press and click until it is done"
+  >}}
 
 Gamecube controllers connected to an adapter sometimes reported the joystick off-center, due to invalid data being sent during plugging.
-[german77](https://github.com/german77) solved this [by taking 4 measurements](https://github.com/yuzu-emu/yuzu/pull/6243), ensuring that the controller finds its center, like any warrior should.
+[german77](https://github.com/german77) solved this [by taking 4 measurements during initialization](https://github.com/yuzu-emu/yuzu/pull/6243), ensuring that the controller finds its center, like any warrior should.
 
 ## User interface changes
 
 Starting with [adding a favourite option in the context menu,](https://github.com/yuzu-emu/yuzu/pull/6198) so you can force some of your games to the top of the list.
 
-pic: just right click them!
+{{< imgs
+	"./fav.png| Just right click them!"
+  >}}
 
 [Updating the results from a filtered search](https://github.com/yuzu-emu/yuzu/pull/6261) after you remove a directory. This fixes wrong behaviour if the user decided to do changes to the game folders while doing a filtered search.
 
@@ -109,7 +134,11 @@ With this PR, processes don't "own" their own instance of `resource limits`, and
 
 [degasus](https://github.com/degasus) found that the code cache size was too small when testing `The Legend of Zelda: Breath of the Wild`, and alerted [merry](https://github.com/MerryMage), the chief maintainer, about the problem.
 
-pic no items, the best only, final destination
+pic 
+
+{{< imgs
+	"./smash.png| No items, The Best only, Final Destination"
+  >}}
 
 Surprisingly, this simple change fixed a very obnoxious problem in a completely different game: the strange slowdowns in `Super Smash Bros. Ultimate`.
 It turned out that these slowdowns were unrelated to the power of the computer running yuzu, nor were they neither related to building the shader cache.
@@ -123,9 +152,17 @@ Continuing with previous `Super Smash Bros. Ultimate` Spirit Board’s fixes, [M
 
 pic: poyo!
 
+{{< imgs
+	"./kirby.png| Poyo!"
+  >}}
+
 [Morph](https://github.com/Morph1984) [stubbing `SetRequestExitToLibraryAppletAtExecuteNextProgramEnabled`](https://github.com/yuzu-emu/yuzu/pull/6234) and [german77](https://github.com/german77) [adding the `ectx:aw` service](https://github.com/yuzu-emu/yuzu/pull/6235) made `Pixel Game Maker Series Werewolf Princess Kaguya` boot!
 
-pics
+{{< single-title-imgs
+    "Right picture is from a more recent PR that will be mentioned in the next progress report (Pixel Game Maker Series Werewolf Princess Kaguya)"
+    "./kaguya1.png"
+    "./kaguya2.png"
+  >}}
 
 The game currently has rendering bugs especially affecting Nvidia hardware. AMD users will have a better experience in this particular game for now.
 
@@ -150,9 +187,17 @@ Not only OpenGL had BGR issues, it turns out Vulkan can also suffer from blue ma
 [epicboy](https://github.com/ameerj) [swapped the Red and Blue channels,](https://github.com/yuzu-emu/yuzu/pull/6238) fixing colours in games like `Pokémon Let’s Go Eevee/Pikachu`, `Shantae: Risky’s Revenge`, and many others!
 You can see the result in the following pictures, before (left) and after (right).
 
-pic I didn’t want Pokémon Blue!
+{{< single-title-imgs
+    "I didn’t want Pokémon Blue! (Pokémon Let's Go, Eevee!)"
+    "./pokebug.png"
+    "./pokefix.png"
+  >}}
 
-pic That’s definitely not Vivi
+{{< single-title-imgs
+    "That’s definitely not Vivi (Shantae: Risky’s Revenge)"
+    "./shanbug.png"
+    "./shanfix.png"
+  >}}
 
 ## Linux Build System
 
@@ -169,7 +214,6 @@ As a special bonus, due to all these changes, Red Hat Enterprise Linux 8 and der
 
 For anyone interested, we keep updated build instructions [in this article.](https://github.com/yuzu-emu/yuzu/wiki/Building-For-Linux)
 
-
 ## Future projects
 
 This section has lately turned into Project Hades teasing, We won’t apologise for that. Here’s more info/teasing:
@@ -178,7 +222,9 @@ While working on implementing SPIR-V for OpenGL, we discovered that Nvidia decid
 This not only destroys any benefit we expected to gain when switching to SPIR-V by default, it also causes huge delays and rendering problems.
 We are forced to also implement GLSL in Project Hades, introducing a considerable amount of extra work that wasn’t expected.
 
-vid
+{{< imgs
+	"./hades.mp4| The best use of Tessellation Shaders ever"
+  >}}
 
 This will provide better compatibility for Nvidia hardware, saving Fermi once again from the gutter.
 
