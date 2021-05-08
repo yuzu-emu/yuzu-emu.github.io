@@ -148,7 +148,7 @@ Continuing with previous `Super Smash Bros. Ultimate` Spirit Board’s fixes, [M
 
 {{< single-title-imgs
     "Right picture is from a more recent PR that will be mentioned in the next progress report (Pixel Game Maker Series Werewolf Princess Kaguya)"
-    "./kaguya1.png"
+    "./kaguya.png"
     "./kaguya2.png"
   >}}
 
