@@ -1,14 +1,3 @@
-{{< imgs
-	"./spirit.png| More work is needed to make World of Light playable, we continue to fight for it! (Super Smash Bros. Ultimate)"
-  >}}
-
-{{< single-title-imgs
-    "No more hard crashes (Fire Emblem: Three Houses)"
-    "./wip1.png"
-    "./wip2.png"
-    "./wip3.png"
-  >}}
-
 +++
 date = "2021-05-01T12:00:00-03:00"
 title = "Progress Report April 2021"
