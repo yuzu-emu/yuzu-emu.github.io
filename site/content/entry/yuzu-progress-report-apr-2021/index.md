@@ -77,7 +77,7 @@ To start off, they've [added a favourite option in the context menu,](https://gi
 	"./fav.png| Just right click them!"
   >}}
 
-[Updating the results from a filtered search](https://github.com/yuzu-emu/yuzu/pull/6261) after you remove a directory. This fixes wrong behaviour if the user decided to do changes to the game folders while doing a filtered search.
+Additionally, they [updated the results from a filtered search](https://github.com/yuzu-emu/yuzu/pull/6261) after you remove a directory. This fixes incorrect behaviour if the user decides to modify the game folders while doing a filtered search.
 
 And lastly, fixing a [random bug that caused folders to expand or collapse when moving them in the game list.](https://github.com/yuzu-emu/yuzu/pull/6263)
 
