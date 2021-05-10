@@ -48,7 +48,7 @@ Both the left and right Joy-Cons map their buttons to different memory locations
 He discovered that we had the wrong [location for the SL and SR buttons.](https://github.com/yuzu-emu/yuzu/pull/6131) 
 One fix later, and everything is as it should be.
 
-A long standing but when trying to play `Mario Kart 8 Deluxe` in local split screen multiplayer was a freeze occurring when confirming all connected players.
+A long standing bug when trying to play `Mario Kart 8 Deluxe` in local split screen multiplayer was a freeze that occurred when confirming all connected players.
 [Morph](https://github.com/yuzu-emu/yuzu/pull/6205) fixed this crash by [sending the focus state change message](https://github.com/yuzu-emu/yuzu/pull/6205) on applet state changes.
 
 {{< imgs
