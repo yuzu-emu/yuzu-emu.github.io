@@ -195,7 +195,7 @@ Not all our users want or are able to use the official AppImage, so not only did
 The first step was to [make SDL2](https://github.com/yuzu-emu/yuzu/pull/6204) [an external dependency.](https://github.com/yuzu-emu/yuzu/pull/6207)
 This would allow us to ship the latest version without having to face Linux distributions' incompatibilities due to different build flags (different characteristics being enabled), or outright outdated versions that aren’t able to support all of the required features that our input asks for.
 
-The changes to SDL2 introduced an incompatibility with the Conan-provided Boost version. [Downloading it as an external](https://github.com/yuzu-emu/yuzu/pull/6222) ensures compatibility, as most of the time the local packages provided by the distribution won’t be enough.
+The changes to SDL2 introduced an incompatibility with the Conan-provided Boost version. [Downloading it as an external dependency](https://github.com/yuzu-emu/yuzu/pull/6222) ensures compatibility, as most of the time the local packages provided by the distribution won’t be enough.
 This change also makes our external download script cross-platform with Windows and other distributions that used to require special workarounds.
 
 As a special bonus, due to all of these changes, Red Hat Enterprise Linux 8 and its derivatives can build yuzu in a much more user-friendly way.
