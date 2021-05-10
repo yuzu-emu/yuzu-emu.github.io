@@ -29,7 +29,7 @@ Another major advantage is adding gamepad support! No need to get off the couch 
 	"./error1.png| An error example"
   >}}
 
-Part of the work included going around Qt’s quirks, so as a by-product users now have the option to select either `Exclusive Fullscreen` (the old method, recommended and used as default on Linux), or the [new](https://github.com/yuzu-emu/yuzu/pull/6135) `Borderless Fullscreen`, recommended for most cases, and to have OSK properly working.
+Part of the effort included working around Qt’s quirks, so as a by-product users now have the option to select either the old `Exclusive Fullscreen` (recommended and used as default on Linux), or the [new](https://github.com/yuzu-emu/yuzu/pull/6135) `Borderless Fullscreen` (recommended for most cases and to have OSK properly working).
 
 Borderless not only gives us better input support for gamepads, but also reduces screen tearing and improves clock management related performance issues on some AMD GPUs.
 
