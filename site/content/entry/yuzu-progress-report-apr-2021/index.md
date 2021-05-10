@@ -64,7 +64,7 @@ You just can’t beat WASD movement, especially when combined with mouse aiming.
 	"./keys.png| Rip and tear, press and click until it is done"
   >}}
 
-Gamecube controllers connected to an adapter sometimes reported the joystick off-center, due to invalid data being sent during plugging.
+Gamecube controllers connected to an adapter sometimes reported the joystick off-center due to invalid data being sent during the connection.
 [german77](https://github.com/german77) solved this [by taking 4 measurements during initialization](https://github.com/yuzu-emu/yuzu/pull/6243), ensuring that the controller finds its center, like any warrior should.
 
 ## User interface changes
