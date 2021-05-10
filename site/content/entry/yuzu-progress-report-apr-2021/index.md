@@ -168,7 +168,7 @@ First on the list is avoiding a device loss (GPU locks up and the driver restart
 Joshua also [enabled the individual features](https://github.com/yuzu-emu/yuzu/pull/6181) from `VK_EXT_robustness2`, instead of just enabling the extension.
 
 And finally, [fixing a wrong offset for null vertex buffers](https://github.com/yuzu-emu/yuzu/pull/6182) to properly follow the Vulkan specification. 
-You never know when a driver will behave in erratic ways. Fixes like this allow developers to report bugs to the vendor’s driver development teams, thanks to confirming everything is within specs. Any resulting error falls under responsibility of the driver teams.
+You never know when a driver will behave in erratic ways. Fixes like this allow developers to report bugs to the vendors' driver development teams, thanks to confirming everything is within specs. Any resulting error falls under responsibility of the driver teams.
 
 Not only OpenGL had BGR issues, it turns out Vulkan can also suffer from blue madness when a game uses the `A1B5G5R5_UNORM` texture format.
 
