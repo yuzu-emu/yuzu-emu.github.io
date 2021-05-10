@@ -45,7 +45,7 @@ This is commonly used for moving the camera with your head when the Switch is in
   >}}
 
 Both the left and right Joy-Cons map their buttons to different memory locations, as [german77](https://github.com/german77) found out. 
-Turns out, we had the wrong [location for the SL and SR buttons.](https://github.com/yuzu-emu/yuzu/pull/6131) 
+He discovered that we had the wrong [location for the SL and SR buttons.](https://github.com/yuzu-emu/yuzu/pull/6131) 
 One fix later, and everything is as it should be.
 
 A long standing but when trying to play `Mario Kart 8 Deluxe` in local split screen multiplayer was a freeze occurring when confirming all connected players.
