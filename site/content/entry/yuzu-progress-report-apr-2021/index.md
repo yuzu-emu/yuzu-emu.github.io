@@ -190,7 +190,7 @@ You can see the result in the following pictures, before (left) and after (right
 ## Linux Build System
 
 [toastUnlimited](https://github.com/lat9nq) has been periodically improving yuzu’s build system for our Linux user base. 
-Not all our users want or are able to use the official AppImage, so not only did our build instructions needed to improve, but it was also equally important to refine the environment necessary to get yuzu running — namely, the dependencies, build process, etc.
+Not all our users want or are able to use the official AppImage, so not only did our build instructions need to be improved, but it was also equally important to refine the environment necessary to get yuzu running — namely, the dependencies, build process, etc.
 
 The first step was to [make SDL2](https://github.com/yuzu-emu/yuzu/pull/6204) [an external dependency.](https://github.com/yuzu-emu/yuzu/pull/6207)
 This would allow us to ship the latest version without having to face Linux distributions incompatibilities due to different build flags (different characteristics being enabled), or outright outdated versions that aren’t able to support all of the required features that our input asks for.
