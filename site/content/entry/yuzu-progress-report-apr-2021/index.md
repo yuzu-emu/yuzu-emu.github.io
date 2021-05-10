@@ -6,7 +6,7 @@ coauthor = "Honghoa"
 forum = 0
 +++ 
 
-Howdy yuz-ers! Another month gone, another progress report showing up. From new firmware versions to Vulkan fixes, we have quite a bit to talk about, so let’s get right into it!
+Howdy yuz-ers! Another month gone, another progress report written. From new firmware versions to Vulkan fixes, we have quite a bit to talk about, so let’s get right into it!
 
 <!--more-->
 
@@ -51,11 +51,11 @@ One fix later, and everything is as it should be.
 A long standing bug when trying to play `Mario Kart 8 Deluxe` in local split screen multiplayer was a freeze that occurred when confirming all connected players.
 [Morph](https://github.com/yuzu-emu/yuzu/pull/6205) fixed this crash by [sending the focus state change message](https://github.com/yuzu-emu/yuzu/pull/6205) on applet state changes.
 
+Thank you EmulationFanatic and riperiperi for the help!
+
 {{< imgs
 	"./mk8input.mp4| Better to crash other players than crash the game!"
   >}}
-
-Thank you EmulationFanatic and riperiperi for the help!
 
 Taking inspiration from [RPCS3](https://rpcs3.net/), [Morph](https://github.com/yuzu-emu/yuzu/pull/6205) [sets the default keyboard input](https://github.com/yuzu-emu/yuzu/pull/6241) to something more suitable for PC users.
 You just can’t beat WASD movement, especially when combined with mouse aiming.
