@@ -35,7 +35,7 @@ Borderless not only gives us better input support for gamepads, but also reduces
 
 ## Input improvements
 
-A feature lacking from our `Stereo Vision` implementation was support for Switch’s motion, and by this, we don't mean Joy-Cons, but the actual console.
+A feature lacking from our `Stereo Vision` implementation was support for the Switch’s motion detection, and by this we don't mean Joy-Cons, but rather the actual console.
 This is commonly used for moving the camera with your head when the Switch is in the Labo goggles.
 
 [german77](https://github.com/german77) [implemented SevenSixAxis and ConsoleSixAxisSensor](https://github.com/yuzu-emu/yuzu/pull/6226), continuing from [previous work](https://github.com/yuzu-emu/yuzu/pull/6224) done by [Morph,](https://github.com/Morph1984) allowing your configured motion device to freely let you look around in compatible games.
