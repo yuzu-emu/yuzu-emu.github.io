@@ -17,7 +17,7 @@ As described in [its own dedicated article](https://yuzu-emu.org/entry/yuzu-appl
 This first step implements the `On-Screen Keyboard` (or OSK) that games use, and the `Error Display` yuzu uses to alert the user to bugs, missing data, or crashes.
 
 {{< single-title-imgs
-    "Some examples of the different kinds of keyboards games request"
+    "Examples of the different kinds of keyboards games request"
     "./osk1.png"
     "./osk2.png"
     "./osk3.png"
