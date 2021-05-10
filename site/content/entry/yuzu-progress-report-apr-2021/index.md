@@ -204,7 +204,7 @@ For anyone interested, we keep updated build instructions [on this page.](https:
 
 ## Future projects
 
-This section has lately turned into Project Hades teasing, We won’t apologise for that. Here’s more info/teasing:
+This section has lately turned into Project Hades teasing, but we won’t apologize for that! Here’s more info/teasing:
 
 While working on implementing SPIR-V for OpenGL, we discovered that Nvidia decided to take the lazy way out and just convert SPIR-V back to GLSL, which is then compiled again to GLASM. 
 This not only destroys any benefit we expected to gain when switching to SPIR-V by default, it also causes huge delays and rendering problems.
