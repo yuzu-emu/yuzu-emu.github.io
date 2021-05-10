@@ -122,7 +122,7 @@ Memory is a resource that is shared system-wide among all the processes, and the
 
 With this PR, processes don't "own" their own instance of `resource limits`, and they now use the global kernel instance instead.
 
-[Dynarmic](https://github.com/MerryMage/dynarmic) — yuzu's JIT, used to translate the Switch’s ARM CPU instructions — was recently updated again, in order to [increase the size of the code cache](https://github.com/yuzu-emu/yuzu/pull/6132) (where yuzu stores the translated code), and add support for some unimplemented instructions from the `thumb32` set, expanding the amount of code that can be translated.
+[Dynarmic](https://github.com/MerryMage/dynarmic) — yuzu's JIT, used to translate the Switch’s ARM CPU instructions — was recently updated again in order to [increase the size of the code cache](https://github.com/yuzu-emu/yuzu/pull/6132) (where yuzu stores the translated code), and add support for some unimplemented instructions from the `thumb32` set, expanding the amount of code that can be translated.
 
 [degasus](https://github.com/degasus) found that the code cache size was too small when testing `The Legend of Zelda: Breath of the Wild`, and alerted [merry](https://github.com/MerryMage), the chief maintainer, about the problem.
 
