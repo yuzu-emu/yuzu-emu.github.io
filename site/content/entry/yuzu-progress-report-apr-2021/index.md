@@ -161,7 +161,7 @@ By [avoiding spin loops](https://github.com/yuzu-emu/yuzu/pull/6162) in the vide
 This means the GPU can enter `sleep` state more often, resulting in lower temperatures/power consumption, better battery life, and allows the scheduler to take on other tasks waiting in the background, improving system responsiveness.
 No more burned thighs while on the pause menu, laptop users!
 
-[Joshua-Ashton](https://github.com/Joshua-Ashton), the Frog Master from [DXVK](https://github.com/doitsujin/dxvk), brought us a couple of Vulkan fixes and improvements.
+[Joshua-Ashton](https://github.com/Joshua-Ashton), the Frog Master from [DXVK](https://github.com/doitsujin/dxvk), brought us a few Vulkan fixes and improvements.
 
 First on the list is avoiding a device loss (GPU locks up and the driver restarts it) by [checking the return value of vkAcquireNextImageKHR.](https://github.com/yuzu-emu/yuzu/pull/6180)
 
