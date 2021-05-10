@@ -14,7 +14,7 @@ Howdy yuz-ers! Another month gone, another progress report showing up. From new 
 
 As described in [its own dedicated article](https://yuzu-emu.org/entry/yuzu-applet-overlays/), [Morph](https://github.com/Morph1984) and [Rei](https://github.com/Its-Rei) have been very busy [*rei*mplementing the applets](https://github.com/yuzu-emu/yuzu/pull/6133) yuzu uses.
 
-This first step implements the `On-Screen Keyboard` (or OSK) that games use, and the `Error Display` yuzu uses to inform bugs, missing data or crashes.
+This first step implements the `On-Screen Keyboard` (or OSK) that games use, and the `Error Display` yuzu uses to alert the user to bugs, missing data, or crashes.
 
 {{< single-title-imgs
     "Some examples of the different kinds of keyboards games request"
