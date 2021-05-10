@@ -170,7 +170,7 @@ Joshua also [enabled the individual features](https://github.com/yuzu-emu/yuzu/p
 And finally, [fixing a wrong offset for null vertex buffers](https://github.com/yuzu-emu/yuzu/pull/6182) to properly follow the Vulkan specification. 
 You never know when a driver will behave in erratic ways. Fixes like this allow developers to report bugs to the vendors' driver development teams, thanks to confirming everything is within specs. Any resulting error falls under responsibility of the driver teams.
 
-Not only OpenGL had BGR issues, it turns out Vulkan can also suffer from blue madness when a game uses the `A1B5G5R5_UNORM` texture format.
+OpenGL wasn't the only API to have BGR issues, it turns out Vulkan can also suffer from "blue madness" when a game uses the `A1B5G5R5_UNORM` texture format.
 
 [epicboy](https://github.com/ameerj) [swapped the Red and Blue channels](https://github.com/yuzu-emu/yuzu/pull/6238) of this format, fixing colours in games like `Pokémon Let’s Go Eevee/Pikachu`, `Shantae: Risky’s Revenge`, and many others!
 You can see the result in the following pictures, before (left) and after (right).
