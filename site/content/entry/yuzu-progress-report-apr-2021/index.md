@@ -87,7 +87,7 @@ Turns out the URL used by the applet was getting deleted before being used.
 
 ## It’s 12 o’clock and it’s time for a new firmware!
 
-A big challenge made its entrance last month: the Nintendo Switch's firmware version was finally updated to Version 12.x, which has kept our developers quite busy figuring out what has changed and what needs to be implemented.
+A big challenge made its entrance last month: the Nintendo Switch's firmware version was finally updated to Version 12.X, which has kept our developers quite busy figuring out what has changed and what needs to be implemented.
 
 Thanks to joint efforts of [german77](https://github.com/german77), [epicboy](https://github.com/ameerj), [lioncash](https://github.com/lioncash), and [Morph](https://github.com/Morph1984), yuzu was able to update many system call ID tables ([PR #6153](https://github.com/yuzu-emu/yuzu/pull/6153), [PR #6154](https://github.com/yuzu-emu/yuzu/pull/6154)), services and function tables ([PR #6157](https://github.com/yuzu-emu/yuzu/pull/6157), [PR #6158](https://github.com/yuzu-emu/yuzu/pull/6158), [PR #6159](https://github.com/yuzu-emu/yuzu/pull/6159), [PR #6160](https://github.com/yuzu-emu/yuzu/pull/6160), [PR #6161](https://github.com/yuzu-emu/yuzu/pull/6161), [PR #6164](https://github.com/yuzu-emu/yuzu/pull/6164), [PR #6171](https://github.com/yuzu-emu/yuzu/pull/6171)), as well some system values ([PR #6155](https://github.com/yuzu-emu/yuzu/pull/6155)).
 
