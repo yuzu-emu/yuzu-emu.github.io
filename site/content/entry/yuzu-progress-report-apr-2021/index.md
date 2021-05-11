@@ -69,7 +69,7 @@ Gamecube controllers connected to an adapter sometimes reported the joystick off
 
 ## User interface changes
 
-[Kewlan](https://github.com/Kewlan) is back with more input improvements!
+[Kewlan](https://github.com/Kewlan) is back with more UI improvements!
 
 To start off, they've [added a favourite option in the context menu,](https://github.com/yuzu-emu/yuzu/pull/6198) so you can force some of your games to the top of the list.
 
