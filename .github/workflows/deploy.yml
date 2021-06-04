@@ -21,13 +21,11 @@ jobs:
       run: |
         echo '========== Installing gulp & dependencies =========='
         sudo apt-get install graphicsmagick
-        wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.52/hugo_0.52_Linux-64bit.deb
-        sudo dpkg -i hugo.deb
         yarn install
         # Install dependencies one-by-one to avoid race-conditions
         pushd ./scripts/shared-hugo-scripts/wiki/ && yarn && popd
         pushd ./scripts/shared-hugo-scripts/compatdb/ && yarn && popd
-        hugo version
+        yarn hugo version
     - name: Build
       env:
         GITHUB_WIKI_URL: 'https://github.com/yuzu-emu/yuzu.wiki.git'
