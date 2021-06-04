@@ -14,6 +14,7 @@ const imageResize = require('gulp-image-resize');
 const parallel = require('concurrent-transform');
 const os = require('os');
 const browserSync = require('browser-sync').create();
+const hugo = require('hugo-bin');
 
 // Gulp Run Tasks
 gulp.task('scripts:compatdb', callback => {
@@ -76,7 +77,7 @@ gulp.task('assets:scss', () => {
 });
 
 gulp.task('hugo', callback => {
-    exec('hugo -s ./site/ -d ../build/ -v', (err, stdout, stderr) => {
+    exec(hugo + ' -s ./site/ -d ../build/ -v', (err, stdout, stderr) => {
         console.log(stdout);
         callback(err);
     });
@@ -95,7 +96,7 @@ gulp.task('final:serve', (done) => {
     gulp.watch('site/**/*.html', gulp.series('hugo'));
     gulp.watch('site/**/*.md', gulp.series('hugo'));
 
-    gulp.watch('build/**/*.html').on('change', function(x) {
+    gulp.watch('build/**/*.html').on('change', (x) => {
         browserSync.reload(x);
     });
 
