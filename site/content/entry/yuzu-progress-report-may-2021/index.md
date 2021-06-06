@@ -91,7 +91,7 @@ All of this costs the user 2*MB* of RAM instead of the previous 1MB. Such a heav
 ## Core changes and improvements
 
 The kernel — that is, the part of an operating system that controls the resources of the machine where it is installed — organises some of the parameters of these resources 
-(e.g. process `identifiers`, `priorities`, file `share` and `open` modes, etc.) into units called `kernel objects`, who are then stored in memory for future reference.
+(e.g. process `identifiers`, `priorities`, file `share` and `open` modes, etc.) into units called `kernel objects`, which are then stored in memory for future reference.
 Thus, bunnei [migrated old implementation of kernel objects to KAutoObjects](https://github.com/yuzu-emu/yuzu/pull/6266), 
 which is part of the newly written implementations that have been added in the past months to match more closely how the real kernel of the Nintendo Switch works.
 This was a big change that involved refactoring the codebase for consistency and fleshing out the implementation of various of these objects and their definitions to match the 
@@ -231,7 +231,7 @@ and ogniK [fixed the crashes](https://github.com/yuzu-emu/yuzu/pull/6279) by imp
 	"./shantae.mp4| Atta girl! Thank you OZ! (Shantae)"
   >}}
 
-Linux deserves some love to, and [toastUnlimited](https://github.com/lat9nq) shall give it.
+Linux deserves some love too, and [toastUnlimited](https://github.com/lat9nq) shall give it.
 linuxdeploy introduced a regression that caused any file open dialog to crash yuzu if you ran one of our official AppImages. 
 toast solved it [by downloading our own version hosted as one of our externals](https://github.com/yuzu-emu/yuzu/pull/6324), allowing us to have better control on changes to 
 linuxdeploy, as well as fixing the crashes.
@@ -293,7 +293,7 @@ Continuing with the per-game setting improvements, toast also added an exception
 Since all homebrews use a game-ID of 0000000000000000, using the ID to save the per-game settings would have been useless, so instead, 
 [yuzu will use the name of the homebrew file.](https://github.com/yuzu-emu/yuzu/pull/6361)
 
-And finally, toast, continuing work from german77, [adds a button to reset yuzu settings to default](https://github.com/yuzu-emu/yuzu/pull/6362). 
+And finally, toast, continuing work from german77 and [Tobi](https://github.com/FearlessTobi), [adds a button to reset yuzu settings to default](https://github.com/yuzu-emu/yuzu/pull/6362). 
 
 {{< imgs
 	"./reset.png| Simple as that"
