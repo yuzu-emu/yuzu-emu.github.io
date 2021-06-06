@@ -33,8 +33,8 @@ Turns out, the error codes of conditions like “parent directory doesn’t exis
 Snap also revealed flaws in our touch screen gestures emulation. 
 Thanks to work done by [german77](https://github.com/yuzu-emu/yuzu/pull/6275), yuzu [now properly supports multiple fingers](https://github.com/yuzu-emu/yuzu/pull/6267).
 
-GPU emulation related issues stop this game from being perfectly playable. In its current status, photos are not recognized at the evaluation.
-This can be slightly improved by using High GPU accuracy in OpenGL with Assembly Shaders enabled, or for non-Nvidia users, using Extreme GPU accuracy on Vulkan.
+GPU emulation related issues stop this game from being perfectly playable. In its current status, photos are not recognized when they are evaluated at the end of a stage.
+This can be partially solved by using High GPU accuracy in OpenGL with Assembly Shaders enabled, or for non-Nvidia users, using Extreme GPU accuracy on Vulkan.
 
 ## Graphical fixes
 
