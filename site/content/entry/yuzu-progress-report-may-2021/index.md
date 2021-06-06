@@ -74,7 +74,7 @@ This change means that the GPU effectively has more RAM available to use in Vulk
 
 For those that can’t wait, want to test an in-development partial solution, and have experience with git, 
 [Maide](https://github.com/Kelebek1) has been working on what can be called a [“light Reaper”](https://github.com/yuzu-emu/yuzu/pull/6378), 
-a simpler version of what Rodrigo plans to release in the future, working as a garbage collector on a fixed 3 minute timer.
+a simpler version of what Rodrigo plans to release in the future, working as a garbage collector on a configurable fixed timer.
 For anyone interested and with the time to spare in building yuzu manually, the PR is open to be tested. 
 We don’t plan to merge it for now as it needs as much refinement as the regular Reaper to provide a pleasant user experience.
 
@@ -238,10 +238,8 @@ linuxdeploy, as well as fixing the crashes.
 Users can enjoy the ease of use of the AppImages again.
 
 An old limitation we faced on distros that decide to “stay on their old and trusted packages” is the provided version of the Qt binaries.
-[By setting up version 5.12 as the minimum requirement and adding it to our externals,](https://github.com/yuzu-emu/yuzu/pull/6366) we can ensure that no problems are faced 
+[By setting up version 5.12 as the minimum requirement and adding 5.15 to our externals,](https://github.com/yuzu-emu/yuzu/pull/6366) we can ensure that no problems are faced 
 when building yuzu with any of the valid compilers, be it MSVC, GCC, Clang or even MinGW.
-The end result is restoring support for Ubuntu 18.04 and similarly aged distributions.
-
 ## UI and other Quality of Life improvements
 
 Users have the option to customize the game list in `Emulation > Configure… > General > UI`, the Add-Ons column can be disabled there. 
@@ -253,7 +251,7 @@ Thanks to [Kewlan](https://github.com/Kewlan)’s work,
 	"./add-ons.png| Add-Ons shows which update, DLCs and mods are installed and enabled"
   >}}
 
-toastUnlimited reluctantly [added the CPU tab to per-game settings.](https://github.com/yuzu-emu/yuzu/pull/6321)
+toastUnlimited reluctantly [added the CPU tab to per-game settings.](https://github.com/yuzu-emu/yuzu/pull/6321) At the same time, Custom RTC was removed to force it as a global value.
 
 {{< imgs
 	"./cpu.png| Totally not a hint of anything"
@@ -290,7 +288,7 @@ Keep in mind that settings that won’t change until a reboot won’t be affecte
   >}}
 
 Continuing with the per-game setting improvements, toast also added an exception for homebrews.
-Since all homebrews use a game-ID of 0000000000000000, using the ID to save the per-game settings would have been useless, so instead, 
+Since almost all homebrews use a game-ID of 0000000000000000, using the ID to save the per-game settings would have been useless, so instead, 
 [yuzu will use the name of the homebrew file.](https://github.com/yuzu-emu/yuzu/pull/6361)
 
 And finally, toast, continuing work from german77 and [Tobi](https://github.com/FearlessTobi), [adds a button to reset yuzu settings to default](https://github.com/yuzu-emu/yuzu/pull/6362). 
@@ -311,7 +309,6 @@ removing the need to use betterjoy, ds4windows or other third party software in 
 A separate PR adds [detection of two separate Joy-Cons as a single input device](https://github.com/yuzu-emu/yuzu/pull/6318).
 
 And to provide motion support on the Linux side, [v1993](https://github.com/v1993) [enables the use of HIDAPI within SDL2](https://github.com/yuzu-emu/yuzu/pull/6293). 
-Some distributions have issues with it for now, namely Gentoo, but work is ongoing to solve this.
 
 Work continues to fine tune how the sensor data is interpreted, specially from non-Nintendo devices.
 For example, PS3 controllers operate motion on a single Z axis, but inform the remaining 2 axis to the operating system with useless NaN values, 
