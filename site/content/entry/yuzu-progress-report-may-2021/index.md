@@ -188,7 +188,9 @@ german77 fixes this [by releasing the mouse input when yuzu is out of focus.](ht
 Let’s begin this section with an obituary.
 Keen eyed users may have noticed that old builds used to have a single . *dot* at the end of the title bar. A suspicious *dot* whose purpose was unknown.
 
-dot pic
+{{< imgs
+	"./dot.png| The Legend"
+  >}}
 
 When resuming an old quest that was previously left unfinished, epicboy, 
 [while working on displaying the game version on the title bar](https://github.com/yuzu-emu/yuzu/pull/6316), found the code related to the existence of the *dot*, 
@@ -207,7 +209,11 @@ By the way, that last service? It’s used by `Mii Edit`.
 Morph [stubbed the ´ImportClientPki´ and ´ImportServerPki´ services](https://github.com/yuzu-emu/yuzu/pull/6301), making `JUMP FORCE Deluxe Edition` boot. 
 `Project Hades` will help make this game playable.
 
-goku pics thanks ghost!
+{{< single-title-imgs
+    "Thanks Ghost for the pics! (JUMP FORCE Deluxe Edition)"
+    "./jfmenu.png"
+    "./jfingame.png"
+    >}}
 
 bunnei [fixed a hang on shutdown in the NVFlinger thread](https://github.com/yuzu-emu/yuzu/pull/6386) (used for compositing), 
 this fixes hangs when pressing stop while playing `Super Mario Odyssey`.
@@ -221,7 +227,9 @@ Besides what’s mentioned at the start of the article, `Shantae` took a bit of 
 epicboy [solved a softlock at boot](https://github.com/yuzu-emu/yuzu/pull/6284) by creating layers when queried but not found in the compositting service NVFlinger.
 and ogniK [fixed the crashes](https://github.com/yuzu-emu/yuzu/pull/6279) by improving the emulation of `nvhost-prof-gpu`.
 
-atta girl thanks oz!
+{{< imgs
+	"./shantae.mp4| Atta girl! Thank you OZ! (Shantae)"
+  >}}
 
 Linux deserves some love to, and [toastUnlimited](https://github.com/lat9nq) shall give it.
 linuxdeploy introduced a regression that caused any file open dialog to crash yuzu if you ran one of our official AppImages. 
@@ -241,11 +249,15 @@ Previously, if the user disabled it, the game list was not being refreshed, forc
 Thanks to [Kewlan](https://github.com/Kewlan)’s work, 
 [now the game list properly refreshes itself with no need for manual intervention!](https://github.com/yuzu-emu/yuzu/pull/6298)
 
-pic Add-Ons shows which update, DLCs and mods are installed and enabled
+{{< imgs
+	"./add-ons.png| Add-Ons shows which update, DLCs and mods are installed and enabled"
+  >}}
 
 toastUnlimited reluctantly [added the CPU tab to per-game settings.](https://github.com/yuzu-emu/yuzu/pull/6321)
 
-pic Totally not a hint of anything
+{{< imgs
+	"./cpu.png| Totally not a hint of anything"
+  >}}
 
 Now, while we’re on this subject, some things that need to be clarified about the CPU settings tab. 
 Unsafe was originally only intended for CPUs that lacked the FMA instruction set, which causes games to run at very low framerates.
@@ -279,7 +291,9 @@ Since all homebrews use a game-ID of 0000000000000000, using the ID to save the 
 
 And finally, toast, continuing work from german77, [adds a button to reset yuzu settings to default](https://github.com/yuzu-emu/yuzu/pull/6362). 
 
-pic simple as that
+{{< imgs
+	"./reset.png| Simple as that"
+  >}}
 
 This is sometimes needed in very rare cases,for example when being unable to boot `Super Smash Bros. Ultimate`.
 
@@ -321,7 +335,12 @@ Now, speaking of `Project Hades`, good news!
 SPIR-V is finalized, GLASM is in its final testing, and GLSL is not far behind. Few regressions remain to be squashed.
 Once the shading languages are done, the remaining features like the old asynchronous shaders are reimplemented, and the fine tuning is finished, it will finally be released.
 
-Hades pics
+{{< single-title-imgs
+    "MARVEL ULTIMATE ALLIANCE 3: The Black Order, WORLD OF FINAL FANTASY MAXIMA, Yoshi's Crafted World"
+    "./hades1.png"
+    "./hades2.png"
+    "./hades3.png"
+  >}}
 
 That’s all folks! Thank you so much for staying with us until the end of this month’s progress report.
 See you in the next one!
