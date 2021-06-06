@@ -28,7 +28,7 @@
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
-    "hugo-bin": "0.40.0",
+    "hugo-bin": "0.71.1",
     "merge-stream": "^2.0.0",
     "minimist": "^1.2.5",
     "postcss": "^8.3"

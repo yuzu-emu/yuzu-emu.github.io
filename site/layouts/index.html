@@ -44,7 +44,7 @@
 {{ define "main" }}
 <section class="section">
     <div class="columns">
-        {{ range first 2 (where (where .Data.Pages ".Params.twitter" "==" nil) "Type" "entry") }}
+        {{ range first 2 (where (where .Site.RegularPages ".Params.twitter" "==" nil) "Type" "entry") }}
         <div class="column is-half">
                 {{ partial "entry/summary" . }}
             </div>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="columns is-multiline">
-        {{ range first 4 (where (where .Data.Pages ".Params.twitter" "!=" nil) "Type" "entry") }}
+        {{ range first 4 (where (where .Site.RegularPages ".Params.twitter" "!=" nil) "Type" "entry") }}
         <div class="column is-half">
             {{ partial "entry/summary" . }}
         </div>
