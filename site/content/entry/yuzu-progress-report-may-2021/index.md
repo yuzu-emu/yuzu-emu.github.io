@@ -43,13 +43,13 @@ yuzu has to be able to [understand this behaviour](https://github.com/yuzu-emu/y
 something epicboy had no problem in properly implementing for us.
 
 {{< imgs
-	"./blits.png| Here’s an example of the old wrong behaviour in red, and the correct results in blue"
+	"./blits.png| Here’s an example of the old wrong behaviour in red, and the correct results in green"
   >}}
 
 The result is quite noticeable in, for example, `Shantae` and `Pixel Game Maker Series Werewolf Princess Kaguya`, which we mentioned in the previous progress report.
 
 {{< single-title-imgs
-    "Logos and text rendering correctly"
+    "Textures and text rendering correctly, notice the stairstepping in the right side"
     "./shantae-bug.png"
     "./shantae-fix.png"
     >}}
