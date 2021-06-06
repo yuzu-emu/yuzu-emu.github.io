@@ -285,6 +285,10 @@ toastUnlimited also gave us the option to [apply settings while games are runnin
 This can help more comfortably test for ideal settings while playing.
 Keep in mind that settings that won’t change until a reboot won’t be affected by the apply button until after a yuzu restart.
 
+{{< imgs
+	"./apply.png| "
+  >}}
+
 Continuing with the per-game setting improvements, toast also added an exception for homebrews.
 Since all homebrews use a game-ID of 0000000000000000, using the ID to save the per-game settings would have been useless, so instead, 
 [yuzu will use the name of the homebrew file.](https://github.com/yuzu-emu/yuzu/pull/6361)
