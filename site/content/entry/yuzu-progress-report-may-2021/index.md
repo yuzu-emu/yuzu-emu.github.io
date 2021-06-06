@@ -6,14 +6,14 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-Hola yuz-ers! Here we are with May’s progress report, with dozens of additions to discuss.
-This month we include kernel changes, input and UI improvements, graphical fixes, the saga of the legendary *dot*, and even free extra VRAM!
+Hola yuz-ers! Wee bring you May's progress report, with dozens of additions to discuss.
+These include kernel changes, input and UI improvements, graphical fixes, the saga of the legendary *dot*, and even free extra VRAM!
 
 <!--more-->
 
 ## Pokémon Snap, but it’s New
 
-`New Pokémon Snap`’s release left us with tons of work to do to make the game playable. To begin with, Snap experiences crashes during gameplay, 
+`New Pokémon Snap`’s release resulted in tons of work to be done to make the game playable. To begin with, Snap experiences crashes during gameplay, 
 an issue [epicboy](https://github.com/ameerj) was not happy about. 
 Now, yuzu has an optimized fast path for `uniform bindings`, the conditions to take advantage of it are that buffers must be both small and *non-null*. Turns out, 
 null buffers managed to skip this check, causing stabilities along the way.
@@ -176,7 +176,7 @@ Users reported crashes when pressing Enter after naming a ruleset or controller 
 Turns out, the `QLineEdit::returnPressed` signal generated a [race condition](https://en.wikipedia.org/wiki/Race_condition), resulting in the crashes. 
 [Switching to `Qt::QueuedConnection`](https://github.com/yuzu-emu/yuzu/pull/6339) solved the issue.
 
-Additionally, testing confirms that games can leave regions of memory uninitialized if a text check is performed and doesn’t result in either `Failure` or `Confirm`, 
+Additionally, testing confirmed that games can leave regions of memory uninitialized if a text check is performed and doesn’t result in either `Failure` or `Confirm`, 
 resulting, again, in crashes.
 [This is fixed by reading only the text check message.](https://github.com/yuzu-emu/yuzu/pull/6374). Thank you gidoly and OZ for all the help in finding this!
 
@@ -260,7 +260,7 @@ toastUnlimited reluctantly [added the CPU tab to per-game settings.](https://git
 Now, while we’re on this subject, some things that need to be clarified about the CPU settings tab. 
 Unsafe was originally only intended for CPUs that lacked the FMA instruction set, which causes games to run at very low framerates.
 Later on, a fix was discovered that could boost the performance of `Luigi’s Mansion 3` by reducing precision. This was described in 
-[January’s progress report](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2021/)
+[January’s progress report.](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2021/)
 
 As a result, we recommend users of CPUs that do have FMA to stick to `Accurate` and only force `Unsafe` for Luigi’s Mansion 3. 
 Using Unsafe is known to cause precision issues, for example, exaggerating the hitboxes of characters in `Super Smash Bros. Ultimate`.
@@ -281,7 +281,7 @@ We provide some examples in the following beautiful and totally perfect table:
 
 toastUnlimited also gave us the option to [apply settings while games are running](https://github.com/yuzu-emu/yuzu/pull/6346). 
 This can help more comfortably test for ideal settings while playing.
-Keep in mind that settings that won’t change until a reboot won’t be affected by the apply button until after a yuzu restart.
+Keep in mind that settings that require a reboot to take effect, won't be affected by the apply button.
 
 {{< imgs
 	"./apply.png| "
