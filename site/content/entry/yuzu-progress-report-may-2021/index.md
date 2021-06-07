@@ -39,11 +39,11 @@ This can be partially solved by using High GPU accuracy in OpenGL with Assembly 
 ## Graphical fixes
 
 Textures blits (bit block transfers, a combination of bitmaps) can sometimes work out of bounds by design, by interleaving copy regions.
-yuzu has to be able to [understand this behaviour](https://github.com/yuzu-emu/yuzu/pull/6289) and return the correct out of bounds portion, 
+yuzu has to be able to [understand this behaviour](https://github.com/yuzu-emu/yuzu/pull/6289) and return the correct portion, 
 something epicboy had no problem in properly implementing for us.
 
 {{< imgs
-	"./blits.png| Here’s an example of the old wrong behaviour in red, and the correct results in green"
+	"./blits.png| Here’s a beautifully detailed example of the old out-of-bounds wrong behaviour in red, and the correct result in blue, with the affected area moving to the next row,as it should"
   >}}
 
 The result is quite noticeable in, for example, `Shantae` and `Pixel Game Maker Series Werewolf Princess Kaguya`, which we mentioned in the previous progress report.
@@ -266,7 +266,7 @@ As a result, we recommend users of CPUs that do have FMA to stick to `Accurate` 
 Using Unsafe is known to cause precision issues, for example, exaggerating the hitboxes of characters in `Super Smash Bros. Ultimate`.
 Users with old or low-end Intel CPUs that lack FMA, feel free to keep Unsafe enabled all the time.
 
-We provide some examples in the following beautiful and totally perfect table:
+We provide some examples in the following gorgeous and totally perfect table:
 
 | CPU series | FMA support | Recommended setting |
 | :-----------: | :--------------: | ------------ |
