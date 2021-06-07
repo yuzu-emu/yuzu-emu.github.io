@@ -58,9 +58,9 @@ Thanks to user reports, it has been brought to our attention that our FPS counte
 The readings were accurate in the past, when the GPU thread was synchronous with the other services. 
 Since multicore support was implemented, this is no longer the case.
 
-The solution epicboy wrote is simple, [display the average framerate between the previous and latest update](https://github.com/yuzu-emu/yuzu/pull/6317), 
+The solution epicboy came up with is, instead of letting the nvflinger service handle the counter, [let the graphics API inform the counter after it finishes drawing the frame](https://github.com/yuzu-emu/yuzu/pull/6317), 
 this way the value is far more accurate and stable on performance oscillations.
-Additionally, the update frequency was changed from 2000ms to 500, giving more updated info on the reading.
+Additionally, the update frequency of the counter was changed from 2000 ms to 500 ms, giving more information on the reading.
 
 A big one for Vulkan users waiting for `Project Reaper`to leave the development board. 
 The previous Vulkan `memory allocator` used local memory as top priority (that’s the physical VRAM on your dedicated GPU), 
