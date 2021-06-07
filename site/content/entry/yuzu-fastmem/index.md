@@ -12,7 +12,7 @@ We present to you, the newest addition to yuzu's ever-improving features list - 
 <!--more-->
 &nbsp;
 
-This is now available in the latest yuzu Early Access build (1759 and newer) and we intend to make this available in Mainline builds very soon. 
+This is now available in the latest yuzu Early Access build (1759 or newer) and we intend to make this available in Mainline builds very soon. 
 As always, we ask that you test various games with these builds and if you encounter any issues, bugs, or crashes, please reach out to us via the [Discord](https://discord.gg/u77vRWY) Patreon channels.
 
 **Note: This feature is enabled by default.**
@@ -20,7 +20,7 @@ As always, we ask that you test various games with these builds and if you encou
 ## What is Fastmem?
 
 Fastmem or Fast Memory Access, is a well-known feature among emulator developers and emulation enthusiasts. 
-Emulators like [Dolphin]((https://dolphin-emu.org/) and [Citra Android]((https://citra-emu.org/) have implemented this in the past.
+Emulators like [Dolphin](https://dolphin-emu.org/) and [Citra Android](https://citra-emu.org/) have implemented this in the past.
 
 All modern Operating Systems have this concept of "virtual memory," where addressable memory (from the running process) is a space of memory addresses that are only "known" to that process, e.g. Discord on your PC, or Super Mario Odyssey on your Switch — and the addresses are translated by the Switch's MMU (Memory Management Unit) to the physical location in the Switch’s physical RAM as the game runs.
 
