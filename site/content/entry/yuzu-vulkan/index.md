@@ -297,7 +297,4 @@ As always, we’re so thankful to our supporters.
 Please enjoy testing out Vulkan on your own games, and remember to reach out to us with any feedback/bugs you experience on our Discord's exclusive Patreon channels!
 
 &nbsp;
-<h4 style="text-align:center;">
-<b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
-If you would like to contribute to this project, checkout our [GitHub](https://github.com/yuzu-emu/yuzu)!</b>
-</h4>
+{{< article-end >}}

@@ -65,7 +65,4 @@ We will be working even more diligently to bring many more new, and exciting fea
 Keep playing on yuzu, and have fun!
 
 &nbsp;
-<h4 style="text-align:center;">
-<b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
-If you would like to contribute to this project, checkout our [GitHub](https://github.com/yuzu-emu/yuzu)!</b>
-</h4>
+{{< article-end >}}

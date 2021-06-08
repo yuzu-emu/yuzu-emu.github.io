@@ -72,3 +72,8 @@ paginate = 20
 [outputs]
 home = [ "HTML", "RSS" ]
 section = [ "HTML" ]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

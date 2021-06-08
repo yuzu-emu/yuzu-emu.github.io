@@ -113,7 +113,4 @@ Please note the marked titles that were tested with the processor limited to 2.4
 ##### That's all we have for now, see you soon with exciting news about Project Hades and more! Happy emulating!
 
 &nbsp;
-<h4 style="text-align:center;">
-<b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
-If you would like to contribute to this project, check out our [GitHub](https://github.com/yuzu-emu/yuzu)!</b>
-</h4>
+{{< article-end >}}

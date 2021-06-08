@@ -138,7 +138,4 @@ We hope you guys enjoyed it, and we will be back soon with another featured Yuzu
 Until then, thank you for your support and stay tuned!
 
 &nbsp;
-<h4 style="text-align:center;">
-<b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
-If you would like to contribute to this project, checkout our [GitHub](https://github.com/yuzu-emu/yuzu)!</b>
-</h4>
+{{< article-end >}}

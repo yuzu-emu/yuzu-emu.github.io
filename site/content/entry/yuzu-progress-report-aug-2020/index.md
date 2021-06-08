@@ -205,7 +205,4 @@ Whispers of more audio changes have been heard, and a certain shark will be resp
 That's all for now folks! See you again in the September progress report!
 
 &nbsp;
-<h4 style="text-align:center;">
-<b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
-If you would like to contribute to this project, check out our [GitHub](https://github.com/yuzu-emu/yuzu)!</b>
-</h4>
+{{< article-end >}}

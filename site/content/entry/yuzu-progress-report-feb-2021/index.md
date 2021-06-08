@@ -217,7 +217,4 @@ Project Kraken is underway. Project Gaia started. Project Hades, the shader deco
 That’s all folks! As always, thank you for reading until the end, and see you next time!
 
 &nbsp;
-<h4 style="text-align:center;">
-<b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
-If you would like to contribute to this project, check out our [GitHub](https://github.com/yuzu-emu/yuzu)!</b>
-</h4>
+{{< article-end >}}
