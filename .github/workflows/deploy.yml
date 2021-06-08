@@ -18,21 +18,12 @@ jobs:
       with:
         submodules: true
     - name: Install dependencies
-      run: |
-        echo '========== Installing gulp & dependencies =========='
-        sudo apt-get install graphicsmagick
-        yarn install
-        # Install dependencies one-by-one to avoid race-conditions
-        pushd ./scripts/shared-hugo-scripts/wiki/ && yarn && popd
-        pushd ./scripts/shared-hugo-scripts/compatdb/ && yarn && popd
-        yarn hugo version
+      run: sudo apt-get install graphicsmagick
     - name: Build
       env:
         GITHUB_WIKI_URL: 'https://github.com/yuzu-emu/yuzu.wiki.git'
         TENANT: 'yuzu'
-      run: |
-         echo '========== Starting gulp deploy task =========='
-         yarn run build
+      run: ./.ci/build.sh
     - name: Deploy
       if: ${{ ! github.base_ref }}
       uses: JamesIves/github-pages-deploy-action@3.7.1
