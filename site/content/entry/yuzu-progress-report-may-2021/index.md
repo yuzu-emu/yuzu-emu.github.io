@@ -26,7 +26,7 @@ null buffers were not being explicitly checked for, causing stabilities along th
     "./3.png"
   >}}
 
-[Morph](https://github.com/Morph1984) has been working hard on implementing much needed fixes in the file system emulation of yuzu.
+[Morph](https://github.com/Morph1984) has been working hard on implementing much needed fixes in yuzu's file system emulation.
 In this particular case, [improving the accuracy of CreateFile](https://github.com/yuzu-emu/yuzu/pull/6265) fixes the saving and loading issues Snap was experiencing.
 Turns out, the error codes of conditions like “parent directory doesn’t exist” or “path already exists” were incorrect, causing havoc in the file system emulation.
 
