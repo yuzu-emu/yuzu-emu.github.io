@@ -13,7 +13,7 @@ We have dozens of changes to discuss: Kernel fixes, input and UI improvements, g
 
 ## Pokémon Snap, but it’s New
 
-`New Pokémon Snap`’s release resulted in tons of work to be done to make the game playable. For starters, Snap experienced crashes during gameplay, 
+`New Pokémon Snap`’s release resulted in tons of work needed to make the game playable. For starters, Snap experienced crashes during gameplay, 
 an issue [epicboy](https://github.com/ameerj) was not happy about. 
 The buffer cache rewrite introduced an optimized fast path for `uniform bindings`, the conditions to take advantage of it are that buffers must be both small and *non-null*. Turns out, 
 null buffers were not being explicitly checked for, causing stabilities along the way.
