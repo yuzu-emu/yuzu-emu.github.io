@@ -158,7 +158,7 @@ Since yuzu originally started as a fork of [Citra](https://citra-emu.org/), ther
 this newly added library, or weren't compatible with the new Virtual File System that yuzu uses, or simply weren't used at all.
 
 With this huge PR, after Morph reversed-engineered the file system in order to bring yuzu's behaviour closer to how it works on the Nintendo Switch, he removed the clutter in 
-favour of simpler code and rewrote the whole implementation, fixing some problems that the old code had on Windows in the process.
+favour of simpler code and rewrote the whole implementation, fixing some problems that the old code had in Windows builds in the process.
 As a bonus, he also documented all of yuzu's file system functions.
 
 While these changes don't necessarily reflect as a performance increase for end-users, they have certainly tackled some long-standing problems with how yuzu handled files, 
