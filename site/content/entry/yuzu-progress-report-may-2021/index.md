@@ -172,7 +172,7 @@ Games received the text string of the inline keyboard instead of the regular one
 as it would mean an invalid entry was sent.
 Fixing this only required [sending the correct information from the right keyboard type.](https://github.com/yuzu-emu/yuzu/pull/6333)
 
-Users reported crashes when pressing Enter after naming a ruleset or controller layout on `Super Smash Bros. Ultimate`.
+Users reported crashes when pressing Enter after naming a ruleset or controller layout in `Super Smash Bros. Ultimate`.
 Turns out, the `QLineEdit::returnPressed` signal generated a [race condition](https://en.wikipedia.org/wiki/Race_condition), resulting in the crashes. 
 [Switching to `Qt::QueuedConnection`](https://github.com/yuzu-emu/yuzu/pull/6339) solved the issue.
 
