@@ -223,7 +223,7 @@ While yuzu allows users to install anything to NAND, be it updates, DLC, or even
 leaving yuzu to find the base game with the user provided locations of the game dumps.
 Morph [implemented this block,](https://github.com/yuzu-emu/yuzu/pull/6319) and a warning that accompanies it.
 
-Besides what’s mentioned at the start of the article, `Shantae` took a bit of extra work to become playable. Another case of an emulator inside an emulator.
+Besides what was mentioned at the start of the article, `Shantae` took a bit of extra work to become playable. Another case of an emulator inside an emulator.
 epicboy [solved a softlock at boot](https://github.com/yuzu-emu/yuzu/pull/6284) by creating layers when queried but not found in the compositting service NVFlinger.
 and ogniK [fixed the crashes](https://github.com/yuzu-emu/yuzu/pull/6279) by improving the emulation of `nvhost-prof-gpu`.
 
