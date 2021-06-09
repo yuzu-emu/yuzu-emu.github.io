@@ -225,7 +225,7 @@ Morph [properly blocked this,](https://github.com/yuzu-emu/yuzu/pull/6319) and a
 
 Besides what was mentioned at the start of the article, `Shantae` took a bit of extra work to become playable. Another case of an emulator inside an emulator.
 epicboy [solved a softlock at boot](https://github.com/yuzu-emu/yuzu/pull/6284) by creating layers when queried but not found in the compositting service NVFlinger.
-and ogniK [fixed the crashes](https://github.com/yuzu-emu/yuzu/pull/6279) by improving the emulation of `nvhost-prof-gpu`.
+and ogniK [fixed the crashes](https://github.com/yuzu-emu/yuzu/pull/6279) by stubbing the emulation of `nvhost-prof-gpu`.
 
 {{< imgs
 	"./shantae.mp4| Atta girl! Thank you OZ! (Shantae)"
