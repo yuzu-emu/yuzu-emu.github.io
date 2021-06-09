@@ -181,7 +181,7 @@ resulting, again, in crashes.
 [This is fixed by reading only the text check message.](https://github.com/yuzu-emu/yuzu/pull/6374). Thanks to gidoly and OZ for all the help in finding this!
 
 Lastly, there was an issue where the mouse input is captured by the software keyboard until the user moves to the next event.
-german77 fixes this [by releasing the mouse input when yuzu is out of focus.](https://github.com/yuzu-emu/yuzu/pull/6275)
+german77 fixed this [by releasing the mouse input when yuzu is out of focus.](https://github.com/yuzu-emu/yuzu/pull/6275)
 
 ## General bugfixes
 
