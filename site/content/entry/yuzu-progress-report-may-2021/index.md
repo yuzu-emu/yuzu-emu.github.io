@@ -64,7 +64,7 @@ Additionally, the update frequency of the counter was changed from 2000 ms to 50
 
 And now for a big update for Vulkan users waiting for `Project Reaper` to leave the development board. 
 The previous Vulkan `memory allocator` used local memory as top priority (that’s the physical VRAM on your dedicated GPU), 
-and only used host memory in certain applicable cases that varied depending on how the GPU driver informed the different memory heaps available to yuzu, 
+and only used host memory in certain applicable cases. These cases varied depending on how the GPU driver informed the different memory heaps available to yuzu, 
 primarily in keeping critical required information closer to the CPU.
 
 [Rodrigo](https://github.com/ReinUsesLisp) implemented a new method (solving some issues with the old one) that 
