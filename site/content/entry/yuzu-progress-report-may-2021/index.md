@@ -257,7 +257,7 @@ toastUnlimited reluctantly [added the CPU tab to per-game settings.](https://git
 	"./cpu.png| Totally not a hint of anything"
   >}}
 
-Now, while we’re on this subject, some things that need to be clarified about the CPU settings tab. 
+While we’re on this subject, some things that need to be clarified about the CPU settings tab. 
 Unsafe was originally only intended for CPUs that lacked the FMA instruction set, which causes games to run at very low framerates.
 Later on, a fix was discovered that could boost the performance of `Luigi’s Mansion 3` by reducing precision. This was described in 
 [January’s progress report.](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2021/)
