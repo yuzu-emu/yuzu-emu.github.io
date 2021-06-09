@@ -116,7 +116,7 @@ With these changes, the code in charge of `session management` has been updated 
 error-checking functions.
 bunnei has also greatly simplified the original `IPC` code, which should improve the memory usage and performance of these operations.
 
-As a consequence of the changes introduced in the previous `KAutoObject` PR, the maximum values for many of the kernel objects have started to be enforced, which resulted in 
+As a consequence of the changes introduced in the previous `KAutoObject` PR, the maximum values for many of the kernel objects have started to be enforced. This resulted in 
 crashes in games that open and close sessions often, such as `Nintendo Labo`, `Pokémon Sword` and `Pokémon Shield`, due to yuzu not managing sessions correctly.
 The root problem was also the cause of small memory leaks that hadn't been noticed until now, since the sessions weren't being properly closed and remained in memory.
 For this reason, bunnei implemented mechanisms for moving and closing objects in a [follow-up PR](https://github.com/yuzu-emu/yuzu/pull/6347), which corrected the way the 
