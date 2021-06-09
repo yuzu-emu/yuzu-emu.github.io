@@ -40,7 +40,7 @@ This can be partially solved by using High GPU accuracy in OpenGL with Assembly 
 
 Textures blits (bit block transfers, a combination of bitmaps) can sometimes work out of bounds by design, by interleaving copy regions.
 yuzu has to be able to [understand this behaviour](https://github.com/yuzu-emu/yuzu/pull/6289) and return the correct portion, 
-something epicboy had no problem in properly implementing for us.
+something epicboy had no problem properly implementing for us.
 
 {{< imgs
 	"./blits.png| Here’s a beautifully detailed example of the old out-of-bounds wrong behaviour in red, and the correct result in blue, with the affected area moving to the next row,as it should"
