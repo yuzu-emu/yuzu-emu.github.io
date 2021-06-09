@@ -112,7 +112,7 @@ bunnei worked on [various improvements to the IPC and session management](https:
 as a memory region, a file, etc.
 A `session` in this context refers to an object that is created to manage the information exchange between a client (i.e. games) and a server (services that the game uses to 
 render graphics, play audio, get user input, etc.).
-With these changes, the code in charge of `session management` has been updated to support the new `IPC` protocol, besides fixing a number of inaccuracies in some of the 
+With these changes, the code in charge of `session management` has been updated to support the new `IPC` protocol, additionally fixing a number of inaccuracies in some of the 
 error-checking functions.
 bunnei has also greatly simplified the original `IPC` code, which should improve the memory usage and performance of these operations.
 
