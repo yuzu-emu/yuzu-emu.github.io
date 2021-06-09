@@ -332,7 +332,7 @@ This feature has been in debate for over a year, with the devs going back and fo
 memory is managed in this OS. 
 We expect to have nice surprises for you on its release, as it will be the prerequisite for more exciting stuff to come.
 
-Now, speaking of `Project Hades`, good news!
+Now, I know we keep teasing `Project Hades`, but we have good news!
 SPIR-V is finalized, GLASM is in its final testing, and GLSL is not far behind. Few regressions remain to be squashed.
 Once the shading languages are done, previous features like the old asynchronous shaders are reimplemented, and the fine tuning is finished, it will finally be released.
 We're trying to release it alongside Reaper, but time will tell.
