@@ -30,7 +30,7 @@ null buffers were not being explicitly checked for, causing stabilities along th
 In this particular case, [improving the accuracy of CreateFile](https://github.com/yuzu-emu/yuzu/pull/6265) fixes the saving and loading issues Snap was experiencing.
 Turns out, the error codes of conditions like “parent directory doesn’t exist” or “path already exists” were incorrect, causing havoc in the file system emulation.
 
-Snap also revealed flaws in our touch screen gestures emulation. 
+Snap also revealed flaws in our touch screen gesture emulation. 
 Thanks to work done by [german77](https://github.com/yuzu-emu/yuzu/pull/6275), yuzu [now properly supports multiple fingers](https://github.com/yuzu-emu/yuzu/pull/6267).
 
 GPU emulation related issues stop this game from being perfectly playable. In its current status, photos are not recognized when they are evaluated at the end of a stage. [Like mother, like daughter](https://bugs.dolphin-emu.org/issues/4460).
