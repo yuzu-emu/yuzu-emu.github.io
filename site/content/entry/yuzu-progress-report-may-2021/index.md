@@ -334,7 +334,8 @@ We expect to have nice surprises for you on its release, as it will be the prere
 
 Now, speaking of `Project Hades`, good news!
 SPIR-V is finalized, GLASM is in its final testing, and GLSL is not far behind. Few regressions remain to be squashed.
-Once the shading languages are done, the remaining features like the old asynchronous shaders are reimplemented, and the fine tuning is finished, it will finally be released.
+Once the shading languages are done, previous features like the old asynchronous shaders are reimplemented, and the fine tuning is finished, it will finally be released.
+We're trying to release it alongside Reaper, but time will tell.
 
 {{< single-title-imgs
     "MARVEL ULTIMATE ALLIANCE 3: The Black Order, WORLD OF FINAL FANTASY MAXIMA, Yoshi's Crafted World"
