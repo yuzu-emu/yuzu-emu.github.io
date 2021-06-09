@@ -74,7 +74,7 @@ This change means that the GPU effectively has more RAM available to use with Vu
 
 For those that can’t wait, want to test an in-development partial solution, and have experience with git, 
 [Maide](https://github.com/Kelebek1) has been working on what can be called a [“light Reaper”](https://github.com/yuzu-emu/yuzu/pull/6378).
-a simpler version of what Rodrigo plans to release in the future, working as a garbage collector on a configurable fixed timer.
+This is a simpler version of what Rodrigo plans to release in the future, working as a garbage collector on a configurable fixed timer.
 For anyone interested and with the time to spare in building yuzu manually, the PR is open to be tested. 
 We don’t plan to merge it for now as it needs as much refinement as the regular Reaper to provide a pleasant user experience.
 
