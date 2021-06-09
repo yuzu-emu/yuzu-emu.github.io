@@ -129,7 +129,7 @@ as this will facilitate the process while missing functions and other structures
 Simply put, the [slab heap](https://en.wikipedia.org/wiki/Slab_allocation) is a structure used to store kernel elements in memory efficiently in a 
 [linked list](https://en.wikipedia.org/wiki/Linked_list).
 
-As yet, yuzu doesn't emulate the memory structure of the Nintendo Switch completely, and the memory space only provides enough functionality to emulate a single process 
+As of yet, yuzu doesn't emulate the memory structure of the Nintendo Switch completely, and the memory space only provides enough functionality to emulate a single process 
 (i.e. a game), while using High Level Emulation (`HLE`) for everything else.
 In other words, the memory used for the kernel isn't an emulated virtual memory space like the one used by the games, but just memory that yuzu, as a common program running in 
 your PC, uses outside of it.
