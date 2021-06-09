@@ -46,7 +46,7 @@ something epicboy had no problem properly implementing for us.
 	"./blits.png| Here’s a beautifully detailed example of the old out-of-bounds wrong behaviour in red, and the correct result in blue, with the affected area moving to the next row,as it should"
   >}}
 
-The result is quite noticeable in, for example, `Shantae` and `Pixel Game Maker Series Werewolf Princess Kaguya`, which we mentioned in the previous progress report.
+The result is quite noticeable in games that use this blit technique, such as `Shantae` and `Pixel Game Maker Series Werewolf Princess Kaguya`, which we mentioned in the previous progress report.
 
 {{< single-title-imgs
     "Textures and text rendering correctly, notice the stairstepping in the right side"
