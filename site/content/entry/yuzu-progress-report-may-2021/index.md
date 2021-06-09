@@ -93,11 +93,11 @@ All of this costs the user 2*MB* of RAM instead of the previous 1MB. Such a heav
 The kernel — that is, the part of an operating system that controls the resources of the machine where it is installed — organises some of the parameters of these resources 
 (e.g. process `identifiers`, `priorities`, file `share` and `open` modes, etc.) into units called `kernel objects`, which are then stored in memory for future reference.
 Thus, bunnei [migrated old implementation of kernel objects to KAutoObjects](https://github.com/yuzu-emu/yuzu/pull/6266), 
-which is part of the newly written implementations that have been added in the past months to match more closely how the real kernel of the Nintendo Switch works.
-This was a big change that involved refactoring the codebase for consistency and fleshing out the implementation of various of these objects and their definitions to match the 
+which is part of the newly written implementations that have been added in the past months to match more closely how the kernel of the Nintendo Switch works.
+This was a big change that involved refactoring the codebase for consistency and fleshing out the implementation of various existing kernel objects and their definitions to match the 
 new behaviour correctly.
 Part of the work also involved improving some [system calls](https://en.wikipedia.org/wiki/System_call) (the so-called `SVC`s), 
-by implementing missing services such as `UnmapSharedMemory`, or making the implementation of others calls more robust (e.g. better error checking, etc.).
+by implementing missing services such as `UnmapSharedMemory`, or making the implementation of other calls more robust (e.g. better error checking, etc.).
 These `SVC`s are functions used by games or user software to signal the OS that they want to perform operations for which they do not have the necessary permissions, 
 such as access to hardware elements — for example, some I/O devices.
 Thus, a process asks the entity with the highest permissions — that is, the kernel — to perform these actions on its behalf.
@@ -118,7 +118,7 @@ bunnei has also greatly simplified the original `IPC` code, which should improve
 
 As a consequence of the changes introduced in the previous `KAutoObject` PR, the maximum values for many of the kernel objects have started to be enforced, which resulted in 
 crashes in games that open and close sessions often, such as `Nintendo Labo`, `Pokémon Sword` and `Pokémon Shield`, due to yuzu not managing sessions correctly.
-The root problem also was the cause of small memory leaks that hadn't been noticed until now, since the sessions weren't being properly closed and remained in memory.
+The root problem was also the cause of small memory leaks that hadn't been noticed until now, since the sessions weren't being properly closed and remained in memory.
 For this reason, bunnei implemented mechanisms for moving and closing objects in a [follow-up PR](https://github.com/yuzu-emu/yuzu/pull/6347), which corrected the way the 
 session counter and its opening and closing operations worked.
 
@@ -136,7 +136,7 @@ your PC, uses outside of it.
 This implementation works because the games aren't allowed to access kernel memory, and so, when yuzu switches from executing a game to running some kernel procedure, 
 it just handles this internally through the `HLE` implementations, with the games completely oblivious to where any of said procedures are stored.
 However, there are certain elements that the games actually need to access, and so, they must be inside the emulated memory.
-One of such cases is the [Thread Local Storage](https://en.wikipedia.org/wiki/Thread-local_storage) (`TLS`), 
+One such case is the [Thread Local Storage](https://en.wikipedia.org/wiki/Thread-local_storage) (`TLS`), 
 a memory region used by the emulated threads to store variables that only they see but none of their peers have access to — because a thread can access only its own `TLS` region.
 Since these entities can be allocated in the `KSlabHeap`, along with other entities that don't need to be inside the emulated memory accessible for the games, 
 bunnei introduced this hybrid method so yuzu is able to manage the slab list for all kernel objects, regardless of whether they need to be `HLE`'d, 
@@ -150,7 +150,7 @@ Morph has also been paying attention to the kernel, refactoring part of the IPC 
 [pop the ID of a process](https://github.com/yuzu-emu/yuzu/pull/6320), fixing a small bug where a [wrong value was being returned](https://github.com/yuzu-emu/yuzu/pull/6337), 
 and stubbing a [function for the memory manger](https://github.com/yuzu-emu/yuzu/pull/6358).
 
-However, the real poyo-pearl of this month has been his [rework all of yuzu's Common File System Interface](https://github.com/yuzu-emu/yuzu/pull/6270) to make use of the 
+However, the real poyo-pearl of this month has been his [rework of yuzu's Common File System Interface](https://github.com/yuzu-emu/yuzu/pull/6270) to make use of the 
 `std::filesystem` library introduced in C++17, as a continuation of the work done by the maintainer [lioncash](https://github.com/lioncash).
 
 The file system interface is the code that controls how yuzu accesses files (e.g. the creation of save files, or how yuzu loads DLC and updates files for a game, etc.).
