@@ -106,7 +106,7 @@ as they are the programs that run whenever a game needs the kernel to perform op
 
 With the introduction of the firmware version `12.0.0`, the protocol of [Inter-Process Communication](https://en.wikipedia.org/wiki/Inter-process_communication) (`IPC`) 
 has also been updated.
-bunnei worked on [various improvements to the IPC and session management](https://github.com/yuzu-emu/yuzu/pull/6299), with the aim to support `TIPC` — the new protocol.
+bunnei worked on [various improvements to the IPC and session management](https://github.com/yuzu-emu/yuzu/pull/6299) with the aim to support `TIPC` — the new protocol.
 
 `IPC` is a mechanism provided by the OS and used by processes to communicate between themselves, usually to manage or cooperate in the processing of some shared resource — such 
 as a memory region, a file, etc.
