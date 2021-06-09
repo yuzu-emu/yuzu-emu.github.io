@@ -70,7 +70,7 @@ primarily in keeping critical required information closer to the CPU.
 [Rodrigo](https://github.com/ReinUsesLisp) implemented a new method (solving some issues with the old one) that 
 [allows yuzu to access all the available host memory](https://github.com/yuzu-emu/yuzu/pull/6367). 
 Up to 50% of the total system RAM is available to the GPU as host memory, or as Windows calls it in the Task Manager, GPU shared memory. 
-This change means that the GPU effectively has more RAM available to use in Vulkan, helping delay our sadly infamous out-of-memory issues with this API.
+This change means that the GPU effectively has more RAM available to use with Vulkan, helping delay our sadly infamous out-of-memory issues with this API.
 
 For those that can’t wait, want to test an in-development partial solution, and have experience with git, 
 [Maide](https://github.com/Kelebek1) has been working on what can be called a [“light Reaper”](https://github.com/yuzu-emu/yuzu/pull/6378), 
