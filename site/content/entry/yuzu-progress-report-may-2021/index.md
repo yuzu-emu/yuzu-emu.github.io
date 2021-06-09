@@ -311,7 +311,7 @@ A separate PR adds [detection of two separate Joy-Cons as a single input device]
 And to provide motion support on the Linux side, [v1993](https://github.com/v1993) [enables the use of HIDAPI within SDL2](https://github.com/yuzu-emu/yuzu/pull/6293). 
 
 Work continues to fine tune how the sensor data is interpreted, specially from non-Nintendo devices.
-For example, PS3 controllers operate motion on a single Z axis, but inform the remaining 2 axis to the operating system with useless NaN values, 
+For example, PS3 controllers operate motion on a single Z axis, but report the remaining 2 axes to the operating system with useless NaN values, 
 making any motion calculations useless.
 [By replacing the X and Y axis values with zeros](https://github.com/yuzu-emu/yuzu/pull/6310), german77 solved the issue.
 
