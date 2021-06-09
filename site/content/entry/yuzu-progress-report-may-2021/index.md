@@ -62,7 +62,7 @@ The solution epicboy came up with is, instead of letting the nvflinger service h
 This way, the value is far more accurate and stable on performance oscillations.
 Additionally, the update frequency of the counter was changed from 2000 ms to 500 ms to allow for more frequent and up-to-date information to be displayed.
 
-A big one for Vulkan users waiting for `Project Reaper`to leave the development board. 
+And now for a big update for Vulkan users waiting for `Project Reaper` to leave the development board. 
 The previous Vulkan `memory allocator` used local memory as top priority (that’s the physical VRAM on your dedicated GPU), 
 and only used host memory in certain applicable cases that varied depending on how the GPU driver informed the different memory heaps available to yuzu, 
 primarily in keeping critical required information closer to the CPU.
