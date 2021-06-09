@@ -122,7 +122,7 @@ The root problem was also the cause of small memory leaks that hadn't been notic
 For this reason, bunnei implemented mechanisms for moving and closing objects in a [follow-up PR](https://github.com/yuzu-emu/yuzu/pull/6347), which corrected the way the 
 session counter and its opening and closing operations worked.
 
-There are still many other kernel objects to migrate, and for this reason, bunnei introduced a PR to make the 
+There are still many other kernel objects to migrate and, for this reason, bunnei introduced a PR to make the 
 [KSlabHeap use both guest and host allocations](https://github.com/yuzu-emu/yuzu/pull/6373), 
 as this will facilitate the process while missing functions and other structures are being implemented.
 
