@@ -7,7 +7,7 @@ forum = 0
 +++
 
 Hola yuz-ers! It's time yet again for another progress report! 
-These include kernel changes, input and UI improvements, graphical fixes, the saga of the legendary *dot*, and even free extra VRAM!
+We have dozens of changes to discuss: Kernel fixes, input and UI improvements, graphical updates, the saga of the legendary dot, and even a method to procure extra VRAM!
 
 <!--more-->
 
