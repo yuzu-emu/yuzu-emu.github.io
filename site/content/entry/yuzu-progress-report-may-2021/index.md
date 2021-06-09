@@ -297,7 +297,7 @@ And finally, toast, continuing work from german77 and [Tobi](https://github.com/
 	"./reset.png| Simple as that"
   >}}
 
-This is sometimes needed in very rare cases,for example when being unable to boot `Super Smash Bros. Ultimate`.
+This is sometimes needed in very rare cases, for example, when being unable to boot `Super Smash Bros. Ultimate`.
 
 ## [Shake it, baby](https://youtu.be/Iac0T6dnuzM)
 
