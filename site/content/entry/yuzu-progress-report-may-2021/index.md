@@ -59,7 +59,7 @@ The readings were previously accurate when the GPU thread was synchronous with t
 Now that asynchronous GPU emulation is implemented, this is no longer the case.
 
 The solution epicboy came up with is, instead of letting the nvflinger service handle the counter, [let the graphics API inform the counter after it finishes drawing the frame](https://github.com/yuzu-emu/yuzu/pull/6317).
-this way the value is far more accurate and stable on performance oscillations.
+This way, the value is far more accurate and stable on performance oscillations.
 Additionally, the update frequency of the counter was changed from 2000 ms to 500 ms, giving more information on the reading.
 
 A big one for Vulkan users waiting for `Project Reaper`to leave the development board. 
