@@ -316,7 +316,7 @@ making any motion calculations useless.
 [By replacing the X and Y axis values with zeros](https://github.com/yuzu-emu/yuzu/pull/6310), german77 solved the issue.
 
 Games don’t always check for obvious physical limitations. 
-For example in the past it was possible to use handheld control emulation while the game was in a docked status.
+For example, in the past, it was possible to use handheld controller emulation while the game was in a docked status.
 Doing this can break games like `Xenoblade Chronicles 2`, as the game expects the console to disable input when the Joy-Cons are connected to a docked Switch’s rails.
 german77 solves this by [forcing an emulated Pro Controller instead](https://github.com/yuzu-emu/yuzu/pull/6353). 
 No more weird Frankenstein input monstrosities, please.
