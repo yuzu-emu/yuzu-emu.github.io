@@ -13,7 +13,7 @@ These include kernel changes, input and UI improvements, graphical fixes, the sa
 
 ## Pokémon Snap, but it’s New
 
-`New Pokémon Snap`’s release resulted in tons of work to be done to make the game playable. To begin with, Snap experiences crashes during gameplay, 
+`New Pokémon Snap`’s release resulted in tons of work to be done to make the game playable. For starters, Snap experienced crashes during gameplay, 
 an issue [epicboy](https://github.com/ameerj) was not happy about. 
 Now, yuzu has an optimized fast path for `uniform bindings`, the conditions to take advantage of it are that buffers must be both small and *non-null*. Turns out, 
 null buffers managed to skip this check, causing stabilities along the way.
