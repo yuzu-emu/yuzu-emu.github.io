@@ -54,7 +54,7 @@ The result is quite noticeable in games that use this blit technique, such as `S
     "./shantae-fix.png"
     >}}
 
-Thanks to user reports, it has been brought to our attention that our FPS counter in the lower right corner of yuzu’s window was not accurate.
+Thanks to user reports, it was brought to our attention that our FPS counter in the lower right corner of yuzu’s window was not accurate.
 The readings were accurate in the past, when the GPU thread was synchronous with the other services. 
 Since asynchronous GPU emulation was implemented, this is no longer the case.
 
