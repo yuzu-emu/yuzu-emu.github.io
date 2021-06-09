@@ -210,61 +210,61 @@ Morph [stubbed the ´ImportClientPki´ and ´ImportServerPki´ services](https:/
 `Project Hades` will help make this game playable.
 
 {{< single-title-imgs
-    "Thanks Ghost for the pics! (JUMP FORCE Deluxe Edition)"
+    "Thanks, Ghost, for the pics! (JUMP FORCE Deluxe Edition)"
     "./jfmenu.png"
     "./jfingame.png"
     >}}
 
 bunnei [fixed a hang on shutdown in the NVFlinger thread](https://github.com/yuzu-emu/yuzu/pull/6386) (used for compositing), 
-this fixes hangs when pressing stop while playing `Super Mario Odyssey`.
+fixing hangs when stopping emulation while playing `Super Mario Odyssey`.
 You not only have to let’s-a go, Mario, but also let’s-a stop sometimes.
 
 While yuzu allows users to install anything to NAND, be it updates, DLC, or even the base game, we recommend that only updates and DLC be installed, 
 leaving yuzu to find the base game with the user provided locations of the game dumps.
 Morph [properly blocked this,](https://github.com/yuzu-emu/yuzu/pull/6319) and added a warning that accompanies it.
 
-Besides what was mentioned at the start of the article, `Shantae` took a bit of extra work to become playable. Another case of an emulator inside an emulator.
+Besides what was mentioned earlier in the article, `Shantae` took a bit of extra work to become playable. Another case of an emulator inside an emulator.
 epicboy [solved a softlock at boot](https://github.com/yuzu-emu/yuzu/pull/6284) by creating layers when queried but not found in the compositting service NVFlinger.
 and ogniK [fixed the crashes](https://github.com/yuzu-emu/yuzu/pull/6279) by stubbing the emulation of `nvhost-prof-gpu`.
 
 {{< imgs
-	"./shantae.mp4| Atta girl! Thank you OZ! (Shantae)"
+	"./shantae.mp4| Atta girl! Thank you OZ for the gameplay! (Shantae)"
   >}}
 
 Linux deserves some love too, and [toastUnlimited](https://github.com/lat9nq) shall give it.
-linuxdeploy introduced a regression that caused any file open dialog to crash yuzu if you ran one of our official AppImages. 
+[linuxdeploy](https://github.com/linuxdeploy/linuxdeploy) introduced a regression that caused any file open dialog to crash yuzu if you ran one of our official AppImages. 
 toast solved it [by downloading our own version hosted as one of our externals](https://github.com/yuzu-emu/yuzu/pull/6324), allowing us to have better control on changes to 
 linuxdeploy, as well as fixing the crashes.
-Users can enjoy the ease of use of the AppImages again.
+Users can enjoy the ease of use of AppImage releases again.
 
-An old limitation we faced on distros that decide to “stay on their old and trusted packages” is the provided version of the Qt binaries.
+An old limitation we faced with Linux Distributions that decide to “stay on their old and trusted packages” is outdated versions of the Qt binaries.
 [By setting up version 5.12 as the minimum requirement and adding 5.15 to our externals,](https://github.com/yuzu-emu/yuzu/pull/6366) we can ensure that no problems are faced 
-when building yuzu with any of the valid compilers, be it MSVC, GCC, Clang or even MinGW.
+when building yuzu with any of the valid compilers, be it MSVC, GCC, Clang, or even MinGW.
 ## UI and other Quality of Life improvements
 
-Users have the option to customize the game list in `Emulation > Configure… > General > UI`, the Add-Ons column can be disabled there. 
+Users have the option to customize the game list via `Emulation > Configure… > General > UI`, and the Add-Ons column can be disabled there. 
 Previously, if the user disabled it, the game list was not being refreshed, forcing the user to find inventive ways to manually do it.
 Thanks to [Kewlan](https://github.com/Kewlan)’s work, 
-[now the game list properly refreshes itself with no need for manual intervention!](https://github.com/yuzu-emu/yuzu/pull/6298)
+[the game list now properly refreshes itself with no need for manual intervention!](https://github.com/yuzu-emu/yuzu/pull/6298)
 
 {{< imgs
 	"./add-ons.png| Add-Ons shows which update, DLCs and mods are installed and enabled"
   >}}
 
-toastUnlimited reluctantly [added the CPU tab to per-game settings.](https://github.com/yuzu-emu/yuzu/pull/6321) At the same time, Custom RTC was removed to force it as a global value.
+toastUnlimited reluctantly [added the CPU tab to per-game settings.](https://github.com/yuzu-emu/yuzu/pull/6321) At the same time, Custom RTC (Real-Time-Clock) was removed to force it as a global value.
 
 {{< imgs
 	"./cpu.png| Totally not a hint of anything"
   >}}
 
-While we’re on this subject, some things that need to be clarified about the CPU settings tab. 
+While we’re on this subject, some things need to be clarified about the CPU settings tab. 
 Unsafe was originally only intended for CPUs that lacked the FMA instruction set, which causes games to run at very low framerates.
 Later on, a fix was discovered that could boost the performance of `Luigi’s Mansion 3` by reducing precision. This was described in 
 [January’s progress report.](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2021/)
 
-As a result, we recommend users of CPUs that do have FMA to stick to `Accurate` and only force `Unsafe` for Luigi’s Mansion 3. 
-Using Unsafe is known to cause precision issues, for example, exaggerating the hitboxes of characters in `Super Smash Bros. Ultimate`.
-Users with old or low-end Intel CPUs that lack FMA, feel free to keep Unsafe enabled all the time.
+As a result, we recommend users of CPUs that do have FMA to stick to `Accurate` and only force `Unsafe` for `Luigi’s Mansion 3`. 
+Using `Unsafe` is known to cause precision issues, for example, exaggerating the hitboxes of characters in `Super Smash Bros. Ultimate`.
+Users with old or low-end Intel CPUs that lack FMA, feel free to keep `Unsafe` enabled all the time.
 
 We provide some examples in the following gorgeous and totally perfect table:
 
@@ -280,7 +280,7 @@ We provide some examples in the following gorgeous and totally perfect table:
 *LM3 = Luigi’s Mansion 3
 
 toastUnlimited also gave us the option to [apply settings while games are running](https://github.com/yuzu-emu/yuzu/pull/6346). 
-This can help more comfortably test for ideal settings while playing.
+This can allow users to more efficiently test settings while playing.
 Keep in mind that settings that require a reboot to take effect won't be affected by the apply button.
 
 {{< imgs
@@ -301,10 +301,10 @@ This is sometimes needed in very rare cases, for example, when being unable to b
 
 ## [Shake it, baby](https://youtu.be/Iac0T6dnuzM)
 
-german77 has been working on [implementing SDL motion](https://github.com/yuzu-emu/yuzu/pull/6244), with the purpose of removing our dependence on third party programs to get 
+german77 has been working on [implementing SDL motion](https://github.com/yuzu-emu/yuzu/pull/6244), with the purpose of removing our dependency on third party programs to get 
 motion input from valid controllers like Dual Sense, Joy-Cons, or Pro Controllers.
 With this PR, users can simply pair their controllers via Bluetooth and yuzu will pick them up as a valid input device, auto-mapping and enabling motion support, effectively 
-removing the need to use betterjoy, ds4windows or other third party software in yuzu.
+removing the need to use betterjoy, ds4windows, or other third party software in yuzu.
 
 A separate PR adds [detection of two separate Joy-Cons as a single input device](https://github.com/yuzu-emu/yuzu/pull/6318).
 
