@@ -6,7 +6,7 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-Hola yuz-ers! Wee bring you May's progress report, with dozens of additions to discuss.
+Hola yuz-ers! It's time yet again for another progress report! 
 These include kernel changes, input and UI improvements, graphical fixes, the saga of the legendary *dot*, and even free extra VRAM!
 
 <!--more-->
