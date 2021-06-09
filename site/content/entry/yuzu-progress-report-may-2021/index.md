@@ -137,7 +137,7 @@ This implementation works because the games aren't allowed to access kernel memo
 it just handles this internally through the `HLE` implementations, with the games completely oblivious to where any of said procedures are stored.
 However, there are certain elements that the games actually need to access, and so, they must be inside the emulated memory.
 One such case is the [Thread Local Storage](https://en.wikipedia.org/wiki/Thread-local_storage) (`TLS`), 
-a memory region used by the emulated threads to store variables that only they see but none of their peers have access to — because a thread can access only its own `TLS` region.
+a memory region used by the emulated threads to store variables that only they see, but none of their peers have access to — because a thread can access only its own `TLS` region.
 Since these entities can be allocated in the `KSlabHeap`, along with other entities that don't need to be inside the emulated memory accessible for the games, 
 bunnei introduced this hybrid method so yuzu is able to manage the slab list for all kernel objects, regardless of whether they need to be `HLE`'d, 
 or stored in the virtual memory.
