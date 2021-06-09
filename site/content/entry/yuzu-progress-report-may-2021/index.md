@@ -82,7 +82,7 @@ We don’t plan to merge it for now as it needs as much refinement as the regula
 by doubling the size of the responsible array. 
 
 The Nintendo Switch shares its RAM with both the CPU and GPU, so games are free to assume any information in VRAM will be the same in RAM (since it physically is). 
-As PCs don’t allow this (even on integrated GPU systems), yuzu has to keep track of any memory pages in use by the GPU, 
+As PCs don’t allow this (even on integrated GPU systems), yuzu has to keep track of any memory pages in use by the GPU 
 to ensure that all information is also reflected in system RAM. 
 The previous limit of 255 references was observed to be surpassed in some rare instances during testing, resulting in utter chaos, so this PR increases it to a maximum of 65535. 
 
