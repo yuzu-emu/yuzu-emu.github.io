@@ -58,7 +58,7 @@ Thanks to user reports, it was brought to our attention that our FPS counter in 
 The readings were previously accurate when the GPU thread was synchronous with the other services. 
 Now that asynchronous GPU emulation is implemented, this is no longer the case.
 
-The solution epicboy came up with is, instead of letting the nvflinger service handle the counter, [let the graphics API inform the counter after it finishes drawing the frame](https://github.com/yuzu-emu/yuzu/pull/6317), 
+The solution epicboy came up with is, instead of letting the nvflinger service handle the counter, [let the graphics API inform the counter after it finishes drawing the frame](https://github.com/yuzu-emu/yuzu/pull/6317).
 this way the value is far more accurate and stable on performance oscillations.
 Additionally, the update frequency of the counter was changed from 2000 ms to 500 ms, giving more information on the reading.
 
