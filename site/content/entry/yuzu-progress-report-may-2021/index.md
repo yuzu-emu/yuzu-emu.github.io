@@ -49,7 +49,7 @@ something epicboy had no problem properly implementing for us.
 The result is quite noticeable in games that use this blit technique, such as `Shantae` and `Pixel Game Maker Series Werewolf Princess Kaguya`, which we mentioned in the [previous progress report](https://yuzu-emu.org/entry/yuzu-progress-report-apr-2021/).
 
 {{< single-title-imgs
-    "Textures and text rendering correctly, notice the stairstepping in the right side"
+    "Textures and text rendering correctly, notice the stairstepping on the right side of the left image"
     "./shantae-bug.png"
     "./shantae-fix.png"
     >}}
