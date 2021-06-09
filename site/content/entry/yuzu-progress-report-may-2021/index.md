@@ -186,7 +186,7 @@ german77 fixed this [by releasing the mouse input when yuzu is out of focus.](ht
 ## General bugfixes
 
 Let’s begin this section with an obituary.
-Keen eyed users may have noticed that old builds used to have a single . *dot* at the end of the title bar. A suspicious *dot* whose purpose was unknown.
+Keen-eyed users may have noticed that old builds used to have a single . *dot* at the end of the title bar. A suspicious *dot* whose purpose was unknown.
 
 {{< imgs
 	"./dot.png| The Legend"
