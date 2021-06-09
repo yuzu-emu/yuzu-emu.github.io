@@ -38,7 +38,7 @@ This can be partially solved by using High GPU accuracy in OpenGL with Assembly 
 
 ## Graphical fixes
 
-Textures blits (bit block transfers, a combination of bitmaps) can sometimes work out of bounds by design, by interleaving copy regions.
+Texture blits (bit block transfers, a combination of bitmaps) can sometimes work out of bounds by interleaving copy regions, by design.
 yuzu has to be able to [properly emulate this behaviour](https://github.com/yuzu-emu/yuzu/pull/6289) and return the correct portion, 
 something epicboy had no problem properly implementing for us.
 
