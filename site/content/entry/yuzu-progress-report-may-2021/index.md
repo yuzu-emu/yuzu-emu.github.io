@@ -161,7 +161,7 @@ With this huge PR, after Morph reversed-engineered the file system in order to b
 favour of simpler code and rewrote the whole implementation, fixing some problems that the old code had in Windows builds in the process.
 As a bonus, he also documented all of yuzu's file system functions.
 
-While these changes don't necessarily reflect as a performance increase for end-users, they have certainly tackled some long-standing problems with how yuzu handled files, 
+While these changes don't necessarily result in a performance increase for end-users, they have certainly tackled some long-standing problems with how yuzu handled files, 
 besides simplifying the codebase notably, making it much easier to read and maintain for our developers.
 
 ## On-Screen Keyboard changes
