@@ -153,7 +153,7 @@ and stubbing a [function for the memory manger](https://github.com/yuzu-emu/yuzu
 However, the real poyo-pearl of this month has been his [rework of yuzu's Common File System Interface](https://github.com/yuzu-emu/yuzu/pull/6270) to make use of the 
 `std::filesystem` library introduced in C++17, as a continuation of the work done by the maintainer [lioncash](https://github.com/lioncash).
 
-The file system interface is the code that controls how yuzu accesses files (e.g. the creation of save files, or how yuzu loads DLC and updates files for a game, etc.).
+The file system interface is the code that controls how yuzu accesses files (e.g. the creation of save files, or how yuzu loads DLC and update files for a game, etc.).
 Since yuzu originally started as a fork of [Citra](https://citra-emu.org/), there were many functions inherited from that project that weren't as new as the ones included in 
 this newly added library, or weren't compatible with the new Virtual File System that yuzu uses, or simply weren't used at all.
 
