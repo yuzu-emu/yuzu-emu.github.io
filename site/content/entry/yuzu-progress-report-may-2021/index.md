@@ -321,7 +321,7 @@ Doing this can break games like `Xenoblade Chronicles 2`, as the game expects th
 german77 solves this by [forcing an emulated Pro Controller instead](https://github.com/yuzu-emu/yuzu/pull/6353). 
 No more weird Frankenstein input monstrosities, please.
 
-Finally, yuzu could be hard to map on analog sticks due to a bug in how the event was handled. While fixing this, german77 also 
+Finally, it could sometimes be difficult to map analog sticks in yuzu due to a bug in how the event was handled. While fixing this, german77 also 
 [fixed a crash caused by controllers not listed in the controller list disconnecting](https://github.com/yuzu-emu/yuzu/pull/6312).
 
 ## Future projects
