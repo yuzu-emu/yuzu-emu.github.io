@@ -177,7 +177,7 @@ As it turns out, the `QLineEdit::returnPressed` signal generated a [race conditi
 [Switching to `Qt::QueuedConnection`](https://github.com/yuzu-emu/yuzu/pull/6339) solved the issue.
 
 Additionally, testing confirmed that games can leave regions of memory uninitialized if a text check is performed and doesn’t result in either `Failure` or `Confirm`, 
-resulting, again, in crashes.
+causing, once again, crashes.
 [This is fixed by reading only the text check message.](https://github.com/yuzu-emu/yuzu/pull/6374). Thanks to gidoly and OZ for all the help in finding this!
 
 Lastly, there was an issue where the mouse input is captured by the software keyboard until the user moves to the next event.
