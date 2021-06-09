@@ -93,7 +93,7 @@ All of this costs the user 2*MB* of RAM instead of the previous 1*MB*. Such a he
 The kernel — that is, the part of an operating system that controls the resources of the machine where it is installed — organises some of the parameters of these resources 
 (e.g. process `identifiers`, `priorities`, file `share` and `open` modes, etc.) into units called `kernel objects`, which are then stored in memory for future reference.
 Thus, bunnei [migrated our old implementation of kernel objects to KAutoObjects](https://github.com/yuzu-emu/yuzu/pull/6266), 
-which is part of the newly written implementations that have been added in the past months to match more closely how the kernel of the Nintendo Switch works.
+which is part of the newly written implementations that have been added in the past months to match more closely to that of how the kernel of the Nintendo Switch works.
 This was a big change that involved refactoring the codebase for consistency and fleshing out the implementation of various existing kernel objects and their definitions to match the 
 new behaviour correctly.
 Part of the work also involved improving some [system calls](https://en.wikipedia.org/wiki/System_call) (the so-called `SVC`s), 
