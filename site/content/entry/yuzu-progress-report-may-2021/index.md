@@ -56,7 +56,7 @@ The result is quite noticeable in games that use this blit technique, such as `S
 
 Thanks to user reports, it has been brought to our attention that our FPS counter in the lower right corner of yuzu’s window was not accurate.
 The readings were accurate in the past, when the GPU thread was synchronous with the other services. 
-Since multicore support was implemented, this is no longer the case.
+Since asynchronous GPU emulation was implemented, this is no longer the case.
 
 The solution epicboy came up with is, instead of letting the nvflinger service handle the counter, [let the graphics API inform the counter after it finishes drawing the frame](https://github.com/yuzu-emu/yuzu/pull/6317), 
 this way the value is far more accurate and stable on performance oscillations.
