@@ -197,7 +197,7 @@ When resuming an old quest that was previously left unfinished, epicboy,
 and decided to slay it.
 
 Of course, the *dot* wouldn’t be gone without a fight, and removing it caused the yuzu version info to disappear from logs and even the “about us” window!
-Morph was the next hero of light selected by the king to slay the monster, [and so did he](https://github.com/yuzu-emu/yuzu/pull/6326).
+Morph was the next hero of light selected by the king to slay the monster, [and so he did](https://github.com/yuzu-emu/yuzu/pull/6326).
 
 And thus, the saga of the mysterious *dot* ends, for now.
 
