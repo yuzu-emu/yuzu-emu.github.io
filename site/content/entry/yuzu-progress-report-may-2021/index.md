@@ -291,7 +291,7 @@ Continuing with the per-game setting improvements, toast also added an exception
 Since most homebrew use a game-ID of 0000000000000000, using the ID to save the per-game settings would have been useless, so instead, 
 [yuzu will use the name of the homebrew file.](https://github.com/yuzu-emu/yuzu/pull/6361)
 
-And finally, toast, continuing work from german77 and [Tobi](https://github.com/FearlessTobi), [adds a button to reset yuzu settings to default](https://github.com/yuzu-emu/yuzu/pull/6362). 
+And finally, toast, continuing work from german77 and [Tobi](https://github.com/FearlessTobi), [added a button to reset yuzu settings to default](https://github.com/yuzu-emu/yuzu/pull/6362). 
 
 {{< imgs
 	"./reset.png| Simple as that"
