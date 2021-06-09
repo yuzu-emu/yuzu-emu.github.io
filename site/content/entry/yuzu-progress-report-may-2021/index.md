@@ -287,7 +287,7 @@ Keep in mind that settings that require a reboot to take effect won't be affecte
 	"./apply.png| "
   >}}
 
-Continuing with the per-game setting improvements, toast also added an exception for homebrews.
+Continuing with the per-game setting improvements, toast also added an exception for homebrew.
 Since most homebrew use a game-ID of 0000000000000000, using the ID to save the per-game settings would have been useless, so instead, 
 [yuzu will use the name of the homebrew file.](https://github.com/yuzu-emu/yuzu/pull/6361)
 
