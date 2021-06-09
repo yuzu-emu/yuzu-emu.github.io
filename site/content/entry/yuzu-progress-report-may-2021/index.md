@@ -96,7 +96,7 @@ Thus, bunnei [migrated our old implementation of kernel objects to KAutoObjects]
 which is part of the newly written implementations that have been added in the past months to match more closely to that of how the kernel of the Nintendo Switch works.
 This was a big change that involved refactoring the codebase for consistency and fleshing out the implementation of various existing kernel objects and their definitions to match the 
 new behaviour correctly.
-Part of the work also involved improving some [system calls](https://en.wikipedia.org/wiki/System_call) (the so-called `SVC`s), 
+Part of the work also involved improving some [system calls](https://en.wikipedia.org/wiki/System_call) (the so-called `SVCs`) 
 by implementing missing services such as `UnmapSharedMemory`, or making the implementation of other calls more robust (e.g. better error checking, etc.).
 These `SVC`s are functions used by games or user software to signal the OS that they want to perform operations for which they do not have the necessary permissions, 
 such as access to hardware elements — for example, some I/O devices.
