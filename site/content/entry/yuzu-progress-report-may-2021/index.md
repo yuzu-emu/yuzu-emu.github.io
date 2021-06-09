@@ -86,7 +86,7 @@ As PCs don’t allow this (even on integrated GPU systems), yuzu has to keep tra
 to ensure that all information is also reflected in system RAM. 
 The previous limit of 255 references was observed to be surpassed in some rare instances during testing, resulting in utter chaos, so this PR increases it to a maximum of 65535. 
 
-All of this costs the user 2*MB* of RAM instead of the previous 1MB. Such a heavy price to pay for the additional peace of mind, Google Chrome would be proud of us.
+All of this costs the user 2*MB* of RAM instead of the previous 1*MB*. Such a heavy price to pay for the additional peace of mind, Google Chrome would be proud of us.
 
 ## Core changes and improvements
 
