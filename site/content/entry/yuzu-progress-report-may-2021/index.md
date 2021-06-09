@@ -281,7 +281,7 @@ We provide some examples in the following gorgeous and totally perfect table:
 
 toastUnlimited also gave us the option to [apply settings while games are running](https://github.com/yuzu-emu/yuzu/pull/6346). 
 This can help more comfortably test for ideal settings while playing.
-Keep in mind that settings that require a reboot to take effect, won't be affected by the apply button.
+Keep in mind that settings that require a reboot to take effect won't be affected by the apply button.
 
 {{< imgs
 	"./apply.png| "
