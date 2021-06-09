@@ -353,4 +353,4 @@ See you in the next one!
 If you would like to contribute to this project, check out our [GitHub](https://github.com/yuzu-emu/yuzu)!</b>
 </h4>
 
-                                       .
+.
