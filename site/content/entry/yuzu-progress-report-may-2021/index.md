@@ -341,9 +341,6 @@ That’s all folks! Thank you so much for staying with us until the end of this 
 See you in the next one!
 
 &nbsp;
-<h4 style="text-align:center;">
-<b>Please consider supporting us on [Patreon](https://www.patreon.com/yuzuteam)!<br>
-If you would like to contribute to this project, check out our [GitHub](https://github.com/yuzu-emu/yuzu)!</b>
-</h4>
+{{< article-end >}}
 
-.
+***.***
