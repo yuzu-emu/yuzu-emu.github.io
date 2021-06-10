@@ -126,8 +126,8 @@ There are still many other kernel objects to migrate and, for this reason, bunne
 [KSlabHeap use both guest and host allocations](https://github.com/yuzu-emu/yuzu/pull/6373), 
 as this will facilitate the process while missing functions and other structures are being implemented.
 
-Simply put, the [slab heap](https://en.wikipedia.org/wiki/Slab_allocation) is a structure used to store kernel elements more efficiently in memory on a [linked list](https://en.wikipedia.org/wiki/Linked_list), based on their size — all the slots in a slab of memory have the same size, and there can be lists of different sizes to store different objects, too.
-Instead of allocating and deallocating memory, the kernel marks the nodes on the list as "used" or "free", so when it needs to store a new object, it looks for a free slot and overwrites the data there.
+Simply put, the [slab heap](https://en.wikipedia.org/wiki/Slab_allocation) is a structure used to store kernel elements more efficiently in memory in a [linked list](https://en.wikipedia.org/wiki/Linked_list), based on their size. All the slots in a slab of memory have the same size, and there can be lists of different sizes to store different objects too.
+Instead of allocating and deallocating memory, the kernel marks the nodes on the list as "used" or "free," so when it needs to store a new object, it looks for a free slot and overwrites the data there.
 On the other hand, if an object is not needed anymore, the node where it's stored is marked as "free" so that it can be used to store a new object.
 This way, the kernel will find frequently-requested memory sizes available more quickly, providing a small optimization to the whole process.
 
