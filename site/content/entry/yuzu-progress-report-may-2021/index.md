@@ -16,7 +16,7 @@ We have dozens of changes to discuss: Kernel fixes, input and UI improvements, g
 `New Pokémon Snap`’s release resulted in tons of work needed to make the game playable. For starters, Snap experienced crashes during gameplay, 
 an issue [epicboy](https://github.com/ameerj) was not happy about. 
 The [buffer cache rewrite](https://yuzu-emu.org/entry/yuzu-bcr/) introduced an optimized fast path for `uniform bindings`, but the conditions to take advantage of it are that buffers must be both small and *non-null*. Turns out, 
-null buffers were not being explicitly checked for, causing stabilities along the way.
+null buffers were not being explicitly checked for, causing instabilities along the way.
 [Properly checking for those zero sized buffers](https://github.com/yuzu-emu/yuzu/pull/6322) fixed the stability issues the new Snap was facing.
 
 {{< single-title-imgs
