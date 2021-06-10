@@ -126,15 +126,14 @@ There are still many other kernel objects to migrate and, for this reason, bunne
 [KSlabHeap use both guest and host allocations](https://github.com/yuzu-emu/yuzu/pull/6373), 
 as this will facilitate the process while missing functions and other structures are being implemented.
 
-Simply put, the [slab heap](https://en.wikipedia.org/wiki/Slab_allocation) is a structure used to store kernel elements in memory efficiently in a 
-[linked list](https://en.wikipedia.org/wiki/Linked_list).
+Simply put, the [slab heap](https://en.wikipedia.org/wiki/Slab_allocation) is a structure used to store kernel elements more efficiently in memory on a [linked list](https://en.wikipedia.org/wiki/Linked_list), based on their size — all the slots in a slab of memory have the same size, and there can be lists of different sizes to store different objects, too.
+Instead of allocating and deallocating memory, the kernel marks the nodes on the list as "used" or "free", so when it needs to store a new object, it looks for a free slot and overwrites the data there.
+On the other hand, if an object is not needed anymore, the node where it's stored is marked as "free" so that it can be used to store a new object.
+This way, the kernel will find frequently-requested memory sizes available more quickly, providing a small optimization to the whole process.
 
-As of yet, yuzu doesn't emulate the memory structure of the Nintendo Switch completely, and the memory space only provides enough functionality to emulate a single process 
-(i.e. a game), while using High Level Emulation (`HLE`) for everything else.
-In other words, the memory used for the kernel isn't an emulated virtual memory space like the one used by the games, but just memory that yuzu, as a common program running in 
-your PC, uses outside of it.
-This implementation works because the games aren't allowed to access kernel memory, and so, when yuzu switches from executing a game to running some kernel procedure, 
-it just handles this internally through the `HLE` implementations, with the games completely oblivious to where any of said procedures are stored.
+As of yet, yuzu doesn't emulate the complete memory structure of the Nintendo Switch.
+The emulated memory space only provides enough functionality to run a single process (i.e. a game), while every other service, such as the kernel, is allocated outside of the virtual memory.
+This implementation works because the games aren't allowed to access kernel memory, and so, when yuzu switches from executing a game to running some kernel procedure, it just handles this internally through the High Level Emulation (`HLE`) implementations, with the games completely oblivious to where any of said procedures are stored.
 However, there are certain elements that the games actually need to access, and so, they must be inside the emulated memory.
 One such case is the [Thread Local Storage](https://en.wikipedia.org/wiki/Thread-local_storage) (`TLS`), 
 a memory region used by the emulated threads to store variables that only they see, but none of their peers have access to — because a thread can access only its own `TLS` region.
