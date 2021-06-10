@@ -147,7 +147,7 @@ Any improvements and additions to this component make the emulation experience m
 
 Morph has also been paying attention to the kernel, refactoring part of the IPC code and adding a function to 
 [pop the ID of a process](https://github.com/yuzu-emu/yuzu/pull/6320), fixing a small bug where a [wrong value was being returned](https://github.com/yuzu-emu/yuzu/pull/6337), 
-and stubbing a [function for the memory manger](https://github.com/yuzu-emu/yuzu/pull/6358).
+and stubbing a [function for the memory manager](https://github.com/yuzu-emu/yuzu/pull/6358).
 
 However, the real poyo-pearl of this month has been his [rework of yuzu's Common File System Interface](https://github.com/yuzu-emu/yuzu/pull/6270) to make use of the 
 `std::filesystem` library introduced in C++17, as a continuation of the work done by the maintainer [lioncash](https://github.com/lioncash).
