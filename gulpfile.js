@@ -111,11 +111,17 @@ gulp.task('final:publish', (done) => {
 
 const cname = 'yuzu-emu.org';
 let finalCommand = null;
+let ephemeralURL = null;
 
 if (parseArgs(process.argv).production) {
     process.env.NODE_ENV = 'production';
     process.env.HUGO_ENV = 'PRD';
     process.env.HUGO_BASEURL = `https://${cname}`;
+    finalCommand = 'final:publish';
+} else if ((ephemeralURL = parseArgs(process.argv).ephemeral)) {
+    process.env.NODE_ENV = 'production';
+    process.env.HUGO_ENV = 'PRD';
+    process.env.HUGO_BASEURL = ephemeralURL;
     finalCommand = 'final:publish';
 } else {
     process.env.HUGO_ENV = 'DEV';

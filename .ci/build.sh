@@ -7,6 +7,11 @@ yarn --cwd ./scripts/shared-hugo-scripts/wiki/
 yarn --cwd ./scripts/shared-hugo-scripts/compatdb/
 yarn hugo version
 echo -e '\e[1m\e[36m========== Starting gulp deploy task ===============\e[0m'
-yarn run build
+if [[ -n "${EPHEMERAL_BASE_URL}" ]]; then
+    echo -e "\e[1m\e[36m========== Ephemeral Mode URL: ${EPHEMERAL_BASE_URL} ===============\e[0m"
+    yarn run gulp all --ephemeral "${EPHEMERAL_BASE_URL}"
+else
+    yarn run build
+fi
 
 echo -e '\e[1m\e[32m Success! Site deployed to `build` folder.\e[0m'
