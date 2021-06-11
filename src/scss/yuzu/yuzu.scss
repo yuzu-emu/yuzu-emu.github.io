@@ -99,7 +99,7 @@ a:hover {
 }
 
 // Make text nicer to read in articles
-.content p {
+.section.content.pt-sm > p {
   text-align: justify;
   line-height: 1.8;
   font-size: 1.09em;
