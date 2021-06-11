@@ -90,19 +90,19 @@ All of this costs the user 2*MB* of RAM instead of the previous 1*MB*. Such a he
 
 ## Core changes and improvements
 
-The kernel — that is, the part of an operating system that controls the resources of the machine where it is installed — organises some of the parameters of these resources 
-(e.g. process `identifiers`, `priorities`, file `share` and `open` modes, etc.) into units called `kernel objects`, which are then stored in memory for future reference.
-Thus, bunnei [migrated our old implementation of kernel objects to KAutoObjects](https://github.com/yuzu-emu/yuzu/pull/6266), 
-which is part of the newly written implementations that have been added in the past months to match more closely to that of how the kernel of the Nintendo Switch works.
-This was a big change that involved refactoring the codebase for consistency and fleshing out the implementation of various existing kernel objects and their definitions to match the 
-new behaviour correctly.
-Part of the work also involved improving some [system calls](https://en.wikipedia.org/wiki/System_call) (the so-called `SVCs`) 
-by implementing missing services such as `UnmapSharedMemory`, and making the implementation of other calls more robust (e.g. better error checking, etc.).
-These `SVCs` are functions used by games or user software to signal the OS that they want to perform operations for which they do not have the necessary permissions, 
-such as access to hardware elements — for example, some I/O devices.
-Thus, a process asks the entity with the highest permissions — that is, the kernel — to perform these actions on its behalf.
-These `SVC` functions are essential for the communication between processes and the OS, so their correct functioning is imperative, 
-as they are the programs that run whenever a game needs the kernel to perform operations that require elevated permissions.
+[bunnei](https://github.com/bunnei) migrated our old implementation of kernel objects to [KAutoObjects](https://github.com/yuzu-emu/yuzu/pull/6266), which is part of the newly written implementations that have been added in the past months to match more closely to that of how the kernel of the Nintendo Switch works.
+
+Previously, our kernel objects, such as condition variables, events, threads, processes, etc., used the C++ `std::shared_ptr` (a type of smart pointer) in their implementation.
+Whenever a new instance of a shared pointer reference is made using one of these pointers, a counter is automatically increased to keep track of them.
+Similarly, whenever one of the references isn't needed anymore, the counter decreases its value and the reference is discarded.
+However, the implementation doesn't necessarily reflect the way the Nintendo Switch's kernel deals these objects and their reference counters.
+Thus, the advantage of implementing these `KAutoObjects` is that it allows yuzu to manage when these objects are created and destroyed accurately.
+
+This was a big change that involved refactoring the codebase for consistency and fleshing out the implementation of various existing kernel objects and their definitions to match the new behaviour correctly.
+
+Part of the work also involved improving some system calls (the so-called `SVC`s) by implementing missing calls such as `UnmapSharedMemory`, and making the implementation of other calls more robust (e.g. better error checking, etc.).
+These `SVC`s are functions used by games to communicate with the rest of their system, in order to create events, manage them, or send information to other services such as audio and graphics.
+They are essential for the communication between processes and the OS, so their correct functioning is imperative, as they are the programs that run whenever a game needs the kernel to perform operations that require elevated permissions.
 
 With the introduction of the firmware version `12.0.0`, the protocol of [Inter-Process Communication](https://en.wikipedia.org/wiki/Inter-process_communication) (`IPC`) 
 has also been updated.
