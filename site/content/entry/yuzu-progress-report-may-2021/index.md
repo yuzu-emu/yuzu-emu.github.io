@@ -96,12 +96,12 @@ Previously, our kernel objects, such as condition variables, events, threads, pr
 Whenever a new instance of a shared pointer reference is made using one of these pointers, a counter is automatically increased to keep track of them.
 Similarly, whenever one of the references isn't needed anymore, the counter decreases its value and the reference is discarded.
 However, the implementation doesn't necessarily reflect the way the Nintendo Switch's kernel deals these objects and their reference counters.
-Thus, the advantage of implementing these `KAutoObjects` is that it allows yuzu to manage when these objects are created and destroyed accurately.
+Thus, the advantage of implementing these `KAutoObjects` is that it allows yuzu to manage when these objects are created and destroyed, accurately.
 
 This was a big change that involved refactoring the codebase for consistency and fleshing out the implementation of various existing kernel objects and their definitions to match the new behaviour correctly.
 
-Part of the work also involved improving some system calls (the so-called `SVC`s) by implementing missing calls such as `UnmapSharedMemory`, and making the implementation of other calls more robust (e.g. better error checking, etc.).
-These `SVC`s are functions used by games to communicate with the rest of their system, in order to create events, manage them, or send information to other services such as audio and graphics.
+Part of the work also involved improving some system calls (the so-called `SVCs`) by implementing missing calls such as `UnmapSharedMemory`, and making the implementation of other calls more robust (e.g. better error checking, etc.).
+These `SVCs` are functions used by games to communicate with the rest of their system, in order to create events, manage them, or send information to other services such as audio and graphics.
 They are essential for the communication between processes and the OS, so their correct functioning is imperative, as they are the programs that run whenever a game needs the kernel to perform operations that require elevated permissions.
 
 With the introduction of the firmware version `12.0.0`, the protocol of [Inter-Process Communication](https://en.wikipedia.org/wiki/Inter-process_communication) (`IPC`) 
