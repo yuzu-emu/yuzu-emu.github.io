@@ -63,6 +63,7 @@ RAM:
 
 - Recommended: 16GB
 
+&nbsp;
 
 - Windows users are recommended to run Windows 10 1803 or newer to get the best performance.
 
