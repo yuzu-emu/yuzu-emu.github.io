@@ -53,7 +53,7 @@ This is only for listing iGPU support. Fast RAM clock speeds are strongly recomm
 
 - Minimum for Windows: Intel HD Graphics 520 / AMD Radeon Vega 3
 
-- Recommended: Intel UHD 750 / AMD Radeon Vega 7
+- Recommended: Intel UHD Graphics 750 / AMD Radeon Vega 7
 
 RAM: 
 
