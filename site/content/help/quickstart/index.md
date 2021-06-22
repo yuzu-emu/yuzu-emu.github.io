@@ -37,22 +37,32 @@ Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are r
 Dedicated graphics: 
 
 Mandatory OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers. Half-float support and 4GB of VRAM are recommended.
-    - Minimum for Linux: NVIDIA GeForce GT 1030 2GB / AMD Radeon R7 240 2GB
-    - Minimum for Windows: NVIDIA GeForce GT 1030 2GB / AMD Radeon RX 550 2GB
-    - Recommended: NVIDIA GeForce GTX 1650 4GB / AMD Radeon RX Vega 56 8GB
+
+- Minimum for Linux: NVIDIA GeForce GT 1030 2GB / AMD Radeon R7 240 2GB
+
+- Minimum for Windows: NVIDIA GeForce GT 1030 2GB / AMD Radeon RX 550 2GB
+
+- Recommended: NVIDIA GeForce GTX 1650 4GB / AMD Radeon RX Vega 56 8GB
 
 Integrated graphics:
 
 Integrated graphics will produce very low performance. A dedicated GPU will produce better results on all scenarios.
 This is only for listing iGPU support. Fast RAM clock speeds are strongly recommended.
-    - Minimum for Linux: Intel HD 5300 / AMD Radeon R5 Graphics
-    - Minimum for Windows: Intel HD Graphics 520 / AMD Radeon Vega 3
-    - Recommended: Intel UHD 750 / AMD Radeon Vega 7
+
+- Minimum for Linux: Intel HD 5300 / AMD Radeon R5 Graphics
+
+- Minimum for Windows: Intel HD Graphics 520 / AMD Radeon Vega 3
+
+- Recommended: Intel UHD 750 / AMD Radeon Vega 7
 
 RAM: 
-    - Minimum with dedicated graphics: 8GB
-    - Minimum with integrated graphics: 12GB
-    - Recommended: 16GB
+
+- Minimum with dedicated graphics: 8GB
+
+- Minimum with integrated graphics: 12GB
+
+- Recommended: 16GB
+
 
 - Windows users are recommended to run Windows 10 1803 or newer to get the best performance.
 
