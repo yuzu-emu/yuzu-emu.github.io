@@ -28,7 +28,7 @@ description: A guide designed to get you started with yuzu quickly.
 
 ## Hardware Requirements
 
-### CPU: 
+#### CPU: 
 
 Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are recommended.
 
@@ -36,7 +36,7 @@ Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are r
 
 - Recommended: Intel Core i5-10400 / AMD Ryzen 5 3600
 
-### Dedicated graphics: 
+#### Dedicated graphics: 
 
 OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support and 4GB of VRAM are recommended.
 
@@ -46,7 +46,7 @@ OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-flo
 
 - Recommended: NVIDIA GeForce GTX 1650 4GB / AMD Radeon RX Vega 56 8GB
 
-### Integrated graphics:
+#### Integrated graphics:
 
 Integrated graphics will produce very low performance. A dedicated GPU will produce better results on all scenarios.
 This is only for listing iGPU support. Fast RAM clock speeds are strongly recommended.
@@ -57,7 +57,7 @@ This is only for listing iGPU support. Fast RAM clock speeds are strongly recomm
 
 - Recommended: Intel UHD Graphics 750 / AMD Radeon Vega 7
 
-### RAM: 
+#### RAM: 
 
 - Minimum with dedicated graphics: 8GB
 
@@ -65,7 +65,7 @@ This is only for listing iGPU support. Fast RAM clock speeds are strongly recomm
 
 - Recommended: 16GB
 
-### Notes:
+#### Notes:
 
 - Windows users are recommended to run Windows 10 1803 or newer to get the best performance.
 
