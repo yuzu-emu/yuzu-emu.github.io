@@ -49,7 +49,7 @@ OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-flo
 #### Integrated graphics:
 
 Integrated graphics will produce very low performance. A dedicated GPU will produce better results on all scenarios.
-This is only for listing iGPU support. Fast RAM clock speeds are strongly recommended.
+This is only for listing iGPU support.
 
 - Minimum for Linux: Intel HD 5300 / AMD Radeon R5 Graphics
 
@@ -58,6 +58,8 @@ This is only for listing iGPU support. Fast RAM clock speeds are strongly recomm
 - Recommended: Intel UHD Graphics 750 / AMD Radeon Vega 7
 
 #### RAM: 
+
+Since an integrated GPU uses system RAM as its video memory (VRAM), our memory requirement in this configuration is higher.
 
 - Minimum with dedicated graphics: 8GB
 
