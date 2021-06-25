@@ -13,7 +13,7 @@ description: A guide designed to get you started with yuzu quickly.
 * [Booting into RCM](#booting-into-rcm)
 * [Booting into Hekate](#booting-into-hekate)
 * [Mounting the microSD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate)
-* [Dumping Prod.keys and Title.keys](#dumping-prod-keys-and-title-keys)
+* [Dumping Prod.keys and Title.keys](#dumping-prodkeys-and-titlekeys)
 * [Backing up Switch NAND (Optional but Recommended)](#backing-up-switch-nand-optional-but-recommended)
 * [Dumping System Update Firmware](#dumping-system-update-firmware)
 * [Dumping Cartridge Games](#dumping-cartridge-games)
