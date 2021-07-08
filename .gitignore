@@ -24,3 +24,6 @@ site/static/savefiles/
 # Filesystem stuff.
 .directory
 .DS_Store
+
+# Maintenance page
+maintenance.html
