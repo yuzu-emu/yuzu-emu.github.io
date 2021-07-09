@@ -1,5 +1,5 @@
 +++
-date = "2021-07-10T03:20:00+05:30"
+date = "2021-07-10T03:40:00+05:30"
 title = "New Feature Release - Shader Decompiler Rewrite"
 author = "CaptV0rt3x"
 forum = 423256
@@ -68,7 +68,7 @@ He added support for Nvidia's `VertexA shader stage`, a non-standard shader stag
 This allowed games such as `Catherine: Full Body`, `Bravely Default 2`, and `A Hat in Time` to render graphics for the first time.
 [Blinkhawk](https://github.com/FernandoS27) also fixed an issue in yuzu's texture cache relating to the texture streaming used in Unreal Engine 4 (UE4) games, resolving many of their rendering issues.
 
-**Note:** Due to a race condition in our GPU Emulation, for correct rendering in Catherine Full Body, you may need to disable Asynchronous GPU Emulation.
+**Note:** Due to a race condition in our GPU Emulation, to render Catherine Full Body correctly, you may need to disable Asynchronous GPU Emulation.
 
 &nbsp;
 
@@ -165,7 +165,7 @@ In fact, some games like `Yoshi's Crafted World`, `Trials of Mana`, `Minecraft D
 `The Legend of Zelda: Breath of the Wild` is now fully playable on Vulkan.
 
 {{< imgs
-    "./BOTW_Vulkan.png| Breath of the Wild (fixed runes)"
+    "./BOTW_Vulkan.png| Breath of the Wild (fixed runes in Vulkan)"
 >}}
 
 {{< single-title-imgs
@@ -200,7 +200,7 @@ Thanks to the implementation of tessellation shaders, the sand in `Luigi's Mansi
     "./Luigis Mansion 3.png"
 >}}
 
-Various graphical glitches, crashes and general stability issues in `Fire Emblem: Three houses`, `Hyrule Warriors: Age of Calamity`, `Marvel Ultimate Alliance 3`, `Persona 5 Scramble`, and `Xenoblade Chronicles` were also fixed.
+Various graphical glitches, crashes and general stability issues in `Fire Emblem: Three houses`, `Hyrule Warriors: Age of Calamity`, `Marvel Ultimate Alliance 3`, `Persona 5 Strikers`, and `Xenoblade Chronicles` were also fixed.
 
 {{< single-title-imgs
     "Fire Emblem: Three Houses"
@@ -222,7 +222,7 @@ Various graphical glitches, crashes and general stability issues in `Fire Emblem
 >}}
 
 {{< single-title-imgs
-    "Persona 5 Scramble"
+    "Persona 5 Strikers"
     "./P5S.png"
     "./P5S_2.png"
     "./P5S_3.png"
@@ -242,7 +242,7 @@ Various graphical glitches, crashes and general stability issues in `Fire Emblem
 >}}
 
 `Kirby Star Allies`, `Mario Kart 8 deluxe`, `Tony Hawk Pro Skater`, `Story of Seasons`, and `Clubhouse` games, were among many other titles that saw graphical glitches fixed.
-`Rune Factory 4` perfectly renders now and `Rune Factory 5` has improved rendering.
+`Rune Factory 4` renders perfectly now and `Rune Factory 5` has improved rendering.
 
 {{< single-title-imgs
     "Kirby Star Allies"
