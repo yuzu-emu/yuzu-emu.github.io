@@ -245,31 +245,31 @@ Various graphical glitches, crashes and general stability issues in `Fire Emblem
 `Rune Factory 4` renders perfectly now and `Rune Factory 5` has improved rendering.
 
 {{< single-title-imgs
-    "Kirby Star Allies"
+    "Kirby Star Allies (EA Vs. HADES)"
     "./kirby-ea.jpg"
     "./kirby-hades.jpg"
 >}}
 
 {{< single-title-imgs
-    "Mario Kart 8 Deluxe"
+    "Mario Kart 8 Deluxe (EA Vs. HADES)"
     "./MK8_EA.png"
     "./MK8_Hades.png"
 >}}
 
 {{< single-title-imgs
-    "Tony Hawk Pro Skater"
+    "Tony Hawk Pro Skater (EA Vs. HADES)"
     "./tonyhawk-ea.png"
     "./tonyhawk-hades.png"
 >}}
 
 {{< single-title-imgs
-    "Story of Seasons"
+    "Story of Seasons (EA Vs. HADES)"
     "./story-of-seasons_ea.png"
     "./story-of-seasons_hades.png"
 >}}
 
 {{< single-title-imgs
-    "Rune Factory 4"
+    "Rune Factory 4 (EA Vs. HADES)"
     "./runefactory-ea.jpg"
     "./runefactory-hades.jpg"
 >}}
