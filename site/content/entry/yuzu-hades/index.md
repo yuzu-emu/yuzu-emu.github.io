@@ -181,7 +181,7 @@ In fact, some games like `Yoshi's Crafted World`, `Trials of Mana`, `Minecraft D
 
 {{< single-title-imgs
     "Minecraft Dungeons"
-    "./Minecraft_dungeons.png"
+    "./minecraft_dungeons.png"
     "./Minecraft_Dungeons_2.png"
 >}}
 
