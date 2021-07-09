@@ -49,7 +49,7 @@ a:hover {
   width: 55%;
 }
 
-// Fix switch svg scaling and image overlay alignment. 
+// Fix switch svg scaling and image overlay alignment.
 // (for bulma 0.9.0)
 .container {
   flex-grow: 0;
@@ -155,4 +155,8 @@ pre > code {
   display: block;
   height: 64px; /* fixed header height*/
   margin: -64px 0 0; /* negative fixed header height */
+}
+
+body {
+  line-height:1.7;
 }
