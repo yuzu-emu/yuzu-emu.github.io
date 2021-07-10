@@ -205,7 +205,7 @@ Various graphical glitches, crashes and general stability issues in `Fire Emblem
 {{< single-title-imgs
     "Fire Emblem: Three Houses"
     "./Fire emblem Three houses.png"
-    "./feth.png"
+    "./feth1.png"
     "./feth2.png"
 >}}
 
