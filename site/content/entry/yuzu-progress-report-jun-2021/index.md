@@ -295,7 +295,7 @@ Maide [put a stop to this](https://github.com/yuzu-emu/yuzu/pull/6402), improvin
 
 ## Future projects
 
-With Project Hades (our new shader decompiler), Rodrigo continues with his crazy experiments, bunnei has yet more kernel changes in the oven, and german77 and Morph continue
+With Project Hades [(our new shader decompiler)](https://yuzu-emu.org/entry/yuzu-hades/), Rodrigo continues with his crazy experiments, bunnei has yet more kernel changes in the oven, and german77 and Morph continue
 to work on their top secret projects.
 
 More GPU related optimizations are underway. Users should keep a keen eye on the horizon.
