@@ -109,7 +109,7 @@ Some titles — particularly those running at fixed frame rate of 30 FPS — wou
 
 Here's `Hellblade: Senua's Sacrifice` in the old implementation:
 
-{{< audio "./audiobug.ogg" >}}
+{{< audio "./audiobug.mp3" >}}
 
 By [decoupling the processing and sending of audio samples from the update function](https://github.com/yuzu-emu/yuzu/pull/6498), the games now will be able to call the update function every time they need it (a process that yuzu can't control), while a separate audio thread will process the sample data and send it to the sink.
 With this new implementation, yuzu is now capable of schedule the rate at which it will be sending this audio information based on the `sample rate` and the `sample count`.
@@ -117,7 +117,7 @@ For example: if a game is using a 48 kHz `sample rate` with a `sample count` of 
 
 And here's `Hellblade: Senua's Sacrifice` again with the current fixes:
 
-{{< audio "./audiofix.ogg" >}}
+{{< audio "./audiofix.mp3" >}}
 
 ## Graphical improvements
 
