@@ -62,6 +62,12 @@ We'd like to thank [BreadFish64](https://github.com/BreadFish64/) for informing 
 As was previously mentioned, this feature is incompatible for Windows OS previous to Windows 10 version 1803, where the old `MMU` implementation is used in such cases as a fallback — although this requirement could change in the future.
 In case you are interested in a more detailed explanation of how it works and the limitations that prevented its implementation, we have written a [dedicated article to fastmem](https://yuzu-emu.org/entry/yuzu-fastmem/), so feel free to check it out if you haven't.
 
+{{< single-title-imgs
+    "Some of the measured performance gains, in FPS"
+    "./fastmem1.png"
+    "./fastmem2.png"
+    >}}
+
 Shortly afterwards, [toastunlimited](https://github.com/lat9nq) noticed there was a bug on our MinGW builds, where fastmem wasn't working.
 This was because the defined constant `MEM_RESERVE_PLACEHOLDER`, a mask value used for reserve virtual memory as a placeholder, was manually imported for these builds, but incorrectly declared.
 Thankfully, the fix was as simple as redeclaring it with the correct value, which Toast [did in this PR](https://github.com/yuzu-emu/yuzu/pull/6494).
@@ -103,7 +109,7 @@ Some titles — particularly those running at fixed frame rate of 30 FPS — wou
 
 Here's `Hellblade: Senua's Sacrifice` in the old implementation:
 
-{{< audio "./<audiobug.ogg>" >}}
+{{< audio "./audiobug.ogg" >}}
 
 By [decoupling the processing and sending of audio samples from the update function](https://github.com/yuzu-emu/yuzu/pull/6498), the games now will be able to call the update function every time they need it (a process that yuzu can't control), while a separate audio thread will process the sample data and send it to the sink.
 With this new implementation, yuzu is now capable of schedule the rate at which it will be sending this audio information based on the `sample rate` and the `sample count`.
@@ -111,7 +117,7 @@ For example: if a game is using a 48 kHz `sample rate` with a `sample count` of 
 
 And here's `Hellblade: Senua's Sacrifice` again with the current fixes:
 
-{{< audio "./<audiofix.ogg>" >}}
+{{< audio "./audiofix.ogg" >}}
 
 ## Graphical improvements
 
