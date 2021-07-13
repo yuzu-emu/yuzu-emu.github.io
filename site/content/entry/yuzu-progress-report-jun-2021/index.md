@@ -143,7 +143,7 @@ Some examples of games that have full dynamic FPS support are:
 - `WORLD OF FINAL FANTASY MAXIMA`.
 - `FINAL FANTASY XV POCKET EDITION HD`.
 - `Hungry Shark® World`.
-- `”MONSTER HUNTER STORIES 2: WINGS OF RUIN” Trial Version`.
+- `MONSTER HUNTER STORIES 2: WINGS OF RUIN`.
 - `NEO: The World Ends with You` demo.
 - `MISTOVER`.
 - `Crash™ Team Racing Nitro-Fueled`.
