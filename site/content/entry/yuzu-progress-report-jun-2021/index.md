@@ -117,7 +117,13 @@ And this is `Hellblade: Senua's Sacrifice` again, now with the current implement
 
 {{< audio "./audiofix.mp3" >}}
 
-This change fixed the slow audio in titles such as `ARK`, `Bulletstorm`, and `Megademension Neptunia VII`, while also — on top of improving the quality — it solved the audio softlocks in `Donkey Kong Country Tropical Freeze` and `Xenoblade Chronicles 2`.
+This change fixed the slow audio in titles such as `ARK`, `Bulletstorm`, and `Megademension Neptunia VII`, while also — on top of improving the quality — it solved the audio softlocks in `Donkey Kong Country: Tropical Freeze` and `Xenoblade Chronicles 2`.
+
+{{< single-title-imgs
+    "Better audio, and stable gameplay! (Xenoblade Chronicles 2 & Donkey Kong Country: Tropical Freeze)"
+    "./xc2.png"
+    "./dktf.png"
+    >}}
 
 ## Graphical improvements
 
