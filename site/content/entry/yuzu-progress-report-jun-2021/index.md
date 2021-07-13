@@ -101,17 +101,17 @@ On top of these kernel changes, bunnei has also been implementing more of the ch
 All games call the `RequestUpdateImpl()` to send samples into the sink and also to pass other information, such as the `sampling rate` of the audio signal and the `sample count` (number of samples to be processed).
 Some titles — particularly those running at fixed frame rate of 30 FPS — would call this function less frequently than their 60 FPS counterparts, which resulted in not enough audio samples being processed in time and sent into the sink, causing the aforementioned annoying popping. 
 
-{{< imgs
-	"./audiobug.ogg| Before (Hellblade: Senua's Sacrifice)"
-  >}}
+Here's `Hellblade: Senua's Sacrifice` in the old implementation:
+
+{{< audio "./<audiobug.ogg>" >}}
 
 By [decoupling the processing and sending of audio samples from the update function](https://github.com/yuzu-emu/yuzu/pull/6498), the games now will be able to call the update function every time they need it (a process that yuzu can't control), while a separate audio thread will process the sample data and send it to the sink.
 With this new implementation, yuzu is now capable of schedule the rate at which it will be sending this audio information based on the `sample rate` and the `sample count`.
 For example: if a game is using a 48 kHz `sample rate` with a `sample count` of 240, yuzu will now send the audio data to the sink at a rate of least 200 times per second — enough to keep the buffers full and prevent popping in the audio, fixing the problem.
 
-{{< imgs
-	"./audiofix.ogg| After (Hellblade: Senua's Sacrifice)"
-  >}}
+And here's `Hellblade: Senua's Sacrifice` again with the current fixes:
+
+{{< audio "./<audiofix.ogg>" >}}
 
 ## Graphical improvements
 
