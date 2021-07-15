@@ -6,42 +6,42 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-Heya yuz-ers! Welcome to June’s progress report. This time we have impressive CPU performance gains, Project Reaper v1, critical audio fixes, unlimited FPS, 
+Heya yuz-ers! Welcome to June’s progress report. This month, we've had impressive CPU performance gains, the release of Project Reaper v1, critical audio fixes, an "unlimited" FPS toggle, 
 tons of kernel changes, UI improvements, and more!
 
 <!--more-->
 
 ## Project Texture Reaper
 
-An old debt we had since the release of the [Texture Cache Rewrite](https://yuzu-emu.org/entry/yuzu-tcr/) was `Project Texture Reaper`, a `GPU Cache Garbage Collector`
+An old debt we owed since the release of the [Texture Cache Rewrite](https://yuzu-emu.org/entry/yuzu-tcr/) was `Project Texture Reaper`, a `GPU Cache Garbage Collector`,
 originally started by [Rodrigo](https://github.com/ReinUsesLisp) and finished by [Blinkhawk](https://github.com/FernandoS27) with new and very important optimizations.
 
 [This garbage collector](https://github.com/yuzu-emu/yuzu/pull/6465) has the task of freeing VRAM space by removing the least used resources (textures and buffers), 
-targeting a range of 2 to 4GB of total VRAM in use. This range has been decided by Blinkhawk after extensive testing.
+targeting a range of 2 to 4GB of total used VRAM. This range has been decided by Blinkhawk after extensive testing.
 
 It’s worth mentioning that GPUs with 2GB of VRAM or less will be handled by either the driver (in OpenGL) or yuzu (in Vulkan), diverting resources to shared VRAM 
 (a portion of system RAM) as needed.
-For performance reasons we strongly recommend a GPU with 4GB of VRAM or more.
+For performance reasons, we strongly recommend a GPU with 4GB of VRAM or more.
 
-While this is a critical feature for our Windows AMD Radeon and Intel GPU users that suffer from bad OpenGL performance and rendering, all GPU vendors benefit from it, 
-making it a safe option to use from now on on most games, with the exception of very few ones, most notably `Super Mario Odyssey` running in OpenGL.
+While this is a critical feature for our Windows AMD Radeon and Intel GPU users that suffer from bad OpenGL performance and rendering, all GPU vendors benefit from it.
+This makes it a safe option to use in most games going forward, with the exception of a few outliers: most notably `Super Mario Odyssey` running in OpenGL.
 
-The end results speak for themselves, games like `Xenoblade Chronicles 2` can now be played perfectly fine in either OpenGL or Vulkan.
-In the following graphs you will see the effects of Reaper in action. Test system is running an Nvidia Geforce GTX 1650 SUPER with 4GB of VRAM, API in use is Vulkan to avoid 
-any possible driver-level garbage collector.
+The end results speak for themselves. Games like `Xenoblade Chronicles 2` can now be played perfectly fine in either OpenGL or Vulkan.
+In the following graphs, you can see the effects of Reaper in action. Our test system is running an Nvidia GeForce GTX 1650 SUPER with 4GB of VRAM, and the API in use is Vulkan (in order to avoid 
+any possible driver-level garbage collector).
 
 {{< imgs
 	"./reaper1.png| Before"
   >}}
 
-This result has Reaper disabled just after starting the game. VRAM utilization quickly rises to the maximum 4GB available on the testing graphics card.
-Once that starts to happen, the GPU driver will start to use system RAM as fallback, continuing to pile up resources until the application crashes.
+The above (Before) result has Reaper disabled just after starting the game. VRAM utilization quickly rises to the maximum 4GB available on the testing graphics card.
+Once the available VRAM is consumed, the GPU driver will start to use system RAM as a fallback, continuing to pile up resources until the application crashes.
 
 {{< imgs
 	"./reaper2.png| After"
   >}}
 
-This result has Reaper enabled, you can see how the GPU keeps a steady 2.5-2.6GB of VRAM utilization after several minutes of gameplay, until a sudden spike in use happens. 
+The above (After) result has Reaper enabled. You can see how the GPU keeps a steady 2.5-2.6GB of VRAM utilization after several minutes of gameplay, until a sudden spike in use happens. 
 Reaper intervenes and VRAM utilization quickly returns to the average idle of 2.5GB.
 
 Reaper is available to all users in `Emulation > Configure… > Graphics > Advanced > Enable GPU Cache Garbage Collector`.
@@ -85,7 +85,7 @@ With this change, it’s now possible to toggle this option on and lose some pre
 
 Yes Merry, [Apple is indeed a POSIX system.](https://github.com/yuzu-emu/yuzu/pull/6532)
 
-[bunnei](https://github.com/bunnei) continues working on our kernel, and the highlights this month are related to fixes for a number of bugs in some Pokémon games.
+[bunnei](https://github.com/bunnei) continues to work on our kernel, and the highlights this month are related to fixes for a number of bugs in some Pokémon games.
 
 [By allocating `ServiceThreads` per service handler instead of per session](https://github.com/yuzu-emu/yuzu/pull/6414), a race condition that resulted in crashes and softlocks in `Pokken Tournament DX` was fixed.
 
@@ -120,63 +120,63 @@ And this is `Hellblade: Senua's Sacrifice` again, now with the current implement
 This change fixed the slow audio in titles such as `ARK`, `Bulletstorm`, and `Megademension Neptunia VII`, while also — on top of improving the quality — it solved the audio softlocks in `Donkey Kong Country: Tropical Freeze` and `Xenoblade Chronicles 2`.
 
 {{< single-title-imgs
-    "Better audio, and stable gameplay! (Xenoblade Chronicles 2 & Donkey Kong Country: Tropical Freeze)"
+    "Better audio and stable gameplay! (Xenoblade Chronicles 2 & Donkey Kong Country: Tropical Freeze)"
     "./xc2.png"
     "./dktf.png"
     >}}
 
 ## Graphical improvements
 
-Let’s start with something nice, `Unlimited FPS`.
+Let’s start with something nice, `Unlimited FPS`!
 [Epicboy](https://github.com/ameerj) implemented a toggle that 
-[allows the rendering service nvflinger to disable the buffer swap interval limit,](https://github.com/yuzu-emu/yuzu/pull/6475) allowing the GPU to process frames as soon 
+[allows the rendering service, nvflinger, to disable the buffer swap interval limit,](https://github.com/yuzu-emu/yuzu/pull/6475) allowing the GPU to process frames as soon 
 as they are available, resulting in no FPS limit on games that allow this behaviour.
 
 {{< imgs
-	"./unlimitedfps.png| Beat me!"
+	"./unlimitedfps.png| Beat my framerate!"
   >}}
 
-A default hotkey for toggling the FPS limit was added too, by pressing `Ctrl + U` during gameplay. 
-For the best results, `Vertical Synchronization` or vSync should be disabled on the GPU driver control panel, else the games will be limited by the refresh rate of the monitor.
+A default hotkey for toggling the FPS limit was also added, say hello to `Ctrl + U`!
+For the best results, `Vertical Synchronization` (or vSync) should be disabled in the GPU driver control panel, otherwise games will be constrained by the refresh rate of the monitor.
 Keep in mind, not all games like the setting, some will ignore it, some will not behave well (running faster for example), and some will outright break. 
 Case-by-case user testing applies.
 
 Some examples of games that have full dynamic FPS support are:
 
-- `Hollow Knight`.
-- `DRAGON QUEST BUILDERS 2`.
-- `Dragon Quest XI S: Echoes of an Elusive Age - Definitive Edition`.
-- `WORLD OF FINAL FANTASY MAXIMA`.
-- `FINAL FANTASY XV POCKET EDITION HD`.
-- `Hungry Shark® World`.
-- `MONSTER HUNTER STORIES 2: WINGS OF RUIN`.
-- `NEO: The World Ends with You` demo.
-- `MISTOVER`.
-- `Crash™ Team Racing Nitro-Fueled`.
-- `Crash Bandicoot™ N. Sane Trilogy`.
-- ...and many more.
+- `Hollow Knight`
+- `DRAGON QUEST BUILDERS 2`
+- `Dragon Quest XI S: Echoes of an Elusive Age - Definitive Edition`
+- `WORLD OF FINAL FANTASY MAXIMA`
+- `FINAL FANTASY XV POCKET EDITION HD`
+- `Hungry Shark® World`
+- `MONSTER HUNTER STORIES 2: WINGS OF RUIN`
+- `NEO: The World Ends with You` demo
+- `MISTOVER`
+- `Crash™ Team Racing Nitro-Fueled`
+- `Crash Bandicoot™ N. Sane Trilogy`
+- ...and many more
 
-ASTC texture decoding is a complex topic on emulation, as no desktop graphics card has the required hardware support needed to process these heavily compressed textures. 
+ASTC texture decoding is a complex topic when it comes to emulation, as no desktop graphics card has the required hardware support needed to process these heavily compressed textures. 
 The only exception is Intel with their integrated HD Graphics and UHD Graphics series.
 
 [In the past,](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/) epicboy implemented a way to accelerate ASTC texture decoding via the use of `Compute Shaders`,
 improving decoding performance considerably thanks to taking advantage of the great computing power of modern GPUs.
 
-The issue is that in some games, for example `Astral Chain`, a synchronization issue caused yuzu to try to access a texture before its decoding was finished, resulting in 
+The issue is that in some games, `Astral Chain` for example, a synchronization issue caused yuzu to try to access a texture before its decoding was finished, resulting in 
 driver panics and application crashes. 
 [Implementing various optimizations and enhancements to the GPU accelerated decoder](https://github.com/yuzu-emu/yuzu/pull/6496) solved those crashes, even on a simple GT 
 730, a card 41.5x times weaker than an RTX 2080 SUPER in compute performance.
 
-After Project Hades is finished, there are plans to implement performance optimizations on the ASTC GPU accelerated decoder.
+Now that [Project Hades](https://yuzu-emu.org/entry/yuzu-hades/) is finished, there are plans to implement performance optimizations on the ASTC GPU accelerated decoder.
 
-Previous to this work, [a toggle to disable the GPU accelerated decoder](https://github.com/yuzu-emu/yuzu/pull/6464) was added for debugging purposes.
+Prior to this work, [a toggle to disable the GPU accelerated decoder](https://github.com/yuzu-emu/yuzu/pull/6464) was added for debugging purposes.
 It’s no longer needed, but if anyone is curious about how much of a difference decoding with the CPU makes, the option is in `Emulation > Configure… > Graphics > 
 Accelerate ASTC texture decoding`.
 
-By [avoid creating image views for blits for different bytes per block, ](https://github.com/yuzu-emu/yuzu/pull/6469) Rodrigo solved crashes experienced by Unreal Engine 4 
+By [avoiding creating image views for blits for different bytes per block, ](https://github.com/yuzu-emu/yuzu/pull/6469) Rodrigo solved crashes experienced with Unreal Engine 4 
 games on Vulkan.
 
-Speaking about blits, [vonchenplus](https://github.com/vonchenplus) found out our previous way of handling out of bounds texture blits wasn’t accurate enough, causing 
+Speaking of blits, [vonchenplus](https://github.com/vonchenplus) found that our previous way of handling out of bounds texture blits wasn’t accurate enough, causing 
 rendering glitches in games like `DRAGON QUEST III The Seeds of Salvation`.
 [Adding an offset to the source texture address](https://github.com/yuzu-emu/yuzu/pull/6531) puts this bug to rest.
 
@@ -186,7 +186,7 @@ rendering glitches in games like `DRAGON QUEST III The Seeds of Salvation`.
     "./blitfix.png"
     >}}
 
-Some games running in Vulkan like `Super Smash Bros. Ultimate` or `A Hat in Time` can cause loops decoding textures, resulting in `Out of Bounds` access on an array, 
+Some games running in Vulkan, like `Super Smash Bros. Ultimate` or `A Hat in Time`, can cause loops decoding textures, resulting in `Out of Bounds` access on an array, 
 potentially leading to a crash, and breaking our Flatpak support.
 [As preemptive work](https://github.com/yuzu-emu/yuzu/pull/6410), [toastUnlimited](https://github.com/lat9nq) added a `break` safeguard, and now Flatpaks work as intended.
 Having less crashes is always better, right?
@@ -194,14 +194,14 @@ Having less crashes is always better, right?
 ## General changes and bugfixes
 
 `discord-rpc`, the submodule in charge of handling Discord’s `Rich Presence` “Now Playing” feature, [was updated](https://github.com/yuzu-emu/yuzu/pull/6484) by 
-[Vortex](https://github.com/CaptV0rt3x) to the last version before it was deprecated in favour of a closed-source alternative named `GameSDK` which of course we can’t use.
-Since discord-rpc still is compatible with Rich Presence, this update should provide more stable reporting in your Discord Status.
+[Vortex](https://github.com/CaptV0rt3x) to the last version before it was deprecated in favour of a closed-source alternative named `GameSDK` which, of course, we can’t use.
+Since `discord-rpc` still is compatible with `Rich Presence`, this update should provide more stable reporting in your Discord Status.
 
 Vortex also [updated `httplib`](https://github.com/yuzu-emu/yuzu/pull/6486), removing the need for previous fixes, solving issues with token verification and 
 Compatibility Report uploading.
 
-We previously mentioned Flatpak support. [liushuyu](https://github.com/liushuyu) requested [Flathub](https://flathub.org/home) to add yuzu to their repositories, 
-officially adding [another installation option](https://flathub.org/apps/details/org.yuzu_emu.yuzu) to our Linux users.
+We previously mentioned Flatpak support. [liushuyu](https://github.com/liushuyu) requested that [Flathub](https://flathub.org/home) add yuzu to their repositories, 
+officially providing [another installation option](https://flathub.org/apps/details/org.yuzu_emu.yuzu) for our Linux users.
 
 Maide implemented the `GetAudioOutPlayedSampleCount` service, making `Ninja Gaiden` series games playable!
 
@@ -213,31 +213,31 @@ Maide implemented the `GetAudioOutPlayedSampleCount` service, making `Ninja Gaid
   >}}
 
 [german77](https://github.com/german77) has been having fun rewriting how analog input is handled by yuzu.
-The old method handled each analog joystick in a separate thread, periodically updating the angle held by the user. This is not only imprecise, it’s also slower and it was 
-found out to cause data races, eventually leading to random crashes.
+The old method handled each analog joystick in a separate thread, periodically updating the angle held by the user. This is not only imprecise, but also slower and was 
+found to cause data races, eventually leading to random crashes.
 
 [By removing the need for separate threads, and using timestamps the game can consult at its own request](https://github.com/yuzu-emu/yuzu/pull/6389), the data race is 
-avoided, eliminating the crashes, movement in games is considerably smoother, and resource utilization is lower, helping performance.
-A victory in all scenarios.
+avoided. This eliminates the crashes, results in considerably smoother movement, and lowers resource utilization, helping performance.
+A victory in all scenarios!
 
-[Thanks to changes made upstream,](https://github.com/yuzu-emu/yuzu/pull/6450), by updating the `SDL` version in use [toastUnlimited](https://github.com/lat9nq) solved 
+[Thanks to changes made upstream](https://github.com/yuzu-emu/yuzu/pull/6450) and then updating the `SDL` version in use [toastUnlimited](https://github.com/lat9nq). resolved 
 crashes experienced by Linux users right when opening yuzu.
 
-[kilaye](https://github.com/clementgallet) has been giving us a hand in an often forgotten area of yuzu, the `yuzu-cmd` binary, which is intended as an SDL2 alternative of 
+[kilaye](https://github.com/clementgallet) has been giving us a hand in an often forgotten area of yuzu, the `yuzu-cmd` binary, which is intended as an SDL2 alternative to 
 the most commonly used `yuzu` Qt interface binary.
 [OpenGL wasn’t rendering](https://github.com/yuzu-emu/yuzu/pull/6412) due to recent changes applied, and a bad initialization of 
 [touch_from_button](https://github.com/yuzu-emu/yuzu/pull/6411) was causing crashes.
-All fixed thanks to kilaye’s work.
+All were fixed thanks to kilaye’s work.
 
-While on an SDL2 rush, kilaye also [implemented an SDL2 audio backend](https://github.com/yuzu-emu/yuzu/pull/6418) as an alternative to our cubeb backend in use by default.
-More work is needed to refine its performance and end-results, but having an easy to maintain multi-platform backend is never a bad idea.
+While on an SDL2 rush, kilaye also [implemented an SDL2 audio backend](https://github.com/yuzu-emu/yuzu/pull/6418) as an alternative to our default cubeb backend.
+More work is needed to refine its performance and end-results, but having an easy-to-maintain, multi-platform backend is never a bad idea.
 
 ## Filesystem changes
 
 toastUnlimited has been working along with [morph](https://github.com/Morph1984) to improve the experience of using the 
 [Ultimate Mod Manager](https://github.com/ultimate-research/UltimateModManager) application with yuzu — a tool that allows one to mod `Super Smash Bros. Ultimate`.
 First, toast added an option in the context menu of a game to support [dumping the RomFS to the SDMC subdirectory](https://github.com/yuzu-emu/yuzu/pull/6471), while morph 
-[did the necessary changes](https://github.com/yuzu-emu/yuzu/pull/6472) for this setup to work.
+[made the necessary changes](https://github.com/yuzu-emu/yuzu/pull/6472) for this setup to work.
 
 New users intending to use UMM only need to right click the game in yuzu’s game list and select `Dump RomFS > Dump RomFPS to SDMC`.
 
@@ -252,38 +252,38 @@ You can now run the game without major issues, even when fully updated.
 When dumping RomFS to disk, there has to be enough free space. Morph 
 [added a check to avoid users trying to dump without enough room.](https://github.com/yuzu-emu/yuzu/pull/6451)
 
-Due to a bug in the Microsoft Visual C++ (or just MSVC) compiler, a crash could happen when trying to access folders recursively in order to load game dumps on yuzu’s game 
+Due to a bug in the Microsoft Visual C++ (or just MSVC) compiler, a crash could happen when trying to access folders recursively in order to load game dumps in yuzu’s game 
 list.
-Morph fixed it by changing the `recursive_directory_iterator` class [for the `directory_iterator` class.](https://github.com/yuzu-emu/yuzu/pull/6448) 
+Morph fixed it by replacing the `recursive_directory_iterator` class [with the `directory_iterator` class](https://github.com/yuzu-emu/yuzu/pull/6448).
 
 ## UI changes
 
-Some changes by Epicboy have been done to the title bar. 
-To begin with, now games [will display if they are built for the 32-bit or 64-bit instruction set.](https://github.com/yuzu-emu/yuzu/pull/6535)
-This will help determine if Unsafe CPU should be used to get the previously mentioned performance optimization.                                                .
+Some changes have been done to the title bar by epicboy. 
+To begin with, games will now [display if they are built for the 32-bit or 64-bit instruction set.](https://github.com/yuzu-emu/yuzu/pull/6535)
+This will help determine when `Unsafe CPU` should be used to get the previously mentioned performance optimization.
 
 Additionally, [the GPU vendor will now be displayed too.](https://github.com/yuzu-emu/yuzu/pull/6502)
-This is not only for debugging purposes or for providing better support to users, it also clarifies which driver is in use on systems running multiple GPUs.
+This is not only for debugging purposes or providing better support to users, it also clarifies which driver is in use on systems running multiple GPUs.
 One would think there are only 3 vendors per API, but that’s far from reality.
-[By checking the list](https://github.com/yuzu-emu/yuzu/pull/6502/files) you can see there are many different reported vendors for different needs, including CPU 
+[By checking the list](https://github.com/yuzu-emu/yuzu/pull/6502/files), you can see there are many different reported vendors for different needs, including CPU 
 software rendering drivers.
 
-As their first Pull Request for yuzu, [OZ](https://github.com/OZtistic) 
+For their first Pull Request with yuzu, [OZ](https://github.com/OZtistic) 
 [corrected the size of the Per-Game configuration window and removed the useless “help” button](https://github.com/yuzu-emu/yuzu/pull/6514) in the top right corner.
 
 {{< imgs
 	"./oz.png| Thanks OZ!"
   >}}
 
-toastUnlimited added a new option to the right click context menu on any game on yuzu’s game list.
-You can now [right click a game and start it from there](https://github.com/yuzu-emu/yuzu/pull/6426) with any custom per-game configuration you may have, or start it with 
+toastUnlimited added a new option to the right click context menu on any game in yuzu’s game list.
+You can now [right click a game and launch it](https://github.com/yuzu-emu/yuzu/pull/6426) with any custom per-game configuration you may have, or with 
 the current global settings.
 
 {{< imgs
 	"./start.png| Quick way to test two different sets of settings"
   >}}
 
-Column sizes of the game list used to constantly resize during updates or DLC installation to NAND, resulting in an extreme width that made the game list uncomfortable to use.
+Column sizes in the game list used to constantly resize during updates or DLC installation to NAND, resulting in an extreme width that made the game list uncomfortable to use.
 Maide [put a stop to this](https://github.com/yuzu-emu/yuzu/pull/6402), improving the quality of life of our UI.
 
 [Kewlan](https://github.com/yuzu-emu/yuzu/pull/6413) is back at it, this time 
@@ -298,9 +298,9 @@ Maide [put a stop to this](https://github.com/yuzu-emu/yuzu/pull/6402), improvin
 With Project Hades [(our new shader decompiler)](https://yuzu-emu.org/entry/yuzu-hades/), Rodrigo continues with his crazy experiments, bunnei has yet more kernel changes in the oven, and german77 and Morph continue
 to work on their top secret projects.
 
-More GPU related optimizations are underway. Users should keep a keen eye on the horizon.
+More GPU related optimizations are underway, and users should keep a keen eye on the horizon.
 
-That’s all folks! As always, [thank you for your kind attention.](https://www.youtube.com/watch?v=88NM0bgJfLM)
+That’s all folks! As always, we hope you keep enjoying yuzu.
 See you next month!
 
 &nbsp;
