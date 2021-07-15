@@ -53,14 +53,14 @@ resource use by avoiding creating new textures after each resolution change.
 
 ## One does not simply fastmem into Windows
 
-This was a very exciting month, as we were able to [implement `fastmem`](https://github.com/yuzu-emu/yuzu/pull/6422), a technique that provides a considerable performance boost by reducing the CPU load when accessing memory within yuzu.
-Instead of emulating the Nintendo Switch's Memory Management Unit (`MMU`) through software, yuzu is now able to use the host PC `MMU` to decode memory addresses, reducing the latency and also size of the code of this operation, making a more efficient usage of the instruction cache (used to store instructions within the CPU and speed up the fetching stage).
+This was a very exciting month as we were able to [implement `fastmem`](https://github.com/yuzu-emu/yuzu/pull/6422), a technique that provides a considerable performance boost by reducing the CPU load when accessing memory within yuzu.
+Instead of emulating the Nintendo Switch's Memory Management Unit (`MMU`) through software, yuzu is now able to use the host PC `MMU` to decode memory addresses. This reduces the latency and size of the code of this operation, allowing for a more efficient use of the instruction cache (used to store instructions within the CPU and speed up the fetching stage).
 
-Originally, implementing fastmem in yuzu wasn't considered an option as there was a technical limitation on the Windows OS, but thanks to some changes in the API introduced on Windows 10 version 1083, it finally became doable.
-However, due to a lack of documentation of this feature, our devs didn't know they could use it.
-We'd like to thank [BreadFish64](https://github.com/BreadFish64/) for informing our devs about this change, and [bylaws](https://github.com/bylaws) for [reporting Microsoft about this behaviour so it's referenced in their official documentation](https://github.com/MicrosoftDocs/sdk-api/pull/799). 
-As was previously mentioned, this feature is incompatible for Windows OS previous to Windows 10 version 1803, where the old `MMU` implementation is used in such cases as a fallback — although this requirement could change in the future.
-In case you are interested in a more detailed explanation of how it works and the limitations that prevented its implementation, we have written a [dedicated article to fastmem](https://yuzu-emu.org/entry/yuzu-fastmem/), so feel free to check it out if you haven't.
+Originally, implementing fastmem in yuzu wasn't considered an option as there was a technical limitation in the Windows OS, but thanks to some changes in the API introduced in Windows 10 version 1803, it finally became viable.
+However, due to a lack of documentation of this feature (thanks Microsoft), our devs didn't know they could use it.
+We'd like to thank [BreadFish64](https://github.com/BreadFish64/) for informing our devs about this change, and [bylaws](https://github.com/bylaws) for [updating Microsoft's documentation regarding this behaviour](https://github.com/MicrosoftDocs/sdk-api/pull/799). 
+As previously mentioned, this feature is incompatible with Windows versions older than 1803. Using an older Windows version will cause yuzu to fallback to the old `MMU` implementation — although this requirement could change in the future.
+If you are interested in a more detailed explanation of how it works and the limitations that prevented its implementation, feel free to read the [dedicated article for fastmem](https://yuzu-emu.org/entry/yuzu-fastmem/).
 
 {{< single-title-imgs
     "Some of the measured performance gains, in FPS"
@@ -68,22 +68,22 @@ In case you are interested in a more detailed explanation of how it works and th
     "./fastmem2.png"
     >}}
 
-Shortly afterwards, [toastunlimited](https://github.com/lat9nq) noticed there was a bug on our MinGW builds, where fastmem wasn't working.
-This was because the defined constant `MEM_RESERVE_PLACEHOLDER`, a mask value used for reserve virtual memory as a placeholder, was manually imported for these builds, but incorrectly declared.
+Shortly afterwards, [toastunlimited](https://github.com/lat9nq) noticed there was a bug in our MinGW builds, resulting in fastmem not working.
+This was because the defined constant `MEM_RESERVE_PLACEHOLDER`, a mask value used for reserving virtual memory as a placeholder, was manually imported for these builds, but incorrectly declared.
 Thankfully, the fix was as simple as redeclaring it with the correct value, which Toast [did in this PR](https://github.com/yuzu-emu/yuzu/pull/6494).
 
 ## Core changes
 
-Meanwhile, [Merry](https://github.com/MerryMage) tweaked dynarmic to add a [new unsafe CPU option](https://github.com/yuzu-emu/yuzu/pull/6499), which optimises performance for the 32-bit [`ASIMD` instructions](https://en.wikipedia.org/wiki/ARM_architecture#Advanced_SIMD_(Neon)), improving the performance in titles such as `Mario Kart 8 Deluxe` and `Megadimension Neptunia VII`.
+Meanwhile, [Merry](https://github.com/MerryMage) tweaked dynarmic to add a [new unsafe CPU option](https://github.com/yuzu-emu/yuzu/pull/6499). This new option optimizes performance for the 32-bit [`ASIMD` instructions](https://en.wikipedia.org/wiki/ARM_architecture#Advanced_SIMD_(Neon)), improving the performance in titles such as `Mario Kart 8 Deluxe` and `Megadimension Neptunia VII`.
 
-[Float-point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic) are represented as an exponent in base 2, and a fixed number of significant bits.
+[Floating-point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic) are represented as an exponent in base 2, and a fixed number of significant bits.
 But there's a limit to how small a number can be represented as a float, which depends on these significant bits, and the numbers that fall below this threshold are called [Denormal Numbers](https://en.wikipedia.org/wiki/Denormal_number).
 Depending on the CPU architecture or the instruction performed, these numbers may be ignored and considered zero (called `FZ` mode, "flush to zero"), while others are capable of operating with these denormal values.
-This is the case with these `ASIMD` instructions, whose logic for float-point operations is different from other instructions in the `ARM` architecture.
+This is the case with these `ASIMD` instructions, whose logic for floating-point operations is different from other instructions in the `ARM` architecture.
 To properly emulate the behaviour of these `ASIMD` operations, which ignore the `FZ` flag, it is necessary to modify the `MXCSR` register — which is a very expensive operation — not only once, but twice (to set and unset this flag before and after every instruction).
 With this change, it’s now possible to toggle this option on and lose some precision in favour of performance.
 
-Yes Merry, [Apple is indeed a POSIX system.](https://github.com/yuzu-emu/yuzu/pull/6532)
+A few days later, Merry followed up with the affirmation that yes, [Apple is indeed a POSIX system.](https://github.com/yuzu-emu/yuzu/pull/6532)
 
 [bunnei](https://github.com/bunnei) continues to work on our kernel, and the highlights this month are related to fixes for a number of bugs in some Pokémon games.
 
@@ -91,14 +91,14 @@ Yes Merry, [Apple is indeed a POSIX system.](https://github.com/yuzu-emu/yuzu/pu
 
 In the same vein, a crash affecting `Pokémon Sword/Shield` — also caused by a race condition — was fixed by [removing the service thread manager and refactoring the code to use weak pointers](https://github.com/yuzu-emu/yuzu/pull/6428).
 But this wasn't the only kernel change solving a problem with this game.
-bunnei checked our session code and fixed another crash caused by [disconnected sessions trying to overwrite a cloned session's handler](https://github.com/yuzu-emu/yuzu/pull/6441).
+bunnei investigated our session code and fixed another crash caused by [disconnected sessions trying to overwrite a cloned session's handler](https://github.com/yuzu-emu/yuzu/pull/6441).
 The sessions were also being reserved more times than needed, causing yuzu to run out of available sessions.
 For this reason, [he made sure to remove these redundant reservations](https://github.com/yuzu-emu/yuzu/pull/6444) to solve the problem.
 
 bunnei also noticed that the error check for `CancelSynchronization` — used to manage threads — was missing and [added it on this PR](https://github.com/yuzu-emu/yuzu/pull/6440).
 This change allows yuzu to avoid a potential crash now, while also making the implementation more accurate.
 
-On top of these kernel changes, bunnei has also been implementing more of the changes introduced by the version 12.X.X of the Switch’s firmware, allowing `DOOM Eternal` to boot with its update 1.5 installed — although the game still requires more work in order to start rendering correctly.
+On top of these kernel changes, bunnei has also been implementing more of the changes introduced by version 12.X.X of the Switch’s firmware, allowing `DOOM Eternal` to boot with its update 1.5 installed — although the game still requires more work in order to start rendering correctly.
 
 ## Audio changes
 
@@ -111,13 +111,13 @@ This is how `Hellblade: Senua's Sacrifice` sounded with the old implementation:
 
 {{< audio "./audiobug.mp3" >}}
 
-By [decoupling the processing and sending of audio samples from the update function](https://github.com/yuzu-emu/yuzu/pull/6498), the games now will be able to call the update function every time they need it (a process that yuzu can't control), while a separate audio thread will process the sample data and send it to the sink. With this new implementation, yuzu is now capable of schedule the rate at which it will be sending this audio information based on the `sample rate` and the `sample count`. For example: if a game is using a 48 kHz `sample rate` with a `sample count` of 240, yuzu will now send the audio data to the sink at a rate of least 200 times per second — enough to keep the buffers full and prevent these problems with the audio.
+By [decoupling the processing and sending of audio samples from the update function](https://github.com/yuzu-emu/yuzu/pull/6498), the games now will be able to call the update function every time they need it (a process that yuzu can't control), while a separate audio thread will process the sample data and send it to the sink. With this new implementation, yuzu is now capable of scheduling the rate at which it will be sending this audio information based on the `sample rate` and the `sample count`. For example: if a game is using a 48 kHz `sample rate` with a `sample count` of 240, yuzu will now send the audio data to the sink at a rate of least 200 times per second — enough to keep the buffers full and prevent these problems with the audio.
 
 And this is `Hellblade: Senua's Sacrifice` again, now with the current implementation merged:
 
 {{< audio "./audiofix.mp3" >}}
 
-This change fixed the slow audio in titles such as `ARK`, `Bulletstorm`, and `Megademension Neptunia VII`, while also — on top of improving the quality — it solved the audio softlocks in `Donkey Kong Country: Tropical Freeze` and `Xenoblade Chronicles 2`.
+This change fixed the slow audio in titles such as `ARK`, `Bulletstorm`, and `Megademension Neptunia VII`, while also — on top of improving the quality — solving the audio softlocks in `Donkey Kong Country: Tropical Freeze` and `Xenoblade Chronicles 2`.
 
 {{< single-title-imgs
     "Better audio and stable gameplay! (Xenoblade Chronicles 2 & Donkey Kong Country: Tropical Freeze)"
