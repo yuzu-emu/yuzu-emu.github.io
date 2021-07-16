@@ -56,7 +56,7 @@ resource use by avoiding creating new textures after each resolution change.
 This was a very exciting month as we were able to [implement `fastmem`](https://github.com/yuzu-emu/yuzu/pull/6422), a technique that provides a considerable performance boost by reducing the CPU load when accessing memory within yuzu.
 Instead of emulating the Nintendo Switch's Memory Management Unit (`MMU`) through software, yuzu is now able to use the host PC `MMU` to decode memory addresses. This reduces the latency and size of the code of this operation, allowing for a more efficient use of the instruction cache (used to store instructions within the CPU and speed up the fetching stage).
 
-Originally, implementing fastmem in yuzu wasn't considered an option as there was a technical limitation in the Windows OS, but thanks to some changes in the API introduced in Windows 10 version 1803, it finally became viable.
+Originally, implementing `fastmem` in yuzu wasn't considered an option as there was a technical limitation in the Windows OS, but thanks to some changes in the API introduced in Windows 10 version 1803, it finally became viable.
 However, due to a lack of documentation of this feature (thanks Microsoft), our devs didn't know they could use it.
 We'd like to thank [BreadFish64](https://github.com/BreadFish64/) for informing our devs about this change, and [bylaws](https://github.com/bylaws) for [updating Microsoft's documentation regarding this behaviour](https://github.com/MicrosoftDocs/sdk-api/pull/799). 
 As previously mentioned, this feature is incompatible with Windows versions older than 1803. Using an older Windows version will cause yuzu to fallback to the old `MMU` implementation — although this requirement could change in the future.
@@ -68,7 +68,7 @@ If you are interested in a more detailed explanation of how it works and the lim
     "./fastmem2.png"
     >}}
 
-Shortly afterwards, [toastunlimited](https://github.com/lat9nq) noticed there was a bug in our MinGW builds, resulting in fastmem not working.
+Shortly afterwards, [toastunlimited](https://github.com/lat9nq) noticed there was a bug in our MinGW builds, resulting in `fastmem` not working.
 This was because the defined constant `MEM_RESERVE_PLACEHOLDER`, a mask value used for reserving virtual memory as a placeholder, was manually imported for these builds, but incorrectly declared.
 Thankfully, the fix was as simple as redeclaring it with the correct value, which Toast [did in this PR](https://github.com/yuzu-emu/yuzu/pull/6494).
 
@@ -220,7 +220,7 @@ found to cause data races, eventually leading to random crashes.
 avoided. This eliminates the crashes, results in considerably smoother movement, and lowers resource utilization, helping performance.
 A victory in all scenarios!
 
-[Thanks to changes made upstream](https://github.com/yuzu-emu/yuzu/pull/6450) and then updating the `SDL` version in use [toastUnlimited](https://github.com/lat9nq). resolved 
+[Thanks to changes made upstream](https://github.com/yuzu-emu/yuzu/pull/6450), [toastUnlimited](https://github.com/lat9nq) was able to update the `SDL` version in use, resolving 
 crashes experienced by Linux users right when opening yuzu.
 
 [kilaye](https://github.com/clementgallet) has been giving us a hand in an often forgotten area of yuzu, the `yuzu-cmd` binary, which is intended as an SDL2 alternative to 
