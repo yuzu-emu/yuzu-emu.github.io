@@ -6,7 +6,7 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-Heya yuz-ers! Welcome to June’s progress report. This month, we've had impressive CPU performance gains, the release of Project Reaper v1, critical audio fixes, an "unlimited" FPS toggle, 
+Heya yuz-ers! Welcome to June’s progress report. This past month, we've had impressive CPU performance gains, the release of Project Reaper v1, critical audio fixes, an "unlimited" FPS toggle, 
 tons of kernel changes, UI improvements, and more!
 
 <!--more-->
