@@ -239,7 +239,7 @@ toastUnlimited has been working along with [morph](https://github.com/Morph1984)
 First, toast added an option in the context menu of a game to support [dumping the RomFS to the SDMC subdirectory](https://github.com/yuzu-emu/yuzu/pull/6471), while morph 
 [made the necessary changes](https://github.com/yuzu-emu/yuzu/pull/6472) for this setup to work.
 
-New users intending to use UMM only need to right click the game in yuzu’s game list and select `Dump RomFS > Dump RomFPS to SDMC`.
+New users intending to use UMM only need to right click the game in yuzu’s game list and select `Dump RomFS > Dump RomFS to SDMC`.
 
 {{< imgs
 	"./umm.png| "
