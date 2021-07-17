@@ -3,7 +3,7 @@ date = "2021-07-16T12:00:00-03:00"
 title = "Progress Report June 2021"
 author = "GoldenX86"
 coauthor = "Honghoa"
-forum = 0
+forum = 431984
 +++
 
 Heya yuz-ers! Welcome to June’s progress report. This past month, we've had impressive CPU performance gains, the release of Project Reaper v1, critical audio fixes, an "unlimited" FPS toggle, 
