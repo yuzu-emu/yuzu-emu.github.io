@@ -426,9 +426,9 @@ addressed on this PR.
 ## Technical Changes
 
 Meanwhile, [bunnei](https://github.com/bunnei) was busy [improving the management of kernel objects](https://github.com/yuzu-emu/yuzu/pull/6551), reducing drastically the 
-amount of objects that kept dangling on memory after closing the emulation session.
+amount of objects that kept dangling in memory after closing the emulation session.
 
-A dangling object refers to information that has references in memory (i.e. pointers to access it), even though the object isn't being used any more.
+A dangling object refers to a stale object in memory that still has references, even though the object is no longer in use.
 
 In yuzu, kernel objects are implemented so that they keep track of themselves through a [reference counter](https://en.wikipedia.org/wiki/Reference_counting), which keeps the 
 object alive for as long as they're needed.
