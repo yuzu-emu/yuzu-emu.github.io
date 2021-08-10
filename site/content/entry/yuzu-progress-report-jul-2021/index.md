@@ -1,5 +1,5 @@
 +++
-date = "2021-08-09T12:00:00-03:00"
+date = "2021-08-10T12:00:00-03:00"
 title = "Progress Report July 2021"
 author = "GoldenX86"
 coauthor = "Honghoa"
@@ -444,7 +444,7 @@ What's more, since these objects stick around even after the emulation session i
 bunnei took a long look at the problem and improved the situation, but there's still ongoing work to make our implementation more robust and accurate.
 
 blink also had his share of bufixing work, as he revisited the texture cache code related to [1D-to-2D texture overlaps](https://github.com/yuzu-emu/yuzu/pull/6553), which 
-fixes problems in `Re:ZERO -Starting Life in Another World- The Prophecy of the Throne` and `Monster Hunter Rise`, among others. // inquire about more games and fixes.
+fixes problems in `Re:ZERO -Starting Life in Another World- The Prophecy of the Throne` and `Monster Hunter Rise`, among others.
 
 Similarly to how two-dimensional textures are mapped to three dimensions, one-dimensional textures are a simple type of texture that is mapped as two-dimensional when rendered 
 on the screen.
