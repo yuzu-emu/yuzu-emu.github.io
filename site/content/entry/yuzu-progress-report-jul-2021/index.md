@@ -38,7 +38,7 @@ There is an exception to make, the Intel Linux Vulkan driver is not stable at th
 stick to OpenGL.
 
 {{< imgs
-	"./perf.png| Integrated GPU users benefit the most from Hades"
+	"./perf_ea_vs_hades_ea.png| Integrated GPU users benefit the most from Hades"
   >}} 
 
 Hades implements a `Pipeline Cache` for both Vulkan and OpenGL, meaning no matter which API you are using, all shaders are now stored and reused the next time the game is 
