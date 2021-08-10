@@ -443,8 +443,7 @@ What's more, since these objects stick around even after the emulation session i
 
 bunnei took a long look at the problem and improved the situation, but there's still ongoing work to make our implementation more robust and accurate.
 
-blink also had his share of bufixing work, as he revisited the texture cache code related to [1D-to-2D texture overlaps](https://github.com/yuzu-emu/yuzu/pull/6553), which 
-fixes problems in `Re:ZERO -Starting Life in Another World- The Prophecy of the Throne` and `Monster Hunter Rise`, among others.
+blink also had his share of bufixing work, as he revisited the texture cache code related to [1D-to-2D texture overlaps](https://github.com/yuzu-emu/yuzu/pull/6553), which fixes problems in `Monster Hunter Rise` and the trial version of `Monster Hunter Stories 2: Wings of Ruin`.
 
 Similarly to how two-dimensional textures are mapped to three dimensions, one-dimensional textures are a simple type of texture that is mapped as two-dimensional when rendered 
 on the screen.
@@ -454,7 +453,7 @@ As such, it was necessary to add support for them, so that they can be processed
 With the changes on this PR, blink made it so that they can be copied seamlessly, fixing this faulty behaviour.
 
 {{< single-title-imgs
-    "From Zero to Hero ("MONSTER HUNTER STORIES 2 WINGS OF RUIN" Trial Version)"
+    "From Zero to Hero (MONSTER HUNTER STORIES 2: WINGS OF RUIN Trial Version)"
     "./1d2dbug.png"
     "./1d2dfix.png"
     >}}
