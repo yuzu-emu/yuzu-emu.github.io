@@ -396,6 +396,10 @@ Remember to unlock the framerate manually after you start a game!
 Certain game dumps contain several games inside them, and yuzu would default to only launching the first one in the list.
 [This change makes the necessary modifications so all games are properly listed.](https://github.com/yuzu-emu/yuzu/pull/6582)
 
+{{< imgs
+	"./games.png| "
+  >}}
+
 ## Command-Line Shenanigans
 
 toastUnlimited did a general [update to the settings of the command-line version of yuzu](https://github.com/yuzu-emu/yuzu/pull/6651), `yuzu-cmd`.
