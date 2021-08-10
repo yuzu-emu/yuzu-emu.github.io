@@ -443,7 +443,7 @@ What's more, since these objects stick around even after the emulation session i
 
 bunnei took a long look at the problem and improved the situation, but there's still ongoing work to make our implementation more robust and accurate.
 
-blink also had his share of bufixing work, as he revisited the texture cache code related to [1D-to-2D texture overlaps](https://github.com/yuzu-emu/yuzu/pull/6553), which fixes problems in `Monster Hunter Rise` and the trial version of `Monster Hunter Stories 2: Wings of Ruin`.
+blink also had his share of bufixing work, as he revisited the texture cache code related to [1D-to-2D texture overlaps](https://github.com/yuzu-emu/yuzu/pull/6553), which fixes problems in `Monster Hunter Rise` and both the the trial and final versions of `Monster Hunter Stories 2: Wings of Ruin`.
 
 Similarly to how two-dimensional textures are mapped to three dimensions, one-dimensional textures are a simple type of texture that is mapped as two-dimensional when rendered 
 on the screen.
