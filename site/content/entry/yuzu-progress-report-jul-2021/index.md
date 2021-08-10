@@ -184,7 +184,7 @@ To make the best out of this change, High GPU accuracy needs to be in use.
 
 {{< single-title-imgs
     "High GPU Accuracy is recommended (The Legend of Zelda: Breath of the Wild)"
-    "./poarticlebug.mp4"
+    "./particlebug.mp4"
     "./particlefix.mp4"
     >}}
 
