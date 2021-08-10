@@ -454,7 +454,7 @@ As such, it was necessary to add support for them, so that they can be processed
 With the changes on this PR, blink made it so that they can be copied seamlessly, fixing this faulty behaviour.
 
 {{< single-title-imgs
-    "From Zero to Hero ("MONSTER HUNTER STORIES 2: WINGS OF RUIN" Trial Version)"
+    "From Zero to Hero ("MONSTER HUNTER STORIES 2 WINGS OF RUIN" Trial Version)"
     "./1d2dbug.png"
     "./1d2dfix.png"
     >}}
