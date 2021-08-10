@@ -346,14 +346,9 @@ bleeding ears here and there.
 
 ## Input changes
 
-HD RUMBLE HERE
-
-// Hong: Rewording here (as HD rumble is not ready yet, this section doesn’t need a follow-up line to introduce these changes).
-
 Along with some miscellaneous QoL changes, [german77](https://github.com/german77) also changed the behaviour of recently enabled controllers in yuzu.
 In order to provide the most precise experience, now [sticks will be auto-centred](https://github.com/yuzu-emu/yuzu/pull/6698) the moment the device is detected by yuzu.
-Surprisingly, this happens with almost every game controller, sticks always are slightly off-centre, and if the dead zone value is small enough, users would perceive slight 
-drifting during gameplay
+Surprisingly, this happens with almost every game controller, sticks always are slightly off-centre, and if the dead zone value is small enough, users would perceive slight drifting during gameplay
 No drift in this emulator!
 
 Thanks to internal changes on how settings are stored, the default values of mouse panning were affected. 
