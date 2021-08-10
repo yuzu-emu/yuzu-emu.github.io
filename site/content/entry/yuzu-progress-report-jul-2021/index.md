@@ -443,8 +443,8 @@ memory, even though the information became basically useless at this point.
 One of the many jobs of the kernel in the OS is to keep track of all the resources available in the system.
 For this reason, these dangling objects were a problem, as the kernel calculates the number of resources that can be spawned based partly on the number of active objects in 
 memory.
-With dozens of different kernel objects being created thousands of times between emulation sessions, this easily saturated the amount of objects that could be spawned due to 
-yuzu hitting the resource limits much earlier than expected.
+With dozens of different kernel objects being created thousands of times between emulation sessions, this easily saturated the amount of objects that could be spawned due to yuzu hitting the resource limits much earlier than expected.
+What's more, since these objects stick around even after the emulation session is closed, this is a memory leak that would gradually increase for as long as the emulator is running a game — in other words, it would persist even if you stopped the emulation and started it again.
 
 bunnei took a long look at the problem and improved the situation, but there's still ongoing work to make our implementation more robust and accurate.
 
