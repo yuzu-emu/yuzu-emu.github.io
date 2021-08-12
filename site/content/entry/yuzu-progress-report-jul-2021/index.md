@@ -6,70 +6,65 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-Bienvenidos yuz-ers, to our latest monthly progress report! We have a *lot* to talk about this month, so buckle up, ‘cause this will be one good ride!
+Bienvenidos, yuz-ers, to our latest monthly progress report! We have a *lot* to talk about this month, so buckle up, ‘cause this will be one good ride!
 
 <!--more--> 
 
 # Project Hades
 
-[Kept you waiting huh.](https://www.youtube.com/watch?v=4Zq3OCrzn84)
-
 {{< imgs
 	"./hades.png| Why Hades? Well here's why!"
   >}}
 
-After being in development for six months, and spanning almost 50,000 lines of new code, `Project Hades`, the codename decided for our 
-[rewrite of the shader decompiler](https://github.com/yuzu-emu/yuzu/pull/6585) that has been worked on by [Rodrigo,](https://github.com/ReinUsesLisp) 
-[Blinkhawk,](https://github.com/FernandoS27) and [epicboy.](https://github.com/ameerj) has been finally released.
+[Kept you waiting, huh?](https://www.youtube.com/watch?v=4Zq3OCrzn84)
+After being in development for six months, and spanning almost 50,000 lines of new code, `Project Hades`, (https://github.com/ameerj) has been finally released. This massive [rewrite of the shader decompiler](https://github.com/yuzu-emu/yuzu/pull/6585) is brought to you by [Rodrigo,](https://github.com/ReinUsesLisp) [Blinkhawk,](https://github.com/FernandoS27) and [epicboy](https://github.com/ameerj).
 
-Fixing an innumerable amount of rendering bugs, reducing shader build times, improving compatibility, and increasing performance over 30% for all GPU vendors, this is easily 
+Fixing an innumerable amount of rendering bugs, reducing shader build times, improving compatibility, and increasing performance by over 30% for all GPU vendors, Hades is easily 
 one of the biggest changes made to yuzu to date.
 
-[We have a dedicated article explaining the process in technical detail,](https://yuzu-emu.org/entry/yuzu-hades/) so we will be focusing only on the end user changes and some 
-recommendations to help you get the best experience of this new feature that both Early Access and Mainline users can enjoy.
+[We have a dedicated article explaining the process in technical detail](https://yuzu-emu.org/entry/yuzu-hades/), so we will be focusing only on the end user changes and some 
+recommendations to help you get the best experience out of this new feature that both Early Access and Mainline users can enjoy.
 
-While we keep OpenGL as the default API for compatibility reasons (outdated drivers won’t affect it as much, and it lets Nvidia Fermi GPU users run yuzu out of the box), we 
-strongly recommend testing your games in Vulkan first, as not only performance and compatibility have improved greatly (specially if you pair it with the Texture Reaper, 
-[the GPU Cache Garbage Collector,](https://yuzu-emu.org/entry/yuzu-progress-report-jun-2021/#project-texture-reaper)) but now rendering and shader build performance is most of 
-the time better than OpenGL.
-This applies not only for AMD and Intel GPU users, but also for Nvidia users too. 
+While we keep OpenGL as the default graphics API for compatibility reasons (outdated drivers won’t affect it as much, and it lets Nvidia Fermi GPU users run yuzu out of the box), we 
+strongly recommend testing your games with the Vulkan API first. Vulkan performance and compatibility have improved significantly (especially if paired with the [Texture Reaper](https://yuzu-emu.org/entry/yuzu-progress-report-jun-2021/#project-texture-reaper)), the GPU Cache Garbage Collector), additionally, rendering and shader build performance almost always beat OpenGL.
+This applies not only for AMD and Intel GPU users, but also Nvidia users.
 
-There is an exception to make, the Intel Linux Vulkan driver is not stable at the moment, we’re investigating the cause of the issue, so for now, Intel Linux users should 
+There is an exception, however. The Intel Linux Vulkan driver is not stable at the moment, but we’re investigating the cause of the issue. For now, Intel Linux users should 
 stick to OpenGL.
 
 {{< imgs
 	"./perf_ea_vs_hades_ea.png| Integrated GPU users benefit the most from Hades"
   >}} 
 
-Hades implements a `Pipeline Cache` for both Vulkan and OpenGL, meaning no matter which API you are using, all shaders are now stored and reused the next time the game is 
-started, pretty much like the Shader Cache of OpenGL previously operated.
-Needless to say, this means that all previous caches are no longer valid, and will be discarded if someone tries to use them.
+Hades implements a `Pipeline Cache` for both Vulkan and OpenGL, meaning that regardless of which API you are using, all shaders are now stored and reused the next time the game is 
+started. This functions similarly to how the old OpenGL Shader Cache behaved.
+Needless to say, this means that all previous Shader Caches are no longer valid, and will be discarded if someone tries to use them.
 
-The difference in terminology lies in the fact that now the whole [Graphics Pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline) is stored, not just a specific set of 
+The difference in terminology lies in the fact that the whole [Graphics Pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline) is now stored, not just a specific set of 
 Shader stages.
-An important detail, the OpenGL pipeline cache is not transferable with the Vulkan pipeline cache and vice versa. 
-You build two separate sets of shaders if you use both APIs.
+An important detail, the OpenGL pipeline cache is not interchangeable with the Vulkan pipeline cache and vice versa. 
+Two separate sets of shaders are generated if you use both APIs.
 
 Vulkan now also benefits from `parallel shader building`, meaning all CPU threads will be able to handle all upcoming shaders in a parallel fashion, instead of asynchronously, 
 avoiding graphical issues and building faster.
-The end result is the shortest build times of all API and shader backends options (more on this later).
-So, on a fresh game with no previously built cache, more CPU threads will provide a smoother experience, with no imposed limit.
-Someone test run `Super Smash Bros. Ultimate` on a big server, please!
+The end result is the shortest build times of all API and shader backends (more on this later).
+Thus, on a fresh game with no previously built cache, more CPU threads will provide a smoother experience, with no imposed limit.
+Someone should test running `Super Smash Bros. Ultimate` on a big server CPU!
 
 {{< imgs
 	"./vulkan.mp4| First time gameplay has never been smoother!"
   >}} 
 
-All CPU threads minus one are in use for this task, the remaining free thread either handles shader saving to the pipeline cache, or continues the rendering process, depending 
+All CPU threads, save for one, are used to build shadres. The remaining free thread either handles shader saving to the pipeline cache, or continues the rendering process, depending 
 on if all shaders have been dealt with at the moment.
 This decision was made not only to improve performance, but also to improve overall system response times while building several shaders simultaneously, and to avoid certain 
 “gaming” laptops from overheating the CPU while keeping all threads busy.
 
 Note that this is a hardware design flaw by the laptop vendors, not an issue with the emulator. The product should provide enough cooling performance to keep its components 
 cool enough even at full demand, not just for reaching advertised turbo clock speeds in short bursts.
-(Writer note: basically, if you want good gaming performance and longevity, buy thicc laptops)
+(Writer note: basically, if you want good gaming performance and longevity, buy **thicc** laptops)
 
-Now, not all games will perform or render the best in Vulkan, some will still prefer OpenGL instead. For the old API, we have some changes too.
+Now, not all games will perform or render the best in Vulkan, some will still show better results with OpenGL instead. For the old API, we have some changes too.
 
 {{< imgs
 	"./backend.png| When selecting OpenGL, new options show up!"
@@ -98,7 +93,7 @@ Originally, we wanted OpenGL to use this backend, discontinuing support for GLSL
 Reality always hits back like the laws of thermodynamics, delaying the release of Hades for several months.
 Driver support for SPIR-V in Windows is very bad (specially for Nvidia), with only the Linux Mesa drivers having a correct and fast implementation.
 So we decided to keep the option as an experimental feature, focusing on the old GLSL and GLASM backed first. We plan to improve SPIR-V rendering and performance later.
-Ideally, SPIR-V in OpenGL should be a Jack of all trades, a mix of the performance of GLSL and the shader build times of GLASM.
+Ideally, SPIR-V in OpenGL should be a jack-of-all-trades, a mix of the performance of GLSL and the shader build times of GLASM.
 
 So to ease our user’s decision on what to choose, here’s a chart of all possible options for the most common GPU vendors.
 
@@ -107,12 +102,12 @@ So to ease our user’s decision on what to choose, here’s a chart of all poss
   >}} 
 
 Another important change is in how GPU accuracy operates. 
-In the past certain games like `Pokémon Sword & Shield` preferred using High GPU accuracy to get the best performance.
-This is no longer the case, now Normal consistently provides the best performance, at a low cost in accuracy, while High provides better particle effects and lighting, at a 
+In the past, certain games like `Pokémon Sword & Shield` required using High GPU accuracy to get the best performance.
+This is no longer the case. Now, Normal consistently produces the best performance, at a low cost in accuracy, while High produces better particle effects and lighting, at a 
 low performance cost.
 
 [We removed values](https://github.com/yuzu-emu/yuzu/pull/6575) that should be enabled by default from the bottom left action buttons of the user interface, like Asynchronous 
-GPU shaders and Multicore, and in their place, now users can *switch* between Normal and High GPU accuracy while playing.
+GPU shaders and Multicore. In their place, users can now *switch* between Normal and High GPU accuracy while playing.
 A fast and easy way to test what’s better for each game, GPU vendor, and API.
 
 {{< imgs
@@ -123,24 +118,24 @@ A fast and easy way to test what’s better for each game, GPU vendor, and API.
 
 Communication is vital for any project, and it is essential that we make our configuration options *even more explanatory* than they already are.
 
-We want to thank our fellow developer [Vortex](https://github.com/CaptV0rt3x) for this marvellous change of 
-[rewording the explanation of GLASM](https://github.com/yuzu-emu/yuzu/pull/6736), in order to elaborate that it is, effectively, a shorthand for `OpenGL Assembly Shaders`.
+We want to thank our fellow developer, [Vortex](https://github.com/CaptV0rt3x), for the marvelous change of 
+[rewording the explanation of GLASM](https://github.com/yuzu-emu/yuzu/pull/6736). This change was made in order to elaborate that it is, effectively, a shorthand for `OpenGL Assembly Shaders`.
 
 {{< imgs
 	"./vortex.png| This is critical"
   >}} 
 
-Fear not, my fellow yuzers, for we have the most serious and capable people doing only the best work for your comfort.
+Fear not, my fellow yuz-ers, for we always have the most serious and capable people doing only the best work for your benefit.
 Rest assured that if a similar situation were to arise again in the future, Vortex will have your back.
-I salute you, my dear friend, and pray that you may ennoble yuzu even further with your contributions one more time.
+I salute you, my dear friend, and pray that you may ennoble yuzu even further with your future contributions.
 
 ## Graphical fixes
 
-epicboy has been very busy during the development of Hades, and after it was finished too.
+epicboy was very busy during the development of Hades, and continues to be busy after it was finished.
 
-World 1-5 of `Super Mario 3D World + Bowser's Fury` crashed during loading on AMD and Intel GPU equipped systems running Vulkan.
-A depth image was being cleared as a regular colour image, while OpenGL is totally fine with this, Vulkan is more strict, leading to a crash.
-[By only clearing valid colour images,](https://github.com/yuzu-emu/yuzu/pull/6635) the issue was solved.
+World 1-5 of `Super Mario 3D World + Bowser's Fury` used to crash when loading on AMD and Intel GPU equipped systems running Vulkan.
+A depth image was being cleared as a regular colour image and, while OpenGL is totally fine with this, Vulkan is more strict which lead to a crash.
+[By only clearing valid colour images,](https://github.com/yuzu-emu/yuzu/pull/6635) epicboy resolved the issue.
 
 {{< imgs
 	"./sm3dw.png| Affected world in Super Mario 3D World + Bowser's Fury"
@@ -160,27 +155,27 @@ Since before the [release of the texture cache rewrite](https://yuzu-emu.org/ent
 Turns out [a single directory separator was missing in the code,](https://github.com/yuzu-emu/yuzu/pull/6709).
 Now screenshots will work by either pressing the `Ctrl + P` hotkey, or via selecting the `Tools > Capture Screenshot…` menu option.
 
-epicboy also [enabled support for Vulkan screenshots](https://github.com/yuzu-emu/yuzu/pull/6720), solving an even older debt, from way back when 
+epicboy also [added support for taking screenshots in the Vulkan API](https://github.com/yuzu-emu/yuzu/pull/6720), solving an old issue from way back when 
 [Vulkan was first implemented](https://yuzu-emu.org/entry/yuzu-vulkan/) two years ago. How time flies...
 
 Finally, before being dragged against his will to work on Hades, epicboy was working on improving the performance of our compute shader accelerated ASTC decoder.
 By reducing the size of the workgroup, making some code simplifications, moving some look up tables, and other changes, 
-[performance increased 15% on average.](https://github.com/yuzu-emu/yuzu/pull/6791)
+[performance increased by 15% on average.](https://github.com/yuzu-emu/yuzu/pull/6791)
 `Astral Chain` and similar titles that madly love ASTC should see more consistent frametimes with this change.
 
-Blinkhawk has also been constantly working lately, not only on Hades and several other improvements, but also in some top secret projects we will mention later.
+Blinkhawk has also been working constantly lately, not only on Hades and several other improvements, but also in some top secret projects we will mention later.
 
-Koei Tecmo games are usually quite special, they never fail to provide headaches to our developers thanks to… unique decisions on the game’s part.
-It’s not an exaggeration to say that Project Hades’ main motivation was improving the situation of these games on yuzu.
+Koei Tecmo games are usually quite special, they never fail to give our developers headaches thanks to… unique decisions the studio makes.
+It’s not an exaggeration to say that Project Hades’ main motivation was improving how these games run in yuzu.
 
-One of the remaining issues with Koei games like `Hyrule Warriors: Age of Calamity`, `Fire Emblem: Three Houses`, and similar games was instabilities caused by running in High 
+One of the remaining issues with `Hyrule Warriors: Age of Calamity`, `Fire Emblem: Three Houses`, and similar Koei games was instability caused by running them in High 
 GPU accuracy when loading specific levels.
-In Blink’s own words, [a simple fix,](https://github.com/yuzu-emu/yuzu/pull/6627) and the problem got solved.
+In Blink’s own words, [a simple fix,](https://github.com/yuzu-emu/yuzu/pull/6627) and the problem was solved.
 
-Another old regression introduced by the buffer cache rewrite affected particles in games like `The Legend of Zelda: Breath of the Wild`, the rendering of the BowWow in 
+Another old regression introduced by the [Buffer Cache Rewrite](https://yuzu-emu.org/entry/yuzu-bcr/) affected particles in games like `The Legend of Zelda: Breath of the Wild`, the rendering of the BowWow in 
 `The Legend of Zelda: Link’s Awakening` and caused vertex explosions in Unreal Engine 4 games like `Yoshi’s Crafted World`, `BRAVELY DEFAULT 2` and similar.
 [Tuning how to handle high downloads and not fully waiting for command buffers to finish](https://github.com/yuzu-emu/yuzu/pull/6557) solved these issues.
-To make the best out of this change, High GPU accuracy needs to be in use.
+To make the best out of this change, High GPU accuracy needs to be enabled.
 
 {{< single-title-imgs
     "High GPU Accuracy is recommended (The Legend of Zelda: Breath of the Wild)"
@@ -190,7 +185,7 @@ To make the best out of this change, High GPU accuracy needs to be in use.
 
 When Blinkhawk introduced the new fence manager while working on improvements for `Asynchronous GPU Emulation` two years ago, some frame delays came with it, causing stuttering 
 in gameplay even if the framerate counter showed a solid 30 or 60 FPS value.
-To counter this, Blink starts [pre-queueing frames](https://github.com/yuzu-emu/yuzu/pull/6787), providing a smooth gameplay experience, especially noticeable if the user 
+To counter this, Blink starts [pre-queueing frames](https://github.com/yuzu-emu/yuzu/pull/6787), providing a smooth gameplay experience, especially noticeable if the user's 
 hardware can’t sustain perfect performance constantly.
 
 {{< single-title-imgs
@@ -214,10 +209,8 @@ a desynchronization happened on the texture cache, causing the issue shown below
 By optimizing shaders doing [FMA](https://en.wikipedia.org/wiki/Multiply%E2%80%93accumulate_operation#Fused_multiply%E2%80%93add) operations, yuzu 
 [gains an extra 4% of performance](https://github.com/yuzu-emu/yuzu/pull/6722) overall.
 
-Some games like `Katana ZERO`, `UNDERTALE`, `DELTARUNE`, `Shantae`, `Fire Emblem: Shadow Dragon and the Blade of Light`, and others experience flipping issues in Vulkan, when 
-parts of their rendering are rotated, mirrored or both.
-By [flipping the viewport](https://github.com/yuzu-emu/yuzu/pull/6765) in `Y_NEGATE`, Rodrigo matches in Vulkan the correct behaviour OpenGL has, providing the correct 
-rendering for those games.
+By [flipping the viewport](https://github.com/yuzu-emu/yuzu/pull/6765) in `Y_NEGATE`, Rodrigo matches in Vulkan the correct behaviour OpenGL has, resolving the "flipping" issues for the following games:
+`Katana ZERO`, `UNDERTALE`, `DELTARUNE`, `Shantae`, `Fire Emblem: Shadow Dragon and the Blade of Light`, and others.
 
 {{< single-title-imgs
     "Fire Emblem: Shadow Dragon and the Blade of Light"
@@ -225,7 +218,7 @@ rendering for those games.
     "./flipfix.png"
     >}}
 
-`Xenoblade Chronicles 2` experienced crashes in Vulkan Mesa drivers related to lacking null buffers in its transform feedback bindings. Rodrigo had to 
+`Xenoblade Chronicles 2` experienced crashes with the Vulkan Mesa drivers due to them lacking null buffers in its transform feedback bindings. Rodrigo had to 
 [emulate the lack of this function](https://github.com/yuzu-emu/yuzu/pull/6580) in order to solve the crashing.
 
 AMD Radeon Linux users may have noticed that `The Legend of Zelda: Skyward Sword` would run at very slow framerates in stable versions of the OpenGL Mesa drivers.
@@ -235,9 +228,9 @@ While the current mesa-git has this bottleneck solved, a solution is needed unti
 to a solid 60 FPS.
 Mesa drivers are the best drivers.
 
-Another contributor to graphical fixes is [Morph](https://github.com/Morph1984). 
+[Morph](https://github.com/Morph1984) also contributed with some graphical fixes.
 
-`New Super Mario Bros. U Deluxe` provides video tutorials via the web applet, prior to this PR, trying to access that list would only result in the game returning to the 
+`New Super Mario Bros. U Deluxe` provides video tutorials accessed via the web applet. Prior to his fix, trying to access that list would only result in the game returning to the 
 previous menu.
 [By implementing how to handle Nintendo CDN URLs in the web applet,](https://github.com/yuzu-emu/yuzu/pull/6641) this section of the game can now be accessed.
 
@@ -246,8 +239,7 @@ previous menu.
   >}}
 
 Morph also solved a quite specific render issue affecting users with multiple displays.
-If two or more monitors were in use and the user started a game from any display besides the primary, black borders would show up at the right and bottom corners of the 
-rendering window.
+If two or more monitors were in use and the user started a game from any display besides the primary, black borders would appear in the rendering window.
 To solve this, [Morph needed to tell Qt to create a dummy render widget.](https://github.com/yuzu-emu/yuzu/pull/6658)
 
 {{< single-title-imgs
@@ -256,17 +248,17 @@ To solve this, [Morph needed to tell Qt to create a dummy render widget.](https:
     "./bordersfix.png"
     >}}
 
-Newcomer [yzct12345](https://github.com/yzct12345) came like a sonic boom, implementing critical improvements at impressive speeds!
+Newcomer [yzct12345](https://github.com/yzct12345) arrived like a sonic boom, implementing critical improvements at impressive speeds!
 
 By [ignoring an invalid texture operation,](https://github.com/yuzu-emu/yuzu/pull/6679) an early crash affecting `Pokémon: Let’s go, Eevee! & Pikachu!` in Vulkan was solved. 
-No more crashes when catching your first Pokémon. Gotta catch’em all!
+No more crashes when catching your first Pokémon. Gotta catch ’em all!
 
-[yzct12345’s work on optimizing UnswizzleTexture](https://github.com/yuzu-emu/yuzu/pull/6790) resulted in up to double performance for video decoding, and it also improved 
+[yzct12345’s work on optimizing UnswizzleTexture](https://github.com/yuzu-emu/yuzu/pull/6790) resulted in up to double the performance for video decoding, and it also improved 
 general gameplay!
-This results in far smoother video playback and in a considerable reduction of the CPU performance needed to get a pleasant gaming experience. Thanks! 
+This results in far smoother video playback and a considerable reduction of the CPU performance needed to get a pleasant gaming experience. Thanks! 
 
 [toastUnlimited](https://github.com/lat9nq) is our specialist in Linux testing and bug reporting.
-He noticed that the rune telemorting animation in `The Legend of Zelda: Breath of the Wild` wasn’t working correctly on the Iris and radeonsi Mesa drivers, the default OpenGL 
+He noticed that the rune teleporting animation in `The Legend of Zelda: Breath of the Wild` wasn’t working correctly on the Iris and RadeonSI Mesa drivers, the default OpenGL 
 drivers for recent Intel and AMD GPUs, respectively.
 
 [Thanks to instructions the Mesa driver team gave us](https://gitlab.freedesktop.org/mesa/mesa/-/issues/3820#note_753371) in how to properly use BindImageTexture, 
@@ -310,7 +302,7 @@ here:
 This game in particular would request the available number of active channels and cap its output based on this information — in other words, the game would not output audio to 
 more channels than what yuzu reported.
 Since yuzu was always returning a value of `1`, the game ended up outputting all the audio into the left channel.
-This problem was thus fixed by [reporting two channels as active instead of one](https://github.com/yuzu-emu/yuzu/pull/6567), which is now mixed properly:
+Thus, this problem was fixed by [reporting two channels as active instead of one](https://github.com/yuzu-emu/yuzu/pull/6567), which is now mixed properly:
 
 {{< audio "./vesperiafix.mp3" >}}
 
@@ -325,7 +317,7 @@ centred.
 In the case of the Nintendo Switch, many games report six audio channels as available to the system, even though they end up providing data for only two channels (stereo sound).
 Consequently, yuzu would think the games used all these channels and then "downmix" them to stereo, affecting the volumes of the left and right channel in the process, which 
 would end up being much quieter than needed.
-While the maths used by yuzu are valid when used to downmixing six-channels-to-two, it certainly was not a desirable effect in this case.
+While the math used by yuzu is valid when used to downmix six channels to two, it certainly was not a desirable effect in this case.
 Therefore, Maide changed the code to preserve the volume of these channels if the audio in a game is already stereo, which now reproduces with the correct levels.
 
 On the same page of volume problems, there was also a bug with the volume in certain areas of `Xenoblade Chronicles 2`, where it would occasionally spike out of proportion.
@@ -346,9 +338,9 @@ bleeding ears here and there.
 
 ## Input changes
 
-Along with some miscellaneous QoL changes, [german77](https://github.com/german77) also changed the behaviour of recently enabled controllers in yuzu.
+Along with some miscellaneous quality of life changes, [german77](https://github.com/german77) also changed the behaviour of recently enabled controllers in yuzu.
 In order to provide the most precise experience, now [sticks will be auto-centred](https://github.com/yuzu-emu/yuzu/pull/6698) the moment the device is detected by yuzu.
-Surprisingly, this happens with almost every game controller, sticks always are slightly off-centre, and if the dead zone value is small enough, users would perceive slight drifting during gameplay
+Surprisingly, this happens with almost every game controller, sticks are always slightly off-centre, and if the dead zone value is small enough, users would experience slight drifting during gameplay. 
 No drift in this emulator!
 
 Thanks to internal changes on how settings are stored, the default values of mouse panning were affected. 
@@ -358,16 +350,16 @@ No drift, not even with the mouse!
 
 # UI changes
 
-A silent change that has the potential to improve performance considerably to users of old or low end CPUs has been made by toastUnlimited.
-In the past, we recommended our users to manually select the `Unsafe` CPU accuracy option if their CPU lacked the FMA instruction set, this is not only confusing for the users, 
-as it required them knowing if their specific CPU model was compatible with FMA, but also relied on communication channels and guides properly explaining this to as many people 
-as possible, of course resulting in several users not even knowing why they ran games at such poor performance.
+A silent change that has the potential to improve performance considerably for users of old or low-end CPUs has been made by toastUnlimited.
+In the past, we recommended our users to manually select the `Unsafe` CPU accuracy option if their CPU lacked the FMA instruction set. This is not only confusing for users, 
+as it required them to know if their specific CPU model was compatible with FMA, but also relied on communication channels and guides properly explaining this to as many people 
+as possible. This, of course, resulted in several users not even knowing why they ran games at such poor performance.
 
 Additionally, it was later discovered that using the whole Unsafe preset can cause precision issues affecting things like the shape of the character hitboxes in 
 `Super Smash Bros. Ultimate`. A better solution was needed.
 
-toastUnlimited now offers us [the all new `Auto` CPU accuracy setting!](https://github.com/yuzu-emu/yuzu/pull/6573) 
-Enabled by default for all users, this setting determines the need to use the `Unfuse FMA` value automatically, by reading if the FMA instruction set is supported by the CPU 
+In response, toastUnlimited implemented [the all new `Auto` CPU accuracy setting!](https://github.com/yuzu-emu/yuzu/pull/6573) 
+Enabled by default for all users, this setting determines the need to use the `Unfuse FMA` value automatically by reading if the FMA instruction set is supported by the CPU 
 in 
 use.
 It also sets other values, for example `Faster ASIMD instructions`, to boost the performance of 32-bit games.
@@ -379,7 +371,7 @@ Thanks to work done by Morph, [now all default six Miis are available to the use
 	"./mii.png| We're still far away from offering full Mii customization, but at least more options are available now (Mario Kart 8 Deluxe)"
   >}}
 
-[lioncash](https://github.com/yuzu-emu/yuzu/pull/6574), our silent optimizer and code cleaner, found an issue with the new strings that report if a game is 32 or 64-bit.
+[lioncash](https://github.com/lioncash), our silent optimizer and code cleaner, found an issue with the new strings that report if a game is 32 or 64-bit.
 Languages that read from right to left had issues with the initial implementation, and translating this string was disabled.
 [Now both issues are resolved!](https://github.com/yuzu-emu/yuzu/pull/6574)
 
@@ -397,7 +389,7 @@ Certain game dumps contain several games inside them, and yuzu would default to 
 
 ## Command-Line Shenanigans
 
-toastUnlimited did a general [update to the settings of the command-line version of yuzu](https://github.com/yuzu-emu/yuzu/pull/6651), `yuzu-cmd`.
+toastUnlimited performed a general [update to the settings of the command-line version of yuzu](https://github.com/yuzu-emu/yuzu/pull/6651), `yuzu-cmd`.
 
 The previous implementation had many options that were originally carried over from Citra and later deprecated, as well as others that were not read properly from the `ini` 
 file, or were read but not written into the `ini` file, etc.
@@ -405,7 +397,7 @@ In other words, there were a lot of things wrong with it, and some updating was 
 executable of yuzu.
 
 Since toastUnlimited was already working on `yuzu-cmd`, he also went on and [fixed some problems related to Vulkan on Linux](https://github.com/yuzu-emu/yuzu/pull/6652).
-When this executable was launched, it wouldn't be able to detect the window manager, and would proceed to exit instead of booting a game.
+When this executable was launched, it wasn't able to detect the window manager, and would proceed to exit instead of booting a game.
 
 The cause behind this problem lies in the fact that we recently updated how the SDL external library is being fetched for our Linux binaries, which came with a dummy 
 configuration file with invalid settings.
@@ -415,12 +407,12 @@ information to report when support for a window manager was not compiled.
 In a follow-up PR, toastUnlimited also added [support for the full-screen mode settings](https://github.com/yuzu-emu/yuzu/pull/6693) to `yuzu-cmd`.
 Concurrently, he also fixed a bug that caused yuzu to render with the wrong resolution when in full-screen.
 
-Some time ago, we made it possible for yuzu to run on different full-screen modes, but these options were never added to the command-line version of our executable, which is 
-addressed on this PR.
+Some time ago, we made it possible for yuzu to run in different full-screen modes, but these options were never added to the command-line version of our executable, which is 
+addressed in this PR.
 
 ## Technical Changes
 
-Meanwhile, [bunnei](https://github.com/bunnei) was busy [improving the management of kernel objects](https://github.com/yuzu-emu/yuzu/pull/6551), reducing drastically the 
+Meanwhile, [bunnei](https://github.com/bunnei) was busy [improving the management of kernel objects](https://github.com/yuzu-emu/yuzu/pull/6551), drastically reducing the 
 amount of objects that kept dangling in memory after closing the emulation session.
 
 A dangling object refers to a stale object in memory that still has references, even though the object is no longer in use.
@@ -443,14 +435,14 @@ What's more, since these objects stick around even after the emulation session i
 
 bunnei took a long look at the problem and improved the situation, but there's still ongoing work to make our implementation more robust and accurate.
 
-blink also had his share of bufixing work, as he revisited the texture cache code related to [1D-to-2D texture overlaps](https://github.com/yuzu-emu/yuzu/pull/6553), which fixes problems in `Monster Hunter Rise` and both the the trial and final versions of `Monster Hunter Stories 2: Wings of Ruin`.
+Blinkhawk also had his share of bug-fixing work, as he revisited the texture cache code related to [1D-to-2D texture overlaps](https://github.com/yuzu-emu/yuzu/pull/6553), which fixes problems in `Monster Hunter Rise` and both the the trial and final versions of `Monster Hunter Stories 2: Wings of Ruin`.
 
 Similarly to how two-dimensional textures are mapped to three dimensions, one-dimensional textures are a simple type of texture that is mapped as two-dimensional when rendered 
 on the screen.
 The problem here lies in the fact that the GPU is unable to tell the difference between a one-dimensional texture and a two-dimensional texture with a height of one.
 
 As such, it was necessary to add support for them, so that they can be processed correctly by our texture cache.
-With the changes on this PR, blink made it so that they can be copied seamlessly, fixing this faulty behaviour.
+With the changes in this PR, Blink made it so that they can be copied seamlessly, fixing this faulty behaviour.
 
 {{< single-title-imgs
     "From Zero to Hero (MONSTER HUNTER STORIES 2: WINGS OF RUIN Trial Version)"
@@ -463,18 +455,18 @@ If you're interested in a more technical explanation about textures and their ty
 
 ## Future projects
 
-`Project A.R.T.`, the designated name for our revival of the resolution scaler, has started, and early results look very promising!                    .
+`Project A.R.T.`, the designated name for our revival of the resolution scaler, has started, and early results look very promising!
 
 {{< imgs
 	"./art.png| Getting blue-shelled at 4K doesn't really help with anger management (Mario Kart 8 Deluxe)"
   >}}
 
-There are many bugs to fix, optimizations to make and tons of testing to do before we can safely release this feature. 
+There are many bugs to fix, optimizations to make, and tons of testing to do before we can confidently release this feature. 
 So for now, know that the scaler is returning!
 
 toastUnlimited [started the preliminary work to get an operational Linux installer](https://github.com/yuzu-emu/yuzu/pull/6667) to accompany our current Windows one. 
 This also means offering precompiled builds for both Mainline and Early Access.
-Once it is finished, Linux users will no longer need to be forced to build from the source (if so they prefer)!
+Once it is finished, Linux users will no longer need to be forced to build from the source (if they so prefer)!
 
 That’s all folks! As a certain AI singer would say, thank you for your kind attention. See you next time!
 
