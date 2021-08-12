@@ -17,7 +17,7 @@ Bienvenidos, yuz-ers, to our latest monthly progress report! We have a *lot* to 
   >}}
 
 [Kept you waiting, huh?](https://www.youtube.com/watch?v=4Zq3OCrzn84)
-After being in development for six months, and spanning almost 50,000 lines of new code, `Project Hades` has finally been released. This massive [rewrite of the shader decompiler](https://github.com/yuzu-emu/yuzu/pull/6585) is brought to you by [Rodrigo,](https://github.com/ReinUsesLisp) [Blinkhawk,](https://github.com/FernandoS27) and [epicboy](https://github.com/ameerj).
+After being in development for six months, and spanning almost 50,000 lines of new code, `Project Hades` has finally been released. This massive [rewrite of the shader decompiler](https://github.com/yuzu-emu/yuzu/pull/6585) is brought to you by [Rodrigo](https://github.com/ReinUsesLisp), [Blinkhawk](https://github.com/FernandoS27), and [epicboy](https://github.com/ameerj).
 
 Fixing an innumerable amount of rendering bugs, reducing shader build times, improving compatibility, and increasing performance by over 30% for all GPU vendors, Hades is easily 
 one of the biggest changes made to yuzu to date.
@@ -62,7 +62,7 @@ This decision was made not only to improve performance, but also to improve over
 
 Note that this is a hardware design flaw by the laptop vendors, not an issue with the emulator. The product should provide enough cooling performance to keep its components 
 cool enough even at full demand, not just for reaching advertised turbo clock speeds in short bursts.
-(Writer note: basically, if you want good gaming performance and longevity, buy **thicc** laptops)
+(Writer note: basically, if you want good gaming performance and longevity, buy **thicc** laptops.)
 
 Now, not all games will perform or render the best in Vulkan, some will still show better results with OpenGL instead. For the old API, we have some changes too.
 
@@ -135,7 +135,7 @@ epicboy was very busy during the development of Hades, and continues to be busy 
 
 World 1-5 of `Super Mario 3D World + Bowser's Fury` used to crash when loading on AMD and Intel GPU equipped systems running Vulkan.
 A depth image was being cleared as a regular colour image and, while OpenGL is totally fine with this, Vulkan is more strict which lead to a crash.
-[By only clearing valid colour images,](https://github.com/yuzu-emu/yuzu/pull/6635) epicboy resolved the issue.
+[By only clearing valid colour images](https://github.com/yuzu-emu/yuzu/pull/6635), epicboy resolved the issue.
 
 {{< imgs
 	"./sm3dw.png| Affected world in Super Mario 3D World + Bowser's Fury"
@@ -152,7 +152,7 @@ To avoid confusion with the FPS unlimiter, the old Frame limit was [renamed to S
   >}}
 
 From before the [release of the texture cache rewrite](https://yuzu-emu.org/entry/yuzu-tcr/), a regression has existed that caused users' screenshots to save in the wrong directory.
-Turns out [a single directory separator was missing in the code,](https://github.com/yuzu-emu/yuzu/pull/6709).
+Turns out [a single directory separator was missing in the code](https://github.com/yuzu-emu/yuzu/pull/6709).
 Now, screenshots will work correctly by either pressing the `Ctrl + P` hotkey, or via selecting the `Tools > Capture Screenshot…` menu option, and save in the selected folder.
 
 epicboy also [added support for taking screenshots in the Vulkan API](https://github.com/yuzu-emu/yuzu/pull/6720), solving an old issue from way back when 
@@ -170,7 +170,7 @@ It’s not an exaggeration to say that Project Hades’ main motivation was impr
 
 One of the remaining issues with `Hyrule Warriors: Age of Calamity`, `Fire Emblem: Three Houses`, and similar Koei games was instability caused by running them in High 
 GPU accuracy when loading specific levels.
-In Blink’s own words, [a simple fix,](https://github.com/yuzu-emu/yuzu/pull/6627) and the problem was solved.
+In Blink’s own words, [a simple fix](https://github.com/yuzu-emu/yuzu/pull/6627), and the problem was solved.
 
 Another old regression introduced by the [Buffer Cache Rewrite](https://yuzu-emu.org/entry/yuzu-bcr/) affected particles in games like `The Legend of Zelda: Breath of the Wild`, the rendering of the BowWow in 
 `The Legend of Zelda: Link’s Awakening` and caused vertex explosions in Unreal Engine 4 games like `Yoshi’s Crafted World`, `BRAVELY DEFAULT 2` and similar.
@@ -224,7 +224,7 @@ By [flipping the viewport](https://github.com/yuzu-emu/yuzu/pull/6765) in `Y_NEG
 AMD Radeon Linux users may have noticed that `The Legend of Zelda: Skyward Sword` would run at very slow framerates in stable versions of the OpenGL Mesa drivers.
 This is caused by a driver level bottleneck resulting in very slow [PBO](https://www.khronos.org/opengl/wiki/Pixel_Buffer_Object) (Pixel Buffer Object)  downloads.
 While the current mesa-git has this bottleneck solved, a solution is needed until those fixes reach the stable release versions.
-[By specifying the `GL_CLIENT_STORAGE_BIT` flag,](https://github.com/yuzu-emu/yuzu/pull/6685) an alternative faster path can be used, increasing performance from around 8 FPS 
+[By specifying the `GL_CLIENT_STORAGE_BIT` flag](https://github.com/yuzu-emu/yuzu/pull/6685), an alternative faster path can be used, increasing performance from around 8 FPS 
 to a solid 60 FPS.
 Mesa drivers are the best drivers.
 
@@ -232,7 +232,7 @@ Mesa drivers are the best drivers.
 
 `New Super Mario Bros. U Deluxe` provides video tutorials accessed via the web applet. Prior to his fix, trying to access that list would only result in the game returning to the 
 previous menu.
-[By implementing how to handle Nintendo CDN URLs in the web applet,](https://github.com/yuzu-emu/yuzu/pull/6641) this section of the game can now be accessed.
+[By implementing how to handle Nintendo CDN URLs in the web applet](https://github.com/yuzu-emu/yuzu/pull/6641), this section of the game can now be accessed.
 
 {{< imgs
 	"./nsmbuvid.png| Video playback is still a work in progress (New Super Mario Bros. U Deluxe)"
@@ -250,7 +250,7 @@ To solve this, [Morph needed to tell Qt to create a dummy render widget.](https:
 
 Newcomer [yzct12345](https://github.com/yzct12345) arrived like a sonic boom, implementing critical improvements at impressive speeds!
 
-By [ignoring an invalid texture operation,](https://github.com/yuzu-emu/yuzu/pull/6679) an early crash affecting `Pokémon: Let’s go, Eevee! & Pikachu!` in Vulkan was solved. 
+By [ignoring an invalid texture operation](https://github.com/yuzu-emu/yuzu/pull/6679), an early crash affecting `Pokémon: Let’s go, Eevee! & Pikachu!` in Vulkan was solved. 
 No more crashes when catching your first Pokémon. Gotta catch ’em all!
 
 [yzct12345’s work on optimizing UnswizzleTexture](https://github.com/yuzu-emu/yuzu/pull/6790) resulted in up to double the performance for video decoding, and it also improved 
