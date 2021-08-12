@@ -353,7 +353,7 @@ No drift, not even with the mouse!
 A silent change that has the potential to improve performance considerably for users of old or low-end CPUs has been made by toastUnlimited.
 In the past, we recommended our users to manually select the `Unsafe` CPU accuracy option if their CPU lacked the FMA instruction set. This is not only confusing for users, 
 as it required them to know if their specific CPU model was compatible with FMA, but also relied on communication channels and guides properly explaining this to as many people 
-as possible. This, of course, resulted in several users not even knowing why they ran games at such poor performance.
+as possible. This, of course, resulted in several users not even knowing why games performed so poorly.
 
 Additionally, it was later discovered that using the whole Unsafe preset can cause precision issues affecting things like the shape of the character hitboxes in 
 `Super Smash Bros. Ultimate`. A better solution was needed.
