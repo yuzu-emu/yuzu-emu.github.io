@@ -92,7 +92,7 @@ Originally, we wanted OpenGL to use this backend, discontinuing support for GLSL
 
 Reality always hits back like the laws of thermodynamics, delaying the release of Hades for several months.
 Driver support for SPIR-V in Windows is very bad (especially for Nvidia), with only the Linux Mesa drivers having a correct and fast implementation.
-So we decided to keep the option as an experimental feature, focusing on the old GLSL and GLASM backed first. We plan to improve SPIR-V rendering and performance later.
+So we decided to keep the option as an experimental feature, focusing on the old GLSL and GLASM backend first. We plan to improve SPIR-V rendering and performance later.
 Ideally, SPIR-V in OpenGL should be a jack-of-all-trades, a mix of the performance of GLSL and the shader build times of GLASM.
 
 So to ease our user’s decision on what to choose, here’s a chart of all possible options for the most common GPU vendors.
@@ -151,7 +151,7 @@ To avoid confusion with the FPS unlimiter, the old Frame limit was [renamed to S
 	"./fpscap.png| You can find the new options here"
   >}}
 
-From before even the [release of the texture cache rewrite](https://yuzu-emu.org/entry/yuzu-tcr/), a regression has existed that caused users' screenshots to save in the wrong directory.
+From before the [release of the texture cache rewrite](https://yuzu-emu.org/entry/yuzu-tcr/), a regression has existed that caused users' screenshots to save in the wrong directory.
 Turns out [a single directory separator was missing in the code,](https://github.com/yuzu-emu/yuzu/pull/6709).
 Now, screenshots will work correctly by either pressing the `Ctrl + P` hotkey, or via selecting the `Tools > Capture Screenshot…` menu option, and save in the selected folder.
 
@@ -278,7 +278,7 @@ yuzu uses this small portion of VRAM for allocating its staging buffer, but if t
 allocation to happen, and yuzu would refuse to create a Vulkan instance, failing to boot any game.
 OpenGL is, as usual, excluded from this issue thanks to letting the GPU driver handle those allocations on its own.
 
-K0bin fixes this issue by [doing the allocation in system RAM](https://github.com/yuzu-emu/yuzu/pull/6740) if there isn’t enough free space. Many thanks!
+K0bin fixes this issue by [performing the allocation in system RAM](https://github.com/yuzu-emu/yuzu/pull/6740) if there isn’t enough free space. Many thanks!
 
 ## Stop This Sound!
 
@@ -423,7 +423,7 @@ In other words, whenever a process needs an object, the reference counter is inc
 
 Once this value reaches zero, the object is automatically deleted.
 Previously, yuzu wasn't doing a great job at maintaining this reference counter, as these kernel objects can be called by more more than just one process — i.e. the "owners", 
-who are responsible of freeing the resource once they're done with it.
+who are responsible for freeing the resource once they're done with it.
 In some cases, some of these owners weren't properly freeing the object at all, which meant that the reference counter never reached zero, leaving this object "dangling" in 
 memory, even though the information became basically useless at this point.
 
