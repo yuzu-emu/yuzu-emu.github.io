@@ -1,9 +1,9 @@
 +++
-date = "2021-08-10T12:00:00-03:00"
+date = "2021-08-12T12:00:00-03:00"
 title = "Progress Report July 2021"
 author = "GoldenX86"
 coauthor = "Honghoa"
-forum = 0
+forum = 446373
 +++
 
 Bienvenidos, yuz-ers, to our latest monthly progress report! We have a *lot* to talk about this month, so buckle up, ‘cause this will be one good ride!
