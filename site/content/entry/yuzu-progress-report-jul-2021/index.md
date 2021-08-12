@@ -55,7 +55,7 @@ Someone should test running `Super Smash Bros. Ultimate` on a big server CPU!
 	"./vulkan.mp4| First time gameplay has never been smoother!"
   >}} 
 
-All CPU threads, save for one, are used to build shadres. The remaining free thread either handles shader saving to the pipeline cache, or continues the rendering process, depending 
+All CPU threads, save for one, are used to build shaders. The remaining free thread either handles shader saving to the pipeline cache, or continues the rendering process, depending 
 on if all shaders have been dealt with at the moment.
 This decision was made not only to improve performance, but also to improve overall system response times while building several shaders simultaneously, and to avoid certain 
 “gaming” laptops from overheating the CPU while keeping all threads busy.
