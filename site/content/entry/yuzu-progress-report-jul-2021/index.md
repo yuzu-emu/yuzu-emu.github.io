@@ -17,7 +17,7 @@ Bienvenidos, yuz-ers, to our latest monthly progress report! We have a *lot* to 
   >}}
 
 [Kept you waiting, huh?](https://www.youtube.com/watch?v=4Zq3OCrzn84)
-After being in development for six months, and spanning almost 50,000 lines of new code, `Project Hades`, (https://github.com/ameerj) has been finally released. This massive [rewrite of the shader decompiler](https://github.com/yuzu-emu/yuzu/pull/6585) is brought to you by [Rodrigo,](https://github.com/ReinUsesLisp) [Blinkhawk,](https://github.com/FernandoS27) and [epicboy](https://github.com/ameerj).
+After being in development for six months, and spanning almost 50,000 lines of new code, `Project Hades` has finally been released. This massive [rewrite of the shader decompiler](https://github.com/yuzu-emu/yuzu/pull/6585) is brought to you by [Rodrigo,](https://github.com/ReinUsesLisp) [Blinkhawk,](https://github.com/FernandoS27) and [epicboy](https://github.com/ameerj).
 
 Fixing an innumerable amount of rendering bugs, reducing shader build times, improving compatibility, and increasing performance by over 30% for all GPU vendors, Hades is easily 
 one of the biggest changes made to yuzu to date.
