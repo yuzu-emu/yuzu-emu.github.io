@@ -91,7 +91,7 @@ release of version 4.6.
 Originally, we wanted OpenGL to use this backend, discontinuing support for GLSL.
 
 Reality always hits back like the laws of thermodynamics, delaying the release of Hades for several months.
-Driver support for SPIR-V in Windows is very bad (specially for Nvidia), with only the Linux Mesa drivers having a correct and fast implementation.
+Driver support for SPIR-V in Windows is very bad (especially for Nvidia), with only the Linux Mesa drivers having a correct and fast implementation.
 So we decided to keep the option as an experimental feature, focusing on the old GLSL and GLASM backed first. We plan to improve SPIR-V rendering and performance later.
 Ideally, SPIR-V in OpenGL should be a jack-of-all-trades, a mix of the performance of GLSL and the shader build times of GLASM.
 
