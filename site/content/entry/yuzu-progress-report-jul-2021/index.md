@@ -26,7 +26,7 @@ one of the biggest changes made to yuzu to date.
 recommendations to help you get the best experience out of this new feature that both Early Access and Mainline users can enjoy.
 
 While we keep OpenGL as the default graphics API for compatibility reasons (outdated drivers won’t affect it as much, and it lets Nvidia Fermi GPU users run yuzu out of the box), we 
-strongly recommend testing your games with the Vulkan API first. Vulkan performance and compatibility have improved significantly (especially if paired with the [Texture Reaper](https://yuzu-emu.org/entry/yuzu-progress-report-jun-2021/#project-texture-reaper)), the GPU Cache Garbage Collector), additionally, rendering and shader build performance almost always beat OpenGL.
+strongly recommend testing your games with the Vulkan API first. Vulkan performance and compatibility have improved significantly (especially if paired with the [Texture Reaper](https://yuzu-emu.org/entry/yuzu-progress-report-jun-2021/#project-texture-reaper), the GPU Cache Garbage Collector), additionally, rendering and shader build performance almost always beat OpenGL.
 This applies not only for AMD and Intel GPU users, but also Nvidia users.
 
 There is an exception, however. The Intel Linux Vulkan driver is not stable at the moment, but we’re investigating the cause of the issue. For now, Intel Linux users should 
