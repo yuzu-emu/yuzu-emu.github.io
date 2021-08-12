@@ -151,10 +151,9 @@ To avoid confusion with the FPS unlimiter, the old Frame limit was [renamed to S
 	"./fpscap.png| You can find the new options here"
   >}}
 
-Since before the [release of the texture cache rewrite,](https://yuzu-emu.org/entry/yuzu-tcr/) a regression that made screenshots being taken to save in the wrong directory has
-been lurking in the code. 
+From before even the [release of the texture cache rewrite](https://yuzu-emu.org/entry/yuzu-tcr/), a regression has existed that caused users' screenshots to save in the wrong directory.
 Turns out [a single directory separator was missing in the code,](https://github.com/yuzu-emu/yuzu/pull/6709).
-Now screenshots will work by either pressing the `Ctrl + P` hotkey, or via selecting the `Tools > Capture Screenshot…` menu option, and save in the selected folder.
+Now, screenshots will work correctly by either pressing the `Ctrl + P` hotkey, or via selecting the `Tools > Capture Screenshot…` menu option, and save in the selected folder.
 
 epicboy also [added support for taking screenshots in the Vulkan API](https://github.com/yuzu-emu/yuzu/pull/6720), solving an old issue from way back when 
 [Vulkan was first implemented](https://yuzu-emu.org/entry/yuzu-vulkan/) two years ago. How time flies...
