@@ -4,7 +4,7 @@ description: A guide designed to help you with installing yuzu Early Access.
 ---
 
 ## What is yuzu Early Access?
-yuzu `Early Access` is a new release channel includes all the same daily yuzu updates that you are accustomed to, plus the early releases of features that you have typically seen in special Patreon releases!
+yuzu `Early Access` is a release channel that includes all the same daily yuzu updates that you are accustomed to, plus the early releases of features that you have typically seen in special Patreon releases!
 Instead of downloading manual builds from patreon, you'll get these new `Early Access` builds directly via the Installer (future updates included).
 
 &nbsp;
