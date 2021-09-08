@@ -39,7 +39,7 @@ $blog-entry-summary-height: 16em;
     height: $blog-entry-summary-height;
 }
 .blog-entry-header.summary.twitter {
-    height: $blog-entry-summary-height / 1.5;
+    height: math.div($blog-entry-summary-height, 1.5);
 }
 .blog-entry-header.summary > div:first-child {
     padding-top: $blog-entry-summary-height - 15em;
