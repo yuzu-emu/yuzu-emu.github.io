@@ -1,8 +1,8 @@
 +++
 date = "2021-09-08T12:00:00-03:00"
 title = "Progress Report August 2021"
-author = "GoldenX86"
-coauthor = "Honghoa"
+author = "Honghoa"
+coauthor = "GoldenX86"
 forum = 0
 +++
 
