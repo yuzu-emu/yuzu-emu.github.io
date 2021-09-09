@@ -58,7 +58,7 @@ shading of a number of titles: most notably, `Fire Emblem: Three Houses`.
 
 {{< single-title-imgs
     "Not so psychedelic any more (Fire Emblem: Three Houses)"
-    "./fethnbug.mp4"
+    "./fethbug.mp4"
     "./fethfix.mp4"
     >}}
 
@@ -86,7 +86,7 @@ Notably, this fixed the psychedelic graphics in `The Legend of Zelda: Skyward Sw
 
 {{< single-title-imgs
     "This was originally a video, but it could have triggered epilepsy (The Legend of Zelda: Skyward Sword)"
-    "./sshdnbug.png"
+    "./sshdbug.png"
     "./sshdfix.png"
     >}}
 
