@@ -326,11 +326,11 @@ Useful to know if the stick actually reaches the whole input range.
 
 Next, the usual [update to SDL](https://github.com/yuzu-emu/yuzu/pull/6855), which always brings some goodies, in this case:
 
-The ability to send effects to DualSense triggers.
-Better sensor data rate for Switch and PlayStation controllers.
-Added support for the Amazon Luna controller.
-Added rumble support for the Google Stadia controller.
-Improved rumble for the Pro Controller.
+- The ability to send effects to DualSense triggers (not implemented at the moment).
+- Better sensor data rate for Switch and PlayStation controllers.
+- Added support for the Amazon Luna controller.
+- Added rumble support for the Google Stadia controller.
+- Improved rumble for the Pro Controller.
 
 And finally, the Web Applet can cause the SDL process to die, [disabling an unnecessary feature](https://github.com/yuzu-emu/yuzu/pull/6862) solves the issue.
 
