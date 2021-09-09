@@ -124,7 +124,7 @@ Work on `Local Wireless` continues, but in the meantime, thanks to work done by 
 [(Local Area Network)](https://github.com/yuzu-emu/yuzu/pull/6863) support has been added to all users!
 
 This means that a small selection of games can now be played with a Switch or any other computer running yuzu while connected to the same network (be it wired ethernet, or via 
-WiFi). With a service like ZeroTier (hamachi has not worked so far) or by manually configuring a VPN 
+WiFi). With a service like [ZeroTier](https://www.zerotier.com/) (hamachi has not worked so far) or by manually configuring a VPN 
 [(Virtual Private Network)](https://en.wikipedia.org/wiki/Virtual_private_network), this can be extended to global gameplay!
 
 Games with LAN support so far are:
