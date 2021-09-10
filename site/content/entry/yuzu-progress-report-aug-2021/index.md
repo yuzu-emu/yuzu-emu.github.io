@@ -14,9 +14,9 @@ Welcome yuz-ers, to our monthly report of developer suffering and other happenin
 
 This month was certainly a happy one for AMD users, as our developers managed to fix a number of graphical bugs present when using a graphics card from this company.
 
-[epicboy](https://github.com/ameerj) pushed a [fix the wireframe](https://github.com/yuzu-emu/yuzu/pull/6900) seen over the 3D models when playing `Pokémon Sword and Shield` 
+[epicboy](https://github.com/ameerj) pushed a [fix for the wireframe](https://github.com/yuzu-emu/yuzu/pull/6900) seen over various 3D models when playing `Pokémon Sword and Shield` 
 using an AMD GPU on Windows.
-Unfortunately, some games, like `Super Mario 3D World + Bowser's Fury`, have yet to be affected by this fix.
+Unfortunately, some games, like `Super Mario 3D World + Bowser's Fury`, have similar bugs which were not improved by this fix.
 Also, do note that, in some rare cases and conditions, it can still happen.
 
 {{< single-title-imgs
@@ -25,7 +25,7 @@ Also, do note that, in some rare cases and conditions, it can still happen.
     "./wirefix.png"
     >}}
 
-The cause of the problem boils down to the drivers of *a certain company* being unable to read shader attributes properly near a `demote` or `discard` instruction.
+The cause of the problem boils down to the drivers of *a certain vendor* not properly reading shader attributes near a `demote` or `discard` instruction.
 These instructions are used to mark [fragment shaders](https://www.khronos.org/opengl/wiki/Fragment_Shader) (a type of data that contains information used to colour pixels on an 
 image) so that they are only used for subordinate calculations (e.g. derivatives), but not actually used to write into the colour buffers that will be rendered on the screen — as 
 this is undefined behaviour that could lead to pretty rainbow-puke graphics.
@@ -35,7 +35,7 @@ graphical glitch.
 Thankfully, this was fixed by simply delaying the demotion of these fragments to the end of the shader program, which has a slight impact on their performance, albeit not one big 
 enough to be concerned.
 
-Next on epicboy's list, we have a [fix that solves the brightness of sRGB graphics](https://github.com/yuzu-emu/yuzu/pull/6941) when using a secondary GPU, since they looked much 
+Next on epicboy's list, we have a [fix that solves the brightness of sRGB graphics](https://github.com/yuzu-emu/yuzu/pull/6941) when rendering from a secondary GPU, since they looked much 
 darker than they should.
 
 {{< single-title-imgs
@@ -79,7 +79,7 @@ devices.
 epicboy thus [addressed this problem](https://github.com/yuzu-emu/yuzu/pull/6948) and fixed these instructions, so that by using the thread's invocation ID, it's possible to tell 
 whether any thread is part of the "lower" or "upper" 32-thread group, effectively allowing AMD cards to emulate the behaviour of the Nintendo Switch GPU.
 
-[blinkhawk](https://github.com/FernandoS27) has also contributed a number of fixes to bugs related to AMD, such as 
+[Blinkhawk](https://github.com/FernandoS27) has also contributed a number of fixes to bugs affecting AMD, starting with
 [disabling a vulkan extension](https://github.com/yuzu-emu/yuzu/pull/6943) (`VK_EXT_SAMPLER_FILTER_MINMAX`) in their GPUs prior to `GCN4` (Polaris), which do not have the 
 necessary hardware to support for it.
 Notably, this fixed the psychedelic graphics in `The Legend of Zelda: Skyward Sword HD`, one that many of us will miss, for sure.
@@ -91,7 +91,7 @@ Notably, this fixed the psychedelic graphics in `The Legend of Zelda: Skyward Sw
     >}}
 
 On a similar vein, [he increased the number of sets per pool on AMD](https://github.com/yuzu-emu/yuzu/pull/6944) (a feature used in Vulkan to specify some of the resources used by 
-shaders in the pipeline), a changed that fixed the random crashes that occurred when booting `Xenoblade Chronicles 2`.
+shaders in the pipeline), a change that fixed random crashes that occurred when booting `Xenoblade Chronicles 2`.
 
 [K0bin](https://github.com/K0bin) is back again, fixing another major issue.
 This time, yuzu was not following the official Vulkan specification right, leading to overlapping information for textures and buffers on Nvidia graphics cards.
@@ -106,7 +106,7 @@ but the same issue could affect any game that handles small textures at any time
 Reaper, the GPU cache garbage collector, to work on all games.
 
 There was a bug that made Mario's moustache appear to be light-brown instead of the classical dark shade we are used to seeing when using an Intel GPU with the Vulkan API.
-The problem was a simple one: yuzu was returning the wrong data type  — an unsigned integer, instead of a 32-bit floating-point value.
+The problem was a simple one: yuzu was returning the wrong data type  when querying the `gl_FrontFacing` attribute — an unsigned integer, instead of a 32-bit floating-point value.
 The solution was equally simple: epicboy changed the code so that the [queried attribute returned with the correct data type](https://github.com/yuzu-emu/yuzu/pull/6928).
 
 {{< single-title-imgs
@@ -157,7 +157,7 @@ For example, `Mario Kart 8 Deluxe` needs holding L + R + presing the left analog
 ## Smooth and glitch-less videos for the win
 
 Thanks to the [introduction of VA-API](https://github.com/yuzu-emu/yuzu/pull/6713) by [yzct12345](https://github.com/yzct12345) back in July, epicboy made it possible to 
-[use hardware video acceleration](https://github.com/yuzu-emu/yuzu/pull/6846) to decode videos with [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg) for different GPU and driver 
+[use hardware video acceleration](https://github.com/yuzu-emu/yuzu/pull/6846) to decode videos with [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg) for all other compatible GPU and driver 
 combinations.
 Furthermore, yuzu will gracefully fall back to software decoding in case none of the combinations are supported.
 
@@ -172,12 +172,12 @@ Currently, the following GPU decoders are implemented:
 |INTEL | D3D11VA | VA-API |
 
 Please note that, since the GPU used to decode videos isn't necessarily the same as the one used for rendering, NVDEC is preferred on Windows over D3D11VA, as the performance 
-experienced with the latter when the iGPU is used for decoding was lower.
+experienced with the latter when it defaults to using the iGPU for decoding was lower.
 
 Similarly, VA-API is preferred along with the integrated graphics card on Linux (when available), as it was reported that this combination yielded better performance than using 
 the discrete GPU to decode videos.
 
-Next on the list, we have had reports of noise artefacts appearing in the videos of some games. Notably, those that were encoded with the 
+Next on the list, we have had reports of noisy artifacts appearing in the videos of some games. Notably, those that were encoded with the 
 [VP9 format](https://en.wikipedia.org/wiki/VP9).
 epicboy [investigated the problem and solved it by stubbing `UnmapBuffer`](https://github.com/yuzu-emu/yuzu/pull/6799), a driver command that is, as you could guess, used to free 
 GPU memory held by a buffer.
@@ -199,7 +199,7 @@ And now, here's where things turn a bit funny.
 For some reason, the information in this buffer — namely, that part of the header that specified what `key-frames` should be used as reference, would change inconsistently among 
 `inter-frames`.
 This led to a degradation on the quality of the video, as every interpolated frame would reference a different `key-frame`, leading to the creation of these infamous garbled noise 
-artefacts.
+artifacts.
 
 By stubbing the `UnmapBuffer` command, the addresses of these reference frames now remain constant for as long as they are needed, allowing yuzu to pass to `FFmpeg` the correct 
 information and decode the videos without problems.
@@ -240,15 +240,15 @@ You can’t predict how a bug will show up, sometimes they pop out like daisies.
 [sankasan](https://github.com/yuzu-emu/yuzu/pull/6795) gave `yuzu-cmd`, our command-line SDL2 alternative to the regular Qt yuzu, some additional love.
 By correctly implementing `SDL_ShowCursor`, yuzu-cmd can now [properly hide the mouse cursor while in fullscreen](https://github.com/yuzu-emu/yuzu/pull/6795). Thank you!
 
-Also regarding `yuzu-cmd`, in the past, while controller mappings and settings were working, the actual toggle to enable them was ignored. 
+Also relating to `yuzu-cmd`, in the past, controller mappings and settings were working, but the toggle to enable them was ignored. 
 [toastUnlimited](https://github.com/lat9nq). [Reading the `connected` value as a boolean](https://github.com/yuzu-emu/yuzu/pull/6816) was all it took to get past this misstep.
 
-toast also found an issue in the logic of how per-game profiles were handled, only the default user profile was selected.
+toast also found an issue in the logic of how per-game profiles were handled: only the default user profile was ever selected.
 [Some code changes, and now the currently selected user profile will be used](https://github.com/yuzu-emu/yuzu/pull/6805).
 
-[gidoly](https://github.com/yuzu-emu/yuzu/pull/6817) did his first ever pull request, fixing a small but arguably very important description.
+[gidoly](https://github.com/yuzu-emu/yuzu/pull/6817) opened his first ever pull request, fixing a small but arguably very important description.
 
-`Use Fast GPU time`, one of our options in the Advanced graphics tab, is a hack intended to improve compatibility with games that use dynamic resolution as a way to keep steady 
+`Use Fast GPU time`, one of the options in the Advanced Graphics tab, is a hack intended to improve compatibility with games that use dynamic resolution as a way to keep steady 
 performance on the Switch. 
 
 By lying to the kernel and informing that performance is always good, the emulator avoids unnecessary destruction and reconstruction of textures, saving both performance and VRAM.
@@ -279,7 +279,7 @@ the access to a resource in a multi-core system, so that the processes that writ
 in this case, the queue.
 
 This adventurous developer also [optimized the UnswizzleTexture function](https://github.com/yuzu-emu/yuzu/pull/6861), yielding a sweet speed gain.
-Swizzling refers to a technique used to optimize how they are stored in memory to minimize cache misses.
+Swizzling refers to a technique used to optimize how textures are stored in memory to minimize cache misses.
 The opposite operation, thus, would be to take a swizzled texture and reorganize it so it makes sense to humans.
 
 Some time ago, toast detected a potential out-of-bounds access, which is a bug that occurs when the program accesses memory that is outside the range where it should be operating 
@@ -293,7 +293,7 @@ While inspecting yuzu manually and with the help of analysis tools, v1993 also f
 preventing it from behaving as intended.
 In a similar vein, he also corrected a [copy-paste error](https://github.com/yuzu-emu/yuzu/pull/6889) affecting the code of the software keyboard.
 
-v1993 also found another bug in the `GetSubmappedRange()` function, used to obtain the CPU memory segments from a GPU memory address, blinkhawk 
+v1993 also found another bug in the `GetSubmappedRange()` function, used to obtain the CPU memory segments from a GPU memory address, Blinkhawk 
 [went ahead and fixed it](https://github.com/yuzu-emu/yuzu/pull/6894).
 
 Another noteworthy change by blink is that he [changed the logic of the Garbage Collector](https://github.com/yuzu-emu/yuzu/pull/6897), so that it uses a Least-Recently Used 
