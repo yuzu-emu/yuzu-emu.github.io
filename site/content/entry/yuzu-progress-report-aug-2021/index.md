@@ -14,8 +14,8 @@ Welcome yuz-ers, to our monthly report of developer suffering and other happenin
 
 This month was certainly a happy one for AMD users, as our developers managed to fix a number of graphical bugs present when using a graphics card from this company.
 
-[epicboy](https://github.com/ameerj) pushed a [fix for the wireframe](https://github.com/yuzu-emu/yuzu/pull/6900) seen over various 3D models when playing `Pokémon Sword and Shield` 
-using an AMD GPU on Windows.
+[epicboy](https://github.com/ameerj) pushed a [fix for the wireframe](https://github.com/yuzu-emu/yuzu/pull/6900) seen over various 3D models when playing 
+`Pokémon Sword and Shield` using an AMD GPU on Windows.
 Unfortunately, some games, like `Super Mario 3D World + Bowser's Fury`, have similar bugs which were not improved by this fix.
 Also, do note that, in some rare cases and conditions, it can still happen.
 
@@ -27,12 +27,15 @@ Also, do note that, in some rare cases and conditions, it can still happen.
 
 The cause of the problem boils down to the drivers of *a certain vendor* not properly reading shader attributes near a `demote` or `discard` instruction.
 
-Among the many programs that run in the GPU to render graphics, fragment shaders are in charge of calculating the colour of every pixel written into the frame-buffer that will be sent to your screen. In some cases, these shaders are used to perform subordinate calculations instead, such as derivatives.
+Among the many programs that run in the GPU to render graphics, fragment shaders are in charge of calculating the colour of every pixel written into the frame-buffer that will 
+be sent to your screen. In some cases, these shaders are used to perform subordinate calculations instead, such as derivatives.
 
-This is a problem, however, as fragments shaders are *always* expected to write into the frame-buffer. When used like this, the colour data of these shader instances remains uninitialized, which is undefined behaviour that will most likely result in rainbow-puke graphics being sent to your screen.
+This is a problem, however, as fragments shaders are *always* expected to write into the frame-buffer. When used like this, the colour data of these shader instances remains 
+uninitialized, which is undefined behaviour that will most likely result in rainbow-puke graphics being sent to your screen.
 
 This is where the `demote` and `discard` instructions come in to the rescue.
-They are used to mark these fragment shaders, so that the colour of every shader instance that is demoted is ignored, keeping the thread alive to perform calculations while the frame-buffer remains untouched.
+They are used to mark these fragment shaders, so that the colour of every shader instance that is demoted is ignored, keeping the thread alive to perform calculations while the 
+frame-buffer remains untouched.
 
 Whenever the driver tried to read attributes (i.e. data such as positions, normals, etc.) in the proximity of these instructions, it would misread them, causing the infamous 
 graphical glitch.
@@ -40,8 +43,8 @@ graphical glitch.
 Thankfully, this was fixed by simply delaying the demotion of these fragments to the end of the shader program, which has a slight impact on their performance, albeit not one big 
 enough to be concerned.
 
-Next on epicboy's list, we have a [fix that solves the brightness of sRGB graphics](https://github.com/yuzu-emu/yuzu/pull/6941) when rendering from a secondary GPU, since they looked much 
-darker than they should.
+Next on epicboy's list, we have a [fix that solves the brightness of sRGB graphics](https://github.com/yuzu-emu/yuzu/pull/6941) when rendering from a secondary GPU, since they 
+looked much darker than they should.
 
 {{< single-title-imgs
     "Free HDR! (Super Mario Odyssey)"
@@ -51,7 +54,8 @@ darker than they should.
 
 This occurred when the rendering was performed by an AMD GPU, but the presentation of images from the [swap chain](https://en.wikipedia.org/wiki/Swap_chain) (the virtual buffers 
 used by the GPU to prevent tearing and stuttering when updating your screen) was done by an Intel or Nvidia GPU.
-The Swapchains that were being rendered on the AMD GPU, which contained images in `sRGB` format, were being read is they were `linear` on the secondary GPU, causing them to be presented with erroneous intensity levels.
+The Swapchains that were being rendered on the AMD GPU, which contained images in `sRGB` format, were being read is they were `linear` on the secondary GPU, causing them to 
+be presented with erroneous intensity levels.
 This is because the scales used in these formats are incompatible, and their values do not automatically map to an equivalent value on their counterpart space, resulting in a 
 quality degradation of the image when using the wrong format.
 
@@ -75,11 +79,11 @@ GPUs were, thus, designed to operate over large amounts of data at the same time
 This method of parallel computing, combined with multi-threading, is known as `SIMT` 
 ([Single Instruction, Multiple Threads](https://en.wikipedia.org/wiki/Single_instruction,_multiple_threads)).
 
-In the case of the Tegra X1 (the GPU of the Nintendo Switch), these instructions operate on bundles of 32 threads (called `workgroups`), all of which run the same code — although they do not 
-necessarily operate on the same data.
+In the case of the Tegra X1 (the GPU of the Nintendo Switch), these instructions operate on bundles of 32 threads (called `workgroups`), all of which run the same code — 
+although they do not necessarily operate on the same data.
 The `SIMT` instructions in AMD cards post the [`GCN` architecture](https://en.wikipedia.org/wiki/Graphics_Core_Next), however, only work with workgroups of 64 threads.
-This presented a challenge, as yuzu had to divide these workgroups of 64 threads and make them behave as two workgroups of 32 threads in order to properly emulate the guest GPU on these 
-devices.
+This presented a challenge, as yuzu had to divide these workgroups of 64 threads and make them behave as two workgroups of 32 threads in order to properly emulate the guest GPU 
+on these devices.
 
 epicboy thus [addressed this problem](https://github.com/yuzu-emu/yuzu/pull/6948) and fixed these instructions, so that by using the thread's invocation ID, it's possible to tell 
 whether any thread is part of the "lower" or "upper" 32-thread group, effectively allowing AMD cards to emulate the behaviour of the Nintendo Switch GPU.
@@ -95,7 +99,8 @@ Notably, this fixed the psychedelic graphics in `The Legend of Zelda: Skyward Sw
     "./sshdfix.png"
     >}}
 
-On a similar vein, [he increased the number of sets per pool on AMD](https://github.com/yuzu-emu/yuzu/pull/6944) (a feature used in Vulkan to manage the memory of resources), fixing the random crashes that occurred when booting `Xenoblade Chronicles 2`.
+On a similar vein, [he increased the number of sets per pool on AMD](https://github.com/yuzu-emu/yuzu/pull/6944) (a feature used in Vulkan to manage the memory of resources), 
+fixing the random crashes that occurred when booting `Xenoblade Chronicles 2`.
 
 [K0bin](https://github.com/K0bin) is back again, fixing another major issue.
 This time, yuzu was not following the official Vulkan specification right, leading to overlapping information for textures and buffers on Nvidia graphics cards.
@@ -161,8 +166,8 @@ For example, `Mario Kart 8 Deluxe` needs holding L + R + presing the left analog
 ## Smooth and glitch-less videos for the win
 
 Thanks to the [introduction of VA-API](https://github.com/yuzu-emu/yuzu/pull/6713) by [yzct12345](https://github.com/yzct12345) back in July, epicboy made it possible to 
-[use hardware video acceleration](https://github.com/yuzu-emu/yuzu/pull/6846) to decode videos with [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg) for all other compatible GPU and driver 
-combinations.
+[use hardware video acceleration](https://github.com/yuzu-emu/yuzu/pull/6846) to decode videos with [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg) for all other compatible GPU 
+and driver combinations.
 Furthermore, yuzu will gracefully fall back to software decoding in case none of the combinations are supported.
 
 This considerably speeds up the decoding process, improving the performance of the emulator when playing videos.
@@ -241,8 +246,9 @@ You can’t predict how a bug will show up, sometimes they pop out like daisies.
 [sankasan](https://github.com/yuzu-emu/yuzu/pull/6795) gave `yuzu-cmd`, our command-line SDL2 alternative to the regular Qt yuzu, some additional love.
 By correctly implementing `SDL_ShowCursor`, yuzu-cmd can now [properly hide the mouse cursor while in fullscreen](https://github.com/yuzu-emu/yuzu/pull/6795). Thank you!
 
-Also relating to `yuzu-cmd`, in the past, controller mappings and settings were working, but the toggle to enable them was ignored. 
-[toastUnlimited](https://github.com/lat9nq). [Reading the `connected` value as a boolean](https://github.com/yuzu-emu/yuzu/pull/6816) was all it took to get past this misstep.
+Also relating to `yuzu-cmd`, in the past, while button mapping and other settings were working correctly, the toggle to enable the controller was being completely ignored.
+[Reading the `connected` value as a boolean](https://github.com/yuzu-emu/yuzu/pull/6816) was all it took to get past this misstep, thanks 
+[toastUnlimited](https://github.com/lat9nq)!
 
 toast also found an issue in the logic of how per-game profiles were handled: only the default user profile was ever selected.
 [Some code changes, and now the currently selected user profile will be used](https://github.com/yuzu-emu/yuzu/pull/6805).
