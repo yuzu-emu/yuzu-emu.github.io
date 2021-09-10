@@ -26,12 +26,18 @@ Also, do note that, in some rare cases and conditions, it can still happen.
     >}}
 
 The cause of the problem boils down to the drivers of *a certain vendor* not properly reading shader attributes near a `demote` or `discard` instruction.
-These instructions are used to mark [fragment shaders](https://www.khronos.org/opengl/wiki/Fragment_Shader) (a type of data that contains information used to colour pixels on an 
-image) so that they are only used for subordinate calculations (e.g. derivatives), but not actually used to write into the colour buffers that will be rendered on the screen — as 
-this is undefined behaviour that could lead to pretty rainbow-puke graphics.
+
+Among the many programs that run in the GPU to render graphics, fragment shaders are in charge of calculating the colour of every pixel written into the frame-buffer that will be sent to your screen.
+In some cases, these shaders are used instead to perform subordinate calculations, such as derivatives.
+This is a problem, however, as fragments shaders are *always* expected to write into the frame-buffer.
+Since the colour data of these shader instances are uninitialized, this is undefined behaviour that will most likely result in rainbow-puke graphics being sent to your screen.
+
+This is where the `demote` and `discard` instructions come in to the rescue.
+They are used to mark these fragment shaders, so that the colour of every shader instance that is demoted is ignored, keeping the thread alive to perform calculations while the frame-buffer remains untouched.
 
 Whenever the driver tried to read attributes (i.e. data such as positions, normals, etc.) in the proximity of these instructions, it would misread them, causing the infamous 
 graphical glitch.
+
 Thankfully, this was fixed by simply delaying the demotion of these fragments to the end of the shader program, which has a slight impact on their performance, albeit not one big 
 enough to be concerned.
 
@@ -46,12 +52,12 @@ darker than they should.
 
 This occurred when the rendering was performed by an AMD GPU, but the presentation of images from the [swap chain](https://en.wikipedia.org/wiki/Swap_chain) (the virtual buffers 
 used by the GPU to prevent tearing and stuttering when updating your screen) was done by an Intel or Nvidia GPU.
-The images held in these buffers are presented with different intensity levels depending on whether they're interpreted as `sRGB` or `Linear RGB` textures.
+The Swapchains that were being rendered on the AMD GPU, which contained images in `sRGB` format, were being read is they were `linear` on the secondary GPU, causing them to be presented with erroneous intensity levels.
 This is because the scales used in these formats are incompatible, and their values do not automatically map to an equivalent value on their counterpart space, resulting in a 
 quality degradation of the image when using the wrong format.
 
-As a solution, the `Linear` space format is now preferred when presenting pictures from the swap chain, which now display properly, as the values used are compatible with the 
-image format.
+As a solution, the `Linear` colour space format is now preferred when presenting frames from the swap chain. 
+This alleviates the wrong interpretation of the frame's colour space, allowing all frames to display properly in the linear colour space.
 
 Another annoying Windows-only AMD GPU bug gone for good thanks to epicboy is [the horrible bright squares](https://github.com/yuzu-emu/yuzu/pull/6948) that would appear in the 
 shading of a number of titles: most notably, `Fire Emblem: Three Houses`.
@@ -68,12 +74,12 @@ In graphics programming, it's extremely common to perform the same operation ove
 GPUs were, thus, designed to operate over large amounts of data at the same time (i.e. in parallel), using instructions that exploit this principle, known as `SIMD` 
 ([Single Instruction, Multiple Data](https://en.wikipedia.org/wiki/SIMD)).
 This method of parallel computing, combined with multi-threading, is known as `SIMT` 
-([Single Instruction, Multiple Thread](https://en.wikipedia.org/wiki/Single_instruction,_multiple_threads)).
+([Single Instruction, Multiple Threads](https://en.wikipedia.org/wiki/Single_instruction,_multiple_threads)).
 
-In the case of the Tegra X1 (the GPU of the Nintendo Switch), these instructions operate on bundles of 32 threads, all of which run the same code — although they do not 
+In the case of the Tegra X1 (the GPU of the Nintendo Switch), these instructions operate on bundles of 32 threads (called `workgroups`), all of which run the same code — although they do not 
 necessarily operate on the same data.
-The `SIMT` instructions in AMD cards post the [`GCN` architecture](https://en.wikipedia.org/wiki/Graphics_Core_Next), however, only work with bundles of 64 threads.
-This presented a challenge, as yuzu had to divide these bundles of 64 threads and make them behave as two bundles of 32 threads in order to properly emulate the guest GPU on these 
+The `SIMT` instructions in AMD cards post the [`GCN` architecture](https://en.wikipedia.org/wiki/Graphics_Core_Next), however, only work with workgroups of 64 threads.
+This presented a challenge, as yuzu had to divide these workgroups of 64 threads and make them behave as two workgroups of 32 threads in order to properly emulate the guest GPU on these 
 devices.
 
 epicboy thus [addressed this problem](https://github.com/yuzu-emu/yuzu/pull/6948) and fixed these instructions, so that by using the thread's invocation ID, it's possible to tell 
@@ -90,8 +96,7 @@ Notably, this fixed the psychedelic graphics in `The Legend of Zelda: Skyward Sw
     "./sshdfix.png"
     >}}
 
-On a similar vein, [he increased the number of sets per pool on AMD](https://github.com/yuzu-emu/yuzu/pull/6944) (a feature used in Vulkan to specify some of the resources used by 
-shaders in the pipeline), a change that fixed random crashes that occurred when booting `Xenoblade Chronicles 2`.
+On a similar vein, [he increased the number of sets per pool on AMD](https://github.com/yuzu-emu/yuzu/pull/6944) (a feature used in Vulkan to manage the memory of resources), fixing the random crashes that occurred when booting `Xenoblade Chronicles 2`.
 
 [K0bin](https://github.com/K0bin) is back again, fixing another major issue.
 This time, yuzu was not following the official Vulkan specification right, leading to overlapping information for textures and buffers on Nvidia graphics cards.
@@ -174,15 +179,12 @@ Currently, the following GPU decoders are implemented:
 Please note that, since the GPU used to decode videos isn't necessarily the same as the one used for rendering, NVDEC is preferred on Windows over D3D11VA, as the performance 
 experienced with the latter when it defaults to using the iGPU for decoding was lower.
 
-Similarly, VA-API is preferred along with the integrated graphics card on Linux (when available), as it was reported that this combination yielded better performance than using 
-the discrete GPU to decode videos.
-
 Next on the list, we have had reports of noisy artifacts appearing in the videos of some games. Notably, those that were encoded with the 
 [VP9 format](https://en.wikipedia.org/wiki/VP9).
 epicboy [investigated the problem and solved it by stubbing `UnmapBuffer`](https://github.com/yuzu-emu/yuzu/pull/6799), a driver command that is, as you could guess, used to free 
 GPU memory held by a buffer.
 But what was exactly the problem behind this? I'm afraid that this will get a tad bit technical, so bear with me for a while.
-I promise it will not hurt… Much.
+I promise it will not hurt... Much.
 
 The VP9 codec defines, among other things, a number of frames in the video to be used as references, which are in turn employed to reconstruct the frames in-between these 
 `key-frames`.
