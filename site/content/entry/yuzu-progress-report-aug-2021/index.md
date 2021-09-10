@@ -27,10 +27,9 @@ Also, do note that, in some rare cases and conditions, it can still happen.
 
 The cause of the problem boils down to the drivers of *a certain vendor* not properly reading shader attributes near a `demote` or `discard` instruction.
 
-Among the many programs that run in the GPU to render graphics, fragment shaders are in charge of calculating the colour of every pixel written into the frame-buffer that will be sent to your screen.
-In some cases, these shaders are used instead to perform subordinate calculations, such as derivatives.
-This is a problem, however, as fragments shaders are *always* expected to write into the frame-buffer.
-Since the colour data of these shader instances are uninitialized, this is undefined behaviour that will most likely result in rainbow-puke graphics being sent to your screen.
+Among the many programs that run in the GPU to render graphics, fragment shaders are in charge of calculating the colour of every pixel written into the frame-buffer that will be sent to your screen. In some cases, these shaders are used to perform subordinate calculations instead, such as derivatives.
+
+This is a problem, however, as fragments shaders are *always* expected to write into the frame-buffer. When used like this, the colour data of these shader instances remains uninitialized, which is undefined behaviour that will most likely result in rainbow-puke graphics being sent to your screen.
 
 This is where the `demote` and `discard` instructions come in to the rescue.
 They are used to mark these fragment shaders, so that the colour of every shader instance that is demoted is ignored, keeping the thread alive to perform calculations while the frame-buffer remains untouched.
