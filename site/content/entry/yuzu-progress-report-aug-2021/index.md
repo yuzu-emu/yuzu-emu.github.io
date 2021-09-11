@@ -54,13 +54,13 @@ looked much darker than they should.
 
 This occurred when the rendering was performed by an AMD GPU, but the presentation of images from the [swap chain](https://en.wikipedia.org/wiki/Swap_chain) (the virtual buffers 
 used by the GPU to prevent tearing and stuttering when updating your screen) was done by an Intel or Nvidia GPU.
-The Swapchains that were being rendered on the AMD GPU, which contained images in `sRGB` format, were being read is they were `linear` on the secondary GPU, causing them to 
+The Swapchains that were being rendered on the AMD GPU, which contained images in `sRGB` format, were being read as `linear` on the secondary GPU, causing them to 
 be presented with erroneous intensity levels.
 This is because the scales used in these formats are incompatible, and their values do not automatically map to an equivalent value on their counterpart space, resulting in a 
 quality degradation of the image when using the wrong format.
 
 As a solution, the `Linear` colour space format is now preferred when presenting frames from the swap chain. 
-This alleviates the wrong interpretation of the frame's colour space, allowing all frames to display properly in the linear colour space.
+This alleviates the wrong interpretation of the frame's format, allowing all frames to display properly in the linear colour space.
 
 Another annoying Windows-only AMD GPU bug gone for good thanks to epicboy is [the horrible bright squares](https://github.com/yuzu-emu/yuzu/pull/6948) that would appear in the 
 shading of a number of titles: most notably, `Fire Emblem: Three Houses`.
@@ -198,7 +198,7 @@ Decoding a frame like this is a slower process, but it guarantees that the frame
 
 As was previously mentioned, FFmpeg is used to decode videos.
 In the case of the VP9 format, yuzu needs to send to it the raw bytes that will be decoded (i.e. the actual images that you see in the video), along with a header that contains 
-metadata, such as the dimensions of the frame, whether it is a `key-frame`, or if it isn't, what frames are used as references when processing it, etc.
+metadata, such as the dimensions of the frame, whether it is a `key-frame`, or, if it isn't, what frames are used as references when processing it, etc.
 
 The information that constitutes this header is mapped to a buffer in memory.
 And now, here's where things turn a bit funny.
@@ -222,12 +222,12 @@ On a related note, epicboy fixed another VP9 problem: the first frame on the bit
 As previously mentioned, yuzu reads the header information directly from the NVDEC registers contained in a buffer.
 Unfortunately, one key flag that needs to be passed to FFmpeg,`is_hidden_frame`, was not actually held in this buffer.
 
-To circumvent this problem, our implementation also buffers the next frame, and based on another flag that holds the same information (`is_previous_frame_hidden`), informs FFmpeg 
+To circumvent this problem, our implementation also buffers the next frame, and then, based on another flag that holds the same information (`is_previous_frame_hidden`), informs FFmpeg 
 whether the previous frame should be displayed or not.
-This means that yuzu would always decode one frame late, and, since that was already the case, yuzu wasn't sending the header information for the very first frame, as it needs to 
+This means that yuzu would always decode one frame late, and since that was already the case, yuzu wasn't sending the header information for the very first frame, as it needs to 
 know the value of `is_hidden_frame` beforehand.
 
-What epicboy did was simply copy the first frame, so that essentially the first and second frame are the same, and thus, exploiting this fact, the header information can be passed 
+What epicboy did was simply copy the first frame in the bitstream, so that essentially the first and second frame are the same, and thus, exploiting this fact, the header information can be passed 
 to FFmpeg so it stops complaining.
 
 Alas, the joys of software development are but infinite in this world.
@@ -282,7 +282,7 @@ yzct12345 also found a [deadlock](https://en.wikipedia.org/wiki/Deadlock) in our
 [and submitted a fix](https://github.com/yuzu-emu/yuzu/pull/6868) to address this problem.
 The work to rewrite this queue and make it Multi-Producer, Multi-Consumer has also been started, so hopefully we might see a follow-up next month.
 If you’re confused about these "[Producer-Consumer](https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem)" terms, just know that they basically describe how to tackle 
-the access to a resource in a multi-core system, so that the processes that write into (produce), and those that read (consume) from a shared resource, are properly synchronized — 
+the access to a resource in a multi-core system, so that the processes that write into (produce), and those that read from (consume), a shared resource, are properly synchronized — 
 in this case, the queue.
 
 This adventurous developer also [optimized the UnswizzleTexture function](https://github.com/yuzu-emu/yuzu/pull/6861), yielding a sweet speed gain.
@@ -311,7 +311,7 @@ It also used certain heuristics that would make the cleaning more aggressive tow
 
 The `LRU` scheme, however, orders the textures based on how recently they were used.
 Once the memory is full, the GC starts iterating over the elements of the `LRU` cache, eliminating the textures that haven't been used in the longest time.
-Additionally, the GC now prioritizes eliminating textures that do not need to synchronize with the host memory, and considers all other textures only once these have been emptied 
+Additionally, the GC now prioritizes eliminating textures that do not need to synchronize with the host memory, and only considers other textures once these have been emptied 
 from the cache.
 These changes make the new Garbage Collector more stable, so we can safely enable it by default for all users.
 
