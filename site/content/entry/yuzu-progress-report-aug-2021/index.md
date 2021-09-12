@@ -6,7 +6,7 @@ coauthor = "GoldenX86"
 forum = 0
 +++
 
-Welcome yuz-ers, to our monthly report of developer suffering and other happenings! This time we offer you Radeon fixes, Reaper v3, LAN support, smooth video rendering and more!
+Welcome, yuz-ers, to our monthly report of developer suffering and other happenings! In this recap, we'll discuss Radeon fixes, Reaper v3, LAN support, smooth video rendering, and more!
 
 <!--more-->
 
@@ -103,7 +103,7 @@ On a similar vein, [he increased the number of sets per pool on AMD](https://git
 fixing the random crashes that occurred when booting `Xenoblade Chronicles 2`.
 
 [K0bin](https://github.com/K0bin) is back again, fixing another major issue.
-This time, yuzu was not following the official Vulkan specification right, leading to overlapping information for textures and buffers on Nvidia graphics cards.
+This time, yuzu was not following the official Vulkan specification correctly, leading to overlapping information for textures and buffers on Nvidia graphics cards.
 
 `bufferImageGranularity` specifies the size in bytes at which textures and buffers can be aligned. 
 AMD and Intel GPUs allow for pretty precise values of 1 or 64 bytes depending on the hardware, but Nvidia on the other hand is hard limited to a 1024 byte block.
@@ -114,7 +114,7 @@ But the same issue could affect any game that handles small textures at any time
 [Properly respecting this hardware set value](https://github.com/yuzu-emu/yuzu/pull/6834) fixes unheard instabilities when running games in Vulkan with an Nvidia GPU, and allows 
 Reaper, the GPU cache garbage collector, to work on all games.
 
-There was a bug that made Mario's moustache appear to be light-brown instead of the classical dark shade we are used to seeing when using an Intel GPU with the Vulkan API.
+There was a bug that made Mario's moustache appear to be light-brown (instead of the classical dark shade we are used to seeing) when using an Intel GPU with the Vulkan API.
 The problem was a simple one: yuzu was returning the wrong data type  when querying the `gl_FrontFacing` attribute — an unsigned integer, instead of a 32-bit floating-point value.
 The solution was equally simple: epicboy changed the code so that the [queried attribute returned with the correct data type](https://github.com/yuzu-emu/yuzu/pull/6928).
 
@@ -124,13 +124,13 @@ The solution was equally simple: epicboy changed the code so that the [queried a
     "./intelfix.png"
     >}}
 
-[v1993](https://github.com/yuzu-emu/yuzu/pull/6887) has been using [PVS-Studio](https://pvs-studio.com/en/) to catch logic errors in the code to good success so far. For example, 
+[v1993](https://github.com/yuzu-emu/yuzu/pull/6887) has been using [PVS-Studio](https://pvs-studio.com/en/) to catch logic errors in the code with good success so far. For example, 
 [a small clean up in SPIR-V was possible thanks to this](https://github.com/yuzu-emu/yuzu/pull/6887).
 
 ## LAN party time!
 
-Work on `Local Wireless` continues, but in the meantime, thanks to work done by [spholz](https://github.com/spholz) yuzu is proud to announce that `LAN` 
-[(Local Area Network)](https://github.com/yuzu-emu/yuzu/pull/6863) support has been added to all users!
+Work on `Local Wireless` continues, but in the meantime, yuzu is proud to announce that `LAN` 
+[(Local Area Network)](https://github.com/yuzu-emu/yuzu/pull/6863) support has been added for all users! This is all thanks to work done by [spholz](https://github.com/spholz).
 
 This means that a small selection of games can now be played with a Switch or any other computer running yuzu while connected to the same network (be it wired ethernet, or via 
 WiFi). With a service like [ZeroTier](https://www.zerotier.com/) (hamachi has not worked so far) or by manually configuring a VPN 
@@ -152,14 +152,14 @@ WiFi). With a service like [ZeroTier](https://www.zerotier.com/) (hamachi has no
 - `Splatoon 2` (works with auto-stub enabled)
 - `Titan Quest`
 
-Not all the listed games work at the moment due to missing services or just not having the best compatibility right now, but gameplay proved stable in all working cases.
+At the moment, not all of the listed games work due to missing services or not having the best compatibility with yuzu, but gameplay proved stable in all working cases.
 
 {{< imgs
 	"./lan.png| It just works! (Mario Kart 8 Deluxe)"
   >}}
 
 Keep in mind that some games require certain button combinations to switch between LAN and Local Wireless modes. 
-For example, `Mario Kart 8 Deluxe` needs holding L + R + presing the left analog trigger (L3) in the main menu to be able to create or join a LAN room.
+For example, `Mario Kart 8 Deluxe` requires the user to hold L + R + depressing the left analog stick (L3) in the main menu to be able to create or join a LAN room.
 
 [Morph](https://github.com/Morph1984) later followed with [network interface cleanups](https://github.com/yuzu-emu/yuzu/pull/6905).
 
@@ -261,7 +261,7 @@ performance on the Switch.
 By lying to the kernel and informing that performance is always good, the emulator avoids unnecessary destruction and reconstruction of textures, saving both performance and VRAM.
 As an added benefit, some games use this *totally-not-adulterated* information to constantly render at their highest supported resolution.
 
-For both these reasons we recommend users to keep this option always enabled, as no regressions have been found for using it, and the stability benefits on some particular titles 
+For both these reasons we recommend users to keep this option always enabled, as no regressions have been found when using it, and the stability benefits on some particular titles 
 like `Luigi’s Mansion 3` are more than worth it.
 
 So, by calling a spade a spade, gidoly now informs us that `Use Fast GPU time` [is indeed a hack](https://github.com/yuzu-emu/yuzu/pull/6817). Al pan, pan, y al vino, vino.
@@ -275,8 +275,8 @@ So, by calling a spade a spade, gidoly now informs us that `Use Fast GPU time` [
 epicboy [flipped the positions of `Limit Speed Percent` and `Framerate Cap`](https://github.com/yuzu-emu/yuzu/pull/6839) in the configuration window. Tidying the user interface 
 never hurts.
 
-Tired of having to wait over 3 minutes for each change done to the texture cache section of the code, [yzct12345](https://github.com/yzct12345) 
-[split out the definitions](https://github.com/yuzu-emu/yuzu/pull/6820), reducing the build time to 30 seconds.
+Are there any developers tired of having to wait over 3 minutes to compile each change done to the texture cache section of the code? Well, [yzct12345](https://github.com/yzct12345) 
+[split out the definitions](https://github.com/yuzu-emu/yuzu/pull/6820), reducing the build time to only 30 seconds.
 
 yzct12345 also found a [deadlock](https://en.wikipedia.org/wiki/Deadlock) in our `Single-Producer, Single Consumer queue`, 
 [and submitted a fix](https://github.com/yuzu-emu/yuzu/pull/6868) to address this problem.
@@ -303,7 +303,7 @@ In a similar vein, he also corrected a [copy-paste error](https://github.com/yuz
 v1993 also found another bug in the `GetSubmappedRange()` function, used to obtain the CPU memory segments from a GPU memory address. Blinkhawk 
 [went ahead and fixed it](https://github.com/yuzu-emu/yuzu/pull/6894).
 
-Another noteworthy change by blink is that he [changed the logic of the Garbage Collector](https://github.com/yuzu-emu/yuzu/pull/6897), so that it uses a Least-Recently Used 
+Another noteworthy change by Blinkhawk is that he [changed the logic of the Garbage Collector](https://github.com/yuzu-emu/yuzu/pull/6897), so that it uses a Least-Recently Used 
 (`LRU`) cache instead.
 
 Previously, the cache of the GC (Garbage Collector) would iterate over `n` textures every frame, checking whether they should be cleaned from memory or not.
@@ -321,17 +321,17 @@ boost.
 
 # Input improvements
 
-german77 has a few input changes done this month.
+german77 implemented a few input changes this month.
 
 First of all, when mapping and moving an analog stick, the previous implementation used to only show a blue dot representing the relative position of the analog stick.
-Now [a new green dot is added](https://github.com/yuzu-emu/yuzu/pull/6815), which represents the emulated position of the stick, considering range and dead zones values.
-Useful to know if the stick actually reaches the whole input range.
+[A new green dot is now present](https://github.com/yuzu-emu/yuzu/pull/6815), representing the emulated position of the stick, considering range and dead zones values.
+It's useful to know if the stick actually reaches the whole input range.
 
 {{< imgs
 	"./stick.mp4| Remember to test and set both Range and Deadzone"
   >}}
 
-Next, the usual [update to SDL](https://github.com/yuzu-emu/yuzu/pull/6855), which always brings some goodies, in this case:
+Next, the usual [update to SDL](https://github.com/yuzu-emu/yuzu/pull/6855), which always brings some goodies. In this case:
 
 - The ability to send effects to DualSense triggers (not implemented at the moment).
 - Better sensor data rate for Switch and PlayStation controllers.
@@ -347,10 +347,10 @@ And finally, the Web Applet can cause the SDL process to die, [disabling an unne
 	"./art.png| 4K beach episode (Xenoblade Chronicles Definitive Edition)"
   >}}
 
-Progress on Project A.R.T. is going well, most major problems have been addressed, Morph had several eureka moments with Project Gaia, and other secret recipes are in the oven, 
+Progress on `Project A.R.T`. is going well, most major problems have been addressed. Morph had several eureka moments with Project Gaia. And now other secret recipes are in the oven, 
 waiting their turn.
 
-That’s all folks! Thank you for your kind attention, happy playing, and see you next time!
+That’s all folks! Thank you for your attention — happy playing, and see you next time!
 
 &nbsp;
 {{< article-end >}}
