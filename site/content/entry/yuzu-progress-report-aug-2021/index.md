@@ -6,7 +6,7 @@ coauthor = "GoldenX86"
 forum = 0
 +++
 
-Welcome, yuz-ers, to our monthly report of developer suffering and other happenings! In this recap, we'll discuss Radeon fixes, Reaper v3, LAN support, smooth video rendering, and more!
+Welcome, yuz-ers, to our monthly report of developer perseverance and other happenings! In this recap, we'll discuss Radeon fixes, Reaper v3, LAN support, smooth video rendering, and more!
 
 <!--more-->
 
@@ -114,7 +114,7 @@ But the same issue could affect any game that handles small textures at any time
 [Properly respecting this hardware set value](https://github.com/yuzu-emu/yuzu/pull/6834) fixes unheard instabilities when running games in Vulkan with an Nvidia GPU, and allows 
 Reaper, the GPU cache garbage collector, to work on all games.
 
-There was a bug that made Mario's moustache appear to be light-brown (instead of the classical dark shade we are used to seeing) when using an Intel GPU with the Vulkan API.
+There was a bug that made Mario's moustache appear to be light-brown (instead of the classic dark shade we are used to seeing) when using an Intel GPU with the Vulkan API.
 The problem was a simple one: yuzu was returning the wrong data type  when querying the `gl_FrontFacing` attribute — an unsigned integer, instead of a 32-bit floating-point value.
 The solution was equally simple: epicboy changed the code so that the [queried attribute returned with the correct data type](https://github.com/yuzu-emu/yuzu/pull/6928).
 
@@ -159,7 +159,7 @@ At the moment, not all of the listed games work due to missing services or not h
   >}}
 
 Keep in mind that some games require certain button combinations to switch between LAN and Local Wireless modes. 
-For example, `Mario Kart 8 Deluxe` requires the user to hold L + R + depressing the left analog stick (L3) in the main menu to be able to create or join a LAN room.
+For example, `Mario Kart 8 Deluxe` requires the user to simultaneously hold L + R and depress the left analog stick (L3) in the main menu to be able to create or join a LAN room.
 
 [Morph](https://github.com/Morph1984) later followed with [network interface cleanups](https://github.com/yuzu-emu/yuzu/pull/6905).
 
@@ -211,7 +211,7 @@ By stubbing the `UnmapBuffer` command, the addresses of these reference frames n
 information and decode the videos without any problems.
 
 {{< single-title-imgs
-    "Both glitchfree and smoother (The Legend of Zelda: Link's Awakening)"
+    "Both glitch free and smoother (The Legend of Zelda: Link's Awakening)"
     "./vp9bug.mp4"
     "./vp9fix.mp4"
     >}}
@@ -347,7 +347,7 @@ And finally, the Web Applet can cause the SDL process to die, [disabling an unne
 	"./art.png| 4K beach episode (Xenoblade Chronicles Definitive Edition)"
   >}}
 
-Progress on `Project A.R.T`. is going well, most major problems have been addressed. Morph had several eureka moments with Project Gaia. And now other secret recipes are in the oven, 
+Progress on `Project A.R.T.` is going well, most major problems have been addressed. Morph had several eureka moments with `Project Gaia`. And now other secret recipes are in the oven, 
 waiting their turn.
 
 That’s all folks! Thank you for your attention — happy playing, and see you next time!
