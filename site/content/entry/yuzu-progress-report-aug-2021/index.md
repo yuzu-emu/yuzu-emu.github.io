@@ -12,12 +12,12 @@ Welcome yuz-ers, to our monthly report of developer suffering and other happenin
 
 ## **A**nother **T**errible **I**mplementation, and other graphical fixes
 
-This month was certainly a happy one for AMD users, as our developers managed to fix a number of graphical bugs present when using a graphics card from this company.
+This month was certainly a happy one for AMD users, as our developers managed to fix a number of graphical bugs present for those with AMD graphics cards.
 
-[epicboy](https://github.com/ameerj) pushed a [fix for the wireframe](https://github.com/yuzu-emu/yuzu/pull/6900) seen over various 3D models when playing 
-`Pokémon Sword and Shield` using an AMD GPU on Windows.
+[epicboy](https://github.com/ameerj) pushed a [fix for the wireframe issue](https://github.com/yuzu-emu/yuzu/pull/6900) affecting various 3D models when playing 
+`Pokémon Sword and Shield` while using an AMD GPU on Windows.
 Unfortunately, some games, like `Super Mario 3D World + Bowser's Fury`, have similar bugs which were not improved by this fix.
-Also, do note that, in some rare cases and conditions, it can still happen.
+Also, do note that, in some rare cases and conditions, the issue can still occur.
 
 {{< single-title-imgs
     "Best character (Pokémon Sword)"
@@ -25,9 +25,9 @@ Also, do note that, in some rare cases and conditions, it can still happen.
     "./wirefix.png"
     >}}
 
-The cause of the problem boils down to the drivers of *a certain vendor* not properly reading shader attributes near a `demote` or `discard` instruction.
+The cause of the problem boils down to the drivers of *a certain vendor* (AMD) not properly reading shader attributes near a `demote` or `discard` instruction.
 
-Among the many programs that run in the GPU to render graphics, fragment shaders are in charge of calculating the colour of every pixel written into the frame-buffer that will 
+Among the many programs that run on the GPU to render graphics, fragment shaders are in charge of calculating the colour of every pixel written into the frame-buffer that will 
 be sent to your screen. In some cases, these shaders are used to perform subordinate calculations instead, such as derivatives.
 
 This is a problem, however, as fragments shaders are *always* expected to write into the frame-buffer. When used like this, the colour data of these shader instances remains 
@@ -54,7 +54,7 @@ looked much darker than they should.
 
 This occurred when the rendering was performed by an AMD GPU, but the presentation of images from the [swap chain](https://en.wikipedia.org/wiki/Swap_chain) (the virtual buffers 
 used by the GPU to prevent tearing and stuttering when updating your screen) was done by an Intel or Nvidia GPU.
-The Swapchains that were being rendered on the AMD GPU, which contained images in `sRGB` format, were being read as `linear` on the secondary GPU, causing them to 
+The swap chains that were being rendered on the AMD GPU, which contained images in `sRGB` format, were being read as `Linear` on the secondary GPU, causing them to 
 be presented with erroneous intensity levels.
 This is because the scales used in these formats are incompatible, and their values do not automatically map to an equivalent value on their counterpart space, resulting in a 
 quality degradation of the image when using the wrong format.
@@ -71,7 +71,7 @@ shading of a number of titles: most notably, `Fire Emblem: Three Houses`.
     "./fethfix.mp4"
     >}}
 
-The cause of this problem lies at the hardware-level differences between the GPU of the Nintendo Switch, and that of the AMD cards.
+The cause of this problem lies at the hardware-level differences between the GPU of the Nintendo Switch, and that of AMD cards.
 
 In graphics programming, it's extremely common to perform the same operation over a considerable number of elements — such as vertices, pixels, etc.
 GPUs were, thus, designed to operate over large amounts of data at the same time (i.e. in parallel), using instructions that exploit this principle, known as `SIMD` 
@@ -85,12 +85,12 @@ The `SIMT` instructions in AMD cards post the [`GCN` architecture](https://en.wi
 This presented a challenge, as yuzu had to divide these workgroups of 64 threads and make them behave as two workgroups of 32 threads in order to properly emulate the guest GPU 
 on these devices.
 
-epicboy thus [addressed this problem](https://github.com/yuzu-emu/yuzu/pull/6948) and fixed these instructions, so that by using the thread's invocation ID, it's possible to tell 
+epicboy [addressed this problem](https://github.com/yuzu-emu/yuzu/pull/6948) and fixed these instructions, so that by using the thread's invocation ID, it's possible to tell 
 whether any thread is part of the "lower" or "upper" 32-thread group, effectively allowing AMD cards to emulate the behaviour of the Nintendo Switch GPU.
 
-[Blinkhawk](https://github.com/FernandoS27) has also contributed a number of fixes to bugs affecting AMD, starting with
+[Blinkhawk](https://github.com/FernandoS27) has also contributed a number of fixes for bugs affecting AMD, starting with
 [disabling a vulkan extension](https://github.com/yuzu-emu/yuzu/pull/6943) (`VK_EXT_SAMPLER_FILTER_MINMAX`) in their GPUs prior to `GCN4` (Polaris), which do not have the 
-necessary hardware to support for it.
+necessary hardware to support the extension.
 Notably, this fixed the psychedelic graphics in `The Legend of Zelda: Skyward Sword HD`, one that many of us will miss, for sure.
 
 {{< single-title-imgs
@@ -108,8 +108,8 @@ This time, yuzu was not following the official Vulkan specification right, leadi
 `bufferImageGranularity` specifies the size in bytes at which textures and buffers can be aligned. 
 AMD and Intel GPUs allow for pretty precise values of 1 or 64 bytes depending on the hardware, but Nvidia on the other hand is hard limited to a 1024 byte block.
 
-yuzu didn’t take this alignment into consideration, leading to data corruption primarily shown by `Super Mario Odyssey` with and without the GPU cache garbage collector enabled, 
-but the same issue could affect any game that handles small textures at any time, as any buffer could corrupt any texture, and any texture could corrupt any buffer.
+yuzu didn’t take this alignment into consideration, leading to data corruption primarily shown by `Super Mario Odyssey` with and without the GPU cache garbage collector enabled. 
+But the same issue could affect any game that handles small textures at any time, as any buffer could corrupt any texture, and any texture could corrupt any buffer.
 
 [Properly respecting this hardware set value](https://github.com/yuzu-emu/yuzu/pull/6834) fixes unheard instabilities when running games in Vulkan with an Nvidia GPU, and allows 
 Reaper, the GPU cache garbage collector, to work on all games.
@@ -136,26 +136,26 @@ This means that a small selection of games can now be played with a Switch or an
 WiFi). With a service like [ZeroTier](https://www.zerotier.com/) (hamachi has not worked so far) or by manually configuring a VPN 
 [(Virtual Private Network)](https://en.wikipedia.org/wiki/Virtual_private_network), this can be extended to global gameplay!
 
-Games with LAN support so far are:
+**Games with LAN support so far are:**
 
-ARMS
-Bayonetta 2
-Duke Nukem 3D: 20th Anniversary World Tour
-Mario & Sonic at the Olympic Games Tokyo 2020
-Mario Golf: Super Rush
-Mario Kart 8 Deluxe
-Mario Tennis Aces
-Pokkén Tournament DX
-Pokémon Sword & Shield (limited game functions by design)
-Saints Row IV®: Re-Elected™
-SAINTS ROW: THE THIRD - THE FULL PACKAGE
-Splatoon 2 (works with auto-stub enabled)
-Titan Quest
+- `ARMS`
+- `Bayonetta 2`
+- `Duke Nukem 3D: 20th Anniversary World Tour`
+- `Mario & Sonic at the Olympic Games Tokyo 2020`
+- `Mario Golf: Super Rush`
+- `Mario Kart 8 Deluxe`
+- `Mario Tennis Aces`
+- `Pokkén Tournament DX`
+- `Pokémon Sword & Shield` (limited game functions by design)
+- `Saints Row IV®: Re-Elected™`
+- `SAINTS ROW®: THE THIRD™ - THE FULL PACKAGE`
+- `Splatoon 2` (works with auto-stub enabled)
+- `Titan Quest`
 
 Not all the listed games work at the moment due to missing services or just not having the best compatibility right now, but gameplay proved stable in all working cases.
 
 {{< imgs
-	"./lan.png| It just works (Mario Kart 8 Deluxe)"
+	"./lan.png| It just works! (Mario Kart 8 Deluxe)"
   >}}
 
 Keep in mind that some games require certain button combinations to switch between LAN and Local Wireless modes. 
@@ -163,7 +163,7 @@ For example, `Mario Kart 8 Deluxe` needs holding L + R + presing the left analog
 
 [Morph](https://github.com/Morph1984) later followed with [network interface cleanups](https://github.com/yuzu-emu/yuzu/pull/6905).
 
-## Smooth and glitch-less videos for the win
+## Smooth and glitchless videos for the win
 
 Thanks to the [introduction of VA-API](https://github.com/yuzu-emu/yuzu/pull/6713) by [yzct12345](https://github.com/yzct12345) back in July, epicboy made it possible to 
 [use hardware video acceleration](https://github.com/yuzu-emu/yuzu/pull/6846) to decode videos with [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg) for all other compatible GPU 
@@ -188,7 +188,7 @@ Next on the list, we have had reports of noisy artifacts appearing in the videos
 epicboy [investigated the problem and solved it by stubbing `UnmapBuffer`](https://github.com/yuzu-emu/yuzu/pull/6799), a driver command that is, as you could guess, used to free 
 GPU memory held by a buffer.
 But what was exactly the problem behind this? I'm afraid that this will get a tad bit technical, so bear with me for a while.
-I promise it will not hurt... Much.
+I promise it will not hurt... much.
 
 The VP9 codec defines, among other things, a number of frames in the video to be used as references, which are in turn employed to reconstruct the frames in-between these 
 `key-frames`.
@@ -197,30 +197,30 @@ That means that, to properly interpolate these "in-between" frames, one must rel
 Decoding a frame like this is a slower process, but it guarantees that the frame will be as clean of errors as possible, which is why they can be used as references.
 
 As was previously mentioned, FFmpeg is used to decode videos.
-In the case of the VP9 format, yuzu needs to send to it the raw bytes that will be decoded (i.e. the actual images that you see in the video), along with a header that contains 
+In the case of the VP9 format, yuzu needs to send FFmpeg the raw bytes that will be decoded (i.e. the actual images that you see in the video), along with a header that contains 
 metadata, such as the dimensions of the frame, whether it is a `key-frame`, or, if it isn't, what frames are used as references when processing it, etc.
 
 The information that constitutes this header is mapped to a buffer in memory.
 And now, here's where things turn a bit funny.
 For some reason, the information in this buffer — namely, that part of the header that specified what `key-frames` should be used as reference, would change inconsistently among 
 `inter-frames`.
-This led to a degradation on the quality of the video, as every interpolated frame would reference a different `key-frame`, leading to the creation of these infamous garbled noise 
+This led to a degradation of the quality of the video, as every interpolated frame would reference a different `key-frame`, leading to the creation of these infamous garbled noise 
 artifacts.
 
 By stubbing the `UnmapBuffer` command, the addresses of these reference frames now remain constant for as long as they are needed, allowing yuzu to pass to `FFmpeg` the correct 
-information and decode the videos without problems.
+information and decode the videos without any problems.
 
 {{< single-title-imgs
-    "Both glitch-free and smoother (The Legend of Zelda: Link's Awakening)"
+    "Both glitchfree and smoother (The Legend of Zelda: Link's Awakening)"
     "./vp9bug.mp4"
     "./vp9fix.mp4"
     >}}
 
-On a related note, epicboy fixed another VP9 problem: the first frame on the bitstream was missing its frame data, so he changed the logic to 
+On a related note, epicboy fixed another VP9 problem: the first frame of the bitstream was missing its frame data, so he changed the logic to 
 [ensure the first frame is complete](https://github.com/yuzu-emu/yuzu/pull/6844), silencing a runtime error thrown by FFmpeg.
 
 As previously mentioned, yuzu reads the header information directly from the NVDEC registers contained in a buffer.
-Unfortunately, one key flag that needs to be passed to FFmpeg,`is_hidden_frame`, was not actually held in this buffer.
+Unfortunately, one key flag that needs to be passed to FFmpeg, `is_hidden_frame`, was not actually held in this buffer.
 
 To circumvent this problem, our implementation also buffers the next frame, and then, based on another flag that holds the same information (`is_previous_frame_hidden`), informs FFmpeg 
 whether the previous frame should be displayed or not.
@@ -230,7 +230,7 @@ know the value of `is_hidden_frame` beforehand.
 What epicboy did was simply copy the first frame in the bitstream, so that essentially the first and second frame are the same, and thus, exploiting this fact, the header information can be passed 
 to FFmpeg so it stops complaining.
 
-Alas, the joys of software development are but infinite in this world.
+Alas, the joys of software development are fleeting in this world.
 
 ## General bugfixes
 
@@ -253,7 +253,7 @@ Also relating to `yuzu-cmd`, in the past, while button mapping and other setting
 toast also found an issue in the logic of how per-game profiles were handled: only the default user profile was ever selected.
 [Some code changes, and now the currently selected user profile will be used](https://github.com/yuzu-emu/yuzu/pull/6805).
 
-[gidoly](https://github.com/yuzu-emu/yuzu/pull/6817) opened his first ever pull request, fixing a small but arguably very important description.
+[gidoly](https://github.com/gidoly) opened his first ever pull request, fixing a small but arguably very important description.
 
 `Use Fast GPU time`, one of the options in the Advanced Graphics tab, is a hack intended to improve compatibility with games that use dynamic resolution as a way to keep steady 
 performance on the Switch. 
@@ -278,9 +278,9 @@ never hurts.
 Tired of having to wait over 3 minutes for each change done to the texture cache section of the code, [yzct12345](https://github.com/yzct12345) 
 [split out the definitions](https://github.com/yuzu-emu/yuzu/pull/6820), reducing the build time to 30 seconds.
 
-yzct12345 also found a [deadlock](https://en.wikipedia.org/wiki/Deadlock) in our Single-Producer, Single Consumer queue, 
+yzct12345 also found a [deadlock](https://en.wikipedia.org/wiki/Deadlock) in our `Single-Producer, Single Consumer queue`, 
 [and submitted a fix](https://github.com/yuzu-emu/yuzu/pull/6868) to address this problem.
-The work to rewrite this queue and make it Multi-Producer, Multi-Consumer has also been started, so hopefully we might see a follow-up next month.
+The work to rewrite this queue and make it `Multi-Producer, Multi-Consumer` has also been started, so hopefully we might see a follow-up next month.
 If you’re confused about these "[Producer-Consumer](https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem)" terms, just know that they basically describe how to tackle 
 the access to a resource in a multi-core system, so that the processes that write into (produce), and those that read from (consume), a shared resource, are properly synchronized — 
 in this case, the queue.
@@ -293,20 +293,20 @@ Some time ago, toast detected a potential out-of-bounds access, which is a bug t
 at that given moment.
 The code in question is also part of the function used to unswizzle textures.
 epicboy noticed that the root of the problem laid in the calculation of the frame buffer size, used to limit where the code should operate, 
-[and fixed it on this PR](https://github.com/yuzu-emu/yuzu/pull/6879), effectively eliminating the bug.
+[and fixed it in this PR](https://github.com/yuzu-emu/yuzu/pull/6879), effectively eliminating the bug.
 
 While inspecting yuzu manually and with the help of analysis tools, v1993 also found a number of small bugs in different parts of our codebase, such as a 
 [misplaced break statement](https://github.com/yuzu-emu/yuzu/pull/6884) in the kernel function `GetThreadContext()` — a human error that changed the logic of the algorithm, 
 preventing it from behaving as intended.
 In a similar vein, he also corrected a [copy-paste error](https://github.com/yuzu-emu/yuzu/pull/6889) affecting the code of the software keyboard.
 
-v1993 also found another bug in the `GetSubmappedRange()` function, used to obtain the CPU memory segments from a GPU memory address, Blinkhawk 
+v1993 also found another bug in the `GetSubmappedRange()` function, used to obtain the CPU memory segments from a GPU memory address. Blinkhawk 
 [went ahead and fixed it](https://github.com/yuzu-emu/yuzu/pull/6894).
 
 Another noteworthy change by blink is that he [changed the logic of the Garbage Collector](https://github.com/yuzu-emu/yuzu/pull/6897), so that it uses a Least-Recently Used 
 (`LRU`) cache instead.
 
-Previously, the cache of the GC would iterate over `n` textures every frame, checking whether they should be cleaned from memory or not.
+Previously, the cache of the GC (Garbage Collector) would iterate over `n` textures every frame, checking whether they should be cleaned from memory or not.
 It also used certain heuristics that would make the cleaning more aggressive towards certain kinds of textures, cleaning them without synchronizing with the host memory.
 
 The `LRU` scheme, however, orders the textures based on how recently they were used.
