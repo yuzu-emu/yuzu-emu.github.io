@@ -1,9 +1,9 @@
 +++
-date = "2021-09-08T12:00:00-03:00"
+date = "2021-09-12T12:00:00-03:00"
 title = "Progress Report August 2021"
 author = "Honghoa"
 coauthor = "GoldenX86"
-forum = 0
+forum = 461810
 +++
 
 Welcome, yuz-ers, to our monthly report of developer perseverance and other happenings! In this recap, we'll discuss Radeon fixes, Reaper v3, LAN support, smooth video rendering, and more!
