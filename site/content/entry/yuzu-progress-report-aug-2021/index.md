@@ -303,7 +303,7 @@ In a similar vein, he also corrected a [copy-paste error](https://github.com/yuz
 v1993 also found another bug in the `GetSubmappedRange()` function, used to obtain the CPU memory segments from a GPU memory address. Blinkhawk 
 [went ahead and fixed it](https://github.com/yuzu-emu/yuzu/pull/6894).
 
-Another noteworthy change by Blinkhawk is that he [changed the logic of the Garbage Collector](https://github.com/yuzu-emu/yuzu/pull/6897), so that it uses a Least-Recently Used 
+Another noteworthy change by Blinkhawk is that he [changed the logic of the Garbage Collector](https://github.com/yuzu-emu/yuzu/pull/6897) (Reaper), so that it uses a Least-Recently Used 
 (`LRU`) cache instead.
 
 Previously, the cache of the GC (Garbage Collector) would iterate over `n` textures every frame, checking whether they should be cleaned from memory or not.
