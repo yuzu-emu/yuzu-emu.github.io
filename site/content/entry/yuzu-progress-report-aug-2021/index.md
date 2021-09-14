@@ -258,7 +258,7 @@ toast also found an issue in the logic of how per-game profiles were handled: on
 `Use Fast GPU time`, one of the options in the Advanced Graphics tab, is a hack intended to improve compatibility with games that use dynamic resolution as a way to keep steady 
 performance on the Switch. 
 
-By lying and informing the game/application that performmance is always good, the emulator avoids unnecessary destruction and reconstruction of textures, saving both performance and VRAM.
+By lying and informing the game/application that performance is always good, the emulator avoids unnecessary destruction and reconstruction of textures, saving both performance and VRAM.
 As an added benefit, some games use this *totally-not-adulterated* information to constantly render at their highest supported resolution.
 
 For both these reasons we recommend users to keep this option always enabled, as no regressions have been found when using it, and the stability benefits on some particular titles 
