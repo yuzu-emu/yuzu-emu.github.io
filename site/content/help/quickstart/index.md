@@ -274,23 +274,26 @@ _**NOTE:** These steps will be used in other sections below. Do **not** follow t
 ## Dumping Save Files (Optional)
 
 11. We will now dump the games' save files from your switch to use in yuzu.
-    - 11a. Download [Checkpoint.nro](https://github.com/SciresM/Checkpoint/releases/tag/ams-19-compat)
+    - 11a. Download [JKSV.nro](https://github.com/J-D-K/JKSV/releases/latest)
     - 11b. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
     - 11c. Boot into [Hekate](#booting-into-hekate) (steps 3b. to 3c.)
     - 11d. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
-    - 11e. Navigate to your SD card drive and create a folder named `Checkpoint` within the `switch` folder of your SD card and place the `Checkpoint.nro` file inside it.
+    - 11e. Navigate to your SD card drive and place the `JKSV.nro` file inside the `switch` folder.
     - 11f. Once you're done, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
     - 11g. Tap on `Payloads`. This will show a list of payloads.
     - 11h. Tap on `fusee.bin` in the list of payloads.
     - 11i. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, press and hold the `R` button on your controller and launch a game. This will launch the Homebrew Menu in `title override mode`.
-    - 11j. Either use the touchscreen or navigate using your controller, and choose `Checkpoint`.
-    - 11k. Pick the games that you want to dump their save files (multiselect with the `Y` button), and press the `L` button to backup the saves.
-    - 11l. Once you have backed up the save files, press any button to return to the previous menu and then press `+` to return to the Homebrew Menu.
-    - 11m. Select `Reboot to Payload` and then press `-` on your controller to return to the Hekate menu.
-    - 11n. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
-    - 11o. Navigate to your SD card drive. Your save files will be located in the `switch/Checkpoint` folder.
-    - 11p. Follow the instructions in the [How do I add a Save to my Game](https://yuzu-emu.org/wiki/faq/#how-do-i-add-a-save-to-my-game) section of our [FAQ.](https://yuzu-emu.org/wiki/faq/)
-    - 11q. Once you're done transferring your save files, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
+    - 11j. Either use the touchscreen or navigate using your controller, and choose `JKSV`.
+    - 11k. Move up or down to select a source to dump save data for a single game. (Most save files are stored under the user account of choice. Some save data are located under Device, such as Animal Crossing: New Horizons.)
+    - 11l. **For dumping all save data at once from selected source:** Press `X` and then select the `Dump All for <source name>` option.
+    - 11m. **For dumping save data of a single game:** Press `A` and then select the game of choice, then press `A` again and select the `New` option.
+    - 11n. JKSV will being up the keyboard to set a name for your save data folder. By default, it generates a name containing the source name (user account, Device, etc.) alongside the date and time of when it was dumped, else you can name it to whatever you want. Once you're done, press `+` to dismiss the keyboard.
+    - 11o. Once you're done dumping, press `+` to close JKSV.
+    - 11p. Select `Reboot to Payload` and then press `-` on your controller to return to the Hekate menu.
+    - 11q. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
+    - 11r. Navigate to your SD card drive. Your save files will be located in `sd:/JKSV/<name of the game>/<folder name from step 11n>/`.
+    - 11s. Follow the instructions in the [How do I add a Save to my Game](https://yuzu-emu.org/wiki/faq/#how-do-i-add-a-save-to-my-game) section of our [FAQ.](https://yuzu-emu.org/wiki/faq/)
+    - 11t. Once you're done transferring your save files, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
     
 ## Rebooting the Switch Back to its Original State
 
