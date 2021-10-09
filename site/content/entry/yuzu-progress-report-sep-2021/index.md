@@ -250,9 +250,10 @@ that the Switch community enjoys.
 One important example is [UltimateModManager](https://github.com/ultimate-research/UltimateModManager), or UMM for short, which refuses to work on yuzu for now.
 
 To counter this, [ogniK](https://github.com/ogniK5377) allowed homebrews running in yuzu the [creation of subdirectories](https://github.com/yuzu-emu/yuzu/pull/6974), 
-resulting in UMM managing to at least start.
-And [Morph](https://github.com/Morph1984) did a [partial implementation of the `GetFileTimeStampRaw` service,](https://github.com/yuzu-emu/yuzu/pull/7010) removing several 
-warnings.
+resulting in UMM managing to at least start. 
+A temporary solution until our much needed filesystem rewrite is finished.
+Plus [Morph](https://github.com/Morph1984) did a [partial implementation of the `GetFileTimeStampRaw` function,](https://github.com/yuzu-emu/yuzu/pull/7010) removing 
+several warnings.
 
 This isn’t enough to allow full UMM compatibility, but we’re getting there.
 
@@ -290,7 +291,7 @@ This game experiences some crashes, so there’s more work to do.
 	"./blast.png| Cruis'n Blast"
   >}}
 
-ogniK [implemented the `EnsureTokenIdCacheAsync` service,](https://github.com/yuzu-emu/yuzu/pull/6975) making `Death Coming` go in-game, albeit with some graphical bugs that 
+ogniK [implemented the `EnsureTokenIdCacheAsync` function,](https://github.com/yuzu-emu/yuzu/pull/6975) making `Death Coming` go in-game, albeit with some graphical bugs that 
 we have to sort out in the future.
 
 {{< imgs
