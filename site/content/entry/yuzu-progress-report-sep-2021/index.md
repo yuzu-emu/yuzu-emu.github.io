@@ -156,9 +156,9 @@ After that, vonchenplus corrected the definition of [the values in an enum](http
 Both these changes affect `DRAGON QUEST III: The Seeds of Salvation`, fixing the graphical bugs present in this game.
 
 {{< single-title-imgs
-    "Waa! (WarioWare: Get It Together!)"
-    "./qdbug.png"
-    "./qdfix.png"
+    "DRAGON QUEST III: The Seeds of Salvation"
+    "./dqbug.png"
+    "./dqfix.png"
     >}}
 
 ## Tool-assisted speedrun
