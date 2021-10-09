@@ -18,7 +18,9 @@ They, however, support `VK_PRESENT_MODE_IMMEDIATE_KHR`, another mode that allows
 [epicboy](https://github.com/ameerj) made the [necessary changes](https://github.com/yuzu-emu/yuzu/pull/7003) in order to unlock FPS on these GPUs.
 Due to the nature of this presentation mode, this may cause visible tearing on the screen, so bear that in mind if you try this out.
 
-pic
+{{< imgs
+	"./framerate.png| And this is with just an RX 550 (Metroid Dread)"
+  >}}
 
 Booting a title in Linux with the Vulkan API using the Intel Mesa driver resulted in a crash due to a device loss error.
 The problem laid on the synchronization between the rendering and subsequent presentation of frames.
@@ -53,7 +55,11 @@ Ahem, anyway, AMD Radeon GPUs lack support for fixed point 24-bit depth textures
 To bypass this hardware limitation, yuzu uses D32 textures instead, which can cause precision issues during the conversion process. 
 [By adjusting the Depth Bias and Polygon Offset of yuzu’s D24 emulation,](https://github.com/yuzu-emu/yuzu/pull/7070) Blinkhawk solves the issue for good.
 
-pic Fair play, please
+{{< single-title-imgs
+    "Fair play, please (Super Smash Bros. Ultimate)"
+    "./smashbug.png"
+    "./smashfix.png"
+    >}}
 
 Yet another AMD Radeon specific issue is visible when playing `The Legend of Zelda: Breath of the Wild`.
 Terrain textures looked colourful and corrupted, like the default RGB rainbow puke setting of most “gaming” hardware.
@@ -68,12 +74,17 @@ Cube maps are a cube with it’s six faces filled with different textures.
 The coordinate used to fetch the data, unlike the regular X and Y values, is a single [versor](https://en.wikipedia.org/wiki/Versor) originating from the center and pointing 
 to the surface of the cube.
 
-pic
+{{< imgs
+	"./array.png| "
+  >}}
 
 Texture arrays on the other hand are just as the name implies, an ordered array of textures one after the other, with X and Y used for positioning information inside the 
 texture, and a Z axis used to determine which texture of the array is in use.
 
-pic
+{{< imgs
+	"./cube.png| "
+  >}}
+
 
 So tl;dr, one is a sphere and the other is a list.
 
@@ -87,7 +98,11 @@ While this should not be a problem on its own, as coordinates can still be pulle
 [By disabling Cube Compatibility on GCN4 and older devices running the official AMD proprietary drivers,](https://github.com/yuzu-emu/yuzu/pull/7076) epicboy returned proper 
 sense to the devastated land of Hyrule.
 
-pics I prefer no RGB.
+{{< single-title-imgs
+    "I prefer no RGB, thanks (The Legend of Zelda: Breath of the Wild)"
+    "./botwbug.png"
+    "./botwfix.png"
+    >}}
 
 Speaking of RGB, [as discussed back in February](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/#paint-me-like-one-of-your-french-bits), yuzu has to use compute 
 shaders to convert most BGR texture formats in OpenGL to avoid mismatched colours.
@@ -97,8 +112,14 @@ Users of Kepler series Nvidia GPUs (usually GTX 600/700 series, with several ren
 corrupt rendering.
 Instead of using compute shaders to swizzle textures, epicboy figured we could just use `Pixel Buffer Objects` 
 [(or PBO for short)](https://www.khronos.org/opengl/wiki/Pixel_Buffer_Object) for [all affected texture formats instead.](https://github.com/yuzu-emu/yuzu/pull/7036) 
-This has many benefits, it solves Kepler BGR issues, improves performance on weak devices from any GPU vendor, and it is also a required change for `A.R.T.`, the resolution 
+This has many benefits, it solves Kepler BGR issues, improves performance on weak devices from any GPU vendor, and is also a required change for `A.R.T.`, the resolution 
 scaler in development.
+
+{{< single-title-imgs
+    "A Hat in Time"
+    "./keplerbug.png"
+    "./keplerfix.png"
+    >}}
 
 On the subject of changes needed for the resolution scaler, Blinkhawk implemented [fixes to queries and indexed samplers.](https://github.com/yuzu-emu/yuzu/pull/7077)
 The result is fewer crashes while playing `Luigi’s Mansion 3` on Intel and AMD GPUs, be it on Windows or Linux. 
@@ -113,7 +134,11 @@ epicboy has also [fixed some minor bugs with the `StencilOp`](https://github.com
 rendering area. 
 Thanks to this, `WarioWare: Get It Together!` properly renders its models.
 
-pics
+{{< single-title-imgs
+    "Waa! (WarioWare: Get It Together!)"
+    "./waabug.png"
+    "./waafix.png"
+    >}}
 
 [vonchenplus](https://github.com/vonchenplus) added support for the legacy GLSL `gl_Color` and `gl_TexCoord` attributes into our Vulkan backend, so that any game that uses 
 them can render properly when using this API.
@@ -130,7 +155,11 @@ After that, vonchenplus corrected the definition of [the values in an enum](http
 
 Both these changes affect `DRAGON QUEST III: The Seeds of Salvation`, fixing the graphical bugs present in this game.
 
-pics
+{{< single-title-imgs
+    "Waa! (WarioWare: Get It Together!)"
+    "./qdbug.png"
+    "./qdfix.png"
+    >}}
 
 ## Tool-assisted speedrun
 
@@ -141,7 +170,9 @@ The format used to store them is the one [TAS-nx](https://github.com/hamhub7/TAS
 
 You can access TAS configuration by going to `Tools > Configure TAS…`
 
-pic
+{{< imgs
+	"./tas.png| "
+  >}}
 
 ## Other input changes
 
@@ -151,7 +182,9 @@ for epic fights with your friends.
 
 You can find the option in `Emulation > Configure… > Controls > Advanced > Enable XInput 8 player support (disables web applet)`.
 
-pic
+{{< imgs
+	"./8.png| "
+  >}}
 
 [v1993](https://github.com/v1993) later [hid the option on non-Windows OSes,](https://github.com/yuzu-emu/yuzu/pull/7042) as this limitation doesn’t apply outside the Windows 
 SDL builds.
@@ -183,7 +216,11 @@ While the plan is to add support for this in the future, major changes to the fi
 [behunin](https://github.com/behunin) implemented much needed [clean ups to our debug configuration window.](https://github.com/yuzu-emu/yuzu/pull/7068)
 Check the results below:
 
-pics
+{{< single-title-imgs
+    " "
+    "./debugbug.png"
+    "./debugfix.png"
+    >}}
 
 ## General bugfixes
 
@@ -221,7 +258,9 @@ This isn’t enough to allow full UMM compatibility, but we’re getting there.
 
 Some games pop-up a confirmation window when trying to stop emulation.
 
-pic
+{{< imgs
+	"./exit.png| Like this"
+  >}}
 
 This kind of redundant question is made by the game itself and while we always had a toggle to skip it, it wasn’t working properly. epicboy comes to the rescue, 
 [fixing the toggle](https://github.com/yuzu-emu/yuzu/pull/6997) for good and saving us trying to stop our games some seconds of time in the process.
@@ -240,17 +279,24 @@ splatting!
 german77 [stubbed `SetTouchScreenConfiguration` and implemented `GetNotificationStorageChannelEvent`](https://github.com/yuzu-emu/yuzu/pull/6992) to make `Dr Kawashima's Brain 
 Training for Nintendo Switch` playable.
 
-pic
+{{< imgs
+	"./brain.png| Dr Kawashima's Brain Training for Nintendo Switch"
+  >}}
 
 He has also [stubbed `Match`](https://github.com/yuzu-emu/yuzu/pull/7015) to make `Cruis'n Blast` playable. 
 This game experiences some crashes, so there’s more work to do.
 
-pic
+{{< imgs
+	"./blast.png| Cruis'n Blast"
+  >}}
 
 ogniK [implemented the `EnsureTokenIdCacheAsync` service,](https://github.com/yuzu-emu/yuzu/pull/6975) making `Death Coming` go in-game, albeit with some graphical bugs that 
 we have to sort out in the future.
 
-pic
+{{< imgs
+	"./death.png| Death Coming"
+  >}}
+
 Morph has been working on implementing what is needed to get `Diablo II: Resurrected` working.
 Initially, the [`Read` socket service was implemented](https://github.com/yuzu-emu/yuzu/pull/7082), but this mandates also implementing more complex services like `Select` and 
 `EventFD`. 
@@ -258,13 +304,17 @@ EventFD is particularly tricky as there is no native support for it on Windows, 
 
 As a temporary alternative, [Read was just stubbed,](https://github.com/yuzu-emu/yuzu/pull/7085), allowing the game to boot.
 
-pic as you can see, there’s more work to do
+{{< imgs
+	"./diablo.png| Diablo II: Resurrected"
+  >}}
 
 ## Future projects
 
 For anyone wondering about `Project A.R.T.`, the following image speaks of its own.
 
-bikini
+{{< imgs
+	"./art.png| Xenoblade Chronicles Definitive Edition"
+  >}}
 
 Regarding other works, there are more rendering fixes underway, and we’re already starting plans on what to focus on after A.R.T. is finished.
 
