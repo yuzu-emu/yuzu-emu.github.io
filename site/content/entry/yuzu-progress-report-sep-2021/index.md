@@ -268,7 +268,7 @@ If you wish to change this behaviour, the option is in `Emulation > Configure…
 
 v1993 [moved all QtWebEngine data to a more organized centralized folder,](https://github.com/yuzu-emu/yuzu/pull/7075) improving consistency and reducing clutter from the 
 user’s storage.
-Instead of a separate folder in `%appdata%`, information is now saved in yuzu’s directory, `%appdata%\yuzu\qtwebengine` by default.
+Instead of a separate folder in `%localappdata%`, information is now saved in yuzu’s directory, `%appdata%\yuzu\qtwebengine` by default.
 
 [toastUnlimited](https://github.com/lat9nq) 
 [performed his first stubbing surgery with the audio input services `Start`, `RegisterBufferEvent`, and `AppendAudioInBufferAuto`](https://github.com/yuzu-emu/yuzu/pull/7018).
