@@ -83,7 +83,6 @@ texture, and a Z axis used to determine which texture of the array is in use.
 	"./cube.png| "
   >}}
 
-
 TL;DR, one is a sphere and the other is a list.
 
 Vulkan allows for textures to be marked for conversion into cube maps if later needed, but the sampling (reading) is determined by the texture type specified by the game’s shader 
@@ -92,15 +91,18 @@ We do just this and the game decides to keep its textures as arrays, which is it
 However, the AMD driver decides that the textures should be sampled as cube maps, ignoring what the texture view determined just before.
 
 While this should not be a problem on its own, as coordinates can still be pulled out from the wrong texture type, the driver can end up reading the wrong texel.
+This can result in happy rainbow ground in `The Legend of Zelda: Breath of the Wild`, or as dark and evil terrain in `Hyrule Warriors: Age of Calamity`.
 
 [By disabling Cube Compatibility on GCN4 and older devices running the official AMD proprietary drivers,](https://github.com/yuzu-emu/yuzu/pull/7076) epicboy returned proper 
 sense to the devastated land of Hyrule.
 
-{{< single-title-imgs
-    "I prefer no RGB, thanks (The Legend of Zelda: Breath of the Wild)"
-    "./botwbug.png"
-    "./botwfix.png"
-    >}}
+{{< imgs
+	"./botwbug.png| I prefer no RGB, thanks (The Legend of Zelda: Breath of the Wild)"
+  >}}
+
+{{< imgs
+	"./botwfix.png| But not THAT dark! (Hyrule Warriors: Age of Calamity)"
+  >}}
 
 Speaking of RGB, [as discussed back in February](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/#paint-me-like-one-of-your-french-bits), yuzu has to use compute 
 shaders to convert most BGR texture formats in OpenGL to avoid mismatched colours.
