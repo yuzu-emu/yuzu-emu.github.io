@@ -222,7 +222,7 @@ View the results below:
 
 ## General bugfixes
 
-epicboy noticed a memory leak that would grew progressively after stopping and restarting the emulation, which was caused by yuzu’s `main_process` not  being cleaned up.
+epicboy noticed a memory leak that would grow progressively after stopping and restarting the emulation, which was caused by yuzu’s `main_process` not being cleaned up.
 [By destroying this process when stopping emulation ](https://github.com/yuzu-emu/yuzu/pull/7009), the resources are properly freed now, fixing the leak.
 
 Additionally, epicboy also mitigated the crashes that happened when emulation was stopped by 
@@ -234,14 +234,14 @@ management and usage, since they simplify some of the synchronization challenges
 With this change, the number of crashes caused by race conditions between working threads upon shutdown was supposed to decrease, but it also introduced a new bug that would 
 cause yuzu to hand when the emulation was stopped.
 
-The reason behind this problem was caused by the order in which objects were being destroyed, which epicboy 
+This problem was caused by the order in which objects were being destroyed, which epicboy 
 [fixed in a follow-up PR](https://github.com/yuzu-emu/yuzu/pull/7078).
 
 [bunnei](https://github.com/bunnei) also [introduced std::jthreads into the cpu_manager](https://github.com/yuzu-emu/yuzu/pull/6965), in favour of using this more efficient 
 implementation of the class for yuzu's host threads.
 
 He also made changes so that the KEvents used in the nvflinger [service](https://github.com/yuzu-emu/yuzu/pull/6968) and [queue](https://github.com/yuzu-emu/yuzu/pull/6971) 
-are owned by these services, instead of being owned the process for the emulated game, which makes the implementation more accurate.
+are owned by these services, instead of being owned by the process for the emulated game, which makes the implementation more accurate.
 
 We’ve been trying to focus on improving our homebrew support, as this isn’t just a powerful tool that only developers use. For example, modders have very powerful homebrew apps 
 that the Switch community enjoys.
