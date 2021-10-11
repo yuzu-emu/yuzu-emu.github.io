@@ -1,5 +1,5 @@
 +++
-date = "2021-10-08T12:00:00-03:00"
+date = "2021-10-10T12:00:00-03:00"
 title = "Progress Report September 2021"
 author = "GoldenX86"
 coauthor = "Honghoa"
@@ -11,7 +11,7 @@ changes, some preliminary work for future big changes, and more!
 
 <!--more--> 
 
-## **A**fter **T**esting **I**mages, and other graphical fixes
+## Yet more AMD specific changes and other graphical fixes
 
 Certain AMD and Intel GPUs were unable to utilize yuzu's unlock FPS feature with the Vulkan API, due to the lack of driver support for the `VK_PRESENT_MODE_MAILBOX_KHR` presentation mode.
 They, however, support `VK_PRESENT_MODE_IMMEDIATE_KHR`, another mode that allows Vulkan to present at a higher framerate than the screen refresh rate, so 
