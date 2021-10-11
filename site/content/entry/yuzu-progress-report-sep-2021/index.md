@@ -1,9 +1,9 @@
 +++
-date = "2021-10-10T12:00:00-03:00"
+date = "2021-10-11T12:00:00-03:00"
 title = "Progress Report September 2021"
 author = "GoldenX86"
 coauthor = "Honghoa"
-forum = 0
+forum = 472953
 +++
 
 Hi yuz-ers! Welcome to the latest entry of our monthly progress reports. We have even more GPU rendering fixes, TAS support, 8 player mayhem, input and UI 
