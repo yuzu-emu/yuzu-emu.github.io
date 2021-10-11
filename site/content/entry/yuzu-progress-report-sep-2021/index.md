@@ -232,7 +232,7 @@ Additionally, epicboy also mitigated the crashes that happened when emulation wa
 management and usage, since they simplify some of the synchronization challenges inherent to multithreading.
 
 With this change, the number of crashes caused by race conditions between working threads upon shutdown was supposed to decrease, but it also introduced a new bug that would 
-cause yuzu to hand when the emulation was stopped.
+cause yuzu to hang when the emulation was stopped.
 
 This problem was caused by the order in which objects were being destroyed, which epicboy 
 [fixed in a follow-up PR](https://github.com/yuzu-emu/yuzu/pull/7078).
