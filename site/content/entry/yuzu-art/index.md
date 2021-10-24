@@ -1,5 +1,5 @@
 +++
-date = "2021-10-24T06:12:00+05:30"
+date = "2021-10-24T07:12:00+05:30"
 title = "New Feature Release - Resolution Scaler"
 author = "CaptV0rt3x"
 coauthor = "GoldenX86"
