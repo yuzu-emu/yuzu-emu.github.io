@@ -4,15 +4,9 @@ const exec = require('child_process').exec;
 const gulp = require('gulp');
 const log = require('fancy-log');
 const parseArgs = require('minimist');
-const merge = require('merge-stream');
-const sass = require('gulp-sass')(require('sass'));
-const postcss = require('gulp-postcss');
-const cssnano = require('cssnano');
 const concat = require('gulp-concat');
-const rename = require('gulp-rename');
 const imageResize = require('gulp-image-resize');
 const parallel = require('concurrent-transform');
-const os = require('os');
 const browserSync = require('browser-sync').create();
 const hugo = require('hugo-bin');
 
@@ -53,12 +47,8 @@ gulp.task('assets:images', () => {
     const screenshotImages = gulp.src('build/images/screenshots/*')
         .pipe(imageResize({width: 640, height: 360, crop: false}))
         .pipe(gulp.dest('build/images/screenshots/thumbs'));
-    const postImages = gulp.src('build/**/*.png')
-        .pipe(parallel(imageResize({quality: 0.8, format: 'jpg', percentage: 80})), os.cpus().length)
-        .pipe(rename({extname: '.png.jpg'}))
-        .pipe(gulp.dest('build/'));
 
-    return merge(baseImages, jumbotronImages, bannerImages, boxartImages, iconImages, screenshotImages, postImages);
+    return parallel(baseImages, jumbotronImages, bannerImages, boxartImages, iconImages, screenshotImages);
 });
 
 gulp.task('assets:js', () => {
@@ -67,17 +57,8 @@ gulp.task('assets:js', () => {
         .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('assets:scss', () => {
-    const postCssOptions = [cssnano];
-    return gulp.src('src/scss/style.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(postcss(postCssOptions))
-        .pipe(gulp.dest('build/css'))
-        .pipe(browserSync.stream());
-});
-
 gulp.task('hugo', callback => {
-    exec(hugo + ' -s ./site/ -d ../build/ -v', (err, stdout, stderr) => {
+    exec(hugo + ' -s ./site/ -d ../build/ -v --gc', (err, stdout, stderr) => {
         console.log(stdout);
         callback(err);
     });
@@ -92,9 +73,10 @@ gulp.task('final:serve', (done) => {
     });
 
     gulp.watch('src/js/**/*', gulp.series('assets:js'));
-    gulp.watch('src/scss/**/*', gulp.series('assets:scss'));
+    gulp.watch('src/scss/**/*', gulp.series('hugo'));
     gulp.watch('site/**/*.html', gulp.series('hugo'));
     gulp.watch('site/**/*.md', gulp.series('hugo'));
+    gulp.watch('site/**/*.png', gulp.series('hugo'));
 
     gulp.watch('build/**/*.html').on('change', (x) => {
         browserSync.reload(x);
@@ -132,6 +114,6 @@ if (parseArgs(process.argv).production) {
 log.info(`process.env.HUGO_ENV = '${process.env.HUGO_ENV}'`);
 log.info(`process.env.HUGO_BASEURL = '${process.env.HUGO_BASEURL}'`);
 
-gulp.task('default', gulp.series(gulp.parallel('assets:js', 'assets:scss'), 'hugo', 'assets:images', finalCommand));
-gulp.task('all', gulp.series(gulp.parallel('scripts:compatdb', 'scripts:wiki'), gulp.parallel('assets:js', 'assets:scss'), 'hugo', 'assets:images', finalCommand));
+gulp.task('default', gulp.series('assets:js', 'hugo', 'assets:images', finalCommand));
+gulp.task('all', gulp.series(gulp.parallel('scripts:compatdb', 'scripts:wiki', 'assets:js'), 'hugo', 'assets:images', finalCommand));
 gulp.task('content', gulp.series('hugo', finalCommand));

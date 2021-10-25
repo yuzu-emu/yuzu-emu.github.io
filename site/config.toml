@@ -6,6 +6,7 @@ theme = "shared-bulma-theme"
 
 # Define how many objects appear per pagination.
 paginate = 20
+timeout = 60000
 
 [[menu.main]]
   name = "Blog"

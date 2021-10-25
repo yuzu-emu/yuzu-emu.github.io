@@ -20,6 +20,7 @@ site/static/images/game/boxart
 !site/static/images/game/boxart/default.png
 site/static/images/screenshots0/
 site/static/savefiles/
+site/resources/_gen/
 
 # Filesystem stuff.
 .directory
