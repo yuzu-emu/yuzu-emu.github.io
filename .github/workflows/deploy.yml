@@ -21,7 +21,8 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ./site/resources
-        key: ${{ runner.os }}-rendered
+        key: ${{ runner.os }}-rendered-${{ github.sha }}
+        restore-keys: ${{ runner.os }}-rendered-
     - name: Install dependencies
       run: sudo apt-get update && sudo apt-get install graphicsmagick
     - name: Build
