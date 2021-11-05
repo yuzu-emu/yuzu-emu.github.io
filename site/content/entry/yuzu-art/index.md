@@ -157,7 +157,7 @@ These games are incompatible because they use a compute shader to render an imag
 However, thanks to mods, `Paper Mario: The Origami King` can be upscaled with a workaround discussed below.
 
 Downscaling, surprisingly, turned out to be more stable than we thought.
-With this, you can gain up to 20% performance at the cost of reduced quality.
+With this, you can gain 20% or more performance at the cost of reduced quality.
 It works for most of the games we tested, but our testing has been limited.
 We currently know of one game that doesn't downscale (but upscales) — `Sonic Colors: Ultimate`.
 
