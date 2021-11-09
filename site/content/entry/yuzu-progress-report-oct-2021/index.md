@@ -335,7 +335,7 @@ Morph updated the [dynarmic external dependency](https://github.com/yuzu-emu/yuz
 [perform ranged invalidations when unmapping code memory](https://github.com/yuzu-emu/yuzu/pull/7173).
 
 Memory usually gets invalidated when unloading from memory `NROs` (Nintendo Relocatable Object), which are dynamic libraries utilized by a variety of titles.
-These changes should alleviate (but not completely solve) the crashes of title swap many NROs in an out of memory scenario, such as `Super Smash Bros. Ultimate`.
+These changes should alleviate (but not completely solve) the crashes that occur when titles swap NROs in-and-out of memory, such as the case of `Super Smash Bros. Ultimate`.
 
 Some games would crash if the user had a profile picture set in yuzu.
 [Narr](https://github.com/german77) discovered that this happened when the image's dimensions were greater than `256x256`.
