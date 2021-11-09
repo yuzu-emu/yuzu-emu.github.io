@@ -49,7 +49,7 @@ In contrast, `upsampling` means taking a smaller frame and stretching it to fit 
 It results in a lower quality image, but users with low end GPUs, particularly users of integrated graphics, may prefer to have proper game speed at 60 FPS over image quality.
 
 {{< imgs
-	"./art.png|A work of art"
+	"./art.png|A work of art (read left to right)"
 >}}
 
 There seems to be a lot of confusion about this. Remember, improving the visual quality of the game is downsampling it, not upsampling it.
@@ -77,11 +77,11 @@ Integrated GPU users, this is where RAM overclocking becomes critical, as faster
 If the GPU runs out of VRAM faster than the emulator or the driver can handle it, yuzu will close, so follow our recommended values in the picture below.
 
 {{< imgs
-	"./vram.png|We recommend 2GB and lower users to stick to 1X on graphic intensive games"
+	"./vram.png|We recommend 2GB and lower users to use 1X on graphic intensive games"
 >}}
 
 Small low-end GPUs (like our recommended GT 1030, RX 550, or any integrated GPU) will see considerable performance benefits when upsampling as the reduction in 3D load and the 
-lower VRAM use will provide higher framerates.
+lower VRAM utilization will provide higher framerates.
 
 People with current mid to high-end GPUs can benefit from the surplus of computational capabilities and available VRAM. 
 Actual performance will be determined by each specific game, but it’s safe to assume that good hardware can use a 2X or 3X multiplier perfectly fine most of the time.
@@ -161,9 +161,9 @@ It is NOT recommended for downsampling, as the output resolution is used as part
 	"./smo075xfsr.png"
 >}}
 
-Great at regaining lost detail, a great choice for people forced to run 0.5X or 0.75X multipliers for performance reasons.
+Great at regaining lost detail, a perfect pick for people forced to run 0.5X or 0.75X multipliers for performance reasons.
 
-If the user tries FSR while downsampling, they *will be reducing image quality* and will end up only seeing the sharpening aspect of the filter, negating any advantage of 
+If the user tries FSR while downsampling, they ***will be reducing image quality*** and will end up only seeing the sharpening aspect of the filter, negating any advantage of 
 increasing the rendering resolution while getting the full performance cost of it.
 
 {{< single-title-imgs-compare
@@ -210,7 +210,7 @@ At a low performance cost, it will increase the quality of textures at oblique a
 It should now be safe to set at 16x and forget about it.
 
 {{< single-title-imgs-compare
-	"Pokémon Sword (Default anisotropic filtering Vs. 16X)"
+	"Pokémon Sword (default Anisotropic Filtering Vs. 16X)"
 	"./pksw1x.png"
 	"./pksw16x.png"
 >}}
@@ -248,7 +248,7 @@ By doubling the counter, the rasterizer can effectively keep track of these addr
 `Final Fantasy X`.
 
 {{< imgs
-	"./ffx.png|Listen to my story, the story of the worst laugh ever made (FINAL FANTASY X/X-2 HD Remaster)"
+	"./ffx.png|Listen to my story, the story of the worst laugh ever recorded (FINAL FANTASY X/X-2 HD Remaster)"
 >}}
 
 epicboy investigated the graphical issues present in `Mario Party Superstars`.
@@ -364,14 +364,14 @@ toastUnlimited [properly disabled the screensaver while running yuzu](https://gi
 [Moonlacer](https://github.com/Moonlacer) continues polishing the text strings on the UI, this time helping new users 
 [understand what our `NVDEC` (video decoding) options do](https://github.com/yuzu-emu/yuzu/pull/7165).
 
-Users tend to think that NVDEC means that video decoding will only work on Nvidia GPUs.
+Some users tend to think that NVDEC means that video decoding will only work on Nvidia GPUs, this is not the case.
 NVDEC is the name of the module in the Nintendo Switch, which uses the Tegra X1, an Nvidia SoC.
 This SoC uses the NVDEC module to decode videos, and the work yuzu has to do is emulate it to work on any compatible system, including systems without Nvidia GPUs on them. 
 We have a full explanation [here](https://yuzu-emu.org/entry/yuzu-nvdec-emulation/).
 
-So, to clarify, the options were renamed to more easily understand what’s the intended result.
+So, for the sake of clarity, the options were renamed to more easily understand what’s the intended result.
 
-- `No Video Output` will result in a black screen every time a video wants to render, nothing is displayed, not fun.
+- `No Video Output` will result in a black screen every time a video wants to render, nothing is displayed, no fun.
 - `CPU Video Decoding` means processing videos using the CPU, this can be useful for AMD Windows users, since the AMD driver is notorious for having bad VP9 video decoding 
 performance on Vega and newer GPU series, and using the CPU to render could be both faster and more accurate.
 - `GPU Video Decoding` means actually using the GPUs decoding capabilities to process videos, this is considerably faster than CPU decoding and is the default option. If a video 
