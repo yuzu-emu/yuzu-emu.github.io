@@ -103,7 +103,7 @@ adding sliders to let users customize the filters to their own tastes.
 And yes, on GPU limited scenarios, the filter in use can affect framerate.
 
 {{< imgs
-	"./filters.png|Filtering ain't free!"
+	"./filters.png|Tested on Mario Kart 8 Deluxe, filtering ain't free!"
 >}}
 
 While an integrated GPU will suffer the performance cost, even a low end dedicated card will power through with ease.
