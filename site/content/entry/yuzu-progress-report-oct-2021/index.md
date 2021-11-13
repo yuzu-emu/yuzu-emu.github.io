@@ -333,7 +333,7 @@ Memory usually gets invalidated when unloading from memory `NROs` (Nintendo Relo
 These changes should alleviate (but not completely solve) the crashes that occur when titles swap NROs in-and-out of memory, such as the case of `Super Smash Bros. Ultimate`.
 
 Some games would crash if the user had a profile picture set in yuzu.
-[Narr](https://github.com/german77) discovered that this happened when the image's dimensions were greater than `256x256`.
+[german77](https://github.com/german77) discovered that this happened when the image's dimensions were greater than `256x256`.
 To avoid the crash, he made it so that [yuzu now resizes big profile pictures](https://github.com/yuzu-emu/yuzu/pull/7246) to fit the allowed dimensions instead.
 
 On Linux, opening the Configuration Window and pressing the `OK` button would lead consistently to a crash.
