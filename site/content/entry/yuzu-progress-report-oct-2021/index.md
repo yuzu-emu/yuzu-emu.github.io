@@ -1,9 +1,9 @@
 +++
-date = "2021-11-09T12:00:00-03:00"
+date = "2021-11-13T12:00:00-03:00"
 title = "Progress Report October 2021"
 author = "GoldenX86"
 coauthor = "Honghoa"
-forum = 0
+forum = 487745
 +++
 
 Hey there, yuz-ers! We've had quite an exciting month. Our most anticipated and highly requested feature, Resolution Scaling, is finally out! But we didn't rest on our laurels, a host of other fixes were pushed this month and we can't wait to tell you all about them!
