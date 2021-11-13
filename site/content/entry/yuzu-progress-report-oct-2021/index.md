@@ -238,7 +238,7 @@ Such videos were using an [unsupported frame format, `RGBX8`](https://github.com
 While this solves the rendering of a single video on screen, some areas of the game can play multiple streams simultaneously, causing glitches on screen.
 yuzu’s decoding needs to be improved to consider those cases, something we’re working on.
 
-While Blinkhawk was working on Project A.R.T, he also [doubled the counter of cached pages in the rasterizer](https://github.com/yuzu-emu/yuzu/pull/7127).
+While Blinkhawk was working on `Project A.R.T`, he also [doubled the counter of cached pages in the rasterizer](https://github.com/yuzu-emu/yuzu/pull/7127).
 
 yuzu uses these counters to keep track of the number of GPU objects stored in a cache within a CPU page.
 Previously, this counter would account for pages whose addresses were up to a size of 38 bits.
@@ -256,7 +256,7 @@ Following the lead from this initial research, Blinkhawk found the problem and s
 [improves the performance of the backtracking algorithm](https://github.com/yuzu-emu/yuzu/pull/7262) used by the shader cache to find the handlers of a bindless texture.
 
 {{< single-title-imgs
-	"Oldschool minigames are the best (Mario Party Superstars)"
+	"Old school minigames are the best (Mario Party Superstars)"
 	"mpsbug.png"
 	"mpsfix.png"
 >}}
@@ -385,8 +385,8 @@ Jogo bonito on your gameplay sessions!
 
 The text on the TAS configuration window looked cramped, so [Behunin](https://github.com/behunin) edited the 
 [UI file and reformatted the text](https://github.com/yuzu-emu/yuzu/pull/7147) to make it easier to read.
-Later, [Moonlacer](https://github.com/Moonlacer) added to these changes by [fixing some grammar nits and adding an hyperlink](https://github.com/yuzu-emu/yuzu/pull/7197) that 
-links to the guide in our site.
+Later, [Moonlacer](https://github.com/Moonlacer) added to these changes by [fixing some grammar nits and adding a hyperlink](https://github.com/yuzu-emu/yuzu/pull/7197) that 
+links to the guide on our site.
 
 {{< single-title-imgs
 	" "
