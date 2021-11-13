@@ -237,7 +237,7 @@ While Blinkhawk was working on `Project A.R.T`, he also [doubled the counter of 
 
 yuzu uses these counters to keep track of the number of GPU objects stored in a cache within a CPU page.
 Previously, this counter would account for pages whose addresses were up to a size of 38 bits.
-Some games, however, can use memory addresses of up 39 bits.
+Some games, however, can use memory addresses of up to 39 bits.
 
 By doubling the counter, the rasterizer can effectively keep track of these addresses now, allowing certain games that did not work with the old counter to boot, such as 
 `Final Fantasy X`.
