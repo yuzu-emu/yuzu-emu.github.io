@@ -18,7 +18,7 @@ Past the last 472.XX drivers, NVIDIA removed support for Windows versions prior 
 Additionally, OpenGL GLSL and Vulkan rendering were affected, with GLSL becoming virtually unusable and Vulkan exhibiting minor glitches.
 
 While NVIDIA works to resolve the issues, and we work on alternatives to mitigate the problems, we've configured
-[NVIDIA GPUs on affected drivers to only use GLASM when OpenGL is selected.](https://github.com/yuzu-emu/yuzu/pull/7243). This seems to workaround most of the GLSL errors we've been seeing on these latest drives.
+[NVIDIA GPUs on affected drivers to only use GLASM when OpenGL is selected](https://github.com/yuzu-emu/yuzu/pull/7243). This seems to workaround most of the GLSL errors we've been seeing on these latest drives.
 Thanks to [toastUnlimited](https://github.com/lat9nq) for the quick update.
 
 GLSL will still be available for version 472.XX and older drivers. 
@@ -59,7 +59,7 @@ All new options can be found in `Emulation > Configure… > Graphics`
 >}}
 
 Starting with `Resolution`, this option is the Scaling Multiplier being used. It will double the width and height of whatever resolution the game is rendering at.
-At the moment we offer two upsampling multipliers: `0.5X` and `0.75X`, and five downsampling multipliers: `2X`, `3X`, `4X`, `5X`, and `6X`.
+At the moment, we offer two upsampling multipliers: `0.5X` and `0.75X`, and five downsampling multipliers: `2X`, `3X`, `4X`, `5X`, and `6X`.
 
 Here's an example, `Super Mario Odyssey` displays a 1920x1080 frame in docked mode but actually renders at 1600x900, and at 1280x720 in undocked mode.
 Applying a 2X resolution to Super Mario Odyssey gives us a rendering resolution of 3200x1800 in docked mode and 2560x1440 in undocked mode. 
@@ -94,7 +94,7 @@ Let’s move on to the second option, `Window Adapting Filter`.
 
 When using a display with a different native resolution than your rendering resolution, you need some way of deciding which pixels will be shown in the final image. Filters are used for that!
 
-At the moment yuzu offers 6 filtering options, each recommended for different scenarios, and with different performance costs. We plan to expand this section in the future, 
+Currently, yuzu offers 6 filtering options, each recommended for different scenarios, and with different performance costs. We plan to expand this section in the future, 
 adding sliders to let users customize the filters to their own tastes.
 And yes, on GPU limited scenarios, the filter in use can affect framerate.
 
@@ -159,7 +159,7 @@ It is NOT recommended for downsampling, as the output resolution is used as part
 
 
 If the user tries FSR while downsampling, they ***will be reducing image quality*** and will end up only seeing the sharpening aspect of the filter, negating any advantage of 
-increasing the rendering resolution while getting the full performance cost of it.
+increasing the rendering resolution while incurring the full performance cost of it.
 
 {{< single-title-imgs-compare
 	"The Legend of Zelda: Link's Awakening (2X Bilinear Vs. 2X FSR on a 1080p display)"
@@ -237,7 +237,7 @@ While Blinkhawk was working on `Project A.R.T`, he also [doubled the counter of 
 
 yuzu uses these counters to keep track of the number of GPU objects stored in a cache within a CPU page.
 Previously, this counter would account for pages whose addresses were up to a size of 38 bits.
-Some games, however, can use memory addresses of 39 bits of size.
+Some games, however, can use memory addresses of up 39 bits.
 
 By doubling the counter, the rasterizer can effectively keep track of these addresses now, allowing certain games that did not work with the old counter to boot, such as 
 `Final Fantasy X`.
@@ -372,7 +372,7 @@ performance on Vega and newer GPU series, and using the CPU to render could be b
 - `GPU Video Decoding` means actually using the GPU's decoding capabilities to process videos. This is considerably faster than CPU decoding and is the default option. If a video 
 format is not compatible with the user’s GPU, yuzu’s NVDEC emulation will automatically fallback to CPU decoding.
 
-For some time we were wondering why the Switch had an open spot in its language selection.
+For some time, we were wondering why the Switch had an open spot in its language selection.
 Turns out, with the release of `Mario Party Superstars`, Nintendo added support for Brazilian Portuguese!
 Morph [rushed to add support for it in yuzu](https://github.com/yuzu-emu/yuzu/pull/7244).
 Our game language selection menu can be found at `Emulation > Configure… > System > System > Language`.
