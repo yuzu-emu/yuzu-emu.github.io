@@ -18,7 +18,7 @@ Past the last 472.XX drivers, NVIDIA removed support for Windows versions prior 
 Additionally, OpenGL GLSL and Vulkan rendering were affected, with GLSL becoming virtually unusable and Vulkan exhibiting minor glitches.
 
 While NVIDIA works to resolve the issues, and we work on alternatives to mitigate the problems, we've configured
-[Nvidia GPUs on affected drivers to only use GLASM when OpenGL is selected.](https://github.com/yuzu-emu/yuzu/pull/7243). This seems to workaround most of the GLSL errors we've been seeing on these latest drives.
+[NVIDIA GPUs on affected drivers to only use GLASM when OpenGL is selected.](https://github.com/yuzu-emu/yuzu/pull/7243). This seems to workaround most of the GLSL errors we've been seeing on these latest drives.
 Thanks to [toastUnlimited](https://github.com/lat9nq) for the quick update.
 
 GLSL will still be available for version 472.XX and older drivers. 
@@ -42,7 +42,7 @@ In layman's terms, downsampling means taking a big frame and reducing its size t
 display’s native one.
 
 In contrast, `upsampling` means taking a smaller frame and stretching it to fit a bigger display. 
-It results in a lower quality image, but users with low end GPUs, particularly users of integrated graphics, may prefer to have better framerates over image quality.
+It results in a lower quality image, but users with low-end GPUs, particularly users of integrated graphics, may prefer to have better framerates over image quality.
 
 {{< imgs
 	"./art.png|A work of art (read left to right)"
@@ -70,7 +70,7 @@ With high resolutions comes increased texture sizes. This has a significant impa
 The user must consider the available VRAM and the performance of the GPU they are using when deciding which resolution multiplier to use. 
 For integrated GPU users, RAM overclocking becomes critical, as faster RAM means faster “VRAM” for your iGPU.
 
-If the GPU runs out of VRAM faster than the emulator or graphics driver can handle it, yuzu will close, so follow our recommended values in the picture below.
+If the GPU runs out of VRAM faster than the emulator or graphics driver can manage resources, yuzu will close, so follow our recommended values in the picture below.
 
 {{< imgs
 	"./vram.png|We recommend 2GB and lower users to use 1X on graphic intensive games"
@@ -81,7 +81,7 @@ lower VRAM utilization will provide higher framerates.
 
 People with current mid to high-end GPUs can benefit from the surplus of computational capabilities and available VRAM. 
 Actual performance will be determined by each specific game, but it’s safe to assume that good hardware can use a 2X or 3X multiplier with little issue most of the time.
-We personally don’t recommend going higher than 3X as not even the best consumer hardware available at this moment can provide a perfect experience on very high rendering 
+We personally don’t recommend going higher than 3X as not even the best consumer hardware available at this moment can provide a perfect experience when rendering at very high 
 resolutions, but the options are there to experiment with. 
 
 Light or very well optimized games like `Super Smash Bros. Ultimate` and `Metroid Dread` can make for great experiences on 4K or 8K displays.
@@ -107,7 +107,7 @@ While an integrated GPU will suffer the performance cost, even a low-end dedicat
 Here are some recommendations and comparisons of all current options against the default bilinear filter.
 
 `Nearest Neighbor` is ideal for pixel art style games like `UNDERTALE` or `OCTOPATH TRAVELER`, it can also provide the best results when the game’s rendering resolution 
-matches the window or display’s resolution. It has the lowest performance cost of all options.
+matches the window or display’s resolution. It and `Bilinear` have the lowest performance cost of all the options.
 
 {{< single-title-imgs-compare
 	"OCTOPATH TRAVELER (Bilinear Vs. Nearest Neighbour)"
@@ -115,10 +115,10 @@ matches the window or display’s resolution. It has the lowest performance cost
 	"./otnearest.png"
 >}}
 
-`Bilinear` is our combat tested default option. It's very good for downsampling and like `Nearest Neighbor`, it has a very low performance cost. It’s a great all-rounder.
+`Bilinear` is our combat tested default option. It's very good for downsampling and like `Nearest Neighbor`, it has almost no performance cost. It’s a great all-rounder.
 If you have a 1080p display, we recommend `Bilinear` with a 2X resolution multiplier.
 
-`Bicubic` can produce better downsampling results than bilinear, but at a slightly higher performance cost. We recommend it for 2X or 3X multipliers on 1080p displays.
+`Bicubic` can produce better downsampling results than `Bilinear`, but at a slightly higher performance cost. We recommend it for 2X or 3X multipliers on 1080p displays.
 
 {{< single-title-imgs-compare
 	"The Legend of Zelda: Breath of the Wild (Bilinear Vs. Bicubic)"
@@ -213,7 +213,7 @@ It should now be safe to set at 16x and forget about it.
 One last note, AMD users should ensure that [Radeon Image Sharpening](https://www.youtube.com/watch?v=wTh_O9BZlGc) is disabled before using the scaler, as it can affect the 
 quality of some filters, especially FSR which includes its own sharpening already.
 
-At the moment of writing this article, the feature remains in [Early Access](https://yuzu-emu.org/help/early-access/) for testing and regression finding, but be sure that it won’t take long to be merged into [Mainline](https://yuzu-emu.org/downloads/).
+At the time of writing this article, `Resolution Scaling` remains in [Early Access](https://yuzu-emu.org/help/early-access/) for testing and regression finding, but be sure that it won’t take long to be merged into [Mainline](https://yuzu-emu.org/downloads/).
 Check the progress in the pull request previously listed, code review is usually the main reason for delays on merging.
 
 ## Graphical and general bugfixes
@@ -267,7 +267,7 @@ wanting some free space on their screen, and for getting a 1:1 ratio on 3D games
 Blinkhawk has been investigating an issue affecting `Catherine: Full Body`, `Hyrule Warriors: Definitive Edition`, and an unknown number of other games. 
 
 NVN, the graphics API most Nintendo Switch games use, will skip [fences](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VkFence.html) (ways to 
-synchronice rendering)  if a certain amount of time has passed. This is a sensical design choice on native hardware, where a long wait could mean a 
+synchronize rendering)  if a certain amount of time has passed. This is a sensical design choice on native hardware, where a long wait could mean a 
 [TDR](https://en.wikipedia.org/wiki/Timeout_Detection_and_Recovery) from a malfunctioning game or faulty hardware.
 In the emulator, on the other hand, long wait times can be caused by shaders being built, textures being downloaded or uploaded, background processes hogging the system, etc.
 
@@ -282,10 +282,10 @@ If those delays are not taken into consideration, games can experience graphical
 
 [vonchenplus](https://github.com/vonchenplus) is back with more fixes! This time a couple of stubs helping in-game stability or rendering.
 
-[Stubbing `IHOSBinderDriver::TransactParcel` and `GetBufferHistory`](https://github.com/yuzu-emu/yuzu/pull/7184) help to boot `Luigi’s Mansion 3`, which is notorious to 
-refuse to load at random. 
-While this helps mitigate the issues, they are not fully solved. It seems the small delay introduced by shader building can affect the stability of this game too. We’re 
-investigating this issue as well.
+[Stubbing `IHOSBinderDriver::TransactParcel` and `GetBufferHistory`](https://github.com/yuzu-emu/yuzu/pull/7184) help to boot `Luigi’s Mansion 3`, which is notorious for 
+refusing to load at random. 
+While this helps mitigate the issues, they are not fully solved. It seems the small delay introduced by shader building can affect the stability of this game too. We 
+need to investigate this issue further.
 
 It’s time to add some love to `yuzu-cmd` again, our command line alternative to the default Qt-based yuzu. 
 toastUnlimited added the option to [select the network interface to use](https://github.com/yuzu-emu/yuzu/pull/7148), providing LAN support to terminal-loving users.
@@ -359,9 +359,9 @@ toastUnlimited [properly disabled the screensaver while running yuzu](https://gi
 [Moonlacer](https://github.com/Moonlacer) continues polishing the text strings in the UI, this time helping new users 
 [understand what our `NVDEC` (video decoding) options do](https://github.com/yuzu-emu/yuzu/pull/7165).
 
-Some users tend to think that NVDEC means that video decoding will only work on Nvidia GPUs, this is not the case.
-NVDEC is the name of the module in the Nintendo Switch, which uses the Tegra X1, an Nvidia SoC.
-This SoC uses the NVDEC module to decode videos, and the work yuzu has to do is emulate it to work on any compatible system, including systems without Nvidia GPUs on them. 
+Some users tend to think that NVDEC means that video decoding will only work on NVIDIA GPUs, this is not the case.
+NVDEC is the name of the module in the Nintendo Switch, which uses the Tegra X1, an NVIDIA SoC (System on a Chip).
+This SoC uses the NVDEC module to decode videos, and the work yuzu has to do is emulate it to work on any compatible system, including systems without NVIDIA GPUs on them. 
 We have a full explanation [here](https://yuzu-emu.org/entry/yuzu-nvdec-emulation/).
 
 So, for the sake of clarity, the options were renamed to better convey the intended result:
@@ -372,10 +372,10 @@ performance on Vega and newer GPU series, and using the CPU to render could be b
 - `GPU Video Decoding` means actually using the GPU's decoding capabilities to process videos. This is considerably faster than CPU decoding and is the default option. If a video 
 format is not compatible with the user’s GPU, yuzu’s NVDEC emulation will automatically fallback to CPU decoding.
 
-For some time we were wondering why the Switch had an open spot on their language selection.
+For some time we were wondering why the Switch had an open spot in its language selection.
 Turns out, with the release of `Mario Party Superstars`, Nintendo added support for Brazilian Portuguese!
-Morph [rushed to add support for it on yuzu](https://github.com/yuzu-emu/yuzu/pull/7244).
-Our game language selection menu can be found on `Emulation > Configure… > System > System > Language`.
+Morph [rushed to add support for it in yuzu](https://github.com/yuzu-emu/yuzu/pull/7244).
+Our game language selection menu can be found at `Emulation > Configure… > System > System > Language`.
 Jogo bonito on your gameplay sessions!
 
 The text on the TAS configuration window looked cramped, so [Behunin](https://github.com/behunin) edited the 
