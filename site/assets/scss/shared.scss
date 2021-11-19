@@ -95,3 +95,10 @@ $blog-entry-single-height: 26em;
 .is-bottom-marginless {
     margin-bottom: 0 !important;
 }
+
+// Hide the summary text on small screen
+@media only screen and (max-width: 810px) {
+    .summary-text {
+        display: none !important;
+    }
+}
