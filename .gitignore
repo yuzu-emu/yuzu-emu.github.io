@@ -25,3 +25,5 @@ site/resources/_gen/
 # Filesystem stuff.
 .directory
 .DS_Store
+
+/.parcel-cache

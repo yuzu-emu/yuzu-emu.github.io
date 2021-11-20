@@ -24,11 +24,14 @@ If you are a Patreon subscriber, the "Early Access" channel will be available to
 
 ## Linux
 
+<link href="//cdn.jsdelivr.net/npm/font-logos@0.18/assets/font-logos.css" rel="stylesheet">
 <article class="message has-text-weight-semibold">
 <div class="message-body">
-<p style="color:cyan;margin-bottom: 0px;">We have yuzu as an AppImage now! This relaxes dependency requirements for yuzu, as well as enabling it to run on a lot of older distributions.</p>
+<p style="color:cyan;margin-bottom: 0px;">We have yuzu as an AppImage and Flatpak now! This relaxes dependency requirements for yuzu, as well as enabling it to run on a lot of older distributions.</p>
 </div>
 </article>
+
+If you prefer to use the Flatpak version, you can download it from the <a href="https://flathub.org/apps/details/org.yuzu_emu.yuzu"><span class="fl-flathub"></span>&nbsp;FlatHub</a>.
 
 To run yuzu as an AppImage, first download it, then add the executable bit from the terminal:
 
