@@ -156,9 +156,9 @@ By [making full use of full depth conversions](https://github.com/yuzu-emu/yuzu/
 `Pokémon Brilliant Diamond/Shining Pearl`.
 
 {{< single-title-imgs
-    "What a trip, almost like a Disney song (Pokemon Brilliant Diamond)"
-    "./bsdpbug.png"
-    "./bsdpfix.png"
+    "What a trip, almost like a Disney song (Pokémon Brilliant Diamond)"
+    "./bdspbug.png"
+    "./bdspfix.png"
     >}}
 
 One of the (many) missing texture formats is `S8_UINT`, a depth stencil one.
