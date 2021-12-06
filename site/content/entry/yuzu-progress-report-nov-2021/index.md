@@ -123,14 +123,14 @@ Uncountable glitches are fixed, two notable examples are the shadows in `Luigiâ€
 {{< single-title-imgs
     "You can now focus on... gameplay (Bayonetta 2)"
     "./bayobug.mp4"
-    "./bayohfix.mp4"
+    "./bayofix.mp4"
     >}}
     
 &nbsp;
     
 {{< single-title-imgs
     "No more ghost shadows (Luigi's Mansion 3)"
-    "./lm3hbug.mp4"
+    "./lm3bug.mp4"
     "./lm3fix.mp4"
     >}}
 
