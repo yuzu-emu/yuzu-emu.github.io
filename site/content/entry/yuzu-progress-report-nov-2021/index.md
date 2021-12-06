@@ -69,11 +69,14 @@ the internal changes to every subsystem.
 
 [Subsequent](https://github.com/yuzu-emu/yuzu/pull/7472) [pull requests](https://github.com/yuzu-emu/yuzu/pull/7476) by [Morph](https://github.com/Morph1984) and german77 
 provided further fixes and cleanups.
+For example in the past yuzu would determine automatically if the controller applet needed to pop-up, removing an annoyance on single player games.
+Kraken shipped with a bug causing the controllers to remain in configure mode, awaiting an applet that never came up.
+german77 [corrected this behavior](https://github.com/yuzu-emu/yuzu/pull/7465) to enable the controllers in such cases.
 
 ## Other input changes
 
 A very requested feature is [controller navigation over UI elements](https://github.com/yuzu-emu/yuzu/pull/7452), and that’s exactly what german77 delivered.
-Currently there is support for the game list, profile selector (if the user created several profiles), and the controller applet pop-up.
+Currently there is support for the game list and profile selector (if the user created several profiles).
 The feature is in its baby steps, so expect some rough edges for example in the controller applet or when trying to hold the stick, we are working on refining it.
 
 Here’s an example on the GPD Win 3:
@@ -85,7 +88,7 @@ Here’s an example on the GPD Win 3:
 When asking for the character’s name in `Detective Club: The Missing Heir`, the game spawned an error in Chinese and then crashed.
 The issue is rooted in a bad behaviour in how text is handled with the On-Screen Keyboard (OSK), there’s no need to ask for user confirmation on text that has been already 
 confirmed.
-The resulting error message was in the wrong language due to using the wrong character encoding.
+The resulting error message was corrupted due to using the wrong character encoding.
 Morph [addressed both issues](https://github.com/yuzu-emu/yuzu/pull/7303), and the game can be played now.
 
 {{< imgs
@@ -97,9 +100,6 @@ german77 got tired of having to constantly modify the code when testing differen
 We don’t recommend to use this settting for normal gameplay, but if anyone wants to try it out, the option is in 
 `Emulation > Configure… > General > Debug > Enable all Controller Types`.
 Expect some games to refuse to continue until an allowed emulated controller is selected.
-
-If the user ignored the controller applet pop-up, the controllers would stay in configuration mode, not accepting input.
-german77 [changed this behavior](https://github.com/yuzu-emu/yuzu/pull/7465) to enable the controllers in such cases.
 
 ## Graphical fixes
 
@@ -161,8 +161,8 @@ By [making full use of full depth conversions](https://github.com/yuzu-emu/yuzu/
     "./bdspfix.png"
     >}}
 
-One of the (many) missing texture formats is `S8_UINT`, a depth stencil one.
-Games like `Baldur’s Gate 1/2` and `Citizens of Space` make use of S8_UINT, so in the process of implementing it, Morph made a homebrew unit test to see the progress, as 
+One of the (many) missing texture formats is `S8_UINT`, an 8-bit stencil one.
+Games like `Baldur’s Gate 1/2` and `Citizens of Space` make use of S8_UINT, so in the process of implementing it, Morph used a homebrew unit test to see the progress, as 
 both games need other formats that are still missing and some other fixes.
 
 Turns out, while [there is support for both OpenGL and Vulkan](https://github.com/yuzu-emu/yuzu/pull/7357) now, only NVIDIA declares support on Vulkan, meaning that any 
@@ -199,7 +199,7 @@ A mix up resulted in the screenshot being saved at the window size instead of th
 epicboy [fixed the logic](https://github.com/yuzu-emu/yuzu/pull/7389) and we’re back to proper screenshot resolutions.
 
 [liushuyu](https://github.com/liushuyu), our fantastic Webadmin, got reports of multiple GPU systems having crashes while running the Flatpak version of yuzu on Linux.
-Seems like the bundled version of mesa and ffmpeg will conflict on systems with different GPU vendors. Just the usual weird Gnome decisions.
+Seems like the bundled version of mesa and ffmpeg will conflict on systems with different GPU vendors. Just the usual weird GNOME decisions.
 
 liushuyu submitted [two](https://github.com/yuzu-emu/yuzu/pull/7431) [separate](https://github.com/yuzu-emu/yuzu/pull/7467) pull requests addressing this problem, but more 
 edge cases continue to appear, so the battle isn’t over yet.
