@@ -102,9 +102,9 @@ We don’t recommend to use this settting for normal gameplay, but if anyone wan
 
 ## Graphical fixes
 
-One of the missing video formats is `VP8`, we didn’t implement it until now because there were no known games that used it, similar to `HEVC`.
-Turns out there are at least 3 known games using VP8, `Ty the Tasmanian Tiger`, `Diablo II: Resurrected`, and `Pokémon Brilliant Diamond/Shining Pearl`, so 
-[epicboy](https://github.com/yuzu-emu/yuzu/pull/7326) shamelessly attacked his keyboard and implemented [VP8 support](https://github.com/yuzu-emu/yuzu/pull/7326) into yuzu.
+One of the missing video formats is `VP8`, we didn’t implement it until now because there were very few known games that used it.
+There are at least 3 known games using VP8 at the moment, `Ty the Tasmanian Tiger`, `Diablo II: Resurrected`, and `Pokémon Brilliant Diamond/Shining Pearl`, so 
+[epicboy](https://github.com/yuzu-emu/yuzu/pull/7326) attacked his keyboard and implemented [VP8 support](https://github.com/yuzu-emu/yuzu/pull/7326) into yuzu.
 
 {{< imgs
 	"./vp8.mp4| Cue the fanfare (Pokémon Shining Pearl)"
@@ -141,9 +141,6 @@ Since we don’t have that many GPU developers available (especially in finals m
 [Project A.R.T.](https://yuzu-emu.org/entry/yuzu-art/). 
 [Blinkhawk](https://github.com/FernandoS27) [fixed them and added texture format](https://github.com/yuzu-emu/yuzu/pull/7368) `D24S8` to `RGBA8` conversions to Vulkan, 
 fixing several crashes affecting both APIs in this new old Pokémon release.
-
-Note that despite the fixes, Vulkan still causes a Device Loss (GPU driver cuts the work) related crashes on Unity games.
-We recommend sticking to OpenGL for the moment.
 
 Morph later included [some more fixes](https://github.com/yuzu-emu/yuzu/pull/7395) for this pull request.
 
@@ -186,7 +183,8 @@ vonchenplus also [converted all usages of legacy attributes](https://github.com/
 supported by some graphics drivers, improving compatibility.
 
 These four changes help `DRAGON QUEST BUILDERS`, but more work is required to make the game playable. If you're interested in testing this game, use Vulkan, or 
-disable Asynchronous GPU Emulation when using OpenGL. 
+disable Asynchronous GPU Emulation when using OpenGL.
+Beware, crashes may happen.
 
 {{< imgs
 	"./dqb.png| Missing graphics make the game not an optimal experience for now (DRAGON QUEST BUILDERS)"
@@ -288,20 +286,21 @@ stayed alive even though the kernel got destroyed, thus causing yuzu to crash.
 [By making the kernel own these threads](https://github.com/yuzu-emu/yuzu/pull/7359), we ensure they get destroyed when the kernel gets destroyed. 
 Thus the crash is mitigated.
 
-## Yet more homebrew fixes
-
-[All](https://github.com/yuzu-emu/yuzu/pull/7393) [these](https://github.com/yuzu-emu/yuzu/pull/7394) [PRs](https://github.com/yuzu-emu/yuzu/pull/7407) are part of the 
-on-going effort to implement support for [Skyline](https://github.com/skyline-dev/skyline) modding framework in yuzu. 
-
-See progress [here](https://github.com/yuzu-emu/yuzu/issues/7392).
-
-The framework's developer, [jam1garner](https://github.com/jam1garner) offered their assistance to work alongside the yuzu team to speed up this process.
-
-The PRs mentioned here are just setting up the stage for larger changes that are yet to come. 
-Thus the day when yuzu will fully support the Skyline framework, is not too far away.
-
 [OatmealDome](https://github.com/OatmealDome) fixed a bug that caused some homebrew to not boot. The fix was to 
 [pass default threadinfo when the kernel creates a thread](https://github.com/yuzu-emu/yuzu/pull/7320), thus allowing homebrew to boot.
+
+## Skyline framework, part 1
+
+[itsmeft24](https://github.com/itsmeft24), [jam1garner](https://github.com/jam1garner), and Morph started working in adding support for the 
+[Skyline](https://github.com/skyline-dev/skyline) modding framework. 
+This will allow for more intricate code mods, such as using [ARCropolis](https://github.com/Raytwo/ARCropolis), a mod loader for Smash Ultimate made by 
+[Raytwo](https://github.com/Raytwo) and [blujay](https://github.com/blu-dev).
+
+[All](https://github.com/yuzu-emu/yuzu/pull/7393) [these](https://github.com/yuzu-emu/yuzu/pull/7394) [PRs](https://github.com/yuzu-emu/yuzu/pull/7407) are part of the 
+on-going effort to implement support for modding framework in yuzu.
+
+There are more juicy additions, but they didn't make it in time to be mentioned in this article, we will continue to expand on Skyline's progress in December's report.
+See the current progress [here](https://github.com/yuzu-emu/yuzu/issues/7392).
 
 ## General changes and bugfixes
 
@@ -316,6 +315,8 @@ And finally, Morph [implements the](https://github.com/yuzu-emu/yuzu/pull/7482) 
 Since the game requires online services, it won’t be playable for now.
 
 ## Future projects
+
+More work on Skyline support has been done during the writing of this article, but didn't make it in time to include it here, so we will continue next month.
 
 `Project Gaia` continues to progress and be optimized as we speak, we're not that far away from starting internal testing on it.
 
