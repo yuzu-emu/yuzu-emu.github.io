@@ -316,8 +316,6 @@ Since the game requires online services, it won’t be playable for now.
 
 ## Future projects
 
-More work on Skyline support has been done during the writing of this article, but didn't make it in time to include it here, so we will continue next month.
-
 `Project Gaia` continues to progress and be optimized as we speak, we're not that far away from starting internal testing on it.
 
 That’s all folks! As always, thank you so much for your attention, and we’ll see you next time!
