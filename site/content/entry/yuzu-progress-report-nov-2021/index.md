@@ -186,7 +186,7 @@ Again, just like S8_UINT, AMD and Intel hardware lack Vulkan support for S8_UINT
 vonchenplus also [converted all usages of legacy attributes](https://github.com/yuzu-emu/yuzu/pull/7375) within shaders into generic attributes, since they were not 
 supported by some graphics drivers, improving compatibility.
 
-These four changes help `DRAGON QUEST BUILDERS`, but more work is required to make the game playable.
+These four changes help `DRAGON QUEST BUILDERS`, but more work is required to make the game playable. Ff you're interested in testing this game, use Vulkan, or disable Asynchronous GPU Emulation when using OpenGL. 
 
 {{< imgs
 	"./dqb.png| Missing graphics make the game not an optimal experience for now (DRAGON QUEST BUILDERS)"
