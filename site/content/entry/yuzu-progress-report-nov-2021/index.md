@@ -95,11 +95,10 @@ Morph [addressed both issues](https://github.com/yuzu-emu/yuzu/pull/7303), and t
 	"./detective.png| Elemental, my dear yuzu (Detective Club: The Missing Heir)"
   >}}
 
-german77 got tired of having to constantly modify the code when testing different types of emulated controllers, so he added a 
-[toggle to allow any kind](https://github.com/yuzu-emu/yuzu/pull/7451), even the types games block natively.
+german77 got tired of having to constantly modify the code when testing different types of unsupported controllers, so he added a 
+[toggle to allow](https://github.com/yuzu-emu/yuzu/pull/7451) them.
 We don’t recommend to use this settting for normal gameplay, but if anyone wants to try it out, the option is in 
 `Emulation > Configure… > General > Debug > Enable all Controller Types`.
-Expect some games to refuse to continue until an allowed emulated controller is selected.
 
 ## Graphical fixes
 
@@ -148,7 +147,7 @@ We recommend sticking to OpenGL for the moment.
 
 Morph later included [some more fixes](https://github.com/yuzu-emu/yuzu/pull/7395) for this pull request.
 
-Another issue affecting our lovely Pearl trainer (who would pick the male equivalent?) is an interesting corruption that can happen in battles and in reflections after some 
+Another issue affecting our lovely Dawn trainer (who would pick the male equivalent?) is an interesting corruption that can happen in battles and in reflections after some 
 time or with certain attacks that cover the whole screen.
 One of the new features of yuzu’s TextureCache is support for full depth conversions, replacing the old “format deduction algorithm”, also known as guessing.
 
@@ -226,7 +225,7 @@ refusing to elaborate any further.
     >}}
 
 While working on the resolution scaler and its included filters, Blinkhawk named FSR `AMD'S FIDELITYFX SR` on the bottom status bar. 
-A bit too long, so Morph [renamed it](https://github.com/yuzu-emu/yuzu/pull/7369) to just `AMD FSR`.
+A bit too long, so Morph [renamed it](https://github.com/yuzu-emu/yuzu/pull/7369) to just `FSR`.
 Small change, but more pleasing to the eyes.
 
 {{< single-title-imgs
