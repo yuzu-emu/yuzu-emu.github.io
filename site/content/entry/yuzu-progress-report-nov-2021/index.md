@@ -157,7 +157,7 @@ By [making full use of full depth conversions](https://github.com/yuzu-emu/yuzu/
 
 {{< single-title-imgs
     "What a trip, almost like a Disney song (Pokémon Brilliant Diamond)"
-    "./bsdphbug.png"
+    "./bsdpbug.png"
     "./bsdpfix.png"
     >}}
 
