@@ -195,14 +195,18 @@ higher than the rendering resolution of the game.
 A mix up resulted in the screenshot being saved at the window size instead of the game’s framebuffer size.
 epicboy [fixed the logic](https://github.com/yuzu-emu/yuzu/pull/7389) and we’re back to proper screenshot resolutions.
 
-[liushuyu](https://github.com/liushuyu), our fantastic Webadmin, got reports of multiple GPU systems having crashes while running the Flatpak version of yuzu on Linux.
-Seems like the bundled version of mesa and ffmpeg will conflict on systems with different GPU vendors. Just the usual weird GNOME decisions.
+[liushuyu](https://github.com/liushuyu), our fantastic web admin, [got reports](https://github.com/flathub/org.yuzu_emu.yuzu/issues/200) 
+[of multiple GPU](https://github.com/flathub/org.yuzu_emu.yuzu/issues/218) systems having crashes while running the Flatpak version of yuzu on Linux.
+Seems like the bundled version of mesa and ffmpeg will not work on systems with different GPU vendors.
+This is caused by Flatpak's built-in ffmpeg lacking support for for NVDEC and VDPAU on NVIDIA hardware, and having broken codec detection.
+Just your average GNOME, who manages both Flatpak and FlatHub.
 
 liushuyu submitted [two](https://github.com/yuzu-emu/yuzu/pull/7431) [separate](https://github.com/yuzu-emu/yuzu/pull/7467) pull requests addressing this problem, but more 
 edge cases continue to appear, so the battle isn’t over yet.
 
-While we continue to work to win this war against Flatpak, please stick to using our appimages, or [manually build yuzu](https://yuzu-emu.org/wiki/building-for-linux/) if 
-you prefer.
+While we continue to work to win this war against Flatpak, please stick to using our [AppImages](https://yuzu-emu.org/downloads/#linux), or 
+[manually build yuzu](https://yuzu-emu.org/wiki/building-for-linux/).
+If you prefer to manually build yuzu, make sure that your ffmpeg library is capable of decoding VP8, VP9 and H.264 on hardware.
 It seems like the only way to solve this problem will be to just ship our own ffmpeg instead of Flatpak’s default one.
 
 ## UI changes
