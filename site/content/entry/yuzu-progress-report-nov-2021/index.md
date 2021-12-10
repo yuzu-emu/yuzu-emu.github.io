@@ -1,9 +1,9 @@
 +++
-date = "2021-12-04T12:00:00-03:00"
+date = "2021-12-010T12:00:00-03:00"
 title = "Progress Report November 2021"
 author = "GoldenX86"
 coauthor = "CaptV0rt3x"
-forum = 0
+forum = 503829
 +++
 
 Hello yuz-ers! Welcome to November’s progress report. This month, we present to you a full input rewrite, UI navigation with controllers, massive kernel changes resulting in 
@@ -144,7 +144,7 @@ fixing several crashes affecting both APIs in this new Pokémon remake.
 Morph later included [some more fixes](https://github.com/yuzu-emu/yuzu/pull/7395) for this pull request.
 
 Another issue affecting `Pokémon Brilliant Diamond/Shining Pearl` is an interesting corruption that can happen in battles and in reflections after some 
-time, or with certain attacks that cover the whole screen. By replacing the old “format deduction algorithm” and instead utilizing [full depth conversions](https://github.com/yuzu-emu/yuzu/pull/7396), Blinkhawk fixed this interesting colourful bug.
+time, or with certain attacks that cover the whole screen. By replacing the old “format deduction algorithm” and instead utilizing [full depth conversions](https://github.com/yuzu-emu/yuzu/pull/7396), Blinkhawk fixed this colourful bug.
 
 {{< single-title-imgs
     "What a trip, almost like a Disney song (Pokémon Brilliant Diamond)"
@@ -252,9 +252,9 @@ There has been some extensive work to improve hotkeys.
 
 german77 discovered that holding a hotkey would constantly spam the input. This was unintended, so he ensured [this behaviour was no more](https://github.com/yuzu-emu/yuzu/pull/7355).
 
-[heinarmann](https://github.com/heinermann) replaced [the emulation shortcuts and states](https://github.com/yuzu-emu/yuzu/pull/7419):
+[heinarmann](https://github.com/heinermann) modified [the Menu bar as follows:](https://github.com/yuzu-emu/yuzu/pull/7419)
 
-Our Menu bar entries have seen some changes. In `Emulation`, the `Start` button has been removed and `Continue` will now say `Pause` when applicable and vice versa. `Restart` will no longer cause a crash.
+In `Emulation`, the `Start` button has been removed and `Continue` will now say `Pause` when applicable and vice versa. `Restart` will no longer cause a crash.
 In `File`, `Load Amiibo...` was improved. We still have issues with several games when using this function, so consider it in a beta state.
 `TAS` [received its own submenu](https://github.com/yuzu-emu/yuzu/pull/7406) in `Tools > TAS`. And in exciting news, Exiting the emulator will now work while in fullscreen!
 
@@ -285,7 +285,7 @@ This happened because dummy threads in the kernel weren't getting destroyed prop
 This will allow for more intricate code mods, such as using [ARCropolis](https://github.com/Raytwo/ARCropolis), a mod loader for Smash Ultimate made by 
 [Raytwo](https://github.com/Raytwo) and [blujay](https://github.com/blu-dev).
 
-All these PRs ([[1](https://github.com/yuzu-emu/yuzu/pull/7393)], [[2](https://github.com/yuzu-emu/yuzu/pull/7394)], [[3](https://github.com/yuzu-emu/yuzu/pull/7407)) are part of the 
+All these PRs [[1](https://github.com/yuzu-emu/yuzu/pull/7393)], [[2](https://github.com/yuzu-emu/yuzu/pull/7394)], [[3]](https://github.com/yuzu-emu/yuzu/pull/7407) are part of the 
 on-going effort to implement support for the modding framework in yuzu.
 
 There are more juicy additions, but they didn't make it in time to be mentioned in this article, we will continue to expand on Skyline's progress in December's report.
@@ -301,7 +301,7 @@ Not much to talk about in this section this time, mostly just service stubs and 
 german77 also provides `Just Dance 2022` [with its own stub](https://github.com/yuzu-emu/yuzu/pull/7293) for the `EndFreeCommunication` service.
 
 And finally, Morph [implements the](https://github.com/yuzu-emu/yuzu/pull/7482) `GetCompletionEvent` service for `Super Bomberman R Online`. 
-Since the game requires online services, it won’t be playable for now.
+However, as the game requires online services, it won’t be playable for now.
 
 ## Future projects
 
