@@ -285,7 +285,7 @@ This happened because dummy threads in the kernel weren't getting destroyed prop
 This will allow for more intricate code mods, such as using [ARCropolis](https://github.com/Raytwo/ARCropolis), a mod loader for Smash Ultimate made by 
 [Raytwo](https://github.com/Raytwo) and [blujay](https://github.com/blu-dev).
 
-All these PRs [[1](https://github.com/yuzu-emu/yuzu/pull/7393)], [[2](https://github.com/yuzu-emu/yuzu/pull/7394)], [[3]](https://github.com/yuzu-emu/yuzu/pull/7407) are part of the 
+All these PRs [[1]](https://github.com/yuzu-emu/yuzu/pull/7393), [[2]](https://github.com/yuzu-emu/yuzu/pull/7394), [[3]](https://github.com/yuzu-emu/yuzu/pull/7407) are part of the 
 on-going effort to implement support for the modding framework in yuzu.
 
 There are more juicy additions, but they didn't make it in time to be mentioned in this article, we will continue to expand on Skyline's progress in December's report.
