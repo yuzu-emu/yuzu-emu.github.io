@@ -6,8 +6,8 @@ coauthor = "CaptV0rt3x"
 forum = 503829
 +++
 
-Hello yuz-ers! Welcome to November’s progress report. This month, we present to you a full input rewrite, UI navigation with controllers, massive kernel changes resulting in 
-improved performance and stability, and more.
+Hello yuz-ers! Welcome to November’s progress report. This month, we present to you a full input rewrite, UI navigation with controllers, kernel changes resulting in 
+improved stability, and more.
 
 <!--more-->  
 
@@ -252,10 +252,10 @@ There has been some extensive work to improve hotkeys.
 
 german77 discovered that holding a hotkey would constantly spam the input. This was unintended, so he ensured [this behaviour was no more](https://github.com/yuzu-emu/yuzu/pull/7355).
 
-[heinarmann](https://github.com/heinermann) modified [the Menu bar as follows:](https://github.com/yuzu-emu/yuzu/pull/7419)
+[heinermann](https://github.com/heinermann) modified [the Menu bar as follows:](https://github.com/yuzu-emu/yuzu/pull/7419)
 
 In `Emulation`, the `Start` button has been removed and `Continue` will now say `Pause` when applicable and vice versa. `Restart` will no longer cause a crash.
-In `File`, `Load Amiibo...` was improved. We still have issues with several games when using this function, so consider it in a beta state.
+In `File`, the `Load Amiibo...` hotkey was fixed. We still have issues with several games when using this function, so consider it in a beta state.
 `TAS` [received its own submenu](https://github.com/yuzu-emu/yuzu/pull/7406) in `Tools > TAS`. And in exciting news, Exiting the emulator will now work while in fullscreen!
 
 {{< single-title-imgs
