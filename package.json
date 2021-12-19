@@ -24,13 +24,13 @@
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-image-resize": "^0.13.1",
-    "hugo-bin": "0.76.1",
+    "hugo-bin": "0.79.0",
     "merge-stream": "^2.0.0",
     "minimist": "^1.2.5"
   },
   "devDependencies": {
-    "browser-sync": "^2.27.5",
-    "xo": "^0.44.0"
+    "browser-sync": "^2.27.7",
+    "xo": "^0.47.0"
   },
   "hugo-bin": {
     "buildTags": "extended"

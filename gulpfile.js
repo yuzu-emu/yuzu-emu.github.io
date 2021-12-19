@@ -8,17 +8,10 @@ const concat = require('gulp-concat');
 const imageResize = require('gulp-image-resize');
 const parallel = require('concurrent-transform');
 const browserSync = require('browser-sync').create();
-const hugo = require('hugo-bin');
 
 // Gulp Run Tasks
 gulp.task('scripts:compatdb', callback => {
     exec('cd ./scripts/shared-hugo-scripts/compatdb/ && yarn install && node app.js', (err, stdout, stderr) => {
-        callback(err);
-    });
-});
-
-gulp.task('scripts:twitter', callback => {
-    exec('cd ./scripts/shared-hugo-scripts/twitter/ && yarn install && node app.js', (err, stdout, stderr) => {
         callback(err);
     });
 });
@@ -57,8 +50,9 @@ gulp.task('assets:js', () => {
         .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('hugo', callback => {
-    exec(hugo + ' -s ./site/ -d ../build/ -v --gc', (err, stdout, stderr) => {
+gulp.task('hugo', async (callback) => {
+    const hugo = await import('hugo-bin');
+    exec(hugo.default + ' -s ./site/ -d ../build/ -v --gc', (err, stdout, stderr) => {
         console.log(stdout);
         callback(err);
     });
