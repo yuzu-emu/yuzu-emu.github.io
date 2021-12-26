@@ -307,5 +307,6 @@ _**NOTE:** These steps will be used in other sections below. Do **not** follow t
 9. We will now run yuzu to verify that your dumped keys and games are being read correctly.
     - 9a. Run either the `yuzu` or `yuzu Early Access` shortcuts that were created by the yuzu installer tool.
     - 9b. in yuzu, click on `+ Add New Game Directory` in the browser, and navigate to the folder where you placed your `XCI` or `NSP` files.
+    - 9c. To install game Updates and/or DLC. In yuzu, click `File >> install to NAND` and navigate to your dumped Update-DLC files. For more info refer to [How do I install game Updates or DLC](https://yuzu-emu.org/wiki/faq/#how-do-i-install-game-updates-or-dlc)
 
 ### If you need any help during this process or get a strange error during or while using yuzu, feel free to ask for help on the yuzu discord! Happy Emulating!
