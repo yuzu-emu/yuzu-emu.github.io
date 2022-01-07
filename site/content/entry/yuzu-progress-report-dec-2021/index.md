@@ -360,8 +360,7 @@ If you want a sneak peak at the progress on Ring Fit Adventure, here’s a video
 	"./ringfit.mp4| Ring Fit Adventure, again"
   >}}
 
-`Project Gaia`, our Virtual File System rewrite is progressing smoothly. 
-As a tip, SSD users will benefit from extra access time performance with it.
+`Project Gaia`, is progressing smoothly. As a tip, SSD users will notice improvements.
 
 Blinkhawk informs us that `Project Y.F.C.` will be grouping together the changes into smaller pieces, to get more progressive updates instead of delaying for a big release
 that would require more testing time.
