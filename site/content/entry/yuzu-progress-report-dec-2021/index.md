@@ -130,7 +130,7 @@ traditional antialiasing), the issue is solved by [rendering directly into the s
 The performance cost is higher (integrated GPUs like most Intel ones also hate traditional antialiasing), but it’s a price to pay to avoid crashing or losing the scaling.
 
 {{< imgs
-	"./cd.png| Colourful (Sonic Colors: Ultimate)"
+	"./sc.png| Colourful (Sonic Colors: Ultimate)"
   >}}
 
 The texture cache has to handle several weird situations when dealing with rendering, one aspect of the process are `overlaps`, when different textures compete for the 
