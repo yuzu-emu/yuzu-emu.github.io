@@ -8,8 +8,7 @@ forum = 0
 
 Yuz-ers! Welcome to the last progress report of 2021, released in 2022 because we still haven’t figured out how to travel in time. 
 We keep trying, but we’re running out of bananas to microwave and trash to fuel the Mr. Fusion.
-December offered kernel emulation changes, driver issues sorted out, input, rendering, and compatibility improvements, getting Skyline modding framework closer to stable, 
-and more.
+December offered kernel emulation changes, driver issues sorted out, input, rendering, and stability improvements, getting Skyline closer to stable, and more.
 
 <!--more-->
 
