@@ -6,22 +6,22 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-Yuz-ers! Welcome to the last progress report of 2021, released in 2022 because we still haven’t figured out how to travel in time. 
+Yuz-ers! Welcome to the last progress report of 2021, released in 2022 because we still haven’t figured out how to travel back in time. 
 We keep trying, but we’re running out of bananas to microwave and trash to fuel the Mr. Fusion.
-December offered kernel emulation changes, driver issues sorted out, input, rendering, and stability improvements, getting Skyline closer to stable, and more.
+December brought us improved kernel emulation, fixes for driver issues, improvements to input, rendering, overall stability, and more!
 
 <!--more-->
 
 ## PSA for NVIDIA users, part 2
 
-As mentioned [two months ago](https://yuzu-emu.org/entry/yuzu-progress-report-oct-2021/#psa-for-nvidia-users), NVIDIA continues to have issues with the changes introduced 
-by the drop of support for Kepler cards in the 49X series of drivers when using GLSL.
+As mentioned [two months ago](https://yuzu-emu.org/entry/yuzu-progress-report-oct-2021/#psa-for-nvidia-users), NVIDIA users continued to have issues due to the 
+changes introduced by the drop of support for Kepler cards in the 49X series of drivers when using GLSL.
 
-We’re happy to announce that we have a [set of workarounds](https://github.com/yuzu-emu/yuzu/pull/7629) done by [epicboy](https://github.com/ameerj) that solves all 
+We’re happy to announce that we have a [set of workarounds](https://github.com/yuzu-emu/yuzu/pull/7629) done by [epicboy](https://github.com/ameerj) that solve all 
 known issues.
-This applies to both Mainline and Early Access.
+These are already available for both Mainline and Early Access.
 
-The root of the problem in NVIDIA’s drivers seems to be in negation of integer *and* floating point values, and bitwise conversions of input values.
+The root of the problem in NVIDIA’s drivers seems to be in negation of integer and floating point values, and bitwise conversions of input values.
 
 On previous drivers you could assign a value to a variable named `x`, then assign `-x` as the value to a new variable named `y`. 
 `y` would be equal to `-1 * x`.
@@ -52,7 +52,7 @@ Since this counts as an optimization, we now apply it to all APIs.
 	"./nvidiafix.png"
 >}}
 
-Please report any issue found, as we know more issues could be still unfixed. 
+Please report if you find any issues, as there could be more broken games due to yet unknown driver bugs.
 On a similar note, more fixes should be coming to Vulkan too, if needed. 
 One solved itself, most likely NVIDIA fixed it on the latest drivers.
 
@@ -89,12 +89,12 @@ These are tools used by Vulkan to describe and process data, in order to compose
 This PR fixes the sand and shadow graphical issues in `The Legend of Zelda: Skyward Sword`, and also those observed in the shadows of `Xenoblade Chronicles 2`.
 
 {{< single-title-imgs-compare
-	"When you invert the polarity on your HDR display (Xenoblade Chronicles 2)"
+	"When you invert the polarity of your HDR display (Xenoblade Chronicles 2)"
 	"./xc2bug.png"
 	"./xc2fix.png"
 >}}
 
-epicboy took a look at the issues that affected games who made heavy use of sparse GPU memory, and [made the changes necessary](https://github.com/yuzu-emu/yuzu/pull/7658) 
+epicboy took a look at the issues that affected games that made heavy use of sparse GPU memory, and [made the changes necessary](https://github.com/yuzu-emu/yuzu/pull/7658) 
 to mitigate the problem.
 
 Sparse memory is a technique to store data non-contiguously, which is a fancy way to say that data is broken down to small blocks and only the relevant bits are loaded 
@@ -104,26 +104,24 @@ For the sake of precaution, he also added an extra guard that prevents modifying
 been loaded in yet.
 
 These changes are meant to address (no pun intended) issues related to the GPU memory management, and hopefully alleviate some stability complications related to it.
-Notably, the crashes on titles developed with the `UE4` engine (cough, True Goddess Reincarnation V or some such, cough).
+Notably, the crashes on titles developed with the `UE4` engine *(cough, True Goddess Reincarnation V or some such, cough)*.
 The devs are still investigating any other oddities surrounding this game, so stay tuned for more updates.
-
-some rando pic of SMTV
-// Hong: These changes mitigate memory-related problems but are not guaranteed to “fix” them completely.
 
 {{< imgs
 	"./ue4.png| These changes mitigate memory-related problems but are not guaranteed to “fix” them completely (SHIN MEGAMI TENSEI V)"
   >}}
 
 Users reported crashes when playing `Sonic Colors Ultimate` on AMD and Intel GPUs on Vulkan after the resolution scaler was introduced.
-epicboy jumped to intervene and save the Blue Hedgehog.
+epicboy quickly jumped in, to intervene and save the Blue Hedgehog.
 
 On the red AMD side, our Blue Blur suffers from ImageView issues, causing an invalid pointer dereference when the `slot_images` container of the texture cache is resized, 
 this can happen even at native resolution.
 [Keeping a reference of the container](https://github.com/yuzu-emu/yuzu/pull/7622) solves it.
 
-Intel’s blue team now, their Vulkan driver strongly follows the specification when dealing with image blits. Khronos defines that 
-[MSAA](https://en.wikipedia.org/wiki/Multisample_anti-aliasing) blits are not allowed, and while most drivers let this pass, Intel is a good boy and crashes when trying 
-to rescale MSAA textures.. 
+Intel’s blue team turn now.
+The Intel Vulkan Windows driver strongly follows the specification when dealing with image blits. 
+Khronos defines that [MSAA](https://en.wikipedia.org/wiki/Multisample_anti-aliasing) blits are not allowed, and while most drivers let this pass, Intel is being a good boy and 
+crashes when trying to rescale MSAA textures.
 Leaving aside that using traditional antialiasing on a mobile device like the Switch is a *crime against humanity* (you don’t waste extremely limited bandwidth on 
 traditional antialiasing), the issue is solved by [rendering directly into the scaled image](https://github.com/yuzu-emu/yuzu/pull/7624) when rescaling by using the 3D pipeline.
 The performance cost is higher (integrated GPUs like most Intel ones also hate traditional antialiasing), but it’s a price to pay to avoid crashing or losing the scaling.
@@ -132,9 +130,9 @@ The performance cost is higher (integrated GPUs like most Intel ones also hate t
 	"./sc.png| Colourful (Sonic Colors: Ultimate)"
   >}}
 
-The texture cache has to handle several weird situations when dealing with rendering, one aspect of the process are `overlaps`, when different textures compete for the 
-same video memory space.
-A bug in the texture cache logic occured when an overlap occurs over relatively big distances in GPU memory, an overflow could happen leading to a wrongly massive texture 
+The texture cache has to handle several weird situations when dealing with rendering.
+One of the aspects of the process are `overlaps`, when different textures compete for the same video memory space.
+A bug in the texture cache's logic was found when an overlap occurs over relatively big distances in GPU memory, an overflow could happen leading to a wrongly massive texture 
 trying to be rendered causing VRAM to fill up instantly and leading yuzu to a crash.
 This issue was common in `BRAVELY DEFAULT II`.
 Thanks to epicboy, [users no longer have to suffer this sudden crash](https://github.com/yuzu-emu/yuzu/pull/7659).
@@ -164,7 +162,7 @@ You can check the current progress [here](https://github.com/yuzu-emu/yuzu/issue
 
 [german77](https://github.com/german77) has several fixes for us, and some important new additions.
 
-Let’s kick things on with a great one for handheld PC users, couch players, and anyone not wanting to reach all the way to their keyboard while playing. 
+Let’s kick things off with a great new feature for handheld PC users, couch players, and anyone not wanting to reach all the way to their keyboard while playing. 
 For us lazy humans, german77 offers us: [Support for gamepad hotkeys](https://github.com/yuzu-emu/yuzu/pull/7633).
 
 {{< imgs
@@ -183,9 +181,9 @@ default conveniently mapped to the capture button of the Nintendo controllers), 
 When a game starts, some internal testing is done to ensure that things are where they should and respond with an acceptable delay, one of those tests involves rumble.
 Games prod the controllers with a low frequency rumble test, but sometimes, some games never stop and the controller continues to vibrate, depleting battery and making you 
 doubt what was the original intention of the developer.
-german77 [forces the rumble amplitude to zero after the test](https://github.com/yuzu-emu/yuzu/pull/7593), stopping unwanted vibrations only for it.
+german77 [forces the rumble amplitude to zero after the test](https://github.com/yuzu-emu/yuzu/pull/7593), stopping unwanted vibrations only for these affected games.
 
-VR games may use the gyroscopic sensor on the Switch itself (not the controllers) to feed motion data.
+VR games may use the gyroscope sensor on the Switch itself (not the controllers) to feed motion data.
 Previously, yuzu would only give partial data to the game, causing erratic movements on the game’s camera.
 german77 added [all missing data, including the gyro sensor](https://github.com/yuzu-emu/yuzu/pull/7481), to solve this issue. 
 
@@ -213,7 +211,7 @@ Well, [not any more](https://github.com/yuzu-emu/yuzu/pull/7647), again thanks t
 ## Flatpak fixes
 
 Following up from our previous mention [last month](https://yuzu-emu.org/entry/yuzu-progress-report-nov-2021/#graphical-fixes), [liushuyu](https://github.com/liushuyu) 
-continues to fight.
+continues to fight against the weirdness of Flatpak.
 
 [NVDEC requirements are now more flexible](https://github.com/yuzu-emu/yuzu/pull/7565), the CUDA libraries are no longer mandatory, without actually affecting CUDA 
 decoding support. 
@@ -239,7 +237,7 @@ Morph [pointed the OSK to the proper array](https://github.com/yuzu-emu/yuzu/pul
 
 ## General changes and bugfixes
 
-[bunnei](https://github.com/bunnei) continues the ongoing work on the kernel rewrite, in order to increase the accuracy of our implementation.
+[bunnei](https://github.com/bunnei) continues to work on the kernel rewrite, in order to increase the accuracy of our implementation.
 
 This time, by simplifying a number of functions and polishing the tracking of resources, he introduced more changes to 
 [improve the threading and scheduling kernel routines](https://github.com/yuzu-emu/yuzu/pull/7462).
@@ -342,6 +340,10 @@ of the driver, unpack it, go to Device Manager, right-click the correct GPU in D
 `Let me pick from a list of device drivers on my computer`, `Have Disk…`, then finally browse to the folder where the driver was unpacked and select the `iigd_dch.inf` file.
 What a very intuitive and user-friendly way to update a GPU driver, great job Intel…
 
+Here's a [video tutorial](https://www.youtube.com/watch?v=BZG50Nm5sOM&t=72s) for those that prefer visual aid over our rambling. Just make sure to use the `iigd_dch.inf` 
+file instead of the one shown in the slightly outdated video.
+Other mentioned optimizations on the video no longer apply.
+
 With this *easy job* done, the Intel GPU gets full Vulkan support, runs at its intended performance, and has access to all the new features, fixes, and performance 
 improvements that the driver developers worked on. 
 The driver is also allowed to auto-update on new official releases.
@@ -361,8 +363,8 @@ If you want a sneak peak at the progress on Ring Fit Adventure, here’s a video
 `Project Gaia`, our Virtual File System rewrite is progressing smoothly. 
 As a tip, SSD users will benefit from extra access time performance with it.
 
-Blinkhawk informs us that `Project Y.F.C.` has dissolved into smaller features to get more progressive updates instead of delaying for a big release that would require 
-more testing time.
+Blinkhawk informs us that `Project Y.F.C.` will be grouping together the changes into smaller pieces, to get more progressive updates instead of delaying for a big release
+that would require more testing time.
 We continue to plan to add several of GPU features that have been pending, for example:
 
 {{< imgs
