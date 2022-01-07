@@ -84,9 +84,9 @@ Blinkhawk [fixed a bug in the texture cache](https://github.com/yuzu-emu/yuzu/pu
 crash when using the Vulkan API.
 This crash happened when blitting textures with different format types, something that points to a problem in the texture cache that will be addressed in a future PR.
 
-[Blinkhawk](https://github.com/FernandoS27) also updated the Vulkan headers to introduce a [fix and implemented logical operations](https://github.com/yuzu-emu/yuzu/pull/7599).
-These are tools used by Vulkan to describe and process data, in order to compose the frames that will later be sent to the screen.
-This PR fixes the sand and shadow graphical issues in `The Legend of Zelda: Skyward Sword`, and also those observed in the shadows of `Xenoblade Chronicles 2`.
+[Blinkhawk](https://github.com/FernandoS27) also updated the Vulkan headers to introduce a [fix an extension and implemented logical operations](https://github.com/yuzu-emu/yuzu/pull/7599).
+Both the extension and these logical operations are used by Vulkan to describe and process data, in order to compose the frames that will later be sent to the screen.
+This PR fixes the sand and shadow graphical problems in The Legend of Zelda: Skyward Sword, and also the shadow problems in seen on Xenoblade Chronicles 2.
 
 {{< single-title-imgs-compare
 	"When you invert the polarity of your HDR display (Xenoblade Chronicles 2)"
@@ -131,7 +131,7 @@ The performance cost is higher (integrated GPUs like most Intel ones also hate t
   >}}
 
 The texture cache has to handle several weird situations when dealing with rendering.
-One of the aspects of the process are `overlaps`, when different textures compete for the same video memory space.
+One of the aspects of the process is `overlaps`, when different textures compete for the same video memory space.
 A bug in the texture cache's logic was found when an overlap occurs over relatively big distances in GPU memory, an overflow could happen leading to a wrongly massive texture 
 trying to be rendered causing VRAM to fill up instantly and leading yuzu to a crash.
 This issue was common in `BRAVELY DEFAULT II`.
