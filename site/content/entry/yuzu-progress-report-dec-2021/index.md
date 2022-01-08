@@ -6,11 +6,12 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-Yuz-ers! Welcome to the last progress report of 2021, released in 2022 because we still haven’t figured out how to travel back in time. 
-We keep trying, but we’re running out of bananas to microwave and trash to fuel the Mr. Fusion.
+Yuz-ers! Welcome to the last progress report of 2021, released in 2022 because we still haven’t figured out how to travel back in time.
 December brought us improved kernel emulation, fixes for driver issues, improvements to input, rendering, overall stability, and more!
 
 <!--more-->
+
+We keep trying with the time machine, but we’re running out of bananas to microwave and trash to fuel the Mr. Fusion. OK let's get started.
 
 ## PSA for NVIDIA users, part 2
 
