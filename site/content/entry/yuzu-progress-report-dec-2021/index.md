@@ -71,7 +71,7 @@ sending the correct frame data only to the correct decoder.
     "./mdfix.mp4"
     >}}
 
-[morph](https://github.com/Morph1984) added the missing formats [R16G16_UINT](https://github.com/yuzu-emu/yuzu/pull/7544) and 
+[Morph](https://github.com/Morph1984) added the missing formats [R16G16_UINT](https://github.com/yuzu-emu/yuzu/pull/7544) and 
 [ASTC_2D_8X5_UNORM](https://github.com/yuzu-emu/yuzu/pull/7549) to the Vulkan API, fixing the missing graphics on `Immortals Fenyx Rising` and `LEGO® CITY UNDERCOVER`, 
 respectively.
 (Please note that `Immortals Fenyx Rising` gets in game but has broken graphics at the moment).
@@ -80,11 +80,11 @@ respectively.
 	"./lcu.png| I brick you not (LEGO® CITY UNDERCOVER)"
   >}}
 
-Blinkhawk [fixed a bug in the texture cache](https://github.com/yuzu-emu/yuzu/pull/7495) that was conveniently ignored by the AMD driver, but would cause Nvidia GPUs to 
-crash when using the Vulkan API.
+[Blinkhawk](https://github.com/FernandoS27) [fixed a bug in the texture cache](https://github.com/yuzu-emu/yuzu/pull/7495) that was conveniently ignored by the AMD driver, 
+but would cause Nvidia GPUs to crash when using the Vulkan API.
 This crash happened when blitting textures with different format types, something that points to a problem in the texture cache that will be addressed in a future PR.
 
-[Blinkhawk](https://github.com/FernandoS27) also updated the Vulkan headers to introduce a [fix an extension and implemented logical operations](https://github.com/yuzu-emu/yuzu/pull/7599).
+Blinkhawk also updated the Vulkan headers to introduce a [fix an extension and implemented logical operations](https://github.com/yuzu-emu/yuzu/pull/7599).
 Both the extension and these logical operations are used by Vulkan to describe and process data, in order to compose the frames that will later be sent to the screen.
 This PR fixes the sand and shadow graphical problems in The Legend of Zelda: Skyward Sword, and also the shadow problems in seen on Xenoblade Chronicles 2.
 
