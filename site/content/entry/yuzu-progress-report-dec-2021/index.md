@@ -195,9 +195,8 @@ games seem to do.
 After the release of `Project Kraken`, the input rewrite, analog triggers were not accurate, a simple bug slipped by making them work only when sticks were moved. 
 [Two lines of code change](https://github.com/yuzu-emu/yuzu/pull/7583), and the issue is no more.
 
-german77 has also been working on trying to make `Ring Fit Adventure` playable.
-While there is a lot of work ahead in adding support for the pressure sensor rings required by the game, and the usual aspects of emulation, some changes have been done already.
-Most are mentioned later in the article.
+german77 has also been working on making `Ring Fit Adventure` playable.
+While working on implementing support for the pressure rings the game requires, german77 also ended up with some global improvements.
 
 One change that ends up benefiting all games is [controller type validation](https://github.com/yuzu-emu/yuzu/pull/7503), which ensures that the emulator can only 
 accept controller types that the game supports, while discarding and disconnecting anything else.
@@ -282,14 +281,14 @@ Due to a bit of bloat in the previous implementation, 3 full seconds were needed
 Morph [rewrote the whole code section](https://github.com/yuzu-emu/yuzu/pull/7494) and now only 0.2 seconds (200 milliseconds) are needed to get results as accurate as
 before, considerably reducing the boot times of the emulator itself.
 
-As previously said, german77 continues to work in making `Ring Fit Adventure` playable.
+As previously said, german77 continues to work in making `Ring Fit Adventure` playable. 
 He has [stubbed the](https://github.com/yuzu-emu/yuzu/pull/7524) `SetNpadCaptureButtonAssignment`, `ClearNpadCaptureButtonAssignment`, `ListAlarmSettings`, and 
 `Initialize` services, and [added support](https://github.com/yuzu-emu/yuzu/pull/7525) for the `notif:a` service.
 
-With all his changes, the game manages to load the calibration settings:
+With all his changes, the current Early Access build when writting this article can boot and play the first stage of the game:
 
 {{< imgs
-	"./ringfit.png| Ring Fit Adventure"
+	"./ringfit.mp4| Ring Fit Adventure"
   >}}
 
 [Tatsh](https://github.com/Tatsh) [added NSP and XCI file association to Linux](https://github.com/yuzu-emu/yuzu/pull/7609).
@@ -355,13 +354,7 @@ Overwolf and GShade are also known to break Vulkan support, so we **strongly** r
 
 ## Future projects
 
-If you want a sneak peak at the progress on Ring Fit Adventure, here’s a video for you:
-
-{{< imgs
-	"./ringfit.mp4| Ring Fit Adventure, again"
-  >}}
-
-`Project Gaia`, is progressing smoothly. As a tip, SSD users will notice improvements.
+`Project Gaia`, is progressing smoothly. As a tip, SSD users will notice improvements once it is released.
 
 Blinkhawk informs us that `Project Y.F.C.` will be grouping together the changes into smaller pieces, to get more progressive updates instead of delaying for a big release
 that would require more testing time.
