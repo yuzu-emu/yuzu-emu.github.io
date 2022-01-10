@@ -263,7 +263,7 @@ If this mumbo-jumbo sounds confusing, the gist of this is that the process of bu
 But feel free to skip the following paragraphs if you're not interested in the specifics.
 
 Roughly speaking, compiler optimizations work on a "local" level per object.
-This optimization step will [inline](https://en.wikipedia.org/wiki/Inline_expansion)) some functions, merge loops, put calling and called functions close in memory for 
+This optimization step will [inline](https://en.wikipedia.org/wiki/Inline_expansion) some functions, merge loops, put calling and called functions close in memory for 
 better caching, etc.
 But if a function defined in another file is called within the file, the compiler can't perform these optimizations, as it doesn't know what this external function does, 
 or how to optimize it.
@@ -351,7 +351,7 @@ The driver is also allowed to auto-update on new official releases.
 
 Known software that uses broken Vulkan injectors are outdated screen recorders like Bandicam, Action!, and even OBS.
 We strongly recommend using an up to date OBS, the native encoders from the GPU vendor (Radeon ReLive and Geforce Experience), or the integrated Xbox Game Bar on Windows.
-Overwolf is also known to break Vulkan support, so we **strongly** recommend avoiding it.
+Overwolf and GShade are also known to break Vulkan support, so we **strongly** recommend avoiding them.
 
 ## Future projects
 
