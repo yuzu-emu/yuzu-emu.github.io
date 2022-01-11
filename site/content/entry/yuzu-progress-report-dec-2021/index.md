@@ -247,7 +247,7 @@ These changes increase yuzu's parity with recent updates to the Nintendo Switch 
 bunnei also implemented [SetMemoryPermission](https://github.com/yuzu-emu/yuzu/pull/7621), and updated the implementation of 
 [SetHeapSize](https://github.com/yuzu-emu/yuzu/pull/7635), which are SVCs used by the kernel to manage the memory resources.
 
-Previously, `SetHeapSize` only supported setting the heap size and expand it, which was good enough for most games.
+Previously, `SetHeapSize` only supported setting the heap size and expanding it, which was good enough for most games.
 But since some titles (such as `Donkey Kong Tropical Freeze`) may shrink this size, the implementation was updated to allow games to change the heap as needed, making it 
 more accurate.
 
