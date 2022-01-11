@@ -170,9 +170,8 @@ Let’s kick things off with a great new feature for handheld PC users, couch pl
 	"./hotkeys.png| You can customize them"
   >}}
 
-With this, users can customize button macros. For example: access or exit fullscreen, unlock the framerate, pause/continue emulation, capture a screenshot (by 
-default conveniently mapped to the capture button of the Nintendo controllers), close yuzu and more.
-
+With this, users can customize button macros. For example: access or exit fullscreen, unlock the framerate, pause/continue emulation, capture a screenshot 
+(by default conveniently mapped to the capture button of the Nintendo controllers), close yuzu, and more!
 {{< single-title-imgs
     "Sorry about the bad quality"
     "./gamepad1.mp4"
@@ -206,7 +205,7 @@ A bug in the controller type validation code caused `Captain Toad: Treasure Trac
 Well, [not any more](https://github.com/yuzu-emu/yuzu/pull/7647)! Again thanks to german77.
 
 {{< imgs
-	"./toad.png| Co-op tressure hunting, what else could you ask for? (Captain Toad: Treasure Tracker)"
+	"./toad.png| Co-op treasure hunting, what else could you ask for? (Captain Toad: Treasure Tracker)"
   >}}
 
 ## Flatpak fixes
