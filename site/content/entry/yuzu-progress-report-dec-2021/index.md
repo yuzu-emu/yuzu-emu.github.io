@@ -13,14 +13,13 @@ December brought us improved kernel emulation, fixes for driver issues, improvem
 
 We keep trying with the time machine, but we’re running out of bananas to microwave and trash to fuel the Mr. Fusion. Okay, let's get started!
 
-## PSA for NVIDIA users, part 2
+## PSA for NVIDIA users: Part 2
 
-As mentioned [two months ago](https://yuzu-emu.org/entry/yuzu-progress-report-oct-2021/#psa-for-nvidia-users), NVIDIA users continued to have issues due to the 
-changes introduced by the drop of support for Kepler cards in the 49X series of drivers when using GLSL.
+As mentioned [two months ago](https://yuzu-emu.org/entry/yuzu-progress-report-oct-2021/#psa-for-nvidia-users), NVIDIA users have been experiencing issues when using GLSL due to the changes introduced by NVIDIA dropping support for Kepler cards in the 49X series of drivers.
 
-We’re happy to announce that we have a [set of workarounds](https://github.com/yuzu-emu/yuzu/pull/7629) done by [epicboy](https://github.com/ameerj) that solve all 
+We’re happy to announce that we have a [set of workarounds](https://github.com/yuzu-emu/yuzu/pull/7629) implemented by [epicboy](https://github.com/ameerj) that solve all 
 known issues.
-These are already available for both Mainline and Early Access.
+These are already available for both Mainline and [Early Access](https://yuzu-emu.org/help/early-access/).
 
 The root of the problem in NVIDIA’s drivers seems to be in negation of integer and floating point values, and bitwise conversions of input values.
 
