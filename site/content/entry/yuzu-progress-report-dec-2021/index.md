@@ -54,7 +54,7 @@ Since this counts as an optimization, we now apply it to all APIs.
 
 Please report if you find any issues, as there could be more broken games due to yet unknown driver bugs.
 On a similar note, more fixes should be coming to Vulkan too, if needed. 
-One solved itself, most likely NVIDIA fixed it on the latest drivers.
+One such issue solved itself, most likely NVIDIA fixed it on the latest drivers.
 
 ## Other graphical fixes
 
@@ -97,7 +97,7 @@ This PR fixes the sand and shadow graphical problems in `The Legend of Zelda: Sk
 epicboy took a look at the issues that affected games that made heavy use of sparse GPU memory, and [made the changes necessary](https://github.com/yuzu-emu/yuzu/pull/7658) 
 to mitigate the problem.
 
-Sparse memory is a technique to store data non-contiguously, which is a fancy way to say that data is broken down to small blocks and only the relevant bits are loaded 
+Sparse memory is a technique to store data non-contiguously, which is a fancy way to say that data is broken down into small blocks and only the relevant bits are loaded 
 into memory.
 There was a bug in the code used to map this data into the memory, as the offsets needed to get the right address weren't being included in the calculations.
 For the sake of precaution, he also added an extra guard that prevents modifying the memory address 0, as it is used as a placeholder to signal addresses that haven't 
@@ -114,11 +114,11 @@ The devs are still investigating any other oddities surrounding this game, so st
 Users reported crashes when playing `Sonic Colors Ultimate` on AMD and Intel GPUs on Vulkan after the resolution scaler was introduced.
 epicboy quickly jumped in, to intervene and save the Blue Hedgehog.
 
-On the red AMD side, our Blue Blur suffers from ImageView issues, causing an invalid pointer dereference when the `slot_images` container of the texture cache is resized, 
-this can happen even at native resolution.
-[Keeping a reference of the container](https://github.com/yuzu-emu/yuzu/pull/7622) solves it.
+On the AMD side, Sonic suffers from ImageView issues, causing an invalid pointer dereference when the `slot_images` container of the texture cache is resized. 
+This can happen even at native resolution.
+epicboy found that [keeping a reference of the container](https://github.com/yuzu-emu/yuzu/pull/7622) resolves the issue.
 
-Intel’s blue team turn now.
+Intel’s turn now.
 The Intel Vulkan Windows driver strongly follows the specification when dealing with image blits. 
 Khronos defines that [MSAA](https://en.wikipedia.org/wiki/Multisample_anti-aliasing) blits are not allowed, and while most drivers let this pass, Intel is being a good boy and 
 crashes when trying to rescale MSAA textures.
@@ -131,9 +131,9 @@ The performance cost is higher (integrated GPUs like most Intel ones also hate t
   >}}
 
 The texture cache has to handle several weird situations when dealing with rendering.
-One of the aspects of the process is `overlaps`, when different textures compete for the same video memory space.
-A bug in the texture cache's logic was found when an overlap occurs over relatively big distances in GPU memory, an overflow could happen leading to a wrongly massive texture 
-trying to be rendered causing VRAM to fill up instantly and leading yuzu to a crash.
+One aspect of the process is `overlaps`, when different textures compete for the same video memory space.
+A bug in the texture cache's logic was found when an overlap occurs over relatively big distances in GPU memory. An overflow could happen leading to a wrongly massive texture 
+trying to be rendered, causing VRAM to fill up instantly, and leading yuzu to a crash.
 This issue was common in `BRAVELY DEFAULT II`.
 Thanks to epicboy, [users no longer have to suffer this sudden crash](https://github.com/yuzu-emu/yuzu/pull/7659).
 
@@ -143,33 +143,33 @@ Thanks to epicboy, [users no longer have to suffer this sudden crash](https://gi
     "./bd2.png"
     >}}
 
-## Skyline framework, Part 2
+## Skyline framework: Part 2
 
 [itsmeft24](https://github.com/itsmeft24) submitted a patch to 
 [implement the `ProcessMemory` and `CodeMemory` kernel SVCs](https://github.com/yuzu-emu/yuzu/pull/7519) (Supervisor Calls), which are some of the changes needed to support 
 the [Skyline](https://github.com/skyline-dev/skyline) framework for modding.
 
 Part of the ongoing work includes adding support in yuzu for all tiers of `subsdk`. 
-Games can use subsdk tiers from 0 to 8, with 9 being free. 
-Skyline uses subsdk9 to operate, so [jam1garner](https://github.com/jam1garner) included support for the remaining 
+Games can use `subsdk` tiers from 0 to 8, with 9 being free. 
+Skyline uses `subsdk9` to operate, so [jam1garner](https://github.com/jam1garner) included support for the remaining 
 [two missing tiers in yuzu, 8 and 9](https://github.com/yuzu-emu/yuzu/pull/7523).
 
-There are still a couple of things that need to be implemented before it's ready, but things are certainly getting close to be completed.
+There are still a couple of things that need to be implemented before it's ready, but things are certainly getting closer to being completed.
 
 You can check the current progress [here](https://github.com/yuzu-emu/yuzu/issues/7392).
 
 ## Input changes
 
-[german77](https://github.com/german77) has several fixes for us, and some important new additions.
+[german77](https://github.com/german77) has several fixes for us and some important new additions.
 
-Let’s kick things off with a great new feature for handheld PC users, couch players, and anyone not wanting to reach all the way to their keyboard while playing. 
-For us lazy humans, german77 offers us: [Support for gamepad hotkeys](https://github.com/yuzu-emu/yuzu/pull/7633).
+Let’s kick things off with a great new feature for handheld PC users, couch players, and anyone not wanting to reach all the way to their keyboard while playing: 
+[support for gamepad hotkeys](https://github.com/yuzu-emu/yuzu/pull/7633).
 
 {{< imgs
 	"./hotkeys.png| You can customize them"
   >}}
 
-With this, users can customize button macros to for example access or exit fullscreen, unlock the framerate, pause/continue emulation, capture a screenshot (by 
+With this, users can customize button macros. For example: access or exit fullscreen, unlock the framerate, pause/continue emulation, capture a screenshot (by 
 default conveniently mapped to the capture button of the Nintendo controllers), close yuzu and more.
 
 {{< single-title-imgs
@@ -178,44 +178,45 @@ default conveniently mapped to the capture button of the Nintendo controllers), 
     "./gamepad2.mp4"
     >}}
 
-When a game starts, some internal testing is done to ensure that things are where they should and respond with an acceptable delay, one of those tests involves rumble.
+When certain games start, some internal testing is done to ensure that things are where they should be and respond with an acceptable delay. One of those tests involves rumble.
 Games prod the controllers with a low frequency rumble test, but sometimes, some games never stop and the controller continues to vibrate, depleting battery and making you 
-doubt what was the original intention of the developer.
+doubt what was the original intention of the developer was.
 german77 [forces the rumble amplitude to zero after the test](https://github.com/yuzu-emu/yuzu/pull/7593), stopping unwanted vibrations only for these affected games.
 
 VR games may use the gyroscope sensor on the Switch itself (not the controllers) to feed motion data.
-Previously, yuzu would only give partial data to the game, causing erratic movements on the game’s camera.
+Previously, yuzu would only give partial data to the game, causing erratic movement of the game’s camera.
 german77 added [all missing data, including the gyro sensor](https://github.com/yuzu-emu/yuzu/pull/7481), to solve this issue. 
 
-german77 also added support for the `SetNpadJoyAssignmentMode` series of services, removing some spam in the logs.
-This change [also adds support for](https://github.com/yuzu-emu/yuzu/pull/7521) dual Joy-Con pairs with a single Joy-Con connected, which is somehow something that some 
+german77 also added support for the `SetNpadJoyAssignmentMode` series of services, removing some spam from the logs.
+This change [also adds support for](https://github.com/yuzu-emu/yuzu/pull/7521) dual Joy-Con pairs with a single Joy-Con connected, which is something that some 
 games seem to do.
 
-After the release of `Project Kraken`, the input rewrite, analog triggers were not accurate, a simple bug slipped by making them work only when sticks were moved. 
-[Two lines of code change](https://github.com/yuzu-emu/yuzu/pull/7583), and the issue is no more.
+After the release of `Project Kraken`, [the input rewrite](https://yuzu-emu.org/entry/yuzu-progress-report-nov-2021#projekt-kraken), analog triggers were accidentally broken. 
+A simple bug slipped by, causing them to only work when the joysticks were moved. 
+[Two lines of code were changed](https://github.com/yuzu-emu/yuzu/pull/7583), and the issue was made no more.
 
 german77 has also been working on making `Ring Fit Adventure` playable.
-While working on implementing support for the pressure rings the game requires, german77 also ended up with some global improvements.
+While working on implementing support for the pressure ring accessory that the game requires, german77 also ended up making some global improvements.
 
-One change that ends up benefiting all games is [controller type validation](https://github.com/yuzu-emu/yuzu/pull/7503), which ensures that the emulator can only 
+One change that ended up benefiting all games is [controller type validation](https://github.com/yuzu-emu/yuzu/pull/7503), which ensures that the emulator can only 
 accept controller types that the game supports, while discarding and disconnecting anything else.
 
-A bug in the controller type validation code caused `Captain Toad: Treasure Tracker` to constantly spam the controller applet when trying two player mode.
-Well, [not any more](https://github.com/yuzu-emu/yuzu/pull/7647), again thanks to german77.
+A bug in the controller type validation code caused `Captain Toad: Treasure Tracker` to constantly spam the controller applet when trying to launch two-player mode.
+Well, [not any more](https://github.com/yuzu-emu/yuzu/pull/7647)! Again thanks to german77.
 
 {{< imgs
-	"./toad.png| CO-OP tressure hunting, what else could you ask for? (Captain Toad: Treasure Tracker)"
+	"./toad.png| Co-op tressure hunting, what else could you ask for? (Captain Toad: Treasure Tracker)"
   >}}
 
 ## Flatpak fixes
 
 Following up from our previous mention [last month](https://yuzu-emu.org/entry/yuzu-progress-report-nov-2021/#graphical-fixes), [liushuyu](https://github.com/liushuyu) 
-continues to fight against the weirdness of Flatpak.
+continues to fight against the weirdness of [Flatpak](https://flatpak.org/).
 
 [NVDEC requirements are now more flexible](https://github.com/yuzu-emu/yuzu/pull/7565), the CUDA libraries are no longer mandatory, without actually affecting CUDA 
 decoding support. 
-Also, ffmpeg requirements have been raised to version 4.3 and higher.
-This should also enable native Vulkan video support later on when there is driver support for it.
+Also, [FFmpeg](https://ffmpeg.org/) requirements have been raised to version 4.3 and higher.
+This should enable native Vulkan video support later on when there is driver support for it.
 
 With this, decoding crashes are solved when running Flatpak builds of yuzu.
 
@@ -224,10 +225,10 @@ liushuyu also solved an issue affecting the prevent sleep functionality on Flatp
 
 Additionally, Flatpak builds are compiled with asserts enabled, meaning that the emulator will be stopped when an assertion fails or an out-of-bound access inside a 
 vector is encountered.
-Appimage or regular Mainline/Early Access builds are shipped with asserts disabled.
+[Appimage](https://appimage.org/) and regular Mainline/Early Access builds are shipped with asserts disabled.
 
 While this usually isn’t an issue, Flatpak users reported crashes in `Pokémon Sword & Shield` when trying to set their uniform number.
-Turns out, the on-screen keyboard (OSK) was doing an out-of-bounds access when calling the number pad.
+As it turns out, the on-screen keyboard (OSK) was performing an out-of-bounds access when calling the number pad.
 Morph [pointed the OSK to the proper array](https://github.com/yuzu-emu/yuzu/pull/7579) and the crashing stopped.
 
 {{< imgs
@@ -236,11 +237,11 @@ Morph [pointed the OSK to the proper array](https://github.com/yuzu-emu/yuzu/pul
 
 ## General changes and bugfixes
 
-[bunnei](https://github.com/bunnei) continues to work on the kernel rewrite, in order to increase the accuracy of our implementation.
+[bunnei](https://github.com/bunnei) continues to work on the kernel rewrite, toiling away to increase the accuracy of our implementation.
 
 This time, by simplifying a number of functions and polishing the tracking of resources, he introduced more changes to 
 [improve the threading and scheduling kernel routines](https://github.com/yuzu-emu/yuzu/pull/7462).
-These changes increase the parity with recent updates to the Nintendo Switch OS, and also fix a number of race conditions and crashes, such as the ones experimented in 
+These changes increase yuzu's parity with recent updates to the Nintendo Switch OS, and also fix a number of race conditions and crashes, such as the ones experienced in 
 `Pokémon Sword & Shield` and `Dead or Alive Xtreme 3 Scarlet`.
 
 bunnei also implemented [SetMemoryPermission](https://github.com/yuzu-emu/yuzu/pull/7621), and updated the implementation of 
@@ -252,13 +253,13 @@ more accurate.
 
 Both these changes were validated with hardware tests, ensuring that they behave as expected.
 
-While working on these changes, bunnei [found a bug in the service used to retrieve information of the currently executing process](https://gzithub.com/yuzu-emu/yuzu/pull/7616).
+While working on these changes, bunnei [found a bug in the service used to retrieve information of the currently executing process](https://github.com/yuzu-emu/yuzu/pull/7616).
 Correcting this behaviour allowed `The Witcher 3: Wild Hunt` to boot, although there are still plenty of graphical issues to fix on this title.
 
 Blinkhawk also made a number of [changes to the building process](https://github.com/yuzu-emu/yuzu/pull/7497) to enforce more link time optimizations, and improve the
 time needed to generate the `PDB` ([Program Database](https://llvm.org/docs/PDB/index.html)) file, which contains debug information.
-If this mumbo-jumbo sounds confusing, the gist of this is that the process of building yuzu should produce more efficient code and smaller binaries now.
-But feel free to skip the following paragraphs if you're not interested in the specifics.
+If this mumbo-jumbo sounds confusing, the gist of it is that the process of building yuzu should produce more efficient code and smaller binaries now.
+But feel free to skip the following few paragraphs if you're not interested in the specifics.
 
 Roughly speaking, compiler optimizations work on a "local" level per object.
 This optimization step will [inline](https://en.wikipedia.org/wiki/Inline_expansion) some functions, merge loops, put calling and called functions close in memory for 
@@ -272,19 +273,19 @@ This comes at a price, since the process needs more memory and takes more time t
 
 Along with this work, we considered enforcing [SSE4.2](https://en.wikipedia.org/wiki/SSE4#SSE4.2) support, improving performance but making yuzu incompatible with 12 year 
 old CPUs like the Core 2 Duo and Phenom II or older.
-While the performance results were positive, the developers are still debating about reducing CPU compatibility..
+While the performance results were positive, we are still debating whether we should reduce CPU compatibility or not.
 
 When you open yuzu, the emulator has to take some time to measure the [RDTSC frequency](https://en.wikipedia.org/wiki/Time_Stamp_Counter), a way to measure the clock 
 speed of the CPU.
 Due to a bit of bloat in the previous implementation, 3 full seconds were needed to complete the operation.
-Morph [rewrote the whole code section](https://github.com/yuzu-emu/yuzu/pull/7494) and now only 0.2 seconds (200 milliseconds) are needed to get results as accurate as
+Morph [rewrote the whole function](https://github.com/yuzu-emu/yuzu/pull/7494) and now only 0.2 seconds (200 milliseconds) are needed to get results as accurate as 
 before, considerably reducing the boot times of the emulator itself.
 
-As previously said, german77 continues to work in making `Ring Fit Adventure` playable. 
+As previously stated, german77 continues to work towards making `Ring Fit Adventure` playable.
 He has [stubbed the](https://github.com/yuzu-emu/yuzu/pull/7524) `SetNpadCaptureButtonAssignment`, `ClearNpadCaptureButtonAssignment`, `ListAlarmSettings`, and 
 `Initialize` services, and [added support](https://github.com/yuzu-emu/yuzu/pull/7525) for the `notif:a` service.
 
-With all his changes, the current Early Access build when writting this article can boot and play the first stage of the game:
+With all his changes, the current Early Access build (at the time of writing this article) can boot and play the first stage of the game!
 
 {{< imgs
 	"./ringfit.mp4| Ring Fit Adventure"
@@ -315,7 +316,7 @@ One of the most common issues users face is lack of Vulkan support on their PC. 
 drivers or poorly coded/outdated Vulkan injections.
 
 Our old error popup didn’t reflect this so [your writer](https://github.com/goldenx86), with his total lack of coding skills, 
-[decided to change it](https://github.com/yuzu-emu/yuzu/pull/7532).
+[decided to improve it](https://github.com/yuzu-emu/yuzu/pull/7532).
 
 {{< single-title-imgs
     " "
@@ -323,11 +324,11 @@ Our old error popup didn’t reflect this so [your writer](https://github.com/go
     "./vidfix.png"
     >}}
 
-This is a complex issue and the main reason Vulkan is not the default API in use.
+This is a complex issue and the main reason Vulkan is not yuzu's default API.
 Users of old laptops with AMD and Intel integrated GPUs tend to use the driver shipped by either the laptop vendor or Windows Update. 
-In both cases those drivers are most likely years old (yuzu can run on AMD GPUs from 2012) and either lack Vulkan support at all, or only support a portion of what’s 
+In both cases, those drivers are most likely years old (yuzu can run on AMD GPUs from 2012) and either lack Vulkan support at all, or only support a portion of what’s 
 needed to run yuzu.
-Also, since laptops by default connect the display directly to the integrated GPU, that’s the first Vulkan driver that will be seen, so it’s critical to have the latest 
+Also, since laptops, by default, connect the display directly to the integrated GPU, that’s the first Vulkan driver that will be seen, so it’s critical to have the latest 
 GPU driver installed *even if* your laptop has a dedicated NVIDIA GPU running the latest driver.
 
 While telling AMD users to [manually download and install updated drivers](https://www.amd.com/en/support) is a viable option and works as it should, in its 
@@ -335,9 +336,10 @@ While telling AMD users to [manually download and install updated drivers](https
 created to cheat on battery life metrics and/or to save money on cooling).
 
 The only alternative in those cases is to [manually download the ZIP version](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html) 
-of the driver, unpack it, go to Device Manager, right-click the correct GPU in Display Adapters, select `Update Driver Software…`, `Browse my computer for driver software`, 
-`Let me pick from a list of device drivers on my computer`, `Have Disk…`, then finally browse to the folder where the driver was unpacked and select the `iigd_dch.inf` file.
-What a very intuitive and user-friendly way to update a GPU driver, great job Intel…
+of the driver > unpack it > Launch the Device Manager > right-click the correct GPU in Display Adapters > select `Update Driver Software…` > select 
+`Browse my computer for driver software` > select `Let me pick from a list of device drivers on my computer` > select `Have Disk…` > then finally browse to the folder where 
+the driver was unpacked and select the `iigd_dch.inf` file.
+What a very intuitive and user-friendly way to update a GPU driver... great job Intel.
 
 Here's a [video tutorial](https://www.youtube.com/watch?v=BZG50Nm5sOM&t=72s) for those that prefer visual aid over our rambling. Just make sure to use the `iigd_dch.inf` 
 file instead of the one shown in the slightly outdated video.
@@ -348,16 +350,16 @@ improvements that the driver developers worked on.
 The driver is also allowed to auto-update on new official releases.
 
 Known software that uses broken Vulkan injectors are outdated screen recorders like Bandicam, Action!, and even OBS.
-We strongly recommend using an up to date OBS, the native encoders from the GPU vendor (Radeon ReLive and Geforce Experience), or the integrated Xbox Game Bar on Windows.
+We strongly recommend using an up-to-date OBS, the native encoders from the GPU vendor (Radeon ReLive and Geforce Experience), or the integrated Xbox Game Bar on Windows.
 Overwolf and GShade are also known to break Vulkan support, so we **strongly** recommend avoiding them.
 
 ## Future projects
 
-`Project Gaia`, is progressing smoothly. As a tip, SSD users will notice improvements once it is released.
+`Project Gaia` is progressing smoothly. Heads up, SSD users will notice improvements once it is released.
 
-Blinkhawk informs us that `Project Y.F.C.` will be grouping together the changes into smaller pieces, to get more progressive updates instead of delaying for a big release
-that would require more testing time.
-We continue to plan to add several of GPU features that have been pending, for example:
+Blinkhawk informs us that `Project Y.F.C.` will be released in smaller chunks in order to push more progressive updates instead of delaying for a big release 
+that would require more testing time. We want to get these updates in your hands as soon as possible!
+We continue to plan to add several GPU features that have been pending. Here's a screenshot as an example:
 
 {{< imgs
 	"./golf.png| Mario Golf: Super Rush"
