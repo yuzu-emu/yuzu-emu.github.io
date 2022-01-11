@@ -23,7 +23,7 @@ These are already available for both Mainline and [Early Access](https://yuzu-em
 
 The root of the problem in NVIDIA’s drivers seems to be in negation of integer and floating point values, and bitwise conversions of input values.
 
-On previous drivers you could assign a value to a variable named `x`, then assign `-x` as the value to a new variable named `y`. 
+On previous drivers, you could assign a value to a variable named `x`, then assign `-x` as the value to a new variable named `y`. 
 `y` would be equal to `-1 * x`.
 New drivers ignore this negation entirely, resulting in random spontaneous fires, security breaches, too many dogs causing a 
 [Howl](https://www.youtube.com/watch?v=Jw0c9z8EllE), and total chaos.
