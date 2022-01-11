@@ -36,12 +36,12 @@ Back in August,
 [we mentioned how Intel had issues in Vulkan](https://yuzu-emu.org/entry/yuzu-progress-report-aug-2021/#another-terrible-implementation-and-other-graphical-fixes) 
 affecting Mario’s legendary moustache.
 
-`GetAttribute` returns a float value, so a conversion is needed when working with integer ones.
+`GetAttribute` returns a float value, so a conversion is needed when working with integer values.
 
 The same issue that affected Intel GPUs now happens here on the “greener” side, but inverted. 
 When using `instance_id`, old drivers accepted a float to unsigned integer conversion without issue, and you could do this conversion multiple times without losing the 
 correct value.
-The current drivers on the other hand can return zero.
+The current drivers, on the other hand, can sometimes return zero.
 
 Interpreting the value directly as unsigned integers now solves this issue in both GLSL and [GLASM](https://github.com/yuzu-emu/yuzu/pull/7630). 
 Since this counts as an optimization, we now apply it to all APIs.
