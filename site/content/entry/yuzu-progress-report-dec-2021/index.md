@@ -15,7 +15,8 @@ We keep trying with the time machine, but we’re running out of bananas to micr
 
 ## PSA for NVIDIA users: Part 2
 
-As mentioned [two months ago](https://yuzu-emu.org/entry/yuzu-progress-report-oct-2021/#psa-for-nvidia-users), NVIDIA users have been experiencing issues when using GLSL due to the changes introduced by NVIDIA dropping support for Kepler cards in the 49X series of drivers.
+As mentioned [two months ago](https://yuzu-emu.org/entry/yuzu-progress-report-oct-2021/#psa-for-nvidia-users), NVIDIA users have been experiencing issues when using GLSL due 
+to the changes introduced by NVIDIA dropping support for Kepler cards in the 49X series of drivers.
 
 We’re happy to announce that we have a [set of workarounds](https://github.com/yuzu-emu/yuzu/pull/7629) implemented by [epicboy](https://github.com/ameerj) that solve all 
 known issues.
@@ -72,8 +73,8 @@ sending the correct frame data only to the correct decoder.
     >}}
 
 [Morph](https://github.com/Morph1984) added the missing formats [R16G16_UINT](https://github.com/yuzu-emu/yuzu/pull/7544) and 
-[ASTC_2D_8X5_UNORM](https://github.com/yuzu-emu/yuzu/pull/7549) to the Vulkan API, fixing the missing graphics on `Immortals Fenyx Rising` and `LEGO® CITY UNDERCOVER`, 
-respectively.
+[ASTC_2D_8X5_UNORM](https://github.com/yuzu-emu/yuzu/pull/7549) to the Vulkan API, fixing the missing graphics on `Immortals Fenyx Rising` and  making 
+`LEGO® CITY UNDERCOVER` playable, respectively.
 (Please note that `Immortals Fenyx Rising` gets in game but has broken graphics at the moment).
 
 {{< imgs
