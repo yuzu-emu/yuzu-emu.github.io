@@ -113,7 +113,7 @@ The devs are still investigating any other oddities surrounding this game, so st
   >}}
 
 Users reported crashes when playing `Sonic Colors Ultimate` on AMD and Intel GPUs on Vulkan after the resolution scaler was introduced.
-epicboy quickly jumped in, to intervene and save the Blue Hedgehog.
+epicboy quickly jumped in to intervene and save the Blue Hedgehog.
 
 On the AMD side, Sonic suffers from ImageView issues, causing an invalid pointer dereference when the `slot_images` container of the texture cache is resized. 
 This can happen even at native resolution.
@@ -182,7 +182,7 @@ default conveniently mapped to the capture button of the Nintendo controllers), 
 When certain games start, some internal testing is done to ensure that things are where they should be and respond with an acceptable delay. One of those tests involves rumble.
 Games prod the controllers with a low frequency rumble test, but sometimes, some games never stop and the controller continues to vibrate, depleting battery and making you 
 doubt what was the original intention of the developer was.
-german77 [forces the rumble amplitude to zero after the test](https://github.com/yuzu-emu/yuzu/pull/7593), stopping unwanted vibrations only for these affected games.
+german77 [forces the rumble amplitude to zero after the test](https://github.com/yuzu-emu/yuzu/pull/7593), stopping unwanted vibrations for these affected games.
 
 VR games may use the gyroscope sensor on the Switch itself (not the controllers) to feed motion data.
 Previously, yuzu would only give partial data to the game, causing erratic movement of the game’s camera.
