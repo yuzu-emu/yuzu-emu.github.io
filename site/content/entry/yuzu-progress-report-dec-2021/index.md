@@ -84,9 +84,9 @@ respectively.
 but would cause Nvidia GPUs to crash when using the Vulkan API.
 This crash happened when blitting textures with different format types, something that points to a problem in the texture cache that will be addressed in a future PR.
 
-Blinkhawk also updated the Vulkan headers to introduce a [fix an extension and implemented logical operations](https://github.com/yuzu-emu/yuzu/pull/7599).
+Blinkhawk also updated the Vulkan headers to [fix an extension and implemented logical operations](https://github.com/yuzu-emu/yuzu/pull/7599).
 Both the extension and these logical operations are used by Vulkan to describe and process data, in order to compose the frames that will later be sent to the screen.
-This PR fixes the sand and shadow graphical problems in The Legend of Zelda: Skyward Sword, and also the shadow problems in seen on Xenoblade Chronicles 2.
+This PR fixes the sand and shadow graphical problems in `The Legend of Zelda: Skyward Sword`, and also the shadow problems as seen in `Xenoblade Chronicles 2`.
 
 {{< single-title-imgs-compare
 	"When you invert the polarity of your HDR display (Xenoblade Chronicles 2)"
