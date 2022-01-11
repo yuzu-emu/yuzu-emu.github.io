@@ -11,7 +11,7 @@ December brought us improved kernel emulation, fixes for driver issues, improvem
 
 <!--more-->
 
-We keep trying with the time machine, but we’re running out of bananas to microwave and trash to fuel the Mr. Fusion. OK let's get started.
+We keep trying with the time machine, but we’re running out of bananas to microwave and trash to fuel the Mr. Fusion. Okay, let's get started!
 
 ## PSA for NVIDIA users, part 2
 
