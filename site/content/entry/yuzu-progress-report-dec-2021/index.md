@@ -150,10 +150,11 @@ Thanks to epicboy, [users no longer have to suffer this sudden crash](https://gi
 [implement the `ProcessMemory` and `CodeMemory` kernel SVCs](https://github.com/yuzu-emu/yuzu/pull/7519) (Supervisor Calls), which are some of the changes needed to support 
 the [Skyline](https://github.com/skyline-dev/skyline) framework for modding.
 
-Part of the ongoing work includes adding support in yuzu for all tiers of `subsdk`. 
-Games can use `subsdk` tiers from 0 to 8, with 9 being free. 
-Skyline uses `subsdk9` to operate, so [jam1garner](https://github.com/jam1garner) included support for the remaining 
-[two missing tiers in yuzu, 8 and 9](https://github.com/yuzu-emu/yuzu/pull/7523).
+Part of the ongoing work included adding support in yuzu for all tiers of `subsdk`, which [jam1garner](https://github.com/jam1garner) did by [adding the last two missing tiers in yuzu](https://github.com/yuzu-emu/yuzu/pull/7523).
+
+Games are able to use any number of `subsdk` tiers (from 0 to 9), but in practice, no title will use all of them.
+Since they're used in order, the probabilities of using the last ones are near zero.
+For this reason, Skyline overrides the last `subsdk` to modify game code, without conflicting with the lower tier `subsdk`'s.
 
 There are still a couple of things that need to be implemented before it's ready, but things are certainly getting closer to being completed.
 
