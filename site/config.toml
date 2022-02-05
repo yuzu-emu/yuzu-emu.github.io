@@ -79,3 +79,7 @@ section = [ "HTML" ]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', 'TENANT']
