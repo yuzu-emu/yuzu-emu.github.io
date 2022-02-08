@@ -248,7 +248,7 @@ This is caused by the `SetNpadAnalogStickUseCenterClamp` service being able to i
 Some game modes show that yuzu lacks support for some vertex formats, causing crashes.
 
 {{< imgs
-	"./r.png| パワプロクンポケットR"
+	"./power.png| パワプロクンポケットR"
   >}}
 
 [Only supported controller types will be shown in the applet now](https://github.com/yuzu-emu/yuzu/pull/7663).
@@ -344,7 +344,7 @@ Thus, he decided to modify the formula, so that the transformation is smoother t
 
 Progress continues smoothly on our projects in development. 
 For example german77 is having fun with some heavily requested features.
-Blinkhawk managed to complete one of the top secret projects [Rodrigo](https://github.com/reinuseslisp) left unfinished before going to work at Nvidia, `Host Conditional Rendering`, so you can expect to hear more of it in future YFC news.
+Blinkhawk managed to complete one of the top secret projects [Rodrigo](https://github.com/reinuseslisp) left unfinished before *turning green*, `Host Conditional Rendering`, so you can expect to hear more of it in future YFC news.
 
 That’s all folks! It’s always a pleasure to have you here, hope we see you again next month!
 
