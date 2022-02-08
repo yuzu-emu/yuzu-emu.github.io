@@ -274,6 +274,10 @@ This was caused because the update rate interval for motion data was set too hig
 
 Also related to motion emulation, the quality of the device can also affect gameplay, as a way to compensate, german77 introduced [an option configure the gyro threshold](https://github.com/yuzu-emu/yuzu/pull/7770), you can find it if you have a motion capable controller (in the example, dual Joy-Cons) set in `Emulation > Configure… > Controls > right click Motion > Set gyro threshold`.
 
+{{< imgs
+	"./gyro.png| Right clicking!"
+  >}}
+
 Accessing 2-player mode in `Pokémon Let’s Go Eevee & Pikachu` requires performing a shake motion.
 The emulated shake on the keyboard was too weak to be registered by the game, so [increasing its “force”](https://github.com/yuzu-emu/yuzu/pull/7710) shakes things up to allow local multiplayer.
 
@@ -325,8 +329,9 @@ german77 also added new [hotkeys that allow users to manipulate the volume](http
 By default, `Home + Right D-Pad` will mute the application, while `Home + D-pad Down` will lower the volume, and  `Home + D-pad Up` will increase it.
 (Users are free to change these through the configuration menu `Emulation > Configure > Hotkeys`).
 
-//H: Maybe it’s best to use a table to divide between command | what it does?
-Pic will do
+{{< imgs
+	"./hotkeys.png| The more the merrier!"
+  >}}
 
 While working on this change, german77 noticed the equation used to transform from percentage values to "loudness" (i.e. output power) was too aggressive below the 70% mark, making the volume extremely soft in this range.
 Thus, he decided to modify the formula, so that the transformation is smoother throughout the full range of percentage values.
