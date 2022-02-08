@@ -24,6 +24,7 @@ The recent release of 511.XX drivers introduced an issue that affected our compu
 
 After some investigation, [epicboy](https://github.com/ameerj) found that the reason for the bug is an over-optimization introduced by the new drivers (an optimization for one scenario results in issues for another).
 [A small change in behaviour solves the issue for good](https://github.com/yuzu-emu/yuzu/pull/7724).
+You can find more technical information in the pull request.
 
 Users playing `Hyrule Warriors: Age of Calamity` or `Luigi’s Mansion 3` should stick to the 47X.XX series of drivers, as any version newer than that will have several rendering issues.
 We’re investigating the cause.
@@ -59,10 +60,10 @@ Some Vulkan drivers, including Intel Windows ones, can’t process 64-bit atomic
 epicboy [adds support in yuzu for unsigned 2x32-bit atomic operations](https://github.com/yuzu-emu/yuzu/pull/7800) as that’s the fallback option such drivers use.
 With this change, the game boots in Intel GPUs running Vulkan.
 
-What was originally a mistake on our part, turned out to be a simple fix for uncountable games.
-While this was recently changed in the Linux AMDVLK drivers, AMD Windows drivers still need to be told what `Execution Mode` will be in use next.
+AMD had a longstanding issue with `Transform Feedback` on both their official Windows and Linux drivers, causing rendering issues in uncountable games.
+While this was recently solved in the Linux AMDVLK drivers, AMD Windows drivers still need to be told which `Execution Mode` will be in use next.
 
-[Explicitly stating to use Xfb](https://github.com/yuzu-emu/yuzu/pull/7799) `Execution Mode` before starting to use Transform Feedback solves all issues related to it on AMD Windows Vulkan drivers, not only benefiting `Pokémon Legends: Arceus`, but also games like `Xenoblade Chronicles 2`, `Xenoblade Chronicles Definitive Edition`, `Hellblade: Senua's Sacrifice`, `Donkey Kong Country: Tropical Freeze`, `POKKÉN TOURNAMENT DX`, and many others.
+[Explicitly stating to use Xfb](https://github.com/yuzu-emu/yuzu/pull/7799) `Execution Mode` before starting to use Transform Feedback solves all issues related to it on AMD Windows Vulkan drivers, not only benefiting `Pokémon Legends: Arceus`, but also games like `Xenoblade Chronicles 2`, `Xenoblade Chronicles Definitive Edition`, `Hellblade: Senua's Sacrifice`, `Donkey Kong Country: Tropical Freeze`, `POKKÉN TOURNAMENT DX`, and many many others.
 
 {{< single-title-imgs-compare
 	"Pokémon Legends: Arceus"
@@ -86,11 +87,11 @@ While this was recently changed in the Linux AMDVLK drivers, AMD Windows drivers
 	"./tffix3.png"
 >}}
 
-The game is affected by vertex explosions looking like textures stretching at random. 
+The game is affected by vertex explosions looking like textures stretching at random.
 The bad news is that this is a problem with the `Buffer Cache`, and fixing it will take considerable time.
 
 The good news is that [Blinkhawk](https://github.com/FernandoS27), with some help from epicboy too, managed a temporary workaround to avoid this problem while a permanent solution starts taking shape.
-[Flushing the buffer before writing](https://github.com/yuzu-emu/yuzu/pull/7805) saves us from polygon hell, at a small performance cost.
+[Flushing the buffer before writing](https://github.com/yuzu-emu/yuzu/pull/7805) saves us from polygon hell, at a minimal performance cost.
 
 {{< single-title-imgs-compare
 	"Goes over his head (Pokémon Legends: Arceus)"
