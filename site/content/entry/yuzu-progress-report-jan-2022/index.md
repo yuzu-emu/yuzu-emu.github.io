@@ -40,7 +40,7 @@ Some games show an increase in performance of up to 24%!
 
 Finally, after over two decades, the Pokémon franchise implements a big change to gameplay on the recently released `Pokémon Legends: Arceus`.
 
-At the cost of graphical quality.
+At the cost of graphical quality. But hey, there are worse looking games on the GameCube.
 
 This game release exposed several issues with yuzu, and has even helped fix long standing issues that affected many games.
 
@@ -94,7 +94,7 @@ The good news is that [Blinkhawk](https://github.com/FernandoS27), with some hel
 [Flushing the buffer before writing](https://github.com/yuzu-emu/yuzu/pull/7805) saves us from polygon hell, at a minimal performance cost.
 
 {{< single-title-imgs-compare
-	"Goes over his head (Pokémon Legends: Arceus)"
+	"Imagine how it looks from space (Pokémon Legends: Arceus)"
 	"./vebug.png"
 	"./vefix.png"
 >}}
@@ -107,7 +107,9 @@ This allows 2GB users to play regularly, and 4GB users to be able to scale to 2x
 
 Now, some general recommendations.
 
-We measured a slim performance improvement on the (currently) latest 22.2.1 AMD Windows drivers.
+Having a save from previous Switch Pokémon games will unlock special clothing options past the tutorial.
+
+We measured a slim performance improvement on the (currently) latest 22.2.1 AMD Windows drivers and as mentioned, a 24% boost with the 511.65 Nvidia Windows driver.
 Chad Vulkan 1.3 giving a hand.
 
 Regarding GPU accuracy, while Normal produces the highest performance, High provides proper particle rendering, so if you want the extra accuracy and have the performance to spare, stick to high.
@@ -130,7 +132,7 @@ These settings will cause weird shadow acne on characters, and the solution is t
 Users of Radeon GPUs older than the 400 series running Windows will experience crashes  due to outdated and out of support drivers.
 Not even modified drivers seem to help, the only solution is to use Linux with its still in support, and quite faster, mesa drivers.
 
-Finally, excessive mod use or high values of Anisotropic Filtering can cause vertex explosions in some GPU configurations, we’re investigating the reasons for this.
+Finally, excessive mod use or high values of Anisotropic Filtering can cause vertex explosions in some GPU configurations, we’re investigating teh cause for this.
 
 ## Other graphical fixes
 
@@ -146,6 +148,7 @@ For this reason, the conditions to determine when to clean ATSC textures were ma
 
 Although these changes were originally part of the `YFC` project, Blinkhawk decided to implement these changes now, in order to alleviate the problems related to the previous `GC` implementation.
 There is still a lot to come from this project, so please stay tuned for more information in future updates.
+Keep in mind, special case titles like `ASTRAL CHAIN` will still require 3GB or more of VRAM to properly opperate.
 
 On another hand, some titles, such as the `Super Mario 64` port (homebrew), would experience freezes in some GPU models (specially iGPUs).
 
