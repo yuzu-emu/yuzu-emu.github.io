@@ -348,7 +348,15 @@ Thus, he decided to modify the formula, so that the transformation is smoother t
 
 Progress continues smoothly on our projects in development. 
 For example german77 is having fun with some heavily requested features.
-Blinkhawk managed to complete one of the top secret projects [Rodrigo](https://github.com/reinuseslisp) left unfinished before *turning green*, `Host Conditional Rendering`, so you can expect to hear more of it in future YFC news.
+Blinkhawk managed to complete one of the top secret projects [Rodrigo](https://github.com/reinuseslisp) left unfinished before *turning green*, `Host Conditional Rendering`,  expect to hear more of it in future `Project Y.F.C.` news.
+
+A small leak of recent internal testing, `Marvel Ultimate Alliance 3: The Black Order` jumped from 19 to 51 FPS on Vulkan, and your enemy's ink in `Splatoon 2` works correctly on AMD GPUs.
+
+{{< single-title-imgs-compare
+	"More than double the performance, for only a few liters of developer tears (Marvel Ultimate Alliance 3: The Black Order)"
+	"./1.png"
+	"./2.png"
+>}}
 
 That’s all folks! It’s always a pleasure to have you here, hope we see you again next month!
 
