@@ -198,7 +198,7 @@ Another long-standing problem with `Pokémon Sword/Shield` was related to the co
 
 When a game requests certain services, instead of emulating the internal logic of the Nintendo Switch's OS (which would be Low-Level Emulation, `LLE`), yuzu runs an implementation written by the developers that performs the same job on the user's computer.
 
-The of these `HLE` services need to be able to interact with the emulated kernel, in order to grab locks and triggers for rescheduling, etc.
+These `HLE` services need to be able to interact with the emulated kernel, in order to grab locks and triggers for rescheduling, etc.
 yuzu achieves this by making use of `dummy threads`, which are created as an emulated `KThread` entity.
 
 A `dummy thread` is created for every thread of a service interface running in the user's computer (also called `host thread`), so that whenever the kernel needs to interact with a `host thread`, it can do so through these `dummy threads`.
