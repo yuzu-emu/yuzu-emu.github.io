@@ -6,7 +6,7 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-What a month we've had, yuz-ers. This time, we offer you a plethora of kernel changes, input fixes and new additions, yet more Nvidia driver fixes, user interface changes, and more!
+What a month we've had, yuz-ers. This time, we offer you a plethora of kernel changes, input fixes and new additions, yet more NVIDIA driver fixes, user interface changes, and more!
 
 <!--more-->  
 
@@ -109,12 +109,12 @@ Now for some general recommendations:
 
 Having a save from previous Switch Pokémon games will unlock special clothing options after the tutorial.
 
-We measured a slim performance improvement on the (currently) latest 22.2.1 AMD Windows drivers and, as mentioned, a 24% boost with the 511.65 Nvidia Windows driver.
+We measured a slim performance improvement on the (currently) latest 22.2.1 AMD Windows drivers and, as mentioned, a 24% boost with the 511.65 NVIDIA Windows driver.
 Chad Vulkan 1.3 lending a hand.
 
 Regarding GPU accuracy, while `Normal` produces the highest performance, `High` allows for proper particle rendering, so if you want the extra accuracy and have the performance to spare, stick to `High`.
 
-Effects, particles and certain attacks seem to render incorrectly at resolutions over native 1x. While we’re investigating the reason for this, it seems to also happen on the Switch itself, so it could just be the nature of these shaders (feels reminiscent of the ghosting in the [3DS Pokémon games](https://www.reddit.com/r/Citra/comments/ft28sw/is_there_any_way_to_fix_ghosting_on_pokemon_ultra/).
+Effects, particles, and certain attacks seem to render incorrectly at resolutions over native 1x. While we’re investigating the reason for this, it seems to also happen on the Switch itself, so it could just be the nature of these shaders (feels reminiscent of the ghosting in the [3DS Pokémon games](https://www.reddit.com/r/Citra/comments/ft28sw/is_there_any_way_to_fix_ghosting_on_pokemon_ultra/).
 
 {{< imgs
 	"./particles.png| Thanks Serfrost! (Pokémon Legends: Arceus)"
@@ -275,7 +275,7 @@ While playing `Mario Tennis Aces` in swing mode, motion could suddenly stop work
 This was because the update rate interval for motion data was set too high.
 [Decreasing the motion update rate to 10ms restores functionality](https://github.com/yuzu-emu/yuzu/pull/7707).
 
-Also related to motion emulation, the quality and sensitivity of the device can also affect gameplay. As a way to compensate, german77 introduced [an option configure the gyro threshold](https://github.com/yuzu-emu/yuzu/pull/7770), you can find it if you have a motion capable controller (in the example, dual Joy-Cons). Configured in `Emulation > Configure… > Controls > right click Motion > Set gyro threshold`.
+Also related to motion emulation, the quality and sensitivity of the device can also affect gameplay. As a way to compensate, german77 introduced [an option to configure the gyro threshold](https://github.com/yuzu-emu/yuzu/pull/7770), you can find it if you have a motion capable controller (in the example, dual Joy-Cons). Configured in `Emulation > Configure… > Controls > right click Motion > Set gyro threshold`.
 
 {{< imgs
 	"./gyro.png| Right clicking!"
@@ -305,8 +305,8 @@ The DS5 on the PlayStation 5, instead, uses more expensive linear actuators (and
 
 ## General changes and bugfixes
 
-TAS scripts can have errors in them, and it’s not quite ideal that an error like that could take down an entire yuzu session.
-german77 provides the necessary code to [add error handling to TAS scripts](https://github.com/yuzu-emu/yuzu/pull/7687), preventing such crashes.
+TAS scripts can sometimes have errors in them, resulting in yuzu encountering a crash.
+german77 provides the necessary code to [add error handling to TAS scripts](https://github.com/yuzu-emu/yuzu/pull/7687), preventing these crashes.
 
 Windows has a nasty, hidden limitation that is the maximum open-file limit a program can use.
 Some game mods can contain many, *many* files, going over the previous 4096 limit. Therefore, [Morph](https://github.com/Morph1984) [doubled the limit to 8192](https://github.com/yuzu-emu/yuzu/pull/7690).
@@ -317,7 +317,7 @@ So far, errors were found and fixed in [four](https://github.com/yuzu-emu/yuzu/p
 Thanks v1993! Nothing beats cleaner code, especially if it solves out-of-bounds issues.
 
 Morph [stubbed the `SetCpuOverclockEnabled` service](https://github.com/yuzu-emu/yuzu/pull/7752) (you don’t need to overclock the host CPU on the fly when emulating).
-This allows `Gravity Rider Zero` to boot, but nothing is displayed on screen due to missing texture format support.
+This allows `Gravity Rider Zero` to boot, but nothing is yet displayed on screen due to missing texture format support.
 
 And finally, german77 [implemented the 32-bit variant of the supervisor call (SVC) `SynchronizePreemptionState`](https://github.com/yuzu-emu/yuzu/pull/7821), making `Espgaluda II` playable.
 
