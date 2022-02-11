@@ -1,9 +1,9 @@
 +++
-date = "2022-02-07T12:00:00-03:00"
+date = "2022-02-11T12:00:00-03:00"
 title = "Progress Report January 2022"
 author = "GoldenX86"
 coauthor = "Honghoa"
-forum = 0
+forum = 535150
 +++
 
 What a month we've had, yuz-ers. This time, we offer you a plethora of kernel changes, input fixes and new additions, yet more NVIDIA driver fixes, user interface changes, and more!
@@ -329,7 +329,7 @@ Meanwhile, [liushuyu](https://github.com/liushuyu) updated the dynarmic external
 
 german77 also added new [hotkeys that allow users to manipulate the volume](https://github.com/yuzu-emu/yuzu/pull/7716) of the application directly with the gamepad, a feature that will surely come in handy to the people who enjoy yuzu from the comfort of their couch.
 
-By default, `Home + D-Pad Right ` will mute the application, while `Home + D-Pad Down` will lower the volume, and  `Home + D-Pad Up` will increase it.
+By default, `Home + D-Pad Right` will mute the application, while `Home + D-Pad Down` will lower the volume, and  `Home + D-Pad Up` will increase it.
 Users are free to change these mappings through the configuration menu `Emulation > Configure > Hotkeys`.
 
 {{< imgs
