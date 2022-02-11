@@ -138,13 +138,13 @@ Finally, excessive mod use or high values of `Anisotropic Filtering` can cause v
 
 Blinkhawk made some [changes to the Garbage Collector](https://github.com/yuzu-emu/yuzu/pull/7720) (`GC`), which encompasses a number of bug fixes, improving the algorithm to make it clean memory in a smarter fashion, and also making it more efficient for iGPUs.
 
-The value of the `minimal`, `expected`, and `critical` thresholds were rebalanced, so that it does not act as aggressively on GPUs with more memory, while it still performs the job within an acceptable margin for low-memory graphical cards.
+The value of the `minimal`, `expected`, and `critical` thresholds were rebalanced, so that it does not act as aggressively on GPUs with more memory, while it still performs the job within an acceptable margin for low-memory graphics cards.
 Additionally, yuzu now queries the size of the GPU memory instead of estimating it, allowing the `GC` to make better decisions when cleaning it.
 These changes seek to benefit both low-end and high-end GPUs the most, without affecting either negatively.
 
-Special consideration was put on ATSC textures, which are notoriously heavy on the memory.
+Special consideration was put on ASTC textures, which are notoriously heavy on the memory.
 The `GC` would clean them too early, causing graphical corruptions on titles that make use of these resources.
-For this reason, the conditions to determine when to clean ATSC textures were made less strict, which should mitigate the problem in most scenarios.
+For this reason, the conditions to determine when to clean ASTC textures were made less strict, which should mitigate the problem in most scenarios.
 
 Although these changes were originally part of the `YFC` project, Blinkhawk decided to implement these changes now, in order to alleviate the problems related to the previous `GC` implementation.
 There is still a lot to come from this project, so please stay tuned for more information in future updates.
@@ -192,7 +192,7 @@ By [introducing a worker thread to manage the service list](https://github.com/y
 Following this lead, bunnei revisited the code used to exit threads, and found that another race condition occurred, where thread references were being destroyed while they were still selectable for scheduling, resulting in a crash.
 
 The solution was to [reimplement the thread termination code more accurately](https://github.com/yuzu-emu/yuzu/pull/7712), so that it matches that of the HorizonOS.
-yuzu now waits for the thread to be unscheduled from all cores before closing it, so that it is destroyed only once it is no longer running.
+yuzu now waits for the thread to be unscheduled from all cores before closing it, so that it is destroyed only when it is no longer running.
 
 Another long-standing problem with `Pokémon Sword/Shield` was related to the code used for the High-Level Emulation (`HLE`) Service Thread Management.
 
@@ -230,7 +230,7 @@ While this code has been in yuzu's source for some time already, preparing the a
 
 While [updating the AMD FidelityFX Super Resolution](https://github.com/yuzu-emu/yuzu/pull/7768) (`FSR`) dependency to the latest version, [Moonlacer](https://github.com/Moonlacer) changed the text string to replace the brackets around the `Vulkan Only` message with parenthesis, for consistency with all the other text in our interface.
 
-In a similar vein, [gidoly](https://github.com/gidoly) corrected a series of spelling in the strings describing the name of commercial gamepads, namely the [PlayStation](https://github.com/yuzu-emu/yuzu/pull/7713) and [Xbox](https://github.com/yuzu-emu/yuzu/pull/7715) controllers.
+In a similar vein, [gidoly](https://github.com/gidoly) corrected a series of spelling mistakes in the strings describing the name of commercial gamepads, namely the [PlayStation](https://github.com/yuzu-emu/yuzu/pull/7713) and [Xbox](https://github.com/yuzu-emu/yuzu/pull/7715) controllers.
 
 Based on a Patreon poll conducted in our [discord server](https://discord.gg/u77vRWY), gidoly also made the necessary changes to make the `Dark Colorful` theme the [default theme](https://github.com/yuzu-emu/yuzu/pull/7719) used when running yuzu for the first time on Windows.
 
@@ -329,8 +329,8 @@ Meanwhile, [liushuyu](https://github.com/liushuyu) updated the dynarmic external
 
 german77 also added new [hotkeys that allow users to manipulate the volume](https://github.com/yuzu-emu/yuzu/pull/7716) of the application directly with the gamepad, a feature that will surely come in handy to the people who enjoy yuzu from the comfort of their couch.
 
-By default, `Home + Right D-Pad` will mute the application, while `Home + D-pad Down` will lower the volume, and  `Home + D-pad Up` will increase it.
-(Users are free to change these through the configuration menu `Emulation > Configure > Hotkeys`).
+By default, `Home + D-Pad Right ` will mute the application, while `Home + D-Pad Down` will lower the volume, and  `Home + D-Pad Up` will increase it.
+Users are free to change these mappings through the configuration menu `Emulation > Configure > Hotkeys`.
 
 {{< imgs
 	"./hotkeys.png| The more the merrier!"
