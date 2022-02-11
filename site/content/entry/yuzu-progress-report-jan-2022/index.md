@@ -114,7 +114,7 @@ Chad Vulkan 1.3 lending a hand.
 
 Regarding GPU accuracy, while `Normal` produces the highest performance, `High` allows for proper particle rendering, so if you want the extra accuracy and have the performance to spare, stick to `High`.
 
-Effects, particlesc and certain attacks seem to render incorrectly at resolutions over native 1x. While we’re investigating the reason for this, it seems to also happen on the Switch itself, so it could just be the nature of these shaders (feels reminiscent of the ghosting in the [3DS Pokémon games](https://www.reddit.com/r/Citra/comments/ft28sw/is_there_any_way_to_fix_ghosting_on_pokemon_ultra/).
+Effects, particles and certain attacks seem to render incorrectly at resolutions over native 1x. While we’re investigating the reason for this, it seems to also happen on the Switch itself, so it could just be the nature of these shaders (feels reminiscent of the ghosting in the [3DS Pokémon games](https://www.reddit.com/r/Citra/comments/ft28sw/is_there_any_way_to_fix_ghosting_on_pokemon_ultra/).
 
 {{< imgs
 	"./particles.png| Thanks Serfrost! (Pokémon Legends: Arceus)"
