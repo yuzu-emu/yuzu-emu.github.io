@@ -181,8 +181,8 @@ This new implementation should perform better, and also make the code easier to 
 
 While investigating the long-standing crashes pertaining to `Pokémon Sword/Shield`, bunnei found they were related to race conditions.
 
-The first would happen when opening a new session to a service: that is, yuzu would create a host thread, where service session requests can be dispatched to asynchronously.
-When this session was closed, the host thread for the closing session was being removed from the tracking list at the same time as a new one was added, which caused the race condition.
+The first would happen when opening a new session to a service: that is, yuzu would create a `host thread` (a non-emulated thread), where service session requests can be dispatched to asynchronously.
+When this session was closed, the `host thread` for the closing session was being removed from the tracking list at the same time as a new one was added, which caused the race condition.
 
 Services are requested by games when they want to send certain audio to play to the speakers, request certain graphics to be loaded into memory, etc.
 `Pokémon Sword/Shield`, in particular, opens and closes LDN service sessions very frequently, which is why it is one of the most affected titles.
@@ -201,7 +201,7 @@ When a game requests certain services, instead of emulating the internal logic o
 These `HLE` services need to be able to interact with the emulated kernel, in order to grab locks and triggers for rescheduling, etc.
 yuzu achieves this by making use of `dummy threads`, which are created as an emulated `KThread` entity.
 
-A `dummy thread` is created for every thread of a service interface running in the user's computer (also called `host thread`), so that whenever the kernel needs to interact with a `host thread`, it can do so through these `dummy threads`.
+A `dummy thread` is created for every `host thread` of a service interface running in the user's computer, so that whenever the kernel needs to interact with a `host thread`, it can do so through these `dummy threads`.
 
 Previously, these `dummy threads` were not being released when their main thread was destroyed, and hence, they would accumulate over time.
 Since the kernel imposes a limit on the amount of threads a process can make, yuzu was eventually unable to create more threads to open service interfaces in long gaming sessions.
