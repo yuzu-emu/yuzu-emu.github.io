@@ -114,7 +114,7 @@ Chad Vulkan 1.3 lending a hand.
 
 Regarding GPU accuracy, while `Normal` produces the highest performance, `High` allows for proper particle rendering, so if you want the extra accuracy and have the performance to spare, stick to `High`.
 
-Effects, particles and certain attacks seem to render incorrectly at resolutions over native 1x. While we’re investigating the reason for this, it seems to also happen on the Switch itself, so it could just be the nature of these shaders.
+Effects, particlesc and certain attacks seem to render incorrectly at resolutions over native 1x. While we’re investigating the reason for this, it seems to also happen on the Switch itself, so it could just be the nature of these shaders (feels reminiscent of the ghosting in the [3DS Pokémon games](https://www.reddit.com/r/Citra/comments/ft28sw/is_there_any_way_to_fix_ghosting_on_pokemon_ultra/).
 
 {{< imgs
 	"./particles.png| Thanks Serfrost! (Pokémon Legends: Arceus)"
@@ -140,7 +140,7 @@ Blinkhawk made some [changes to the Garbage Collector](https://github.com/yuzu-e
 
 The value of the `minimal`, `expected`, and `critical` thresholds were rebalanced, so that it does not act as aggressively on GPUs with more memory, while it still performs the job within an acceptable margin for low-memory graphical cards.
 Additionally, yuzu now queries the size of the GPU memory instead of estimating it, allowing the `GC` to make better decisions when cleaning it.
-These changes seek to benefit both low-end and high-end GPUs to the most, without affecting either negatively.
+These changes seek to benefit both low-end and high-end GPUs the most, without affecting either negatively.
 
 Special consideration was put on ATSC textures, which are notoriously heavy on the memory.
 The `GC` would clean them too early, causing graphical corruptions on titles that make use of these resources.
