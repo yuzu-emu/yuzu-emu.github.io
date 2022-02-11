@@ -219,7 +219,7 @@ This change fixes a hang that could occur when stopping emulation in yuzu.
 
 In a series of minor changes, a number of contributors decided to improve and correct some elements displayed on our interface, and the way the user can interact with them.
 
-german77 noticed that some items, such as the `stop` and `start` buttons, were not being disabled from interaction once the emulation process stopped, and [promptly fixed this erroneous behaviour](https://github.com/yuzu-emu/yuzu/pull/7662).
+[german77](https://github.com/german77) noticed that some items, such as the `stop` and `start` buttons, were not being disabled from interaction once the emulation process stopped, and [promptly fixed this erroneous behaviour](https://github.com/yuzu-emu/yuzu/pull/7662).
 
 He also went ahead and implemented the graphical elements needed to [report the battery levels](https://github.com/yuzu-emu/yuzu/pull/7735) of UDP controllers.
 While this code has been in yuzu's source for some time already, preparing the appropriate front-end graphics and the subsequent implementation into the UI had been pending tasks for a long time.
@@ -244,7 +244,7 @@ Naturally, users can still change the theme through the configuration settings, 
 
 ## Input changes
 
-[german77](https://github.com/german77) has been *especially* busy this month, so there’s quite a bit to cover in this section.
+german77 has been *especially* busy this month, so there’s quite a bit to cover in this section.
 
 Users reported that the game `パワプロクンポケットR`, and other games of the Power Pocket saga, crashed when in-game.
 This is caused by the `SetNpadAnalogStickUseCenterClamp` service being able to initialize the `applet_resource` subsystem even if it wasn’t initialized before.
