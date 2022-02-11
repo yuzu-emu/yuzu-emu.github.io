@@ -6,16 +6,15 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-What a month, yuz-ers. This time we offer you a plethora of kernel changes, input fixes and new additions, yet more Nvidia driver fixes, user interface changes and more!
+What a month we've had, yuz-ers. This time, we offer you a plethora of kernel changes, input fixes and new additions, yet more Nvidia driver fixes, user interface changes, and more!
 
 <!--more-->  
 
-## PSA for NVIDIA users, part 3
+## PSA for NVIDIA users: Part 3
 
 [It’s not over yet](https://www.youtube.com/watch?v=g02QU-xPV1I).
 
-[As you know](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/#paint-me-like-one-of-your-french-bits), regular desktop/laptop GPUs don't support decoding ASTC textures, so yuzu makes use of the compute capabilities of the GPU to parallelize the process...
-The recent release of the 511.XX drivers introduced an issue that affected our compute shader based accelerated ASTC texture decoding.
+[As you know](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/#paint-me-like-one-of-your-french-bits), regular NVIDIA desktop and laptop GPUs don't support decoding ASTC textures, so yuzu makes use of the compute capabilities of the GPU to parallelize the process. However, the recent release of the 511.XX drivers introduced an issue that affected our compute shader based accelerated ASTC texture decoding.
 
 {{< single-title-imgs-compare
 	"Crispy (Super Mario Odyssey)"
@@ -28,7 +27,7 @@ After some investigation, [epicboy](https://github.com/ameerj) found that the re
 You can find more technical information in the pull request.
 
 Users playing `Hyrule Warriors: Age of Calamity` or `Luigi’s Mansion 3` should stick to the 47X.XX series of drivers, as any version newer than that will have several rendering issues.
-We’re investigating the cause.
+Don't fret, we’re investigating the cause!
 
 {{< imgs
 	"./aoc.png| Abstract art generator (Hyrule Warriors: Age of Calamity)"
@@ -39,11 +38,11 @@ Some games show an increase in performance of up to 24%!
 
 ## A new Legend
 
-Finally, after over two decades, the Pokémon franchise implements a big change to gameplay on the recently released `Pokémon Legends: Arceus`.
+Finally, after over two decades, the Pokémon franchise diverges from its tired formula and implements a big change to gameplay in the recently released `Pokémon Legends: Arceus`.
 
-At the cost of graphical quality. But hey, there are worse looking games on the GameCube.
+All this at the cost of graphical fidelity. But hey, there are worse looking games... on the GameCube.
 
-This game release exposed several issues with yuzu, and has even helped fix long standing issues that affected many games.
+Apart from the disappointing graphics, this game's release exposed several issues with yuzu, and has even helped us fix long standing issues that affected many more games.
 
 [bunnei](https://github.com/bunnei) fixed a deadlock found in the code used to [migrate threads among the cores](https://github.com/yuzu-emu/yuzu/pull/7787), which caused some noteworthy softlocks present in `Pokémon Legends: Arceus`.
 
@@ -53,15 +52,15 @@ The problem can be summarised as follows: One thread (thread `A`) would be waiti
 	"./ending.png| Best gameplay change in decades (Pokémon Legends: Arceus)"
   >}}
 
-Kernel issues aside, various GPU changes were done by epicboy too.
+Moving on from kernel issues, epicboy implemented various GPU changes.
 
-[Reducing the amount of buffer allocations](https://github.com/yuzu-emu/yuzu/pull/7788) at the start rather than only at the end stopped the game from crashing in certain locations.
+He found that [reducing the amount of buffer allocations](https://github.com/yuzu-emu/yuzu/pull/7788) at the start, rather than only at the end, prevented the game from crashing in certain locations.
 
-Some Vulkan drivers, including Intel Windows ones, can’t process 64-bit atomic operations (operations that can run independently of any other processes).
-epicboy [adds support in yuzu for unsigned 2x32-bit atomic operations](https://github.com/yuzu-emu/yuzu/pull/7800) as that’s the fallback option such drivers use.
-With this change, the game boots in Intel GPUs running Vulkan.
+Some Vulkan drivers, especially Intel Windows ones, can’t process 64-bit atomic operations (operations that can run independently of any other processes).
+epicboy [adds support in yuzu for unsigned 2x32-bit atomic operations](https://github.com/yuzu-emu/yuzu/pull/7800), as that’s the fallback option such drivers use.
+With this change, the game boots with Intel GPUs running Vulkan.
 
-AMD had a longstanding issue with `Transform Feedback` on both their official Windows and Linux drivers, causing rendering issues in uncountable games.
+AMD had a longstanding issue with `Transform Feedback` in both their official Windows and Linux drivers, causing rendering issues in countless games.
 While this was recently solved in the Linux AMDVLK drivers, AMD Windows drivers still need to be told which `Execution Mode` will be in use next.
 
 [Explicitly stating to use Xfb](https://github.com/yuzu-emu/yuzu/pull/7799) `Execution Mode` before starting to use Transform Feedback solves all issues related to it on AMD Windows Vulkan drivers, not only benefiting `Pokémon Legends: Arceus`, but also games like `Xenoblade Chronicles 2`, `Xenoblade Chronicles Definitive Edition`, `Hellblade: Senua's Sacrifice`, `Donkey Kong Country: Tropical Freeze`, `POKKÉN TOURNAMENT DX`, and many many others.
@@ -88,10 +87,10 @@ While this was recently solved in the Linux AMDVLK drivers, AMD Windows drivers 
 	"./tffix3.png"
 >}}
 
-The game is affected by vertex explosions looking like textures stretching at random.
+`Pokémon Legends: Arceus` is affected by vertex explosions, exhibiting what looks like textures stretching at random.
 The bad news is that this is a problem with the `Buffer Cache`, and fixing it will take considerable time.
 
-The good news is that [Blinkhawk](https://github.com/FernandoS27), with some help from epicboy too, managed a temporary workaround to avoid this problem while a permanent solution starts taking shape.
+The good news is that [Blinkhawk](https://github.com/FernandoS27), with some help from epicboy, managed to implement a temporary workaround to avoid this problem while a permanent solution starts taking shape.
 [Flushing the buffer before writing](https://github.com/yuzu-emu/yuzu/pull/7805) saves us from polygon hell, at a minimal performance cost.
 
 {{< single-title-imgs-compare
@@ -102,18 +101,18 @@ The good news is that [Blinkhawk](https://github.com/FernandoS27), with some hel
 
 Mark this the day we start to plan yet another Buffer Cache Rewrite.
 
-As a small way to begin on that, Arceus showed a considerably higher VRAM use than normal, causing 2GB GPU users to crash on cutscenes.
+As a start, Arceus showed a considerably higher VRAM use than normal, causing 2GB GPU users to crash during cutscenes.
 Blinkhawk’s solution is to [expand the specific direction the buffer cache is increasing](https://github.com/yuzu-emu/yuzu/pull/7812), instead of the previous method of doubling the size.
 This allows 2GB users to play regularly, and 4GB users to be able to scale to 2x without fear of crashes.
 
-Now, some general recommendations.
+Now for some general recommendations:
 
-Having a save from previous Switch Pokémon games will unlock special clothing options past the tutorial.
+Having a save from previous Switch Pokémon games will unlock special clothing options after the tutorial.
 
-We measured a slim performance improvement on the (currently) latest 22.2.1 AMD Windows drivers and as mentioned, a 24% boost with the 511.65 Nvidia Windows driver.
-Chad Vulkan 1.3 giving a hand.
+We measured a slim performance improvement on the (currently) latest 22.2.1 AMD Windows drivers and, as mentioned, a 24% boost with the 511.65 Nvidia Windows driver.
+Chad Vulkan 1.3 lending a hand.
 
-Regarding GPU accuracy, while Normal produces the highest performance, High provides proper particle rendering, so if you want the extra accuracy and have the performance to spare, stick to high.
+Regarding GPU accuracy, while `Normal` produces the highest performance, `High` allows for proper particle rendering, so if you want the extra accuracy and have the performance to spare, stick to `High`.
 
 Effects, particles and certain attacks seem to render incorrectly at resolutions over native 1x. While we’re investigating the reason for this, it seems to also happen on the Switch itself, so it could just be the nature of these shaders.
 
@@ -130,16 +129,16 @@ These settings will cause weird shadow acne on characters, and the solution is t
 	"./glasmfix.png"
 >}}
 
-Users of Radeon GPUs older than the 400 series running Windows will experience crashes  due to outdated and out of support drivers.
-Not even modified drivers seem to help, the only solution is to use Linux with its still in support, and quite faster, mesa drivers.
+Users of Radeon GPUs older than the 400 series running Windows will experience crashes due to outdated and out of support drivers.
+Not even modified drivers seem to help, so the only solution is to use Linux with its still supported, and quite faster, Mesa drivers.
 
-Finally, excessive mod use or high values of Anisotropic Filtering can cause vertex explosions in some GPU configurations, we’re investigating teh cause for this.
+Finally, excessive mod use or high values of `Anisotropic Filtering` can cause vertex explosions with some GPU configurations. We’re still investigating the cause for this.
 
 ## Other graphical fixes
 
 Blinkhawk made some [changes to the Garbage Collector](https://github.com/yuzu-emu/yuzu/pull/7720) (`GC`), which encompasses a number of bug fixes, improving the algorithm to make it clean memory in a smarter fashion, and also making it more efficient for iGPUs.
 
-The value of the `minimal`, `expected` and `critical` thresholds were rebalanced, so that it does not act as aggressively on GPUs with more memory, while it still performs the job within an acceptable margin for low-memory graphical cards.
+The value of the `minimal`, `expected`, and `critical` thresholds were rebalanced, so that it does not act as aggressively on GPUs with more memory, while it still performs the job within an acceptable margin for low-memory graphical cards.
 Additionally, yuzu now queries the size of the GPU memory instead of estimating it, allowing the `GC` to make better decisions when cleaning it.
 These changes seek to benefit both low-end and high-end GPUs to the most, without affecting either negatively.
 
@@ -149,15 +148,15 @@ For this reason, the conditions to determine when to clean ATSC textures were ma
 
 Although these changes were originally part of the `YFC` project, Blinkhawk decided to implement these changes now, in order to alleviate the problems related to the previous `GC` implementation.
 There is still a lot to come from this project, so please stay tuned for more information in future updates.
-Keep in mind, special case titles like `ASTRAL CHAIN` will still require 3GB or more of VRAM to properly opperate.
+Keep in mind, special case titles like `ASTRAL CHAIN` will still require 3GB or more of VRAM to properly emulate.
 
-On another hand, some titles, such as the `Super Mario 64` port (homebrew), would experience freezes in some GPU models (specially iGPUs).
+On another hand, some titles, such as the `Super Mario 64` port (homebrew), would experience freezes in some GPU models (especially iGPUs).
 
-Blinkhawk investigated the problem, and noticed it lay at our Vulkan Scheduler, a class that abstracts the command buffer so it can perform OpenGL-like operations on a Vulkan environment.
+Blinkhawk investigated the problem, and noticed it lay within our Vulkan Scheduler, a class that abstracts the command buffer so it can perform OpenGL-like operations in a Vulkan environment.
 
 As the scheduler manages the order in which it must queue GPU commands before sending them to the device, it is vital that the fencing logic used to determine this is timed correctly.
 
-Previously, the scheduler would only queue command chunks whose type offset was different from zero.
+Previously, the scheduler would only queue command chunks whose type offsets were different from zero.
 The problem arose because there exists a specific valid type of command whose offset is actually zero.
 Not taking into consideration this case hindered the fencing logic of the scheduler, preventing it from performing its work properly.
 
@@ -172,7 +171,7 @@ Thankfully, the solution did not require any difficult change, and Blinkhawk was
 The code for Memory Management — one of the functions of the kernel — was originally written back in early 2020, based on the information available at the time.
 Since then, there have been numerous updates to the Nintendo Switch's operating system, as well as new documentation obtained through reverse engineering.
 
-For this reason, [bunnei](https://github.com/bunnei) has been going through each of the parts of the code used to manage the memory, focusing on improving both the stability and the accuracy of the kernel.
+For this reason, [bunnei](https://github.com/bunnei) has been going through each and every part of the code used to manage the memory, focusing on improving both the stability and the accuracy of the kernel.
 
 These changes involved brushing up the memory [attribute definitions](https://github.com/yuzu-emu/yuzu/pull/7684) and [permissions](https://github.com/yuzu-emu/yuzu/pull/7698), so they match the behaviour of the latest `HorizonOS` more closely.
 Most of the code used to map and unmap memory was [tidied up](https://github.com/yuzu-emu/yuzu/pull/7762), and various functions were renamed to match the official naming.
@@ -183,7 +182,7 @@ This new implementation should perform better, and also make the code easier to 
 While investigating the long-standing crashes pertaining to `Pokémon Sword/Shield`, bunnei found they were related to race conditions.
 
 The first would happen when opening a new session to a service: that is, yuzu would create a host thread, where service session requests can be dispatched to asynchronously.
-When this session was closed, the host thread for the closing session was being removed from the tracking list, at the same time as a new one was added, which caused the race condition.
+When this session was closed, the host thread for the closing session was being removed from the tracking list at the same time as a new one was added, which caused the race condition.
 
 Services are requested by games when they want to send certain audio to play to the speakers, request certain graphics to be loaded into memory, etc.
 `Pokémon Sword/Shield`, in particular, opens and closes LDN service sessions very frequently, which is why it is one of the most affected titles.
@@ -197,10 +196,10 @@ yuzu now waits for the thread to be unscheduled from all cores before closing it
 
 Another long-standing problem with `Pokémon Sword/Shield` was related to the code used for the High-Level Emulation (`HLE`) Service Thread Management.
 
-When a game requests certain services, instead of emulating the internal logic of the Nintendo Switch's OS (which would be Low-Level Emulation, `LLE`), yuzu runs an implementation written by the developers that does the same job on the user's computer.
+When a game requests certain services, instead of emulating the internal logic of the Nintendo Switch's OS (which would be Low-Level Emulation, `LLE`), yuzu runs an implementation written by the developers that performs the same job on the user's computer.
 
 The of these `HLE` services need to be able to interact with the emulated kernel, in order to grab locks and triggers for rescheduling, etc.
-yuzu achieves this by making use of `dummy threads`, which are crated as an emulated `KThread` entity.
+yuzu achieves this by making use of `dummy threads`, which are created as an emulated `KThread` entity.
 
 A `dummy thread` is created for every thread of a service interface running in the user's computer (also called `host thread`), so that whenever the kernel needs to interact with a `host thread`, it can do so through these `dummy threads`.
 
@@ -210,13 +209,13 @@ Furthermore, these dummy threads could inadvertently be scheduled on the emulate
 
 After investigating these problems, bunnei [implemented various fixes and checks](https://github.com/yuzu-emu/yuzu/pull/7737) to correct this faulty behaviour, and prevent resource leaks and crashes.
 
-Next, bunnei [fixed the KThread counter increment/decrement](https://github.com/yuzu-emu/yuzu/pull/7765) operations, as the old implementation was not correct, and could occasionally underflow.
+Next, bunnei [fixed the KThread counter increment/decrement](https://github.com/yuzu-emu/yuzu/pull/7765) operations, as the old implementation was incorrect, and could occasionally underflow.
 This is the aforementioned counter used to keep track of all the `KThread`s in a process, ensuring the limits imposed by the kernel are not breached.
 
 [epicboy](https://github.com/ameerj) also took a look at the kernel, and added a new shut-down method to [properly synchronise threads](https://github.com/yuzu-emu/yuzu/pull/7670) before their destruction.
-This change fixes a hang that could occur on when stopping the emulation.
+This change fixes a hang that could occur when stopping emulation in yuzu.
 
-## UI
+## UI improvements
 
 In a series of minor changes, a number of contributors decided to improve and correct some elements displayed on our interface, and the way the user can interact with them.
 
@@ -231,11 +230,11 @@ While this code has been in yuzu's source for some time already, preparing the a
 
 While [updating the AMD FidelityFX Super Resolution](https://github.com/yuzu-emu/yuzu/pull/7768) (`FSR`) dependency to the latest version, [Moonlacer](https://github.com/Moonlacer) changed the text string to replace the brackets around the `Vulkan Only` message with parenthesis, for consistency with all the other text in our interface.
 
-On a similar vein, [gidoly](https://github.com/gidoly) corrected a series of spelling in the strings describing the name of commercial gamepads, namely the [PlayStation](https://github.com/yuzu-emu/yuzu/pull/7713) and [Xbox](https://github.com/yuzu-emu/yuzu/pull/7715) controllers.
+In a similar vein, [gidoly](https://github.com/gidoly) corrected a series of spelling in the strings describing the name of commercial gamepads, namely the [PlayStation](https://github.com/yuzu-emu/yuzu/pull/7713) and [Xbox](https://github.com/yuzu-emu/yuzu/pull/7715) controllers.
 
-Based on a patreon poll conducted in our discord server, gidoly also made the necessary changes to make the `Dark Colourful` theme the [default scheme](https://github.com/yuzu-emu/yuzu/pull/7719) used when running yuzu for the first time on Windows.
+Based on a Patreon poll conducted in our [discord server](https://discord.gg/u77vRWY), gidoly also made the necessary changes to make the `Dark Colorful` theme the [default theme](https://github.com/yuzu-emu/yuzu/pull/7719) used when running yuzu for the first time on Windows.
 
-As a follow-up, [v1993](https://github.com/v1993) also made changes so that the colourful scheme (i.e. dark or light) used for the first time [depends on the system-wide theme](https://github.com/yuzu-emu/yuzu/pull/7755) in *NIX systems.
+As a follow-up, [v1993](https://github.com/v1993) also made changes so that the colorful theme (i.e. dark or light) used for the first time [depends on the system-wide theme](https://github.com/yuzu-emu/yuzu/pull/7755) in *NIX systems.
 
 {{< imgs
 	"./theme.png| Default by popular demand"
@@ -245,24 +244,23 @@ Naturally, users can still change the theme through the configuration settings, 
 
 ## Input changes
 
-[german77](https://github.com/german77) has been *specially* busy this month, so there’s quite a bit to cover in this section.
+[german77](https://github.com/german77) has been *especially* busy this month, so there’s quite a bit to cover in this section.
 
-Users reported that the game `パワプロクンポケットR` and other games of the Power Pocket saga crashed in-game.
-This is caused by the `SetNpadAnalogStickUseCenterClamp` service being able to initialise the applet_resource subsystem even if it wasn’t initialised before.
+Users reported that the game `パワプロクンポケットR`, and other games of the Power Pocket saga, crashed when in-game.
+This is caused by the `SetNpadAnalogStickUseCenterClamp` service being able to initialize the `applet_resource` subsystem even if it wasn’t initialized before.
 [Emulating this behaviour solves the issue and makes some game modes playable](https://github.com/yuzu-emu/yuzu/pull/7726). 
-Some game modes show that yuzu lacks support for some vertex formats, causing crashes.
+However, some game modes still show that yuzu lacks support for some vertex formats, causing crashes.
 
 {{< imgs
 	"./power.png| パワプロクンポケットR"
   >}}
 
-[Only supported controller types will be shown in the applet now](https://github.com/yuzu-emu/yuzu/pull/7663).
-This depends on what each game informs as compatible.
+yuzu will now [only display the currently supported controller types in the applet](https://github.com/yuzu-emu/yuzu/pull/7663), depending on what each game reports as compatible.
 
-`Fullkey` is the codename used by Nintendo to refer to a generic type of controller that informs itself as a Pro Controller if you connect an “unsupported” gamepad, this can refer to the GameCube, NES, SNES, N64 and Sega Genesis controllers.
-In case of problems, the console fallbacks those types to a Pro Controller, german77 [added this functionality to yuzu too](https://github.com/yuzu-emu/yuzu/pull/7664).
+`Fullkey` is the codename used by Nintendo to refer to a generic type of controller that reports itself as a Pro Controller if you connect an “unsupported” gamepad. This can refer to the GameCube, NES, SNES, N64 and Sega Genesis controllers.
+In case of problems, the console falls back to reporting a Pro Controller for those types of controllers. german77 [added this functionality to yuzu as well](https://github.com/yuzu-emu/yuzu/pull/7664).
 
-[Support was added to allow devices with only an accelerometer present to act as motion devices](https://github.com/yuzu-emu/yuzu/pull/7680).
+Support was added to [allow devices with only an accelerometer present to act as motion devices](https://github.com/yuzu-emu/yuzu/pull/7680).
 While this means broader support, lacking a gyroscope means very poor results in motion, as some axis movements won’t be registered.
 
 With the help of v1993, german77 [fixed the mapping of UDP controllers](https://github.com/yuzu-emu/yuzu/pull/7682) (any device connected using the cemuhook protocol).
@@ -274,21 +272,21 @@ Some motion devices can input very precise values, if the threshold is too high,
 [Reducing the threshold for gyro data](https://github.com/yuzu-emu/yuzu/pull/7700) fixes this issue.
 
 While playing `Mario Tennis Aces` in swing mode, motion could suddenly stop working.
-This was caused because the update rate interval for motion data was set too high.
+This was because the update rate interval for motion data was set too high.
 [Decreasing the motion update rate to 10ms restores functionality](https://github.com/yuzu-emu/yuzu/pull/7707).
 
-Also related to motion emulation, the quality of the device can also affect gameplay, as a way to compensate, german77 introduced [an option configure the gyro threshold](https://github.com/yuzu-emu/yuzu/pull/7770), you can find it if you have a motion capable controller (in the example, dual Joy-Cons) set in `Emulation > Configure… > Controls > right click Motion > Set gyro threshold`.
+Also related to motion emulation, the quality and sensitivity of the device can also affect gameplay. As a way to compensate, german77 introduced [an option configure the gyro threshold](https://github.com/yuzu-emu/yuzu/pull/7770), you can find it if you have a motion capable controller (in the example, dual Joy-Cons). Configured in `Emulation > Configure… > Controls > right click Motion > Set gyro threshold`.
 
 {{< imgs
 	"./gyro.png| Right clicking!"
   >}}
 
-Accessing 2-player mode in `Pokémon Let’s Go Eevee & Pikachu` requires performing a shake motion.
+Accessing 2-player mode in `Pokémon: Let’s Go Eevee & Pikachu` requires performing a shake motion.
 The emulated shake on the keyboard was too weak to be registered by the game, so [increasing its “force”](https://github.com/yuzu-emu/yuzu/pull/7710) shakes things up to allow local multiplayer.
 
 One of the features missing with the release of `Project Kraken`, the input rewrite, was mouse motion support.
 [German77 reintroduced support for it](https://github.com/yuzu-emu/yuzu/pull/7725), now using the mouse wheel as input for the Z-axis.
-Also, mouse buttons got their proper names when being mapped.
+Also, mouse buttons get their proper names when being mapped.
 
 Another feature that somehow missed the memo [was stick modifiers for keyboard input](https://github.com/yuzu-emu/yuzu/pull/7760), holding a mapped key to move an analog stick with a reduced limit.
 For example, with default keyboard mappings, if you hold shift, the left analog stick will move only up to 50% of its range, allowing keyboard users to walk.
@@ -301,22 +299,22 @@ For them, [a toggle to disable controller navigation was added](https://github.c
 	"./nav.png| Couch gamers will love this"
   >}}
 
-By default yuzu assumes that non Nintendo Switch controllers, like for example the Xbox controllers, will use rumble motors, which are cheaper, and use an exponential amplitude curve for their rumble, making this kind of method incompatible for emulating HD Rumble.
-The DS5 on the Playstation 5 instead uses more expensive linear actuators (and needs a linear amplitude curve), like the Pro Controller and Joy-Cons.
-[With this change](https://github.com/yuzu-emu/yuzu/pull/7784) german77 extended support to include the official Playstation 5 controller, the DS5, which is capable of the required precision for HD Rumble.
+By default, yuzu assumes that non-Nintendo Switch controllers, for example the Xbox controllers, will use rumble motors. These are cheaper and use an exponential amplitude curve for their rumble, making this kind of method incompatible for emulating HD Rumble.
+The DS5 on the PlayStation 5, instead, uses more expensive linear actuators (and needs a linear amplitude curve), like the Pro Controller and Joy-Cons.
+[With this change](https://github.com/yuzu-emu/yuzu/pull/7784), german77 extended support to include the official PlayStation 5 controller, the DS5, which is capable of the required precision for HD Rumble.
 
 ## General changes and bugfixes
 
-TAS scripts can have errors in them, and it’s not good that a mistake like that could take down the whole yuzu session.
+TAS scripts can have errors in them, and it’s not quite ideal that an error like that could take down an entire yuzu session.
 german77 provides the necessary code to [add error handling to TAS scripts](https://github.com/yuzu-emu/yuzu/pull/7687), preventing such crashes.
 
-Windows has a nasty hidden limitation in the maximum open file limit a program can use.
-Some game mods can contain many *many* files, going over the previous 4096 limit, so [Morph](https://github.com/Morph1984) [increased the limit to 8192](https://github.com/yuzu-emu/yuzu/pull/7690).
+Windows has a nasty, hidden limitation that is the maximum open-file limit a program can use.
+Some game mods can contain many, *many* files, going over the previous 4096 limit. Therefore, [Morph](https://github.com/Morph1984) [doubled the limit to 8192](https://github.com/yuzu-emu/yuzu/pull/7690).
 
 v1993 has been working on code cleaning using [PVS-Studio](https://pvs-studio.com/en/pvs-studio/), and the results have been great.
-So far errors were found and fixed on [four](https://github.com/yuzu-emu/yuzu/pull/7727) [separate](https://github.com/yuzu-emu/yuzu/pull/7728) [input](https://github.com/yuzu-emu/yuzu/pull/7729) [related areas](https://github.com/yuzu-emu/yuzu/pull/7730), [the shader recompiler](https://github.com/yuzu-emu/yuzu/pull/7731) and even [kernel emulation](https://github.com/yuzu-emu/yuzu/pull/7732)!
+So far, errors were found and fixed in [four](https://github.com/yuzu-emu/yuzu/pull/7727) [separate](https://github.com/yuzu-emu/yuzu/pull/7728) [input](https://github.com/yuzu-emu/yuzu/pull/7729) [related areas](https://github.com/yuzu-emu/yuzu/pull/7730), [the shader recompiler](https://github.com/yuzu-emu/yuzu/pull/7731), and even [kernel emulation](https://github.com/yuzu-emu/yuzu/pull/7732)!
 
-Thanks v1993, nothing beats cleaner code, especially if it solves out of bounds issues.
+Thanks v1993! Nothing beats cleaner code, especially if it solves out-of-bounds issues.
 
 Morph [stubbed the `SetCpuOverclockEnabled` service](https://github.com/yuzu-emu/yuzu/pull/7752) (you don’t need to overclock the host CPU on the fly when emulating).
 This allows `Gravity Rider Zero` to boot, but nothing is displayed on screen due to missing texture format support.
@@ -327,9 +325,9 @@ And finally, german77 [implemented the 32-bit variant of the supervisor call (SV
 	"./esp.png| Espgaluda II"
   >}}
 
-Meanwhile, [liushuyu](https://github.com/liushuyu) updated the dynarmic external, bringing [optimizations and also fixing compile errors](https://github.com/yuzu-emu/yuzu/pull/7679) caused by an update of another external, the `fmt` library — used to format text in yuzu's log and interface.
+Meanwhile, [liushuyu](https://github.com/liushuyu) updated the dynarmic external submodule, providing [optimizations and also fixing compile errors](https://github.com/yuzu-emu/yuzu/pull/7679) caused by an update of another external, the `fmt` library — used to format text in yuzu's log and interface.
 
-german77 also added new [hotkeys that allow users to manipulate the volume](https://github.com/yuzu-emu/yuzu/pull/7716) of the application directly with the gamepad, a feature that will surely come handy to the people who enjoy yuzu from the comfort of their couch.
+german77 also added new [hotkeys that allow users to manipulate the volume](https://github.com/yuzu-emu/yuzu/pull/7716) of the application directly with the gamepad, a feature that will surely come in handy to the people who enjoy yuzu from the comfort of their couch.
 
 By default, `Home + Right D-Pad` will mute the application, while `Home + D-pad Down` will lower the volume, and  `Home + D-pad Up` will increase it.
 (Users are free to change these through the configuration menu `Emulation > Configure > Hotkeys`).
@@ -348,10 +346,10 @@ Thus, he decided to modify the formula, so that the transformation is smoother t
 ## Future changes
 
 Progress continues smoothly on our projects in development. 
-For example german77 is having fun with some heavily requested features.
-Blinkhawk managed to complete one of the top secret projects [Rodrigo](https://github.com/reinuseslisp) left unfinished before *turning green*, `Host Conditional Rendering`,  expect to hear more of it in future `Project Y.F.C.` news.
+For example, german77 is having fun with some heavily requested features.
+Blinkhawk managed to complete one of the top secret projects [Rodrigo](https://github.com/reinuseslisp) left unfinished before *turning green*, `Host Conditional Rendering`. Expect to hear more of it in future `Project Y.F.C.` news.
 
-A small leak of recent internal testing, `Marvel Ultimate Alliance 3: The Black Order` jumped from 19 to 51 FPS on Vulkan, and your enemy's ink in `Splatoon 2` works correctly on AMD GPUs.
+Now for a small leak of some recent internal testing: `Marvel Ultimate Alliance 3: The Black Order` jumped from 19 to 51 FPS on Vulkan, and your enemy's ink in `Splatoon 2` works correctly on AMD GPUs.
 
 {{< single-title-imgs-compare
 	"More than double the performance, for only a few liters of developer tears (Marvel Ultimate Alliance 3: The Black Order)"
