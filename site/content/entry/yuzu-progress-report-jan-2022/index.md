@@ -14,7 +14,8 @@ What a month, yuz-ers. This time we offer you a plethora of kernel changes, inpu
 
 [It’s not over yet](https://www.youtube.com/watch?v=g02QU-xPV1I).
 
-The recent release of 511.XX drivers introduced an issue that affected our compute shader based accelerated ASTC texture decoding.
+[As you know](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2021/#paint-me-like-one-of-your-french-bits), regular desktop/laptop GPUs don't support decoding ASTC textures, so yuzu makes use of the compute capabilities of the GPU to parallelize the process...
+The recent release of the 511.XX drivers introduced an issue that affected our compute shader based accelerated ASTC texture decoding.
 
 {{< single-title-imgs-compare
 	"Crispy (Super Mario Odyssey)"
@@ -23,7 +24,7 @@ The recent release of 511.XX drivers introduced an issue that affected our compu
 >}}
 
 After some investigation, [epicboy](https://github.com/ameerj) found that the reason for the bug is an over-optimization introduced by the new drivers (an optimization for one scenario results in issues for another).
-[A small change in behaviour solves the issue for good](https://github.com/yuzu-emu/yuzu/pull/7724).
+[A small change in behaviour solves the issue](https://github.com/yuzu-emu/yuzu/pull/7724).
 You can find more technical information in the pull request.
 
 Users playing `Hyrule Warriors: Age of Calamity` or `Luigi’s Mansion 3` should stick to the 47X.XX series of drivers, as any version newer than that will have several rendering issues.
