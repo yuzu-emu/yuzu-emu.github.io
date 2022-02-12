@@ -40,7 +40,7 @@ Some games show an increase in performance of up to 24%!
 
 Finally, after over two decades, the Pokémon franchise diverges from its tired formula and implements a big change to gameplay in the recently released `Pokémon Legends: Arceus`.
 
-All this at the cost of graphical fidelity. But hey, there are worse looking games... on the GameCube.
+All this at the cost of graphical fidelity. But hey, there are worse looking games... [on the GameCube](https://www.youtube.com/watch?v=-vak7MUaa5E).
 
 Apart from the disappointing graphics, this game's release exposed several issues with yuzu, and has even helped us fix long standing issues that affected many more games.
 
