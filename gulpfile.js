@@ -50,11 +50,12 @@ gulp.task('assets:js', () => {
         .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('hugo', async (callback) => {
-    const hugo = await import('hugo-bin');
-    exec(hugo.default + ' -s ./site/ -d ../build/ -v --gc', (err, stdout, stderr) => {
-        console.log(stdout);
-        callback(err);
+gulp.task('hugo', (callback) => {
+    import('hugo-bin').then((hugo) => {
+        exec(hugo.default + ' -s ./site/ -d ../build/ -v --gc', (err, stdout, stderr) => {
+            console.log(stdout);
+            callback(err);
+        });
     });
 });
 

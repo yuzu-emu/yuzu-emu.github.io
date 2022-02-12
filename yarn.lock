@@ -237,9 +237,9 @@
   integrity sha512-cz8HFjOFfUBtvN+NXYSFMHYRdxZMaEl0XypVrhzxBgadKIXhIkRd8aMeHhmF56Sl7SuS8OnUpQ73/k9LE4VnLg==
 
 "@jridgewell/sourcemap-codec@^1.4.9":
-  version "1.4.9"
-  resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.9.tgz#6963babca1e1b8a8dc1c379bd4bd2bf9c21c356a"
-  integrity sha512-iKsUDLGOrC5pSdVTyb8zJI/f55wItTzGtfGWiWPWTc8h2P4oucax7XOGSRq9V2aA1nwE8qMaGvwdXk3PZRtgjg==
+  version "1.4.10"
+  resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.10.tgz#baf57b4e2a690d4f38560171f91783656b7f8186"
+  integrity sha512-Ht8wIW5v165atIX1p+JvKR5ONzUyF4Ac8DZIQ5kZs9zrb6M8SJNXpx1zn04rn65VjBMygRoMXcyYwNK0fT7bEg==
 
 "@jridgewell/trace-mapping@^0.2.7":
   version "0.2.7"
@@ -3187,10 +3187,10 @@ http-proxy@^1.18.1:
     follow-redirects "^1.0.0"
     requires-port "^1.0.0"
 
-hugo-bin@0.79.2:
-  version "0.79.2"
-  resolved "https://registry.yarnpkg.com/hugo-bin/-/hugo-bin-0.79.2.tgz#cdea09af91429fcd65cc88571e070403be00fa80"
-  integrity sha512-Oik01vhaWcmZXYlBgVGCdidoJqcEsU7aEhXwgGgnPa9fiIDDwtLG4cTJEyEKwcgdk9JXSAofPOgbtudbQDCJQg==
+hugo-bin@0.80.1:
+  version "0.80.1"
+  resolved "https://registry.yarnpkg.com/hugo-bin/-/hugo-bin-0.80.1.tgz#6932b8eaf3b44a1242b4cec21c54f7550a10cd42"
+  integrity sha512-FXhgwTGA2S4jWIci4BT4kt0vpt/n+wJSNbfvFHhcJJwTcce9ONIO360CPDudwHoQRfSm5ts5mQ5y+CWAeD7fZA==
   dependencies:
     bin-wrapper "^4.1.0"
     picocolors "^1.0.0"
