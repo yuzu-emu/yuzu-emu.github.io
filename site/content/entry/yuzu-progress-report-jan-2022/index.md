@@ -350,7 +350,7 @@ Progress continues smoothly on our projects in development.
 For example, german77 is having fun with some heavily requested features.
 Blinkhawk managed to complete one of the top secret projects [Rodrigo](https://github.com/reinuseslisp) left unfinished before *turning green*, `Host Conditional Rendering`. Expect to hear more of it in future `Project Y.F.C.` news.
 
-Now for a small leak of some recent internal testing: `Marvel Ultimate Alliance 3: The Black Order` jumped from 19 to 51 FPS, and your enemy's ink in `Splatoon 2` works correctly, both changes improvingg Vulkan.
+Now for a small leak of some recent internal testing: `Marvel Ultimate Alliance 3: The Black Order` jumped from 19 to 51 FPS, and your enemy's ink in `Splatoon 2` works correctly, both changes improving Vulkan.
 
 {{< single-title-imgs-compare
 	"More than double the performance, for only a few liters of developer tears (Marvel Ultimate Alliance 3: The Black Order)"
