@@ -235,7 +235,7 @@ In a similar vein, [gidoly](https://github.com/gidoly) corrected a series of spe
 
 Based on a Patreon poll conducted in our [discord server](https://discord.gg/u77vRWY), gidoly also made the necessary changes to make the `Dark Colorful` theme the {{< gh-hovercard "7719" "default theme" >}} used when running yuzu for the first time on Windows.
 
-As a follow-up, [v1993](https://github.com/v1993) also made changes so that the colorful theme (i.e. dark or light) used for the first time {{< gh-hovercard "7755" "depends on the system-wide theme" >}} in *NIX systems.
+[v1993](https://github.com/v1993) also made changes, so that now using the Colourful theme {{< gh-hovercard "7755" "allows Qt to use the system-wide colours in *NIX systems" >}}, instead of forcing dark ones.
 
 {{< imgs
 	"./theme.png| Default by popular demand"
