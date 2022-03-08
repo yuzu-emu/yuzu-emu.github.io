@@ -20,7 +20,7 @@ If you place the mouse over the dotted hyperlink you get the current status, tit
 The different possible statuses are:
 
 {{< imgs
-	"./merge.png| There are a few mor, but these 3 are the most important"
+	"./merge.png| There are a few more, but these 3 are the most important"
   >}}
 
 Red: Pull request closed, it won’t be part of any build.
@@ -172,10 +172,10 @@ For retro gaming fans, both toastUnlimited and german77 have fixes for the SNES 
 
 {{< single-title-imgs
     "Our team members are big Earthbound fans"
-    "./nes.jpg"
-    "./snes.jpg"
-    "./snes2.jpg"
-    "./snes3.jpg"
+    "./nes.png"
+    "./snes.png"
+    "./snes2.png"
+    "./snes3.png"
   >}}
 
 ## Input improvements
