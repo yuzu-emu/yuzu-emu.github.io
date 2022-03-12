@@ -80,7 +80,7 @@ bunnei has also been improving the accuracy of the page table management, by {{<
 
 As always, the biggest motivator behind this work is increasing the accuracy of our implementation, while also fixing any bugs that may have been hiding there these past years.
 
-[Dynarmic] (https://github.com/merryhime/dynarmic), our ARM JIT recompiler, also got a number of new optimizations and bugfixes this month.
+[Dynarmic](https://github.com/merryhime/dynarmic), our ARM JIT recompiler, also got a number of new optimizations and bugfixes this month.
 
 [Blinkhawk](https://github.com/FernandoS27) corrected the fencing logic for the serialization of memory store/load operations in Dynarmic's `x64` code emitter, and subsequently {{< gh-hovercard "7827" "updated the submodule" >}} to bring these changes into yuzu's codebase.
 This fixed the freezes that affected `Pokémon Legends: Arceus`.
