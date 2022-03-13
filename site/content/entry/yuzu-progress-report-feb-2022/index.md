@@ -232,23 +232,27 @@ You can find this toggle in `3D Settings > Manage 3D settings > Program Settings
 	"./nvidia.png| Ol' Reliable UI"
   >}}
 
-On the AMD side, this requires a bit of manual work, and may only be compatible with RDNA based GPUs. Only relatively recent Radeon drivers added the option to tune both minimum and maximum GPU frequencies on the included `Radeon WattMan`.
+On the AMD side, this requires a bit of manual work, and may only be compatible with RDNA based GPUs. Only relatively recent Radeon drivers added the option to tune both minimum and maximum GPU frequencies on the included `Radeon WattMan`. 
+This can disable the warranty of your Radeon product.
 
 What needs to be done, in a similar way to NVIDIA, is to add yuzu as a profile on the `Gaming` tab, click on `Tune Game Performance` and set Tuning Control to `Custom`. 
 Enable GPU Tuning and you will be able to tweak the `Min. Frequency (%)`.
 
-{{< single-title-imgs
-    "While this can be set globally on Radeon Software, we recommend to use per-application profiles"
-    "./radeon1.png"
-    "./radeon2.png"
+{{< imgs
+	"./radeon1.png| While this can be set globally on Radeon Software, we recommend to use per-application profiles"
   >}}
 
-Using a humble RX 6500 XT as an example, we can see `Pokémon Legends: Arceus` increase its framerate up to 73% *for free*, simply by raising the minimum clock speed from 500MHz to 2875MHz (a 475% increase, as the graph shows).
-The performance gains here can be massive, but one can start to see diminishing returns past a certain point.
+{{< imgs
+	"./radeon2.png| Besides the GPU, increasing the memory clock speeds will always help in emulation, especially at high resolutions"
+  >}}
+
+Using a humble (and worse than mediocre) RX 6500 XT as an example, we can see `Pokémon Legends: Arceus` increase its framerate up to 73% *for free*, managing to surpass an RX 570 at ease, simply by raising the minimum clock speed from 500MHz to 2875MHz (a 475% increase, as the next graph shows).
 
 {{< imgs
 	"./radgraph.png| Too much power-saving can also be a bad thing"
   >}}
+
+The performance gains here can be massive, but one can start to see diminishing returns past a certain point.
 
 ## Future projects
 
