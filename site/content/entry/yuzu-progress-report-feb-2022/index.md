@@ -215,6 +215,41 @@ The road ahead is long, since most Switch debug tools are 64-bit only, and the V
 yuzu lacks some functionality to offer full 32-bit execution mode support, so the PR was opened to help improve that area, since xerpi is using Switch emulators to assist and ease development.
 We can’t wait to see how this project grows!
 
+## Vulkan is the future
+
+With the work on `Project Y.F.C` and other changes scheduled, we’re slowly aiming for enabling Vulkan by default, and keeping OpenGL in long term support.
+This section will not list changes in yuzu, but settings users can tweak to improve their Vulkan performance on yuzu and other emulators.
+
+One of the main issues with performance on Vulkan is the aggressive frequency management current GPUs will do to save power.
+Since the actual 3D load produced by Nintendo Switch games will be very low for even a modern low-end GPU, clock speeds tend to stay on the power saving side of their spectrum.
+
+An easy way to considerably improve performance is to force the GPU to run at higher *sustained clock speeds*. The highest value the GPU can reach is usually irrelevant here as most GPUs will be faster than a Switch’s Tegra X1, but the sustained clock speed is what will keep framerates high and stuttering to a minimum.
+
+NVIDIA users have a simple single setting in the `NVIDIA Control Panel`, `Prefer maximum performance`.
+You can find this toggle in `3D Settings > Manage 3D settings > Program Settings tab` click on `Add` and select yuzu from the available options, then scroll down to `Power management mode` and set it to `Prefer maximum performance`.
+
+{{< imgs
+	"./nvidia.png| Ol' Reliable UI"
+  >}}
+
+On the AMD side, this requires a bit of manual work, and may only be compatible with RDNA based GPUs. Only relatively recent Radeon drivers added the option to tune both minimum and maximum GPU frequencies on the included `Radeon WattMan`.
+
+What needs to be done, in a similar way to NVIDIA, is to add yuzu as a profile on the `Gaming` tab, click on `Tune Game Performance` and set Tuning Control to `Custom`. 
+Enable GPU Tuning and you will be able to tweak the `Min. Frequency (%)`.
+
+{{< single-title-imgs
+    "While this can be set globally on Radeon Software, we recommend to use per-application profiles"
+    "./radeon1.png"
+    "./radeon2.png"
+  >}}
+
+Using a humble RX 6500 XT as an example, we can see `Pokémon Legends: Arceus` increase its framerate up to 73% *for free*, simply by raising the minimum clock speed from 500MHz to 2875MHz (a 475% increase, as the graph shows).
+The performance gains here can be massive, but one can start to see diminishing returns past a certain point.
+
+{{< imgs
+	"./radgraph.png| Too much power-saving can also be a bad thing"
+  >}}
+
 ## Future projects
 
 `Project Y.F.C.` continues to mature as more previously broken games start to become playable.
