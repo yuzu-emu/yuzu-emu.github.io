@@ -54,7 +54,7 @@ In a similar vein, [Morph](https://github.com/Morph1984) implemented a {{< gh-ho
 [asLody](https://github.com/asLody) also implemented a missing {{< gh-hovercard "7939" "framebuffer format" >}}, this time used by `Yo-kai Watch 4`.
 
 {{< imgs
-	"./ykw4.png| The original name is technically 妖怪ウォッチ4 ぼくらは同じ空を見上げている (Youkai Watch 4 Bokura wa Onaji Sora wo Miageteiru)"
+	"./ykw4.png| The original name is technically 妖怪ウォッチ4 ぼくらは同じ空を見上げている (Youkai Wotchi Bokura wa Onaji Sora wo Miageteiru)"
   >}}
 
 Another fix by this developer was {{< gh-hovercard "7930" "adding missing semaphore operations" >}} for `MaxwellDMA`, used  by `Legend of Zelda: Breath of the Wild` and `Pokémon Legends: Arceus`.
