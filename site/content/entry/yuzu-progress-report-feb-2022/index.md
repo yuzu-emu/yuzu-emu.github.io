@@ -6,7 +6,7 @@ coauthor = "Honghoa"
 forum = 0
 +++
 
-Glad to have you here, yuz-ers! This month we're proud to showcase a ton of kernel changes that finally fix long standing bugs, massive performance improvements, UI and input changes, and more!
+Glad to have you here, yuz-ers! This month, we're proud to showcase a ton of kernel changes that finally fix long standing bugs, massive performance improvements, UI and input changes, and more!
 
 <!--more-->  
 
@@ -188,7 +188,7 @@ As a way to test how strong the current rumble setting is, you can now {{< gh-ho
 	"./rumble.png| Joy-Con goes BRRRR"
   >}}
 
-Gamepads have drift, but not only in the exaggerated fashion Joy-Cons are known for, every gamepad has a certain degree of drifting to it.
+Gamepads have drift, not only in the exaggerated fashion Joy-Cons are known for, but every gamepad has a certain degree of drifting to it.
 To hide this, consoles auto-center their sticks.
 
 On yuzu, one of the limitations of [SDL](https://www.libsdl.org/) is that it will only read the factory calibration on a Nintendo official controller, skipping any user calibration profile that may be available.
@@ -208,7 +208,7 @@ Terminal warriors can now enjoy some Just Dance too.
 
 [xerpi](https://github.com/xerpi) {{< gh-hovercard "7866" "implemented the 32 bit version" >}} of the `OutputDebugString`, `CreateCodeMemory`, and `ControlCodeMemory` supervisor calls. Thanks!
 
-xerpi’s help has a bigger objective in mind than just helping some weird Switch emulator.
+xerpi’s help has a bigger objective in mind than just helping some little-known Switch emulator.
 They’re developing [vita2hos](https://github.com/xerpi/vita2hos), a translation layer to run `PlayStation Vita` apps and games natively on the Nintendo Switch!
 The road ahead is long, since most Switch debug tools are 64-bit only, and the Vita is firmly a 32-bit console, so several rewrites and changes are in order to get the project going.
 
