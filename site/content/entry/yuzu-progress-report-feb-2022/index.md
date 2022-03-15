@@ -51,7 +51,7 @@ To bypass this problem, [voidanix](https://github.com/voidanix) implemented a so
 
 In a similar vein, [Morph](https://github.com/Morph1984) implemented a {{< gh-hovercard "7948" "missing vertex format" >}}, used by the title `パワプロクンポケットR` (Power Pro Kun Pocket R).
 
-[asLody](https://github.com/asLody) also implemented a missing {{< gh-hovercard "7939" "framebuffer format" >}}, this time used by `Yokai-watch 4`.
+[asLody](https://github.com/asLody) also implemented a missing {{< gh-hovercard "7939" "framebuffer format" >}}, this time used by `Yo-kai Watch 4`.
 
 {{< imgs
 	"./ykw4.png| The original name is technically 妖怪ウォッチ4 ぼくらは同じ空を見上げている (Youkai Watch 4 Bokura wa Onaji Sora wo Miageteiru)"
