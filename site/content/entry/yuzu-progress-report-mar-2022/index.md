@@ -112,7 +112,7 @@ As you can see, Diablo II has some UI rendering issues, but at least every chara
 Another issue that was quickly pointed out, is that Nvidia hardware would eat VRAM like crazy, to the point of filling up even high end hardware in minutes.
 
 {{< imgs
-	"./kirbyram.png| PC requirements: RTX 3090? Not on our watch!"
+	"./kirbyvram.png| PC requirements: RTX 3090? Not on our watch!"
   >}}
 
 {{< gh-hovercard "8093" "Unmapping pre-existing rasterizer memory before the memory range was mapped" >}} solves the issue and allows Nvidia users to not require RTX 3090 levels of hardware to get a good experience.
