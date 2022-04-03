@@ -254,7 +254,7 @@ He’s fighting to make `Flip Wars` compatible.
 {{< gh-hovercard "8120" "''Correctly adding a Signalling events on `AcquireNpadStyleSetUpdateEventHandle`" >}} makes the game playable.
 
 {{< single-title-imgs
-	"DRAGON BALL FighterZ"
+	"Flip Wars"
 	"./flip1.png"
 	"./flip2.png"
 >}}
