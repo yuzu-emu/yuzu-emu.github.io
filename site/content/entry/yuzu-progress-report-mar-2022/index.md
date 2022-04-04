@@ -95,12 +95,13 @@ epicboy jumped in to keep the ball rolling and started by solving the geometry p
 	"./popfix.mp4"
 >}}
 
-This was achieved by {{< gh-hovercard "8023" "improving the accuracy of the constant buffer uploads" >}}, and has the added benefit of also fixing rendering issues in `Monster Hunter Rise`.
+This was achieved by {{< gh-hovercard "8023" "improving the accuracy of the constant buffer uploads" >}}, and has the added benefit of also fixing rendering issues in `Monster Hunter Rise`, making it playable.
 
 {{< single-title-imgs
-	"Such a pretty intro (MONSTER HUNTER RISE)"
+	"Such pretty locations (MONSTER HUNTER RISE)"
 	"./rise.png"
 	"./rise2.png"
+	"./rise3.png"
 >}}
 
 {{< single-title-imgs-compare
