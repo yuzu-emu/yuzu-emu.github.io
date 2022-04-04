@@ -95,19 +95,19 @@ epicboy jumped in to keep the ball rolling and started by solving the geometry p
 	"./popfix.mp4"
 >}}
 
-This was achieved by {{< gh-hovercard "8023" "improving the accuracy of the constant buffer uploads" >}}, and has the added benefit of also fixing rendering issues in `Monster Hunter Ries` and `Diablo® II: Resurrected™`.
+This was achieved by {{< gh-hovercard "8023" "improving the accuracy of the constant buffer uploads" >}}, and has the added benefit of also fixing rendering issues in `Monster Hunter Rise`.
 
-{{< imgs
-	"./rise.png| Such a pretty intro (MONSTER HUNTER RISE)"
-  >}}
+{{< single-title-imgs
+	"Such a pretty intro (MONSTER HUNTER RISE)"
+	"./rise.png"
+	"./rise2.png"
+>}}
 
-&nbsp;
-
-{{< imgs
-	"./diablo2.png| A real classic (Diablo® II: Resurrected™)"
-  >}}
-
-As you can see, Diablo II has some UI rendering issues, but at least every character has access to all their limbs now!
+{{< single-title-imgs-compare
+	"From Monster to Monster Hunter (MONSTER HUNTER RISE)"
+	"./risebug.png"
+	"./risefix.png"
+>}}
 
 Another issue that was quickly pointed out, is that Nvidia hardware would eat VRAM like crazy, to the point of filling up even high end hardware in minutes.
 
