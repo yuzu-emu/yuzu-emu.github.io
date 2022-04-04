@@ -117,6 +117,8 @@ Another issue that was quickly pointed out, is that Nvidia hardware would eat VR
 
 {{< gh-hovercard "8093" "Unmapping pre-existing rasterizer memory before the memory range was mapped" >}} solves the issue and allows Nvidia users to not require RTX 3090 levels of hardware to get a good experience.
 
+ED: epicboy informs that this pull request may introduce regressions that are being investigated, and that VRAM consumption is further improved by using the Disable Dynamic Resolution mod [available on our site](https://github.com/yuzu-emu/yuzu/wiki/Switch-Mods).
+
 epicboy also {{< gh-hovercard "8116" "fixed an svc break crash if the game was run with Asynchronous GPU Emulation was enabled" >}}, an option that should always remain enabled.
 
 And finally, an off-by-one error in the stream buffer was responsible for causing vertex explosions.
@@ -129,9 +131,10 @@ As the new implementation can only feed a single upload request at a time, this 
 	"./poyofix.png"
 >}}
 
-AMD Radeon users will suffer from more stuttering than usual when running this game.
-This is caused because neither the Windows AMD drivers nor any of the Linux options offer support for the `VK_EXT_vertex_input_dynamic_state` extension, which helps reduce the shader count by 3 times the original amount.
-Intel and Nvidia hardware do offer support and enjoy a much reduced shader count, and the associated reduced stuttering when building their cache.
+AMD Radeon users may suffer from more stuttering than usual when running this game depending of the specific GPU they have.
+This is caused because the available Windows AMD drivers don't offer support for the `VK_EXT_vertex_input_dynamic_state` extension, which helps reduce the shader count by 3 times the original amount.
+The Mesa RADV support for the extension is broken in RDNA2 hardware as reported last month, so it remains blacklisted along with the Intel Windows support. 
+Nvidia hardware and older AMD GPUs on Linux offer proper support and enjoy the much reduced shader count, and the associated reduced stuttering when building their cache.
 CPU thread count will be critial here, at least until AMD adds official support for the extension.
 
 ## Graphical changes and optimizations
