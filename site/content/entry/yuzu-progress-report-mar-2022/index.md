@@ -138,9 +138,9 @@ CPU thread count will be critial here, at least until AMD adds official support 
 
 [bunnei](https://github.com/bunnei) has the highlight of this month with the {{< gh-hovercard "8050" "rewrite of the `NVFlinger` implementation" >}}, a part of `Project Y.F.C`.
 
-NVFlinger is the service in charge of presenting to the display, so any improvement in this area will bring more even frametimes, perceived as less stuttering even when the frame rate count stays at a solid 60 FPS.
+NVFlinger is the service in charge of presenting to the display, so any improvement in this area will bring more stable frametimes, perceived as less stuttering even when the frame rate count stays at a solid 60 FPS.
 
-Our original implementation was basically guessing done back in 2018, it was lacking in *several* areas.
+Our original implementation was basically guess work done back in 2018, it was lacking in *several* areas.
 For example, yuzu would block threads until the last frame was ready to be presented. 
 This obviously leads to undesired stuttering unrelated to system performance.
 
@@ -175,7 +175,7 @@ We documented our problems with video decoding on Linux Flatpak builds in previo
 A check was added to avoid such crashes, but in the process, Windows builds got stuck on CPU decoding!
 Users of low thread CPUs could immediately tell the difference during video playbacks.
 
-By simply {{< gh-hovercard "8066" "disabling this check" >}}, Windows builds can again enjoy the extra performance gained from decoding via GPU.
+By simply {{< gh-hovercard "8066" "disabling this check on Windows" >}}, Windows builds can again enjoy the extra performance gained from decoding via GPU.
 If video playing feels smoother, you now know the reason! Thanks epicboy!
 
 [toastUnlimited](https://github.com/lat9nq) started work on improving yuzu’s Vulkan error handling.
@@ -191,7 +191,7 @@ Changing the behaviour of how yuzu handles both GPU instance creation and render
 
 There’s more work to do, but this lets us get closer to offering Vulkan as the default graphics API in the future.
 
-epicboy found out that {{< gh-hovercard "8106" "avoiding a thread lock" >}} allows Extreme GPU accuracy to be more stable, making it a safe option for those aiming for the most possible accurate rendering.
+epicboy found out that {{< gh-hovercard "8106" "avoiding a doubly locked mutex" >}} fixes a crash when using Extreme GPU accuracy on the OpenGL backend, making it a safe option for those aiming for the most possible accurate rendering.
 This option is only accessible from `Emulation > Configure... > Graphics > Advanced`.
 
 He also includes an {{< gh-hovercard "8068" "optimization focused on eliminating `if(false) …` branches on the shader code" >}}. 
