@@ -87,7 +87,7 @@ This avoids softlocking Galaxy at the final level.
 
 `Kirby and the Forgotten Land` turned out to be one of the best platformers of recent times, and also quite a challenge for our devs.
 
-epicboy jumped in to keep the ball rolling and started by solving the geometry pop-ins that are very noticeable in the first gameplay scenes.
+epicboy got the ball rolling by solving geometry pop-ins that were very noticeable throughout gameplay.
 
 {{< single-title-imgs
 	"That tree just pops! (Kirby and the Forgotten Land)"
@@ -95,7 +95,7 @@ epicboy jumped in to keep the ball rolling and started by solving the geometry p
 	"./popfix.mp4"
 >}}
 
-This was achieved by {{< gh-hovercard "8023" "improving the accuracy of the constant buffer uploads" >}}, and has the added benefit of also fixing rendering issues in `Monster Hunter Rise`, making it playable.
+This was achieved by {{< gh-hovercard "8023" "improving the accuracy of the constant buffer uploads" >}}. This change also had the added benefit of fixing rendering issues in `Monster Hunter Rise`, making it playable.
 
 {{< single-title-imgs
 	"Such pretty locations (MONSTER HUNTER RISE)"
