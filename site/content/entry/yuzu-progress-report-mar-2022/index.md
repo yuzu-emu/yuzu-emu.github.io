@@ -23,7 +23,7 @@ Now, to be fair, blitting MSAA images is against the Vulkan specification, so NV
 It’s just a bummer to have that sudden change in behaviour with something that was previously allowed and working.
 Proper documentation would help a lot here.
 
-Tagging along, a PSA for AMD users too: the currently latest 22.3.2 driver, which adds support for the `VK_KHR_workgroup_memory_explicit_layout` extension, breaks fishing in `Animal Crossing: New Horizons` and can possibly make other games crash.
+Tagging along, a PSA for AMD users too: the latest drivers, 22.3.2 and later, which add support for the `VK_KHR_workgroup_memory_explicit_layout` extension, break fishing in `Animal Crossing: New Horizons` and can possibly make other games crash.
 Revert to 22.3.1 if you find such a regression.
 
 ## The Vulkan emulator
