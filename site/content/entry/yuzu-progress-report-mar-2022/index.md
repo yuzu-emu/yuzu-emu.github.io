@@ -7,7 +7,7 @@ forum = 0
 +++
 
 Hi yuz-ers, glad to have you back. 
-This month, we discuss an emulator inside an emulator, parts of `Project Y.F.C.` being added, graphical fixes for old and new titles, and more!
+This month, we discuss an emulator inside an emulator, parts of Project Y.F.C. being added, graphical fixes for old and new titles, and more!
 
 <!--more-->
 
@@ -23,7 +23,7 @@ Now, to be fair, blitting MSAA images is against the Vulkan specification, so NV
 It’s just a bummer to have that sudden change in behaviour with something that was previously allowed and working.
 Proper documentation would help a lot here.
 
-Tagging along, a PSA for AMD users too, the currently latest 22.3.2 driver, which adds support for the `VK_KHR_workgroup_memory_explicit_layout` extension, breaks fishing in `Animal Crossing: New Horizons` and can possibly make other games crash.
+Tagging along, a PSA for AMD users too: the currently latest 22.3.2 driver, which adds support for the `VK_KHR_workgroup_memory_explicit_layout` extension, breaks fishing in `Animal Crossing: New Horizons` and can possibly make other games crash.
 Revert to 22.3.1 if you find such a regression.
 
 ## The Vulkan emulator
@@ -51,7 +51,7 @@ byte[] didn’t stop there, several other changes were also implemented.
 	"./smgfix.png"
 >}}
 
-`Super Mario Galaxy` uses a combination of depth buffer and stencil buffer to “see” the objects behind the star pointer used to shoot star bits.
+`Super Mario Galaxy` uses a combination of the depth buffer and stencil buffer to “see” the objects behind the star pointer used to shoot star bits.
 That’s right, a texture determines game physics.
 
 {{< gh-hovercard "8030" "Properly handling that S8D24 < > ABGR8 texture conversion" >}} solves incorrect collisions with the poor star bits.
@@ -141,11 +141,11 @@ CPU thread count will be critical here, at least until AMD adds official support
 
 ## Graphical changes and optimizations
 
-[bunnei](https://github.com/bunnei) has the highlight of this month with the {{< gh-hovercard "8050" "rewrite of the `NVFlinger` implementation" >}}, a part of `Project Y.F.C`.
+[bunnei](https://github.com/bunnei) has the highlight of this month with the {{< gh-hovercard "8050" "rewrite of the `NVFlinger` implementation" >}}, a part of `Project Y.F.C.`.
 
 `NVFlinger` is the service in charge of presenting to the display, so any improvement in this area will bring more stable frametimes, perceived as less stuttering even when the frame rate count stays at a solid 60 FPS.
 
-Our original implementation was basically guess work done back in 2018, it was lacking in *several* areas.
+Our original implementation was basically guess work done back in 2018, and it was lacking in *several* areas.
 For example, yuzu would block threads until the last frame was ready to be presented. 
 This obviously leads to undesired stuttering unrelated to system performance.
 
@@ -173,12 +173,12 @@ Sadly, this first implementation caused some issues.
 
 [degasus](https://github.com/degasus), which you may know from *a certain* [Dolphin emulator](https://dolphin-emu.org/?nocr=true), {{< gh-hovercard "7989" "managed to implement a patch" >}}, which later turned into its own pull request, that solved the issues and achieved the same level of optimization.
 
-This is not enough to get `Hades` running. `Project Y.F.C` will take care of that in the near future, but it’s a small global performance boost that mostly benefits low-end GPUs. 
+This is not enough to get `Hades` running. `Project Y.F.C.` will take care of that in the near future, but it’s a small global performance boost that mostly benefits low-end GPUs. 
 It also provides easier to read code when performing maintenance.
 
 We documented our problems with video decoding on Linux Flatpak builds in previous progress reports.
 A check was added to avoid crashes, but in the process, Windows builds got stuck on CPU decoding!
-Users with low thread CPUs could immediately tell the difference during video playbacks.
+Users with low thread CPUs could immediately tell the difference during video playback.
 
 By simply {{< gh-hovercard "8066" "disabling this check on Windows" >}}, Windows builds can again enjoy the extra performance gained from decoding via GPU.
 If video playback feels smoother, you now know the reason! Thanks epicboy!
@@ -186,10 +186,10 @@ If video playback feels smoother, you now know the reason! Thanks epicboy!
 [toastUnlimited](https://github.com/lat9nq) started work on improving yuzu’s Vulkan error handling.
 
 This is a very common issue caused mostly by very outdated GPU drivers installed by Windows Update, or custom slower drivers provided by laptop manufacturers that are used to lie on battery life metrics or keep up with cheapened cooling solutions.
-This most commonly affects Intel GPUs, but Vega based Radeon GPUs can also suffer from it ocasionally.
+This most commonly affects Intel GPUs, but Vega based Radeon GPUs can also suffer from it occasionally.
 
-Another popular reason for this issue, as mentioned in [previous reports](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2021/#ui-changes) are outdated Vulkan injectors breaking support altogether.
-Software like OBS Studio, OBS Streamlabs, Bandicam, Action!, Overwolf, GShade, iCUE, MSI Afterburner, *anything* with an overlay that injects into Vulkan can completely break rendering if it is outdated, or the developers don’t keep up with recent Vulkan releases.
+Another popular reason for this issue, as mentioned in [previous reports](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2021/#ui-changes), is outdated Vulkan injectors breaking support altogether.
+Software like OBS Studio, OBS Streamlabs, Bandicam, Action!, Overwolf, GShade, iCUE, MSI Afterburner, or *anything* with an overlay that injects into Vulkan can completely break rendering if it is outdated, or the developers don’t keep up with recent Vulkan releases.
 
 {{< gh-hovercard "7986" "toast’s fixes solve 2 different scenarios" >}}.
 Changing the behaviour of how yuzu handles both GPU instance creation and rendering instance creation helps avoid direct-to-desktop crashes caused by outdated drivers or broken Vulkan injectors.
@@ -210,7 +210,7 @@ During internal testing, the change proved to be perfectly fine, a small reducti
 Once the result went live, users started to complain, reports of sudden stuttering affecting `Super Smash Bros. Ultimate` were in all communication channels.
 
 Dynarmic has to emulate whatever instruction a CPU lacks, and that takes more cache space.
-Older hardware, for example Skylake based CPUs (gen. 10 and older) or early first and second generation Ryzen CPUs, would not only have smaller caches, but also would lack support for some instructions more modern CPUs provide.
+Older hardware, for example Skylake based CPUs (gen. 10 and older) or early first and second generation Ryzen CPUs, would not only have smaller caches, but would also lack support for some instructions more modern CPUs provide.
 
 Once the cache runs out, a recompilation happens. 
 This results in impressive lag spikes experienced during Smash battles a few seconds into the match.
@@ -220,7 +220,7 @@ This results in impressive lag spikes experienced during Smash battles a few sec
 ## General bugfixes
 
 Recent Nintendo Switch firmware updates changed the behaviour of the inline on-screen keyboard.
-[Morph](https://github.com/Morph1984) {{< gh-hovercard "8041" "updated yuzu’s emulated equivalent" >}} to match the new versions, allowing games from the `Monster Hunters` series to be playable without having to transfer a save file after character creation was finished.
+[Morph](https://github.com/Morph1984) {{< gh-hovercard "8041" "updated yuzu’s emulated equivalent" >}} to match the new versions, allowing games from the `Monster Hunter` series to be playable without having to transfer a save file after character creation was finished.
 
 {{< imgs
 	"./osk.png| The hardest part of starting any new game, character naming... (MONSTER HUNTER RISE)"
@@ -236,7 +236,7 @@ It’s like the Hydra, you cut off one head and two new heads appear.
 toastUnlimited has been having fun working on improving yuzu-cmd.
 
 Adding the `-c` or `--config` argument will allow the user to {{< gh-hovercard "8025" "specify a custom location for a configuration file" >}}. 
-Can be useful for specific game settings.
+This can be useful for game specific settings.
 
 {{< gh-hovercard "8026" "Extended memory layout support was added" >}}.
 
@@ -248,7 +248,7 @@ With this change, {{< gh-hovercard "8027" "the resolution of the desktop will be
 This prevents crashes on `Minecraft` v1.12.1, as the game passes zero as the value for the address length. 
 
 toastUnlimited gave us a simple, but really important, quality of life change, {{< gh-hovercard "8035" "disabling the `Web Applet` by default" >}}.
-This was necessary due to many games having issues with it. It’s responsible for blocking controller input, and not many users are interested in the tutorials the service is mostly used for, so it’s a sacrifice worth the small loss.
+This was necessary due to many games having issues with it. The `Web Applet` is responsible for blocking controller input, and not many users are interested in the tutorials the service is mostly used for, so it’s a sacrifice worth the small loss.
 For anyone interested, the Web Applet can be re-enabled from `Emulation > Configure… > General > Debug > Disable Web Applet`.
 
 And continuing on the topic of quality of life changes, yuzu will now {{< gh-hovercard "8107" "save the fullscreen status" >}} for future boots.
