@@ -30,32 +30,33 @@ description: A guide designed to get you started with yuzu quickly.
 
 #### CPU: 
 
-Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are recommended.
+Any x86_64 CPU with support for the FMA and AVX2 instruction sets. 6 threads or more are recommended.
 
 - Minimum: Intel Core i5-4430 / AMD Ryzen 3 1200
 
-- Recommended: Intel Core i5-10400 / AMD Ryzen 5 3600
+- Recommended: Intel Core i5-12400 / AMD Ryzen 5 5600
 
 #### Dedicated graphics: 
 
-OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support and 4GB of VRAM are recommended.
+OpenGL 4.6 or Vulkan 1.2 compatible hardware and drivers are mandatory, with Vulkan 1.3 support being strongly recommended. 
+Half-float support, VP9 video decoding, and 4GB+ of VRAM (for resolution scaling) are recommended.
 
 - Minimum for Linux: NVIDIA GeForce GT 1030 2GB / AMD Radeon R7 240 2GB
 
 - Minimum for Windows: NVIDIA GeForce GT 1030 2GB / AMD Radeon RX 550 2GB
 
-- Recommended: NVIDIA GeForce GTX 1650 4GB / AMD Radeon RX Vega 56 8GB
+- Recommended: NVIDIA GeForce GTX 1660 6GB / AMD Radeon 6600 8GB
 
 #### Integrated graphics:
 
 Integrated graphics will produce very low performance. A dedicated GPU will produce better results on all scenarios.
 This is only for listing iGPU support.
 
-- Minimum for Linux: Intel HD 5300 / AMD Radeon R5 Graphics
+- Minimum for Linux: Intel HD 5300 (Gen. 5 CPUs) / AMD Radeon R5 Graphics
 
-- Minimum for Windows: Intel HD Graphics 520 / AMD Radeon Vega 3
+- Minimum for Windows: Intel HD Graphics 520 (Gen. 6 CPUs) / AMD Radeon Vega 3
 
-- Recommended: Intel UHD Graphics 750 / AMD Radeon Vega 7
+- Recommended: Intel UHD Graphics 750 (Gen. 11 CPUs) / AMD Radeon Vega 7
 
 #### RAM: 
 
@@ -73,20 +74,22 @@ Since an integrated GPU uses system RAM as its video memory (VRAM), our memory r
 
 - Our recommended specifications don't guarantee perfect performance in most games, but rather strive to provide a cost effective recommendation while still considering performance.
 
-- Most games are playable on older Nvidia GPUs from the Fermi family (400 series) or later, but at least Pascal (1000 series) is strongly recommended.
-
 - CPUs lacking the FMA instruction set will produce very poor results. Intel Core gen 3 series or older, AMD phenom II or older and all Pentium/Celeron/Atom CPUs will not produce optimal results.
 
 - Mobile CPUs will not reach the same performance as their desktop counterparts due to thermal, power, and technical limitations. 
 
-- Old GCN 1.0 and GCN 2.0 Radeon GPUs on Linux require manually forcing the amdgpu kernel module.
-
-- **GPUs must support OpenGL 4.6 & OpenGL Compatibility profile, or Vulkan 1.1 (or higher).**<br>
+- **GPUs must support OpenGL 4.6 & OpenGL Compatibility profile, or Vulkan 1.2 (or higher).**<br>
 To find out if your GPU meets these requirements, visit https://opengl.gpuinfo.org or https://vulkan.gpuinfo.org/ and check your GPU details.<br>
 
 Sample Image:
 
 ![GPUInfo](./gpu_info.png)
+
+- yuzu will technically run on Vulkan 1.1 drivers, but significant issues may be encountered, some required extensions may be missing.
+
+- Most games are playable on older Nvidia and AMD GPUs from the Fermi family (400 series) or later and the GCN 1.0 family (HD 7000 series) or later, but at least Pascal (1000 series) and Polaris (RX 400 series) is strongly recommended.
+
+- Old GCN 1.0 and GCN 2.0 Radeon GPUs on Linux require [manually forcing the amdgpu kernel module](https://wiki.archlinux.org/title/AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support).
 
 ## yuzu Quickstart Guide
 
