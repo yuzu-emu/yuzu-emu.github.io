@@ -77,8 +77,6 @@ Since an integrated GPU uses system RAM as its video memory (VRAM), our memory r
 
 - Mobile CPUs will not reach the same performance as their desktop counterparts due to thermal, power, and technical limitations. 
 
-- Old GCN 1.0 and GCN 2.0 Radeon GPUs on Linux require [manually forcing the amdgpu kernel module](https://wiki.archlinux.org/title/AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support).
-
 - **GPUs must support OpenGL 4.6 & OpenGL Compatibility profile, or Vulkan 1.3 (or higher).**<br>
 To find out if your GPU meets these requirements, visit https://opengl.gpuinfo.org or https://vulkan.gpuinfo.org/ and check your GPU details.<br>
 
@@ -89,6 +87,8 @@ Sample Image:
 - yuzu will technically run on Vulkan 1.1 drivers, but significant issues may be encountered.
 
 - Most games are playable on older Nvidia GPUs from the Fermi family (400 series) or later, but at least Pascal (1000 series) is strongly recommended.
+
+- Old GCN 1.0 and GCN 2.0 Radeon GPUs on Linux require [manually forcing the amdgpu kernel module](https://wiki.archlinux.org/title/AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support).
 
 ## yuzu Quickstart Guide
 
