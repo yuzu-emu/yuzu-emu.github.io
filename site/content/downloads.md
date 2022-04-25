@@ -12,7 +12,7 @@ FullWidth: true
 <div class="message-body">
 <p style="color:cyan;margin-bottom: 0px;">yuzu requires the latest versions of Microsoft Visual C++. 
  Please download and install the dependency from below.</p>
-<a href="https://aka.ms/vs/16/release/vc_redist.x64.exe">Download Microsoft Visual C++ 2019 here!</a>
+<a href="https://aka.ms/vs/17/release/vc_redist.x64.exe">Download Microsoft Visual C++ 2022 here!</a>
 </div>
 </article>
 
