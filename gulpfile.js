@@ -44,12 +44,6 @@ gulp.task('assets:images', () => {
     return parallel(baseImages, jumbotronImages, bannerImages, boxartImages, iconImages, screenshotImages);
 });
 
-gulp.task('assets:js', () => {
-    return gulp.src(['src/js/**/*.js'])
-        .pipe(concat('script.js'))
-        .pipe(gulp.dest('build/js'));
-});
-
 gulp.task('hugo', (callback) => {
     import('hugo-bin').then((hugo) => {
         exec(hugo.default + ' -s ./site/ -d ../build/ -v --gc', (err, stdout, stderr) => {
@@ -67,7 +61,7 @@ gulp.task('final:serve', (done) => {
         }
     });
 
-    gulp.watch('src/js/**/*', gulp.series('assets:js'));
+    gulp.watch('site/assets/js/**/*', gulp.series('hugo'));
     gulp.watch('src/scss/**/*', gulp.series('hugo'));
     gulp.watch('site/**/*.html', gulp.series('hugo'));
     gulp.watch('site/**/*.md', gulp.series('hugo'));
@@ -109,6 +103,6 @@ if (parseArgs(process.argv).production) {
 log.info(`process.env.HUGO_ENV = '${process.env.HUGO_ENV}'`);
 log.info(`process.env.HUGO_BASEURL = '${process.env.HUGO_BASEURL}'`);
 
-gulp.task('default', gulp.series('assets:js', 'hugo', 'assets:images', finalCommand));
-gulp.task('all', gulp.series(gulp.parallel('scripts:compatdb', 'scripts:wiki', 'assets:js'), 'hugo', 'assets:images', finalCommand));
+gulp.task('default', gulp.series('hugo', 'assets:images', finalCommand));
+gulp.task('all', gulp.series(gulp.parallel('scripts:compatdb', 'scripts:wiki'), 'hugo', 'assets:images', finalCommand));
 gulp.task('content', gulp.series('hugo', finalCommand));

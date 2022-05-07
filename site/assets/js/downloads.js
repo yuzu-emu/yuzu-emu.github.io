@@ -1,8 +1,8 @@
 function releaseCallback(v, count, e) {
     if (e.status !== 200 || e.responseText.length < 10) {
-        document.getElementById(`last-updated-${v}`).innerText = "never";
-        document.getElementById(`unavailable-${v}`).classList.remove("is-hidden");
-        document.getElementById(`downloads-${v}`).classList.add("is-hidden");
+        document.getElementById(`last-updated-${v}`).innerText = 'never';
+        document.getElementById(`unavailable-${v}`).classList.remove('is-hidden');
+        document.getElementById(`downloads-${v}`).classList.add('is-hidden');
         throw new Error(e.responseText);
     }
 
@@ -110,12 +110,12 @@ function releaseCallback(v, count, e) {
         shownReleases++;
 
         if (shownReleases >= count) { break; }
-    };
+    }
 }
 
 function getRelease(v, count = 3) {
     var netReq = new XMLHttpRequest();
-    netReq.open("GET", `https://api.github.com/repos/yuzu-emu/yuzu-${v}/releases`);
+    netReq.open('GET', `https://api.github.com/repos/yuzu-emu/yuzu-${v}/releases`);
     netReq.onload = function () {
         releaseCallback(v, count, this);
     };
