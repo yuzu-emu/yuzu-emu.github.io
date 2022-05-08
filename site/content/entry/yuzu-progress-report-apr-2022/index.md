@@ -1,5 +1,3 @@
-asdf
-
 +++
 date = "2022-05-07T12:00:00-03:00"
 title = "Progress Report April 2022"
@@ -162,7 +160,7 @@ There’s yet more work to do, but we’re a lot closer. [I can see the finish l
 
 [Merry](https://github.com/merryhime), the core developer of `Dynarmic`, {{< gh-hovercard "8140" "made some changes to the add-ons game properties window" >}}, improving column widths.
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
 	"Low resolution users will like this"
 	"./addonbug.png"
 	"./addonfix.png"
@@ -170,7 +168,7 @@ There’s yet more work to do, but we’re a lot closer. [I can see the finish l
 
 The hotkeys configuration window {{< gh-hovercard "8141" "also got some love" >}}, changing the minimum column width.
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
 	"It's also great for GNOME users"
 	"./hotkeybug.png"
 	"./hotkeyfix.png"
@@ -191,7 +189,7 @@ Not stopping there, Taichi {{< gh-hovercard "8283" "brings cleanups and improvem
 
 With a bit of manual thinkering, they managed to bypass some Qt limitations in order to {{< gh-hovercard "8190" "display more readable hyperlinks" >}} over dark themes.
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
 	"People seem to have forgotten what hyperlinks are for, just click them!"
 	"./hyperlinkbug.png"
 	"./hyperlinkfix.png"
@@ -200,7 +198,7 @@ With a bit of manual thinkering, they managed to bypass some Qt limitations in o
 Thanks to a report from GillianMC from our [Discord server](https://discord.gg/u77vRWY), Docteh found out that some quirks in the Qt API caused the compatibility status of listed games to not be translated.
 The cause lies in QObject, you can find the specific details in the {{< gh-hovercard "8204" "pull request’s description" >}}. Now status is properly reported in the corresponding language.
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
 	"Example in Spanish"
 	"./compatbug.png"
 	"./compatfix.png"
@@ -209,7 +207,7 @@ The cause lies in QObject, you can find the specific details in the {{< gh-hover
 Similarly, D-Pad directions also didn’t translate properly. The same suspect, {{< gh-hovercard "8224" "once again" >}}.
 Someone, please send a warrant asking for the detention of Carmen Sandiego.
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
 	"Example in French"
 	"./hatbug.png"
 	"./hatfix.png"
@@ -322,7 +320,7 @@ This change is under testing at the time of writing, as it could potentially cau
 {{< single-title-imgs
 	"."
 	"./gaia1.png"
-	"./gaia1.png"
+	"./gaia2.png"
 >}}
 
 That’s all folks! We're still playing catch up with some kernel and CPU optimization changes, so expect a more extensive section next time. 
