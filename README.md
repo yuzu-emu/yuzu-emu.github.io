@@ -13,7 +13,7 @@ Steps to run:
 1. Run `git submodule init && git submodule update`.
 2. Install dependencies by running `yarn`.
 3. Set the `GITHUB_WIKI_URL` and `TENANT` enivironment variables:
-    ```
+    ```bash
     export GITHUB_WIKI_URL=https://github.com/yuzu-emu/yuzu.wiki.git
     export TENANT=yuzu
     ```
