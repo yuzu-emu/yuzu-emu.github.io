@@ -17,13 +17,13 @@ Continuing his work on the GameCube/Wii [Hagi](https://en.wikipedia.org/wiki/Jap
 First things first, support for GLSL in `Super Mario Sunshine` is needed, not everyone can run Vulkan. 
 This is achieved by adding {{< gh-hovercard "8133" "support for indirect addressing" >}} in OpenGL.
 
-This change doesn’t include support for GLASM at the moment, devs aren't too fond of having to deal with assembly shaders code. 
-Anyone would get angry if you get told to fix an issue in a car engine, and the only given tools for the job are a rock and a stick.
+This change doesn’t include support for GLASM at the moment, since developers aren't too fond of having to deal with Nvidia assembly shader code.
+Imagine being asked to fix an issue in a car engine, and the only given tools for the job are a rock and a stick.
 
-That was half the battle, proper OpenGL support requires solving one of the oldest limitations we had with the ageing API, Z scale flipping.
+However, that was only half the battle. Proper OpenGL support for `Super Mario Sunshine` and `Super Mario Galaxy` required solving an old limitation we had with the aging API: broken Z scale inversion.
 
-Most Switch games use NVN, the proprietary Nvidia API exclusive to the console. 
-It could be argued that NVN is much closer to OpenGL than Vulkan in how it operates.
+Most Switch games use either OpenGL, the popular free graphics API, or NVN, the proprietary Nvidia API exclusive to the console. 
+Arguably, NVN is much closer to OpenGL than Vulkan in how it operates.
 
 Now, the Tegra X1 GPU on the Switch is flexible enough to allow the coordinate system to be changed at the discretion of the game developer, so while most games will behave closer to what OpenGL expects, with the Z-axis facing away from the camera, `Hagi` and `Hovercraft` emulated games (which are native Vulkan games, something rare on the Switch)  will go for the Vulkan approach, with the Z-axis facing into the camera.
 
@@ -31,8 +31,8 @@ Now, the Tegra X1 GPU on the Switch is flexible enough to allow the coordinate s
 	"./coords.png| byte[] provides these great examples"
   >}}
 
-This isn’t an issue if you want to play Super Mario Galaxy in yuzu with Vulkan, behaviour is 1:1 with what the game expects. 
-But if you want to play using OpenGL instead, the game will give coordinates that are flipped compared to what your GPU will process, being limited by OpenGL’s coordinate system.
+This was not an issue if you wanted to play `Super Mario Galaxy` or `Super Mario Sunshine` in yuzu with yuzu's Vulkan backend, as the behaviour matched with what the game expected. 
+But if you tried to play using OpenGL instead, yuzu would not correctly interpret that the faces were flipped due to the Z scale inversion, and thus rendered only the back faces of objects.
 
 The solution is very simple, {{< gh-hovercard "8149" "flip the front faces" >}} when the Z-axis is inverted.
 
@@ -45,13 +45,13 @@ The solution is very simple, {{< gh-hovercard "8149" "flip the front faces" >}} 
 Next in line, you may have noticed that `Super Mario Sunshine` rendered with a black bar at the bottom.
 This is because the Wii and GC games natively use an aspect ratio different to the usual 16:9 we’re used to.
 Instead, the games render at a 5:3 aspect ratio. 
-`Super Mario Galaxy` informs the system to crop the screen properly, but `Super Mario Sunshine` doesn't, so yuzu previously had to fill the remaining space with black pixels.
+`Super Mario Galaxy` informs the system to explicitly crop the screen to its native resolution of 1920x1012, but `Super Mario Sunshine` does not, so yuzu previously did not attempt to crop the game, resulting in a conspicuous black bar at the bottom of the render.
 
 {{< imgs
 	"./crop.png| "
   >}}
 
-While proportions would be correct with the black bars, that’s not how Nintendo intended the games to be played, so for accuracy’s sake, byte[] stretches the image to match the native 1920x1080 resolution of the Switch, both {{< gh-hovercard "8150" "for Vulkan" >}} and {{< gh-hovercard "8152" "for OpenGL" >}}.
+While the game proportions in `Super Mario Sunshine` arguably appear more correct with the black bar, that’s not how Nintendo intended the games to be played, so for accuracy’s sake, byte[] interprets the game's implicit crop request, which stretches the image to match the native 1920x1080 resolution of the Switch, both {{< gh-hovercard "8150" "for Vulkan" >}} and {{< gh-hovercard "8152" "for OpenGL" >}}.
 
 {{< single-title-imgs-compare
 	"Don not adjust your set (Super Mario Sunshine)"
@@ -69,8 +69,8 @@ Well, it’s {{< gh-hovercard "8161" "OpenGL’s turn" >}} to join the fun.
 We mentioned last month how `Super Mario 64` had special requirements to start running on yuzu. 
 Most games build their code `ahead-of-time` ([AOT](https://www.youtube.com/watch?v=DeYTBDQnQZw)), that is, before being shipped to you. The OS’s job is to execute that precompiled binary code, and so you run your games.
 
-Now, `Super Mario 64` on the other hand runs `just-in-time` (JIT), maybe due to performance or portability reasons. 
-The emulator (Super Mario 3D All-Stars in this case, not yuzu) loads a native Nintendo 64 ROM of Super Mario 64, a JIT compiler takes the ROM and translates the original [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) (the architecture of the Nintendo 64’s CPU) instructions into [AArch64](https://en.wikipedia.org/wiki/AArch64) (the Switch’s CPU architecture) instructions in real time. 
+`Super Mario 64`, on the other hand, runs `just-in-time` (JIT), to make it easier to develop the Hovercraft emulator, and to allow reusing the same Hovercraft binary for different games.
+The Hovercraft emulator loads a native Nintendo 64 ROM of Super Mario 64, its JIT compiler takes the ROM and translates the original [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) (the architecture of the Nintendo 64’s CPU) instructions into [AArch64](https://en.wikipedia.org/wiki/AArch64) (the Switch’s CPU architecture) instructions on the fly.
 Just then the operating system will execute the game.
 
 {{< imgs
@@ -79,13 +79,14 @@ Just then the operating system will execute the game.
 
 This is similar to how yuzu translates AArch64 instructions into AMD64 ones, with the use of Dynarmic.
 
-This JIT is a functionality that yuzu didn’t have implemented, simply because no other game required it… or needed it.
+The JIT service, which is required to use JIT compilation on retail titles, is a functionality that yuzu didn’t have implemented, simply because no other game had ever needed it.
+Additionally, there were some obstacles to implementing it in a direct way, since it requires calling custom code supplied by the game, something which was never needed by any previous service implementation.
 So, {{< gh-hovercard "8164" "some preliminary stubs aside" >}}, byte[] {{< gh-hovercard "8199" "implemented the HLE JIT service" >}} to have the `Hovercraft` emulator fully functional and `Super Mario 64` booting.
 
-{{< gh-hovercard "8261" "In a separate PR" >}}, byte[] adds documentation of how the HLE JIT pulgin operates.
-Should help other open source projects if needed.
+{{< gh-hovercard "8261" "In a separate PR" >}}, byte[] adds documentation of how the JIT service interface operates.
+This should help other open source projects, if needed.
 
-This isn’t enough to get Super Mario 64 playable, there are rendering issues to solve first.
+Of course, this wasn’t enough to get Super Mario 64 playable, as there were rendering issues to solve as well.
 It’s never that simple…
 
 Let's give a proper explanation.
@@ -105,9 +106,9 @@ So, instead of using the insane reported buffer size, byte[] says NO! and {{< gh
 	"./sm64.png| It's-a him! (Super Mario 64)"
   >}}
 
-Performance is not stellar for now, that’s related to texture swizzling, but you can finally enjoy all 3 All-Star games on both APIs.
+Performance on Vulkan is not stellar for now, but you can finally enjoy all 3 of the `Super Mario 3D All-Stars` games on both APIs.
 
-Lastly, [Morph](https://github.com/Morph1984) implemented a fix to {{< gh-hovercard "8135" "keep the web applet open in the foreground" >}}, as the Super Mario 3D All-Stars games require it to operate correctly.
+Lastly, [Morph](https://github.com/Morph1984) implemented a fix to {{< gh-hovercard "8135" "keep the web applet open in the foreground" >}}, as the Super Mario 3D All-Stars games require it to operate without crashing a few minutes into gameplay.
 
 ## General graphical fixes
 
@@ -136,9 +137,9 @@ Age of Calamity would display *interesting* graphics at random intervals:
 
 [Blinkhawk](https://github.com/FernandoS27) {{< gh-hovercard "8128" "fixed the regressions" >}} and both games are back in business.
 
-You know how emulation goes, you fix an issue, another pops up.
-The cropping fix byte[] implemented for Super Mario 3D All-Stars had the lovely unintended side-effect of breaking  rendering for homebrew apps.
-Thankfully Morph added the {{< gh-hovercard "8267" "magic line to the code" >}} that solves this regression.
+Often times in emulation, when you fix one issue, another pops up.
+The cropping fix byte[] implemented for `Super Mario 3D All-Stars` had the lovely unintended side-effect of breaking  rendering for homebrew apps in Vulkan.
+Thankfully, Morph added the {{< gh-hovercard "8267" "magic line to the code" >}} that solves this regression.
 
 ## Skyline framework: Part 3
 
@@ -147,9 +148,9 @@ There has been important progress in getting the [Skyline](https://github.com/sk
 
 [tech-ticks](https://github.com/tech-ticks) has been quite busy {{< gh-hovercard "8171" "giving the finishing touches" >}}.
 The latest changes include:
-Better `LayeredExeFs` support, which results in easier mod distribution and self-updating capabilities.
-Added support for the `SO_KEEPALIVE` socket option, which allows the Skyline TCP logger to operate.
-And Implement [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) address resolution, which is required by plugins that use HTTPS requests.
+- Better `LayeredExeFs` support, which results in easier mod distribution and self-updating capabilities.
+- Support for the `SO_KEEPALIVE` socket option, which allows the Skyline TCP logger to operate.
+- Implementation of [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) address resolution, which is required by plugins that use HTTPS requests.
 
 We must mention that while Skyline kernel support is basically finished, bugs in yuzu’s codebase prevent proper operation of the modding framework.
 For example, due to underlying emulation issues, [ARCropolis](https://github.com/Raytwo/ARCropolis) won’t work until `Project Gaia` is finished, and some of the changes previously mentioned need some fine tuning from our part to function properly.
@@ -286,7 +287,7 @@ yuzu’s screenshot capture feature allows an easy way to save moments at the re
 The hotkey for capture could be spammed, leading yuzu to a crash if several requests for capture were sent, this could be aggravated if the rendering resolution was set to a high value.
 To solve this, yuzu now {{< gh-hovercard "8192" "ignores new requests while a capture is being processed" >}}, and prints a warning in the log.
 
-There’s always room for improvements in emulation, nothing is ever truly complete, so this time, german77 focuses on inaccuracies found on our input emulation.
+There’s always room for improvements in emulation, as nothing is ever truly complete. This time, german77 focuses on inaccuracies found on our input emulation.
 
 {{< gh-hovercard "8222" "`IsSixAxisSensorFusionEnabled` is implemented" >}} by reverse engineering all sixaxis functions, and it was verified by comparing with unit test homebrew results done on the Switch.
 This should potentially improve motion accuracy.
@@ -297,7 +298,7 @@ This leads to mismatches or delays in the input process, and can potentially mak
 Of course, this is not ideal at all, so german77 {{< gh-hovercard "8229" "gets rid of the memory duplication" >}} and uses the ever magical * pointers to access the shared memory directly instead.
 This can fix bugs on countless games, with the biggest example being the `Pokémon: Let’s Go` games having a hard time detecting controllers.
 
-Hotkeys presses will now be {{< gh-hovercard "8249" "triggered by using a queue" >}}, this has the benefit of not having to wait for the UI to respond, reducing their delay.
+Hotkey presses will now be {{< gh-hovercard "8249" "triggered by using a queue" >}}. This has the benefit of not having to wait for the UI to respond, reducing their delay.
 
 Analog sticks {{< gh-hovercard "8272" "got some love" >}}, with a couple of important changes in their mapping:
 
@@ -306,8 +307,8 @@ Minimum range was lowered from 50% to 25%, providing greater precision, particul
 Auto-center correction is stronger now, avoiding drifting without having to rely on stronger dead-zone values.
 Individual axis values can be manually deleted now if buttons were mapped manually.
 
-So far, only player 1 could automatically reconnect a controller by pressing a button, other players only could do so when using a keyboard.
-german77’s pull requests aims to solve that, {{< gh-hovercard "8277" "allowing any of the remaining 7 players to reconnect their controller" >}}, no privileges for the higher in hierarchy anymore.
+Previously, only player 1 could automatically reconnect a controller by pressing a button. Other players only could do so when using a keyboard.
+german77’s pull requests aims to solve that, {{< gh-hovercard "8277" "allowing any of the remaining 7 players to reconnect their controller" >}}. No privileges for the higher in hierarchy anymore.
 
 This change is under testing at the time of writing, as it could potentially cause regressions. Be sure to use the status hovercard to check back in a few days!
 
