@@ -14,7 +14,7 @@ Hello yuz-ers! April has been kind to us, providing CPU and Kernel performance i
 
 Continuing his work on the GameCube/Wii [Hagi](https://en.wikipedia.org/wiki/Japanese_destroyer_Hagi_(1920)) and Nintendo 64 [Hovercraft](https://en.wikipedia.org/wiki/Landing_Craft_Air_Cushion) [official Nintendo emulators support](https://yuzu-emu.org/entry/yuzu-progress-report-mar-2022/#the-vulkan-emulator) (totally not in violation of their own EULA), [byte[]](https://github.com/liamwhite) has introduced several new PRs to further improve the emulation status of the titles included within `Super Mario 3D All-Stars`.
 
-First things first, support for GLSL in `Super Mario Sunshine` is needed too, not everyone can run Vulkan. 
+First things first, support for GLSL in `Super Mario Sunshine` is needed, not everyone can run Vulkan. 
 This is achieved by adding {{< gh-hovercard "8133" "support for indirect addressing" >}} in OpenGL.
 
 This change doesn’t include support for GLASM at the moment, devs aren't too fond of having to deal with assembly shaders code. 
@@ -25,7 +25,7 @@ That was half the battle, proper OpenGL support requires solving one of the olde
 Most Switch games use NVN, the proprietary Nvidia API exclusive to the console. 
 It could be argued that NVN is much closer to OpenGL than Vulkan in how it operates.
 
-Now, the Tegra X1 GPU on the Switch is flexible enough to allow the coordinate system to be changed at the discretion of the game developer, so while most games will behave closer to what OpenGL expects, with the Z-axis facing away from the camera, Hagi and Hovercraft emulated games (which are native Vulkan games, something rare on the Switch)  will go for the Vulkan approach, with the Z-axis facing into the camera.
+Now, the Tegra X1 GPU on the Switch is flexible enough to allow the coordinate system to be changed at the discretion of the game developer, so while most games will behave closer to what OpenGL expects, with the Z-axis facing away from the camera, `Hagi` and `Hovercraft` emulated games (which are native Vulkan games, something rare on the Switch)  will go for the Vulkan approach, with the Z-axis facing into the camera.
 
 {{< imgs
 	"./coords.png| byte[] provides these great examples"
@@ -80,7 +80,7 @@ Just then the operating system will execute the game.
 This is similar to how yuzu translates AArch64 instructions into AMD64 ones, with the use of Dynarmic.
 
 This JIT is a functionality that yuzu didn’t have implemented, simply because no other game required it… or needed it.
-So, {{< gh-hovercard "8164" "some preliminary stubs aside" >}}, byte[] {{< gh-hovercard "8199" "implemented the HLE JIT service" >}} to have the Hovercraft emulator fully functional and `Super Mario 64` booting.
+So, {{< gh-hovercard "8164" "some preliminary stubs aside" >}}, byte[] {{< gh-hovercard "8199" "implemented the HLE JIT service" >}} to have the `Hovercraft` emulator fully functional and `Super Mario 64` booting.
 
 {{< gh-hovercard "8261" "In a separate PR" >}}, byte[] adds documentation of how the HLE JIT pulgin operates.
 Should help other open source projects if needed.
@@ -90,7 +90,7 @@ It’s never that simple…
 
 Let's give a proper explanation.
 Nintendo Switch games bundle their own individual GPU driver with each game. 
-This is done to inrease compatibility, you don't need to update every console in the world if a driver version has an issue.
+This is done to increase compatibility, you don't need to update every console in the world if a driver version has an issue.
 
 For unknown reasons, either the `Hovercraft` emulator or the bundled GPU driver reports Vertex Buffers that are simply too big, especially when compared to what the game actually uses.
 It could be an issue in the included emulator, or just a driver bug, we can't know, but we need to work around this problem.
