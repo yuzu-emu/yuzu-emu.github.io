@@ -69,8 +69,8 @@ Well, it’s {{< gh-hovercard "8161" "OpenGL’s turn" >}} to join the fun.
 We mentioned last month how `Super Mario 64` had special requirements to start running on yuzu. 
 Most games build their code `ahead-of-time` ([AOT](https://www.youtube.com/watch?v=DeYTBDQnQZw)), that is, before being shipped to you. The OS’s job is to execute that precompiled binary code, and so you run your games.
 
-`Super Mario 64`, on the other hand, runs `just-in-time` (JIT), to make it easier to develop the Hovercraft emulator, and to allow reusing the same Hovercraft binary for different games.
-The Hovercraft emulator loads a native Nintendo 64 ROM of Super Mario 64, its JIT compiler takes the ROM and translates the original [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) (the architecture of the Nintendo 64’s CPU) instructions into [AArch64](https://en.wikipedia.org/wiki/AArch64) (the Switch’s CPU architecture) instructions on the fly.
+`Super Mario 64`, on the other hand, runs `just-in-time` (JIT), to make it easier to develop the `Hovercraft` emulator, and to allow reusing the same `Hovercraft` binary for different games.
+The `Hovercraft` emulator loads a native Nintendo 64 ROM of Super Mario 64, its JIT compiler takes the ROM and translates the original [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) (the architecture of the Nintendo 64’s CPU) instructions into [AArch64](https://en.wikipedia.org/wiki/AArch64) (the Switch’s CPU architecture) instructions on the fly.
 Just then the operating system will execute the game.
 
 {{< imgs
