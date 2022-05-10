@@ -92,11 +92,11 @@ It’s never that simple… but let's try to explain it simply.
 Nintendo Switch games bundle their own individual GPU driver with each game. 
 This is done to increase compatibility, you don't need to update every console in the world if a driver version has an issue.
 
-For unknown reasons, either the `Hovercraft` emulator or the bundled GPU driver reports Vertex Buffers that are simply too big, especially when compared to what the game actually uses.
-It could be an issue in the included emulator, or just a driver bug, we can't know, but we need to work around this problem.
+For unknown reasons, either the `Hovercraft` emulator or the bundled GPU driver reports Vertex Buffers that are simply too large, especially when compared to what the game actually uses.
+Whether it's an issue in the included emulator or just a driver bug, we can't know for certain, but we do need to work around this problem.
 
 {{< imgs
-	"./vb.png| "
+	"./vb.png| Erroneous Vertex Buffer size diagram"
   >}}
 
 So, instead of using the insane reported buffer size, byte[] says NO! and {{< gh-hovercard "8205" "uses the backing memory size" >}} instead.
@@ -105,20 +105,20 @@ So, instead of using the insane reported buffer size, byte[] says NO! and {{< gh
 	"./sm64.png| It's-a him! (Super Mario 64)"
   >}}
 
-Performance on Vulkan is not stellar for now, but you can finally enjoy all 3 of the `Super Mario 3D All-Stars` games on both APIs.
+Performance on Vulkan is not stellar for now, but you can finally enjoy all 3 of the `Super Mario 3D All-Stars` games with both APIs.
 
-Lastly, [Morph](https://github.com/Morph1984) implemented a fix to {{< gh-hovercard "8135" "keep the web applet open in the foreground" >}}, as the Super Mario 3D All-Stars games require it to operate without crashing a few minutes into gameplay.
+Lastly, [Morph](https://github.com/Morph1984) implemented a fix to {{< gh-hovercard "8135" "keep the web applet open in the foreground" >}}, as the `Super Mario 3D All-Stars` games require it or else they would crash a few minutes into gameplay.
 
 ## General graphical fixes
 
 Following up on last month's NVFlinger rewrite, [bunnei](https://github.com/bunnei) continued to track issues and bug reports.
 He fixed the reported issues and further cleaned up the code to improve code quality.
-{{< gh-hovercard "8137" "Read more about the NVFlinger rewrite here" >}}.
+{{< gh-hovercard "8137" "See the code changes for the NVFlinger rewrite here" >}}.
 
-`Xenoblade Chronicles 2` and `Hyrule Warriors: Age of Calamity` would experience interesting issues which were caused by the new `GPU Garbage Collector`introduced as part of `Project Y.F.C.`. 
+`Xenoblade Chronicles 2` and `Hyrule Warriors: Age of Calamity` would experience interesting issues which were caused by the new `GPU Garbage Collector` introduced as part of `Project Y.F.C.`. 
 We talked about those changes back in [January](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2022/#other-graphical-fixes).
 
-As you can see bellow, Xenoblade Chronicles 2 would use exorbitant amounts of VRAM in OpenGL (Vulkan was unaffected):
+As you can see below, `Xenoblade Chronicles 2` would use exorbitant amounts of VRAM in OpenGL (Vulkan was unaffected):
 
 {{< single-title-imgs-compare
 	"Not a great way to test your whole VRAM (Xenoblade Chronicles 2)"
@@ -126,7 +126,7 @@ As you can see bellow, Xenoblade Chronicles 2 would use exorbitant amounts of VR
 	"./xc2fix.png"
 >}}
 
-Age of Calamity would display *interesting* graphics at random intervals:
+`Age of Calamity` would display *interesting* graphics at random intervals:
 
 {{< single-title-imgs-compare
 	"This is why you don't blast Caramelldansen too hard (Hyrule Warriors: Age of Calamity)"
@@ -137,7 +137,7 @@ Age of Calamity would display *interesting* graphics at random intervals:
 [Blinkhawk](https://github.com/FernandoS27) {{< gh-hovercard "8128" "fixed the regressions" >}} and both games are back in business.
 
 Often times in emulation, when you fix one issue, another pops up.
-The cropping fix byte[] implemented for `Super Mario 3D All-Stars` had the lovely unintended side-effect of breaking  rendering for homebrew apps in Vulkan.
+The cropping fix byte[] implemented for `Super Mario 3D All-Stars` had the lovely unintended side effect of breaking  rendering for homebrew apps in Vulkan.
 Thankfully, Morph added the {{< gh-hovercard "8267" "magic line to the code" >}} that solves this regression.
 
 ## Skyline framework: Part 3
@@ -145,7 +145,7 @@ Thankfully, Morph added the {{< gh-hovercard "8267" "magic line to the code" >}}
 There has been important progress in getting the [Skyline](https://github.com/skyline-dev/skyline) modding framework working.
 [Here are](https://yuzu-emu.org/entry/yuzu-progress-report-nov-2021/#skyline-framework-part-1) the [two links](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2021/#skyline-framework-part-2) if you missed our previous progress reports on the subject.
 
-[tech-ticks](https://github.com/tech-ticks) has been quite busy {{< gh-hovercard "8171" "giving the finishing touches" >}}.
+[tech-ticks](https://github.com/tech-ticks) has been quite busy {{< gh-hovercard "8171" "working on the finishing touches" >}}.
 The latest changes include:
 - Better `LayeredExeFs` support, which results in easier mod distribution and self-updating capabilities.
 - Support for the `SO_KEEPALIVE` socket option, which allows the Skyline TCP logger to operate.
