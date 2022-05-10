@@ -221,7 +221,7 @@ Our resident bunnei rabbit continued his work on rewriting yuzu's kernel memory 
 accurate to the latest system updates. This time, he tackled and revamped {{< gh-hovercard "7974" "how the kernel code memory is mapped and unmapped" >}}.
 
 Code memory support, in the context of the Switch, allows games and apps to load and unload smaller parts of their code on the fly.
-Thanks to these changes, 'Super Smash Bros. Ultimate' no longer causes memory access issues while loading/unloading NROs, making the game stable for long runs.
+Thanks to these changes, `Super Smash Bros. Ultimate` no longer causes memory access issues while loading/unloading NROs, making the game stable for long play sessions.
 
 bunnei also {{< gh-hovercard "8013" "migrated slab heaps for the guest (Switch) kernel objects" >}} from host heap memory to emulated guest memory.
 With this change, yuzu's memory layout is now more closely matching the console.
@@ -243,7 +243,7 @@ Back to the list of April changes, bunnei also {{< gh-hovercard "8122" "reimplem
 > Services are system processes running in the background which wait for incoming requests. 
 The Switch's HorizonOS has various services that perform various tasks e.g Audio, Bluetooth, etc.
 
-Previously we used to allocate one host thread per HLE service interface because -
+Previously, we used to allocate one host thread per HLE service interface because -
 
 - some service routines need to potentially wait a long time for completion, like network or filesystem access, and 
 - we don't support guest thread rescheduling from host threads.
@@ -256,7 +256,7 @@ With the rewrite, yuzu now has a single "default service thread" that is used fo
 For the services that are time-sensitive and for those that need blocking, we still allow thread creation (e.g. Audio, BSD, FileSystem, nvdrv)
 
 This brings down the service thread count from double digits to single digits, thus improving stability and consistency - especially on systems with less cores.
-Users with 4 thread CPUs (either 2 cores + HT/SMT, or 4 cores) should see performance and stability improvements on most games.
+Users with 4 thread CPUs (either 2 cores + HT/SMT, or 4 cores) should see performance and stability improvements in most games.
 
 Another battle for proper shutdown behaviour is fought and won.
 yuzu currently does not emulate multi-process capabilities of the HorizonOS kernel, because it is not required to emulate any games. However, the multi-process APIs that are used by games still need to be managed in the way they expect.
