@@ -63,33 +63,32 @@ In the previous report, we mentioned how S8D24 < > ABGR8 texture conversions all
 Well, it’s {{< gh-hovercard "8161" "OpenGL’s turn" >}} to join the fun.
 
 {{< imgs
-	"./s8d24.png| "
+	"./s8d24.png| S8D24 to ABGR8 texture conversion diagram"
   >}}
 
 We mentioned last month how `Super Mario 64` had special requirements to start running on yuzu. 
-Most games build their code `ahead-of-time` ([AOT](https://www.youtube.com/watch?v=DeYTBDQnQZw)), that is, before being shipped to you. The OS’s job is to execute that precompiled binary code, and so you run your games.
+Most games compile their code `ahead-of-time` ([AOT](https://www.youtube.com/watch?v=DeYTBDQnQZw)), that is, before being shipped to you. The Operating System’s job is to execute that precompiled binary code, and then you're playing games.
 
 `Super Mario 64`, on the other hand, runs `just-in-time` (JIT), to make it easier to develop the `Hovercraft` emulator, and to allow reusing the same `Hovercraft` binary for different games.
-The `Hovercraft` emulator loads a native Nintendo 64 ROM of Super Mario 64, its JIT compiler takes the ROM and translates the original [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) (the architecture of the Nintendo 64’s CPU) instructions into [AArch64](https://en.wikipedia.org/wiki/AArch64) (the Switch’s CPU architecture) instructions on the fly.
-Just then the operating system will execute the game.
+The `Hovercraft` emulator loads a native Nintendo 64 ROM of Super Mario 64, and then its JIT compiler takes the ROM and translates the original [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) (the architecture of the Nintendo 64’s CPU) instructions into [AArch64](https://en.wikipedia.org/wiki/AArch64) (the Switch’s CPU architecture) instructions on the fly.
+Only then will the operating system execute the game code.
 
 {{< imgs
-	"./jitsrv.png| "
+	"./jitsrv.png| Ahead-of-time versus Just-in-time compilation diagram"
   >}}
 
-This is similar to how yuzu translates AArch64 instructions into AMD64 ones, with the use of Dynarmic.
+This is similar to how yuzu translates AArch64 instructions into AMD64 instructions with the assistance of [Dynarmic](https://github.com/merryhime/dynarmic).
 
 The JIT service, which is required to use JIT compilation on retail titles, is a functionality that yuzu didn’t have implemented, simply because no other game had ever needed it.
 Additionally, there were some obstacles to implementing it in a direct way, since it requires calling custom code supplied by the game, something which was never needed by any previous service implementation.
-So, {{< gh-hovercard "8164" "some preliminary stubs aside" >}}, byte[] {{< gh-hovercard "8199" "implemented the HLE JIT service" >}} to have the `Hovercraft` emulator fully functional and `Super Mario 64` booting.
+So, {{< gh-hovercard "8164" "some preliminary stubs aside" >}}, byte[] {{< gh-hovercard "8199" "implemented the HLE JIT service" >}} to allow the `Hovercraft` emulator to function and `Super Mario 64` to boot.
 
 {{< gh-hovercard "8261" "In a separate PR" >}}, byte[] adds documentation of how the JIT service interface operates.
 This should help other open source projects, if needed.
 
-Of course, this wasn’t enough to get Super Mario 64 playable, as there were rendering issues to solve as well.
-It’s never that simple…
+Of course, this wasn’t enough to get `Super Mario 64` playable, as there were rendering issues to solve as well.
 
-Let's give a proper explanation.
+It’s never that simple… but let's try to explain it simply.
 Nintendo Switch games bundle their own individual GPU driver with each game. 
 This is done to increase compatibility, you don't need to update every console in the world if a driver version has an issue.
 
