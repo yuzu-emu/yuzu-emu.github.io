@@ -120,7 +120,7 @@ We talked about those changes back in [January](https://yuzu-emu.org/entry/yuzu-
 
 As you can see below, `Xenoblade Chronicles 2` would use exorbitant amounts of VRAM in OpenGL (Vulkan was unaffected):
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
 	"Not a great way to test your whole VRAM (Xenoblade Chronicles 2)"
 	"./xc2bug.png"
 	"./xc2fix.png"
