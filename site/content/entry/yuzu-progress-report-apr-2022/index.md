@@ -221,7 +221,7 @@ Ket's begin with two changes that happened in March.
 Our resident bunnei rabbit continued his work on rewriting yuzu's kernel memory management to make it 
 accurate to the latest system updates. This time, he tackled and revamped {{< gh-hovercard "7974" "how the kernel code memory is mapped and unmapped" >}}.
 
-Code memory, in the context of the Switch, is where games and apps have their own code mapped for execution.
+Code memory support, in the context of the Switch, allows games and apps to load and unload smaller parts of their code on the fly.
 Thanks to these changes, 'Super Smash Bros. Ultimate' no longer causes memory access issues while loading/unloading NROs, making the game stable for long runs.
 
 bunnei also {{< gh-hovercard "8013" "migrated slab heaps for the guest (Switch) kernel objects" >}} from host heap memory to emulated guest memory.
