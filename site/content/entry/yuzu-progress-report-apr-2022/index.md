@@ -6,29 +6,29 @@ coauthor = "CaptV0rt3x"
 forum = 0
 +++
 
-Hello yuz-ers! April has been kind to us, providing CPU and Kernel performance improvements, several GPU emulation changes, UI tweaks and more!
+Hello yuz-ers, the month of April has been amazing! We'll discuss CPU and Kernel performance improvements, several GPU emulation changes, UI tweaks and more!
 
 <!--more--> 
 
 ## Saving Princess Peach yet again
 
-Continuing his work on the GameCube/Wii [Hagi](https://en.wikipedia.org/wiki/Japanese_destroyer_Hagi_(1920)) and Nintendo 64 [Hovercraft](https://en.wikipedia.org/wiki/Landing_Craft_Air_Cushion) [official Nintendo emulators support](https://yuzu-emu.org/entry/yuzu-progress-report-mar-2022/#the-vulkan-emulator) (totally not in violation of their own EULA), [byte[]](https://github.com/liamwhite) has introduced several new PRs to further improve the emulation status of the titles included within `Super Mario 3D All-Stars`.
+Continuing his work to better support the [official](https://yuzu-emu.org/entry/yuzu-progress-report-mar-2022/#the-vulkan-emulator) GameCube/Wii and Nintendo 64 emulators (codenamed `Hagi` and `Hovercraft` respectively), [byte[]](https://github.com/liamwhite) has introduced several new PRs to further improve the compatibility of the titles included within `Super Mario 3D All-Stars`.
 
-First things first, support for GLSL in `Super Mario Sunshine` is needed, not everyone can run Vulkan. 
+byte[] first implemented support for GLSL in `Super Mario Sunshine`, as not everyone can run Vulkan.
 This is achieved by adding {{< gh-hovercard "8133" "support for indirect addressing" >}} in OpenGL.
 
-This change doesn’t include support for GLASM at the moment, since developers aren't too fond of having to deal with Nvidia assembly shader code.
+This change doesn’t include support for GLASM at the moment, since our developers aren't too fond of having to deal with NVIDIA assembly shader code.
 Imagine being asked to fix an issue in a car engine, and the only given tools for the job are a rock and a stick.
 
 However, that was only half the battle. Proper OpenGL support for `Super Mario Sunshine` and `Super Mario Galaxy` required solving an old limitation we had with the aging API: broken Z scale inversion.
 
-Most Switch games use either OpenGL, the popular free graphics API, or NVN, the proprietary Nvidia API exclusive to the console. 
+Most Switch games use either OpenGL, the popular free graphics API, or NVN, the proprietary NVIDIA API exclusive to the console. 
 Arguably, NVN is much closer to OpenGL than Vulkan in how it operates.
 
-Now, the Tegra X1 GPU on the Switch is flexible enough to allow the coordinate system to be changed at the discretion of the game developer, so while most games will behave closer to what OpenGL expects, with the Z-axis facing away from the camera, `Hagi` and `Hovercraft` emulated games (which are native Vulkan games, something rare on the Switch)  will go for the Vulkan approach, with the Z-axis facing into the camera.
+The Tegra X1 GPU on the Switch is flexible enough to allow the coordinate system to be changed at the discretion of the game developer. While most games will behave closer to what OpenGL expects, with the Z-axis facing away from the camera, `Hagi` and `Hovercraft` emulated games (which render using Vulkan and is exclusive to a tiny handful of titles on the Switch) have the coordinates inverted and the Z-axis facing into the camera, the way Vulkan games would expect to natively render.
 
 {{< imgs
-	"./coords.png| byte[] provides these great examples"
+	"./coords.png| byte[]'s Z-axis diagram"
   >}}
 
 This was not an issue if you wanted to play `Super Mario Galaxy` or `Super Mario Sunshine` in yuzu with yuzu's Vulkan backend, as the behaviour matched with what the game expected. 
@@ -48,10 +48,10 @@ Instead, the games render at a 5:3 aspect ratio.
 `Super Mario Galaxy` informs the system to explicitly crop the screen to its native resolution of 1920x1012, but `Super Mario Sunshine` does not, so yuzu previously did not attempt to crop the game, resulting in a conspicuous black bar at the bottom of the render.
 
 {{< imgs
-	"./crop.png| "
+	"./crop.png| Diagram of the cropping process"
   >}}
 
-While the game proportions in `Super Mario Sunshine` arguably appear more correct with the black bar, that’s not how Nintendo intended the games to be played, so for accuracy’s sake, byte[] interprets the game's implicit crop request, which stretches the image to match the native 1920x1080 resolution of the Switch, both {{< gh-hovercard "8150" "for Vulkan" >}} and {{< gh-hovercard "8152" "for OpenGL" >}}.
+While the game proportions in `Super Mario Sunshine`, arguably, appear more correct with the black bar, that’s not how Nintendo intended the game to be played. For accuracy’s sake, byte[] interprets the game's implicit crop request, which stretches the image to match the native 1920x1080 resolution of the Switch, both {{< gh-hovercard "8150" "for Vulkan" >}} and {{< gh-hovercard "8152" "for OpenGL" >}}.
 
 {{< single-title-imgs-compare
 	"Don not adjust your set (Super Mario Sunshine)"
@@ -59,7 +59,7 @@ While the game proportions in `Super Mario Sunshine` arguably appear more correc
 	"./cropfix.png"
 >}}
 
-In the previous report we mentioned how S8D24 < > ABGR8 texture conversions allow `Super Mario Galaxy` star bits to behave correctly. 
+In the previous report, we mentioned how S8D24 < > ABGR8 texture conversions allow `Super Mario Galaxy` star bits to behave correctly. 
 Well, it’s {{< gh-hovercard "8161" "OpenGL’s turn" >}} to join the fun.
 
 {{< imgs
