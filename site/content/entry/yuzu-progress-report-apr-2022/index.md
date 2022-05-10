@@ -282,31 +282,31 @@ If the user sets a very high DPI value for their mouse while using mouse panning
 
 Let’s begin with an interesting one.
 yuzu’s screenshot capture feature allows an easy way to save moments at the resolution the scaler is currently set at.
-The hotkey for capture could be spammed, leading yuzu to a crash if several requests for capture were sent, this could be aggravated if the rendering resolution was set to a high value.
+The hotkey for screenshot capture could be spammed, leading yuzu to a crash if several requests for screenshots were sent. This could be worsened if the rendering resolution was set to a high value.
 To solve this, yuzu now {{< gh-hovercard "8192" "ignores new requests while a capture is being processed" >}}, and prints a warning in the log.
 
-There’s always room for improvements in emulation, as nothing is ever truly complete. This time, german77 focuses on inaccuracies found on our input emulation.
+There’s always room for improvements in emulation, as nothing is ever truly complete. This time, german77 focuses on inaccuracies found in our input emulation.
 
-{{< gh-hovercard "8222" "`IsSixAxisSensorFusionEnabled` is implemented" >}} by reverse engineering all sixaxis functions, and it was verified by comparing with unit test homebrew results done on the Switch.
+{{< gh-hovercard "8222" "`IsSixAxisSensorFusionEnabled` is implemented" >}} by reverse engineering all Sixaxis functions, and it was verified by comparing with unit test homebrew results done on the Switch.
 This should potentially improve motion accuracy.
 
 The [HID](https://en.wikipedia.org/wiki/Human_interface_device) service in charge of handling input commands, among other things, used to operate by copying its assigned shared memory and reporting back the changes.
-This leads to mismatches or delays in the input process, and can potentially make games read completely wrong data.
+This leads to mismatches or delays in the input process, and can potentially make games read completely incorrect data.
 
-Of course, this is not ideal at all, so german77 {{< gh-hovercard "8229" "gets rid of the memory duplication" >}} and uses the ever magical * pointers to access the shared memory directly instead.
-This can fix bugs on countless games, with the biggest example being the `Pokémon: Let’s Go` games having a hard time detecting controllers.
+Obviously this isn't ideal, so german77 {{< gh-hovercard "8229" "gets rid of the memory duplication" >}} and uses the ever magical [* pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) to access the shared memory directly instead.
+This can fix bugs affecting countless games, with the biggest example being the `Pokémon: Let’s Go` games having a hard time detecting controllers.
 
 Hotkey presses will now be {{< gh-hovercard "8249" "triggered by using a queue" >}}. This has the benefit of not having to wait for the UI to respond, reducing their delay.
 
 Analog sticks {{< gh-hovercard "8272" "got some love" >}}, with a couple of important changes in their mapping:
 
-The default maximum range is now set to 95%, to ensure that games get to use the whole range. This change, for example, avoids character walking when the stick is at certain angles in games like `Pokémon Legends: Arceus`.
-Minimum range was lowered from 50% to 25%, providing greater precision, particularly for people trying to play racing games with a matching wheel.
+The default maximum range is now set to 95%, to ensure that games get to use the whole range. This change, for example, avoids characters walking when the stick is at certain angles in games like `Pokémon Legends: Arceus`.
+The minimum range was lowered from 50% to 25%, providing greater precision, particularly for people trying to play racing games with a matching wheel.
 Auto-center correction is stronger now, avoiding drifting without having to rely on stronger dead-zone values.
 Individual axis values can be manually deleted now if buttons were mapped manually.
 
-Previously, only player 1 could automatically reconnect a controller by pressing a button. Other players only could do so when using a keyboard.
-german77’s pull requests aims to solve that, {{< gh-hovercard "8277" "allowing any of the remaining 7 players to reconnect their controller" >}}. No privileges for the higher in hierarchy anymore.
+Previously, only Player 1 could automatically reconnect a controller by pressing a button. Other players only could do so when using a keyboard.
+german77’s pull requests aims to solve that, {{< gh-hovercard "8277" "allowing any of the remaining 7 players to reconnect their controller" >}}. No privileges for those higher in the hierarchy anymore.
 
 This change is under testing at the time of writing, as it could potentially cause regressions. Be sure to use the status hovercard to check back in a few days!
 
@@ -314,10 +314,10 @@ This change is under testing at the time of writing, as it could potentially cau
 
 `Project Y.F.C.` is not far away from releasing its first part of two planned.
 
-`Project Gaia` continues to progress slowly but surely, it can now finally let some previously broken games to boot for the first time.
+`Project Gaia` continues to progress slowly but surely, now causing some previously broken games to finally boot for the first time.
 
 {{< single-title-imgs
-	"."
+	"Minecraft and Mortal Kombat 11 are now booting!"
 	"./gaia1.png"
 	"./gaia2.png"
 >}}
