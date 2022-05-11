@@ -6,7 +6,7 @@ coauthor = "CaptV0rt3x"
 forum = 0
 +++
 
-Hello yuz-ers, the month of April has been amazing! We'll discuss CPU and Kernel performance improvements, several GPU emulation changes, UI tweaks and more!
+Hello yuz-ers, the month of April has been amazing! We'll discuss CPU and Kernel performance improvements, several GPU emulation changes, UI tweaks, and more!
 
 <!--more--> 
 
@@ -54,7 +54,7 @@ Instead, the games render at a 5:3 aspect ratio.
 While the game proportions in `Super Mario Sunshine`, arguably, appear more correct with the black bar, that’s not how Nintendo intended the game to be played. For accuracy’s sake, byte[] interprets the game's implicit crop request, which stretches the image to match the native 1920x1080 resolution of the Switch, both {{< gh-hovercard "8150" "for Vulkan" >}} and {{< gh-hovercard "8152" "for OpenGL" >}}.
 
 {{< single-title-imgs-compare
-	"Don not adjust your set (Super Mario Sunshine)"
+	"Do not adjust your set (Super Mario Sunshine)"
 	"./cropbug.png"
 	"./cropfix.png"
 >}}
