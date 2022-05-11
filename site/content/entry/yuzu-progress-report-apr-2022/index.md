@@ -1,9 +1,9 @@
 +++
-date = "2022-05-07T12:00:00-03:00"
+date = "2022-05-11T12:00:00-03:00"
 title = "Progress Report April 2022"
 author = "GoldenX86"
 coauthor = "CaptV0rt3x"
-forum = 0
+forum = 572728
 +++
 
 Hello yuz-ers, the month of April has been amazing! We'll discuss CPU and Kernel performance improvements, several GPU emulation changes, UI tweaks, and more!
