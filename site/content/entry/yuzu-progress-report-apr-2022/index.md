@@ -118,13 +118,12 @@ He fixed the reported issues and further cleaned up the code to improve code qua
 `Xenoblade Chronicles 2` and `Hyrule Warriors: Age of Calamity` would experience interesting issues which were caused by the new `GPU Garbage Collector` introduced as part of `Project Y.F.C.`. 
 We talked about those changes back in [January](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2022/#other-graphical-fixes).
 
-As you can see below, `Xenoblade Chronicles 2` would use exorbitant amounts of VRAM in OpenGL (Vulkan was unaffected):
+As you can see on the top bar below, `Xenoblade Chronicles 2` would use exorbitant amounts of VRAM in OpenGL (top bar). 
+The bottom bar shows the result after the fixes were implemented.
 
-{{< single-title-imgs
-	"Not a great way to test your whole VRAM (Xenoblade Chronicles 2)"
-	"./xc2bug.png"
-	"./xc2fix.png"
->}}
+{{< imgs
+	"./xc2bug.png| Not the best way to test your whole VRAM (Xenoblade Chronicles 2)"
+  >}}
 
 `Age of Calamity` would display *interesting* graphics at random intervals:
 
