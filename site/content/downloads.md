@@ -22,6 +22,8 @@ The installer will allow you to download your preferred release channel.
 
 If you are a Patreon subscriber, the "Early Access" channel will be available to you, and will provide early access to exciting experimental changes on top of what is available in the main channel. Please follow our [Early Access guide](https://yuzu-emu.org/help/early-access/) for assistance linking your Patreon account.
 
+Intel and AMD users are strongly recommended to switch to Vulkan b going to `Emulation > Configure > Graphics > API`. Latest GPU drivers are recommended.
+
 ## Linux
 
 <link href="//cdn.jsdelivr.net/npm/font-logos@0.18/assets/font-logos.css" rel="stylesheet">
