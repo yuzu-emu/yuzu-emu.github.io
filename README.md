@@ -1,4 +1,4 @@
-This repo contains the sources for the yuzu-emu website at https://yuzu-emu.org/.
+This repo contains the sources for the yuzu-emu website at https://yuzu-emu.org/
 
 # Local Development
 
