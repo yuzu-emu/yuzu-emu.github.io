@@ -127,6 +127,36 @@ In the meantime, toastUnlimited {{< gh-hovercard "8379" "blocked the extension" 
 [asLody](https://github.com/asLody) {{< gh-hovercard "8311" "implemented stencil fixes when two faces are disabled." >}}
 This has the potential to improve rendering in native OpenGL games.
 
+## HLE Improvements
+
+In software engineering, a spinlock is a lock that causes a thread trying to acquire it to simply wait in a loop
+ ("spin") while repeatedly checking whether the lock is available.
+
+{{< imgs
+    "./spinlock.png| Example of a spinlock"
+  >}}
+
+On the other hand, the word "mutex" stands for an object providing `MUTual EXclusion` between threads. 
+Mutex ensures that only one thread has access to a critical section or data by using operations like a lock and unlock. 
+A thread that acquires the lock of mutex can use the critical section while other threads must wait till the lock is released.
+
+{{< imgs
+    "./mutex.png| Example of a mutex"
+  >}}
+
+In theory, when a thread tries to lock a mutex and it does not succeed, because the mutex is already locked, it will go to sleep, immediately allowing another thread to run. 
+It will continue to sleep until being woken up, which will be the case once the mutex is being unlocked by whatever thread was holding the lock before.
+
+But when a thread tries to lock a spinlock and it does not succeed, it will continuously re-try locking it, until it finally succeeds; thus it will not allow another thread to take its place until the OS forces it to timeout.
+Hence, polling on a spinlock will constantly waste CPU time and if the lock is held for a longer amount of time, this will waste a lot more CPU time and it would have been much better if the thread was sleeping instead.
+
+However in practice, most modern operating systems (Windows/Linux) use hybrid mutexes and hybrid spinlocks.
+So spinlocks are fine on systems with tons of cores, as it's not a big deal for host threads to spin. 
+On low core counts, you really start starving the system by doing that, whereas a mutex will allow another thread to be scheduled on that core/thread.
+
+Thus {{< gh-hovercard "8172" "by moving from spinlocks to mutexes," >}} we were able to improve how yuzu runs on systems with low core counts. 
+Our testing results showed that yuzu is now much more usable on 4 thread systems.
+
 ## UI changes
 
 [Docteh](https://github.com/Docteh) has been very helpful with some translation holes we had for a while.
