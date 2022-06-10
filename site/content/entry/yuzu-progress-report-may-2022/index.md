@@ -86,7 +86,7 @@ Now `Super Mario 64` {{< gh-hovercard "8314" "is playable in OpenGL." >}}
 Fermi GPU users rejoyce.
 
 {{< imgs
-    "./n64.png| Zelda games should return to the atmosphere "The Legend of Zelda: Majora's Mask" had"
+    "./n64.png| We should get more games with the atmosphere The Legend of Zelda: Majora's Mask had"
   >}}
 
 MacroJIT is an optimization that provides a performance improvement of 10%, more or less.
