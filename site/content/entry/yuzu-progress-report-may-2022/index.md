@@ -22,7 +22,7 @@ From Mainline version 991 and onward, only Windows 10 revision 1809 and newer, W
 
 This decision is reinforced by the lack of GPU driver support on EOL systems (which affects Vulkan support going forward), inconsistencies in the maximum path length (critical for file system emulation improvements), as well as worse memory handling on a kernel level, which is required to properly emulate the Switch and its subsystems.
 
-Not forcing the developers to divert their time into supporting dated platforms (which they no longer use), means that they can instead focus on improving the core emulation components of Nintendo Switch emulation.
+Not forcing the developers to divert their time into supporting dated platforms (which they no longer use), means that they can instead focus on improving the core emulation components.
 
 Finally, projects like [Dolphin](https://www.reddit.com/r/emulation/comments/utbpmm/dolphin_has_dropped_support_for_windows_7_and_8/) have already followed the same path, and for the same exact reasons.
 
