@@ -69,7 +69,7 @@ OpenGL users are recommended to use the GLSL shader backend, as GLASM and SPIR-V
 
 ## Graphical changes, driver issues, and the nostalgia bliss that is the good old 64
 
-This pont month, [byte[]](https://github.com/liamwhite) continued the wave of improvements for `Super Mario 3D All-Stars`.
+This past month, [byte[]](https://github.com/liamwhite) continued the wave of improvements for `Super Mario 3D All-Stars`.
 This time, he noticed a bug in the DMAcopy ([direct memory access](https://en.wikipedia.org/wiki/Direct_memory_access)) of the Nintendo Switch’s GPU.
 
 `DMACopy` is a mechanism that many games use to send texture data to the GPU, it handles the format conversion from "pitch" (pixels on a line by line basis) to "tiled" (gridded) images.
