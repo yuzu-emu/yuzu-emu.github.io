@@ -22,7 +22,7 @@ From Mainline version 991 and onward, only Windows 10 revision 1809 and newer, W
 
 This decision is reinforced by the lack of GPU driver support on EOL systems (which affects Vulkan support going forward), inconsistencies in the maximum path length (critical for file system emulation improvements), as well as worse memory handling on a kernel level, which is required to properly emulate the Switch and its subsystems.
 
-Not forcing the developers to divert their time into supporting dated platforms (which they no longer use), means that they can instead focus on improving the core emulation components of Nintendo Switch Emulation.
+Not forcing the developers to divert their time into supporting dated platforms (which they no longer use), means that they can instead focus on improving the core emulation components of Nintendo Switch emulation.
 
 Finally, projects like [Dolphin](https://www.reddit.com/r/emulation/comments/utbpmm/dolphin_has_dropped_support_for_windows_7_and_8/) have already followed the same path, and for the same exact reasons.
 
@@ -82,8 +82,8 @@ This process works by writing the pitch image data into GPU memory accessible by
 >}}
 
 byte[] also improved the way OpenGL interprets face flips depth, [replacing the previously reported fix](https://yuzu-emu.org/entry/yuzu-progress-report-apr-2022/#saving-princess-peach-yet-again).
-Face flips are a uncommon configuration on the GPU. 
-The previous implementation had bad rendering in OpenGL, making it virtually unplayable.
+The face flips used by Super Mario 3D All-Stars and the Nintendo 64 emulation are an uncommon configuration on the GPU.
+The previous implementation had bad rendering in OpenGL, a complete black screen.
 
 While this wasn't an issue while using Vulkan (performance aside), now `Super Mario 64` and `Super Mario Galaxy` {{< gh-hovercard "8314" "are playable in both graphics APIs." >}} 
 Fermi GPU users rejoyce.
@@ -128,7 +128,7 @@ We plan to allow the extension to work with old-school 32-bit precision in the f
 While still on the subject of AMD Windows Vulkan drivers, we have to talk about another extension issue.
 Since driver version 22.5.2, support was added for `VK_KHR_push_descriptor`, an old extension that has been working in every other driver for the past 5 years, be it Intel, NVIDIA or Mesa.
 
-While we don't yet know the root cause of the issue, only AMD’s Windows drivers crash when calling VK_KHR_push_descriptor. 
+While we don't yet know the root cause of the issue, only AMD's Windows drivers crash when calling VK_KHR_push_descriptor. 
 As this extension is critical to the entire rendering process, any AMD GPU would crash on any game.
 
 It seems that this time around, AMD may have simply released a broken implementation of the extension.
@@ -141,7 +141,7 @@ This should improve rendering for some games that natively use OpenGL.
 
 ## HLE Improvements
 
-Mocing onto the subject of HLE emulation, a *very dear* section for [bunnei](https://github.com/bunnei). 
+Moving onto the subject of HLE emulation, a *very dear* section for [bunnei](https://github.com/bunnei). 
 The dev team has been working hard at improving the accuracy and performance of yuzu's kernel emulation.
 
 This time around, a big change was made with how games and the emulated OS can "lock resources". 
@@ -209,7 +209,7 @@ Thanks Docteh for taking the time to properly address the issue once and for all
 
 [german77](https://github.com/german77) is the undisputed king of this section again. He continutes the endless quest of providing the best user input experience possible.
 
-german7 noticed that motion continued reporting data even when disabled, causing `Pokémon Let’s Go, Eevee/Pikachu!` to spam `StopSixAxisSensor` errors in the logs.
+german77 noticed that motion continued reporting data even when disabled, causing `Pokémon Let’s Go, Eevee/Pikachu!` to spam `StopSixAxisSensor` errors in the logs.
 While working on this, he also noticed a missing parameter, `delta_time`.
 Its proper implementation allows yuzu to have an {{< gh-hovercard "8308" "accurate motion refresh rate," >}} equal to the Switch.
 
@@ -219,7 +219,7 @@ In an all-in-one pull request, german77 made {{< gh-hovercard "8368" "several in
 - Improve previous implementations to match more closely to native hardware.
 - Implement functions needed by `Nintendo Switch Sports`, `EnableSixAxisSensorUnalteredPassthrough`, `IsSixAxisSensorUnalteredPassthroughEnabled`, `LoadSixAxisSensorCalibrationParameter`, `GetSixAxisSensorIcInformation`, `ResetIsSixAxisSensorDeviceNewlyAssigned`.
 
-While we've made some great progress here, `Nintendo Switch Sports` unplayable on yuzu until we rework our audio and make some much needed GPU fixes too. 
+While we've made some great progress here, `Nintendo Switch Sports` will be unplayable on yuzu until we rework our audio and make some much needed GPU fixes too. 
 While audio and perfect rendering may not seem critical to playability, games often are quite unstable if these are not accurate. 
 Rest assured, we're working on these and will have more to share soon!
 
