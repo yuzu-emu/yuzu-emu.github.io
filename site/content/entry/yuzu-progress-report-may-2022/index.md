@@ -16,7 +16,8 @@ Let’s first address the elephant in the room, shall we?
 
 While working on dynarmic and kernel emulation, including improving the compatibility of 4 thread CPU systems, we made changes to [dynarmic](https://github.com/merryhime/dynarmic) and [fastmem](https://yuzu-emu.org/entry/yuzu-fastmem/) that broke support for Windows 10 revision 1803 and older, including Windows 7 and Windows 8/8.1.
 
-While it was a purely accidental change, this was notified with the introduction of fastmem.
+While fastmem was only ever designed to work with newer operating systems, the changes to dynarmic breaking support for older Windows versions was purely accidental. 
+That being said, it is yet another sign of the times, and that a pre-Windows 10 experience in yuzu will continue to become more subpar.
 Due to our focus on improving accuracy, stability and performance, it doesn't make much sense to divert time and resources onto maintaining old and out of support operating systems. 
 From Mainline version 991 and onward, only Windows 10 revision 1809 and newer, Windows 11, and Linux, will be the officially supported operating systems.
 
@@ -36,7 +37,7 @@ For those that still prefer to not upgrade, [Mainline 990](https://github.com/yu
 
 The two main causes for Vulkan related crashes when trying to boot a game or opening yuzu’s configuration are:
 
-- Broken Vulkan layers on HUD and screen recording software, could cause issues when yuzu and drivers add support for new Vulkan extensions. Keeping software up to date is the only way to prevent this issue from happening.
+- Broken Vulkan layers on HUD and screen recording software could cause issues when yuzu and drivers add support for new Vulkan extensions. Keeping software up to date is the only way to prevent this issue from happening.
 - Outdated GPU drivers that lack the required features to run Vulkan. This is usually caused by relying on Windows Update to provide the drivers instead of manually installing the latest version, or Intel laptop vendors providing locked custom (meaning nerfed) drivers that are never updated. If possible, always install the latest GPU driver manually, don't rely on Windows Update.
 
 Thankfully, we have a new system that can workaround those issues that are outside of our control.
@@ -68,7 +69,8 @@ OpenGL users are recommended to use the GLSL shader backend, as GLASM and SPIR-V
 
 ## Graphical changes, driver issues, and the nostalgia bliss that is the good old 64
 
-This month, [byte[]](https://github.com/liamwhite) continues the wave of improvements for `Super Mario 3D All-Stars`, this time, he noticed a bug in the DMAcopy ([direct memory access](https://en.wikipedia.org/wiki/Direct_memory_access)) of the Nintendo Switch’s GPU.
+This pont month, [byte[]](https://github.com/liamwhite) continued the wave of improvements for `Super Mario 3D All-Stars`.
+This time, he noticed a bug in the DMAcopy ([direct memory access](https://en.wikipedia.org/wiki/Direct_memory_access)) of the Nintendo Switch’s GPU.
 
 `DMACopy` is a mechanism that many games use to send texture data to the GPU, it handles the format conversion from "pitch" (pixels on a line by line basis) to "tiled" (gridded) images.
 This process works by writing the pitch image data into GPU memory accessible by the DMA engine. Next, a DMAcopy is requested through the DMA engine driver, converting the image data into a separate buffer accessible by the GPU. This buffer will then be used as the texture on the final draw.
@@ -102,7 +104,7 @@ Additionally, byte[] added the option to {{< gh-hovercard "8320" "dump all macro
 
 But why are macros important enough to merit their own dump mechanism?
 
-Turns out, the `Nintendo 64` emulator (*totally not outside Nintendo's Terms of Service*), included with the `Nintendo Switch Online` subscription, reassigns the same macros multiple times, each time with different code. yuzu incorrectly appended the new code to the end of the macro in this case, instead of replacing the existing code.
+Turns out, the `Nintendo 64` emulator (*totally not outside Nintendo's Terms of Service*), included with the `Nintendo Switch Online` (NSO) subscription, reassigns the same macros multiple times, each time with different code. yuzu incorrectly appended the new code to the end of the macro in this case, instead of replacing the existing code.
 {{< gh-hovercard "8328" "Properly clearing that code" >}} on upload address assignments allows the NSO Nintendo 64 emulator to be playable.
 Time to re-enjoy those classics!
 
@@ -167,9 +169,9 @@ Under this scenario, the first thread locks the section, and will remain that wa
     "./mutex.png| Example of a mutex"
   >}}
 
-In theory, when a thread tries to lock a mutex and it does not succeed (for example because the mutex is already locked), it will be `paused`.
+In theory, when a thread tries to lock a mutex and it does not succeed (for example because the mutex is already locked), it will be paused.
 The operating system will then take the opportunity to schedule an available and ready thread to run in its place.
-The paused thread will continue to `sleep` until it is able to acquire the mutex. 
+The paused thread will continue to sleep until it is able to acquire the mutex. 
 This may happen once the current thread holding the mutex lock releases it.
 
 Consequently, threads "spinning" to acquire the lock will waste (perhaps precious) system resources. 
@@ -178,7 +180,7 @@ Using the host operating system (Windows or Linux) mutex allows yuzu to continue
 
 Helpfully, most modern operating systems use hybrid mutexes and hybrid spinlocks.
 The spinlock approach would work fine on systems with threads to spare. 
-However, for emulation, we need many threads (for UI, audio, GPU emulation, logging, etc.), so this approach is not quite practical, especially on CPUs with low core/thread counts.
+However, for emulation, we need many threads (for UI, audio, GPU emulation, logging, etc.), so this approach is not quite ideal, especially on CPUs with low core/thread counts.
 
 Thus {{< gh-hovercard "8172" "by moving from spinlocks to mutexes," >}} we were able to improve how yuzu runs on systems with low core counts. 
 Our testing results showed that yuzu is now much more usable on 4 thread systems, solving stability issues on 4 cores/4 threads CPUs (most notably in `Pokémon Sword/Shield`), and substantially improving performance on (previously completely non-viable) 2 cores/4 threads CPUs.
