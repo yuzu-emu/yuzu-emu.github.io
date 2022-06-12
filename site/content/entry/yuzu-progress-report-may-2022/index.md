@@ -16,13 +16,13 @@ Let’s first address the elephant in the room, shall we?
 
 While working on dynarmic and kernel emulation, including improving the compatibility of 4 thread CPU systems, we made changes to [dynarmic](https://github.com/merryhime/dynarmic) and [fastmem](https://yuzu-emu.org/entry/yuzu-fastmem/) that broke support for Windows 10 revision 1803 and older, including Windows 7 and Windows 8/8.1.
 
-While it was a purely accidental change, this was warned with the introduction of fastmem.
+While it was a purely accidental change, this was notified with the introduction of fastmem.
 Due to our focus on improving accuracy, stability and performance, it doesn't make much sense to divert time and resources onto maintaining old and out of support operating systems. 
 From Mainline version 991 and onward, only Windows 10 revision 1809 and newer, Windows 11, and Linux, will be the officially supported operating systems.
 
-This decision is reinforced by the lack of GPU driver support on EOL systems (which affects Vulkan support going forward), inconsistencies in long file path limitations (critical for file system emulation improvements), as well as worse memory handling on a kernel level, which is required to properly emulate the Switch and its subsystems.
+This decision is reinforced by the lack of GPU driver support on EOL systems (which affects Vulkan support going forward), inconsistencies in the maximum path length (critical for file system emulation improvements), as well as worse memory handling on a kernel level, which is required to properly emulate the Switch and its subsystems.
 
-Without forcing the developers to divert time in supporting dated platforms (which themselves no longer use), they can instead focus their energy on improving the core components of Nintendo Switch Emulation.
+Not forcing the developers to divert their time into supporting dated platforms (which they no longer use), means that they can instead focus on improving the core emulation components of Nintendo Switch Emulation.
 
 Finally, projects like [Dolphin](https://www.reddit.com/r/emulation/comments/utbpmm/dolphin_has_dropped_support_for_windows_7_and_8/) have already followed the same path, and for the same exact reasons.
 
@@ -32,11 +32,11 @@ For those that still prefer to not upgrade, [Mainline 990](https://github.com/yu
 
 ## Vulkan by default
 
-[As previously discussed](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2022/#vulkan-is-the-future), we have to circumvent issues like vendor-locking drivers (so common on Intel hardware, [it has its own official procedure](https://www.intel.com/content/www/us/en/support/articles/000056629/graphics.html)) and broken third party software limitations (outdated screen recorders are a common cause of broken rendering) in order to provide a smooth experience with Vulkan as the default API.
+[As previously discussed](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2022/#vulkan-is-the-future), we have to circumvent issues like OEM-locked drivers (so common on Intel hardware, [it has its own official procedure](https://www.intel.com/content/www/us/en/support/articles/000056629/graphics.html)) and broken third party software limitations (outdated screen recorders are a common cause of broken rendering) in order to provide a smooth experience with Vulkan as the default API.
 
-The two main reasons for Vulkan related crashes when trying to boot a game or opening yuzu’s configuration are:
+The two main causes for Vulkan related crashes when trying to boot a game or opening yuzu’s configuration are:
 
-- Broken Vulkan layers on HUD and screen recording software, which could cause issues when yuzu and drivers add support for new Vulkan extensions. Keeping software up to date is the only way to prevent this issue from happening.
+- Broken Vulkan layers on HUD and screen recording software, could cause issues when yuzu and drivers add support for new Vulkan extensions. Keeping software up to date is the only way to prevent this issue from happening.
 - Outdated GPU drivers that lack the required features to run Vulkan. This is usually caused by relying on Windows Update to provide the drivers instead of manually installing the latest version, or Intel laptop vendors providing locked custom (meaning nerfed) drivers that are never updated. If possible, always install the latest GPU driver manually, don't rely on Windows Update.
 
 Thankfully, we have a new system that can workaround those issues that are outside of our control.
@@ -48,13 +48,13 @@ If the check passes, yay!, you can use Vulkan or OpenGL and select which API to 
     "./ok.png| Check passes, Vulkan works!"
   >}}
 
-If this check fails, a warning will be displayed at the next time you launch yuzu. If this happens, you will only be able to use OpenGL as the graphics API. You will still have the option to pick the shader backend (GLSL, GLASM, SPIR-V) that best suits your needs.
+If this check fails, a warning will be displayed the next time you launch yuzu. If this happens, you will only be able to use OpenGL as the graphics API. You will still have the option to pick the shader backend (GLSL, GLASM, SPIR-V) that best suits your needs.
 
 {{< imgs
     "./error.png| Oh oh.."
   >}}
 
-For those souls that happen to land in this situation, a button labeled "Check for Working Vulkan" at the bottom of the Graphics settings window will show up, allowing to retest Vulkan support.
+For those that happen to land in this situation, a button labeled "Check for Working Vulkan" at the bottom of the Graphics settings window will show up, allowing to retest Vulkan support.
 
 {{< imgs
     "./button.png| Once you manage to solve the issue, click on the button at the bottom!"
@@ -63,7 +63,7 @@ For those souls that happen to land in this situation, a button labeled "Check f
 Thanks to [toastUnlimited](https://github.com/lat9nq), gone is OpenGL as the default graphics API. 
 Out with the old, in with the new. {{< gh-hovercard "8393" "Long live King Vulkan." >}}
 
-Going forward, our developers will focus their priority to Vulkan, but will continue to support OpenGL.
+Going forward, Vulkan will be the top priority for our developers, but they will still continue to support OpenGL.
 OpenGL users are recommended to use the GLSL shader backend, as GLASM and SPIR-V will receive limited support from now on.
 
 ## Graphical changes, driver issues, and the nostalgia bliss that is the good old 64
@@ -81,9 +81,11 @@ This process works by writing the pitch image data into GPU memory accessible by
     "./dmafix.png"
 >}}
 
-byte[] also improved the way OpenGL interprets face flips depth, [replacing the previously reported fix](https://yuzu-emu.org/entry/yuzu-progress-report-apr-2022/#saving-princess-peach-yet-again). The previous implementation had terrible peformance in OpenGL, making it virtually unplayable.
+byte[] also improved the way OpenGL interprets face flips depth, [replacing the previously reported fix](https://yuzu-emu.org/entry/yuzu-progress-report-apr-2022/#saving-princess-peach-yet-again).
+Face flips are a uncommon configuration on the GPU. 
+The previous implementation had bad rendering in OpenGL, making it virtually unplayable.
 
-While this wasn't an issue while using Vulkan, now `Super Mario 64` and `Super Mario Galaxy` {{< gh-hovercard "8314" "are playable in both APIs." >}} 
+While this wasn't an issue while using Vulkan (performance aside), now `Super Mario 64` and `Super Mario Galaxy` {{< gh-hovercard "8314" "are playable in both graphics APIs." >}} 
 Fermi GPU users rejoyce.
 
 {{< imgs
@@ -123,10 +125,10 @@ While this was the case for all compatible GPUs previous to AMDs implementation 
 toastUnlimited {{< gh-hovercard "8369" "disabled the extension" >}} on Polaris GPUs while we wait for our dedicated GPU devs to have the time to implement a proper fix. 
 We plan to allow the extension to work with old-school 32-bit precision in the future.
 
-Now, still on the subject of AMD Windows Vulkan drivers, we have to bring up another extension issue.
+While still on the subject of AMD Windows Vulkan drivers, we have to talk about another extension issue.
 Since driver version 22.5.2, support was added for `VK_KHR_push_descriptor`, an old extension that has been working in every other driver for the past 5 years, be it Intel, NVIDIA or Mesa.
 
-While we have not root-cased the issue yet, only AMD’s Windows drivers crash when calling VK_KHR_push_descriptor. 
+While we don't yet know the root cause of the issue, only AMD’s Windows drivers crash when calling VK_KHR_push_descriptor. 
 As this extension is critical to the entire rendering process, any AMD GPU would crash on any game.
 
 It seems that this time around, AMD may have simply released a broken implementation of the extension.
@@ -139,7 +141,9 @@ This should improve rendering for some games that natively use OpenGL.
 
 ## HLE Improvements
 
-Changing gears, the dev team has been working hard at improving the accuracy and performance of yuzu's kernel emulation.
+Mocing onto the subject of HLE emulation, a *very dear* section for [bunnei](https://github.com/bunnei). 
+The dev team has been working hard at improving the accuracy and performance of yuzu's kernel emulation.
+
 This time around, a big change was made with how games and the emulated OS can "lock resources". 
 This improves emulation performance with literally every game, and to a varying degree, on any CPU.
 Let's dive in.
@@ -148,18 +152,16 @@ In software engineering, a [spinlock](https://en.wikipedia.org/wiki/Spinlock) is
  ("spin") while repeatedly checking whether the lock is available.
 
 {{< imgs
-    "./spinlock.png| Example of a spinlock"
+    "./spinlock.png| Example of a spinlock, simple but gets the job done"
   >}}
 
-Simple but gets the job done.
-But, as always, it's never that simple.
 There exists another synchronization primitive with a similar function, [the mutex](https://en.wikipedia.org/wiki/Mutual_exclusion). 
 
 The word "mutex" stands for an object providing `MUTual EXclusion` between threads.
 A mutex ensures that only one thread has access to a critical section or data by using operations like a lock and unlock.
 A critical section is a shared resource that many threads want to access.
 While there is no issue if multiple threads want to read the same critial section, no new thread can modify the section until the previous thread finishes its own writing. 
-Under this scenarion, the first thread locks the section, and wil remain that way until the lock is released.
+Under this scenario, the first thread locks the section, and will remain that way until the lock is released.
 
 {{< imgs
     "./mutex.png| Example of a mutex"
@@ -205,7 +207,7 @@ Thanks Docteh for taking the time to properly address the issue once and for all
 
 ## Controller changes
 
-[german77](https://github.com/german77) is the indisputed king of this section again. He continutes the endless quest of providing the best user input experience possible.
+[german77](https://github.com/german77) is the undisputed king of this section again. He continutes the endless quest of providing the best user input experience possible.
 
 german7 noticed that motion continued reporting data even when disabled, causing `Pokémon Let’s Go, Eevee/Pikachu!` to spam `StopSixAxisSensor` errors in the logs.
 While working on this, he also noticed a missing parameter, `delta_time`.
@@ -217,7 +219,7 @@ In an all-in-one pull request, german77 made {{< gh-hovercard "8368" "several in
 - Improve previous implementations to match more closely to native hardware.
 - Implement functions needed by `Nintendo Switch Sports`, `EnableSixAxisSensorUnalteredPassthrough`, `IsSixAxisSensorUnalteredPassthroughEnabled`, `LoadSixAxisSensorCalibrationParameter`, `GetSixAxisSensorIcInformation`, `ResetIsSixAxisSensorDeviceNewlyAssigned`.
 
-While we've made some great progress here, Nintendo Switch Sports remains unplayable on yuzu until we rework our audio implementation, and furthermore make some much needed GPU fixes. 
+While we've made some great progress here, `Nintendo Switch Sports` unplayable on yuzu until we rework our audio and make some much needed GPU fixes too. 
 While audio and perfect rendering may not seem critical to playability, games often are quite unstable if these are not accurate. 
 Rest assured, we're working on these and will have more to share soon!
 
@@ -243,7 +245,7 @@ While `Project Y.F.C.` was slightly stalled due to some NVFlinger regressions, t
 Under [blinkhawk](https://github.com/FernandoS27)'s lead, `Project Y.F.C.` is making great progress and is on track to release soon.
 As a reminder, `Project Y.F.C.` is an overhaul of various parts of our GPU emulation, fixing many inaccuracies and improving both performance and compatibility.
 
-[Maide](https://github.com/Kelebek1) is up to something. Let me provide a hint, if you check previous progress reports, you will notice a common theme with Maide's pull requests.
+[Maide](https://github.com/Kelebek1) is up to something. (Hint: if you check the previous progress reports, you'll notice a common theme with their pull requests)
 
 And toastUnlimited is working on getting MinGW Clang builds for Windows, which could potentially be faster than the MSVC builds we’re using now. This work is tied with the release of `Project Gaia`, so it will take a bit.
 
