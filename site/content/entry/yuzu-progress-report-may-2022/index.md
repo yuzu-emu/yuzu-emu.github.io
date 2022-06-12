@@ -1,9 +1,9 @@
 +++
-date = "2022-06-12T07:35:00-03:00"
+date = "2022-06-12T17:50:00-03:00"
 title = "Progress Report May 2022"
 author = "GoldenX86"
 coauthor = "CaptV0rt3x"
-forum = 0
+forum = 585658
 +++
 
 Greetings yuz-ers. This time around, we're covering small and incremental improvements to yuzu. Rest assured, we also have some major rewrites and improvements in the works, and we'll touch on those near the end. Roll the tape!
