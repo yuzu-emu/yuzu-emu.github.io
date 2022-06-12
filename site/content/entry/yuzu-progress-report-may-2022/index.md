@@ -91,19 +91,16 @@ Fermi GPU users rejoyce.
   >}}
 
 One of the important parts of yuzu's graphical emulation is the need to translate small sets of GPU instructions, called `macros`. 
-yuzu uses a Just-in-Time (JIT) compiler to emulate these macros in a performant way.
-MacroJIT is an optimization applied over this process, it manages to provide a performance boost of plus 10%, more or less.
+yuzu uses a Just-in-Time (JIT) compiler to execute these macros in a performant way. It provides a performance boost of about 10% over interpretation in most cases.
 
-byte[] found that macro could try to access a parameter that was too far outside the bounds of what it was supposed to be accessing. 
-Usually the end result of this behaviour would be the emulator crashing.
+byte[] found that due to emulation inaccuracies, sometimes a macro could try to access a parameter that was too far outside the bounds of what it was supposed to be accessing. This could crash the emulator without a single trace as to why in some cases.
 {{< gh-hovercard "8319" "One less reason for annoying crashes." >}}
 
-Now, while on the subject or macros, MME, or Macro Method Expander, are small programs sent to the GPU when booting a game, responsible for executing methods (anything that changes the current status of the GPU).
-byte[] added the option to {{< gh-hovercard "8320" "dump such MME macros" >}} for debugging purposes.
+Additionally, byte[] added the option to {{< gh-hovercard "8320" "dump all macros" >}} used by a game for debugging purposes.
 
-But why are MME macros important enough to merit their own dump mechanism?
+But why are macros important enough to merit their own dump mechanism?
 
-Turns out, the `Nintendo 64` emulator (*totally not outside Nintendo's Terms of Service*), included with the `Nintendo Switch Online` subscription, reasigns the same macros multiple times, each with different code.
+Turns out, the `Nintendo 64` emulator (*totally not outside Nintendo's Terms of Service*), included with the `Nintendo Switch Online` subscription, reassigns the same macros multiple times, each time with different code. yuzu incorrectly appended the new code to the end of the macro in this case, instead of replacing the existing code.
 {{< gh-hovercard "8328" "Properly clearing that code" >}} on upload address assignments allows the NSO Nintendo 64 emulator to be playable.
 Time to re-enjoy those classics!
 
