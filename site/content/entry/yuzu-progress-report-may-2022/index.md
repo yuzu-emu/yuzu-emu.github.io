@@ -160,7 +160,7 @@ There exists another synchronization primitive with a similar function, [the mut
 The word "mutex" stands for an object providing `MUTual EXclusion` between threads.
 A mutex ensures that only one thread has access to a critical section or data by using operations like a lock and unlock.
 A critical section is a shared resource that many threads want to access.
-While there is no issue if multiple threads want to read the same critial section, no new thread can modify the section until the previous thread finishes its own writing. 
+While there is no issue if multiple threads want to read the same critical section, no new thread can modify the section until the previous thread finishes its own writing. 
 Under this scenario, the first thread locks the section, and will remain that way until the lock is released.
 
 {{< imgs
@@ -207,7 +207,7 @@ Thanks Docteh for taking the time to properly address the issue once and for all
 
 ## Controller changes
 
-[german77](https://github.com/german77) is the undisputed king of this section again. He continutes the endless quest of providing the best user input experience possible.
+[german77](https://github.com/german77) is the undisputed king of this section again. He continues the endless quest of providing the best user input experience possible.
 
 german77 noticed that motion continued reporting data even when disabled, causing `Pokémon Let’s Go, Eevee/Pikachu!` to spam `StopSixAxisSensor` errors in the logs.
 While working on this, he also noticed a missing parameter, `delta_time`.
