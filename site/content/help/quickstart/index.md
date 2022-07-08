@@ -7,15 +7,15 @@ description: A guide designed to get you started with yuzu quickly.
 
 * [Downloading and Installing yuzu](#downloading-and-installing-yuzu)
 * [Hardware Requirements](#hardware-requirements)
-* [yuzu Quickstart Guide](#yuzu-quickstart-guide)
+* [Guide Introduction](#guide-introduction)
 * [Prerequisites](#prerequisites)
 * [Preparing the microSD card](#preparing-the-microsd-card)
 * [Booting into RCM](#booting-into-rcm)
 * [Booting into Hekate](#booting-into-hekate)
 * [Mounting the microSD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate)
 * [Dumping the Decryption Keys](#dumping-prodkeys-and-titlekeys)
-* [Backing up Switch NAND (Optional but Recommended)](#backing-up-switch-nand-optional-but-recommended)
-* [Dumping System Update Firmware](#dumping-the-decryption-keys)
+* [Backing up Switch NAND (Optional)](#backing-up-switch-nand-optional)
+* [Dumping System Firmware](#dumping-the-decryption-keys)
 * [Dumping Cartridge Games](#dumping-cartridge-games)
 * [Dumping Installed Titles (eShop)](#dumping-installed-titles-eshop)
 * [Dumping Save Files (Optional)](#dumping-save-files-optional)
@@ -32,40 +32,40 @@ description: A guide designed to get you started with yuzu quickly.
 
 Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are recommended.
 
-- Minimum: Intel Core i5-4430 / AMD Ryzen 3 1200
+- **Minimum:** Intel Core i5-4430 / AMD Ryzen 3 1200
 
-- Recommended: Intel Core i5-10400 / AMD Ryzen 5 3600
+- **Recommended:** Intel Core i5-10400 / AMD Ryzen 5 3600
 
 #### Dedicated graphics: 
 
 OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support and 4GB of VRAM are recommended.
 
-- Minimum for Linux: NVIDIA GeForce GT 1030 2GB / AMD Radeon R7 240 2GB
+- **Minimum for Linux:** NVIDIA GeForce GT 1030 2GB / AMD Radeon R7 240 2GB
 
-- Minimum for Windows: NVIDIA GeForce GT 1030 2GB / AMD Radeon RX 550 2GB
+- **Minimum for Windows:** NVIDIA GeForce GT 1030 2GB / AMD Radeon RX 550 2GB
 
-- Recommended: NVIDIA GeForce GTX 1650 4GB / AMD Radeon RX Vega 56 8GB
+- **Recommended:** NVIDIA GeForce GTX 1650 4GB / AMD Radeon RX Vega 56 8GB
 
 #### Integrated graphics:
 
 Integrated graphics will produce very low performance. A dedicated GPU will produce better results on all scenarios.
 This is only for listing iGPU support.
 
-- Minimum for Linux: Intel HD 5300 / AMD Radeon R5 Graphics
+- **Minimum for Linux:** Intel HD 5300 / AMD Radeon R5 Graphics
 
-- Minimum for Windows: Intel HD Graphics 520 / AMD Radeon Vega 3
+- **Minimum for Windows:** Intel HD Graphics 520 / AMD Radeon Vega 3
 
-- Recommended: Intel UHD Graphics 750 / AMD Radeon Vega 7
+- **Recommended:** Intel UHD Graphics 750 / AMD Radeon Vega 7
 
 #### RAM: 
 
 Since an integrated GPU uses system RAM as its video memory (VRAM), our memory requirement in this configuration is higher.
 
-- Minimum with dedicated graphics: 8GB
+- **Minimum with dedicated graphics:** 8 GB
 
-- Minimum with integrated graphics: 12GB
+- **Minimum with integrated graphics:** 12 GB
 
-- Recommended: 16GB
+- **Recommended:** 16 GB
 
 #### Notes:
 
@@ -88,7 +88,7 @@ Sample Image:
 
 ![GPUInfo](./gpu_info.png)
 
-## yuzu Quickstart Guide
+## Guide Introduction
 
 To start playing commercial games, yuzu needs a couple of system files from a **HACKABLE** Nintendo Switch console in order to play them properly.
 
@@ -101,7 +101,10 @@ This guide will help you copy all your system files, games, updates, and DLC fro
             <li>While there are various approaches to hacking a Switch, this guide mainly covers the hacking process of early Switch models that are vulnerable to the most accessible `fusée-gelée` exploit. If you have hacked your console through other methods, then you might find some of the sections in this guide familiar and are welcome to skip them (assuming you have prior CFW knowledge). If not, you can join the yuzu Discord server for any additional assistance and details.</li>
             <li>The following Switch models are patched from `fusée-gelée` and are unable to complete the first couple of steps:
             <ul>
-                <li>Original Switch models manufactured after 2018. Visit <a href="https://ismyswitchpatched.com/">Is My Switch Patched?</a> to check if your console is patched.
+                <li>Original Switch models manufactured after 2018.
+                <ul>
+                    <li>Visit <a href="https://ismyswitchpatched.com/">Is My Switch Patched?</a> to check if your console is patched.</li>
+                </ul>
                 <li>Mariko Switch released in late 2019 a.k.a. Red Box Switch, HAC-001(-01)</li>
                 <li>Nintendo Switch Lite (HDH-001)</li>
                 <li>Nintendo Switch OLED Model (HEG-001)</li>
@@ -118,21 +121,21 @@ This guide will help you copy all your system files, games, updates, and DLC fro
 - [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases/latest) -- Download `TegraRcmGUI_v2.6_Installer.msi`
 - [Hekate](https://github.com/CTCaer/hekate/releases/latest) -- Download `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip`
     - **Windows users:** Also download `nyx_usb_max_rate__run_only_once_per_windows_pc.reg` and run it for faster transfer speeds over USB. For details, see the **NOTE** section in the release page.
-- This hekate configuration file -- [`hekate_ipl.ini`](./hekate_ipl.ini)
+- This hekate configuration file -- [hekate_ipl.ini](./hekate_ipl.ini)
 - [Atmosphére](https://github.com/Atmosphere-NX/Atmosphere/releases/latest) -- Download both `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` and `fusee.bin`.
 - [Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases/latest) -- Download `Lockpick_RCM.bin`
 - [nxdumptool](https://github.com/DarkMatterCore/nxdumptool/releases/latest) -- Download `nxdumptool.nro`
 - [nxDumpFuse](https://github.com/oMaN-Rod/nxDumpFuse/releases/latest) -- Download `win-x64.zip`
 - [TegraExplorer](https://github.com/suchmememanyskill/TegraExplorer/releases/latest) -- Download `TegraExplorer.bin`
-- [Rufus](https://github.com/pbatard/rufus/releases/latest) -- Download `rufus-3.19.exe`
+- [Rufus](https://github.com/pbatard/rufus/releases/latest) -- Download `rufus-X.XX.exe`
 - [microSD Card Reader](https://www.amazon.com/dp/B006T9B6R2) -- If your computer has one built-in, you can use that.
 - [RCM Jig](https://www.amazon.com/dp/B07J9JJRRG) -- We highly recommend one like this, but you could use any of the methods outlined [here.](https://noirscape.github.io/RCM-Guide/)
 
 ## Preparing the microSD Card
 
-We will now format the microSD card to `FAT32` and place some files downloaded from the prerequisites section onto it.
+We will now format the microSD card to `FAT32` and place some files downloaded from the prerequisites section into it.
 
-- **NOTE:** The `exFAT` file system is not recommended as that format is prone to file corruption when the microSD card is being used from the Switch. Large capacity microSD cards are usually exFAT-formatted by default.
+- **NOTE:** The `exFAT` file system is not recommended as that format is prone to file corruption when the microSD card interacts with the Switch. Large capacity microSD cards are usually exFAT-formatted by default.
 
 **Step 1:** Insert the microSD card into your computer.
 
@@ -149,21 +152,28 @@ We will now format the microSD card to `FAT32` and place some files downloaded f
 
 **Step 4:** Move the previously copied `Nintendo` folder back into the microSD card.
 
-**Step 1:** Extract the contents inside the `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` and `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` files into the root of your microSD card. 
-- **IMPORTANT:** Drag and drop the contents, do not create any new folders.
+**Step 5:** Extract all the contents inside the `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` archive into the root of the microSD card.
 
-**Step 2:** Place the `hekate_ipl.ini` file into the `bootloader` folder.
+**Step 6:** Extract the `bootloader` folder from inside the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` archive into the root of your microSD card.
 
-**Step 3:** Place the `fusee.bin`, `Lockpick_RCM.bin` and `TegraExplorer.bin` files into the `payloads` folder (located inside the `bootloader` folder).
+- **IMPORTANT:** Drag and drop the contents, do not create any new folders from the previous `zip` files.
 
-**Step 4:** Create a folder named `nxdumptool` within the `switch` folder and place the `nxdumptool.nro` file inside it.
+**Step 6:** Place the `hekate_ipl.ini` file into the `bootloader` folder.
 
-**Step 5:** Eject the **microSD card** from your computer and insert it into the **microSD card slot** of your Switch.
+**Step 7:** Place the `fusee.bin`, `Lockpick_RCM.bin` and `TegraExplorer.bin` files into the `payloads` folder (located inside the `bootloader` folder).
 
-Your **microSD card** should look like this:
+**Step 8:** Create a folder named `nxdumptool` within the `switch` folder and place the `nxdumptool.nro` file inside it.
+
+**Step 9:** Eject the microSD card from your computer and insert it into the microSD card slot of your Switch.
+
+Your microSD card contents should look like this:
 
 {{< imgs
-    "./sd_template.png|The root of the microSD card"
+    "./sd_root.png|The root of the microSD card"
+    "./atmosphere_dir.png|`atmosphere` folder"
+    "./hekate_dir.png|Hekate `bootloader` folder"
+    "./payloads_dir.png|`payloads` folder"
+    "./switch_dir.png|`switch` folder"
 >}}
 
 ## Booting into RCM
@@ -184,6 +194,8 @@ The Switch has a hidden recovery mode (RCM) which allows the execution of unsign
 
 If you see the Nintendo Switch icon turn **green** with `RCM O.K.` in the TegraRcmGUI window, your Switch has successfully booted into RCM mode. Else, if your Switch starts to turn on normally (Nintendo logo appears), go back to **Step 4** and try again.
 
+Once you have succesfully booted into RCM mode, you can now remove the RCM jig from the console.
+
 ## Booting into Hekate
 
 **Step 1:** Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` file you downloaded from the prerequisites to any accessible directory on your computer.
@@ -191,6 +203,20 @@ If you see the Nintendo Switch icon turn **green** with `RCM O.K.` in the TegraR
 **Step 2:** Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate_ctcaer_X.X.X.bin` file you extracted earlier.
 
 **Step 3:** Click on `Inject Payload` and your Switch will boot into the Hekate menu.
+
+## Backing up Switch NAND (Optional)
+
+We will now boot Hekate to dump your Switch's NAND. This step is optional, but highly recommended to ensure you have a backup of your Switch's data in its internal storage.
+
+    - 7a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
+    - 7b. Boot into [Hekate](#booting-into-hekate) (steps 3b. to 3c.)
+    - 7c. When it has successfully booted into the Hekate Home menu, tap on the `Tools` tab and select `Backup eMMC`.
+    - 7d. Underneath the `Full` section, tap on `eMMC BOOT0 & BOOT1`. This may take a few seconds to load. After it is finished filling the progress bar it should say `Finished and verified!`. Beneath `Filepath:` you will see the location of the dump. 
+    - 7e. Tap on `Close` and select `eMMC RAW GPP`. This should take some time as the Switch's `rawnand.bin` is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is Hekate verifying the data. This should take between 15-45 minutes depending on the quality/speed of your SD card and the default verification setting. Please keep note of the location the output file is placed.
+    - 7f. Tap on `Close` two times to return to the Tools menu.
+    - 7g. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4b. to 4c.)
+    - 7h. Navigate to your SD card drive and copy the `backup` folder to your computer.
+    - 7i. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
     
 ## Mounting the microSD card to your computer in Hekate
 
@@ -215,92 +241,51 @@ We will now dump the decryption keys from your Switch so that yuzu is able to de
 
 **Step 2:** Tap on `Lockpick_RCM.bin` in the list of payloads.
 
-**Step 3:** After Lockpick_RCM has successfully booted, press the **Power** button to select `Dump from SysNAND`.
+**Step 3:** In the Lockpick_RCM menu, press the **Power** button to select `Dump from SysNAND`.
 
-**Step 4:** After Lockpick_RCM has finished processing all the keys, please make note of the location of the key files, which are in `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
+After Lockpick_RCM has finished processing all the keys, the key files will be stored in `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
 
 **Step 6:** Press any button to return to the menu, then navigate with the **VOLUME +** / **VOLUME -** buttons to highlight and select `Reboot to hekate` using the **Power** button. You should now be booted back into Hekate.
 
-## Backing up Switch NAND (Optional but Recommended)
+## Dumping System Firmware
 
-7. We will now boot Hekate to dump your switch's NAND. This step is optional, but highly recommended to ensure you have a backup of your Switch's data in its internal storage.
-    - 7a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
-    - 7b. Boot into [Hekate](#booting-into-hekate) (steps 3b. to 3c.)
-    - 7c. When it has successfully booted into the Hekate Home menu, tap on the `Tools` tab and select `Backup eMMC`.
-    - 7d. Underneath the `Full` section, tap on `eMMC BOOT0 & BOOT1`. This may take a few seconds to load. After it is finished filling the progress bar it should say `Finished and verified!`. Beneath `Filepath:` you will see the location of the dump. 
-    - 7e. Tap on `Close` and select `eMMC RAW GPP`. This should take some time as the Switch's `rawnand.bin` is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is Hekate verifying the data. This should take between 15-45 minutes depending on the quality/speed of your SD card and the default verification setting. Please keep note of the location the output file is placed.
-    - 7f. Tap on `Close` two times to return to the Tools menu.
-    - 7g. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4b. to 4c.)
-    - 7h. Navigate to your SD card drive and copy the `backup` folder to your computer.
-    - 7i. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
+Some games such as **Mario Kart 8 Deluxe** require the use of system files found inside the Switch's **System Firmware** to be playable. We will now dump the system firmware files from your Switch for use in yuzu.
 
-## Dumping System Update Firmware
+**Step 1:** In the Hekate Home menu, tap on `Payloads`.
 
-8. Some games such as `Mario Kart 8 Deluxe` require the use of files found inside the `Nintendo Switch System Update Firmware` to be playable. In this step, we will now dump the firmware files from your Switch for use in yuzu.
-    - 8a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
-    - 8b. Boot into [Hekate](#booting-into-hekate) (steps 3b. to 3c.)
-    - 8c. When it has successfully booted into the Hekate Home menu, tap on `Payloads`. This will show a list of payloads.
-    - 8d. Tap on `TegraExplorer.bin` in the list of payloads.
-    - 8e. After TegraExplorer has successfully booted, navigate through the menu using the `VOL+/VOL-` buttons to highlight and select the `FirmwareDump.te` option by pressing the `POWER` button.
-    - 8f. Select the `Dump sysmmc` option
-    - 8g. Once the dumping process is finished, the `.nca` files will be located in your SD card at `sd:/tegraexplorer/Firmware/<firmware version>`.
-    - 8h. Press any button to return to the main menu.
-    - 8i. Select the `Reboot to bootloader/update.bin` option. You should now be booted back into Hekate.
-    - 8j. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
-    - 8k. Navigate to your SD card drive and copy the contents in the firmware folder (step 8f.) to `%YUZU_DIR%/nand/system/Contents/registered`. Alternatively, you can write `%appdata%\yuzu\nand\system\Contents\registered` in the address bar of a file explorer. The `registered` folder should be full of `.nca` files.
-    - 8l. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
+**Step 2:** Tap on `TegraExplorer.bin` in the list of payloads.
 
-## Dumping Cartridge Games
+**Step 3:** In the TegraExplorer menu, navigate through the menu using the **VOLUME +** / **VOLUME -** buttons to highlight and select the `FirmwareDump.te` option using the **POWER** button.
 
-9. We will now dump the `Cartridge Image (XCI)` file from your game cartridge(s), to use in yuzu. Insert the game cartridge of your choice.
-    - 9a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
-    - 9b. Boot into [Hekate](#booting-into-hekate) (steps 3b. to 3c.)
-    - 9c. When it has successfully booted into the Hekate Home menu, tap on `Payloads`. This will show a list of payloads.
-    - 9d. Tap on `fusee.bin` in the list of payloads.
-    - 9e. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the HOME Menu, press and hold the `R` button on your controller and launch a game. This will launch the Homebrew Menu in `title override mode`.
-    - 9f. Either use the touchscreen or navigate using your controller, and select `nxdumptool`.
-    - 9g. Select the `Dump gamecard content` option.
-    - 9h. Select the `Cartridge Image (XCI) dump` option.
-    - 9i. Once the cartridge image has been dumped, press any button to return to the previous menu and then press `+` to return to the Homebrew Menu.
-    - 9j. Select `Reboot to Payload` and then press `-` on your controller to return to the Hekate Home menu.
-    - 9k. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
-    - 9l. Navigate to your SD card drive. XCI dumps are located under `sd:/switch/nxdumptool/XCI`.
-    - 9m. If your XCIs are dumped in parts with `.xc0`, `.xc1`, `.xc2`, etc extensions, use the `nxDumpMerger` tool you have downloaded in the prerequisites to assist in merging these parts into a complete XCI. If they were dumped as complete XCI files with the `.xci` extension, you can proceed to copy these to a game directory of your choice.
-    - 9n. Extract the contents of `nxDumpMerger_Windows.zip` into a new folder and start the program.
-    - 9o. Select the button with the triple dots `...` next to the `Input` field. This will open a file selector.
-    - 9p. Find and select one of the parts and click `Open`.
-    - 9q. Next, select the button with the triple dots `...` next to the `Output` field. This will open a folder selector.
-    - 9r. Select a folder where you would like your games stored in your computer and then click `Select Folder`. (**NOTE:** Do not select a folder inside the SD card or you will quickly run out of space and experience slow transfer speeds in the merging process.)
-    - 9s. After completing these steps, the parts are ready to be merged. Select `Merge Dump` and the program will merge the parts into a complete XCI located in the `Output` folder. Repeat these steps for all other games dumped as parts.
-    - 9t. Once you're done merging, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
+**Step 4:** Select the `Dump sysmmc` option.
 
-## Dumping Installed Titles (eShop)
+**Step 5:** Once the dumping process is finished, the `.nca` files are will be stored in `sd:/tegraexplorer/Firmware/<firmware version>`.
 
-10. We will now dump the `Nintendo Submission Package (NSP)` file from your installed eShop game(s), to use in yuzu.
-    - 10a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
-    - 10b. Boot into [Hekate](#booting-into-hekate) (steps 3b. to 3c.)
-    - 10c. When it has successfully booted into the Hekate menu, tap on `Payloads`. This will show a list of payloads.
-    - 10d. Tap on `fusee.bin` in the list of payloads.
-    - 10e. Your Switch will launch into Custom Firmware Mode (CFW), and once your Switch has booted into the home menu, press and hold the R button on your controller and launch a game. This will launch the Homebrew Menu in `title override mode`.
-    - 10f. Either use the touchscreen or navigate using your controller, and select `nxdumptool`.
-    - 10g. Select the `Dump installed SD Card / eMMC Content` option.
-    - 10h. Select the game you want to dump.
-    - 10i. Select the `Nintendo Submission Package (NSP) dump` option.
-    - 10j. If your game contains an update or DLC, you will see multiple dumping options such as `Dump base application NSP`, `Dump installed update NSP` or/and `Dump installed DLC NSP` in the next screen. Select `Dump base application NSP` to dump the base game.
-    - 10k. Select the `Start NSP dump process` option and wait for the dumping process to finish.
-    - 10l. Press the `B button` to return to the previous menu(s) and repeat the previous steps to dump the base, updates and DLC of all your games.
-    - 10m. Once all your games are dumped, press any button to return to the previous menu and then press `+` to return to the Homebrew Menu.
-    - 10n. Select `Reboot to Payload` and then press `-` on your controller to return to the Hekate Home menu.
-    - 10o. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
-    - 10p. Navigate to your SD card drive. NSP dumps are located under `sd:/switch/nxdumptool/NSP`.
-    - 10q. If your NSPs are dumped as folders with `00`, `01`, `02`, etc parts within them, use the `nxDumpMerger` tool you have downloaded in the prerequisites to assist in merging these parts into a complete NSP. If they were dumped as files, you can proceed to copy these to a game directory of your choice.
-    - 10r. Extract the contents of `nxDumpMerger` into a new folder and start the program. (Skip the extraction if you already followed step 9n.)
-    - 10s. Select the button with the triple dots `...` next to the `Input` field. This will open a file selector.
-    - 10t. Find a NSP that is dumped as a folder with parts. Select one of the parts within the folder and click `Open`.
-    - 10u. Next, select the button with the triple dots `...` next to the `Output` field. This will open a folder selector.
-    - 10v. Select a folder where you would like your games stored in your computer and then click `Select Folder`. (**NOTE:** Do not select a folder inside the SD card or you will quickly run out of space and experience slow transfer speeds in the merging process.)
-    - 10w. After completing these steps, the parts are ready to be merged. Select `Merge Dump` and the program will merge the parts into a complete NSP located in the `Output` folder. Repeat these steps for all folder NSPs.
-    - 10x. Once you're done merging, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
+**Step 6:** Press any button to return to the main menu and select the `Reboot to bootloader/update.bin` option. You should now be booted back into Hekate.
+
+## Dumping Games
+
+This section will cover the dumping process of a game originally from either as a physical or digital copy, alongside any available game update and DLC files into a file format that yuzu supports.
+
+**Step 1:** In the Hekate Home menu, tap on `Launch`.
+
+**Step 2:** Tap on `CFW - sysMMC`.
+
+- Your Switch will boot into the Atmosphere Custom Firmware (CFW). You should see the Atmosphere logo show up instead of the Nintendo logo at boot. It is normal that the HOME Menu remains the same and you can double check that you are loaded into CFW by navigating into **System Settings > About**
+
+**Step 3:** Once your Switch has booted into the HOME Menu, press and hold the **R** button on your controller and launch a game. This will launch the Homebrew Menu in `title override mode`.
+
+**Step 1** Either use the touchscreen or navigate using your controller, and select `nxdumptool`.
+
+#### Dumping Physical Titles (Game Cards)
+
+**Step 1** Select the `Dump gamecard content` option.
+
+**Step 1** Select the `Cartridge Image (XCI) dump` option.
+
+#### Dumping Digital Titles (eShop)
+
+**Step 1** Once the cartridge image has been dumped, press any button to return to the previous menu and then press **+** to return to the Homebrew Menu.
 
 ## Dumping Save Files (Optional)
 
