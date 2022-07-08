@@ -13,9 +13,9 @@ description: A guide designed to get you started with yuzu quickly.
 * [Booting into RCM](#booting-into-rcm)
 * [Booting into Hekate](#booting-into-hekate)
 * [Mounting the microSD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate)
-* [Dumping Prod.keys and Title.keys](#dumping-prodkeys-and-titlekeys)
+* [Dumping the Decryption Keys](#dumping-prodkeys-and-titlekeys)
 * [Backing up Switch NAND (Optional but Recommended)](#backing-up-switch-nand-optional-but-recommended)
-* [Dumping System Update Firmware](#dumping-system-update-firmware)
+* [Dumping System Update Firmware](#dumping-the-decryption-keys)
 * [Dumping Cartridge Games](#dumping-cartridge-games)
 * [Dumping Installed Titles (eShop)](#dumping-installed-titles-eshop)
 * [Dumping Save Files (Optional)](#dumping-save-files-optional)
@@ -90,75 +90,107 @@ Sample Image:
 
 ## yuzu Quickstart Guide
 
-To start playing commercial games, yuzu needs a couple of system files and folders from your switch in order to play them properly.
-To check if your Switch is hackable, visit https://damota.me/ssnc/checker and test your Switch's serial number.
+To start playing commercial games, yuzu needs a couple of system files from a **HACKABLE** Nintendo Switch console in order to play them properly.
+
+This guide will help you copy all your system files, games, updates, and DLC from your switch to your computer and organize them in a format yuzu understands. This process should take about 60 to 90 minutes.
 
 <article class="message has-text-weight-semibold">
     <div class="message-body">
-        <p>NOTE:</p>
+        <p>IMPORTANT NOTES:</p>
         <ul>
-            <li>If your Switch is patched, you will be unable to complete the following steps.</li>
-            <li>The 2019 Switch revision (Mariko/Red Box/HAC-001(-01)) and the Switch Lite are both patched and you will not be able to complete the following steps.</li>
+            <li>While there are various approaches to hacking a Switch, this guide mainly covers the hacking process of early Switch models that are vulnerable to the most accessible `fusée-gelée` exploit. If you have hacked your console through other methods, then you might find some of the sections in this guide familiar and are welcome to skip them (assuming you have prior CFW knowledge). If not, you can join the yuzu Discord server for any additional assistance and details.</li>
+            <li>The following Switch models are patched from `fusée-gelée` and are unable to complete the first couple of steps:
+            <ul>
+                <li>Original Switch models manufactured after 2018. Visit <a href="https://ismyswitchpatched.com/">Is My Switch Patched?</a> to check if your console is patched.
+                <li>Mariko Switch released in late 2019 a.k.a. Red Box Switch, HAC-001(-01)</li>
+                <li>Nintendo Switch Lite (HDH-001)</li>
+                <li>Nintendo Switch OLED Model (HEG-001)</li>
+            </ul>
         </ul>
     </div>
 </article>
 
-This guide will help you copy all your system files, games, updates, and DLC from your switch to your computer and organize them in a format yuzu understands.
-This process should take about 60 to 90 minutes.
-
-**IMPORTANT:**  
-**Make sure to place your Nintendo Switch into Airplane Mode before starting this guide.**  
-`System Settings -> Airplane Mode -> Airplane Mode "ON"`
-
 ## Prerequisites
 
-- A Nintendo Switch vulnerable to the fusée gelée RCM exploit -- Visit https://damota.me/ssnc/checker and test your Switch's serial number
-- An SD card with at least 30 GB of free space (an almost empty 32GB card will work)
-- A USB-C to USB-A or USB-C to USB-C Cable to connect your Switch to your computer
+- A **hackable** Nintendo Switch console (preferably a model that is vulnerable to the `fusée-gelée` exploit). Visit [Is My Switch Patched?](https://ismyswitchpatched.com/) to check if your console is not patched.
+- A **microSD card** with at least `32 GB` of storage capacity. `64 GB` or higher is recommended.
+- A **USB-C to USB-A** or **USB-C to USB-C cable** to connect your Switch to your computer.
 - [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases/latest) -- Download `TegraRcmGUI_v2.6_Installer.msi`
 - [Hekate](https://github.com/CTCaer/hekate/releases/latest) -- Download `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip`
-- [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases/latest) -- Download both `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` and `fusee.bin`
+    - **Windows users:** Also download `nyx_usb_max_rate__run_only_once_per_windows_pc.reg` and run it for faster transfer speeds over USB. For details, see the **NOTE** section in the release page.
+- This hekate configuration file -- [`hekate_ipl.ini`](./hekate_ipl.ini)
+- [Atmosphére](https://github.com/Atmosphere-NX/Atmosphere/releases/latest) -- Download both `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` and `fusee.bin`.
 - [Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases/latest) -- Download `Lockpick_RCM.bin`
 - [nxdumptool](https://github.com/DarkMatterCore/nxdumptool/releases/latest) -- Download `nxdumptool.nro`
-- [nxDumpMerger](https://github.com/emiyl/nxDumpMerger/releases/latest) -- Download `nxDumpMerger_Windows.zip`
+- [nxDumpFuse](https://github.com/oMaN-Rod/nxDumpFuse/releases/latest) -- Download `win-x64.zip`
 - [TegraExplorer](https://github.com/suchmememanyskill/TegraExplorer/releases/latest) -- Download `TegraExplorer.bin`
-- [microSD Card Reader](https://www.amazon.com/dp/B006T9B6R2) -- If your computer has one built-in, you can use that
-- [RCM Jig](https://www.amazon.com/dp/B07J9JJRRG) <-- We highly recommend one like this, but you could use any of the methods outlined [here](https://noirscape.github.io/RCM-Guide/)
-
-`%YUZU_DIR%` is the home directory for yuzu on your computer:
-
-    - For Windows, this is '%APPDATA%\yuzu' or 'C:\Users\{username}\AppData\Roaming\yuzu'
-    - For Linux, this is '~/.local/share/yuzu'
+- [Rufus](https://github.com/pbatard/rufus/releases/latest) -- Download `rufus-3.19.exe`
+- [microSD Card Reader](https://www.amazon.com/dp/B006T9B6R2) -- If your computer has one built-in, you can use that.
+- [RCM Jig](https://www.amazon.com/dp/B07J9JJRRG) -- We highly recommend one like this, but you could use any of the methods outlined [here.](https://noirscape.github.io/RCM-Guide/)
 
 ## Preparing the microSD Card
 
-1. We will now prepare the microSD card.
-    - 1a. Extract the contents inside the `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` and `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` files into the root of your microSD card. Just drag and drop the contents, do not create any new folders.
-    - 1b. Rename the `hekate_ctcaer_X.X.X.bin` file to `reboot_payload.bin` and move it into the `atmosphere` folder. Replace the file when prompted.
-    - 1c. Place the `fusee.bin`, `Lockpick_RCM.bin` and `TegraExplorer.bin` files into the `payloads` folder, which is inside the `bootloader` folder in your microSD card.
-    - 1d. Create a folder named `nxdumptool` within the `switch` folder of your SD card and place the `nxdumptool.nro` file inside it.
-    - 1e. Once done, eject the microSD card and insert it into your Nintendo Switch.
+We will now format the microSD card to `FAT32` and place some files downloaded from the prerequisites section onto it.
+
+- **NOTE:** The `exFAT` file system is not recommended as that format is prone to file corruption when the microSD card is being used from the Switch. Large capacity microSD cards are usually exFAT-formatted by default.
+
+**Step 1:** Insert the microSD card into your computer.
+
+- If you have a `Nintendo` folder in your microSD card, make a backup of it by copying it to your computer, as the formatting process will erase any data stored in the card.
+
+**Step 2:** Open the **Rufus** formatting tool and set the following settings:
+
+- **Device:** Your microSD card drive
+- **Boot selection:** `Non-bootable`
+- **File system:** `FAT32` or `Large FAT32`
+- **Cluster size:** `64 kilobytes`
+
+**Step 3:** Click on `START` and wait for the formatting process to finish.
+
+**Step 4:** Move the previously copied `Nintendo` folder back into the microSD card.
+
+**Step 1:** Extract the contents inside the `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` and `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` files into the root of your microSD card. 
+- **IMPORTANT:** Drag and drop the contents, do not create any new folders.
+
+**Step 2:** Place the `hekate_ipl.ini` file into the `bootloader` folder.
+
+**Step 3:** Place the `fusee.bin`, `Lockpick_RCM.bin` and `TegraExplorer.bin` files into the `payloads` folder (located inside the `bootloader` folder).
+
+**Step 4:** Create a folder named `nxdumptool` within the `switch` folder and place the `nxdumptool.nro` file inside it.
+
+**Step 5:** Eject the **microSD card** from your computer and insert it into the **microSD card slot** of your Switch.
+
+Your **microSD card** should look like this:
 
 {{< imgs
-    "./sd_template.png|Your SD card should look like this."
+    "./sd_template.png|The root of the microSD card"
 >}}
 
 ## Booting into RCM
 
-2. We will now boot your Nintendo Switch into RCM mode
-    - 2a. Run the TegraRcmGUI installer you downloaded from the prerequisites, and after installation, start the program. 
-    - 2b. In the `Settings` tab, click on `Install Driver` which will install the drivers necessary for your computer to interface with your Nintendo Switch. 
-    - 2c. After the drivers have been installed, plug your Nintendo Switch into your computer.
-    - 2d. Power off your Switch while it is still connected to your computer.
-    - 2e. Insert your RCM jig into the right joy-con slot, make sure it is seated securely at the base, and then press VOL+ and Power buttons at the same time. Nothing should happen on your Switch; if the switch starts to turn on normally, go back to the beginning of step 2d and try again.
-    - 2f. If you see the Nintendo Switch icon in the lower left corner flash green and state `RCM O.K.`, your switch has successfully entered RCM mode.
+The Switch has a hidden recovery mode (RCM) which allows the execution of unsigned code (available only on models vulnerable to the `fusée-gelée` exploit).
+
+**Step 1:** Run the **TegraRcmGUI installer** (`TegraRcmGUI_v2.6_Installer.msi`), go through the installation wizard, and start the program. 
+
+**Step 2:** In the `Settings` tab, click on `Install Driver` and follow the installation instructions.
+
+**Step 3:** After the drivers have been installed, connect your Switch to your computer using a **USB-C cable**.
+
+**Step 4:** **Power off** your Switch (not putting it into Sleep Mode) while it is still connected to your computer.
+
+**Step 5:** Insert your **RCM jig** into the **right Joy-con rail**, make sure it is seated securely at the base.
+
+**Step 6:** Hold **VOLUME +** and press the **Power** button.
+
+If you see the Nintendo Switch icon turn **green** with `RCM O.K.` in the TegraRcmGUI window, your Switch has successfully booted into RCM mode. Else, if your Switch starts to turn on normally (Nintendo logo appears), go back to **Step 4** and try again.
 
 ## Booting into Hekate
 
-3. We will now boot your Nintendo Switch (already in [RCM mode](#booting-into-rcm)) into Hekate, a custom bootloader.
-    - 3a. Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` file you downloaded from the prerequisites to any accessible directory on your computer.
-    - 3b. Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate_ctcaer_X.X.X.bin` file you extracted earlier.
-    - 3c. Click on `Inject Payload` and your Switch will boot into the Hekate menu.
+**Step 1:** Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` file you downloaded from the prerequisites to any accessible directory on your computer.
+
+**Step 2:** Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate_ctcaer_X.X.X.bin` file you extracted earlier.
+
+**Step 3:** Click on `Inject Payload` and your Switch will boot into the Hekate menu.
     
 ## Mounting the microSD card to your computer in Hekate
 
@@ -175,20 +207,19 @@ _**NOTE:** These steps will be used in other sections below. Do **not** follow t
     - 5a. Tap on `Close` again to return to the Tools menu.
     - 5b. Tap on the `Home` tab to return to the Hekate Home menu.
 
-## Dumping Prod.keys and Title.keys
+## Dumping the Decryption Keys
 
-6. We will now dump your `prod.keys` and `title.keys` for decryption of your game files.
-    - 6a. Boot your Nintendo Switch into [RCM mode](#booting-into-rcm) (steps 2c. to 2f.) and make sure it is connected to your computer.
-    - 6b. Boot into [Hekate](#booting-into-hekate) (steps 3b. to 3c.)
-    - 6c. When it has successfully booted into the Hekate menu, tap on `Payloads`. This will show a list of payloads.
-    - 6d. Tap on `Lockpick_RCM.bin` in the list of payloads.
-    - 6e. After Lockpick_RCM has successfully booted, press the power button to select `Dump from SysNAND`. 
-    - 6f. Wait for it to finish deriving the keys.
-    - 6g. After Lockpick_RCM has finished deriving the keys, please make note of the location of the key files. Default is: `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
-    - 6h. Press any button to return to the menu, then navigate with the VOL+/VOL- buttons to highlight and select `Reboot to hekate` by pressing the power button. You should now be booted back into Hekate.
-    - 6i. [Mount the SD card to your computer in Hekate](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 4a. to 4c.)
-    - 6j. Navigate to your SD card drive and copy both `prod.keys` and `title.keys` to the `%YUZU_DIR%/keys` directory.
-    - 6k. Once you're done copying, [safely eject the SD card drive in your computer and return to the Hekate Home menu.](#mounting-the-microsd-card-to-your-computer-in-hekate) (steps 5a. to 5b.)
+We will now dump the decryption keys from your Switch so that yuzu is able to decrypt and open your game files.
+    
+**Step 1:** In the Hekate Home menu, tap on `Payloads`.
+
+**Step 2:** Tap on `Lockpick_RCM.bin` in the list of payloads.
+
+**Step 3:** After Lockpick_RCM has successfully booted, press the **Power** button to select `Dump from SysNAND`.
+
+**Step 4:** After Lockpick_RCM has finished processing all the keys, please make note of the location of the key files, which are in `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
+
+**Step 6:** Press any button to return to the menu, then navigate with the **VOLUME +** / **VOLUME -** buttons to highlight and select `Reboot to hekate` using the **Power** button. You should now be booted back into Hekate.
 
 ## Backing up Switch NAND (Optional but Recommended)
 
