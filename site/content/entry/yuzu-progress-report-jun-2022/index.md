@@ -207,7 +207,7 @@ Maybe it’s an emulation issue somewhere, or this game just loves to do this an
 The end result is allowing `de Blob` to get in-game.
 
 {{< imgs
-    "./deblob.png| de Blob 2"
+    "./deblob2.png| de Blob 2"
   >}}
 
 ## Kernel and CPU changes
