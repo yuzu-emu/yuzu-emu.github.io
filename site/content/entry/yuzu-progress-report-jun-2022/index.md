@@ -241,19 +241,37 @@ Thank you!
 Newcomer [DCNick3](https://github.com/DCNick3) joins the fray!
 As their first brawl, they {{< gh-hovercard "8473" "implemented the `ExitProcess` SVC," >}} which allows homebrew apps to gracefully exit on close.
 
+## Issues with third party antiviruses
+
+Users have recently reported crashes starting with Mainline version 1075 and newer.
+The cause seems to be third party antiviruses, more specifically ESET/ NOD32. 
+Some sort of false positive is issued, sandboxing yuzu and blocking its access to the system page file.
+If fastmem is unable to secure 4GB of page file to work (or 6GB if the extended memory option is enabled), the emulator will crash.
+
+Two options are available to solve this for now:
+
+- The user can disable fastmem from yuzu’s settings, the setting is in `Emulation > Configure… > General > Debug`, from there, enable the option labeled as `Enable CPU Debugging` at the bottom, and from the CPU tab, disable both `Enable Host MMU Emulation` options near the bottom. This will produce a performance loss that can reach up to 30% on some games.
+- Testing has shown that adding exceptions for yuzu in ESET doesn’t solve the issue, so the alternative is to uninstall ESET and use Windows Defender instead.
+
+{{< single-title-imgs
+    "Here are image examples on how to reach the required options"
+    "./fastmem1.png"
+    "./fastmem2.png"
+    >}}
+
 ## Future changes
 
-toastUnlimited has been working on {{< gh-hovercard "8455" "making yuzu compatible to be compiled with" >}} [LLVM Clang](https://clang.llvm.org/) under MinGW.
+toastUnlimited has been working on {{< gh-hovercard "8455" "making yuzu compatible to be compiled with" >}} [LLVM Clang](https://clang.llvm.org/) under [MinGW-w64](https://www.mingw-w64.org/).
 There are multiple reasons to consider this approach:
 
-The default compiler we use for Windows builds, MSVC, is currently unstable on its latest 2022 version, forcing us to revert to version 2019, and making yuzu lose some compiler optimizations in the process, losing a bit of performance.
-GCC 12, the default Linux compiler yuzu uses, has optimizations errors and problems with some warnings, making it unviable at the moment.
-Clang allows for aggressive optimizations that should provide good performance boosts. One example is [Polly](https://polly.llvm.org/).
-Along with GCC, LLVM makes it much easier to produce code optimized for the SSE4.2 instruction set. That’s right Core 2 Duo users, you’re next in line for the chopping block.
+- The default compiler we use for Windows builds, MSVC, is currently unstable on its latest 2022 version, forcing us to revert to version 2019, and making yuzu lose some compiler optimizations in the process, losing a bit of performance.
+- GCC 12, the default Linux compiler yuzu uses, has optimizations errors and problems with some warnings, making it unviable at the moment.
+- Clang allows for aggressive optimizations that should provide good performance boosts. One example is [Polly](https://polly.llvm.org/).
+- Along with GCC, LLVM makes it much easier to produce code optimized for the SSE4.2 instruction set. That’s right Core 2 Duo users, you’re next in line for the chopping block.
 
 The main reason we haven’t switched to this new system by default is `Project Gaia`, or, well, the lack of Gaias currently. 
 Some of its changes are mandatory to get Clang builds up and running on Windows. 
-While this pull request is completed, its full implementation will be on hold until Gaia is out, which isn’t that far away now.
+While this pull request is completed, its full implementation will be on hold until Gaia is out, which isn’t far away now.
 
 Get a kettle, boil some [wotah](https://www.youtube.com/watch?v=XE6DT9y7L-w) and make yourself a cuppa tea, because `Project London` has bloody started.
 
