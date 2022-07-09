@@ -6,7 +6,7 @@ coauthor = "CaptV0rt3x"
 forum = 0
 +++
 
-Dear yuz-ers, we had fantastic progress during June! Very important graphical changes providing tons of fixes, driver bugs being squashed, kernel and CPU improvements, UI and input changes, and more!
+Dear yuz-ers, we had fantastic progress during June! Driver bugs being squashed, kernel and CPU improvements, UI and input changes, and more!
 
 <!--more--> 
 
@@ -36,7 +36,8 @@ It’s always boring to start an article with a bunch of warnings, but this is o
 
 ## Graphical changes
 
-We should be covering the release of the first part of `Project Y.F.C.` here, but due to schedule issues, we're sorry for the incovenience and we'll make sure to cover it in the next report.
+We should be covering the release of the first part of `Project Y.F.C.` here, but due to schedule issues it was moved to the next report. 
+we're sorry for the incovenience and we'll make sure to cover it next time.
 The good news is that besides yuzu Fried Chicken, there have been other fun GPU improvements to report.
 
 [Behunin](https://github.com/behunin) is back with a {{< gh-hovercard "8413" "very interesting optimization for our `gpu_thread`," >}} [“a bounded multi-producer multi-consumer concurrent queue”](https://github.com/rigtorp/MPMCQueue).
