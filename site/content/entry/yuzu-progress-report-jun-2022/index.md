@@ -36,7 +36,7 @@ It’s always boring to start an article with a bunch of warnings, but this is o
 
 ## Graphical changes
 
-We should be covering the release of the first part of `Project Y.F.C.` here, but due to schedule issues it was moved to the next report. 
+We should be covering the release of the {{< gh-hovercard "8467" "first part of `Project Y.F.C.`" >}} here, but due to schedule issues it was moved to the next report. 
 we're sorry for the incovenience and we'll make sure to cover it next time.
 The good news is that besides yuzu Fried Chicken, there have been other fun GPU improvements to report.
 
