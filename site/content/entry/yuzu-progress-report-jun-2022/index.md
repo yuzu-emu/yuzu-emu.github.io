@@ -44,11 +44,14 @@ This delivers a small 1 or 2 FPS performance boost, but more importantly, better
 
 Ahh `The Elder Scrolls V: Skyrim`, the once considered benchmark for open world gaming, until better games came out, that is.
 [Skyline emulator](https://github.com/skyline-emu/skyline) developer [bylaws](https://github.com/bylaws) found the reason this classic refused to boot until now: {{< gh-hovercard "8414" "the assumed behaviour of the first value" >}} of the GPU related [semaphore](https://en.wikipedia.org/wiki/Semaphore_(programming)) was wrong, it should do a release instead of returning a constant zero.
-Thanks to this great find by bylaws by the way, the Dovahkiin can finally wake up in that cart.
+Thanks to this great find by bylaws by the way, the Dovahkiin can finally wake up in that cart. 
+
 
 {{< imgs
     "./skyrim.png| Yes, we're finally awake (The Elder Scrolls V: Skyrim)"
   >}}
+
+You can see we have some rendering issues to solve.
 
 One of our recent important rendering changes was the [NVFlinger rewrite](https://yuzu-emu.org/entry/yuzu-progress-report-mar-2022/#graphical-changes-and-optimizations), who would have guessed that coding an implementation closer to the Switch would result in a smoother gaming experience?
 
