@@ -218,7 +218,7 @@ Kernel emulation is the engine block that keeps all parts working together in ha
 One must tread carefully, heh, thread carefully.
 I’m not sorry.
 
-Ehem, [byte[]](https://github.com/liamwhite) has been particularly busy this month in this delicate area, screwdriver in hand and not fearing anything. 
+Ehem, byte[] has been particularly busy this month in this delicate area, screwdriver in hand and not fearing anything. 
 Several changes include getting up to date with the latest reverse engineering findings, but there’s more.
 
 To help with pause and resume functionality, he has {{< gh-hovercard "8457" "implemented KProcess suspension," >}} “the kernel mechanism intended for this” as the pull request explains.
