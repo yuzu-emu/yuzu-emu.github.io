@@ -28,7 +28,7 @@ description: A guide designed to get you started with yuzu quickly.
 
 ## Hardware Requirements
 
-#### CPU: 
+#### CPU:
 
 Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are recommended.
 
@@ -36,7 +36,7 @@ Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are r
 
 - **Recommended:** Intel Core i5-10400 / AMD Ryzen 5 3600
 
-#### Dedicated graphics: 
+#### Dedicated graphics:
 
 OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support and 4GB of VRAM are recommended.
 
@@ -57,7 +57,7 @@ This is only for listing iGPU support.
 
 - **Recommended:** Intel UHD Graphics 750 / AMD Radeon Vega 7
 
-#### RAM: 
+#### RAM:
 
 Since an integrated GPU uses system RAM as its video memory (VRAM), our memory requirement in this configuration is higher.
 
@@ -96,10 +96,11 @@ This guide will help you copy all your system files, games, updates, and DLC fro
 
 <article class="message has-text-weight-semibold">
     <div class="message-body">
-        <p>IMPORTANT NOTES:</p>
+        <p>DISCLAIMER:</p>
         <ul>
-            <li>While there are various approaches to hacking a Switch, this guide mainly covers the hacking process of early Switch models that are vulnerable to the most accessible `fusée-gelée` exploit. If you have hacked your console through other methods, then you might find some of the sections in this guide familiar and are welcome to skip them (assuming you have prior CFW knowledge). If not, you can join the yuzu Discord server for any additional assistance and details.</li>
-            <li>The following Switch models are patched from `fusée-gelée` and are unable to complete the first couple of steps:
+            <li>This guide is written in mind towards users with early Switch consoles that are vulnerable to the <code>fusée-gelée</code> RCM exploit, as that is the most accessible entryway to load custom firmware and run the tools necessary to obtain the required system files and games.
+            <li>While there are alternate methods to jailbreaking patched Switch models, instructions for loading custom firmware in this guide may not apply to such other exploits, but the overall dumping process should be mostly consistent. Join the <a href="https://discord.gg/u77vRWY">yuzu Discord server</a> for any further assistance on this case.
+            <li>The following Switch models are patched from <code>fusée-gelée</code> and are unable to complete the first couple of steps:
             <ul>
                 <li>Original Switch models manufactured after 2018.
                 <ul>
@@ -115,7 +116,8 @@ This guide will help you copy all your system files, games, updates, and DLC fro
 
 ## Prerequisites
 
-- A **hackable** Nintendo Switch console (preferably a model that is vulnerable to the `fusée-gelée` exploit). Visit [Is My Switch Patched?](https://ismyswitchpatched.com/) to check if your console is not patched.
+- A **hackable** Nintendo Switch console (preferably a model that is vulnerable to the `fusée-gelée` exploit).
+    - Visit [Is My Switch Patched?](https://ismyswitchpatched.com/) to check if your console is not patched.
 - A **microSD card** with at least `32 GB` of storage capacity. `64 GB` or higher is recommended.
 - A **USB-C to USB-A** or **USB-C to USB-C cable** to connect your Switch to your computer.
 - [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases/latest) -- Download `TegraRcmGUI_v2.6_Installer.msi`
@@ -154,7 +156,7 @@ We will now format the microSD card to `FAT32` and place some files downloaded f
 
 **Step 5:** Extract all the contents inside the `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` archive into the root of the microSD card.
 
-**Step 6:** Extract the `bootloader` folder from inside the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` archive into the root of your microSD card.
+**Step 6:** Extract the `bootloader` folder from inside the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` archive into the root of the microSD card.
 
 - **IMPORTANT:** Drag and drop the contents, do not create any new folders from the previous `zip` files.
 
@@ -170,27 +172,27 @@ Your microSD card contents should look like this:
 
 {{< imgs
     "./sd_root.png|The root of the microSD card"
-    "./atmosphere_dir.png|`atmosphere` folder"
-    "./hekate_dir.png|Hekate `bootloader` folder"
-    "./payloads_dir.png|`payloads` folder"
-    "./switch_dir.png|`switch` folder"
+    "./atmosphere_dir.png|atmosphere folder"
+    "./hekate_dir.png|Hekate bootloader folder"
+    "./payloads_dir.png|payloads folder"
+    "./switch_dir.png|switch folder"
 >}}
 
 ## Booting into RCM
 
-The Switch has a hidden recovery mode (RCM) which allows the execution of unsigned code (available only on models vulnerable to the `fusée-gelée` exploit).
+The Switch has a hidden recovery mode (RCM) which allows the execution of unsigned code (only on models vulnerable to the `fusée-gelée` exploit).
 
-**Step 1:** Run the **TegraRcmGUI installer** (`TegraRcmGUI_v2.6_Installer.msi`), go through the installation wizard, and start the program. 
+**Step 1:** Open the **TegraRcmGUI installer** (`TegraRcmGUI_v2.6_Installer.msi`), go through the installation wizard, and start the program. 
 
 **Step 2:** In the `Settings` tab, click on `Install Driver` and follow the installation instructions.
 
 **Step 3:** After the drivers have been installed, connect your Switch to your computer using a **USB-C cable**.
 
-**Step 4:** **Power off** your Switch (not putting it into Sleep Mode) while it is still connected to your computer.
+**Step 4:** **Power off** your Switch (not putting it to Sleep Mode) while it is still connected to your computer.
 
 **Step 5:** Insert your **RCM jig** into the **right Joy-con rail**, make sure it is seated securely at the base.
 
-**Step 6:** Hold **VOLUME +** and press the **Power** button.
+**Step 6:** Hold <kbd>VOLUME +</kbd> and press the **Power** button.
 
 If you see the Nintendo Switch icon turn **green** with `RCM O.K.` in the TegraRcmGUI window, your Switch has successfully booted into RCM mode. Else, if your Switch starts to turn on normally (Nintendo logo appears), go back to **Step 4** and try again.
 
@@ -198,11 +200,13 @@ Once you have succesfully booted into RCM mode, you can now remove the RCM jig f
 
 ## Booting into Hekate
 
-**Step 1:** Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` file you downloaded from the prerequisites to any accessible directory on your computer.
+**Step 1:** Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` archive to any directory on your computer.
 
-**Step 2:** Run TegraRcmGUI. In the `Payload` tab of TegraRcmGUI, click on the folder icon and navigate to the `hekate_ctcaer_X.X.X.bin` file you extracted earlier.
+**Step 2:** Open **TegraRcmGUI**. In the `Payload` tab, click on the folder icon and navigate to the `hekate_ctcaer_X.X.X.bin` file you extracted earlier.
 
-**Step 3:** Click on `Inject Payload` and your Switch will boot into the Hekate menu.
+**Step 3:** Click on `Inject Payload` and your Switch will now boot into the Hekate custom bootloader.
+
+- **NOTE:** If a vertical text-based user interface appears on your Switch's display, it means that you haven't followed the instructions from the [Preparing the microSD Card](#preparing-the-microsd-card) correctly.
 
 ## Backing up Switch NAND (Optional)
 
