@@ -1,5 +1,5 @@
 +++
-date = "2022-07-06T12:00:00-03:00"
+date = "2022-07-09T12:00:00-03:00"
 title = "Progress Report June 2022"
 author = "GoldenX86"
 coauthor = "CaptV0rt3x"
@@ -34,13 +34,10 @@ Until we find the cause of this issue and either implement a fix or report it to
 
 It’s always boring to start an article with a bunch of warnings, but this is one of the few tools we have available to reach as many affected users as possible.
 
-## Project Y.F.C.: Part 1
+## Graphical changes
 
-VORTEX
-
-## Other graphical changes
-
-Besides yuzu Fried Chicken, there have been other fun GPU improvements to report.
+We should be covering the release of the first part of `Project Y.F.C.` here, but due to schedule issues, we're sorry for the incovenience and we'll make sure to cover it in the next report.
+The good news is that besides yuzu Fried Chicken, there have been other fun GPU improvements to report.
 
 [Behunin](https://github.com/behunin) is back with a {{< gh-hovercard "8413" "very interesting optimization for our `gpu_thread`," >}} [“a bounded multi-producer multi-consumer concurrent queue”](https://github.com/rigtorp/MPMCQueue).
 This delivers a small 1 or 2 FPS performance boost, but more importantly, better recovery times after load related stuttering spikes.
@@ -49,7 +46,9 @@ Ahh `The Elder Scrolls V: Skyrim`, the once considered benchmark for open world 
 [Skyline emulator](https://github.com/skyline-emu/skyline) developer [bylaws](https://github.com/bylaws) found the reason this classic refused to boot until now: {{< gh-hovercard "8414" "the assumed behaviour of the first value" >}} of the GPU related [semaphore](https://en.wikipedia.org/wiki/Semaphore_(programming)) was wrong, it should do a release instead of returning a constant zero.
 Thanks to this great find by bylaws by the way, the Dovahkiin can finally wake up in that cart.
 
-pic
+{{< imgs
+    "./skyrim.png| Yes, we're finally awake (The Elder Scrolls V: Skyrim)"
+  >}}
 
 One of our recent important rendering changes was the [NVFlinger rewrite](https://yuzu-emu.org/entry/yuzu-progress-report-mar-2022/#graphical-changes-and-optimizations), who would have guessed that coding an implementation closer to the Switch would result in a smoother gaming experience?
 
@@ -71,7 +70,9 @@ Thanks to NVFlinger, {{< gh-hovercard "8508" "yuzu now has control over the fram
 You can find the option in `Emulation > Configure… > General > Limit Speed Percent`.
 Needless to say, if you want to make a game run faster, you must have the hardware performance to reach the new target speed.
 
-Pic
+{{< imgs
+    "./speed.png| No visual change compared to previous versions, but completely new functionality"
+  >}}
 
 ## Debugger
 
@@ -104,6 +105,10 @@ With GDB, you can -
 
 Thus you can see how extremely useful having a `GDB-compatible debugger interface` is, for developers and mod creators alike, as you can now debug games, homebrew, and game mods without having to fiddle with the console every single time.
 
+{{< imgs
+    "./gdb1.png| A 32-bit example, in this case Super Mario Galaxy"
+  >}}
+
 ### Challenges
 
 After the old debugger interface had been deprecated, a few members of the community forked it and continued to patch and maintain it.
@@ -132,12 +137,17 @@ The old debugger interface was based on "stepping" the emulated CPU core. `Stepp
 
 This posed a number of problems because almost all games have multiple threads, and if you are stepping and a thread asks to wait, then another thread can start running in its place in the same CPU core, with all the state changed. This breaks continuity, and can even crash the debugger.
 
-{{< gh-hovercard "8394" "the `The new debugger interface" >}} overcomes this by performing debug stepping on threads instead of stepping the emulated CPU core. In yuzu's context, when a thread is stepped, the debugger will ask the thread to step, then the Dynarmic interface will detect this condition and tell Dynarmic to step it, and when the thread has been scheduled again, it will mark that the thread stepped and notify the debugger again.
+{{< gh-hovercard "8394" "The new debugger interface" >}} overcomes this by performing debug stepping on threads instead of stepping the emulated CPU core. In yuzu's context, when a thread is stepped, the debugger will ask the thread to step, then the Dynarmic interface will detect this condition and tell Dynarmic to step it, and when the thread has been scheduled again, it will mark that the thread stepped and notify the debugger again.
+
+{{< imgs
+    "./gdb2.png| Super Mario Odyssey, in gibberish form"
+  >}}
 
 ### What are the benefits?
 
 Apart from this, we have a few more notable quality-of-life (QoL) additions.
 The debugger interface is now thread-stable, edge cases in stepping and pausing are now handled, and it has tons of useful debugging features, like:
+
 - Support for both 32-bit and 64-bit code
 - Ability to modify any memory and registers at any time
 - Readout of guest thread names
@@ -154,16 +164,24 @@ A slap in the face and the issue should be gone for good. Ouch.
 
 With the intention of helping new users adapt to yuzu, Docteh {{< gh-hovercard "8405" "renamed the status bar" >}} `DOCK` text (which used to only change colour to reflect its status,), to `DOCKED/HANDHELD`.
 Now the current emulated status is clearer, and users won’t confuse it when using dark or light themes. 
-Making things easier to understand must never be underestimated. Car makers should try it.
+Making things easier to understand must never be underestimated. Car makers should try it someday.
 
-pics
+{{< single-title-imgs
+    "The devil is in the details"
+    "./dockbug.png"
+    "./dockfix.png"
+    >}}
 
 Translation shenanigans always manage to slip. 
 The first time yuzu is opened, it will display a big folder with a plus icon, asking the user to add the location of their game dumps.
 The text of this message failed to re-translate if the user changed the interface language from `Emulation > Configure… > General > UI > Interface Language`.
 Solving this {{< gh-hovercard "8449" "took a couple of changes in how the window handles re-translation." >}}
 
-pics
+{{< single-title-imgs
+    "Good way to learn another language!"
+    "./addbug.png"
+    "./addfix.png"
+    >}}
 
 Docteh is also sneaking {{< gh-hovercard "8427" "some preliminary work for migrating to Qt6" >}} in the future.
 The `QDesktopWidget` class is [now officially deprecated](https://doc.qt.io/qt-5/qdesktopwidget.html), so `QScreen` takes its place.
@@ -185,7 +203,9 @@ When this game sends a controller disconnect signal, it uses a `-1` value, which
 Maybe it’s an emulation issue somewhere, or this game just loves to do this and the Switch just accepts invalid values, so our only option is to {{< gh-hovercard "8492" "replicate this peculiar behaviour." >}}
 The end result is allowing `de Blob` to get in-game.
 
-pic
+{{< imgs
+    "./deblob.png| de Blob 2"
+  >}}
 
 ## Kernel and CPU changes
 
@@ -241,5 +261,4 @@ That’s all folks! Thank you for staying until the end. See you next month!
 
 &nbsp;
 {{< article-end >}}
-{{< imgs-compare-include-end >}}
 {{< gh-hovercard-include-end >}}
