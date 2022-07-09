@@ -6,7 +6,7 @@ coauthor = "CaptV0rt3x"
 forum = 0
 +++
 
-Dear yuz-ers, we had fantastic progress during June! Driver bugs being squashed, kernel and CPU improvements, UI and input changes, and more!
+Dear yuz-ers, we had fantastic progress during June! Driver bugs are being squashed, there are kernel and CPU improvements, UI and input changes, and more!
 
 <!--more--> 
 
