@@ -1,9 +1,9 @@
 +++
-date = "2022-07-08T12:00:00-03:00"
+date = "2022-07-10T12:00:00-03:00"
 title = "Progress Report June 2022"
 author = "GoldenX86"
 coauthor = "CaptV0rt3x"
-forum = 0
+forum = 597525
 +++
 
 Dear yuz-ers, we had fantastic progress during June! Driver bugs are being squashed, there are kernel and CPU improvements, UI and input changes, and more!
