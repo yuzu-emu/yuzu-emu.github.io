@@ -66,11 +66,11 @@ Weird CPU architectures aside, while the issue is solved, Intel Alder Lake users
 
 While still on the topic of NVFlinger goodies, we present a highly requested feature!
 Veteran users will remember that during its single threaded days, yuzu would allow control over game speed. 
-With the arrival of multicore, known at the time as [Project Prometheus](https://yuzu-emu.org/entry/yuzu-prometheus/), this feature had to be disabled to the chagrin of many people. How time flies!
+With the arrival of multicore, known at the time as [Project Prometheus](https://yuzu-emu.org/entry/yuzu-prometheus/), this feature was only available in single core mode, to the chagrin of many people. How time flies!
 
-{{< gh-hovercard "8508" "yuzu now has control over the frame time calculation," >}} allowing a new method to calculate game speed regardless of CPU emulation!
+{{< gh-hovercard "8508" "yuzu now has control over the frame time calculation," >}} allowing a new method to unlimit the framerate regardless of the CPU emulation mode!
 You can find the option in `Emulation > Configure… > General > Limit Speed Percent`.
-Needless to say, if you want to make a game run faster, you must have the hardware performance to reach the new target speed.
+Needless to say, if you want to make a game run faster, the game should allow it, and you must have the hardware performance to reach the new target speed.
 
 {{< imgs
     "./speed.png| No visual change compared to previous versions, but completely new functionality"
@@ -129,7 +129,7 @@ Motivated by his drive to figure out the issue, byte[] began working towards a n
 As the saying goes, "the first step is always the hardest".
 And for byte[], indeed it was; his biggest challenge: "Not knowing where to start".
 
-byte[] had the networking code written and working, but did not initially understand to tie it with the threading code. After some healthy brainstorming sessions with other devs, he eventually figured out solutions for the challenges he was facing.
+byte[] had the networking code written and working, but did not initially understand how to tie it with the threading code. After some healthy brainstorming sessions with other devs, he eventually figured out solutions for the challenges he was facing.
 
 ### Changes
 
@@ -247,13 +247,14 @@ For their first brawl, they {{< gh-hovercard "8473" "implemented the `ExitProces
 
 Users have recently reported crashes starting with Mainline version 1075 and newer.
 The cause seems to be third-party antiviruses, more specifically ESET/ NOD32. 
-Some sort of false positive is issued, sandboxing yuzu and blocking its access to the system page file.
-If fastmem is unable to secure 4GB of page file to work (or 6GB if the extended memory option is enabled), the emulator will crash.
+a [HIPS](https://help.eset.com/ees/8/en-US/idh_hips_main.html) false positive is issued, sandboxing yuzu and blocking its access to the system page file.
+Basically, if fastmem is unable to secure 4GB of page file to work (or 6GB if the extended memory option is enabled), the emulator will crash.
 
-Two options are available to solve this for now:
+Three options are available to solve this for now:
 
 - The user can disable fastmem from yuzu’s settings, the setting is in `Emulation > Configure… > General > Debug`, from there, enable the option labeled as `Enable CPU Debugging` at the bottom, and from the CPU tab, disable both `Enable Host MMU Emulation` options near the bottom. This will produce a performance loss that can reach up to 30% on some games.
-- Testing has shown that adding exceptions for yuzu in ESET doesn’t solve the issue, so the alternative is to uninstall ESET and use Windows Defender instead.
+- Add a HIPS exception to both yuzu folders, `%appdata%\yuzu` and `%localappdata%\yuzu`. User reports show mixed results with this approach.
+- Outright uninstall ESET and use Windows Defender instead.
 
 {{< single-title-imgs
     "Here are image examples on how to reach the required options"
