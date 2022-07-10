@@ -10,25 +10,25 @@ Dear yuz-ers, we had fantastic progress during June! Driver bugs are being squas
 
 <!--more--> 
 
-## PSA For AMD Radeon users, and NVIDIA tags along
+## PSA for AMD Radeon users (and NVIDIA tags along)
 
 Let’s begin with a driver bug we [mentioned last month](https://yuzu-emu.org/entry/yuzu-progress-report-may-2022/#graphical-changes-driver-issues-and-the-nostalgia-bliss-that-is-the-good-old-64).
-The Vulkan extension `VK_KHR_push_descriptor` finally arrived to AMD hardware with driver version 22.5.2 for Windows, and it wasn’t stable. Radeon users would tell you that any game would crash in Vulkan after updating.
-To mitigate this, [toastUnlimited](https://github.com/lat9nq) implemented an extension block to the specific Vulkan driver version AMD reports for 22.5.2 (and its equivalent Linux AMDVLK package), 2.0.226.
+The Vulkan extension `VK_KHR_push_descriptor` finally arrived for AMD hardware with driver version 22.5.2 for Windows, but it wasn’t stable. Radeon users would tell you that any game would crash in Vulkan after updating.
+To mitigate this, [toastUnlimited](https://github.com/lat9nq) implemented an extension block for the specific Vulkan driver version AMD reports for 22.5.2 (and its equivalent Linux AMDVLK package), 2.0.226.
 
-Skip a month and the new 22.6.1 driver is released with VK_KHR_push_descriptor fixed!
-But, there is a but, the new driver informs the same Vulkan version, 2.0.226, which forces our devs into a dilemma.
-Since the extension block can only work with what the GPU driver informs, the Vulkan driver version in this case, we can either keep the block and ensure compatibility with older broken drivers, or remove the block and force users to update to the current (at the time of writing) 22.6.1 driver.
+Skip forward a month and the new 22.6.1 driver is released with `VK_KHR_push_descriptor` fixed!
+But, there is a but, the new driver reports the same Vulkan version, 2.0.226, which forces our devs into a dilemma.
+Since the extension block can only work with what the GPU driver reports, the Vulkan driver version in this case, we can either keep the block and ensure compatibility with older broken drivers, or remove the block and force users to update to the current (at the time of writing) 22.6.1 driver.
 {{< gh-hovercard "8518" "We opted to do the latter," >}} as it keeps the codebase cleaner, and there is some evidence that suggests this may fix input lag issues found when using FreeSync displays.
 
-To summarize, AMD Radeon users with cards still under support (Polaris and newer) must update to the latest video driver, 22.6.1 or newer, in order to get proper Vulkan support.
-Users with older cards out of support (GCN 1 to GCN 3) don’t have to worry, that hardware already can’t update to newer drivers (custom drivers can’t update Vulkan to add new extensions either), and yuzu will use the slower code path that works without requiring support for VK_KHR_push_descriptor.
+To be specific, AMD Radeon users with cards still supported by AMD (Polaris and newer) must update to the latest video driver, 22.6.1 or newer, in order to get proper Vulkan support.
+Users with older cards out of support (GCN 1 to GCN 3) don’t have to worry, that hardware already can’t update to newer drivers (custom drivers can’t update Vulkan to add new extensions either), and yuzu will use the slower code path that works without requiring support for `VK_KHR_push_descriptor`.
 
-Okay that covers Radeon users, let’s move to the greener side (Part 5?).
-With the release of the 516.XX NVIDIA driver series, there seems to be a performance boost for Turing and Ampere GPUs running under Vulkan (that’s 3000, 2000 and 1600 series cards).
+Okay, that covers Radeon users. Let’s talk about the greener side.
+With the release of the 516.XX NVIDIA driver series, there seems to be a performance boost for Turing and Ampere GPUs running under Vulkan (that’s 3000, 2000, and 1600 series cards).
 Great, but it has a price.
 
-Maxwell and Pascal users (1000, 900, 750 and 745 series cards) will experience device loss crashes some minutes into running games in Vulkan. 
+Maxwell and Pascal users (1000, 900, 750, and 745 series cards) will experience device loss crashes some minutes into running games in Vulkan. 
 A device loss basically means the driver pulling the plug for some reason.
 Until we find the cause of this issue and either implement a fix or report it to NVIDIA, Maxwell and Pascal users should stick to 512.XX drivers.
 
@@ -37,15 +37,15 @@ It’s always boring to start an article with a bunch of warnings, but this is o
 ## Graphical changes
 
 We should be covering the release of the {{< gh-hovercard "8467" "first part of `Project Y.F.C.`" >}} here, but due to schedule issues it was moved to the next report. 
-we're sorry for the incovenience and we'll make sure to cover it next time.
+We're sorry for the inconvenience and we'll make sure to cover it in the next article.
 The good news is that besides yuzu Fried Chicken, there have been other fun GPU improvements to report.
 
 [Behunin](https://github.com/behunin) is back with a {{< gh-hovercard "8413" "very interesting optimization for our `gpu_thread`," >}} [“a bounded multi-producer multi-consumer concurrent queue”](https://github.com/rigtorp/MPMCQueue).
 This delivers a small 1 or 2 FPS performance boost, but more importantly, better recovery times after load related stuttering spikes.
 
-Ahh `The Elder Scrolls V: Skyrim`, the once considered benchmark for open world gaming, until better games came out, that is.
-[Skyline emulator](https://github.com/skyline-emu/skyline) developer [bylaws](https://github.com/bylaws) found the reason this classic refused to boot until now: {{< gh-hovercard "8414" "the assumed behaviour of the first value" >}} of the GPU related [semaphore](https://en.wikipedia.org/wiki/Semaphore_(programming)) was wrong, it should do a release instead of returning a constant zero.
-Thanks to this great find by bylaws by the way, the Dovahkiin can finally wake up in that cart. 
+The beloved `The Elder Scrolls V: Skyrim`, once considered the benchmark for open world gaming, until better games came out that is, can now boot!
+[Skyline emulator](https://github.com/skyline-emu/skyline) developer [bylaws](https://github.com/bylaws) found the reason this classic refused to boot until now: {{< gh-hovercard "8414" "the assumed behaviour of the first value" >}} of the GPU related [semaphore](https://en.wikipedia.org/wiki/Semaphore_(programming)) was wrong, it should perform a release instead of returning a constant zero.
+Now, thanks to this great find by bylaws, the Dovahkiin can finally wake up in that cart. 
 
 
 {{< imgs
@@ -56,21 +56,19 @@ You can see we have some rendering issues to solve.
 
 One of our recent important rendering changes was the [NVFlinger rewrite](https://yuzu-emu.org/entry/yuzu-progress-report-mar-2022/#graphical-changes-and-optimizations), who would have guessed that coding an implementation closer to the Switch would result in a smoother gaming experience?
 
-After its release, user reports mentioned timing and frame pacing issues in games like `Super Smash Bros. Ultimate`. 
-Match time would pass slower, around a second longer per minute on Ryzen systems, this result was far worse on Intel Alder Lake CPUs (12th gen).
+However, after its release, user reports mentioned timing and frame pacing issues in games like `Super Smash Bros. Ultimate`. 
+Match time would pass increasingly slower, around a second longer per minute on Ryzen systems, and exacerbated with Intel Alder Lake CPUs (12th gen).
 
 The solution [bunnei](https://github.com/bunnei) arrived to, contrary to what one would think, is to {{< gh-hovercard "8428" "implement a *less accurate* behaviour." >}}
-yuzu is multithreaded, and very heavily so (even if it doesn’t show up in CPU % use graphs), and a 100% accurate implementation of NVFlinger would not be sensitive enough for the emulator’s requirements.
-Weird CPU architectures aside.
+yuzu is multithreaded, and very heavily so (even if it doesn’t show up in CPU % usage graphs), and a 100% accurate implementation of NVFlinger would not be sensitive enough for the emulator’s requirements.
 
-While the issue is solved, Intel Alder Lake users are recommended to run the latest BIOS and chipset driver versions, check your motherboard/laptop support sites.
+Weird CPU architectures aside, while the issue is solved, Intel Alder Lake users are recommended to run the latest BIOS and chipset driver versions. Check your motherboard/laptop support sites for these updates.
 
-While still on the topic of NVFlinger goodies, a very requested feature!
+While still on the topic of NVFlinger goodies, we present a highly requested feature!
 Veteran users will remember that during its single threaded days, yuzu would allow control over game speed. 
-With the arrival of multicore, known at the time as [Project Prometheus](https://yuzu-emu.org/entry/yuzu-prometheus/), this feature had to be disabled, to the chagrin of many people.
-How time flies…
+With the arrival of multicore, known at the time as [Project Prometheus](https://yuzu-emu.org/entry/yuzu-prometheus/), this feature had to be disabled to the chagrin of many people. How time flies!
 
-Thanks to NVFlinger, {{< gh-hovercard "8508" "yuzu now has control over the frame time calculation," >}} allowing a new method to calculate game speed regardless of CPU emulation!
+{{< gh-hovercard "8508" "yuzu now has control over the frame time calculation," >}} allowing a new method to calculate game speed regardless of CPU emulation!
 You can find the option in `Emulation > Configure… > General > Limit Speed Percent`.
 Needless to say, if you want to make a game run faster, you must have the hardware performance to reach the new target speed.
 
@@ -83,16 +81,16 @@ Needless to say, if you want to make a game run faster, you must have the hardwa
 Now, we're going to dive into a bit of developer paradise here.
 
 A few months ago, yuzu developer [byte[]](https://github.com/liamwhite) found himself trying to debug some game issues in yuzu involving [a certain Welsh cat](https://www.youtube.com/watch?v=-z99PKe7kOA), among others.
-Unfortunately, he soon ran into more trouble, as it was exceedingly difficult to view the internal states of games and watch or modify their behaviour, without needing to extensively hack up yuzu.
+Unfortunately, he soon ran into more trouble, as it was exceedingly difficult to view the internal states of games and watch or modify their behaviour without needing to extensively hack up yuzu.
 
 The source of the pain was not having any way to use a debugger with the emulated games.
 
 Originally, yuzu inherited a `GDB-compatible debugger interface` from [Citra](https://citra-emu.org), but it was lacking many important features.
 And even that had to be deprecated during [Project Prometheus](https://yuzu-emu.org/entry/yuzu-prometheus/) (multicore emulation) because of its inherent shortcomings.
 
- * It only worked with single core mode,
- * It was painfully slow - it could sometimes take more than 30 minutes to boot a game, particularly if you had any scripts set up to collect info, and
- * It had some significant code quality issues.
+ * It only worked with single core mode
+ * It was _slow_ - it could sometimes take 30+ minutes to boot a game, particularly if you had any logging scripts
+ * It had some significant code quality issues
 
 After being removed during the Prometheus rewrite, yuzu did not have ***any*** debugger interface for a long time.
 
@@ -102,12 +100,12 @@ After being removed during the Prometheus rewrite, yuzu did not have ***any*** d
 >
 > -- [*Wikipedia*](https://en.wikipedia.org/wiki/GNU_Debugger)
 
-With GDB, you can -
- * step through code on an instruction-by-instruction basis,
- * modify memory and registers on-the-fly, and
- * even completely replace sections of running code dynamically.
+With GDB, you can:
+ * step through code on an instruction-by-instruction basis
+ * modify memory and registers on-the-fly
+ * even completely replace sections of running code dynamically
 
-Thus you can see how extremely useful having a `GDB-compatible debugger interface` is, for developers and mod creators alike, as you can now debug games, homebrew, and game mods without having to fiddle with the console every single time.
+Thus, you can see how extremely useful having a `GDB-compatible debugger interface` is, for developers and mod creators alike, as you can now debug games, homebrew, and game mods without having to fiddle with the console every single time.
 
 {{< imgs
     "./gdb1.png| A 32-bit example, in this case Super Mario Galaxy"
@@ -120,16 +118,16 @@ A few notable ones are [Hedges](https://github.com/Hedges/yuzu) and [astrelsky](
 It was thanks to these forks that byte[] was able to add [initial support for the Wii Hagi emulator](https://github.com/yuzu-emu/yuzu/pull/8000) in yuzu.
 
 However, he was soon faced with a much more annoying problem.
-[Recent changes to yuzu's CPU emulation](https://github.com/yuzu-emu/yuzu/pull/8148), were causing Super Mario Galaxy to [deadlock](https://en.wikipedia.org/wiki/Deadlock).
+[Recent changes to yuzu's CPU emulation](https://github.com/yuzu-emu/yuzu/pull/8148) were causing Super Mario Galaxy to [deadlock](https://en.wikipedia.org/wiki/Deadlock).
 This issue only happened in multicore mode, right after the end of the first video cutscene. He was out of ideas and needed a functional debugger to continue investigating the issue.
 
-Since the old debugger interface didn't support multicore mode, byte[] had to start from scratch, and he did.
+Since the old debugger interface didn't support multicore mode, byte[] had to start from scratch.
 Motivated by his drive to figure out the issue, byte[] began working towards a new GDB-compatible debugger interface for yuzu and he had very specific goals:
- * It should work, and
- * It should quickly get out of the way, so he could focus more on the root cause.
+ * It should work
+ * It should quickly get out of the way, so he could focus more on the root cause
 
 As the saying goes, "the first step is always the hardest".
-And for byte[], indeed it was; His biggest challenge? "Not knowing where to start".
+And for byte[], indeed it was; his biggest challenge: "Not knowing where to start".
 
 byte[] had the networking code written and working, but did not initially understand to tie it with the threading code. After some healthy brainstorming sessions with other devs, he eventually figured out solutions for the challenges he was facing.
 
@@ -137,9 +135,9 @@ byte[] had the networking code written and working, but did not initially unders
 
 Since he was starting from scratch, byte[] took the opportunity to make some sorely needed improvements to the interface.
 
-The old debugger interface was based on "stepping" the emulated CPU core. `Stepping` here means executing one more instruction of the emulated program.
+The old debugger interface was based on "stepping" the emulated CPU core. `Stepping` here means executing one instruction of the emulated program at a time.
 
-This posed a number of problems because almost all games have multiple threads, and if you are stepping and a thread asks to wait, then another thread can start running in its place in the same CPU core, with all the state changed. This breaks continuity, and can even crash the debugger.
+This posed a number of problems because almost all games have multiple threads, and if you are stepping and a thread asks to wait, then another thread can start running in its place in the same CPU core, with all the state changed. This breaks continuity and can even crash the debugger.
 
 {{< gh-hovercard "8394" "The new debugger interface" >}} overcomes this by performing debug stepping on threads instead of stepping the emulated CPU core. In yuzu's context, when a thread is stepped, the debugger will ask the thread to step, then the Dynarmic interface will detect this condition and tell Dynarmic to step it, and when the thread has been scheduled again, it will mark that the thread stepped and notify the debugger again.
 
@@ -162,7 +160,7 @@ The debugger interface is now thread-stable, edge cases in stepping and pausing 
 
 When talking about user interface and experience, you can always count on [Docteh](https://github.com/Docteh).
 
-[In reminiscence of what we reported back in february](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2022/#general-bugfixes-and-ui-changes), Docteh found out that after a crash, the yuzu main window may reopen in some kind of borderless fullscreen… *thing*.
+[In a repeat of what Morph fixed back in february](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2022/#general-bugfixes-and-ui-changes), Docteh found out that after a crash, the yuzu main window may reopen in some kind of borderless fullscreen… *thing*.
 The culprit was {{< gh-hovercard "8400" "the `UILayout\geometry` value in yuzu’s qt-config.ini file." >}} 
 A slap in the face and the issue should be gone for good. Ouch.
 
@@ -176,7 +174,7 @@ Making things easier to understand must never be underestimated. Car makers shou
     "./dockfix.png"
     >}}
 
-Translation shenanigans always manage to slip. 
+Translation bugs always manage to slip by. 
 The first time yuzu is opened, it will display a big folder with a plus icon, asking the user to add the location of their game dumps.
 The text of this message failed to re-translate if the user changed the interface language from `Emulation > Configure… > General > UI > Interface Language`.
 Solving this {{< gh-hovercard "8449" "took a couple of changes in how the window handles re-translation." >}}
@@ -204,8 +202,8 @@ Continuing the work with `Ring Fit Adventure`, german77 {{< gh-hovercard "8487" 
 With the official Switch update for the firmware version 13.2.0, Nintendo implemented a new `GetVibrationDeviceInfo`. 
 While german77 worked on implementing those changes, one game in particular refused to work, `de Blob`.
 When this game sends a controller disconnect signal, it uses a `-1` value, which is invalid as only unsigned values are accepted on the Switch.
-Maybe it’s an emulation issue somewhere, or this game just loves to do this and the Switch just accepts invalid values, so our only option is to {{< gh-hovercard "8492" "replicate this peculiar behaviour." >}}
-The end result is allowing `de Blob` to get in-game.
+Maybe it’s an emulation issue somewhere, or this game just loves to do this and the Switch just accepts invalid values. Regardless, our solution is to {{< gh-hovercard "8492" "replicate this peculiar behaviour." >}}
+The end result is `de Blob` now gets in-game!
 
 {{< imgs
     "./deblob2.png| de Blob 2"
@@ -216,9 +214,9 @@ The end result is allowing `de Blob` to get in-game.
 Possibly the most silent part of yuzu’s code, but also the most critical.
 Kernel emulation is the engine block that keeps all parts working together in harmony, so you can expect that changing even a small part of it can have ripple effects anywhere.
 One must tread carefully, heh, thread carefully.
-I’m not sorry.
+Sorry, not sorry.
 
-Ehem, byte[] has been particularly busy this month in this delicate area, screwdriver in hand and not fearing anything. 
+Anyway, byte[] has been particularly busy this month in this delicate area, screwdriver in hand and not fearing anything. 
 Several changes include getting up to date with the latest reverse engineering findings, but there’s more.
 
 To help with pause and resume functionality, he has {{< gh-hovercard "8457" "implemented KProcess suspension," >}} “the kernel mechanism intended for this” as the pull request explains.
@@ -234,8 +232,8 @@ It was slow, but safe.
 `Fire Emblem: Three Houses` would get into a GPU thread race condition with the new method.
 {{< gh-hovercard "8483" "Telling the kernel to wait for all threads to stop on pause" >}} avoids the crash.
 
-If for some reason, yuzu would jump to an invalid address, emulation would hang and the log would get spammed with infinite amounts of `Unmapped Reads`.
-Fixing this required both working on Dynarmic and on yuzu, by {{< gh-hovercard "8490" "stopping ReadCode callbacks to unmapped addresses." >}}
+If, for some reason, yuzu would jump to an invalid address, emulation would hang and the log would get spammed with infinite amounts of `Unmapped Reads`.
+Fixing this required work on both Dynarmic and yuzu, resulting in {{< gh-hovercard "8490" "stopping ReadCode callbacks to unmapped addresses." >}}
 
 [exlaunch](https://github.com/shadowninja108/exlaunch) is a framework for injecting C or C++ code into Switch applications and modules.
 exlaunch can work on unpatched units, allowing developers to “go to town” with it.
@@ -243,12 +241,12 @@ yuzu didn’t support it, but [comex](https://github.com/comex) {{< gh-hovercard
 Thank you!
 
 Newcomer [DCNick3](https://github.com/DCNick3) joins the fray!
-As their first brawl, they {{< gh-hovercard "8473" "implemented the `ExitProcess` SVC," >}} which allows homebrew apps to gracefully exit on close.
+For their first brawl, they {{< gh-hovercard "8473" "implemented the `ExitProcess` SVC," >}} which allows homebrew apps to gracefully exit on close.
 
 ## Issues with third party antiviruses
 
 Users have recently reported crashes starting with Mainline version 1075 and newer.
-The cause seems to be third party antiviruses, more specifically ESET/ NOD32. 
+The cause seems to be third-party antiviruses, more specifically ESET/ NOD32. 
 Some sort of false positive is issued, sandboxing yuzu and blocking its access to the system page file.
 If fastmem is unable to secure 4GB of page file to work (or 6GB if the extended memory option is enabled), the emulator will crash.
 
@@ -269,7 +267,7 @@ toastUnlimited has been working on {{< gh-hovercard "8455" "making yuzu compatib
 There are multiple reasons to consider this approach:
 
 - The default compiler we use for Windows builds, MSVC, is currently unstable on its latest 2022 version, forcing us to revert to version 2019, and making yuzu lose some compiler optimizations in the process, losing a bit of performance.
-- GCC 12, the default Linux compiler yuzu uses, has optimizations errors and problems with some warnings, making it unviable at the moment.
+- GCC 12, the default Linux compiler yuzu uses, has optimization errors and problems with some warnings, making it unviable at the moment.
 - Clang allows for aggressive optimizations that should provide good performance boosts. One example is [Polly](https://polly.llvm.org/).
 - Along with GCC, LLVM makes it much easier to produce code optimized for the SSE4.2 instruction set. That’s right Core 2 Duo users, you’re next in line for the chopping block.
 
@@ -277,7 +275,7 @@ The main reason we haven’t switched to this new system by default is `Project 
 Some of its changes are mandatory to get Clang builds up and running on Windows. 
 While this pull request is completed, its full implementation will be on hold until Gaia is out, which isn’t far away now.
 
-Get a kettle, boil some [wotah](https://www.youtube.com/watch?v=XE6DT9y7L-w) and make yourself a cuppa tea, because `Project London` has bloody started.
+Get a kettle, boil some [wotah](https://www.youtube.com/watch?v=XE6DT9y7L-w), and make yourself a cuppa tea, because `Project London` has bloody began.
 
 That’s all folks! Thank you for staying until the end. See you next month!
 
