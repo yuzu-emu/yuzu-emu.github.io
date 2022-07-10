@@ -17,7 +17,7 @@ The Vulkan extension `VK_KHR_push_descriptor` finally arrived for AMD hardware w
 To mitigate this, [toastUnlimited](https://github.com/lat9nq) implemented an extension block for the specific Vulkan driver version AMD reports for 22.5.2 (and its equivalent Linux AMDVLK package), 2.0.226.
 
 Skip forward a month and the new 22.6.1 driver is released with `VK_KHR_push_descriptor` fixed!
-But, there is a but, the new driver reports the same Vulkan version, 2.0.226, which forces our devs into a dilemma.
+But, and there is a but, the new driver reports the same Vulkan version, 2.0.226, which forces our devs into a dilemma.
 Since the extension block can only work with what the GPU driver reports, the Vulkan driver version in this case, we can either keep the block and ensure compatibility with older broken drivers, or remove the block and force users to update to the current (at the time of writing) 22.6.1 driver.
 {{< gh-hovercard "8518" "We opted to do the latter," >}} as it keeps the codebase cleaner, and there is some evidence that suggests this may fix input lag issues found when using FreeSync displays.
 
@@ -101,9 +101,9 @@ After being removed during the Prometheus rewrite, yuzu did not have ***any*** d
 > -- [*Wikipedia*](https://en.wikipedia.org/wiki/GNU_Debugger)
 
 With GDB, you can:
- * step through code on an instruction-by-instruction basis
- * modify memory and registers on-the-fly
- * even completely replace sections of running code dynamically
+ * Step through code on an instruction-by-instruction basis
+ * Modify memory and registers on-the-fly
+ * Even completely replace sections of running code dynamically
 
 Thus, you can see how extremely useful having a `GDB-compatible debugger interface` is, for developers and mod creators alike, as you can now debug games, homebrew, and game mods without having to fiddle with the console every single time.
 
@@ -160,11 +160,11 @@ The debugger interface is now thread-stable, edge cases in stepping and pausing 
 
 When talking about user interface and experience, you can always count on [Docteh](https://github.com/Docteh).
 
-[In a repeat of what Morph fixed back in february](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2022/#general-bugfixes-and-ui-changes), Docteh found out that after a crash, the yuzu main window may reopen in some kind of borderless fullscreen… *thing*.
+[In a repeat of what Morph fixed back in February](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2022/#general-bugfixes-and-ui-changes), Docteh found out that after a crash, the yuzu main window may reopen in some kind of borderless fullscreen… *thing*.
 The culprit was {{< gh-hovercard "8400" "the `UILayout\geometry` value in yuzu’s qt-config.ini file." >}} 
 A slap in the face and the issue should be gone for good. Ouch.
 
-With the intention of helping new users adapt to yuzu, Docteh {{< gh-hovercard "8405" "renamed the status bar" >}} `DOCK` text (which used to only change colour to reflect its status,), to `DOCKED/HANDHELD`.
+With the intention of helping new users adapt to yuzu, Docteh {{< gh-hovercard "8405" "renamed the status bar" >}} `DOCK` text (which used to only change colour to reflect its status) to `DOCKED/HANDHELD`.
 Now the current emulated status is clearer, and users won’t confuse it when using dark or light themes. 
 Making things easier to understand must never be underestimated. Car makers should try it someday.
 
@@ -243,11 +243,11 @@ Thank you!
 Newcomer [DCNick3](https://github.com/DCNick3) joins the fray!
 For their first brawl, they {{< gh-hovercard "8473" "implemented the `ExitProcess` SVC," >}} which allows homebrew apps to gracefully exit on close.
 
-## Issues with third party antiviruses
+## Issues with third-party antiviruses
 
 Users have recently reported crashes starting with Mainline version 1075 and newer.
 The cause seems to be third-party antiviruses, more specifically ESET/ NOD32. 
-a [HIPS](https://help.eset.com/ees/8/en-US/idh_hips_main.html) false positive is issued, sandboxing yuzu and blocking its access to the system page file.
+A [HIPS](https://help.eset.com/ees/8/en-US/idh_hips_main.html) false positive is issued, sandboxing yuzu and blocking its access to the system page file.
 Basically, if fastmem is unable to secure 4GB of page file to work (or 6GB if the extended memory option is enabled), the emulator will crash.
 
 Three options are available to solve this for now:
