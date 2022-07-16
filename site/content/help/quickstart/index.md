@@ -152,7 +152,7 @@ This guide will help you copy all your system files, games, updates, and DLC fro
 
 ## Preparing the microSD Card
 
-We will now format the microSD card to `FAT32` and place some files downloaded from the prerequisites section into it.
+We'll now format the microSD card to `FAT32` and place some files downloaded from the prerequisites section into it.
 > **NOTE:** The `exFAT` file system is not recommended as that format is prone to file corruption when the microSD card interacts with the Switch. Large capacity microSD cards are usually formatted as `exFAT` by default.
 
 **Step 1:** Insert the microSD card into your computer.
@@ -199,7 +199,7 @@ Your microSD card contents should look like this:
 
 ## Booting into RCM
 
-The Switch has a hidden recovery mode called `RCM` which allows the execution of unsigned code. However, these steps only work on models vulnerable to `fusée-gelée` despite `RCM` also being present in patched models. 
+The Switch has a hidden recovery mode called `RCM`. The `fusée-gelée` exploit abuses a critical error from RCM, where binaries sent to the console have their data read before checking for signatures. As such, you can run any custom code on your Switch as long as it's vulnerable to this exploit. However, these steps won't work on patched models despite RCM also existing on such consoles.
 
 **Step 1:** Open the **TegraRcmGUI installer** (`TegraRcmGUI_v2.6_Installer.msi`), go through the installation wizard, and start the program. 
 
@@ -207,20 +207,20 @@ The Switch has a hidden recovery mode called `RCM` which allows the execution of
 
 **Step 3:** After the drivers have been installed, connect your Switch to your computer using a **USB-C cable**.
 
-**Step 4:** **Power off** your Switch (not putting it to Sleep Mode) while it is still connected to your computer.
+**Step 4:** Hold the `Power` button to enter the power menu, select `Power Options` and then select `Power Off`. Keep your Switch connected to your computer.
 
 **Step 5:** Insert your **RCM jig** into the **right side Joy-Con rail**, make sure it is seated securely at the base.
 
 **Step 6:** Hold `Volume +` and press the `Power` button.
 
-If you see the Nintendo Switch icon turn <span style="color:green">**green**</span> with `RCM O.K.` in the TegraRcmGUI window, your Switch has successfully booted into RCM mode. 
+If you see the Switch icon turn **green** with `RCM O.K.` in the TegraRcmGUI window, your console has successfully booted into RCM mode. 
 > If your Switch starts to turn on normally (Nintendo logo appears), go back to **Step 4** and try again.
 
-Once you have successfully booted into `RCM` mode, you can now remove the RCM jig from the console.
+Once you have successfully booted into RCM mode, you can now remove the RCM jig from the console.
 
 ## Booting Hekate from RCM
 
-**Hekate** is a custom bootloader which allows you to load custom firmware and the many tools used for the dumping process. Not only that, it also comes with useful features such as connecting your microSD card from your Switch to your computer over USB.
+**Hekate** is a custom bootloader which allows you to load custom firmware and the many tools used for the dumping process. Not only that, it also comes with useful features such as mounting your microSD card from your Switch to your computer over a USB connection.
 
 **Step 1:** Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` archive to any directory on your computer.
 
@@ -228,11 +228,11 @@ Once you have successfully booted into `RCM` mode, you can now remove the RCM ji
 
 **Step 3:** Click on `Inject Payload` and your Switch will now boot into the Hekate custom bootloader.
 
-> **NOTE:** If you see a vertical text-based user interface appearing on your Switch's display, some of the Hekate files in your microSD card are not placed properly. Use the `Volume` buttons to navigate through the Hekate menu and select `Power off` using the `Power` button to turn off the console. Make sure that the files in your microSD card match up with the images shown in [Preparing the microSD Card.](#preparing-the-microsd-card)
+> **NOTE:** If you see a vertical text-based menu appearing on your Switch's display, some of the Hekate files in your microSD card are not placed properly. Use the `Volume` buttons to navigate through the Hekate menu and select `Power off` using the `Power` button to turn off the console. Make sure that the files in your microSD card match up with the images shown in [Preparing the microSD Card](#preparing-the-microsd-card) and then try again.
 
 ## Backing up Switch NAND (Optional)
 
-All the tools used in this guide do not alter or modify the data stored inside the Switch. However, it is possible to make a full backup of the entire internal storage (`NAND`) using **Hekate** for recovery purposes.
+All the tools used in this guide do not alter or modify the data stored inside the Switch. However, it is possible to make a backup of the entire internal storage (`NAND`) of your console using **Hekate** for recovery purposes.
 
 **Step 1:** In the Hekate Home menu, tap on the `Tools` tab and select `Backup eMMC`.
 
@@ -244,9 +244,9 @@ All the tools used in this guide do not alter or modify the data stored inside t
 
 > This should take some time as a Switch's `rawnand.bin` file is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is just Hekate verifying the data. The backup process should take between 10-45 minutes to complete depending on the quality/speed of your microSD card at the default verification setting. Keep note of the location of the output file(s).
 
-**Step 4:** Tap on `Close` for two times to return to the `Tools` menu.
+**Step 4:** Tap on `Close` twice to return to the `Tools` menu.
 
-To access the NAND backup, we will now mount the microSD card as a drive from your Switch to your computer via USB.
+To access the NAND backup, we'll now mount the microSD card as a drive from your Switch to your computer via USB.
 
 **Step 5:** Tap on `USB Tools` and select `SD Card`. The microSD card should now show up on your computer as a USB drive.
 
@@ -256,7 +256,7 @@ To access the NAND backup, we will now mount the microSD card as a drive from yo
 >  If unsure of how to safely eject media, use one of the following support pages corresponding to your OS:
 > - **Windows users:** [Safely remove hardware in Windows](https://support.microsoft.com/en-us/windows/safely-remove-hardware-in-windows-1ee6677d-4e6c-4359-efca-fd44b9cec369)
 
-We will now return to the Hekate Home menu to proceed with the remaining sections of the guide.
+We'll now return to the Hekate Home menu to proceed with the remaining sections of the guide.
 
 **Step 8:** Tap on `Close` twice to return to the `Tools` menu.
 
@@ -275,13 +275,13 @@ We will now dump the decryption keys from your Switch using **Lockpick_RCM** so 
 
 **Step 3:** In Lockpick_RCM, press the `Power` button to select `Dump from SysNAND`.
 
-> After Lockpick_RCM has finished dumping the keys, the files will be stored in `sd:/switch/prod.keys` and `sd:/switch/title.keys`.
+> After Lockpick_RCM has finished dumping the keys, the files will be stored in `sdcard:/switch/prod.keys` and `sdcard:/switch/title.keys`.
 
 **Step 4:** Press any button to return to the main menu, then navigate using the `Volume` buttons to highlight and select `Reboot to hekate` using the `Power` button. You should now be booted back into Hekate.
 
 ## Dumping System Firmware
 
-Some games such as _Mario Kart 8 Deluxe_ require the use of system files found inside the Switch's **System Firmware** to be playable. We will now dump the system firmware files from your Switch using **TegraExplorer**.
+Some games such as _Mario Kart 8 Deluxe_ require the use of system files found inside the Switch's **System Firmware** to be playable. We'll now dump the firmware files from your Switch using **TegraExplorer**.
 
 > **NOTE:** Make sure that your Switch is updated to the latest system version before proceeding with this section.
 > - As of now, the latest system update is version `14.1.2`.
@@ -294,22 +294,21 @@ Some games such as _Mario Kart 8 Deluxe_ require the use of system files found i
 
 **Step 4:** Select `Dump sysmmc`.
 
->After TegraExplorer has finished dumping the firmware, the files will be stored in `sd:/tegraexplorer/Firmware/<firmware version>` as a series of `.nca` files.
+> After TegraExplorer has finished dumping the firmware, the files will be stored in `sdcard:/tegraexplorer/Firmware/<firmware version>` as a series of `.nca` files.
 > - As of the Switch's `14.1.2` system update, there should be `232` `.nca` files present inside the firmware folder. Make sure your firmware dump matches up with this file count.
 
 **Step 5:** Press any button to return to the main menu and select `Reboot to bootloader/update.bin`. You should now be booted back into Hekate.
 
 ## Dumping Games
 
-This section covers the dumping process for any game on your Switch that is either a digital or physical copy, alongside any installed game updates and DLC contents. We'll be using **NXDumpTool** for this.
+This section covers the dumping process for any game on your Switch that is either a digital or physical copy, alongside any installed game updates and DLC. We'll be using **NXDumpTool** for this.
 
-> **NOTE:** Make sure that you games are up-to-date before proceeding with this section.
+> **NOTE:** Make sure that all of your games are up-to-date before proceeding with this section.
 
 **Step 1:** In the Hekate Home menu, tap on `Launch`.
 
 **Step 2:** Tap on `CFW - sysMMC`.
-
-> Your Switch will now boot into the **Atmosphére** custom firmware (`CFW`). You should see the Atmosphére logo show up instead of the Nintendo logo at boot. It is normal that the HOME Menu remains the same and you can double check that you are loaded into CFW by navigating into **System Settings > System** and checking the `Current version` value.
+> Your Switch will now boot into the **Atmosphére** custom firmware (`CFW`). You should see the Atmosphére logo show up instead of the Nintendo logo at boot. It is normal that the HOME Menu remains the same and you can double check that you're loaded into CFW by navigating to **System Settings > System** and checking the `Current version` value.
 >
 > The current version value should resemble something like this: `XX.X.X|AMS 1.X.X|S`
 
@@ -372,7 +371,7 @@ You should now be at the main menu of NXDumpTool, displaying the following optio
 
 **Step 6:** Select `Start NSP dump process`. Wait for the dumping process to finish.
 
-**Step 7:** Press any button to return to the previous menu. Press `B` twice if you want to return to the list of installed updates/DLCs, or press `B` twice again if you are done and want to return to the main menu.
+**Step 7:** Press any button to return to the previous menu. Press `B` twice if you want to return to the list of installed updates/DLCs, or press `B` twice again if you're done and want to return to the main menu.
 
 ### Dumping Digital Titles (eShop)
 
@@ -382,7 +381,7 @@ You should now be at the main menu of NXDumpTool, displaying the following optio
 
 **Step 3:** Select `Nintendo Submission Package (NSP) dump`.
 
-> In this menu, you will see the following options depending on what is installed on your console for that application:
+> In this menu, you'll see the following options depending on what is installed on your console for the selected game:
 > - **Dump base application NSP**
 > - **Dump installed update NSP**
 > - **Dump installed DLC NSP**
@@ -400,7 +399,7 @@ You should now be at the main menu of NXDumpTool, displaying the following optio
 
 **Step 6:** Select `Start NSP dump process`. Wait for the dumping process to finish.
 
-**Step 7:** Press any button to return to the previous menu. Press `B` twice if you want to return to the list of installed digital titles, or press `B` again if you are done and want to return to the main menu.
+**Step 7:** Press any button to return to the previous menu. Press `B` twice if you want to return to the list of installed digital titles, or press `B` again if you're done and want to return to the main menu.
 
 ### Dumping Installed Updates
 
@@ -416,7 +415,7 @@ You should now be at the main menu of NXDumpTool, displaying the following optio
 
 **Step 3:** Select `Start NSP dump process`. Wait for the dumping process to finish.
 
-**Step 4:** Press any button to return to the previous menu. Press `B` twice if you want to return to the list of installed digital titles, or press `B` again if you are done and want to return to the main menu.
+**Step 4:** Press any button to return to the previous menu. Press `B` twice if you want to return to the list of installed digital titles, or press `B` again if you're done and want to return to the main menu.
 
 ### Dumping Installed DLCs
 
@@ -431,7 +430,7 @@ You should now be at the main menu of NXDumpTool, displaying the following optio
 
 **Step 3:** Select `Start NSP dump process`. Wait fot the dumping process to finish.
 
-**Step 4:** Press any button to return to the previous menu. Press `B` three times if you want to return to the list of installed digital titles, or press `B` again if you are done and want to return to the main menu.
+**Step 4:** Press any button to return to the previous menu. Press `B` three times if you want to return to the list of installed digital titles, or press `B` again if you're done and want to return to the main menu.
 
 > If you have multiple DLCs installed for the game that you have selected, repeat **Step 2** and **Step 3** but this time selecting another DLC ID from the `DLC to dump` option.
 
@@ -439,7 +438,7 @@ Once you have finished dumping your game files, press the `+ (Plus)` button on y
 
 ## Dumping Save Files (Optional)
 
-We will now dump the save data of all your games to transfer your progress to yuzu using **JKSV**.
+We'll now dump the save data of all your games to transfer your progress to yuzu using **JKSV**.
 
 **Step 1:** Open the **hbmenu** by opening the **Album** or through **Title Override**.
 
@@ -468,7 +467,7 @@ Once you're done with dumping the games (and/or save data) that you need, we'll 
 
 ## Mounting the microSD Card from your Switch to your Computer
 
-We'll now access the microSD card from the Switch to your computer without the need of taking it out the microSD card slot from the console. This is done from **Hekate** which has the feature to mount the card over a USB connection.
+We'll now access the microSD card from the Switch to your computer without the need of taking it out from the microSD card slot. This is done from **Hekate** which has the feature to mount the card over a USB connection.
 
 **Step 1:** In the Hekate Home menu, tap on the `Tools` tab.
 
@@ -503,7 +502,7 @@ We'll now transfer the dumped system firmware, decryption keys and game files fr
 **Step 2:** Navigate to `sdcard:/switch/nxdumptool/`.
 > Your physical game dumps can be found inside the `XCI` folder, while digital games, updates and DLCs are located inside the `NSP` folder.
 
-**Step 3:** Move every `.xci` and `.nsp` file (not folder) you can find within the `XCI` and `NSP` folders to your newly created games folder.
+**Step 3:** Move every `.xci` and `.nsp` file (not folders) you can find within the `XCI` and `NSP` folders to your newly created games folder.
 
 > For games/updates/DLCs larger than `4 GB`, you'll notice that its dumped into many parts due to limitations in the `FAT32` filesystem.
 > - For physical game dumps, you'll see `.xc0`, `.xc1`, `.xc2`, etc. files inside the `XCI` folder.
@@ -551,11 +550,11 @@ All your dumped games should now appear on the emulator window as a list. Howeve
 
 Your games should now be up-to-date with their DLCs installed and ready to go.
 
-> To double check if the installation was successful, you can see the list of installed contents for each game by looking at the **Add-ons** column from the game list. For more details, you can right-click on any title from the game list and then click on `Properties`.
+> To double check if the installation was successful, you can see the list of installed contents for each game by looking at the **Add-ons** column from the game list. For more details, you can right-click on any game from the game list and then click on `Properties`.
 
 ### Transferring Save Data of a Game to yuzu
 
-**Step 1:** In **yuzu**, right-click on a title from the game list.
+**Step 1:** In **yuzu**, right-click on a game from the game list.
 
 **Step 2:** Select `Open Save Data Location`. It should now open the game's save data folder.
 
@@ -568,7 +567,7 @@ Your games should now be up-to-date with their DLCs installed and ready to go.
 
 ## Rebooting Back to Stock Firmware
 
-If you're done following the sections you needed for setting up yuzu, we will now reboot the Switch back to its original firmware. But first, we must safely disconnect the Switch from your computer.
+If you're done following the sections you needed for setting up yuzu, we'll now reboot the Switch back to its original firmware. But first, we must safely disconnect the Switch from your computer.
 
 **Step 1:** Safely eject the microSD card drive.
 >  If unsure of how to safely eject media, use one of the following support pages corresponding to your OS:
@@ -579,7 +578,6 @@ If you're done following the sections you needed for setting up yuzu, we will no
 **Step 3:** Tap on the `Home` tab to return to the Hekate Home menu.
 
 **Step 4:** Tap on `Reboot` and then tap on `OFW`. Your Switch will now reboot to the original firmware.
-
 > You can double check that your Switch is in stock firmware by navigating into **System Settings > System** and checking the `Current version` value. It should only show numbers.
 
 ### If you need any help during this process or get a strange error during or while using yuzu, feel free to ask for help on the [yuzu Discord server.](https://discord.gg/u77vRWY) Happy Emulating!
