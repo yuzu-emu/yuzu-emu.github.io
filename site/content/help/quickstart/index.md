@@ -228,7 +228,7 @@ Once you have successfully booted into RCM mode, you can now remove the RCM jig 
 
 **Step 3:** Click on `Inject Payload` and your Switch will now boot into the Hekate custom bootloader.
 
-> **NOTE:** If you see a vertical text-based menu appearing on your Switch's display, some of the Hekate files in your microSD card are not placed properly. Use the `Volume` buttons to navigate through the Hekate menu and select `Power off` using the `Power` button to turn off the console. Make sure that the files in your microSD card match up with the images shown in [Preparing the microSD Card](#preparing-the-microsd-card) and then try again.
+> **NOTE:** If you see a vertical text-based menu appearing on your Switch's display, some of the Hekate files might not be stored in the correct places in your microSD card. Use the `Volume` buttons to navigate through the Hekate menu and select `Power off` using the `Power` button to turn off the console. Make sure that the files in your microSD card match up with the images shown in [Preparing the microSD Card](#preparing-the-microsd-card) and then try again.
 
 ## Backing up Switch NAND (Optional)
 
@@ -237,11 +237,9 @@ All the tools used in this guide do not alter or modify the data stored inside t
 **Step 1:** In the Hekate Home menu, tap on the `Tools` tab and select `Backup eMMC`.
 
 **Step 2:** Tap on `eMMC BOOT0 & BOOT1`.
-
 > This may take a few seconds to load. After the progress bar has finished, it should show `Finished and verified!`. Beneath `Filepath:` you will see the location of the `BOOT0` and `BOOT1` dump. 
 
 **Step 3:** Tap on `Close` and select `eMMC RAW GPP`.
-
 > This should take some time as a Switch's `rawnand.bin` file is quite large. If the progress bar appears to go backwards at some points or turn green, do not worry as this is just Hekate verifying the data. The backup process should take between 10-45 minutes to complete depending on the quality/speed of your microSD card at the default verification setting. Keep note of the location of the output file(s).
 
 **Step 4:** Tap on `Close` twice to return to the `Tools` menu.
@@ -308,6 +306,17 @@ This section covers the dumping process for any game on your Switch that is eith
 **Step 1:** In the Hekate Home menu, tap on `Launch`.
 
 **Step 2:** Tap on `CFW - sysMMC`.
+
+> **NOTE:** If you get the following error message:
+> ```
+> Error while loading fss0:
+> atmosphere/package3
+> Wrong ini cfg or missing/corrupt files!
+>
+> Failed to launch HOS!
+> ```
+> Some of the Atmosphére files might not be stored in the correct places in your microSD card. Press any button to return to the Hekate menu and tap on `Power Off` to turn off your console. Make sure that the files in your microSD card match up with the images shown in [Preparing the microSD Card](#preparing-the-microsd-card) and then try again.
+
 > Your Switch will now boot into the **Atmosphére** custom firmware (`CFW`). You should see the Atmosphére logo show up instead of the Nintendo logo at boot. It is normal that the HOME Menu remains the same and you can double check that you're loaded into CFW by navigating to **System Settings > System** and checking the `Current version` value.
 >
 > The current version value should resemble something like this: `XX.X.X|AMS 1.X.X|S`
