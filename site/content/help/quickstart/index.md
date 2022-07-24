@@ -187,15 +187,16 @@ We'll now format the microSD card to `FAT32` and place some files downloaded fro
 >  If unsure of how to safely eject media, use one of the following support pages corresponding to your OS:
 > - **Windows users:** [Safely remove hardware in Windows](https://support.microsoft.com/en-us/windows/safely-remove-hardware-in-windows-1ee6677d-4e6c-4359-efca-fd44b9cec369)
 
-Your microSD card contents should look like this:
+<details>
+<summary>Click here to see screenshots of what your microSD card contents should look like.</summary>
 
-{{< imgs
-    "./sd_root.png|The root of the microSD card"
-    "./atmosphere_dir.png|atmosphere folder"
-    "./hekate_dir.png|Hekate bootloader folder"
-    "./payloads_dir.png|payloads folder"
-    "./switch_dir.png|switch folder"
->}}
+![microSD card root](./sd_root.png)
+![Atmosphére folder](./atmosphere_dir.png)
+![Hekate folder](./hekate_dir.png)
+![Payloads folder](./payloads_dir.png)
+![Switch folder](./switch_dir.png)
+
+</details>
 
 ## Booting into RCM
 
