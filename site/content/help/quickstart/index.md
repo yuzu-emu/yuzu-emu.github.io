@@ -356,7 +356,7 @@ You should now be at the main menu of NXDumpTool, displaying the following optio
 
 ### Dumping Installed Updates/DLCs from Physical Titles
 
-**Step 1:** Select `Dump installed SD card / eMMC content**.
+**Step 1:** Select `Dump installed SD card / eMMC content`.
 
 **Step 2:** Press `Y` to enter into the `Dump installed content with missing base application` menu.
 
@@ -547,7 +547,7 @@ Your merged game dumps should now be available at your games folder.
 
 **Step 3:** Navigate to your newly created games folder and click `Select Folder`.
 
-All your dumped games should now appear on the emulator window as a list. However, we're stil not done yet!
+All your dumped games should now appear on the emulator window as a list. However, we're still not done yet!
 
 ### Installing Game Updates/DLCs to yuzu
 
