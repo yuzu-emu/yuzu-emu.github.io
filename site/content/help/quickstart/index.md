@@ -347,8 +347,7 @@ You should now be at the main menu of NXDumpTool, displaying the following optio
 > - **Create directory with archive bit set:** `No`
 > - **Keep certificate:** `No`
 > - **Trim output dump:** `Yes`
-> - **CRC32 checksum calculation + dump verification:** `Yes`
-> - **Dump verification method:** `NSWDB.COM XML database (offline)`
+> - **CRC32 checksum calculation + dump verification:** `No`
 
 **Step 4:** Select `Start XCI dump process`. Wait for the dumping process to finish.
 
