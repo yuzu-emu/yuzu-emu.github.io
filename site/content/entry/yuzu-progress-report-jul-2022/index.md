@@ -43,7 +43,7 @@ Several fixes for Vulkan, the GPU Buffer Cache, and the Shader Decompiler, all o
 Rework host frame presentation to be considerably smoother (improves `Xenoblade Chronicles` games).
 
 {{< single-title-imgs
-    "World of Light is now playable! (Super Smash Bros. Ultimate)"
+    "World of Light single player mode is now playable! (Super Smash Bros. Ultimate)"
     "./wol.png"
     "./wol2.png"
     >}}
@@ -208,7 +208,7 @@ We’ll cover it more deeply in the next progress report, along with several oth
 
 Another of the various issues affecting this new release is an absurd level of memory usage when running in OpenGL.
 Yuzu in the past cleaned shader sources after dealing with the shader.
-Now, for some reason, this game manages to skip that check, 
+Now, for some reason, this game manages to skip that check. 
 In order to improve the ridiculous memory usage, byte[] {{< gh-hovercard "8684" "implemented `glDetachShader`," >}} a more “official” way to achieve the same result.
 While this doesn’t solve the issue entirely, testing shows a 5GB reduction in RAM usage just from a single code line addition.
 
@@ -396,7 +396,8 @@ Performance is close to 100% higher, or more in some titles, and many rendering 
     "./mk8.png"
     >}}
 
-Here are results of an RX 6600 and a GTX 1660 SUPER running all games in OpenGL. 22.6.1 represents the old OpenGL driver, 22.7.1 the new driver, Mesa is running radeonsi with the amdgpu kernel module for OpenGL, and RADV for Vulkan, and NVIDIA is running its currently latest Windows driver.
+Here are results of an RX 6600 and a GTX 1660 SUPER running a few games in OpenGL and Vulkan. 
+22.6.1 represents the old OpenGL driver, 22.7.1 the new driver, Mesa is running radeonsi with the amdgpu kernel module for OpenGL, and RADV for Vulkan, and NVIDIA is running its currently latest Windows driver.
 Remaining relevant hardware used is a 5600X and 16GB of RAM at 3600MHz, the GPU was run at PCIe 4.0 8x with Smart Access Memory enabled, although that won’t make a difference, more on that later. 
 Operating systems used are Windows 11 and Manjaro Linux, both up to date on their respective default stable branches.
 yuzu is on Mainline 1112, with GPU accuracy set to normal to make GPU driver bottlenecks easier to measure, 1X resolution multiplier and Default value for Anisotropic Filtering.
@@ -419,7 +420,7 @@ All this while keeping the warranty in check.
 
 The process is simple, make the integrated video encoder work in the background while yuzu (or any other emulator) runs.
 This is easily achieved from Radeon Software by going to `Settings > Record & Stream` and enabling `Instant Replay`.
-Intel/Linux owners should be able to reach similar results by instead using the Xbox Game Ba, or [setting OBS to keep a buffer](https://obsproject.com/forum/resources/instant-replay.575/).
+Intel/Linux owners should be able to reach similar results by instead using the Xbox Game Bar, or [setting OBS to keep a buffer](https://obsproject.com/forum/resources/instant-replay.575/).
 
 {{< imgs
 	"./instantreplay.png| A driver toggle for power management would be so much simpler"
