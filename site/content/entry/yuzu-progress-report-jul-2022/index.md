@@ -232,7 +232,7 @@ That’s right, another ASTC format, your GPU will hate you while decoding it.
 This doesn’t solve the rendering bugs we face with this game, but it makes things look a bit better!
 
 {{< imgs
-	"./mhr.png| Still looks cursed (MOSNTER HUNTER RISE)"
+	"./mhr.png| Rise ye Tarnished! Wait, wrong game (MOSNTER HUNTER RISE)"
   >}}
 
 ## Linux Flatpak (Discovery) and AppImage fixes
@@ -435,7 +435,7 @@ RX 6500 XT and RX 6400 users, since you lack a video encoder in the first place,
 
 #### Intel, being Intel
 
-Intel [recently announced](https://community.intel.com/t5/Graphics/Graphics-Driver-Support-Update-for-10th-Generation-and-Older/m-p/1403969/thread-id/108899) that their Windows driver for Gen. 9, Gen. 9.5, and Gen. 11 GPUs (that is any CPU based on the 14nm Skylake architecture and all its many marketing renames, plus Ice Lake) is now in “Legacy software support”, which basically means they are officially dead.
+Intel [recently announced](https://community.intel.com/t5/Graphics/Graphics-Driver-Support-Update-for-10th-Generation-and-Older/m-p/1403969/thread-id/108899) that their Windows driver for Gen. 9, Gen. 9.5, and Gen. 11 GPUs (that is any CPU based on the 14nm Skylake architecture and all its many marketing renames, plus Ice Lake) is now in “legacy software support”, which basically means they are officially dead.
 While this doesn’t affect yuzu immediately, any new Vulkan features we add in the future could potentially break functionality in a similar way to what happened with old AMD GCN hardware last year.
 This leaves integrated Intel GPU users with a single alternative, Linux, which offers support for even older hardware.
 For example, an ancient HD 4000 can *run* yuzu with the Mesa drivers.
@@ -458,6 +458,7 @@ Once those obstacles are out of the way, yuzu should for example be able to take
 No pressure, Blinkhawk!
 
 That’s all folks! This one turned out to be longer than expected. Thank you for staying until the end, and we hope to see you again next month!
+Thank you NazD for the summary pic!
 
 ~~Movistar, you can go to hell.~~
 
