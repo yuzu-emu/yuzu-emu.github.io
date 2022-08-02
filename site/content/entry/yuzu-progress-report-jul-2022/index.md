@@ -351,7 +351,7 @@ This includes {{< gh-hovercard "8581" "emulating the actual suspend/resume mecha
 With these changes, users can suspend their games by simply pressing the power button of the Deck, exactly like on a Switch.
 There’s a reason ||Naked|| Snake earned the name Big Boss!
 
-For us people living in remote places, just suffering from terrible ISPs, or both (FML), we have fantastic news!
+For us people living in remote places, suffering from terrible ISPs, or both (FML), we have fantastic news!
 toastUnlimited reduced the size of each yuzu download by around 24MB by {{< gh-hovercard "8686" "only including what specifically belongs to yuzu" >}} in its source.
 Those interested in building the bundled source that comes with the installer, must now do a `git submodule update --init --recursive` in order to be able to compile the project.
 
@@ -441,7 +441,7 @@ While this doesn’t affect yuzu immediately, any new Vulkan features we add in 
 This leaves integrated Intel GPU users with a single alternative, Linux, which offers support for even older hardware.
 For example, an ancient HD 4000 can *run* yuzu with the Mesa drivers.
 
-Users should consider learning Linux if a hardware upgrade is not a viable option in the near future, Mesa always offered better performance for Intel GPUs.
+Users should consider learning Linux if a hardware upgrade is not a viable option in the near future, Mesa has always offered better performance for Intel GPUs.
 
 ## Future projects
 
