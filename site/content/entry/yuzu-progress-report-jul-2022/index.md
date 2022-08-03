@@ -375,7 +375,7 @@ Enable Exclusive Fullscreen from `Emulation > Configure.. > Graphics > Fullscree
 The issue is caused by some bad combination of running a Qt window inside another window, and NVIDIA’s way to detect framerate for windowed applications.
 Removing any of the two solves the low framerate while using Variable Refresh Rate displays.
 
-#### AMD, great news, for a chance
+#### AMD, great news, after 25 years
 
 Hell froze over, pigs learned to fly, and starting with the Windows driver version 22.7.1, AMD introduced a completely new OpenGL driver, making Radeon cards on Windows viable to use both APIs, not just Vulkan.
 
