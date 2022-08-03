@@ -372,18 +372,21 @@ Unfocus and refocus yuzu’s window each time you boot a game.
 In yuzu, disable `View > Single Window Mode`.
 Enable Exclusive Fullscreen from `Emulation > Configure.. > Graphics > Fullscreen Mode`. Then just play your games in fullscreen by pressing F11.
 
-The issue is caused by some bad combination of running a Qt window inside another window, and NVIDIA’s way to detect framerate for windowed applications.
-Removing any of the two solves the low framerate while using Variable Refresh Rate displays.
+The root of the problem is caused by some bad combination of running a Qt window inside another window, and NVIDIA’s way of detecting the framerate of windowed applications.
+Removing any of the two factors solves the low framerate while still taking advantage of Variable Refresh Rate.
 
 #### AMD, great news, after 25 years
 
-Hell froze over, pigs learned to fly, and starting with the Windows driver version 22.7.1, AMD introduced a completely new OpenGL driver, making Radeon cards on Windows viable to use both APIs, not just Vulkan.
-
-Performance is close to 100% higher, or more in some titles, and many rendering bugs are fixed. But why write about it, it’s better to let the numbers do the talking:
+Hell froze over, pigs learned to fly, and starting with the Windows driver version 22.7.1, AMD introduced a completely new OpenGL driver, making Radeon cards on Windows viable options to use both APIs, not just cool kid Vulkan.
+Performance is close to 100% higher, or more, in some titles, and many rendering bugs are fixed. 
+But why write about it?
+It’s better to let the numbers do the talking:
 
 {{< imgs
 	"./perf.png| Thank you RodrigoTR!"
   >}}
+
+Tch, okey, that's a lot of numbers, let's try to make it easier to digest.
 
 {{< single-title-imgs
     "Thanks toastUnlimited!"
@@ -396,10 +399,12 @@ Performance is close to 100% higher, or more in some titles, and many rendering 
     "./mk8.png"
     >}}
 
+We're not experts in the benchmarking area, so hopefully this helps.
+
 Here are results of an RX 6600 and a GTX 1660 SUPER running a few games in OpenGL and Vulkan. 
-22.6.1 represents the old OpenGL driver, 22.7.1 the new driver, Mesa is running radeonsi with the amdgpu kernel module for OpenGL, and RADV for Vulkan, and NVIDIA is running its currently latest Windows driver.
-Remaining relevant hardware used is a 5600X and 16GB of RAM at 3600MHz, the GPU was run at PCIe 4.0 8x with Smart Access Memory enabled, although that won’t make a difference, more on that later. 
-Operating systems used are Windows 11 and Manjaro Linux, both up to date on their respective default stable branches.
+22.6.1 represents the old infamous OpenGL driver, 22.7.1 is of course the new driver, Linux is represented by Mesa 22.1.3 running radeonsi with the amdgpu kernel module for OpenGL, and RADV for Vulkan, and NVIDIA is running its currently latest Windows driver.
+Remaining relevant hardware used is a 5600X and 16GB of RAM at 3600MHz, the RX 6600 was running at PCIe 4.0 8x with Smart Access Memory enabled, although that won’t make a difference, more on that later.
+Operating systems used are Windows 11 and Manjaro Linux, both up to date and on their respective default stable branches.
 yuzu is on Mainline 1112, with GPU accuracy set to normal to make GPU driver bottlenecks easier to measure, 1X resolution multiplier and Default value for Anisotropic Filtering.
 
 A single regression under investigation and reported to AMD aside (Xenoblade Chronicles 2 crashes loading Abble’s Fountain, the measuring spot, could be caused by some driver thread crash), performance is now very close to Vulkan numbers, be it either from AMD or Nvidia. 
