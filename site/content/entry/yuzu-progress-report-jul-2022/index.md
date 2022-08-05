@@ -439,12 +439,12 @@ The performance gains are the same as with the previous overclocking method, up 
 
 RX 6500 XT and RX 6400 users, since you lack a video encoder in the first place, refer to our original method mentioned at the start, or ask for a refund.
 
-#### Intel, being Intel
+#### Intel being Intel, killing 2 years old hardware
 
-Intel [recently announced](https://community.intel.com/t5/Graphics/Graphics-Driver-Support-Update-for-10th-Generation-and-Older/m-p/1403969/thread-id/108899) that their Windows driver for Gen. 9, Gen. 9.5, and Gen. 11 GPUs (that is any CPU based on the 14nm Skylake architecture and all its many marketing renames, plus Ice Lake) is now in “legacy software support”, which basically means they are officially dead.
+Intel [recently announced](https://community.intel.com/t5/Graphics/Graphics-Driver-Support-Update-for-10th-Generation-and-Older/m-p/1403969/thread-id/108899) that their Windows driver for Gen. 9, Gen. 9.5, and Gen. 11 GPUs (that is any CPU based on the 14nm Skylake architecture and all its many marketing renames, plus Ice Lake) is now in “legacy software support”, which in layman's terms means they are officially dead.
 While this doesn’t affect yuzu immediately, any new Vulkan features we add in the future could potentially break functionality in a similar way to what happened with old AMD GCN hardware last year.
 This leaves integrated Intel GPU users with a single alternative, Linux, which offers support for even older hardware.
-For example, an ancient HD 4000 can *run* yuzu with the Mesa drivers.
+For example, an ancient HD Graphics 4400 can *run* yuzu with the Mesa drivers.
 
 Users should consider learning Linux if a hardware upgrade is not a viable option in the near future, Mesa has always offered better performance for Intel GPUs.
 
