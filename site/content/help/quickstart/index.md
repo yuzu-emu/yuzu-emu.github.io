@@ -9,8 +9,8 @@ description: A guide designed to get you started with yuzu quickly.
 * [Hardware Requirements](#hardware-requirements)
 * [Guide Introduction](#guide-introduction)
 * [Prerequisites](#prerequisites)
-* [Preparing the microSD Card](#preparing-the-microsd-card)
 * [Booting into RCM](#booting-into-rcm)
+* [Preparing the microSD Card](#preparing-the-microsd-card)
 * [Booting Hekate from RCM](#booting-hekate-from-rcm)
 * [Backing up Switch NAND (Optional)](#backing-up-switch-nand-optional)
 * [Dumping Decryption Keys](#dumping-decryption-keys)
@@ -136,6 +136,7 @@ This guide will help you copy all your system files, games, updates, and DLC fro
 - A **microSD card** with at least `32 GB` of storage capacity. `64 GB` or higher is recommended.
 - A **USB-C to USB-A** or **USB-C to USB-C cable** to connect your Switch to your computer.
 - [TegraRcmGUI](https://github.com/eliboa/TegraRcmGUI/releases/latest) -- Download `TegraRcmGUI_v2.6_Installer.msi`
+- [ums-loader](https://github.com/lulle2007200/ums-loader/releases/latest) -- Download `ums-loader.bin`
 - [Hekate](https://github.com/CTCaer/hekate/releases/latest) -- Download `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip`
     - **Windows users:** Also download `nyx_usb_max_rate__run_only_once_per_windows_pc.reg` and run it for faster transfer speeds over USB. For details, see the **NOTE** section in the release page.
 - This hekate configuration file -- [hekate_ipl.ini](./hekate_ipl.ini)
@@ -144,65 +145,15 @@ This guide will help you copy all your system files, games, updates, and DLC fro
 - [NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases/latest) -- Download `nxdumptool.nro`
 - [nxDumpFuse](https://github.com/oMaN-Rod/nxDumpFuse/releases/latest) -- Download `win-x64.zip`
 - [TegraExplorer](https://github.com/suchmememanyskill/TegraExplorer/releases/latest) -- Download `TegraExplorer.bin`
-- [Rufus](https://github.com/pbatard/rufus/releases/latest) -- Download `rufus-X.XX.exe`
 - (Optional) [JKSV](https://github.com/J-D-K/JKSV/releases/latest) -- Download `JKSV.nro`
     - Download this homebrew application if you wish to dump your save data from your Switch to yuzu.
-- [microSD Card Reader](https://www.amazon.com/dp/B006T9B6R2) -- If your computer has one built-in, you can use that.
 - [RCM Jig](https://www.amazon.com/dp/B07J9JJRRG) -- We highly recommend one like this, but you could use any of the methods outlined [here.](https://noirscape.github.io/RCM-Guide/)
-
-## Preparing the microSD Card
-
-We'll now format the microSD card to `FAT32` and place some files downloaded from the prerequisites section into it.
-> **NOTE:** The `exFAT` file system is not recommended as that format is prone to file corruption when the microSD card interacts with the Switch. Large capacity microSD cards are usually formatted as `exFAT` by default.
-
-**Step 1:** Insert the microSD card into your computer.
-> If you have a `Nintendo` folder in your microSD card, make a backup of it by copying the folder to your computer, as the formatting process will erase any data stored in the card.
-
-**Step 2:** Open the **Rufus** formatting tool and set the following settings:
-> - **Device:** Select your microSD card drive
-> - **Boot selection:** `Non-bootable`
-> - **File system:** `FAT32` or `Large FAT32`
-> - **Cluster size:** `64 kilobytes`
-> - **Advanced format options:**
->    - [X] Quick format
->    - [ ] Create extended label and icon files
->    - [ ] Check device for bad blocks
-
-**Step 3:** Click on `START` and wait for the formatting process to finish.
-
-**Step 4:** If you have a backed up `Nintendo` folder, move it back into the microSD card.
-
-**Step 5:** Extract all the contents inside the `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` archive into the root of the microSD card.
-
-**Step 6:** Extract the `bootloader` folder from inside the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` archive into the root of the microSD card.
-> **IMPORTANT:** Drag and drop the contents, do not create any new folders from the previous `.zip` files.
-
-**Step 7:** Place the `hekate_ipl.ini` file into the `bootloader` folder.
-
-**Step 8:** Place the `fusee.bin`, `Lockpick_RCM.bin` and `TegraExplorer.bin` files into the `payloads` folder (located inside the `bootloader` folder).
-
-**Step 9:** Create a folder named `nxdumptool` within the `switch` folder and place the `nxdumptool.nro` file inside it.
-
-**Step 10:** Safely eject the microSD card from your computer and insert it into the microSD card slot of your Switch.
->  If unsure of how to safely eject media, use one of the following support pages corresponding to your OS:
-> - **Windows users:** [Safely remove hardware in Windows](https://support.microsoft.com/en-us/windows/safely-remove-hardware-in-windows-1ee6677d-4e6c-4359-efca-fd44b9cec369)
-
-<details>
-<summary>Click here to see screenshots of what your microSD card contents should look like.</summary>
-
-![microSD card root](./sd_root.png)
-![Atmosphére folder](./atmosphere_dir.png)
-![Hekate folder](./hekate_dir.png)
-![Payloads folder](./payloads_dir.png)
-![Switch folder](./switch_dir.png)
-
-</details>
 
 ## Booting into RCM
 
 The Switch has a hidden recovery mode called `RCM`. The `fusée-gelée` exploit abuses a critical error from RCM, where binaries sent to the console have their data read before checking for signatures. As such, you can run any custom code on your Switch as long as it's vulnerable to this exploit. However, these steps won't work on patched models despite RCM also existing on such consoles.
 
-**Step 1:** Open the **TegraRcmGUI installer** (`TegraRcmGUI_v2.6_Installer.msi`), go through the installation wizard, and start the program. 
+**Step 1:** Open the **TegraRcmGUI installer** (`TegraRcmGUI_v2.6_Installer.msi`), go through the installation wizard, and start **TegraRcmGUI**. 
 
 **Step 2:** In the `Settings` tab, click on `Install Driver` and follow the installation instructions.
 
@@ -219,9 +170,53 @@ If you see the Switch icon turn **green** with `RCM O.K.` in the TegraRcmGUI win
 
 Once you have successfully booted into RCM mode, you can now remove the RCM jig from the console.
 
+## Preparing the microSD Card
+
+We'll now place some files downloaded from the prerequisites section to the microSD card. We can mount the card from a Switch to a computer via USB using the **ums-loader** payload.
+
+**Step 1:** Insert the microSD card into the microSD card slot of your Switch.
+
+**Step 2:** Open **TegraRcmGUI**. In the `Payload` tab, click on the folder icon and navigate to the `ums-loader.bin` file you downloaded earlier.
+
+**Step 3:** Click on `Inject Payload` and your Switch will now boot into the UMS menu.
+
+**Step 4:** Navigate through the menu using the `Volume` buttons and select `Start UMS` using the `Power` button. You should see a removable drive showing up on your computer.
+
+**Step 5:** Open the file explorer and navigate to the microSD card drive.
+> **NOTE:** If you have a `Nintendo` folder in your microSD card, make a backup of it by copying the folder to your computer.
+
+**Step 6:** Extract all the contents inside the `atmosphere-X.X.X-master-XXXXXXXX+hbl-X.X.X+hbmenu-X.X.X.zip` archive into the root of the microSD card.
+
+**Step 7:** Extract the `bootloader` folder from inside the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` archive into the root of the microSD card.
+> **IMPORTANT:** Drag and drop the contents, do not create any new folders from the previous `.zip` files.
+
+**Step 8:** Place the `hekate_ipl.ini` file into the `bootloader` folder.
+
+**Step 9:** Place the `fusee.bin`, `Lockpick_RCM.bin` and `TegraExplorer.bin` files into the `payloads` folder (located inside the `bootloader` folder).
+
+**Step 10:** Create a folder named `nxdumptool` within the `switch` folder and place the `nxdumptool.nro` file inside it.
+
+**Step 11:** Check that you've placed all of the files correctly using the following screenshots:
+<details>
+<summary>Screenshots</summary>
+
+![microSD card root](./sd_root.png)
+![Atmosphére folder](./atmosphere_dir.png)
+![Hekate folder](./hekate_dir.png)
+![Payloads folder](./payloads_dir.png)
+![Switch folder](./switch_dir.png)
+
+</details>
+
+**Step 12:** Safely eject the microSD card drive. Do not unplug the Switch from your computer yet.
+>  If unsure of how to safely eject media, use one of the following support pages corresponding to your OS:
+> - **Windows users:** [Safely remove hardware in Windows](https://support.microsoft.com/en-us/windows/safely-remove-hardware-in-windows-1ee6677d-4e6c-4359-efca-fd44b9cec369)
+
+**Step 13:** From the UMS menu, select `Reboot RCM`. Your Switch will now boot into RCM mode.
+
 ## Booting Hekate from RCM
 
-**Hekate** is a custom bootloader which allows you to load custom firmware and the many tools used for the dumping process. Not only that, it also comes with useful features such as mounting your microSD card from your Switch to your computer over a USB connection.
+**Hekate** is a custom bootloader which allows you to load custom firmware and the many tools used for the dumping process.
 
 **Step 1:** Extract the `hekate_ctcaer_X.X.X.bin` file from the `hekate_ctcaer_X.X.X_Nyx_X.X.X.zip` archive to any directory on your computer.
 
@@ -230,6 +225,23 @@ Once you have successfully booted into RCM mode, you can now remove the RCM jig 
 **Step 3:** Click on `Inject Payload` and your Switch will now boot into the Hekate custom bootloader.
 
 > **NOTE:** If you see a vertical text-based menu appearing on your Switch's display, some of the Hekate files might not be stored in the correct places in your microSD card. Use the `Volume` buttons to navigate through the Hekate menu and select `Power off` using the `Power` button to turn off the console. Make sure that the files in your microSD card match up with the images shown in [Preparing the microSD Card](#preparing-the-microsd-card) and then try again.
+
+## Formatting the microSD Card to FAT32 (Recommended)
+
+We'll now format the microSD card to `FAT32` using **Hekate**.
+> **NOTE:** The `exFAT` file system is not recommended for regular usage on the Switch, as it's prone to file corruption. Large capacity microSD cards are usually formatted as `exFAT` by default.
+
+**Step 1:** In the Hekate Home menu, tap on the `Tools` tab and select `Partition SD Card`.
+> Hekate's partition manager will temporarily store all files into memory and place them back into the microSD card after the formatting process by default. Keep in mind that Hekate can only automatically back up data from the card as long as it's less than 4 GB in total size.
+
+**Step 2:** Tap `OK` on the pop-up and then tap `Next Step`.
+
+**Step 3:** Tap `Start` to start the formatting process. After the safety timer, press the `Power` button.
+
+**Step 4:** Once the formatting process has completed, tap `OK`.
+> If you have backed up your `Nintendo` folder, you can select the `SD UMS` option from the Partition Manager menu to mount the microSD card to your computer and place it back in there. Once you're done, safely eject the drive and then tap `Close` and `OK` on your Switch to proceed with the last step.
+
+**Step 5:** Tap `Close` and lastly `Home` to return to the Hekate Home menu.
 
 ## Backing up Switch NAND (Optional)
 
@@ -282,8 +294,7 @@ We will now dump the decryption keys from your Switch using **Lockpick_RCM** so 
 
 Some games such as _Mario Kart 8 Deluxe_ require the use of system files found inside the Switch's **System Firmware** to be playable. We'll now dump the firmware files from your Switch using **TegraExplorer**.
 
-> **NOTE:** Make sure that your Switch is updated to the latest system version before proceeding with this section.
-> - As of now, the latest system update is version `14.1.2`.
+> **NOTE:** Make sure that your Switch is on the latest system update before proceeding with this section.
 
 **Step 1:** In the Hekate Home menu, tap on `Payloads`.
 
@@ -294,7 +305,6 @@ Some games such as _Mario Kart 8 Deluxe_ require the use of system files found i
 **Step 4:** Select `Dump sysmmc`.
 
 > After TegraExplorer has finished dumping the firmware, the files will be stored in `sdcard:/tegraexplorer/Firmware/<firmware version>` as a series of `.nca` files.
-> - As of the Switch's `14.1.2` system update, there should be `232` `.nca` files present inside the firmware folder. Make sure your firmware dump matches up with this file count.
 
 **Step 5:** Press any button to return to the main menu and select `Reboot to bootloader/update.bin`. You should now be booted back into Hekate.
 
