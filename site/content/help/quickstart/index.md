@@ -12,6 +12,7 @@ description: A guide designed to get you started with yuzu quickly.
 * [Booting into RCM](#booting-into-rcm)
 * [Preparing the microSD Card](#preparing-the-microsd-card)
 * [Booting Hekate from RCM](#booting-hekate-from-rcm)
+* [Formatting the microSD Card to FAT32 (Recommended)](#formatting-the-microsd-card-to-fat32-recommended)
 * [Backing up Switch NAND (Optional)](#backing-up-switch-nand-optional)
 * [Dumping Decryption Keys](#dumping-decryption-keys)
 * [Dumping System Firmware](#dumping-system-firmware)
