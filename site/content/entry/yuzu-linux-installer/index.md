@@ -2,7 +2,7 @@
 date = "2022-08-10T23:00:00+05:30"
 title = "New Feature Release - Installer for Linux"
 author = "CaptV0rt3x"
-forum = 0
+forum = 612296
 +++
 
 Hey there yuz-ers!
