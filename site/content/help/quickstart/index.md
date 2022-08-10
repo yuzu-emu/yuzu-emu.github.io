@@ -233,7 +233,7 @@ We'll now format the microSD card to `FAT32` using **Hekate**.
 > **NOTE:** The `exFAT` file system is not recommended for regular usage on the Switch, as it's prone to file corruption. Large capacity microSD cards are usually formatted as `exFAT` by default.
 
 **Step 1:** In the Hekate Home menu, tap on the `Tools` tab and select `Partition SD Card`.
-> Hekate's partition manager will temporarily store all files into memory and place them back into the microSD card after the formatting process by default. Keep in mind that Hekate can only automatically back up data from the card as long as it's less than 4 GB in total size.
+> Hekate's partition manager by default will temporarily store all data from the card into memory and places it back after the formatting process is done. If the pop-up windows says that data cannot be backed up, select the `SD UMS` option to mount the microSD card to your computer to manually back up your data.
 
 **Step 2:** Tap `OK` on the pop-up and then tap `Next Step`.
 
@@ -278,8 +278,7 @@ We'll now return to the Hekate Home menu to proceed with the remaining sections 
 
 We will now dump the decryption keys from your Switch using **Lockpick_RCM** so that yuzu is able to decrypt and open your game files.
 
-> **NOTE:** Make sure that your Switch is updated to the latest system version before proceeding with this section.
-> - As of now, the latest system update is version `14.1.2`.
+> **NOTE:** Make sure that your Switch is on the latest system update before proceeding with this section.
     
 **Step 1:** In the Hekate Home menu, tap on `Payloads`.
 
