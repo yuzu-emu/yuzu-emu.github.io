@@ -13,7 +13,7 @@ Hi yuz-ers! What a month we had! Great graphical changes, an amazing audio rewri
 ## Part 1 of Project Y.F.C.
 
 As we’ve been righteously teasing you for months (and we will continue to do so) on previous articles, you know [Blinkhawk](https://github.com/FernandoS27) has been working on {{< gh-hovercard "8467" "a miscellaneous bunch of GPU related fixes and performance improvements." >}}
-We have more information in its [dedicated article here]().
+We have more information in a dedicated article in the near future.
 
 Since the scope of the project grew to too big proportions to handle, the team decided to split it in two parts, with the released first part focusing more on game fixes and improving accuracy.
 While that doesn’t mean part 1 doesn’t already improve performance, part 2 will focus exclusively on it.
@@ -49,7 +49,7 @@ Rework host frame presentation to be considerably smoother (improves `Xenoblade 
     >}}
 
 A list of critical changes like this sadly includes regressions with it.
-We’re working to solve such regressions, so expect a delay to see these changes implemented into Mainline while we sort things out and pave the way for part 2.
+We’re working to solve such regressions, and Blinkhawk is busy with IRL things, so expect a delay to see these changes implemented into Mainline while we sort things out and pave the way for part 2.
 Remember to check the hovercard or the PR itself.
 
 {{< single-title-imgs
@@ -366,16 +366,25 @@ We’re still debugging the issue, as it isn’t easy to catch, but a possible c
 If you own a Maxwell or Pascal GPU, must remain on the latest driver update, and want to test if you can make Vulkan stable again, try disabling `Accelerate ASTC Texture Decoding` in `Emulation > Configure… > Graphics`.
 Please report your results in our [forums](https://community.citra-emu.org/c/yuzu-support/14) or [Discord server](https://discord.gg/u77vRWY).
 
-Users with G-SYNC/FreeSync displays experiencing low performance (usually stuck at 24-30 FPS on any game) have a couple of ways to solve this issue:
+Another known issue caused by the 516 series of drivers is some funny flickering on trees in KOEI TECMO games like `Hyrule Warriors: Age of Calamity`.
 
-Unfocus and refocus yuzu’s window each time you boot a game.
-In yuzu, disable `View > Single Window Mode`.
-Enable Exclusive Fullscreen from `Emulation > Configure.. > Graphics > Fullscreen Mode`. Then just play your games in fullscreen by pressing F11.
+{{< single-title-imgs
+    "Day time party! To the left NVIDIA Vulkan on 516.94, to the right, 512.95 (Hyrule Warriors: Age of Calamity)"
+    "./aocbug.mp4"
+    "./aoc.mp4"
+    >}}
+
+There are also performance related issues affecting users with G-SYNC/FreeSync displays, who experience low framerates (usually games get stuck at 24-30 FPS).
+We have a couple of ways to bypass this issue:
+
+1. Unfocus and refocus yuzu’s window each time you boot a game.
+2. In yuzu, disable `View > Single Window Mode`.
+3. Enable Exclusive Fullscreen from `Emulation > Configure.. > Graphics > Fullscreen Mode`. Then just play your games in fullscreen by pressing F11.
 
 The root of the problem is caused by some bad combination of running a Qt window inside another window, and NVIDIA’s way of detecting the framerate of windowed applications.
 Removing any of the two factors solves the low framerate while still taking advantage of Variable Refresh Rate.
 
-#### AMD, great news, after 25 years
+#### ~~AMD~~ATI OpenGL, 25 years in the making
 
 Hell froze over, pigs learned to fly, and starting with the Windows driver version 22.7.1, AMD introduced a completely new OpenGL driver, making Radeon cards on Windows viable options to use both APIs, not just cool kid Vulkan.
 Performance is close to 100% higher, or more, in some titles, and many rendering bugs are fixed. 
@@ -431,7 +440,7 @@ Intel/Linux owners should be able to reach similar results by instead using the 
 	"./instantreplay.png| A driver toggle for power management would be so much simpler"
   >}}
 
-Then on yuzu, enable Exclusive Fullscreen from `Emulation > Configure.. > Graphics > Fullscreen Mode`.
+After this, on yuzu enable Exclusive Fullscreen from `Emulation > Configure.. > Graphics > Fullscreen Mode`.
 Then just play your games in fullscreen by pressing F11.
 This step can be avoided if you also enable `Record Desktop`, but keep in mind this would increase your power consumption even while doing nothing.
 
@@ -439,7 +448,7 @@ The performance gains are the same as with the previous overclocking method, up 
 
 RX 6500 XT and RX 6400 users, since you lack a video encoder in the first place, refer to our original method mentioned at the start, or ask for a refund.
 
-#### Intel being Intel, killing 2 years old hardware
+#### Intel, killing support for 2 years old hardware
 
 Intel [recently announced](https://community.intel.com/t5/Graphics/Graphics-Driver-Support-Update-for-10th-Generation-and-Older/m-p/1403969/thread-id/108899) that their Windows driver for Gen. 9, Gen. 9.5, and Gen. 11 GPUs (that is any CPU based on the 14nm Skylake architecture and all its many marketing renames, plus Ice Lake) is now in “legacy software support”, which in layman's terms means they are officially dead.
 While this doesn’t affect yuzu immediately, any new Vulkan features we add in the future could potentially break functionality in a similar way to what happened with old AMD GCN hardware last year.
@@ -450,15 +459,13 @@ Users should consider learning Linux if a hardware upgrade is not a viable optio
 
 ## Future projects
 
-Part 2 of `Project Y.F.C.` is a bit delayed for now, real life issues, but its feature list and expected progression is laid out.
+Part 2 of `Project Y.F.C.` is a bit delayed for now, real life issues as previously mentioned, but its feature list and expected progression is laid out.
 
 `Project London` is progressing in a healthy fashion, we loved the internal testing done so far.
 
-We recently revived our Linux EA support, and are now testing {{< gh-hovercard "8667" "publishing Early Access AppImage builds" >}} for Patreon subscribers! 
-In the coming months, we should also have an installer available, which will automatically update yuzu as new EA releases are made.
-
 And a possibility has just recently started to open for even better GPU performance in the (not so near) future. 
 `GPU fastmem` is one of the features that Rodrigo had to leave for later, before passing the torch and moving onto “greener sides”.
+
 The main roadblock holding GPU fastmem was driver support, which is now a mostly solved issue, we *only* need to start talks with the AMD, Intel, and the AMD Linux kernel module developers to ask for some increased limits.
 Once those obstacles are out of the way, yuzu should for example be able to take partial advantage of Resizable BAR/Smart Access Memory, helping reduce PCIe bottlenecks, and should help improve particle rendering to make GPU accuracy a less critical performance setting.
 No pressure, Blinkhawk!
