@@ -373,6 +373,8 @@ Another known issue caused by the 516 series of drivers is some funny flickering
     "./aocbug.mp4"
     "./aoc.mp4"
     >}}
+    
+These issues could be either regressions or undocumented behaviour changes, possible caused after following the API specification more rigorously.
 
 There are also performance related issues affecting users with G-SYNC/FreeSync displays, who experience low framerates (usually games get stuck at 24-30 FPS).
 We have a couple of ways to bypass this issue:
