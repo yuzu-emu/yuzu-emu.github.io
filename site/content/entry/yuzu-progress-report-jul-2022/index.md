@@ -42,7 +42,7 @@ The implemented changes in part 1 of Project Y.F.C. include:
  * Reworked host frame presentation to be considerably smoother (improves `Xenoblade Chronicles` games).
 
 {{< single-title-imgs
-    "The "World of Light" single-player mode is now playable! (Super Smash Bros. Ultimate)"
+    "The World of Light single-player mode is now playable! (Super Smash Bros. Ultimate)"
     "./wol.png"
     "./wol2.png"
     >}}
