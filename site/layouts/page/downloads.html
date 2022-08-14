@@ -26,6 +26,7 @@
 
             <div class="buttons is-centered">
                 <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.8/yuzu_install.exe" class="button dl-button is-medium is-success" id="dl-button-windows">Download for Windows x64</a>
+                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.0/liftinstall-0cbfda0.tar.xz" class="button dl-button is-medium is-success" id="dl-button-linux">Download for Linux x64</a>
             </div>
 
             <div class="buttons is-centered">
@@ -106,12 +107,19 @@
     }
 
     // Installer is not available on all platforms
-    if (os === "Mac" || os === "Linux") {
+    if (os === "Mac") {
         document.getElementById("install-view").style.display = "none";
         document.getElementById("manual-package-view").style.display = "flex";
     } else {
         document.getElementById("install-view").style.display = "block";
         document.getElementById("manual-package-view").style.display = "none";
+    }
+    if (os === "Linux") {
+        document.getElementById("dl-button-linux").style.display = "block";
+        document.getElementById("dl-button-windows").style.display = "none";
+    } else if (os === "Windows") {
+        document.getElementById("dl-button-windows").style.display = "block";
+        document.getElementById("dl-button-linux").style.display = "none";
     }
 
     document.getElementById("view-package-listing-button").addEventListener("click", function() {
