@@ -1,5 +1,5 @@
 +++
-date = "2022-08-01T12:00:00-03:00"
+date = "2022-08-13T12:00:00-03:00"
 title = "Progress Report July 2022"
 author = "GoldenX86"
 forum = 0
