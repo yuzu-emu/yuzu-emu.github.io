@@ -291,13 +291,13 @@ The main function of the cameras is to detect shapes and measure the distance to
 Interested in adding this awesome feature to yuzu, and providing full support for games like `Game Builder Garage` or the `Nintendo Labo` collection, [german77](https://github.com/german77) {{< gh-hovercard "8636" "emulated the clustering processor" >}} required to let the games access the camera on the Joy-Cons or any camera the user wants to provide, even if it is a desktop capture obtained from OBS Studio.
 
 {{< imgs
-	"./ir.png| "
+	"./ir.png| While this looks like a homebrew app, it's in fact the real configuration Nintendo provides on its games"
   >}}
 
 Users wanting to play with this setting can find it in `Emulation > Configure… > Controls > Advanced tab > Infrared Camera`.
 
 {{< imgs
-	"./camera.png| "
+	"./camera.png| You can find the setting here"
   >}}
 
 This work doesn’t include the moment processor required by `1-2-Switch!` yet
@@ -385,7 +385,7 @@ We have a few ways to bypass this issue:
 The root of the problem is caused by some bad combination of running a Qt window inside another window, and NVIDIA’s way of detecting the framerate of windowed applications.
 Removing any of the two factors solves the low framerate while still taking advantage of Variable Refresh Rate.
 
-#### ~~AMD~~ATI OpenGL, 25 years in the making
+#### ~~ATI~~AMD OpenGL, 25 years in the making
 
 Hell froze over, pigs learned to fly, and starting with the Windows driver version 22.7.1, AMD introduced a completely new OpenGL driver, making Radeon cards on Windows viable options to use both APIs, not just cool kid Vulkan.
 Performance is close to 100% higher, or more in some titles, and many rendering bugs are fixed. 
