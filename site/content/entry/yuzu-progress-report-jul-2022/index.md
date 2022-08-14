@@ -34,12 +34,12 @@ The awesome devs working on [Skyline Emulator](https://github.com/skyline-emu/sk
 
 The implemented changes in part 1 of Project Y.F.C. include:
 
-* Full rework of the GPU driver, based on the reverse-engineering and code from Skyline Emulator with full permission from the respective team.
-* Full rework of GPU memory management.
-* Initial implementation of GPU Channels, fixing `Super Smash Bros. Ultimate` “World of Light” mode, `Deltarune`, and several other games.
-* Bug fixes and performance improvements to the GPU DMA engine.
-* Several fixes for Vulkan, the GPU Buffer Cache, and the Shader Decompiler, all of which affect multiple games.
-* Reworked host frame presentation to be considerably smoother (improves `Xenoblade Chronicles` games).
+ * Full rework of the GPU driver, based on the reverse-engineering and code from Skyline Emulator with full permission from the respective team.
+ * Full rework of GPU memory management.
+ * Initial implementation of GPU Channels, fixing `Super Smash Bros. Ultimate` “World of Light” mode, `Deltarune`, and several other games.
+ * Bug fixes and performance improvements to the GPU DMA engine.
+ * Several fixes for Vulkan, the GPU Buffer Cache, and the Shader Decompiler, all of which affect multiple games.
+ * Reworked host frame presentation to be considerably smoother (improves `Xenoblade Chronicles` games).
 
 {{< single-title-imgs
     "The "World of Light" single-player mode is now playable! (Super Smash Bros. Ultimate)"
