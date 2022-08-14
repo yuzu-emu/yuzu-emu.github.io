@@ -122,11 +122,11 @@ The usual victims were the most affected, users running CPUs with only 4 threads
 
 To fix this, Maide {{< gh-hovercard "8561" "reworked the way looping events were handled." >}}
 Now, CoreTiming automatically computes the correct time to reschedule a looping event, making the implementation significantly more precise for those types of events. 
-With the change to looping events in, and noticing that the other changes Blinkhawk had added were causing serious regressions, the team opted to {{< gh-hovercard "8531" "remove the multi-threaded host CoreTiming implementation" >}}, and then {{< gh-hovercard "8591" "most of Blinkhawk's new implementation entirely" >}}, as it was still causing serious performance problems for a subset of users.
+With the change to looping events in, and noticing that the other changes Blinkhawk had added were causing serious regressions, the team opted to {{< gh-hovercard "8531" "remove the multi-threaded host CoreTiming implementation," >}} and then {{< gh-hovercard "8591" "most of Blinkhawk's new implementation entirely," >}} as it was still causing serious performance problems for a subset of users.
 
 But that wasn't all that changed for timing this month. 
 Intel Alder Lake (Gen. 12) CPU users on Windows have long been reporting noticeable clock drift in `Super Smash Bros. Ultimate`, but it got a lot worse since the NVNFlinger rewrite a few months ago. 
-As previously reported, the resident bunnei rabbit mostly fixed this issue in a follow-up pull request which restored the (inaccurate) behaviour of the old implementation, and the clock drift issue improved significantly for those users.
+As previously reported, the resident bunnei rabbit mostly fixed this issue in {{< gh-hovercard "8428" "a follow-up pull request" >}} which restored the (inaccurate) behaviour of the old implementation, and the clock drift issue improved significantly for those users.
 
 Maide, not content to just improve audio, discovered that {{< gh-hovercard "8650" "the way yuzu's NVNFlinger implementation was waiting on buffers would drift," >}} due to the same problem that was previously fixed in CoreTiming! 
 Instead of reimplementing the fix here as well, he modified NVNFlinger to use a timing callback, which fixed the drifting issues in SSBU, and also resolved many longstanding issues with frametime inconsistency. 
@@ -161,7 +161,7 @@ While using the new debugger on games and homebrew, [comex](https://github.com/c
 
 comex also observed an issue with watchpoints, where resuming execution after breaking on a watchpoint would seemingly fail to resume with the correct state. 
 [byte[]](https://github.com/liamwhite) investigated the issue and found that it happened when Dynarmic failed to update the PC register inside watchpoint callbacks. 
-Merry fixed this issue again by {{< gh-hovercard "8569" "completely rewriting Dynarmic's support for watchpoints" >}}, now breaking immediately when necessary and avoiding almost all of the performance penalty of enabling watchpoints. Nice!
+Merry fixed this issue again by {{< gh-hovercard "8569" "completely rewriting Dynarmic's support for watchpoints," >}} now breaking immediately when necessary and avoiding almost all of the performance penalty of enabling watchpoints. Nice!
 
 byte[] has also been hard at work fixing various kernel issues and inconsistencies throughout June, and this month is no exception. 
 This time around, while searching for the source of a mysterious freezing bug in `Super Mario Galaxy`, he rewrote the entire scheduler and brought it in line with the current state of the art in reverse engineering of the Switch kernel. 
@@ -182,7 +182,7 @@ While preparing the new scheduler for release, byte[] also noticed an inefficien
 Last month, [Behunin](https://github.com/behunin) contributed a new GPU queue implementation intended to improve the performance of submission handling from the emulated game. 
 Some time after this, freezing issues in `Fire Emblem: Three Houses` started cropping up.
 After a long trail of hunting, byte[] thought the issue had been found and fixed by pull requests [#8483](https://github.com/yuzu-emu/yuzu/pull/8483) and [#8538](https://github.com/yuzu-emu/yuzu/pull/8538), but more careful debugging revealed that the cause of the freeze was unfortunately from the new GPU queue implementation!
-[Morph](https://github.com/Morph1984) stepped up and {{< gh-hovercard "8542" "reverted the use of the new queue implementation" >}}, finally fixing the issue, at least for now.
+[Morph](https://github.com/Morph1984) stepped up and {{< gh-hovercard "8542" "reverted the use of the new queue implementation," >}} finally fixing the issue, at least for now.
 
 {{< imgs
 	"./feth.png| Don't ask (Fire Emblem: Three Houses)"
@@ -191,7 +191,7 @@ After a long trail of hunting, byte[] thought the issue had been found and fixed
 `Xenoblade Chronicles 3`, one of the most anticipated Switch releases in a while, released, and to the dismay of the yuzu community, would crash on boot when using Vulkan. 
 Due to differences in time zones, Maide was our first developer to lay hands on the new game, with byte[] lagging behind. 
 Maide found that there were some Vulkan shaders that crashed the GPU driver when they were compiled. yuzu is different from most Vulkan programs, and it directly generates shaders in binary format to respond to the needs of the game's shaders, which can cause problems when the way yuzu translates a shader is different from the way a GLSL compiler would translate it. 
-byte[] quickly helped Maide identify the sources of these shader compilation crashes and, together, fixed both `FSwizzleAdd` and `ConvertDepthMode`, {{< gh-hovercard "8667" "allowing users to run the game in Vulkan" >}}.
+byte[] quickly helped Maide identify the sources of these shader compilation crashes and, together, fixed both `FSwizzleAdd` and `ConvertDepthMode`, {{< gh-hovercard "8667" "allowing users to run the game in Vulkan." >}}
 
 {{< single-title-imgs
     "Thank you Night for the amazing pics! (Xenoblade Chronicles 3)"
@@ -249,7 +249,7 @@ The switch to Vulkan by default caused games which used any CPU-based rendering 
 If a game wants to render an image to the screen from the CPU, instead of the GPU, it will first convert the image into an optimized layout that the Switch GPU understands, and then ask the GPU to render the optimized image. 
 To deal with this, yuzu undoes this layout conversion and uploads the data to the host GPU for presentation. 
 byte[] discovered that due to the size of the optimized layout and the unoptimized layout being different, a subspan used in unoptimizing the layout would overflow and cause the check to fail. 
-The fix was simple: just {{< gh-hovercard "8611" "use the optimized size for the converted layer" >}}, since it would always be larger.
+The fix was simple: just {{< gh-hovercard "8611" "use the optimized size for the converted layer," >}} since it would always be larger.
 
 {{< imgs
 	"./wetbear.png| Thanks Wetbear for the pic!"
@@ -258,7 +258,7 @@ The fix was simple: just {{< gh-hovercard "8611" "use the optimized size for the
 It wouldn't be a proper yuzu pull request without a seemingly unrelated regression.
 `Pokémon: Let's Go, Pikachu!/Eevee!` had a strange performance regression caused by byte[]'s previous change, where the framerate when attempting to play with Pikachu or Eevee would drop to approximately 7 frames per second. 
 byte[] investigated it and found that using the larger size caused the process of re-optimizing a frame for the game to read back to be much slower, since it was now dealing with a much larger image. 
-He then fixed it by {{< gh-hovercard "8658" "using different sizes for the optimized and unoptimized images" >}}, finally putting these foolish performance issues to rest.
+He then fixed it by {{< gh-hovercard "8658" "using different sizes for the optimized and unoptimized images," >}} finally putting these foolish performance issues to rest.
 
 Project Andio introduced a few new regressions in the Flatpak builds as well. 
 One of these was fixed in the pull request itself before it was merged. 
@@ -326,7 +326,7 @@ The WebApplet’s input bit was assumed incorrectly, causing user input to be co
 Thankfully, Morph {{< gh-hovercard "8536" "found the reason" >}} and implemented the fix.
 
 Last month, Docteh [renamed](https://yuzu-emu.org/entry/yuzu-progress-report-jun-2022/#ui-changes) the status bar’s DOCKED status (redundancy, yeah!).
-For consistency, [this dumb writer](https://github.com/goldenx86) decided to {{< gh-hovercard "8610" "do the same for the Controls configuration window" >}}, for consistency.
+For consistency, [this dumb writer](https://github.com/goldenx86) decided to {{< gh-hovercard "8610" "do the same for the Controls configuration window," >}} for consistency.
 
 {{< imgs
 	"./dock.png| Boring change, who is responsible for this?"
@@ -347,7 +347,7 @@ german77 {{< gh-hovercard "8656" "added incremental steps" >}} the closer you ar
 A beautiful feature of tightly integrated systems is their wonderful control over suspend and resume, and the Steam Deck is no exception.
 If you've ever experienced issues with suspend and resume, you know what I mean.
 Experienced developer [devsnek](https://github.com/devsnek) wants to help yuzu take advantage of this feature over the course of three {{< gh-hovercard "8585" "different" >}} {{< gh-hovercard "8592" "pull requests." >}}
-This includes {{< gh-hovercard "8581" "emulating the actual suspend/resume mechanic of the Switch" >}}, as some games make use of it as one of their gameplay features.
+This includes {{< gh-hovercard "8581" "emulating the actual suspend/resume mechanic of the Switch," >}} as some games make use of it as one of their gameplay features.
 With these changes, users can suspend their games by simply pressing the power button of the Deck, exactly like on a Switch.
 
 For those of us living in remote places, suffering from terrible ISPs, or both (FML), we have fantastic news!
