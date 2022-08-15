@@ -1,8 +1,8 @@
 +++
-date = "2022-08-13T12:00:00-03:00"
+date = "2022-08-15T12:00:00-03:00"
 title = "Progress Report July 2022"
 author = "GoldenX86"
-forum = 0
+forum = 614640
 +++
 
 Hello yuz-ers, what a month we've had! Great graphical changes, an amazing audio rewrite, preliminary work on LDN support, testing new OpenGL drivers, and plenty of fixes! Continue reading to find out more.
