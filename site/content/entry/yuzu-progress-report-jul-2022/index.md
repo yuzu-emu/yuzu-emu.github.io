@@ -149,7 +149,7 @@ This also provides a significant performance boost in many games due to keeping 
 Finally, [BreadFish64](https://github.com/BreadFish64) {{< gh-hovercard "8543" "implemented a way to read the exact TSC frequency of the host CPU." >}} 
 The `TSC` (timestamp counter) is a high precision timer measuring the number of base clock ticks performed by an Intel or AMD processor since boot. 
 CoreTiming uses this value to emulate the ARM physical count register, which performs a similar role as the `TSC` for ARM devices, like the Switch. 
-Getting the exact TSC frequency, as opposed to just estimating it, allows CoreTiming to avoid drifting due to mismatch between the host frequency, which depends on your CPU and the guest clock frequency, which is fixed to 19.2MHz.
+Getting the exact `TSC` frequency, as opposed to just estimating it, allows CoreTiming to avoid drifting due to mismatch between the host frequency, which depends on your CPU and the guest clock frequency, which is fixed to 19.2MHz.
 
 More precision and faster boot times are never a bad thing!
 
@@ -291,16 +291,16 @@ The main function of the cameras is to detect shapes and measure the distance to
 Interested in adding this awesome feature to yuzu, and providing full support for games like `Game Builder Garage` or the `Nintendo Labo` collection, [german77](https://github.com/german77) {{< gh-hovercard "8636" "emulated the clustering processor" >}} required to let the games access the camera on the Joy-Cons or any camera the user wants to provide, even if it is a desktop capture obtained from OBS Studio.
 
 {{< imgs
-	"./ir.png| While this looks like a homebrew app, it's in fact the real configuration Nintendo provides on its games"
+	"./ir.png| While this looks like a homebrew app, it's in fact the real IR interface Nintendo provides for its games"
   >}}
 
 Users wanting to play with this setting can find it in `Emulation > Configure… > Controls > Advanced tab > Infrared Camera`.
 
 {{< imgs
-	"./camera.png| You can find the setting here"
+	"./camera.png| What a sleek little menu"
   >}}
 
-This work doesn’t include the moment processor required by `1-2-Switch!` yet
+This work doesn’t include the moment processor required by `1-2-Switch!` just yet.
 
 Steam Deck users reported having issues when using external controllers, but not while using the integrated Deck controls.
 toastUnlimited hopped onto the issue and found that the reason is the included prerelease [SDL2](https://www.libsdl.org/) version we’ve been using.
@@ -361,7 +361,7 @@ This is a new section to communicate and discuss new relevant bugs, fixes, and f
 #### NVIDIA, missing the perfection that 472.12 was
 
 [We mentioned last month](https://yuzu-emu.org/entry/yuzu-progress-report-jun-2022/#psa-for-amd-radeon-users-and-nvidia-tags-along) how the 516 series of drivers is detrimental to Maxwell and Pascal users, making Vulkan unstable.
-We’re still debugging the issue, as it isn’t easy to catch, but a possible cause is suspected: GPU accelerated ASTC texture decoding.
+We’re still debugging the issue, as it isn’t easy to catch, but a possible cause is suspected: GPU accelerated `ASTC` texture decoding.
 If you own a Maxwell or Pascal GPU, must remain on the latest driver update, and want to test if you can make Vulkan stable again, try disabling `Accelerate ASTC Texture Decoding` in `Emulation > Configure… > Graphics`.
 Please report your results on our [forums](https://community.citra-emu.org/c/yuzu-support/14) or [Discord server](https://discord.gg/u77vRWY).
 
@@ -385,7 +385,7 @@ We have a few ways to bypass this issue:
 The root of the problem is caused by some bad combination of running a Qt window inside another window, and NVIDIA’s way of detecting the framerate of windowed applications.
 Removing any of the two factors solves the low framerate while still taking advantage of Variable Refresh Rate.
 
-#### ~~ATI~~AMD OpenGL, 25 years in the making
+#### AMD OpenGL, 25 years in the making
 
 Hell froze over, pigs learned to fly, and starting with the Windows driver version 22.7.1, AMD introduced a completely new OpenGL driver, making Radeon cards on Windows viable options to use both APIs, not just cool kid Vulkan.
 Performance is close to 100% higher, or more in some titles, and many rendering bugs are fixed. 
@@ -395,7 +395,7 @@ But why write about it, let the numbers do the talking:
 	"./perf.png| Thank you RodrigoTR!"
   >}}
 
-Tch, okey, that's a lot of numbers, let's try to make it easier to digest.
+Wow! That's a lot of numbers, let's try to make it easier to digest:
 
 {{< single-title-imgs
     "Thanks toastUnlimited!"
