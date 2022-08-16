@@ -235,7 +235,7 @@ This doesn’t solve the rendering bugs we face with this game, but it makes thi
 	"./mhr.png| Rise ye Tarnished! Wait, wrong game (MONSTER HUNTER RISE)"
   >}}
 
-## Linux Flatpak (Discovery) and AppImage fixes
+## Linux Flatpak (Discover) and AppImage fixes
 
 While Flatpak is not the recommended way for our users to enjoy their favourite Switch titles on Linux, due to lower performance and some missing desktop integration features, it is a great option for many Linux users who have Flatpak installed by default and want a low-friction way to get access to yuzu.
 It has been the preferred choice by Steam Deck users since its release. 
