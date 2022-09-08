@@ -6,7 +6,7 @@ forum = 622491
 +++
 
 Hey there, yuz-ers!
-The MOST awaited feature of yuzu, Local Wireless Multiplayer, is finally here!
+The MOST awaited feature of yuzu, Local Wireless Multiplayer (LDN), is finally here!
 So what are you waiting for?
 Time to grab your friends and jump right in!
 
@@ -16,32 +16,40 @@ Time to grab your friends and jump right in!
 
 The Nintendo Switch console supports various multiplayer options. 
 Among these, the following options are useful when you want to play multiplayer with other Switch consoles.
-{{< imgs "./multi.png" >}}
+{{< imgs "./multi.png| Table indicating yuzu's supported Switch multiplayer modes" >}}
 
 The image below, shows the key difference between these three.
-{{< imgs "./Switch_Conn.png" >}}
+{{< imgs 
+	"./Switch_Conn.png| Graphic demonstrating the key differences between the three wireless modes" 
+>}}
 
 <article class="message has-text-weight-semibold"><div class="message-body"><p>
-The Switch's HorizonOS uses the LDN service for the Local Wireless multiplayer. <br>
-That's the reason this can also be referred to as LDN multiplayer.
+The Switch's HorizonOS uses the LDN service for all Local Wireless communication. <br>
+This is why Local Wireless Multiplayer can also be referred to as LDN Multiplayer.
 </p></div></article>
 
-Thanks to the efforts of our developers [FearlessTobi](https://github.com/FearlessTobi) and [german77](https://github.com/german77), yuzu now has support for Local Wireless multiplayer.
+Thanks to the incredible efforts of our developers [FearlessTobi](https://github.com/FearlessTobi) and [german77](https://github.com/german77), Local Wireless Multiplayer in yuzu is no longer a dream!
 Special thanks to [spacemeowx2](https://github.com/spacemeowx2/) and [all the contributors](https://github.com/spacemeowx2/ldn_mitm/graphs/contributors) of the [ldn_mitm](https://github.com/spacemeowx2/ldn_mitm) project.
-Without their extensive reverse-engineering of the `LDN` service and the gracious [license exemption](https://github.com/spacemeowx2/ldn_mitm#licensing) for yuzu, this would not have been possible.
+Without their extensive reverse-engineering of the `LDN` service, and the gracious [license exemption](https://github.com/spacemeowx2/ldn_mitm#licensing) for yuzu, this would not have been possible.
 
+<article class="message"><div class="message-header">
+<p>⚠️ Heads up!</p>
+</div>
+<div class="message-body"><p style="color:white;">
+<b>Currently, Local Wireless Multiplayer (LDN) is only supported between instances of yuzu.<br>
+Multiplayer between yuzu and a Real Switch or between yuzu and other emulators is not supported!</b>
+</p></div></article>
 
 ## Where can you get it?
 
-{{< imgs "./where-is-it.png" >}}
-
-The LDN multiplayer feature is now available on the latest version of the Early-Access builds.
-We will work on polishing this release and make this available on the Mainline builds soon.
+The Local Wireless Multiplayer feature is now available in the latest version of the Early Access release.
+We will be working to polish this feature and make this available to the Mainline builds soon.
 
 <article class="message has-text-weight-semibold"><div class="message-body"><p>
-If you're using the yuzu installer, you'll automatically be updated to the latest build. <br>	
-If you're not using the yuzu installer, please download it from our <a href= https://yuzu-emu.org/downloads/>downloads</a> page. <br>
-We highly recommend using our installer to always stay up-to-date on both Mainline and Early-Access builds.
+If you're using the yuzu installer, you'll automatically be updated to the latest build.<br>	
+If you're <b>not</b> using the yuzu installer, please download it from our <a href= https://yuzu-emu.org/downloads/>Download</a> page. <br>
+<br>
+We highly recommend using our installer to always stay up-to-date on both Mainline and Early Access builds.
 </p></div></article>
 
 ## Local Wireless (LDN) Multiplayer
@@ -50,52 +58,63 @@ yuzu's Local Wireless multiplayer (LDN) differs a little bit when compared to th
 The Switch console uses the `LDN` service to scan for other Switch consoles using Wi-Fi and connects all players.
 Here, one player would act as the `host` and all others would connect to the host.
 
-yuzu, on the other hand, uses virtual rooms to allow players to create and join game lobbies within the room.
-Since this emulates the Switch's ability to do local wireless multiplayer, it doesn’t rely on Nintendo’s servers and does not require a Nintendo Network ID. 
-While on a real Switch you’d be limited to the people in your immediate vicinity, yuzu boasts a complex server/client infrastructure that forwards a game’s wireless communication across the internet.
+yuzu, on the other hand, employs virtual rooms to allow players to create and join game lobbies within said rooms.
+Since this emulates the Switch's ability to do local wireless multiplayer, it does NOT rely on Nintendo’s servers and does NOT require a Nintendo Account. 
+While on a real Switch, you’d be limited to the people in your immediate vicinity, yuzu boasts a complex server/client infrastructure that forwards a game’s wireless communication across the internet.
 
-In order to get together with other players, you’re going to have to join the same room with yuzu’s room browser. 
-Out of the box, we provide you with a bunch of public rooms hosted across the world by yuzu.
+In order to connect with other players, players simply need to join the same room within yuzu’s Public Room Browser. 
+Before opening the Public Room Browser, 
+Out of the box, we provide you with a assortment of public rooms hosted across the world by yuzu.
 Creating and joining rooms is extremely easy in yuzu and can be done in just a few clicks.
 
-{{< imgs "./room_browser.png" >}}
+{{< imgs "./room_browser.png| yuzu's Public Room Browser" >}}
 
-If you’re a verified user, you can create a public room for people to join. 
-These public rooms can be seen by anyone using the room browser, but you can also put a password on them to restrict users. 
-Remember to port forward, otherwise your friends won’t be able to connect!
+If you’re a [Verified User](https://community.citra-emu.org/signup), you can create your very own public room for people to join. 
+These public rooms can be seen by anyone using the Public Room Browser, but you can also password protect them to restrict users' access.
+<br>
 
-Unverified users aren’t left without options, though - they still have the ability to create unlisted rooms, direct connecting, and can join any yuzu hosted room.
+<article class="message"><div class="message-header">
+<p>⚠️ Warning</p>
+</div>
+<div class="message-body"><p style="color:#eed202;">
+<b>Remember to port forward, otherwise your friends won’t be able to connect!</b>
+</p></div></article>
 
-Do note that verified users will have their privileges revoked for violating any site policies while on the room chatroom. 
-Please respect the "recommended game" listed in publicly hosted rooms, as even unrelated games will add to the bandwidth load.
+If you prefer not to sign up for our platform, you aren’t out of luck! 
+Unverified Users still have the ability to create unlisted rooms, directly connect to unlisted rooms, and can join any yuzu hosted room.
 
-{{< imgs "./room_chat.png" >}}
+Do note that Verified Users will have their privileges revoked for violating any yuzu policies while in the room chatroom.
+Please respect the `Preferred Game` listed in publicly hosted rooms, as even unrelated games will add to the bandwidth load.
 
-**Note: You can use these rooms for LAN mode games too - instead of ZeroTier or Hamachi.**
+{{< imgs "./room_chat.png| Public Room chat and moderation features" >}}
+
+<article class="message has-text-weight-semibold"><div class="message-body"><p>
+You can use these rooms for LAN mode games as well — instead of ZeroTier or Hamachi.</b>
+</p></div></article>
 
 ## Development
 
-FearlessTobi began the development by leveraging the existing virtual rooms infrastructure from [Citra](https://citra-emu.org).
-Due to code similarities between yuzu and Citra, this tried and tested infrastructure easily became the foundation of this feature.
+FearlessTobi began development by leveraging the existing virtual rooms infrastructure from [Citra](https://citra-emu.org).
+Due to code similarities between yuzu and Citra, this tried-and-tested infrastructure easily became the foundation of this feature.
 
 Now that the virtual rooms were taken care of, Tobi moved onto the `LDN` service and its protocols.
 Using the research and code from the [ldn_mitm](https://github.com/spacemeowx2/ldn_mitm) project, he implemented the necessary changes for yuzu instances to communicate with each other over these virtual rooms.
+While implementing, Tobi put an extra emphasis on ensuring no personal data like IPs was leaked to the other room members.
 
-As the feature slowly matured, Tobi began leveraging yuzu's internal team of testers to test the feature across several titles for compatibilty and performance validation. 
-And to prevent user IPs from being leaked when connected to rooms, Tobi changed the implementation to use fake IPs for routing.
+As the feature slowly matured, Tobi began utilizing yuzu's internal team of testers to verify the feature across several titles for compatibility and performance validation. 
 
 With the multiple testing iterations, various bugs and glitches were found. 
-[german77](https://github.com/german77) relied on his own reverse-engineering and hardware tests, to debug these issues and fixed them all.
+german77 relied on his own reverse-engineering and hardware tests to debug these issues, which made it easy for the team to fix them all.
 He also made several UI fixes to improve its usability and brought the codebase up to yuzu standards.
 
 ## Compatibility
 
-Please note that as this is the initial release of the feature, some games might have some limitations.
-We hope to slowly fix these over the course of next few months.
+Please note that as this is the initial release of the feature, some games may have some limitations.
+We hope to slowly fix these over the course of the next few months.
 
-yuzu's Local Wireless Multiplayer was tested by our testers across a small set of games and their corresponding compatibilty is as follows:
+yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support staff across a small set of popular titles. Their compatibility findings are as follows:
 
-{{< imgs "./compat.png" >}}
+{{< imgs "./compat.png| List of yuzu-tested multiplayer titles" >}}
 
 
 ## Screenshots
@@ -110,6 +129,7 @@ yuzu's Local Wireless Multiplayer was tested by our testers across a small set o
     "Pokémon Legends: Arceus"
     "./arceustrade1.png"
     "./arceustrade2.png"
+	"./arceustrade3.png"
 >}}
 
 {{< single-title-imgs
@@ -132,13 +152,26 @@ yuzu's Local Wireless Multiplayer was tested by our testers across a small set o
 	"./splatoon2_3.png"
 >}}
 
-{{< imgs
-	"./lm3.png| Luigi's Mansion 3"
+{{< single-title-imgs
+	"Luigi's Mansion 3"
+	"./lm3.png"
+	"./lm3_2.png"
+>}}
+
+{{< single-title-imgs
+	"Pokémon Let's Go: Pikachu/Eevee"
+	"./PLG_1.png"
+	"./PLG_2.png"
+>}}
+{{< single-title-imgs
+	"Pokémon Let's Go: Pikachu/Eevee"
+	"./PLG_3.png"
+	"./PLG_4.png"
 >}}
 
 {{< imgs
 	"./cowabunga.png| Teenage Mutant Ninja Turtles: The Cowabunga Collection" 
-	"./diablo3.png| Diablo III: The Eternal Collection"
+	"./diablo3.png| Diablo III: Eternal Collection"
 >}}
 
 {{< imgs
@@ -151,8 +184,10 @@ yuzu's Local Wireless Multiplayer was tested by our testers across a small set o
 ## Fin
 
 As with any new update, we've tested the feature internally, but our efforts can't compare to the community as a whole. 
-We could have easily missed an edge case or some weird bug or issue among the vast collection of games with Local Wireless mode.
-So, please reach out to us on our [Discord](https://discord.gg/u77vRWY) and report any bugs you find, so that we can quickly address them.
+We could have easily missed an edge case or some weird bug or issue among the vast collection of games with Local Wireless.
+
+Test any and all games! Poke, prod, and play! Please break this release if you can! With your help, we can make yuzu the best it can be.
+Please reach out to us on our [Discord](https://discord.gg/u77vRWY) and report any bugs you find, so that we can quickly address them.
 
 That's all we have for now, until next time! Happy emulating! <br><br>
 
