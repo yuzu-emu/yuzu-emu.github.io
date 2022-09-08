@@ -1,5 +1,5 @@
 +++
-date = "2022-09-03T18:00:00+05:30"
+date = "2022-09-09T00:30:00+05:30"
 title = "New Feature Release - Local Wireless Multiplayer"
 author = "CaptV0rt3x"
 forum = 622491
@@ -32,6 +32,7 @@ Thanks to the incredible efforts of our developers [FearlessTobi](https://github
 Special thanks to [spacemeowx2](https://github.com/spacemeowx2/) and [all the contributors](https://github.com/spacemeowx2/ldn_mitm/graphs/contributors) of the [ldn_mitm](https://github.com/spacemeowx2/ldn_mitm) project.
 Without their extensive reverse-engineering of the `LDN` service, and the gracious [license exemption](https://github.com/spacemeowx2/ldn_mitm#licensing) for yuzu, this would not have been possible.
 
+<br>
 <article class="message"><div class="message-header">
 <p>⚠️ Heads up!</p>
 </div>
@@ -63,19 +64,24 @@ Since this emulates the Switch's ability to do local wireless multiplayer, it do
 While on a real Switch, you’d be limited to the people in your immediate vicinity, yuzu boasts a complex server/client infrastructure that forwards a game’s wireless communication across the internet.
 
 In order to connect with other players, players simply need to join the same room within yuzu’s Public Room Browser. 
-Before opening the Public Room Browser, 
-Out of the box, we provide you with a assortment of public rooms hosted across the world by yuzu.
+But, before opening the Public Room Browser, you will have to first configure your network interface in yuzu.
+
+You can find this setting under `System -> Network` and you need to select your internet connection from the drop-down as shown below.
+
+{{< imgs "./network_interface.png| yuzu's Network Interface configuration" >}}
+
+Out of the box, we provide you with an assortment of public rooms hosted across the world by yuzu.
 Creating and joining rooms is extremely easy in yuzu and can be done in just a few clicks.
 
 {{< imgs "./room_browser.png| yuzu's Public Room Browser" >}}
 
 If you’re a [Verified User](https://community.citra-emu.org/signup), you can create your very own public room for people to join. 
 These public rooms can be seen by anyone using the Public Room Browser, but you can also password protect them to restrict users' access.
+Verified Users will have their forum nickname and profile picture populated in the chatroom.
 <br>
 
 <article class="message"><div class="message-header">
-<p>⚠️ Warning</p>
-</div>
+<p>⚠️ Warning</p></div>
 <div class="message-body"><p style="color:#eed202;">
 <b>Remember to port forward, otherwise your friends won’t be able to connect!</b>
 </p></div></article>
