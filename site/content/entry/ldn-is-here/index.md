@@ -18,9 +18,8 @@ The Nintendo Switch console supports various multiplayer options.
 Among these, the following options are useful when you want to play multiplayer with other Switch consoles.
 {{< imgs "./multi.png| Table indicating yuzu's supported Switch multiplayer modes" >}}
 
-The image below, shows the key difference between these three.
 {{< imgs 
-	"./Switch_Conn.png| Graphic demonstrating the key differences between the three wireless modes" 
+    "./Switch_Conn.png| Graphic demonstrating the key differences between the three wireless modes" 
 >}}
 
 <article class="message has-text-weight-semibold"><div class="message-body"><p>
@@ -34,11 +33,11 @@ Without their extensive reverse-engineering of the `LDN` service, and the gracio
 
 <br>
 <article class="message"><div class="message-header">
-<p>⚠️ Heads up!</p>
+<p>⚠️ Attention</p>
 </div>
 <div class="message-body"><p style="color:white;">
 <b>Currently, Local Wireless Multiplayer (LDN) is only supported between instances of yuzu.<br>
-Multiplayer between yuzu and a Real Switch or between yuzu and other emulators is not supported!</b>
+Multiplayer between yuzu and a real Switch or between yuzu and other emulators is not supported!</b>
 </p></div></article>
 
 ## Where can you get it?
@@ -47,17 +46,17 @@ The Local Wireless Multiplayer feature is now available in the latest version of
 We will be working to polish this feature and make this available to the Mainline builds soon.
 
 <article class="message has-text-weight-semibold"><div class="message-body"><p>
-If you're using the yuzu installer, you'll automatically be updated to the latest build.<br>	
+If you're using the yuzu installer, you'll automatically be updated to the latest build.<br>    
 If you're <b>not</b> using the yuzu installer, please download it from our <a href= https://yuzu-emu.org/downloads/>Download</a> page. <br>
 <br>
-We highly recommend using our installer to always stay up-to-date on both Mainline and Early Access builds.
+We highly recommend using our installer to always stay up to date on both Mainline and Early Access builds.
 </p></div></article>
 
 ## Local Wireless (LDN) Multiplayer
 
 yuzu's Local Wireless multiplayer (LDN) differs a little bit when compared to the Nintendo Switch.
 The Switch console uses the `LDN` service to scan for other Switch consoles using Wi-Fi and connects all players.
-Here, one player would act as the `host` and all others would connect to the host.
+Here, one player would act as the `host` and all others would connect to it.
 
 yuzu, on the other hand, employs virtual rooms to allow players to create and join game lobbies within said rooms.
 Since this emulates the Switch's ability to do local wireless multiplayer, it does NOT rely on Nintendo’s servers and does NOT require a Nintendo Account. 
@@ -81,9 +80,9 @@ Verified Users will have their forum nickname and profile picture populated in t
 <br>
 
 <article class="message"><div class="message-header">
-<p>⚠️ Warning</p></div>
+<p>⚠️ Reminder</p></div>
 <div class="message-body"><p style="color:#eed202;">
-<b>Remember to port forward, otherwise your friends won’t be able to connect!</b>
+<b>When hosting a room, remember to port forward or your friends won’t be able to connect!</b>
 </p></div></article>
 
 If you prefer not to sign up for our platform, you aren’t out of luck! 
@@ -98,6 +97,8 @@ Please respect the `Preferred Game` listed in publicly hosted rooms, as even unr
 You can use these rooms for LAN mode games as well — instead of ZeroTier or Hamachi.</b>
 </p></div></article>
 
+Please visit [our multiplayer guide](https://yuzu-emu.org/help/feature/multiplayer/) for further help with Hosting, Port Forwarding, Authentication, and Moderation of your publicly hosted rooms.
+
 ## Development
 
 FearlessTobi began development by leveraging the existing virtual rooms infrastructure from [Citra](https://citra-emu.org).
@@ -105,12 +106,12 @@ Due to code similarities between yuzu and Citra, this tried-and-tested infrastru
 
 Now that the virtual rooms were taken care of, Tobi moved onto the `LDN` service and its protocols.
 Using the research and code from the [ldn_mitm](https://github.com/spacemeowx2/ldn_mitm) project, he implemented the necessary changes for yuzu instances to communicate with each other over these virtual rooms.
-While implementing, Tobi put an extra emphasis on ensuring no personal data like IPs was leaked to the other room members.
+During this process, Tobi put an extra emphasis on ensuring no personal data, such as IP addresses, was leaked to the other room members.
 
 As the feature slowly matured, Tobi began utilizing yuzu's internal team of testers to verify the feature across several titles for compatibility and performance validation. 
 
 With the multiple testing iterations, various bugs and glitches were found. 
-german77 relied on his own reverse-engineering and hardware tests to debug these issues, which made it easy for the team to fix them all.
+german77 relied on his own reverse-engineering and hardware tests to debug these issues, which then made it easy for the team to fix these various problems.
 He also made several UI fixes to improve its usability and brought the codebase up to yuzu standards.
 
 ## Compatibility
@@ -135,56 +136,57 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
     "Pokémon Legends: Arceus"
     "./arceustrade1.png"
     "./arceustrade2.png"
-	"./arceustrade3.png"
+    "./arceustrade3.png"
 >}}
 
 {{< single-title-imgs
     "Mario Kart 8 Deluxe"
+    "./mk8d_1.png"
     "./mk8d_2.png"
-	"./mk8d_3.png"
 >}}
 
 {{< single-title-imgs
-	"Super Mario Smash Bros. Ultimate"
-	"./ssbu_ldn_3.png"
-	"./ssbu_ldn_4.png"
-	"./smash_ldn.png"
+    "Super Mario Smash Bros. Ultimate"
+    "./ssbu_ldn_1.png"
+    "./ssbu_ldn_2.png"
+    "./ssbu_ldn_3.png"
 >}}
 
 {{< single-title-imgs
-	"Splatoon 2"
-	"./splatoon2_1.png"
-	"./splatoon2_2.png"
-	"./splatoon2_3.png"
+    "Splatoon 2"
+    "./splatoon2_1.png"
+    "./splatoon2_2.png"
+    "./splatoon2_3.png"
 >}}
 
 {{< single-title-imgs
-	"Luigi's Mansion 3"
-	"./lm3.png"
-	"./lm3_2.png"
->}}
-
-{{< single-title-imgs
-	"Pokémon Let's Go: Pikachu/Eevee"
-	"./PLG_1.png"
-	"./PLG_2.png"
->}}
-{{< single-title-imgs
-	"Pokémon Let's Go: Pikachu/Eevee"
-	"./PLG_3.png"
-	"./PLG_4.png"
+    "Luigi's Mansion 3"
+    "./lm3_1.png"
+    "./lm3_2.png"
 >}}
 
 {{< imgs
-	"./cowabunga.png| Teenage Mutant Ninja Turtles: The Cowabunga Collection" 
-	"./diablo3.png| Diablo III: Eternal Collection"
+    "./PLG_1.png|"
+    "./PLG_2.png|"
+>}}
+
+{{< single-title-imgs
+    "Pokémon Let's Go: Pikachu/Eevee"
+    "./PLG_3.png"
+    "./PLG_4.png"
+>}}
+
+{{< single-title-imgs
+    "Diablo III : Eternal Collection"
+    "./Diablo3_LDN_1.png"
+    "./Diablo3_LDN_2.png"
 >}}
 
 {{< imgs
-	"./monster_hunter_ultimate.png| Monster Hunter Generations Ultimate"
-	"./kirby_dream_buffet.png| Kirby's Dream Buffet"
+    "./cowabunga.png| Teenage Mutant Ninja Turtles: The Cowabunga Collection" 
+    "./monster_hunter_ultimate.png| Monster Hunter Generations Ultimate"
+    "./kirby_dream_buffet.png| Kirby's Dream Buffet"
 >}}
-
 
 
 ## Fin
