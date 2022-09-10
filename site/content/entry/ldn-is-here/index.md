@@ -1,5 +1,5 @@
 +++
-date = "2022-09-09T00:30:00+05:30"
+date = "2022-09-10T13:00:00+05:30"
 title = "New Feature Release - Local Wireless Multiplayer"
 author = "CaptV0rt3x"
 forum = 622491
@@ -133,10 +133,10 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 >}}
 
 {{< single-title-imgs
-    "Pokémon Legends: Arceus"
-    "./arceustrade1.png"
-    "./arceustrade2.png"
-    "./arceustrade3.png"
+    "Splatoon 2"
+    "./splatoon2_1.png"
+    "./splatoon2_2.png"
+    "./splatoon2_3.png"
 >}}
 
 {{< single-title-imgs
@@ -146,23 +146,23 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 >}}
 
 {{< single-title-imgs
-    "Super Mario Smash Bros. Ultimate"
-    "./ssbu_ldn_1.png"
-    "./ssbu_ldn_2.png"
-    "./ssbu_ldn_3.png"
->}}
-
-{{< single-title-imgs
-    "Splatoon 2"
-    "./splatoon2_1.png"
-    "./splatoon2_2.png"
-    "./splatoon2_3.png"
+    "Pokémon Legends: Arceus"
+    "./arceustrade1.png"
+    "./arceustrade2.png"
+    "./arceustrade3.png"
 >}}
 
 {{< single-title-imgs
     "Luigi's Mansion 3"
     "./lm3_1.png"
     "./lm3_2.png"
+>}}
+
+{{< single-title-imgs
+    "Super Mario Smash Bros. Ultimate"
+    "./ssbu_ldn_1.png"
+    "./ssbu_ldn_2.png"
+    "./ssbu_ldn_3.png"
 >}}
 
 {{< imgs
@@ -174,6 +174,17 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
     "Pokémon Let's Go: Pikachu/Eevee"
     "./PLG_3.png"
     "./PLG_4.png"
+>}}
+
+{{< imgs
+    "./bdsp_1.png|"
+    "./bdsp_2.png|"
+>}}
+
+{{< single-title-imgs
+    "Pokémon Brilliant Diamond/Shining Pearl"
+    "./bdsp_3.png"
+    "./bdsp_4.png"
 >}}
 
 {{< single-title-imgs
