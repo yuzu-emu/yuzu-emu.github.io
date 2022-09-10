@@ -135,8 +135,8 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 {{< single-title-imgs
     "Splatoon 2"
     "./splatoon2_1.png"
-    "./splatoon2_2.png"
     "./splatoon2_3.png"
+    "./splatoon2_2.png"
 >}}
 
 {{< single-title-imgs
@@ -160,9 +160,9 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 
 {{< single-title-imgs
     "Super Mario Smash Bros. Ultimate"
-    "./ssbu_ldn_1.png"
     "./ssbu_ldn_2.png"
     "./ssbu_ldn_3.png"
+    "./ssbu_ldn_1.png"
 >}}
 
 {{< imgs
