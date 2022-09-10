@@ -20,7 +20,9 @@ Instead, generates SPIR-V directly, which is much faster, but has more potential
 In this case, the shader recompiler failed to declare some variables in the SPIR-V, and left references to them as null, causing the shaders to crash the driver when compiling. 
 [Maide](https://github.com/Kelebek1) and [byte[]](https://github.com/liamwhite) {{< gh-hovercard "8667" "quickly found and fixed the problem" >}}, allowing the game to run in Vulkan on release day.
 
-water
+{{< imgs
+	"./wotah.png| Wotah! (Xenoblade Chronicles 3)"
+  >}}
 
 The set of pipelines used by `Xenoblade Chronicles 3` is huge, with many pipeline caches clocking over 15000 entries after extended gameplay. 
 With all graphics backends, yuzu precompiles shaders before the game starts, and doesn't allow starting it before compilation is finished. 
@@ -29,7 +31,9 @@ To make matters worse, you previously could not cancel out of the process while 
 If you tried, yuzu would freeze up and continue to wait for the compilation to finish before allowing you to close the game. 
 byte[] resolved this minor UX annoyance {{< gh-hovercard "8678" "by having the shader compiler check for cancellation after each shader is compiled," >}} allowing compilation to instantly be stopped at any time.
 
-muppet
+{{< imgs
+	"./muppet.png| Name's Kermit the Frog, pleased to meet you (Xenoblade Chronicles 3)"
+  >}}
 
 Xenoblade 3's massive set of pipelines also causes problems for emulation. 
 Because yuzu tries to give you as stutter-free an experience as it can, it tries to load all known pipelines into memory before you even start playing. 
@@ -42,7 +46,9 @@ byte[] noticed that OpenGL tracks individual objects for shader source code in a
 Properly {{< gh-hovercard "8682" "allowing these shader source code objects to be freed" >}} reclaims a substantial amount of wasted memory.
 Users can expect much lower VRAM and RAM usage now while running OpenGL and [suffering emotional damage](https://www.youtube.com/watch?v=i1ojUmdF42U).
 
-water in ears
+{{< imgs
+	"./ears.png| That's a big snuffin' difference (Xenoblade Chronicles 3)"
+  >}}
 
 One advantage yuzu's OpenGL backend had for Xenoblade 3 for a while was stability. 
 It didn't really crash. 
@@ -50,14 +56,18 @@ Even after the initial Vulkan shader fixes previously mentioned, the game would 
 byte[] was able to reliably reproduce the issue and found that yuzu was receiving some invalid references in the GPU processing. 
 Whether or not this was something the game was legitimately doing, or just an emulation bug, he identified that yuzu could avoid the crash by {{< gh-hovercard "8700" "passing `VK_NULL_HANDLE` for an image view," >}} instead of trying to create an image view for a null image, which was guaranteed to crash.
 
-cooking
+{{< imgs
+	"./cooking.png| Vulkan no longer cooks itself (Xenoblade Chronicles 3)"
+  >}}
 
 AMD users on Windows were left in the dark about Vulkan support for Xeno 3 for a bit. 
 One of our testers, your writer, obtained a log with Vulkan validation errors, and determined that the crash was due to trying to use some vertex formats that were not supported by the Windows driver. 
 However, they were supported by `RADV`, the Linux Mesa driver. 
 byte[] additionally identified a case of the opposite, where a format was supported by the Windows driver but not RADV, and implemented a generic workaround that would {{< gh-hovercard "8702" "substitute a compatible format for both cases," >}} fixing multiple crashes at once.
 
-stretching
+{{< imgs
+	"./stretching.png| Progressively getting fit (Xenoblade Chronicles 3)"
+  >}}
 
 A few GPU changes not related to XC 3 also made it in this month.
 
@@ -66,14 +76,20 @@ As described by the pull request adding it, if the emulation and display are ver
 This change allows yuzu to completely synchronize frames with the monitor refresh rate, preventing any juddering. 
 Thank you very much!
 
-vsync
+{{< imgs
+	"./vsync.png| No more tearing, Vulkan edition"
+  >}}
 
 [Merry](https://github.com/merryhime), the author of [dynarmic](https://github.com/merryhime/dynarmic), and a real life White Mage, implemented an {{< gh-hovercard "8739" "optimization for the process of converting between tiled and untiled images" >}} for the GPU. 
 This doesn't impact the performance of games very much, as they generally avoid converting between tiled and untiled images, but it significantly improves the performance of homebrew apps, which convert every frame to display to the console.
 
 On the topic of unusual techniques, [vonchenplus](https://github.com/vonchenplus) implemented support for a legacy OpenGL format called {{< gh-hovercard "8752" "rectangle textures." >}}
 
-example
+{{< single-title-imgs-compare
+	"Legacy features seem to be popular with some game studios"
+	"./rectanglebug.png"
+	"./rectanglefix.png"
+>}}
 
 As a side effect of this change, a {{< gh-hovercard "8837" "pipeline cache purge" >}} had to be issued by [Morph](https://github.com/Morph1984).
 
@@ -81,12 +97,20 @@ You may be thinking, but aren't all textures rectangles?
 That is true, but the thing making rectangle textures distinct is that they are indexed in shaders with coordinates from 0 to their width/height -- texel coordinates, instead of 0 to 1 -- normalized coordinates. 
 This mode is not very useful, so it is a surprise to see it still used by games. This change fixed a lot of rendering issues in `Fast RMX` and `The Touryst` (two games using the same engine).
 
-pics
+{{< single-title-imgs-compare
+	"No more vacations in the Abyss (The Touryst)"
+	"./tourystbug.png"
+	"./tourystfix.png"
+>}}
 
 In the case of `Fast RMX`, disabling `DYNAMIC CAMERA EXPOSURE` in its in-game graphic settings fixes an overbright rendering bug.
 Testing shows that OpenGL seems to be more stable for this title.
 
-setting pic
+{{< single-title-imgs
+    "F-Zero for Switch when, Nintendo? (FAST RMX)"
+    "./rmx.png"
+    "./settings.png"
+    >}}
 
 Also focusing on homebrew, vonchenplus implemented support for a few things needed to get the [RetroArch](https://www.retroarch.com/) homebrew working inside yuzu.
 Yup, more emulators inside emulators shenanigans.
@@ -100,19 +124,33 @@ byte[] found that it could boot in single core, but the game had terrible render
 To do this, byte[] added {{< gh-hovercard "8791" "support for the `R16G16B16X16` format" >}} used by the game, fixing the rendering issues.
 Still, more work is needed to make this game playable on yuzu.
 
-rocket league
+{{< imgs
+	"./rocket.png| The better League (Rocket League)"
+  >}}
 
 Working on his Magnum Opus, byte[] also implemented a workaround for a {{< gh-hovercard "8074" "previous performance fix" >}} to `Super Mario Galaxy` and `Super Mario Sunshine`. 
 While the performance fix should have been regression-free, since it was a bug in the buffer cache, many games needed the *less* accurate behaviour from before the change. 
 `Mario + Rabbids Kingdom Battle`, `Splatoon 2`, and `Super Smash Bros. Ultimate` all had some extra flickering that was introduced after this pull request, so byte[] made the {{< gh-hovercard "8819" " feature, `pessimistic flushing`, optional," >}} and disabled by default, since most games were unaffected.
 
-pic pessimistic
+{{< imgs
+	"./pessimistic.png| Feel free to test it, but expect a performance loss"
+  >}}
 
 Finally on the list for GPU changes this month, [german77](https://github.com/german77), along with [bylaws](https://github.com/bylaws) from [Skyline emulator](https://github.com/skyline-emu/skyline) added {{< gh-hovercard "8809" "emulation for the viewport swizzling extensions" >}} used by some games. 
 These were supported by Nvidia GPUs with an extension, but not AMD or Intel GPUs, and so a few games would appear to render upside down or flipped.
 Games like `Street of Rage 4`, `Celeste`, `Axiom Verge`, and many others are now playable on AMD and Intel!
 
-pics
+{{< single-title-imgs-compare
+	"A new meaning for inverse climbing (Celeste)"
+	"./celestebug.png"
+	"./celestefix.png"
+>}}
+
+{{< single-title-imgs-compare
+	"There should be a difficulty mode called upside-down (Axiom Verge)"
+	"./axiombug.png"
+	"./axiomfix.png"
+>}}
 
 ## CPU, kernel and file system emulation
 
@@ -152,7 +190,9 @@ Note that this change doesn’t help in running native Switch games on yuzu, it 
 People have been asking for stronger audio volume in yuzu for a long time, and Maide delivers.
 Now, if the user goes to `Emulation > Configure… > Audio`, they can {{< gh-hovercard "8756" "set the volume up to 200%," >}} really cranking it to 11!
 
-pic
+{{< imgs
+	"./audio.png| Don't wake up your neighbours"
+  >}}
 
 Something to keep in mind is that some games have their volume tuned up to the output they are using.
 A game may be louder in handheld over docked, for example, so don’t stress your poor ears.
@@ -167,18 +207,28 @@ Since it’s not a priority at the moment, and it can lead to user confusion, by
 
 Asian Windows users noticed that the Size column in the game list and the Speed Percent setting displayed *very weird* numbers.
 
-bad pics
+{{< single-title-imgs
+    "Alien numbers"
+    "./bad1.png"
+    "./bad2.png"
+    >}}
 
 Of course this isn’t acceptable, so [Docteh](https://github.com/Docteh) implemented the {{< gh-hovercard "8715" "necessary changes" >}} to workaround this issue under Windows.
 
-pic
+{{< imgs
+	"./digits.png| Much better"
+  >}}
 
 Following up with Asian only UI bugs, If the user started yuzu for example in Chinese and then switched to English, the Filter bar at the bottom and the game list columns at the top would remain untranslated, refusing to switch.
 {{< gh-hovercard "8797" "Forcing Qt to retranslate" >}} these objects solves the issue, making Docteh happy.
 
 Docteh also implemented some {{< gh-hovercard "8741" "nice cleanups" >}} to the About dialog.
 
-pics
+{{< single-title-imgs-compare
+	" "
+	"./aboutbug.png"
+	"./aboutfix.png"
+>}}
 
 Users complained that the Control profiles drop down list had a too short character limit, not allowing them to be creative.
 german77 stepped up and {{< gh-hovercard "8783" "increased the character limit." >}}
@@ -197,7 +247,9 @@ To solve this brrrrrracing issue, german77 {{< gh-hovercard "8722" "added a smal
 
 On a more colourful topic, and with the intention of fixing a bug with `Mario Party Superstars`, german77 spent many hours cooking {{< gh-hovercard "8724" "how to properly emulate controller colours," >}} with a side dish of fixing battery level icons too!
 
-Pic
+{{< imgs
+	"./colour.png| Art Attack!"
+  >}}
 
 Go to `Emulation > Configure… > Controls > Advanced` and go to town!
 
@@ -245,9 +297,13 @@ No game fixes are expected out of this, but the clean-up and ease of understandi
 
 An interesting experiment that will benefit all users in a few bandwidth starved games like `The Legend of Zelda: Breath of the Wild`, `Xenoblade Chronicles 3` and `SHIN MEGAMI TENSEI V` among others is increasing the size of Vulkan’s stream buffer size.
 Testing shows a performance boost of 10-50% depending on the system, even without ReBAR support, which limits the buffer size to 256MB.
-Having access to all available VRAM opens the possibility of even higher gains!
+Having access to all available VRAM opens the possibility for even higher gains!
 
-pic
+{{< single-title-imgs-compare
+	"There should be a difficulty mode called upside-down (Axiom Verge)"
+	"./128mb.png"
+	"./2048mb.png"
+>}}
 
 After too much nagging from your writer, byte[] implemented a {{< gh-hovercard "8861" "draft to easily test the feature with a slider," >}} but the final goal is to manage it dynamically, so don’t expect to see this feature as an UI option, more like just a passive skill.
 
@@ -257,7 +313,9 @@ Working on the finishing touches for `Project London`, Tobi has not been passive
 - {{< gh-hovercard "8731" "Stubbing and adding some required data types." >}}
 - {{< gh-hovercard "8822" "Improvements to the in-progress room feature." >}}
 
-pic
+{{< imgs
+	"./ldn.png| The best fun ever doing internal testing"
+  >}}
 
 ED: `Project London`, LDN support is out now! More information in [this dedicated article here](https://yuzu-emu.org/entry/ldn-is-here/), and [Multiplayer guide here](https://yuzu-emu.org/help/feature/multiplayer/).
 We’ll cover more in the next report.
@@ -266,7 +324,9 @@ That’s all folks! Thank you so much for your attention until the end, and I ho
 
 Special thanks to Mysterious Writer B for your help.
 
-pic
+{{< imgs
+	"./byte.png| The suspense bites me"
+  >}}
 
 &nbsp;
 {{< article-end >}}
