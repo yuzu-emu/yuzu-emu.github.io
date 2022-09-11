@@ -87,7 +87,7 @@ On the topic of unusual techniques, [vonchenplus](https://github.com/vonchenplus
 
 {{< single-title-imgs-compare
 	"Legacy features seem to be popular with some game studios"
-	"./rectanglebug.png"
+	"./ractanglebug.png"
 	"./rectanglefix.png"
 >}}
 
