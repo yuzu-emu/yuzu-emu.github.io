@@ -76,7 +76,7 @@ yuzu-room ^
   --max_members 4 ^
   --token "<INSERT YUZU ACCOUNT TOKEN HERE>" ^
   --enable-yuzu-mods ^
-  --web-api-url https://api.yuzu-emu.org/ ^
+  --web-api-url https://api.yuzu-emu.org ^
   --ban-list-file "<INSERT BAN LIST FILE PATH HERE>"
 pause
 ```
