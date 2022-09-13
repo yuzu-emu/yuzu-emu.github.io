@@ -48,7 +48,7 @@ sudo docker run -d \
   --max_members 4 \
   --token "<INSERT YUZU ACCOUNT TOKEN HERE>" \
   --enable-yuzu-mods \
-  --web-api-url https://api.yuzu-emu.org/
+  --web-api-url https://api.yuzu-emu.org
 ```
 Make sure the ports specified in `--publish` matches the port specified in `--port`, so that *Docker* can correctly forward your server's ports to the container.
 
