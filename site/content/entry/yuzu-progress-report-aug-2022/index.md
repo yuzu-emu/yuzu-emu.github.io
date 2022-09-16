@@ -43,7 +43,7 @@ However, keeping Xenoblade's 15000+ distinct pipelines all in memory simultaneou
 
 To this end, byte[] looked for any issues in yuzu that might be causing the GPU driver to hold on to more memory than it needs to. 
 byte[] noticed that OpenGL tracks individual objects for shader source code in addition to just for compiled shaders. 
-Properly {{< gh-hovercard "8682" "allowing these shader source code objects to be freed" >}} reclaims a substantial amount of wasted memory.
+Properly {{< gh-hovercard "8684" "allowing these shader source code objects to be freed" >}} reclaims a substantial amount of wasted memory.
 Users can expect much lower VRAM and RAM usage now while running OpenGL and [suffering emotional damage](https://www.youtube.com/watch?v=i1ojUmdF42U).
 
 {{< imgs
