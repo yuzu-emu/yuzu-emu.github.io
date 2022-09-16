@@ -80,7 +80,7 @@ Thank you very much!
 	"./vsync.png| No more tearing, Vulkan edition"
   >}}
 
-[Merry](https://github.com/merryhime), the author of [dynarmic](https://github.com/merryhime/dynarmic), and a real life White Mage, implemented an {{< gh-hovercard "8739" "optimization for the process of converting between tiled and untiled images" >}} for the GPU. 
+[Merry](https://github.com/merryhime), the author of [dynarmic](https://github.com/merryhime/dynarmic) (and a real life White Mage), implemented an {{< gh-hovercard "8739" "optimization for the process of converting between tiled and untiled images" >}} for the GPU. 
 This doesn't impact the performance of games very much, as they generally avoid converting between tiled and untiled images, but it significantly improves the performance of homebrew apps, which convert every frame to display to the console.
 
 On the topic of unusual techniques, [vonchenplus](https://github.com/vonchenplus) implemented support for a legacy OpenGL format called {{< gh-hovercard "8752" "rectangle textures." >}}
