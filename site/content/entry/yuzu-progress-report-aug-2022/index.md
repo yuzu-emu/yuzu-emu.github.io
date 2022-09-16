@@ -11,12 +11,12 @@ Glad to be with you here, yuz-ers! August was a month packed with progress. A pl
 
 ## Graphical changes
 
-This month included a number of notable fixes for last month's blockbuster release, `Xenoblade Chronicles 3`. 
+This month included a number of notable fixes for July's blockbuster release, `Xenoblade Chronicles 3`. 
 While `Xenoblade Chronicles 3` did technically work on release day in yuzu, it took us some time to work out the stability issues.
 
 The first of these, mentioned last month, was a fix for yuzu's shader recompiler. 
 yuzu does not use a GLSL compiler to generate SPIR-V, the Vulkan shader language. 
-Instead, generates SPIR-V directly, which is much faster, but has more potential for error. 
+Instead, it generates SPIR-V directly, which is much faster, but has more potential for error. 
 In this case, the shader recompiler failed to declare some variables in the SPIR-V, and left references to them as null, causing the shaders to crash the driver when compiling. 
 [Maide](https://github.com/Kelebek1) and [byte[]](https://github.com/liamwhite) {{< gh-hovercard "8667" "quickly found and fixed the problem" >}}, allowing the game to run in Vulkan on release day.
 
@@ -35,10 +35,10 @@ byte[] resolved this minor UX annoyance {{< gh-hovercard "8678" "by having the s
 	"./muppet.png| Name's Kermit the Frog, pleased to meet you (Xenoblade Chronicles 3)"
   >}}
 
-Xenoblade 3's massive set of pipelines also causes problems for emulation. 
+`Xenoblade Chronicles 3`'s massive set of pipelines also causes problems for emulation. 
 Because yuzu tries to give you as stutter-free an experience as it can, it tries to load all known pipelines into memory before you even start playing. 
 This might be a reasonable proposition if a game had just a few thousand pipelines. 
-However, Xeno Chronicles 3 has over 15000 distinct pipelines, and keeping them all in memory simultaneously causes the memory usage in the GPU driver to skyrocket.
+However, keeping Xenoblade's 15000+ distinct pipelines all in memory simultaneously causes the memory usage in the GPU driver to skyrocket.
 [Cemu](https://github.com/cemu-project/Cemu) users of old may remember facing a similar issue when using NVIDIA GPUs.
 
 To this end, byte[] looked for any issues in yuzu that might be causing the GPU driver to hold on to more memory than it needs to. 
@@ -50,7 +50,7 @@ Users can expect much lower VRAM and RAM usage now while running OpenGL and [suf
 	"./ears.png| That's a big snuffin' difference (Xenoblade Chronicles 3)"
   >}}
 
-One advantage yuzu's OpenGL backend had for Xenoblade 3 for a while was stability. 
+One advantage yuzu's OpenGL backend has had for `Xenoblade Chronicles 3` for some time was stability. 
 It didn't really crash. 
 Even after the initial Vulkan shader fixes previously mentioned, the game would still randomly crash during cutscenes. 
 byte[] was able to reliably reproduce the issue and found that yuzu was receiving some invalid references in the GPU processing. 
@@ -60,8 +60,8 @@ Whether or not this was something the game was legitimately doing, or just an em
 	"./cooking.png| Vulkan no longer cooks itself (Xenoblade Chronicles 3)"
   >}}
 
-AMD users on Windows were left in the dark about Vulkan support for Xeno 3 for a bit. 
-One of our testers, your writer, obtained a log with Vulkan validation errors, and determined that the crash was due to trying to use some vertex formats that were not supported by the Windows driver. 
+AMD users on Windows were left in the dark about Vulkan support for `Xenoblade Chronicles 3` for a bit. 
+One of our testers, [your writer](https://community.citra-emu.org/u/GoldenX86), obtained a log with Vulkan validation errors, and determined that the crash was due to trying to use some vertex formats that were not supported by the Windows driver. 
 However, they were supported by `RADV`, the Linux Mesa driver. 
 byte[] additionally identified a case of the opposite, where a format was supported by the Windows driver but not RADV, and implemented a generic workaround that would {{< gh-hovercard "8702" "substitute a compatible format for both cases," >}} fixing multiple crashes at once.
 
@@ -69,9 +69,9 @@ byte[] additionally identified a case of the opposite, where a format was suppor
 	"./stretching.png| Progressively getting fit (Xenoblade Chronicles 3)"
   >}}
 
-A few GPU changes not related to XC 3 also made it in this month.
+A few GPU changes not related to Xenoblade also made it in this month.
 
-After years, since the beginning of our [Vulkan backend](https://yuzu-emu.org/entry/yuzu-vulkan/), yuzu finally added {{< gh-hovercard "8735" "support for VSync in Vulkan" >}} by new contributor djrobx. 
+After years, since the beginning of our [Vulkan backend](https://yuzu-emu.org/entry/yuzu-vulkan/), yuzu finally added {{< gh-hovercard "8735" "support for VSync in Vulkan" >}} by new contributor [djrobx](https://github.com/djrobx). 
 As described by the pull request adding it, if the emulation and display are very close to precise sync, there can be fits of juddering when the newly generated frames don't decisively fall as next to be displayed. 
 This change allows yuzu to completely synchronize frames with the monitor refresh rate, preventing any juddering. 
 Thank you very much!
@@ -113,11 +113,11 @@ Testing shows that OpenGL seems to be more stable for this title.
     >}}
 
 Also focusing on homebrew, vonchenplus implemented support for a few things needed to get the [RetroArch](https://www.retroarch.com/) homebrew working inside yuzu.
-Yup, more emulators inside emulators shenanigans.
+Yup, more "emulator in emulator" shenanigans.
  
 The first step is the `clkrst` service, used to control clock speeds on the console, {{< gh-hovercard "8794" "which was stubbed" >}} to allow RetroArch to boot.
 Emulation of clock speed is not very meaningful for yuzu, so it’s not a loss.
-The second is a specialty behaviour by `switch-mesa`, which uses a {{< gh-hovercard "8795" "different framebuffer crop" >}} and appears halfway down the screen without proper emulation (8795).
+The second is a specialty behaviour by `switch-mesa`, which uses a {{< gh-hovercard "8795" "different framebuffer crop" >}} and appears halfway down the screen without proper emulation.
 
 While preparing the `Project London` changes for release, [Tobi](https://github.com/FearlessTobi) found some issues with `Rocket League` that were preventing it from working properly. 
 byte[] found that it could boot in single core, but the game had terrible rendering in Vulkan. 
@@ -136,8 +136,8 @@ While the performance fix should have been regression-free, since it was a bug i
 	"./pessimistic.png| Feel free to test it, but expect a performance loss"
   >}}
 
-Finally on the list for GPU changes this month, [german77](https://github.com/german77), along with [bylaws](https://github.com/bylaws) from [Skyline emulator](https://github.com/skyline-emu/skyline) added {{< gh-hovercard "8809" "emulation for the viewport swizzling extensions" >}} used by some games. 
-These were supported by Nvidia GPUs with an extension, but not AMD or Intel GPUs, and so a few games would appear to render upside down or flipped.
+Finally on the list for GPU changes this month, [german77](https://github.com/german77), along with [bylaws](https://github.com/bylaws) from the [Skyline emulator](https://github.com/skyline-emu/skyline), added {{< gh-hovercard "8809" "emulation for the viewport swizzling extensions" >}} used by some games. 
+These were supported by NVIDIA GPUs with an extension, but not AMD or Intel GPUs, and so a few games would appear to render upside down or flipped.
 Games like `Street of Rage 4`, `Celeste`, `Axiom Verge`, and many others are now playable on AMD and Intel!
 
 {{< single-title-imgs-compare
@@ -152,18 +152,18 @@ Games like `Street of Rage 4`, `Celeste`, `Axiom Verge`, and many others are now
 	"./axiomfix.png"
 >}}
 
-## CPU, kernel and file system emulation
+## CPU, kernel, and file system emulation
 
-Some good news to users yet still running out of support versions of Windows..
-Thanks to [an investigation](https://github.com/merryhime/dynarmic/issues/701) done by [vladkosi](https://github.com/vladkosi), Merry was able to {{< gh-hovercard "8745" "implement the required changes in fastmem" >}} to allow Windows versions older than 10 1803 again.
+We have some good news for users _still_ running out-of-support versions of Windows!
+Thanks to [an investigation](https://github.com/merryhime/dynarmic/issues/701) done by [vladkosi](https://github.com/vladkosi), Merry was able to {{< gh-hovercard "8745" "implement the required changes in fastmem" >}} to support Windows versions older than Windows 10 version 1803 again.
 
-While this is great news for the Windows 7 gang, it does not change our position regarding operating system versions support, only Linux, Windows 1803, and newer are officially supported.
-Time will tell what happens to older Windows versions after future changes to Vulkan and memory management are implemented in the future, but for now, they work for a while longer.
+While this is great news for the Windows 7 gang, it does not change our position regarding operating system version support: only Linux, Windows 10 version 1803, and newer are _officially_ supported.
+Time will tell what happens to compatibility with older Windows versions after future changes to Vulkan and memory management are implemented, but for now, they work for a while longer.
 
-Good news doesn't end there, here are a few intended to help the modding community..
+But the good news doesn't end there. Here are some changes intended to help the modding community!
 
-In the past, in-line comments added to the pchtxt mods weren’t allowed, since we parsed the text in a way that made them incompatible.
-Now Morph {{< gh-hovercard "8755" "delimits the hexadecimal value string," >}} allowing modders to add comments.
+In the past, inline comments added to `pchtxt` mods weren’t allowed, as we parsed the text in a way that made them incompatible.
+Morph now {{< gh-hovercard "8755" "delimits the hexadecimal value string," >}} allowing modders to add comments.
 For example:
 
 ```
@@ -174,12 +174,12 @@ Before: here             to here
 After:  here  to here
 ```
 
-Our current file system emulation is spaghetti code caused by old guesses made when less information was available, and patchwork done by developers that are no longer contributing to the project. 
+Our current file system emulation can be considered spaghetti code due to old guesses made when less information was available, and patchwork done by developers that are no longer contributing to the project. 
 There’s no way to sugar-coat it, this is the main reason Morph has been working so hard for over a year on `Project Gaia`, a full rewrite of the current virtual file system implementation.
 
-Meanwhile, some patchwork can be done to ease the head pain on developers and modders alike.
+Meanwhile, some further patchwork can be done to reduce the headaches developers and modders currently endure.
 For example, `Build IDs` are padded by a bunch of zeroes, and modders are more used to the short form without including the irrelevant zeroes at the beginning.
-To alleviate this, byte[] {{< gh-hovercard "8790" "parses the Build ID string using fmt" >}} to dynamically add the required zeroes when needed.
+To remedy this, byte[] {{< gh-hovercard "8790" "parses the Build ID string using fmt" >}} to dynamically add the required zeroes when needed.
 
 Continuing to focus on improving RetroArch’s experience in yuzu, vonchenplus discovered that recursively calculating the size of the files when parsing the directories has a negative effect on performance, in this case perceived as “loading times” when booting a game with the emulator (inside an emulator).
 {{< gh-hovercard "8804" "Simply ignoring this information" >}} is a good way to improve the user experience.
@@ -202,10 +202,10 @@ Cleaning up code is a boring but necessary part of any project, more so for open
 One feature that was very useful in the early days is loading ELF binaries.
 Instead of dealing with XCI and NSP dumps, back in the early days, devs dumped and extracted the whole file structure of the game, and loaded the ELF binary directly, in a similar way to how on Windows the user opens a .exe file to load a program.
 
-Some years down the line and not only this feature [tarnished out of grace](https://www.youtube.com/watch?v=6R3ouGNcACQ), but it also stopped working.
-Since it’s not a priority at the moment, and it can lead to user confusion, byte[] {{< gh-hovercard "8701" "removed it from the File submenu." >}}
+Some years down the line and not only is this feature [tarnished out of grace](https://www.youtube.com/watch?v=6R3ouGNcACQ), but it also stopped working.
+Since it’s not a priority at the moment, and it can lead to user confusion, byte[] {{< gh-hovercard "8701" "removed it from the File dropdown." >}}
 
-Asian Windows users noticed that the Size column in the game list and the Speed Percent setting displayed *very weird* numbers.
+Asian Language Windows users noticed that the Size column in the game list and the Speed Percent setting displayed *very weird* characters.
 
 {{< single-title-imgs
     "Alien numbers"
@@ -213,36 +213,36 @@ Asian Windows users noticed that the Size column in the game list and the Speed 
     "./bad2.png"
     >}}
 
-Of course this isn’t acceptable, so [Docteh](https://github.com/Docteh) implemented the {{< gh-hovercard "8715" "necessary changes" >}} to workaround this issue under Windows.
+Of course this isn’t acceptable, so [Docteh](https://github.com/Docteh) implemented the {{< gh-hovercard "8715" "necessary changes" >}} to workaround this issue in Windows.
 
 {{< imgs
 	"./digits.png| Much better"
   >}}
 
-Following up with Asian only UI bugs, If the user started yuzu for example in Chinese and then switched to English, the Filter bar at the bottom and the game list columns at the top would remain untranslated, refusing to switch.
+Adding to the list of Asian-language-only UI bugs, if a user started yuzu, for example, in Chinese and then switched to English, the Filter bar at the bottom and the game list columns at the top would remain untranslated, refusing to switch.
 {{< gh-hovercard "8797" "Forcing Qt to retranslate" >}} these objects solves the issue, making Docteh happy.
 
-Docteh also implemented some {{< gh-hovercard "8741" "nice cleanups" >}} to the About dialog.
+Docteh implemented {{< gh-hovercard "8741" "a couple more UI fixes" >}} as well, cleaning up the About dialog and making the default Port number in the Direct Connect UI ignore translations.
 
 {{< single-title-imgs-compare
-	" "
+	"yuzu About dialog changes"
 	"./aboutbug.png"
 	"./aboutfix.png"
 >}}
 
-Users complained that the Control profiles drop down list had a too short character limit, not allowing them to be creative.
+Users complained that the Controller Profile drop down list's character limit was too short, inhibiting their creativity.
 german77 stepped up and {{< gh-hovercard "8783" "increased the character limit." >}}
 
 ## Input improvements
 
-UI navigation with a controller is relatively recent in yuzu, so there is room for improvement.
-An example reported by users is that if asking for the user profile at boot is enabled, the controller will be able to navigate the options and start the game, but it won’t be able to actually change the profile, or cancel the boot process.
+UI navigation with a controller is a relatively recent addition to yuzu, so there is room for improvement.
+For example, users reported that if the "Prompt for user on game boot" feature is enabled, controller inputs will be able to navigate the options and start the game, but it won’t be able to actually change the profile or cancel the boot process.
 Newcomer [jonesyUK](https://github.com/jonesyUK) {{< gh-hovercard "8716" "solves both issues" >}} with a bit of Qt magic.
 Thank you!
 
-Some users prefer to depend on ds4windows instead of yuzu’s native support for game controllers.
+Some users prefer to depend on [DS4Windows](https://github.com/Ryochan7/DS4Windows) instead of yuzu’s native support for game controllers.
 While there is a good reason for that, it’s a simple way to have a single app handle XInput emulation, it can also lead to some interesting issues german77 discovered.
-For example, current versions of ds4windows can’t take two sequent vibration commands, producing a (depending on the person you ask) not very comfortable constant vibration.
+For example, current versions of DS4Windows can’t handle two subsequent vibration commands, producing (depending on the person you ask) an uncomfortable, constant vibration.
 To solve this brrrrrracing issue, german77 {{< gh-hovercard "8722" "added a small delay" >}} so the app doesn’t skip the stop signal.
 
 On a more colourful topic, and with the intention of fixing a bug with `Mario Party Superstars`, german77 spent many hours cooking {{< gh-hovercard "8724" "how to properly emulate controller colours," >}} with a side dish of fixing battery level icons too!
@@ -251,33 +251,33 @@ On a more colourful topic, and with the intention of fixing a bug with `Mario Pa
 	"./colour.png| Art Attack!"
   >}}
 
-Go to `Emulation > Configure… > Controls > Advanced` and go to town!
+Navigate to `Emulation > Configure… > Controls > Advanced` and go to town!
 
-And to close up, an oopsie from our side.
-With the initial implementation of IR camera support, the output was saved to storage, every single video frame as an individual image file…
+And to close this section out, we have to own up to an oopsie on our side.
+With the initial implementation of IR camera support, the output was saved to storage. Every single video frame as an individual image file…
 This led to TONS of files being written to disk, making navigation with the file manager a pain, and eating a lot of free storage. Oops.
 german77 acted quickly and {{< gh-hovercard "8805" "moved the output to a buffer." >}}
 
-If any user suffered from this and can’t remove the files, open a cmd window/terminal, navigate to the Pictures folder, and run `del IMG_00*.jpg` to wipe them all out in a single blow.
+If any user suffered from this and can’t remove the files, open the Command Prompt or Terminal, navigate to the Pictures folder, and run `del IMG_00*.jpg` to wipe them all out in a single blow.
 
 ## Hardware section
 
 #### Intel ARC joins the fun
 
-We got information that early adopters of A380 Intel GPUs had issues running their games using Vulkan.
-Since this hardware is not globally available yet, it’s not easy for our developers and testers to get their hands on, so please [post issues in our GitHub](https://github.com/yuzu-emu/yuzu/issues) including [log files](https://yuzu-emu.org/help/reference/log-files/), or contact us in the [forums](https://community.citra-emu.org/c/yuzu-support/14) or our [Discord server](https://discord.gg/u77vRWY).
-We’ll ask for more information if needed to find the reason for this.
-Hurray to the early adopter tax.
+We received information that early adopters of A380 Intel GPUs had issues running their games using Vulkan.
+Since this hardware is not globally available yet, it’s not easy for our developers and testers to get their hands on it, so please [post issues in our GitHub](https://github.com/yuzu-emu/yuzu/issues) including [log files](https://yuzu-emu.org/help/reference/log-files/), or contact us on our [forums](https://community.citra-emu.org/c/yuzu-support/14) or our [Discord server](https://discord.gg/u77vRWY).
+We’ll ask for more information, if needed, to find the reason for this.
+Hurray for the early adopter woes.
 
 #### AMD, making use of OpenGL
 
-Users of AMD GPUs reported about specific points in `Xenoblade Chronicles 3` always resulting in vertex explosions.
-A workaround for this is to run the game with OpenGL and a 2X resolution multiplier, get past the area, save, and return to Vulkan.
+Users with AMD GPUs reported that specific points in `Xenoblade Chronicles 3` always resulted in vertex explosions.
+A workaround for this is to run the game with OpenGL and a 2X resolution multiplier, get past the area, save, and swap to Vulkan.
 
 Why the oddly specific 2X resolution multiplier? For the same reason our performance chart last month had no results for `Xenoblade Chronicles 2` on this new OpenGL driver, it leads to a driver related crash.
-2X solves this crash and AMD was properly reported of this issue. 
-No news so far on it, but since we got access into their Vanguard beta testing program, we’ll tell you as soon as the fix is out in a public driver.
-The game is not that much slower under OpenGL now, but shader stuttering will always be much lower under Vulkan.
+2X works around this crash and AMD has been properly alerted to this issue. 
+No news from them so far, but since we got access into their Vanguard beta testing program, we’ll tell you as soon as the fix is out in a public driver.
+The game is not that much slower under OpenGL now, but shader stuttering will always be significantly better under Vulkan.
 
 We recommend more emulator developers to [apply to Vanguard](https://www.amd.com/en/technologies/amd-vanguard-program), as the indirect approach of the built-in driver bug report tool is not ideal for the specific needs of console emulators.
 
@@ -291,21 +291,21 @@ The cause for the shadow flickering on KOEI games is still under investigation.
 ## Future projects
 
 The delays in merging `Project Y.F.C.` don’t only affect Mainline users, they also impede progress in development.
-In another example of Hell freezing over (no one expected AMD fixing OpenGL), NVIDIA of all people [open sourced some documentation](https://github.com/NVIDIA/open-gpu-doc/blob/master/classes/3d/clb197.h) (partially of course, this is NVIDIA we’re talking about, they’re so closed source they don’t even get fresh air) including proper names for Maxwell 3D registers, completely new registers and even previously unknown values.
-Maide has been {{< gh-hovercard "8766" "checking, replacing and cleaning a lot of code" >}} a lot of code thanks to this new official information, but the merge for this change will have to wait.
+In another example of Hell freezing over (no one expected AMD fixing OpenGL), NVIDIA of all people [open sourced some documentation](https://github.com/NVIDIA/open-gpu-doc/blob/master/classes/3d/clb197.h) (partially of course, this is NVIDIA we’re talking about, they’re so closed source they don’t even get fresh air). This includes proper names for Maxwell 3D registers, completely new registers, and even previously unknown values.
+Maide has been {{< gh-hovercard "8766" "checking, replacing, and cleaning a lot of code" >}} thanks to this new official information, but the merge for this change will have to wait.
 No game fixes are expected out of this, but the clean-up and ease of understanding is very much worth it.
 
-An interesting experiment that will benefit all users in a few bandwidth starved games like `The Legend of Zelda: Breath of the Wild`, `Xenoblade Chronicles 3` and `SHIN MEGAMI TENSEI V` among others is increasing the size of Vulkan’s stream buffer size.
+An interesting experiment that will benefit all users in a few bandwidth-starved games like `The Legend of Zelda: Breath of the Wild`, `Xenoblade Chronicles 3`, and `SHIN MEGAMI TENSEI V`, among others, is increasing the size of Vulkan’s stream buffer size.
 Testing shows a performance boost of 10-50% depending on the system, even without ReBAR support, which limits the buffer size to 256MB.
 Having access to all available VRAM opens the possibility for even higher gains!
 
 {{< single-title-imgs-compare
-	"There should be a difficulty mode called upside-down (Axiom Verge)"
+	"Look at the performance difference! (Xenoblade Chronicles 3)"
 	"./128mb.png"
 	"./2048mb.png"
 >}}
 
-After too much nagging from your writer, byte[] implemented a {{< gh-hovercard "8861" "draft to easily test the feature with a slider," >}} but the final goal is to manage it dynamically, so don’t expect to see this feature as an UI option, more like just a passive skill.
+After too much nagging from your writer, byte[] implemented a {{< gh-hovercard "8861" "draft to easily test the feature with a slider," >}} but the final goal is to manage it dynamically, so don’t expect to see this feature as a UI option in an official release.
 
 Working on the finishing touches for `Project London`, Tobi has not been passive at all:
 
@@ -314,15 +314,15 @@ Working on the finishing touches for `Project London`, Tobi has not been passive
 - {{< gh-hovercard "8822" "Improvements to the in-progress room feature." >}}
 
 {{< imgs
-	"./ldn.png| The best fun ever doing internal testing"
+	"./ldn.png| The most fun ever doing internal testing"
   >}}
 
-ED: `Project London`, LDN support is out now! More information in [this dedicated article here](https://yuzu-emu.org/entry/ldn-is-here/), and [Multiplayer guide here](https://yuzu-emu.org/help/feature/multiplayer/).
-We’ll cover more in the next report.
+Oh! How could we almost forget? `Project London`, LDN support, is _finally_ out now! More information in [the dedicated article](https://yuzu-emu.org/entry/ldn-is-here/) and [Multiplayer Guide](https://yuzu-emu.org/help/feature/multiplayer/).
+We’ll recap the release in the next Progress Report.
 
-That’s all folks! Thank you so much for your attention until the end, and I hope to see you all next time!
+That’s all folks! Thank you so much for sticking with us, and I hope to see you all next time!
 
-Special thanks to Mysterious Writer B for your help.
+Special thanks to Mysterious Writer B for your help on this article!
 
 {{< imgs
 	"./byte.png| The suspense bites me"
