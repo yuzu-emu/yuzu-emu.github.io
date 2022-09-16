@@ -1,5 +1,5 @@
 +++
-date = "2022-09-10T12:00:00-03:00"
+date = "2022-09-15T12:00:00-03:00"
 title = "Progress Report August 2022"
 author = "GoldenX86"
 forum = 0
@@ -124,9 +124,11 @@ byte[] found that it could boot in single core, but the game had terrible render
 To do this, byte[] added {{< gh-hovercard "8791" "support for the `R16G16B16X16` format" >}} used by the game, fixing the rendering issues.
 Still, more work is needed to make this game playable on yuzu.
 
-{{< imgs
-	"./rocket.png| The better League (Rocket League)"
-  >}}
+{{< single-title-imgs-compare
+	"The better League (Rocket League)"
+	"./rocket.png"
+	"./rocketfix.png"
+>}}
 
 Working on his Magnum Opus, byte[] also implemented a workaround for a {{< gh-hovercard "8074" "previous performance fix" >}} to `Super Mario Galaxy` and `Super Mario Sunshine`. 
 While the performance fix should have been regression-free, since it was a bug in the buffer cache, many games needed the *less* accurate behaviour from before the change. 
