@@ -1,8 +1,8 @@
 +++
-date = "2022-09-15T12:00:00-03:00"
+date = "2022-09-16T10:00:00-03:00"
 title = "Progress Report August 2022"
 author = "GoldenX86"
-forum = 0
+forum = 628866
 +++
 
 Welcome back, yuz-ers! August was a month packed with progress. A plethora of graphical changes, kernel and file system improvements, and more work pumped into network emulation. Next slide, please!
@@ -51,7 +51,7 @@ Users can expect much lower VRAM and RAM usage now while running OpenGL and [suf
   >}}
 
 One advantage yuzu's OpenGL backend has had for `Xenoblade Chronicles 3` for some time was stability. 
-It didn't really crash. 
+It didn't really crash. However, Vulkan was another story.
 Even after the initial Vulkan shader fixes previously mentioned, the game would still randomly crash during cutscenes. 
 byte[] was able to reliably reproduce the issue and found that yuzu was receiving some invalid references in the GPU processing. 
 Whether or not this was something the game was legitimately doing, or just an emulation bug, he identified that yuzu could avoid the crash by {{< gh-hovercard "8700" "passing `VK_NULL_HANDLE` for an image view," >}} instead of trying to create an image view for a null image, which was guaranteed to crash.
