@@ -5,7 +5,7 @@ author = "GoldenX86"
 forum = 0
 +++
 
-Glad to be with you here, yuz-ers! August was a month packed with progress. A plethora of graphical changes, kernel and file system improvements, and more work pumped into network emulation. Next slide, please!
+Welcome back, yuz-ers! August was a month packed with progress. A plethora of graphical changes, kernel and file system improvements, and more work pumped into network emulation. Next slide, please!
 
 <!--more--> 
 
@@ -17,8 +17,8 @@ While `Xenoblade Chronicles 3` did technically work on release day in yuzu, it t
 The first of these, mentioned last month, was a fix for yuzu's shader recompiler. 
 yuzu does not use a GLSL compiler to generate SPIR-V, the Vulkan shader language. 
 Instead, it generates SPIR-V directly, which is much faster, but has more potential for error. 
-In this case, the shader recompiler failed to declare some variables in the SPIR-V, and left references to them as null, causing the shaders to crash the driver when compiling. 
-[Maide](https://github.com/Kelebek1) and [byte[]](https://github.com/liamwhite) {{< gh-hovercard "8667" "quickly found and fixed the problem" >}}, allowing the game to run in Vulkan on release day.
+In this case, the shader recompiler failed to declare some variables in the SPIR-V shaders, and left references to them as null, causing the shaders to crash the driver when compiling. 
+[Maide](https://github.com/Kelebek1) and [byte[]](https://github.com/liamwhite) {{< gh-hovercard "8667" "quickly found and fixed the problem," >}} allowing the game to run in Vulkan on release day.
 
 {{< imgs
 	"./wotah.png| Wotah! (Xenoblade Chronicles 3)"
