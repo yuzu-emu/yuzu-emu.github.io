@@ -26,7 +26,7 @@ Therefore, the best option to host a room is usually to use a VPS provider, such
 ### Port Forwarding
 Typically, routers have a unified public IP for all its network members, and by default external users cannot access any of the ports (as the router won't know which member to send it to!). Therefore, if you use a router for your Internet connection, you will need to configure `Port forwarding` for your router. Detailed configuration process varies by router brand and model. Obviously we cannot provide instructions for every model, and you can refer to your router's manual or website.
 
-<b>Forward port 24872 via the UDP, or TCP and UDP protocols.</b>
+<b>Forward port 24872 via UDP, or both TCP and UDP. Don't forward only TCP.</b>
 
 For VPSes, a similar restriction (often called `Security Groups`) exists to help keep your server safe from attacks using certain ports. You may need to manually enable the ports you want to use in your VPS's dashboard.
 
