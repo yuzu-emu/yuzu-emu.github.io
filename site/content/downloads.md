@@ -33,7 +33,7 @@ Intel and AMD users are strongly recommended to switch to Vulkan by going to `Em
 </div>
 </article>
 
-If you prefer to use the Flatpak version, you can download it from the <a href="https://flathub.org/apps/details/org.yuzu_emu.yuzu"><span class="fl-flathub"></span>&nbsp;FlatHub</a>.
+If you prefer to use the Flatpak version, you can download it from the <a href="https://flathub.org/apps/details/org.yuzu_emu.yuzu"><span class="fl-flathub"></span>&nbsp;Flathub</a>.
 
 To run yuzu as an AppImage, first download it, then add the executable bit from the terminal:
 
