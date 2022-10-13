@@ -276,7 +276,7 @@ We'll now return to the Hekate Home menu to proceed with the remaining sections 
 
 ## Dumping Decryption Keys
 
-We will now dump the decryption keys from your Switch using **Lockpick_RCM** so that yuzu is able to decrypt and open your game files.
+We will now dump the decryption keys from your Switch using **Lockpick_RCM** so that yuzu is able to decrypt and open your game files (including amiibo dumps).
 
 > **NOTE:** Make sure that your Switch is on the latest system update before proceeding with this section.
     
@@ -288,7 +288,13 @@ We will now dump the decryption keys from your Switch using **Lockpick_RCM** so 
 
 > After Lockpick_RCM has finished dumping the keys, the files will be stored in `sdcard:/switch/prod.keys` and `sdcard:/switch/title.keys`.
 
-**Step 4:** Press any button to return to the main menu, then navigate using the `Volume` buttons to highlight and select `Reboot to hekate` using the `Power` button. You should now be booted back into Hekate.
+**Step 4:** Press any button to return to the main menu.
+
+**Step 5:** Navigate through the menu using the `Volume` buttons to highlight and select `Dump Amiibo Keys` using the `Power` button.
+
+> The amiibo decryption keys will be stored in `sdcard:/switch/key_retail.bin`.
+
+**Step 6:** Press any button to return to the main menu, then navigate using the `Volume` buttons to highlight and select `Reboot to hekate` using the `Power` button. You should now be booted back into Hekate.
 
 ## Dumping System Firmware
 
@@ -506,7 +512,7 @@ We'll now transfer the dumped system firmware, decryption keys and game files fr
 
 **Step 3:** Open another file explorer window and navigate to your microSD card drive.
 
-**Step 4:** Open the `switch` folder and copy both `prod.keys` and `title.keys` files to the `keys` folder (that is inside the `yuzu` folder).
+**Step 4:** Open the `switch` folder and copy `prod.keys`, `title.keys`, and `key_retail.bin` files to the `keys` folder (that is inside the `yuzu` folder).
 
 **Step 5:** Navigate to `sdcard:/tegraexplorer/Firmware/<firmware version>/`.
 
