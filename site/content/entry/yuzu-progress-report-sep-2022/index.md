@@ -268,11 +268,42 @@ And Linux, of course. It's faster than Windows.
 
 ## Hardware section
 
-Users started reporting crashes when booting up `Xenoblade Chronicles 3` on AMD Radeon GPUs running official AMD drivers (either the Windows driver, or the Linux amdvlk driver).
-We’re investigating and already passed AMD the relevant information.
+#### AMD Radeon, when increasing accuracy produces crashes
 
-Affected users can try running [Mainline 1188](https://github.com/yuzu-emu/yuzu-mainline/releases/tag/mainline-0-1188) (doesn’t seem to be a consistent fix), or just run the game using OpenGL.
+Users started reporting crashes when booting up `Xenoblade Chronicles 3` on AMD Radeon GPUs running official AMD drivers (either the Windows driver, or the Linux amdvlk driver).
+We’re investigating the amdvlk source code to find the reason, and already notified AMD with all the relevant information we have.
+
+The cause seems to be improvements in Macro JIT's accuracy.
+Testing has shown that even with older driver and yuzu versions, disabling the MacroJIT speedhack causes the official AMD Vulkan drivers to crash, so it sadly checks out that improving its accuracy gives the same result now.
+
+Affected users can try running [Mainline 1188](https://github.com/yuzu-emu/yuzu-mainline/releases/tag/mainline-0-1188), or just run the game using OpenGL.
 The Mesa RADV driver is unaffected.
+
+#### NVIDIA, one crash reason down, more remain
+
+We have merged the [multithreaded ASTC CPU decoder](https://github.com/yuzu-emu/yuzu/pull/8849) mentioned last month, so we strongly recommend NVIDIA Maxwell and Pascal (GTX 745/750, 900 and 1000 series) users to disable ASTC decoding if you run the latest drivers.
+
+You can find the option in `Emulation > Configure... > Graphics > Accelerate ASTC Texture Decoding`, an enabled setting uses the GPU to decode, while a disabled one uses the CPU instead.
+As a bonus, now this option can be a performance boost on systems with very weak integrated GPUs, like old laptops with MX series Geforce hardware, or any Intel iGPU, where the CPU would do a faster job dealing with ASTC decoding. Testing has shown that MX 500 and > Vega 3 tier hardware are slightly faster using the GPU for decoding.
+On affected NVIDIA hardware, the performance decrease while decoding ASTC textures is minimal. Avoiding a crash for example when opening the map in `The Legend of Zelda` games is arguably far more important.
+
+More crashes caused by recent driver changes remain, but your writer continues to harass an NVIDIA driver developer daily (I only need to get into Intel to do the same to all three vendors now).
+This leads us to recommend the 472/473 series of drivers for Maxwell and Pascal hardware to ensure the best performance and compatibility with yuzu. There's nothing wrong with using the latest drivers, but until these crashes are resolved, expect instabilities and graphical glitches with them.
+Turing, Ampere and Ada hardware (1600, 2000, 3000 and 4000 series) exhibit some weird behaviour but are much more stable on the (at the time of writing) latest 520/522 series of drivers when compared to their older brothers.
+
+One wonders how long will Maxwell and Pascal continue to be supported by NVIDIA drivers.
+
+#### Intel ARC support
+
+No news yet on Vulkan support for these new AV1 video decoder cards from Intel that can also work as a GPU. 
+Low avaibility has been a big problem to get our hands on them, but it's something we want to solve ASAP.
+
+OpenGL is "functional" right now, but Intel continues to be the worst vendor regarding OpenGL support on Windows, so the experience is pretty bad.
+Linux Mesa drivers are reported to work correctly and with good performance, in both OpenGL and Vulkan.
+
+Speaking of AV1... For now we've been using h.264 encoding for our videos, as it is both widely supported and very light on performance requirements.
+Would you prefer if we switched to AV1 from now on? It can be a big battery drainer on unsupported hardware, but it would allow for even lower bitrates while keeping a similar level of quality, something datacapped users have complained about in the past.
+Let us known in Reddit, our [forums](https://community.citra-emu.org/c/yuzu-news/15) or our [Discord server](https://discord.gg/u77vRWY) what you would prefer!
 
 ## Future projects
 
