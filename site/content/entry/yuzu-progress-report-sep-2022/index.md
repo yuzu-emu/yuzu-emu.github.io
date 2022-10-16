@@ -45,7 +45,7 @@ From there, double clicking a room will allow the user to join them. Keep in min
 	"./rooms.png| A lock means it's a password protected room"
   >}}
 
-Speaking of user hosted rooms, the *Create Room* option in the Multiplayer menu allows users to host their own rooms, with custom player limits and password ecurity.
+Speaking of user hosted rooms, the *Create Room* option in the Multiplayer menu allows users to host their own rooms, with custom player limits and password security.
 Some ports need to be forwarded in the host’s router/modem configuration, so please [follow our guide here](https://yuzu-emu.org/help/feature/multiplayer/).
 
 {{< imgs
@@ -92,7 +92,7 @@ The crash seems to happen when “None” is set as the network interface.
 
 ## Graphic changes
 
-Nvidia OpenGL users OpenGL may have seen some strange graphical glitches in games like `Dragon Quest Builder`, `SNACK WORLD: THE DUNGEON CRAWL`, and `Pixel Game Maker Series Werewolf Princess Kaguya` due to an oversight in yuzu's handling of the performance-enhancing `vertex_buffer_unified_memory` extension. 
+Nvidia OpenGL users may have seen some strange graphical glitches in games like `Dragon Quest Builder`, `SNACK WORLD: THE DUNGEON CRAWL`, and `Pixel Game Maker Series Werewolf Princess Kaguya` due to an oversight in yuzu's handling of the performance-enhancing `vertex_buffer_unified_memory` extension. 
 [vonchenplus](https://github.com/vonchenplus) {{< gh-hovercard "8874" "swooped in with a fix," >}} and these games now render as they should.
 
 {{< single-title-imgs-compare
@@ -245,7 +245,7 @@ Since the **Debug** configuration tab was getting crowded, Docteh {{< gh-hoverca
 Docteh also fixed the {{< gh-hovercard "8909" "broken help page hyperlink on the `TAS` configuration window" >}}.
 
 {{< imgs
-	"./tas.png| Poeple seem to forget that blue underlined text is an hyperlink intended to be clicked"
+	"./tas.png| People seem to forget that blue underlined text is an hyperlink intended to be clicked"
   >}}
 
 ## Miscellaneous 
