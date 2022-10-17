@@ -228,7 +228,7 @@ The old SD card icon has been {{< gh-hovercard "8902" "replaced with a new colou
 
 [Tachi107](https://github.com/Tachi107) {{< gh-hovercard "8945" "fixed a few minor typos" >}} within the yuzu source code. 
 
-german77 modified the input profiles He also fixed the {{< gh-hovercard "8948" "sorting to now sort them by name." >}}
+german77 modified the ordering of the input profiles saved in `Emulation > Configure... > Controsl`. They are now {{< gh-hovercard "8948" "sorted by name." >}}
 
 While the colourful theme has been the default for a while, some icons remained in a "Default" theme directory.
 But as grabbing icons from other themes isn't supported on linux, this was broken.
