@@ -59,7 +59,7 @@ It’s not mandatory to join a room before starting a game on yuzu, but it’s r
 At the moment, only LAN supports connection with real Switches, LDN is yuzu <> yuzu only at the moment.
 We’re working to include native Switch support for LDN.
 
-So far very few games have issues with LDN, only *Super Mario Maker 2*, * Mario Golf Super Rush* and *Dragon Ball Fighterz* are currently reported as incompatible.
+So far very few games have issues with LDN, only *Super Mario Maker 2*, *Mario Golf Super Rush* and *Dragon Ball Fighterz* are currently reported as incompatible.
 Any other local wireless compatible game should work fine, but don’t be shy to report if there are more.
 
 One bit of advice, *Super Smash Bros. Ultimate* has hardcoded 6 frames of delay when playing over LDN, supposedly to “help buffer” the latency expected from online and WiFi gameplay.
@@ -303,7 +303,7 @@ Linux Mesa drivers are reported to work correctly and with good performance, in 
 
 Speaking of AV1... For now we've been using h.264 encoding for our videos, as it is both widely supported and very light on performance requirements.
 Would you prefer if we switched to AV1 from now on? It can be a big battery drainer on unsupported hardware, but it would allow for even lower bitrates while keeping a similar level of quality, something datacapped users have complained about in the past.
-Let us known in Reddit, our [forums](https://community.citra-emu.org/c/yuzu-news/15) or our [Discord server](https://discord.gg/u77vRWY) what you would prefer!
+Let us know in Reddit, our [forums](https://community.citra-emu.org/c/yuzu-news/15) or our [Discord server](https://discord.gg/u77vRWY) what you would prefer!
 
 ## Future projects
 
