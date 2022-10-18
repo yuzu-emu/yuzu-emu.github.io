@@ -121,7 +121,7 @@ This is caused by the texture cache not correctly synchronizing ASTC textures th
 	"./lalfix.png"
 >}}
 
-Some systems, like Steam, don't like yuzu's behaviour of spawning a new process to check for working Vulkan support. toastUnlimited updated the Vulkan checker with a configuration option to, well, {{< gh-hovercard "8930" "stop checking, >}} allowing those systems to function as previously.
+Some systems, like Steam, don't like yuzu's behaviour of spawning a new process to check for working Vulkan support. toastUnlimited updated the Vulkan checker with a configuration option to, well, {{< gh-hovercard "8930" "stop checking," >}} allowing those systems to function as previously.
 
 After three months of regression solving and the usual nasty delays, `Project Y.F.C.` Part 1 is finally merged to Mainline!
 You can find more information about it, as well as what’s expected in the near future for Part 2 
