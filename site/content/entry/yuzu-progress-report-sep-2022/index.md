@@ -1,9 +1,9 @@
 +++
-date = "2022-10-10T12:00:00-03:00"
+date = "2022-10-18T12:00:00-03:00"
 title = "Progress Report September 2022"
 author = "GoldenX86"
 coauthor = "CaptV0rt3x"
-forum = 0
+forum = 645719
 +++
 
 Hello yuz-ers! We have so much to talk about this month. From game fixes, input changes, and quality of life improvements, to new gameplay options available to everyone!
@@ -32,13 +32,13 @@ The Nintendo Switch offers 4 methods for multiplayer gameplay:
 
 Now, let's get to the fun part: how to use it!
 
-A user can launch the `Public Room Browser` from the `Multiplayer` option in the Menu Bar and then selecting `Browse Public Game Lobby`, or by clicking the status bar tip in the bottom right labeled `Not Connected. Click here to find a room!`
+A user can launch the `Public Room Browser` by selecting the `Multiplayer` option in the Menu Bar and then selecting `Browse Public Game Lobby`, or by clicking the status bar tip in the bottom right labeled `Not Connected. Click here to find a room!`
 
 {{< imgs
 	"./ldn.png| The new Multiplayer submenu"
   >}}
 
-From there, double-clicking a room will allow the user to join it. Keep in mind, the `Preferred Game` is just a suggestion and there is no hard restriction on which games can be played in a room. Please keep this in mind when joining public lobbies and be courteous to your fellow yuz-ers! Any that are user-hosted may enforce this by kicking players or locking their room.
+From there, double-clicking a room will allow the user to join it. Keep in mind, the `Preferred Game` is just a suggestion and there is no hard restriction on which games can be played in a room. Please keep this in mind when joining public lobbies and be courteous to your fellow yuz-ers! Any rooms that are user-hosted may enforce this by kicking players or locking their room.
 
 {{< imgs
 	"./rooms.png| A lock means it's a password protected room"
@@ -54,9 +54,8 @@ Some ports need to be forwarded in the host’s router/modem configuration, so p
 Once a player joins a room, they can chat with other members, see the game they are running, and very importantly, the game versions other players are using.
 Most games tend to only work when all players run the same game update version, so remember to dump the latest from your Switch!
 
-It’s not mandatory to join a room before starting a game in yuzu, but it’s recommended.
-At the moment, only LAN supports connecting with real Switches. LDN is yuzu to yuzu only at the moment.
-We’re working to include native Switch support for LDN.
+It’s not mandatory to join a room before starting a game in yuzu, but it is recommended.
+At the moment, only LAN supports connecting with real Switches. LDN is yuzu to yuzu only, but we’re working to include native Switch support for LDN sometime in the future.
 
 So far, very few games have issues with LDN. Only `Super Mario Maker 2`, `Mario Golf: Super Rush` and `DRAGON BALL FighterZ` have been reported as incompatible.
 Any other local wireless compatible game should work fine, but don’t be shy to report any issues should you discover them.
@@ -69,7 +68,7 @@ For this, all users in the room must do two things:
 
 - Install the 120 FPS mod [available here](https://cdn.discordapp.com/attachments/402001453381713920/1018356262582354091/120.rar). Right click the game in yuzu’s game 
 list and select `Open Mod Data Location`, then place *the folder* of the compressed file in the location that yuzu opens.
-- Set game speed to 200%. This can be set on a per game basis with custom configurations. Right click the game in yuzu’s list like before and go to `Properties`, in the `General` tab, set the `Limit Speed Percent` to a blue enabled value (this means it’s a custom value, ignoring the default one), then change it to 200%.
+- Set game speed to 200%. This can be set on a per game basis with custom configurations. Right click the game in yuzu’s list like before and select `Properties` > `General` tab > set the `Limit Speed Percent` to a blue enabled value (this means it’s a custom value, ignoring the default one) > change it to 200%.
 
 {{< imgs
 	"./200.png| Reducing input lag by running things faster, life hacks"
@@ -121,7 +120,7 @@ This is caused by the texture cache not correctly synchronizing ASTC textures th
 	"./lalfix.png"
 >}}
 
-Some systems, like Steam, don't like yuzu's behaviour of spawning a new process to check for working Vulkan support. toastUnlimited updated the Vulkan checker with a configuration option to, well, {{< gh-hovercard "8930" "stop checking," >}} allowing those systems to function as previously.
+Some systems, like Steam, don't like yuzu's behaviour of spawning a new process to check for working Vulkan support. toastUnlimited updated the Vulkan checker with a configuration option to, well, {{< gh-hovercard "8930" "stop checking," >}} allowing those systems to function the same as with older yuzu builds.
 
 After three months of regression solving and the usual nasty delays, `Project Y.F.C.` Part 1 is finally merged to Mainline!
 You can find more information about it, as well as what’s expected in the near future for Part 2 
@@ -209,7 +208,7 @@ This also fixed Amiibo support in games like `Shovel Knight` and `Super Smash Br
 A minor {{< gh-hovercard "8863" "bug within GameCube controller" >}} input mapping which led to GC triggers overwriting the `ZL/ZR` buttons was fixed.
 And to further complement this fix, german77 also made {{< gh-hovercard "8864" "analog input buttons toggleable" >}} for extended usability.
 
-Accessibility is both very important, and, sadly, very easy to ignore too.
+Accessibility is both very important and, sadly, very easy to ignore too.
 For example, something simple: what if a user needs more time to map buttons individually?
 In an effort to help with this particular case, the {{< gh-hovercard "8880" "button mapping timer duration" >}} has been increased from `2.5 seconds` to `4 seconds`.
 
@@ -234,7 +233,7 @@ Docteh fixed this by {{< gh-hovercard "8906" "moving all the icons to the colour
 Since the `Debug` configuration tab was getting crowded, Docteh {{< gh-hovercard "8854" "made it scrollable." >}}
 
 {{< single-title-imgs
-    "While this change helps Windows users, Linux users will benefit the most from it"
+    "While this change also helps Windows users, Linux users will benefit the most from it"
     "./scrollbug.png"
     "./scrollfix.png"
     >}}
@@ -278,7 +277,7 @@ The Mesa RADV driver is unaffected.
 
 #### NVIDIA, one source of crashes down, more remain
 
-We have merged the [multithreaded ASTC CPU decoder](https://github.com/yuzu-emu/yuzu/pull/8849) mentioned last month, so we strongly recommend NVIDIA Maxwell and Pascal (GTX 745/750, 900 and 1000 series) users to disable ASTC decoding if you run the latest drivers.
+We have merged the [multithreaded ASTC CPU decoder](https://github.com/yuzu-emu/yuzu/pull/8849) mentioned last month, so we strongly recommend NVIDIA Maxwell and Pascal (GTX 745/750, 900, and 1000 series) users to disable ASTC decoding if you run the latest drivers.
 
 You can find the option in `Emulation > Configure... > Graphics > Accelerate ASTC Texture Decoding`, enabling this setting uses the GPU to decode, while disabling it uses the CPU instead.
 As a bonus, now this option can be a performance boost on systems with very weak integrated GPUs, like old laptops with MX series Geforce hardware, or any Intel iGPU, where the CPU would do a faster job dealing with ASTC decoding. Testing has shown that Geforce MX 500 and Radeon Vega 7+ tier GPUs are slightly faster using the GPU for decoding.
@@ -286,7 +285,7 @@ On affected NVIDIA hardware, the performance decrease while decoding ASTC textur
 
 Crashes caused by recent driver updates remain, but your writer continues to harass an NVIDIA driver developer daily (I only need to get into Intel to do the same to all three vendors now).
 This leads us to recommend the 472/473 series of drivers for Maxwell and Pascal hardware to ensure the best performance and compatibility with yuzu. There's nothing wrong with using the latest drivers, but until these crashes are resolved, expect instabilities and graphical glitches with them.
-Turing, Ampere, and Ada hardware (1600, 2000, 3000 and 4000 series) exhibit some weird behaviour but are much more stable on the (at the time of writing) latest 520/522 series of drivers when compared to their older brothers.
+Turing, Ampere, and Ada hardware (1600, 2000, 3000, and 4000 series) exhibit some weird behaviour but are much more stable on the (at the time of writing) latest 520/522 series of drivers when compared to their older brothers.
 
 One wonders how long Maxwell and Pascal will continue to be supported by NVIDIA drivers.
 
