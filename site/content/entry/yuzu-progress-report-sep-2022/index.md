@@ -280,9 +280,9 @@ The Mesa RADV driver is unaffected.
 
 We have merged the [multithreaded ASTC CPU decoder](https://github.com/yuzu-emu/yuzu/pull/8849) mentioned last month, so we strongly recommend NVIDIA Maxwell and Pascal (GTX 745/750, 900 and 1000 series) users to disable ASTC decoding if you run the latest drivers.
 
-You can find the option in `Emulation > Configure... > Graphics > Accelerate ASTC Texture Decoding`, an enabled setting uses the GPU to decode, while a disabled one uses the CPU instead.
-As a bonus, now this option can be a performance boost on systems with very weak integrated GPUs, like old laptops with MX series Geforce hardware, or any Intel iGPU, where the CPU would do a faster job dealing with ASTC decoding. Testing has shown that MX 500 and > Vega 3 tier hardware are slightly faster using the GPU for decoding.
-On affected NVIDIA hardware, the performance decrease while decoding ASTC textures is minimal. Avoiding a crash for example when opening the map in `The Legend of Zelda` games is arguably far more important.
+You can find the option in `Emulation > Configure... > Graphics > Accelerate ASTC Texture Decoding`, enabling this setting uses the GPU to decode, while disabling it uses the CPU instead.
+As a bonus, now this option can be a performance boost on systems with very weak integrated GPUs, like old laptops with MX series Geforce hardware, or any Intel iGPU, where the CPU would do a faster job dealing with ASTC decoding. Testing has shown that Geforce MX 500 and Radeon Vega 7+ tier GPUs are slightly faster using the GPU for decoding.
+On affected NVIDIA hardware, the performance decrease while decoding ASTC textures is minimal. Avoiding a crash, for example, when opening the map in `The Legend of Zelda` games is arguably far more important.
 
 Crashes caused by recent driver updates remain, but your writer continues to harass an NVIDIA driver developer daily (I only need to get into Intel to do the same to all three vendors now).
 This leads us to recommend the 472/473 series of drivers for Maxwell and Pascal hardware to ensure the best performance and compatibility with yuzu. There's nothing wrong with using the latest drivers, but until these crashes are resolved, expect instabilities and graphical glitches with them.
