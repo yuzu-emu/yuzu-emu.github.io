@@ -197,6 +197,8 @@ We'll now place some files downloaded from the prerequisites section to the micr
 
 **Step 10:** Create a folder named `nxdumptool` within the `switch` folder and place the `nxdumptool.nro` file inside it.
 
+> If you've downloaded JKSV from [Prerequisites](#prerequisites), place the `JKSV.nro` file into the `switch` folder.
+
 **Step 11:** Check that you've placed all of the files correctly using the following screenshots:
 <details>
 <summary>Screenshots</summary>
@@ -578,6 +580,8 @@ Your games should now be up-to-date with their DLCs installed and ready to go.
 > To double check if the installation was successful, you can see the list of installed contents for each game by looking at the **Add-ons** column from the game list. For more details, you can right-click on any game from the game list and then click on `Properties`.
 
 ### Transferring Save Data of a Game to yuzu
+
+> You can skip this section if you didn't follow the steps from [Dumping Save Files (Optional)](#dumping-save-files-optional).
 
 **Step 1:** In **yuzu**, right-click on a game from the game list.
 
