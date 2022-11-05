@@ -29,7 +29,7 @@ Longtime graphics contributor [Blinkhawk](https://github.com/FernandoS27) [has r
 After defeating the services issue causing it to freeze, Blinkhawk investigated and fixed a {{< gh-hovercard "9155" "rendering issue" >}} causing it to appear white in Vulkan.
 
 {{< single-title-imgs-compare
-    "Is this Paradise? (Bayonetta 3)"
+    "Is this Paradiso? (Bayonetta 3)"
     "./bayobug.png"
     "./bayofix.png"
 >}}
