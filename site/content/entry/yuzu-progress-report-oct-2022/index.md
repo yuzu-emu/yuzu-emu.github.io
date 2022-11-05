@@ -40,8 +40,8 @@ While correct rendering support for these games was previously only available on
 
 {{< single-title-imgs-compare
     "Best. Music. Ever! (Super Mario Galaxy)"
-    "./bayobug.png"
-    "./bayofix.png"
+    "./smgbug.png"
+    "./smgfix.png"
 >}}
 
 An Nvidia card is not the only new hardware acquired by byte[] this month. 
@@ -205,8 +205,8 @@ This won’t replace dumping your amiibo keys if a game needs it, but many games
 
 {{< single-title-imgs
     "Thank you Gidoly and german77 for the pics!"
-    "./amiibo1.png"
-    "./amiibo1.png"
+    "./amiibo2.png"
+    "./amiibo3.png"
     "./amiibo1.png"
     >}}
 
