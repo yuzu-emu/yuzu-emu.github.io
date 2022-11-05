@@ -306,7 +306,7 @@ Special thanks to Mysterious Writer B for their big help while your writer is ha
     "./byte.png| He's Vengeance. He's the Night"
   >}}
 
-That’s all folks! Thank you for taking your time. See you next month!
+That’s all folks! Thank you for your time. See you next month!
 
 &nbsp;
 {{< article-end >}}
