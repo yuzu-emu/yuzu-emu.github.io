@@ -303,7 +303,7 @@ Work on `Gaia` continues, some roadblocks were hit, slowing progress down, but M
 Special thanks to Mysterious Writer B for their big help while your writer is half dead dealing with classes.
 
 {{< imgs
-    "./byte.png| He's Vengeance! He's the Night!"
+    "./byte.png| He's Vengeance. He's the Night"
   >}}
 
 That’s all folks! Thank you for taking your time. See you next month!
