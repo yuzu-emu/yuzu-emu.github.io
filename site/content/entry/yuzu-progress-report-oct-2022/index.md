@@ -1,8 +1,8 @@
 +++
-date = "2022-11-03T12:00:00-03:00"
+date = "2022-11-06T12:00:00-03:00"
 title = "Progress Report October2022"
 author = "GoldenX86"
-forum = 0
+forum = 656161
 +++
 
 Greetings, dear yuz-ers! What a month we've had. A dozen graphical fixes, big kernel changes, audio, input and amiibo fixes, and more! 
