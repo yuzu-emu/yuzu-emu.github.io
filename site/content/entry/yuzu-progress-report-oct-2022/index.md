@@ -111,7 +111,7 @@ vonchenplus found an issue with how a compute shader for `TRIANGLE STRATEGY` was
 
 Still on a roll, vonchenplus also {{< gh-hovercard "9084" "implemented 1D texture copies." >}} 
 Normally, the guest driver (the GPU driver included with each game) has to provide what kind of texture type is in use in memory, but thanks to the previously mentioned open documentation NVIDIA provides, we now know that there is a way to set the correct kind when the memory is initialized.
-The end result is much improved rendering in `Snack World The Dungeon Crawl Gold`.
+The end result is much improved rendering in `Snack World: The Dungeon Crawl - Gold`.
 
 {{< single-title-imgs-compare
     "Almost looks like a 3D TV without glasses (Snack World: The Dungeon Crawl - Gold)"
@@ -239,7 +239,7 @@ New Switch firmware versions usually come with their fair share of new services 
 ## User interface improvements
 
 Some users prefer displays closer to the [golden ratio](https://en.wikipedia.org/wiki/Golden_ratio), the glorious 16:10 aspect ratio.
-Now, while Switch games are not intended for any aspect ratio different to the standard 16:9, some users are fine with stretching the image to fill their whole display, even if it means some slight distortion.
+While Switch games are not intended to be played outside the standard 16:9 aspect ratio, some users are fine with stretching the image to fill their whole display, even if it means some slight distortion.
 This has been increasingly popular with the release of the Steam Deck, which uses a 16:10 display, sporting a 1280x800 resolution.
 There’s also the option of the community coming up with different aspect ratio mods for each game, allowing for proper use of those nice extra pixels.
 german77 took the time to {{< gh-hovercard "9047" "add this new option to the aspect ratio list," >}} which you can find in `Emulation > Configure… > Graphics > Aspect Ratio`.
@@ -248,7 +248,7 @@ german77 took the time to {{< gh-hovercard "9047" "add this new option to the as
     "./aspectratio.png| I'm personally not a fan of stretching, long live the black bars"
   >}}
 
-[Docteh](https://github.com/Docteh), Morph, and [lioncash](https://github.com/lioncash) (who diverted some time from the usual, making sure all PRs submitted to yuzu are sane) had their {{< gh-hovercard "9076" "fair share" >}} of fixing {{< gh-hovercard "9079" "spelling mistakes." >}}.
+[Docteh](https://github.com/Docteh), Morph, and [lioncash](https://github.com/lioncash) (who diverted some time from the usual, making sure all PRs submitted to yuzu are sane) had their {{< gh-hovercard "9076" "fair share" >}} of fixing {{< gh-hovercard "9079" "spelling mistakes." >}}
 Happens to the best of us.
 
 In an effort to help reduce user confusion while we rework our compatibility reports, Docteh added a new option to {{< gh-hovercard "9091" "hide the compatibility rating column" >}} from the game list by default.
