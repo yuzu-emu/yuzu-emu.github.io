@@ -46,7 +46,7 @@ While rendering bugs were fixed in Vulkan, and OpenGL with the GLSL backend, the
 
 An NVIDIA card is not the only new hardware acquired by byte[] this month. 
 He also acquired an Intel Arc A770 16GB, and used it to track down a driver issue. 
-Despite passing all of our validation tests, the Vulkan Arc driver is unable to compile the ASTC decoder used by yuzu, and yuzu unconditionally compiles it at startup. 
+Despite passing all of our validation tests, the Vulkan driver is unable to compile the ASTC decoder used by yuzu, and yuzu unconditionally compiles it at startup. 
 Therefore, byte[] has {{< gh-hovercard "9097" "skipped compiling it if CPU decoding for ASTC is used" >}} instead, and filed a [report to Intel for their reference](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/159).
 This allows yuzu to boot games in Vulkan when using the Intel Arc Windows Vulkan drivers.
 
@@ -284,12 +284,12 @@ In the meantime, if you MUST run the latest drivers, use OpenGL.
 
 Hopefully the next mid-range cards won't be the same cost as an entire PC.
 
-#### Intel ARC, let’s go!
+#### Intel Arc, let’s go!
 
 With games now working on Vulkan thanks to byte[], we only need proud owners of Team Blue cards reporting issues on our GitHub.
 Message to Intel: there are sales outside of Europe, China, and the USA. Please start shipping already so your writer can start testing… 
 
-This goes for you too, Gaben.
+This goes for you too, GabeN.
 
 ## Future projects
 
