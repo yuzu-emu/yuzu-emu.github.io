@@ -90,7 +90,7 @@ byte[] found that while he was debugging graphical issues, yuzu would frequently
 He narrowed it down to some code that was improperly ported from our friends at the [Skyline emulator](https://github.com/skyline-emu/skyline) {{< gh-hovercard "9049" "and implemented a fix," >}} finally allowing him to debug without worrying about the game's rendering speed causing any issues.
 Now, a user’s PC performance won’t be a cause for crashes.
 
-[Maide](https://github.com/Kelebek1) and [Morph](https://github.com/Morph1984) were on top of two regressions from the merge of the 3D registers pull request from a few months ago.
+[Maide](https://github.com/Kelebek1) and [Morph](https://github.com/Morph1984) were on top of two regressions from the merge of the [3D registers pull request](https://github.com/yuzu-emu/yuzu/pull/8766) from a few months ago.
 Morph found that the merge was causing many shaders to be recompiled unintentionally, and narrowed it down to {{< gh-hovercard "9067" "a different default value for the tessellation parameters in the register definitions." >}} 
 
 Meanwhile, Maide and byte[] worked together to find a strange rendering problem affecting `Luigi's Mansion 3`, and finally found the issue in {{< gh-hovercard "9048" "the values of the stencil mask registers." >}}
@@ -109,7 +109,9 @@ vonchenplus found an issue with how a compute shader for `TRIANGLE STRATEGY` was
     "./prfix.png"
 >}}
 
-Still on a roll, vonchenplus also implemented 1D texture copies based on the VMM “kind”, resulting in much improved rendering in `Snack World The Dungeon Crawl Gold`.
+Still on a roll, vonchenplus also {{< gh-hovercard "9084" "implemented 1D texture copies." >}} 
+Normally, the guest driver (the GPU driver included with each game) has to provide what kind of texture type is in use in memory, but thanks to the previously mentioned open documentation NVIDIA provides, we now know that there is a way to set the correct kind when the memory is initialized.
+The end result is much improved rendering in `Snack World The Dungeon Crawl Gold`.
 
 {{< single-title-imgs-compare
     "Almost looks like a 3D TV without glasses (Snack World: The Dungeon Crawl - Gold)"
@@ -133,11 +135,11 @@ After enabling validation layers, and some careful investigation of the messages
     "./deko2.png| You could say that unit tests are at the heart of emulation development"
   >}}
 
-vonchenplus has also been on the ball with homebrew support this month, gifting yuzu corrected support for instanced draws and {{< gh-hovercard "9112" "the zany inline index 3D registers," >}} fixing gpu_console and allowing the `Sonic 1 (2013)` homebrew game to render in yuzu. 
+vonchenplus has also been on the ball with homebrew support this month, gifting yuzu corrected support for instanced draws and {{< gh-hovercard "9112" "the zany inline index 3D registers," >}} fixing [gpu_console](https://github.com/switchbrew/switch-examples) and allowing the `Sonic 1 (2013)` homebrew game to render in yuzu. 
 {{< gh-hovercard "9140" "The usual slate" >}} {{< gh-hovercard "9163" "of regressions" >}} associated with these types of changes, this time affecting `Super Mario 64`, `Super Mario Galaxy`, `Xenoblade Chronicles 3`, and `Animal Crossing: New Horizons`, have also been identified and fixed.
 
 {{< imgs
-    "./console.png| "
+    "./console.png| gpu_console, one of the examples available"
   >}}
 
 {{< imgs
