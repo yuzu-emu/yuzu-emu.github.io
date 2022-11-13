@@ -14,11 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         submodules: true
     - name: Cache Rendered Data
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ./site/resources
         key: ${{ runner.os }}-rendered-${{ github.sha }}
@@ -32,7 +32,7 @@ jobs:
       run: ./.ci/build.sh
     - name: Deploy
       if: ${{ ! github.base_ref }}
-      uses: JamesIves/github-pages-deploy-action@4.1.5
+      uses: JamesIves/github-pages-deploy-action@4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch: master
