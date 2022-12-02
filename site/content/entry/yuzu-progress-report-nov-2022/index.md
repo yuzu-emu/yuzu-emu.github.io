@@ -336,7 +336,7 @@ Amiibos also got some love from german77, the first example is {{< gh-hovercard 
 
 {{< single-title-imgs
     "And it's still a premium feature on most phones (Ultra Kaiju Monster Rancher)"
-    "./monste.png"
+    "./monster.png"
     "./nfc.png"
     >}}
 
