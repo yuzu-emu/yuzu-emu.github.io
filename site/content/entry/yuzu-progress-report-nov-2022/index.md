@@ -13,7 +13,7 @@ This month is special, a report of developer tears caused mostly by the release 
 ## PSA for NVIDIA users: Return of the Jedi
 
 Before we move to what everyone wants to learn about, just a new Pokémon game, we have very good news to announce.
-NVIDIA driver version `527.37` solves all known rendering issues!
+NVIDIA driver version `527.37` finally solves all known driver related regressions!
 And to make it better, it affects all cards, from the GTX 745 to the RTX 4090, there are no more driver related graphical issues, exactly like the cards used to perform with version 472.12.
 There’s no longer a need to stick to old versions, feel free to update to the latest release, no matter which card generation you have!
 
@@ -374,7 +374,7 @@ This addition is possible thanks to the work done  by [Docteh](https://github.co
 
 Docteh also {{< gh-hovercard "9180" "fixed the translation of pop-up warnings" >}} that show up when trying to remove game content.
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
     "Como corresponde"
     "./removebug.png"
     "./removefix.png"
