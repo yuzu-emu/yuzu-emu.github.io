@@ -76,7 +76,7 @@ We strongly recommend using a global setting of Auto CPU accuracy, and only impl
 Games WILL break with unsafe settings.
 
 Back on GPU related issues, AMD has its own share of issues, it always does.
-Users were quick to point out that the game looked like the usual cheap method USA films retort to when showing anything is happening south of their borders, with a yellow filter applied.
+Users were quick to point out that the game looked like the usual cheap method USA films resort to when showing anything happening south of their borders, with a yellow filter applied.
 This issue is for the history books, as both the official AMD drivers (the Windows driver, amdvlk and AMDGPU-PRO) *and* mesa (RADV) share the same behaviour.
 
 Let’s provide some context.
