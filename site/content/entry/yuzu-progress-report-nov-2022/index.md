@@ -31,7 +31,7 @@ Low performance, storage related stuttering, and memory leaks being some of them
 
 When we first got our hands on some copies, the game didn’t render anything, at all, which is not good, something needed to be done.
 [vonchenplus](https://github.com/vonchenplus) was the first to answer, and identified that this was due the game's use of `gl_Layer`, and {{< gh-hovercard "9253" "added support for it in the shader compiler." >}}
-You will hear more about this gl_Layer dude later.
+You will hear more about this gl_Layer character later.
 
 {{< imgs
     "./poke.png| One thing is for sure, graphics improved (Pokémon Scarlet)"
@@ -42,7 +42,7 @@ With this change, the game starts to render and the team can focus on finding, d
 A limitation was quickly found by the community, gl_Layer depends on having driver support for the `GL_ARB_shader_viewport_layer_array` extension in OpenGL, or  the Vulkan equivalent, `VK_EXT_shader_viewport_index_layer`.
 
 While most GPU drivers do indeed support these extensions, the NVIDIA drivers for Maxwell V1 and older cards don't, meaning users trying to run `Pokémon Scarlet/Violet` on GPUs older than the 900 series wouldn’t get the game to display anything on screen, in either graphics API and any shader backend.
-The way byte[] solved this limitation is by {{< gh-hovercard "9636" "translating the gl_Layer calls with geometry shaders," >}} basically a brute-forced hardware accelerated way to replicate the missing extensions on older hardware.
+The way byte[] solved this limitation is by {{< gh-hovercard "9636" "translating the gl_Layer assignments with geometry shaders," >}} basically a brute-forced hardware accelerated way to replicate the missing extensions on older hardware.
 This results in proper rendering for the decade-old Geforce Fermi, Kepler, and Maxwell V1 series GPUs, in either OpenGL and Vulkan.
 Now an extra 6% of users can play the game.
 
@@ -57,7 +57,7 @@ Now an extra 6% of users can play the game.
   >}}
 
 Let’s switch for a second to CPU related issues.
-There were reports that certain attacks like `tail whip` could cause the Pokémon to outright vanish, or that changing directions very quickly could cause a soft-lock. 
+There were reports that certain moves like `tail whip` could cause the Pokémon to outright vanish, or that changing directions very quickly could cause a soft-lock. 
 Even simple map traversal could cause crashes.
 What do you do when all issues seem totally unrelated and random? 
 You blame the CPU precision, of course!
@@ -76,7 +76,7 @@ We strongly recommend using a global setting of Auto CPU accuracy, and only impl
 Games WILL break with unsafe settings.
 
 Back on GPU related issues, AMD has its own share of issues, it always does.
-Users were quick to point out that the game looked like the usual cheap method USA films retort to show anything is happening south of their borders, with a yellow filter applied.
+Users were quick to point out that the game looked like the usual cheap method USA films retort to when showing anything is happening south of their borders, with a yellow filter applied.
 This issue is for the history books, as both the official AMD drivers (the Windows driver, amdvlk and AMDGPU-PRO) *and* mesa (RADV) share the same behaviour.
 
 Let’s provide some context.
@@ -150,7 +150,7 @@ The option to use GLASM will remain available, as Fermi users love it due to the
 To finish the fixes implemented this month regarding this flawed best-seller, bunnei fixed an {{< gh-hovercard "9320" "assert spam in the audio suspend process." >}}
 This change not only cleans up logs, it has the potential to improve performance a bit.
 
-Ok that’s all for this November’s list of Pokémon fixes and improvements.
+That’s all for this November’s list of Pokémon fixes and improvements.
 More work is in development, as there is still stuff to fix, so while we wait let’s end this section with some recommendations we found to get the best experience while playing:
 
 - NVIDIA, Intel, and AMD users [must run the latest driver versions](https://community.citra-emu.org/t/recommended-settings/319349).
@@ -179,7 +179,7 @@ One of the important changes that didn’t make it in time for the first part of
 
 The original implementation rendered the ASTC mipmaps directly. 
 What actually happens on Switch is that the NVIDIA driver uploads to its 2D engine first.
-This miss-implementation caused severe texture corruption on many many cases, most commonly on games running Unreal Engine 4.
+The incorrect implementation caused severe texture corruption on many many cases, most commonly on games running Unreal Engine 4.
 
 {{< single-title-imgs-compare
     "Fluffy (Yoshi's Crafted World)"
@@ -206,7 +206,7 @@ This solves certain cases where OpenGL would crash when using non-unified memory
 
 Here’s an interesting one.
 If a game had bad performance on a specific system and produced too low framerates at boot, it could hang due to a lost wakeup.
-Since the "secret project" byte[] was working on it was a platform slower than a normal gaming PC (more on this in the next section), byte[] blasted this limitation to the Dark World, {{< gh-hovercard "9244" "allowing everyone to be able to boot their game dumps." >}}
+Since the "secret project" byte[] was working on was a platform slower than a normal gaming PC (more on this in the next section), byte[] blasted this limitation to the Dark World, {{< gh-hovercard "9244" "allowing everyone to be able to boot their game dumps." >}}
 
 A problem we reported a couple of times already, and AMD confirmed to be working on, was crashes happening in `Xenoblade Chronicles 3` with Vulkan, thanks to improving the precision of our MacroJIT code.
 Since it became clear that more time was needed to solve this issue on the driver side, byte[] managed to implement a workaround, {{< gh-hovercard "9252" "an HLE multi-layer clear mechanism" >}} which bypasses the driver limitation.
@@ -269,7 +269,7 @@ Let’s address the elephant in the room, which byte[] has been feeding tons of 
 yuzu now supports being {{< gh-hovercard "9198" "built and run on ARM64 devices!" >}}
 
 Of course, hardware requirements remain the same, at least 8GB of RAM and a OpenGL 4.6 compatibility profile/Vulkan 1.2 plus specific extensions GPU driver is required.
-This means that yuzu can run on, for example, Asahi Linux on an M1 Apple MacBook Air, but by using LAVAPIPE, Mesa’s CPU rendering Vulkan driver, which of course results in very slow performance.
+This means that yuzu can run on, for example, Asahi Linux on an M1 Apple MacBook Air, but by using Lavapipe, Mesa’s CPU rendering Vulkan driver, which of course results in very slow performance.
 
 {{< single-title-imgs
     "This is what's possible right now (Mario Kart 8 Deluxe & Super Mario Galaxy, loaded directly)"
@@ -278,7 +278,8 @@ This means that yuzu can run on, for example, Asahi Linux on an M1 Apple MacBook
     >}}
 
 This initial implementation adds support for 32-bit games only. 
-As for 64-bit games (the most common), [an update needs to be merged to Dynarmic](https://github.com/merryhime/dynarmic/pull/719), once it’s out, there will be no restrictions on which games can be executed.
+As for 64-bit games (the most common), [an update needs to be merged to Dynarmic](https://github.com/merryhime/dynarmic/pull/719). 
+Once it’s out, there will be no restrictions on which games can be executed.
 
 {{< single-title-imgs
     "This is what will be possible in the near future (Super Mario 3D World + Bowser's Fury, Super Mario 3D All-Stars, & Super Mario Odyssey)"
@@ -294,7 +295,7 @@ Further improvements by byte[] includes {{< gh-hovercard "9215" "corrections on 
   >}}
 
 We have a very long road ahead to get full macOS support ongoing.
-A journey of a thousand miles begins with a single step, says the old man.
+But a journey of a thousand miles begins with a single step, says the old man.
 
 Outside of venturing into new architecture seas, byte also contributed a few general changes too.
 
@@ -320,7 +321,7 @@ A lot more work is required to make this game fully playable, but taking out boo
 This change adds support for previous additions and fixes that were only considering Linux at the time.
 A separate pull request deals with {{< gh-hovercard "9178" "making BSD compatible with the changes required to run the LDN services." >}}
 
-As part of byte[]’s efforts to get yuzu running on macOS, he and toastUnlimited had to do some Qt changes to fit the platform’s special needs.
+As part of byte[]’s efforts to get yuzu running on macOS, he and toastUnlimited had to make some changes to fit the platform’s special needs.
 First, byte[] {{< gh-hovercard "9304" "assigned the menuRole property for actions to improve Cocoa support," >}} and then toastUnlimited {{< gh-hovercard "9308" "changed the Vulkan check on other platforms to behave closer to how the check for Windows works," >}} improving the compatibility with the macOS file manager.
 [german77](https://github.com/german77) joins the fun, {{< gh-hovercard "9322" "making changes to ensure reading SDL events doesn't crash on macOS." >}}
 
@@ -332,7 +333,8 @@ As a result `Mini Motorways` is far more playable now!
     "./motor.png| C'mon, touch it! (Mini Motorways)"
   >}}
 
-Amiibos also got some love from german77, the first example is {{< gh-hovercard "9219" "implementing the NFC" >}} `IUser` service, which fixes the NFC detection in `Ultra Kaiju Monster Rancher`.
+Amiibos also got some love from german77. 
+The first example is {{< gh-hovercard "9219" "implementing the NFC" >}} `IUser` service, which fixes the NFC detection in `Ultra Kaiju Monster Rancher`.
 
 {{< single-title-imgs
     "And it's still a premium feature on most phones (Ultra Kaiju Monster Rancher)"
@@ -340,7 +342,7 @@ Amiibos also got some love from german77, the first example is {{< gh-hovercard 
     "./nfc.png"
     >}}
 
-Next, by {{< gh-hovercard "9238" "implementing the" >}} `cabinet applet`, the Amiibo manager window.
+Next, german77 {{< gh-hovercard "9238" "implemented the" >}} `cabinet applet` (Amiibo manager window).
 This new settings window allows the user to register, format and delete game data of their Amiibos, while also displaying additional data available.
 This first implementation will only show up when a game request it, an UI option will be added in the future
 
@@ -360,7 +362,7 @@ That’s obviously not valid for Skyward Sword, the moment you want to access a 
 Fixing this behaviour by {{< gh-hovercard "9297" "checking the highest buffer and adding +1" >}} stops the game from crashing, and should also have the benefit of not outputting weird sounds, as the correct buffers will be selected.
 
 As most of you know, our current file system emulation is far from ideal. 
-Morph’s `Project Gaia` will address all the issues we have with it once his rewrite is finished.
+Morph’s `Project Gaia` should address most issues we have with it once his rewrite is finished.
 In the meantime, there’s nothing against fixing existing problems with it, and [v1993](https://github.com/v1993) provides a huge hand by addressing a case that could be invisible to the user, and really annoying as a result.
 The emulator can auto-generate some of the keys required to decrypt and run the Swtich games.
 The problem is that those auto-generated keys are sometimes worse than the ones the user provided during the dumping process, yet they still took precedence.
