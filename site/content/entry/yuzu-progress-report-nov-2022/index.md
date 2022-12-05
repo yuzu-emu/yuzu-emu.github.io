@@ -10,13 +10,13 @@ This month is special, a report of developer tears caused mostly by the release 
 
 <!--more-->
 
-## PSA for NVIDIA users: Return of the Jedi
+## PSA for NVIDIA users: Almost a flawless victory
 
 Before we move to what everyone wants to learn about, just a new Pokémon game, we have very good news to announce.
-NVIDIA driver version `527.37` finally solves all known driver related regressions!
-And to make it better, it affects all cards on active support by NVIDIA, from the GTX 745 to the RTX 4090, there are no more driver related graphical issues (it's only our fault from now on), exactly like the cards used to perform with version 472.12 all the way back in September 2021.
+NVIDIA driver version `527.37` finally solves all known driver related regressions on Pascal and newer hardware!
+And to make it better, it affects all cards on active support by NVIDIA, from the GT 1010 to the RTX 4090, there are no more driver related graphical issues (it's only our fault from now on), exactly like the cards used to perform with version 472.12 all the way back in September 2021.
 
-There’s no longer a need to stick to old versions, feel free to update to the latest release, no matter which card generation you have!
+Sadly, Maxwell users will have to remain in version 512.95 to avoid very frequent device losses when using Vulkan, but for those with GPUs newer than 8 years, there’s no longer a need to stick to old driver versions, feel free to update to the latest release!
 Here are links for [desktop](https://www.nvidia.com/download/driverResults.aspx/197300/en-us/) and [laptop](https://www.nvidia.com/download/driverResults.aspx/197301/en-us/) GPUs respectively.
 
 ## Guess who’s back
