@@ -14,8 +14,10 @@ This month is special, a report of developer tears caused mostly by the release 
 
 Before we move to what everyone wants to learn about, just a new Pokémon game, we have very good news to announce.
 NVIDIA driver version `527.37` finally solves all known driver related regressions!
-And to make it better, it affects all cards, from the GTX 745 to the RTX 4090, there are no more driver related graphical issues, exactly like the cards used to perform with version 472.12.
+And to make it better, it affects all cards on active support by NVIDIA, from the GTX 745 to the RTX 4090, there are no more driver related graphical issues (it's only our fault from now on), exactly like the cards used to perform with version 472.12 all the way back in September 2021.
+
 There’s no longer a need to stick to old versions, feel free to update to the latest release, no matter which card generation you have!
+Here are links for [desktop](https://www.nvidia.com/download/driverResults.aspx/197300/en-us/) and [laptop](https://www.nvidia.com/download/driverResults.aspx/197301/en-us/) GPUs respectively.
 
 ## Guess who’s back
 
@@ -42,12 +44,14 @@ With this change, the game starts to render and the team can focus on finding, d
 A limitation was quickly found by the community, gl_Layer depends on having driver support for the `GL_ARB_shader_viewport_layer_array` extension in OpenGL, or  the Vulkan equivalent, `VK_EXT_shader_viewport_index_layer`.
 
 While most GPU drivers do indeed support these extensions, the NVIDIA drivers for Maxwell V1 and older cards don't, meaning users trying to run `Pokémon Scarlet/Violet` on GPUs older than the 900 series wouldn’t get the game to display anything on screen, in either graphics API and any shader backend.
+Must be part of the promised package that included Vulkan support for Fermi, pure smoke.
+
 The way byte[] solved this limitation is by {{< gh-hovercard "9636" "translating the gl_Layer assignments with geometry shaders," >}} basically a brute-forced hardware accelerated way to replicate the missing extensions on older hardware.
 This results in proper rendering for the decade-old Geforce Fermi, Kepler, and Maxwell V1 series GPUs, in either OpenGL and Vulkan.
 Now an extra 6% of users can play the game.
 
 {{< imgs
-    "./710.png| The test subject, anyone can cook (GPU-Z)"
+    "./710.png| The test subject, anyone can cook"
   >}}
 
 &nbsp;
@@ -57,8 +61,9 @@ Now an extra 6% of users can play the game.
   >}}
 
 Let’s switch for a second to CPU related issues.
-There were reports that certain moves like `tail whip` could cause the Pokémon to outright vanish, or that changing directions very quickly could cause a soft-lock. 
+There were reports that certain moves like `tail whip` could cause the opposing Pokémon to outright vanish, or that changing directions very quickly could cause a soft-lock. 
 Even simple map traversal could cause crashes.
+
 What do you do when all issues seem totally unrelated and random? 
 You blame the CPU precision, of course!
 
@@ -76,8 +81,8 @@ We strongly recommend using a global setting of Auto CPU accuracy, and only impl
 Games WILL break with unsafe settings.
 
 Back on GPU related issues, AMD has its own share of issues, it always does.
-Users were quick to point out that the game looked like the usual cheap method USA films resort to when showing anything happening south of their borders, with a yellow filter applied.
-This issue is for the history books, as both the official AMD drivers (the Windows driver, amdvlk and AMDGPU-PRO) *and* mesa (RADV) share the same behaviour.
+Users were quick to point out that the game looked like the usual cheap method USA films resort to when showing anything happening outside their borders, with a yellow filter applied.
+This issue is for the history books, as both the official AMD drivers (the Windows driver, amdvlk, and AMDGPU-PRO) *and* mesa (RADV) share the same behaviour.
 
 Let’s provide some context.
 The default shader backend of Vulkan, [SPIR-V](https://en.wikipedia.org/wiki/Standard_Portable_Intermediate_Representation),  describes the special properties variable decorations have.
@@ -102,13 +107,15 @@ Let’s do a tennis match, the last bug was GPU related, time for a CPU one.
 Even with all the work so far, the game could periodically crash.
 This gave us a sense of dread we haven’t felt since the release of `Pokémon Sword/Shield`.
 Thankfully our fear was unfounded, as only Windows users reported back. 
-Linux users, for example using the Steam Deck, didn’t crash at all.
+Linux users, for example Steam Deck users, didn’t crash at all.
 This gave us the needed hook to reel the line of the cause, which ended up being a problem in dynarmic, {{< gh-hovercard "9271" "a stack misalignment in one of the memory accessors." >}}
 A quick call to [Merry](https://github.com/merryhime) over the red phone, and crashing is no more.
 
 Back to GPU, and this one was really annoying.
 Your writer had to do an all-nighter running tests with [bunnei](https://github.com/bunnei) to figure it out.
+
 NPCs and characters could vertex explode at random, and while using high GPU accuracy would mitigate the problem to a certain extent, it was still very common in cities, particularly in the academy.
+To make it even uglier, those vertex explosions were permanent at specific camera angles.
 
 After a few dozen rounds of regression testing, the root of the cause was found in one of the changes introduced by `Project Y.F.C.`, so Blinkhawk took over and implemented the proper fixes, {{< gh-hovercard "9312" "fixing some buffer cache and engine upload issues." >}}
 
@@ -120,21 +127,23 @@ After a few dozen rounds of regression testing, the root of the cause was found 
     "./ver4.png"
     >}}
 
-While the NPC vertex explosions are fixed, some geometry pop-up issues remain.
-Homework for later.
-But, as a bonus, now `Pokémon Legends: Arceus` can be played in Normal GPU accuracy without having the vertex explosions previously experienced, like  we promised to fix [back in January!](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2022/#a-new-legend)
+While the NPC vertex explosions are fixed, some geometry pop-up issues remain. Homework for later.
+Now any vertex related glitch only lasts one frame and should go away once the relevant shader gets cached.
+Also, as a bonus, now `Pokémon Legends: Arceus` can be played at Normal GPU accuracy without having its previously experiened vertex explosions, like  we promised to fix [back in January!](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2022/#a-new-legend)
 This can greatly increase performance on the superior older Pokémon title. One to scratch from the list.
+That buffer cache rewrite is still needed though.
 
-CPU’s turn, or, well, memory in this case.
+CPU's turn, or, well, memory in this case.
 byte[] fixed {{< gh-hovercard "9279" "a silly mistake in the cheat engine" >}} that caused it to crash when using speedhack cheats.
 
-GPU now, or well, an user interface aspect related to it.
+GPU now, or more precisely, an user interface aspect related to it.
+
 As you may know from previous reports, Vulkan has a tendency to break when the user installs outdated screen recorders, overlays, or bloatware that messes with the Vulkan layers.
-This leads people to still use the OpenGL API, which is not only considerably slower on `Pokémon Scarlet/Violet` (over three times slower in some cases), but also run the `GLASM` shader backend, an NVIDIA exclusive feature which is not particularly good with recent game releases, Scarlet/Violet not being an exception.
+This leads people to still use the OpenGL API, which is not only considerably slower for `Pokémon Scarlet/Violet` (over three times slower in some cases), but also run the `GLASM` shader backend, an NVIDIA exclusive feature which is not particularly good with recent game releases, Scarlet/Violet not being an exception.
 
 yuzu used to default to `GLASM` so NVIDIA users could enjoy lower shader compilation related stuttering, as OpenGL’s default shader backend, `GLSL`, is irritatingly slow in this aspect.
-The problem with this approach is that the `GLASM` backend (assembly shaders) was developed as an experiment, and its two primary maintainers have moved on from the project, with one literally turning green. 
-No one remaining on the team is taking the time to maintain a backend that has difficult-to-parse documentation, no debug tools, only partially helps a single GPU vendor, and has its advantages negated by a superior alternative, Vulkan.
+The problem with this approach is that the `GLASM` backend (assembly shaders) was developed as an experiment, and its two primary maintainers have moved on from the project, with one literally turning green with envy.
+No one remaining on the team is taking the time to maintain a backend that has decades old and difficult-to-parse documentation, no debug tools, only partially helps a single GPU vendor, and has its advantages negated by a superior alternative, Vulkan.
 
 {{< single-title-imgs-compare
     "Lavender Town? (Pokémon Violet)"
@@ -147,22 +156,23 @@ Assembly shaders was an useful alternative while Vulkan was in early development
 This problem is far more common than [your writer](https://github.com/goldenx86) would like, so for those NVIDIA users with the *special superpower* to always break Vulkan, {{< gh-hovercard "9318" "OpenGL will default to GLSL now." >}}
 The option to use GLASM will remain available, as Fermi users love it due to their chronic lack of Vulkan support.
 
-To finish the fixes implemented this month regarding this flawed best-seller, bunnei fixed an {{< gh-hovercard "9320" "assert spam in the audio suspend process." >}}
+To finish the changes implemented this month regarding this flawed best-seller, bunnei fixed an {{< gh-hovercard "9320" "assert spam in the audio suspend process." >}}
 This change not only cleans up logs, it has the potential to improve performance a bit.
 
 That’s all for this November’s list of Pokémon fixes and improvements.
 More work is in development, as there is still stuff to fix, so while we wait let’s end this section with some recommendations we found to get the best experience while playing:
 
 - NVIDIA, Intel, and AMD users [must run the latest driver versions](https://community.citra-emu.org/t/recommended-settings/319349).
-- High GPU accuracy ensures proper rendering of vegetation and buildings.
+- High GPU accuracy ensures proper rendering of vegetation and buildings. You see missing graphics? Switch to High.
 - Handheld mode improves performance considerably over Docked.
-- Gym trials may require switching to Handheld for stability, this could be a game issue as it is known to have memory leaks on console.
-- 4 cores/8 threads users seem to improve performance by disabling SMT/HT.
-- Installing the latest game update improves performance.
+- Gym trials may require switching to Handheld mode for stability, this could be a game issue as it is known to have memory leaks on console. Later game updates seem to solve this.
+- 4 cores/8 threads users seem to improve performance by a good margin by disabling SMT/HT.
+- Installing the latest game update improves performance and stability over long gameplay sessions.
 
 ## Graphical fixes
 
 Back to the usual agenda, games in general.
+
 vonchenplus found an {{< gh-hovercard "9167" "issue in how yuzu handles tessellation shaders" >}} which causes black backgrounds in `The Legend of Heroes: Trails from Zero`.
 
 Why would you want to use tessellation shaders for 2D content on an RPG?
@@ -209,8 +219,8 @@ If a game had bad performance on a specific system and produced too low framerat
 Since the "secret project" byte[] was working on was a platform slower than a normal gaming PC (more on this in the next section), byte[] blasted this limitation to the Dark World, {{< gh-hovercard "9244" "allowing everyone to be able to boot their game dumps." >}}
 
 A problem we reported a couple of times already, and AMD confirmed to be working on, was crashes happening in `Xenoblade Chronicles 3` with Vulkan, thanks to improving the precision of our MacroJIT code.
-Since it became clear that more time was needed to solve this issue on the driver side, byte[] managed to implement a workaround, {{< gh-hovercard "9252" "an HLE multi-layer clear mechanism" >}} which bypasses the driver limitation.
-This way the game remains playable in Vulkan, where the good performance is at.
+Since it became clear that more time was needed to solve this issue on the driver side, byte[] managed to implement a workaround, {{< gh-hovercard "9252" "an HLE multi-layer clear mechanism" >}} which bypasses this driver-level limitation.
+This way the game remains playable in Vulkan for AMD Windows, where the good performance is at.
 
 {{< imgs
     "./xc3.png| Always with the good title screen music (Xenoblade Chronicles 3)"
@@ -232,7 +242,8 @@ No other game is known to be affected by this change, but if there is, it’s fi
 Your writer has been trying to slowly learn the ropes and decided to take on some small projects.
 Too bad he’s also an idiot…
 
-The result of too many hours of suffering for the result is the addition of a {{< gh-hovercard "9276" "sharpening slider for the FSR filter." >}}
+The result of too many hours of suffering is the addition of a {{< gh-hovercard "9276" "sharpening slider for the FSR filter." >}} Also known by its long name, AMD FidelityFX Super Resolution 1.0.2.
+FSR between friends.
 
 {{< imgs
     "./slider.png| Emulation > Configure > Graphics"
@@ -259,11 +270,6 @@ One of the “improved” games from this change is `Xenoblade Chronicles: Defin
 While the game complained about missing a texture format, graphics don’t seem to have changed.
 
 ## CPU, kernel, and debugger changes
-
-The fight for proper kernel emulation rages on, and bunnei raises the bar by {{< gh-hovercard "9173" "implementing most of the Switch’s firmware 15.X.X features." >}}
-This brings memory management improvements (must resist making a boomerang joke), which should result in improved stability and slightly better resource usage.
-While no game seems to specifically improve with this change, future games targeting the latest firmware versions will certainly benefit.
-Nothing better than avoiding future headaches!
 
 Let’s address the elephant in the room, which byte[] has been feeding tons of peanuts lately.
 yuzu now supports being {{< gh-hovercard "9198" "built and run on ARM64 devices!" >}}
@@ -302,6 +308,11 @@ Outside of venturing into new architecture seas, byte also contributed a few gen
 Switch games can be weird, for example `MONSTER HUNTER RISE` has some fundamental love for opening services.
 After a recent refactor, our kernel emulation incorrectly used a process per session, and this could lead to running out of slab heap, resulting in a hard crash.
 As a workaround while byte[] refactors services to have a process tree accurate to the Switch, {{< gh-hovercard "9224" "the extraneous processes have been removed," >}} keeping stability in check.
+
+The fight for proper kernel emulation rages on, and bunnei raises the bar by {{< gh-hovercard "9173" "implementing most of the Switch’s firmware 15.X.X features." >}}
+This brings memory management improvements (must resist making a boomerang joke), which should result in improved stability and slightly better resource usage.
+While no game seems to specifically improve with this change, future games targeting the latest firmware versions will certainly benefit.
+Nothing better than avoiding future headaches!
 
 ## Services, input and audio changes
 
@@ -373,6 +384,7 @@ V1993 {{< gh-hovercard "9324" "flips this behaviour," >}} solving cases of games
 Localization is an ongoing effort, and anyone can contribute [here](https://www.transifex.com/yuzu-emulator/yuzu).
 This time the community {{< gh-hovercard "9166" "added support for a new language, Ukrainian!" >}}
 This addition is possible thanks to the work done  by [Docteh](https://github.com/Docteh) and GillianMC.
+Keep at it, guys, we're all with you.
 
 Docteh also {{< gh-hovercard "9180" "fixed the translation of pop-up warnings" >}} that show up when trying to remove game content.
 
@@ -390,19 +402,22 @@ Because, yes, deleting a profile includes deleting its saves.
     "./delete.png| The UI must also protect the users from themselves"
   >}}
 
-epicboy surprised everyone by slamming the door, throwing {{< gh-hovercard "9273" "per-game input profile support" >}} into our faces, and leaving refusing to elaborate further.
+epicboy surprised everyone by slamming down the front door, throwing {{< gh-hovercard "9273" "per-game input profile support" >}} into our faces, and leaving,  refusing to elaborate further.
 A real Chad.
 
 {{< imgs
     "./input.png| Right-click game > Properties > Input Profiles"
   >}}
+  
+This feature uses previously created input profiles, make sure to create some in `Emulation > Configure... > Controls` beforehand.
 
 ## Future projects
 
-There’s a lot going on behind doors, but it’s too early to start teasing you.
+There’s a *lot* going on behind doors, but it’s too early to start teasing you.
 We can confirm that both `Project Gaia` and `Project Y.F.C. Part 2` are progressing healthily, but those are not the only very important changes in the oven.
 
-Personally, I’m trying to implement SMAA, and suffering a lot with it.
+Personally, I’m trying to implement SMAA, but what stated as just a rebase of [BreadFish](https://github.com/breadfish64)'s OpenGL implementation ended up being more than a week of extra work dealing with the Vulkan implementation, taking precious time from the already busy schedule byte[] has. 
+Sorry! But the result will be worth it.
 
 That’s all folks! Thank you so much for giving us a bit of your time, and we hope to see you next time!
 
