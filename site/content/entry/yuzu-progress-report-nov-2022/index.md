@@ -133,7 +133,7 @@ As you may know from previous reports, Vulkan has a tendency to break when the u
 This leads people to still use the OpenGL API, which is not only considerably slower on `Pokémon Scarlet/Violet` (over three times slower in some cases), but also run the `GLASM` shader backend, an NVIDIA exclusive feature which is not particularly good with recent game releases, Scarlet/Violet not being an exception.
 
 yuzu used to default to `GLASM` so NVIDIA users could enjoy lower shader compilation related stuttering, as OpenGL’s default shader backend, `GLSL`, is irritatingly slow in this aspect.
-The problem with this approach is that the `GLASM` backend (assembly shaders) was developed as an experiment, and its two primary maintainers have moved on from the project. 
+The problem with this approach is that the `GLASM` backend (assembly shaders) was developed as an experiment, and its two primary maintainers have moved on from the project, with one literally turning green. 
 No one remaining on the team is taking the time to maintain a backend that has difficult-to-parse documentation, no debug tools, only partially helps a single GPU vendor, and has its advantages negated by a superior alternative, Vulkan.
 
 {{< single-title-imgs-compare
