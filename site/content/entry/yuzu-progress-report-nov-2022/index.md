@@ -365,7 +365,7 @@ Here’s the thing, the game decides how many buffers it wants to use, and has t
 As Maide says: “Put voice A in buffer 1 with voice B in buffer 2, mix them together into buffer 3. Put voice C in buffer 4 and mix buffer 3 and 4 into buffer 5, etc.”
 At the end of the line, if you need to output to 2 channels, only two final buffers will be used, for 6 channels, 6 buffers, but there is no order to those selected buffers, no rule says that they must be buffer 0 and 1.
 yuzu operated under the assumption that games would use buffers 0 to 5 for output, and that has been the case for the majority of games, but as always, there are exceptions, one being `The Legend of Zelda: Skyward Sword HD`.
-This particular game uses something similar to 8/9/C/D/A/B for its 6 buffer outputs, as you can see we’re going hexadecimal here.
+This particular game uses something similar to 8/9/12/13/10/11 for its 6 buffer outputs, or in proper hexadecilam values, 8/9/C/D/A/B.
 
 The previous implementation took the first buffer as a starting point, buffer 0, and added +1 to fill the remaining 5 slots.
 That’s definitely not valid for Skyward Sword, the moment you want to access a buffer that is not part of those 6 first consecutive buffers, you get a crash for getting out-of-bounds, and this happens even with the first actual output buffer, at 8!
