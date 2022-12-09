@@ -62,7 +62,7 @@ Now an extra 6% of users can play the game.
   >}}
 
 Let’s switch for a second to CPU related issues.
-There were reports that certain moves like `tail whip` could cause the opposing Pokémon to outright vanish, or that changing directions very quickly could cause a soft-lock. 
+There were reports that certain moves like `Tail Whip` could cause the opposing Pokémon to outright vanish, or that changing directions very quickly could cause a soft-lock. 
 Even simple map traversal could cause crashes.
 
 What do you do when all issues seem totally unrelated and random? 
@@ -114,7 +114,7 @@ A quick call to [Merry](https://github.com/merryhime) over the red phone, and th
 Back to the GPU, and this one was really annoying.
 Your writer had to do an all-nighter running tests with [bunnei](https://github.com/bunnei) to figure it out.
 
-NPCs and characters could encounter vertex explosions at random, and while using high GPU accuracy would mitigate the problem to a certain extent, it was still very common in cities, particularly in the academy.
+NPCs and characters could encounter vertex explosions at random, and while using `High` GPU accuracy would mitigate the problem to a certain extent, it was still very common in cities, particularly in the academy.
 To make it even uglier, those vertex explosions were permanent at specific camera angles.
 
 After a few dozen rounds of regression testing, the root cause was found in one of the changes introduced by `Project Y.F.C.`, so Blinkhawk took over and implemented the proper changes, {{< gh-hovercard "9312" "fixing some buffer cache and engine upload issues." >}}
@@ -242,8 +242,8 @@ No other game is known to be affected by this change, but if there is, it’s fi
 Your writer has been trying to slowly learn the ropes and decided to take on some small projects.
 Too bad he’s also an idiot…
 
-The result of too many hours of suffering is the addition of a {{< gh-hovercard "9276" "sharpening slider for the FSR filter." >}} Also known by its long name, AMD FidelityFX Super Resolution 1.0.2.
-FSR between friends.
+The result of too many hours of suffering is the addition of a {{< gh-hovercard "9276" "sharpening slider for the FSR filter." >}} Also known by its long name, `AMD FidelityFX Super Resolution 1.0.2`. 
+However, it prefers being called FSR between friends.
 
 {{< imgs
     "./slider.png| Emulation > Configure > Graphics"
@@ -300,7 +300,7 @@ Further improvements by byte[] includes {{< gh-hovercard "9215" "corrections on 
     "./macos.png| If only Apple wasn't a reptilian company and offered Vulkan support"
   >}}
 
-We have a very long road ahead to get full macOS support, but a journey of a thousand miles begins with a single step, says the old man.
+We have a very long road ahead to fully support macOS, but a journey of a thousand miles begins with a single step, says the old man.
 
 Outside of venturing into new architecture seas, byte[] also contributed a few general changes too.
 
@@ -365,10 +365,10 @@ Here’s the thing, the game decides how many buffers it wants to use, and has t
 As Maide says: “Put voice A in buffer 1 with voice B in buffer 2, mix them together into buffer 3. Put voice C in buffer 4 and mix buffer 3 and 4 into buffer 5, etc.”
 At the end of the line, if you need to output to 2 channels, only two final buffers will be used, for 6 channels, 6 buffers, but there is no order to those selected buffers, no rule says that they must be buffer 0 and 1.
 yuzu operated under the assumption that games would use buffers 0 to 5 for output, and that has been the case for the majority of games, but as always, there are exceptions, one being `The Legend of Zelda: Skyward Sword HD`.
-This particular game uses something similar to 8/9/12/13/10/11 for its 6 buffer outputs, or in proper hexadecilam values, 8/9/C/D/A/B.
+This particular game uses something similar to 8/9/12/13/10/11 for its 6 buffer outputs, or in proper hexadecimal values, 8/9/C/D/A/B.
 
 The previous implementation took the first buffer as a starting point, buffer 0, and added +1 to fill the remaining 5 slots.
-That’s definitely not valid for Skyward Sword, the moment you want to access a buffer that is not part of those 6 first consecutive buffers, you get a crash for getting out-of-bounds, and this happens even with the first actual output buffer, at 8!
+That’s definitely not valid for `Skyward Sword`, the moment you want to access a buffer that is not part of those 6 first consecutive buffers, you get a crash for getting out-of-bounds, and this happens even with the first actual output buffer, at 8!
 Fixing this behaviour by {{< gh-hovercard "9297" "checking the highest buffer and adding +1" >}} stops the game from crashing, and should also have the benefit of not outputting weird sounds, as the correct buffers will be selected.
 
 As most of you know, our current file system emulation is far from ideal. 
@@ -381,7 +381,7 @@ v1993 {{< gh-hovercard "9324" "flips this behaviour," >}} solving cases of games
 ## User interface improvements
 
 Localization is an ongoing effort, and anyone can contribute [here](https://www.transifex.com/yuzu-emulator/yuzu).
-This time the community {{< gh-hovercard "9166" "added support for another language, Ukrainian!" >}}
+This time the community added support for another language, {{< gh-hovercard "9166" "Ukrainian!" >}}
 This addition is possible thanks to the work done  by [Docteh](https://github.com/Docteh) and GillianMC.
 Keep at it guys, we're all with you.
 
@@ -401,7 +401,7 @@ Because, yes, deleting a profile includes deleting its saves.
     "./delete.png| The UI must also protect the users from themselves"
   >}}
 
-epicboy surprised everyone by slamming down the front door, throwing {{< gh-hovercard "9273" "per-game input profile support" >}} in our faces, and leaving, refusing to elaborate further.
+epicboy surprised everyone by slamming the front door open, throwing {{< gh-hovercard "9273" "per-game input profile support" >}} in our faces, and leaving, refusing to elaborate further.
 A real Chad.
 
 {{< imgs
