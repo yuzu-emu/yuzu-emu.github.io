@@ -415,8 +415,9 @@ This feature uses previously created input profiles, make sure to create some in
 There’s a *lot* going on behind closed doors, but it’s too early to start teasing you.
 We can confirm that both `Project Gaia` and `Project Y.F.C. Part 2` are progressing healthily, but those are not the only important changes in the oven.
 
-Personally, I’m trying to implement SMAA, but what started as just a rebase of [BreadFish's](https://github.com/breadfish64) OpenGL implementation ended up being more than a week of extra work dealing with the Vulkan implementation, taking precious time from the already busy schedule byte[] has. 
-Sorry! But the result will be worth it.
+Personally, I’m helping implement SMAA, but what started as just a rebase of [BreadFish's](https://github.com/breadfish64) OpenGL implementation ended up being more than a week of extra work dealing with the Vulkan implementation, taking precious time from the already busy schedule byte[] has. 
+Sorry! But the result are be worth it.
+We'll talk about it next month, as it didn't make the cut for this report's time-frame.
 
 That’s all folks! Thank you so much for giving us a bit of your time, and we hope to see you next time!
 
