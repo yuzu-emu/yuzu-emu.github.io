@@ -129,7 +129,7 @@ After a few dozen rounds of regression testing, the root cause was found in one 
 
 While the NPC vertex explosions are fixed, some geometry pop-up issues remain. Homework for later.
 Now any vertex related glitch only lasts one frame and should go away once the relevant shader gets cached.
-Also, as a bonus, `Pokémon Legends: Arceus` can now be played at `Normal` GPU accuracy without encountering vertex explosions, making good on our [promise to fix it]((https://yuzu-emu.org/entry/yuzu-progress-report-jan-2022/#a-new-legend))!
+Also, as a bonus, `Pokémon Legends: Arceus` can now be played at `Normal` GPU accuracy without encountering vertex explosions, making good on our [promise to fix it](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2022/#a-new-legend)!
 This can greatly increase performance on the older Pokémon title. One more thing to scratch off the list.
 That buffer cache rewrite is still needed though.
 
