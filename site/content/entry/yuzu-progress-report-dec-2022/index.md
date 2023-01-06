@@ -216,7 +216,7 @@ We don’t usually cover compilation changes here, but this time we had to do it
 [Your writer](https://github.com/goldenx86) (or co-writer in this progress report, my partner did most of the work this time) has been playing with compilation flags in order to get more free performance, following previous work done by Blinkhawk some time ago.
 
 Microsoft Visual C++ (MSVC, Visual Studio) is simple enough (we’ll talk about Linux later), you enable full program optimizations, optimize for performance instead of size, a bit here, a bit there, and you gain a nice 3%, but I wanted more.
-Last month [Epicboy](https://github.com/ameerj) improved the build process, saving both time and memory. This created a “gap” big enough to enable the *Big One*, {{< gh-hovercard "9442" "Link-Time Optimizations” >}} (LTO), an optimization that in the past had to be discarded for eating all the available RAM of our buildbots.
+Last month [Epicboy](https://github.com/ameerj) improved the build process, saving both time and memory. This created a “gap” big enough to enable the *Big One*, {{< gh-hovercard "9442" "Link-Time Optimizations" >}} (LTO), an optimization that in the past had to be discarded for eating all the available RAM of our buildbots.
 
 Windows testing went well and in some cases the performance uplift reaches up to 12%.
 The problem was Linux. LTO is aggressive by nature, and there’s no guarantee that all parts of the project will react nicely to it.
@@ -310,7 +310,7 @@ In the same vein, he also introduced another change in the texture cache to {{< 
 The previous implementation would allocate and deallocate heap memory whenever a texture went into or came out of the GPU, which causes a noticeable overhead and stutters.
 Pre-allocating memory alleviates this problem, using a similar solution to the previous two cases.
 
-He also added a {{< gh-hovercard "9453" "[`ScratchBuffer` class" >}} to act a wrapper around a heap-allocated buffer of memory, which is used for holding temporary data during the processing of some task.
+He also added a {{< gh-hovercard "9453" "`ScratchBuffer` class" >}} to act a wrapper around a heap-allocated buffer of memory, which is used for holding temporary data during the processing of some task.
 
 This is particularly useful in situations where the size of the data is not known in advance, and it is being used in performance-critical code. The scratch buffer may only be resized if needed during the lifetime of the object that owns it, which can help to reduce memory allocation and deallocation overhead, such as the previous case.
 
