@@ -1,6 +1,6 @@
 +++
 date = "2023-01-05T12:00:00-03:00"
-title = "Progress Report December 2020"
+title = "Progress Report December 2022"
 author = "Honghoa"
 coauthor = "GoldenX86"
 forum = 0
@@ -90,7 +90,7 @@ The results speak for themselves:
 	"Here you can see an ideal test case for SMAA, the simple triangle of death"
 	"./noaa.png"
 	"./smaa.png"
->}}
+	>}}
 
 {{< single-title-imgs
     "Ropes and power lines, the classical example for anti-aliasing testing (Pokémon Scarlet)"
@@ -113,7 +113,7 @@ Only users with old integrated GPUs should avoid SMAA. For the rest, it’s a sa
 	"SMAA doesn’t suffer from the horrible colour banding of FXAA (The Legend of Zelda: Breath of the Wild)"
 	"./botwfxaa.png"
 	"./botwsmaa.png"
->}}
+	>}}
 
 You can find it in `Emulation > Configure > Graphics > Anti-Aliasing Method`.
 
@@ -130,7 +130,7 @@ although the issue persists at other values. byte[] continues working on the iss
 	"The so called RADV acne (Super Mario Odyssey)"
 	"./off1bug.png"
 	"./off1fix.png"
->}}
+	>}}
 
 The change also addresses an issue with the erroneous rendering of water in the game `Super Mario Sunshine` with automatic anisotropy on Lavapipe (mesa, Linux), although the error still occurs at other anisotropy values.
 
@@ -138,7 +138,7 @@ The change also addresses an issue with the erroneous rendering of water in the 
 	"Kind of makes it look even older (Super Mario Sunshine)"
 	"./off2bug.png"
 	"./off2fix.png"
->}}
+	>}}
 
 byte[] also {{< gh-hovercard "9415" "corrected the semantics of data cache management operations" >}} in the memory.
 
