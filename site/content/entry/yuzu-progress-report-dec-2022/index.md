@@ -155,8 +155,8 @@ As a result of these changes, the issue in `Dragon Quest Builders` where some 3D
 
 {{< single-title-imgs-compare
 	"No more missing stuff! (Dragon Quest Builders)"
-	"./off1bug.png"
-	"./off1fix.png"
+	"./dbqbug.png"
+	"./dbqfix.png"
 >}}
 
 {{< imgs
