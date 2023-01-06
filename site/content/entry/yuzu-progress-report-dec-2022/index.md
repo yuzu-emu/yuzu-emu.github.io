@@ -74,7 +74,7 @@ The month doesn’t stop there, there has been a plethora of changes worth menti
 
 Oh boy, [byte[]](https://github.com/liamwhite) sure has been busy this month.
 
-To start off, he is responsible for {{< gh-hovercard "9409" "implementing the SMAA anti-aliasing filter” >}} for our Vulkan and OpenGL backends. 
+To start off, he is responsible for {{< gh-hovercard "9409" "implementing the SMAA anti-aliasing filter" >}} for our Vulkan and OpenGL backends. 
 But that’s not the whole story, so let’s elaborate further.
 
 `SMAA`, or enhanced subpixel morphological antialiasing, is an improvement over [MLAA](https://en.wikipedia.org/wiki/Morphological_antialiasing) developed by the Spanish Universidad de Zaragoza and video game studio Crytek, of Crysis fame.
