@@ -89,7 +89,7 @@ The results speak for themselves:
 {{< single-title-imgs-compare
 	"Here you can see an ideal test case for SMAA, the simple triangle of death"
 	"./noaa.png"
-	"./smaa.png"
+	"./1smaa.png"
 	>}}
 
 {{< single-title-imgs
