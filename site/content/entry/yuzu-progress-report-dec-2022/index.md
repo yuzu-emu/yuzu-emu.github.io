@@ -299,22 +299,18 @@ As part of this effort we started implementing Flatpak support for ARM64 Linux d
 
 Part of these changes fixed compilation for macOS, but the situation remains the same, without MoltenVK support, nothing will be rendered.
 
-Epicboy made some optimizations to our Inter-Process Communication (IPC) code in order to improve its performance.
+Epicboy implemented a series of changes with the goal of minimising the overhead of dynamic memory allocation, a task which involves requesting memory from the operating system, and can slow-down performance in some circumstances.
 
-One of the changes involved using the {{< gh-hovercard "9450" "`reserve()` method to allocate memory in advance for vectors" >}} before populating them based on the object list data present in the IPC requests.
-This helps to avoid unnecessary reallocations in the heap memory, which can be a slow and time consuming process.
+The texture cache, in particular, was a significant contributor to this issue, as it constantly allocated and then deallocated memory when transferring textures to and from the GPU.
+To address this problem, Epicboy optimized the texture cache to {{< gh-hovercard "9490" "pre-allocate a buffer to store swizzle data" >}} and reuse it whenever possible, rather than performing a dynamic memory allocation every time this was done.
+This change should result in reduced stuttering, as memory will now only be requested from the operating system if the buffer is not large enough to hold the data.
 
-Epicboy also {{< gh-hovercard "9452" "refactored the way the ReadBuffer is initialised" >}} to avoid additional calls to the `resize()` method, which also requires memory reallocations.
+Epicboy also made similar changes to {{< gh-hovercard "9508" "optimise the `ReadBuffer` function" >}}, which likewise takes a similar approach: instead of allocating and deallocating memory, a buffer is created once to hold data in the memory, and it only reallocates whenever it needs to grow.
 
-In the same vein, he also introduced another change in the texture cache to {{< gh-hovercard "9490" "pre-allocate a buffer to store the swizzle data of textures." >}}
-The previous implementation would allocate and deallocate heap memory whenever a texture went into or came out of the GPU, which causes a noticeable overhead and stutters.
-Pre-allocating memory alleviates this problem, using a similar solution to the previous two cases.
+Additionally, he introduced a {{< gh-hovercard "9453" "`ScratchBuffer` class" >}} to act as a wrapper around a heap-allocated buffer of memory.
 
-He also added a {{< gh-hovercard "9453" "`ScratchBuffer` class" >}} to act a wrapper around a heap-allocated buffer of memory, which is used for holding temporary data during the processing of some task.
-
-This is particularly useful in situations where the size of the data is not known in advance, and it is being used in performance-critical code. The scratch buffer may only be resized if needed during the lifetime of the object that owns it, which can help to reduce memory allocation and deallocation overhead, such as the previous case.
-
-Thus, these changes help to speed up the implementations by minimising the amount of time spent on memory management tasks.
+The advantage of this class lies on the fact that it eliminates the need initialise the stored values, and the need to copy the data when the buffer needs to grow.
+Thus, it would help to speed up things by minimising the amount of time spent on memory management tasks.
 
 german77 implemented {{< gh-hovercard "9444" "the `FreeThreadCount` info type," >}} which is needed by titles such as `Just Dance 2023 Edition` (although that game requires more changes in order to work).
 
