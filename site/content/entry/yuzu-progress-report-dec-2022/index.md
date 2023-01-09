@@ -383,7 +383,7 @@ Another battle fought on this front is related to homebrew apps. byte[] is respo
 Marking the build as a “Windows” application instead of a “Console” one {{< gh-hovercard "9485" "ensures that no empty command line window pops up" >}} needlessly.
 This can help streaming programs set up to run specific games with yuzu-cmd, as this prevents the sudden empty black box from appearing in front of other windows.
 
-For our single audio change of this month, [Maide](https://github.com/Kelebek1) properly signals a buffer event on audio stops, fixing an early softlock that affected the `Pokémon Brilliant Diamond/Shining Pearl` games.
+For our single audio change of this month, [Maide](https://github.com/Kelebek1) properly {{< gh-hovercard "9455" "signals a buffer event on audio stops," >}} fixing an early softlock that affected the `Pokémon Brilliant Diamond/Shining Pearl` games.
 
 ## Future projects
 
