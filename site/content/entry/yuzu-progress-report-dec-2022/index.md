@@ -78,7 +78,7 @@ But that’s not the whole story, so let’s elaborate further.
 
 `SMAA`, or enhanced subpixel morphological antialiasing, is an improvement over [MLAA](https://en.wikipedia.org/wiki/Morphological_antialiasing) developed by the Spanish Universidad de Zaragoza and video game studio Crytek, of Crysis fame.
 
-[BreadFish](https://github.com/breadfish64) implemented the original OpenGL version, intending to release it as part of the [resolution scaler](https://yuzu-emu.org/entry/yuzu-art/). Turns out implementing SMAA for Vulkan is no joke, and after being nagged by your writer, byte[] had to work 2 weeks to get it in shape.
+[BreadFish](https://github.com/breadfish64) implemented the original OpenGL version, intending to release it as part of the [resolution scaler](https://yuzu-emu.org/entry/yuzu-art/). As it turns out, implementing `SMAA` for Vulkan is no joke, and after being nagged by your writer, byte[] had to work 2 weeks to get it in shape.
 
 `SMAA`, being based on `MLAA`, intends to be a post-processing (aka shader-based) option focused on quality over performance by analyzing adjacent pixels, unlike `FXAA` which just blurs the entire screen.
 The `SMAA` filter is implemented using render passes and it produces its best results when combined with FSR filtering. 
