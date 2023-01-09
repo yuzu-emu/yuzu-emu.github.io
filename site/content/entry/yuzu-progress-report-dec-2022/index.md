@@ -115,6 +115,11 @@ You can find the feature in `Emulation > Configure > Graphics > Anti-Aliasing Me
 	"./botwsmaa.png"
 	>}}
 
+{{< single-title-imgs-compare
+	"And it's a great help for users running low resolution multipliers. This example is 0.5x Bilinear alone Vs 0.5x FSR + SMAA (Pokémon Scarlet)"
+	"./lowresbug.png"
+	"./lowresfix.png"
+	>}}
 
 {{< imgs
 	"./all3.png| A close-up to finish (Xenoblade Chronicles 3)"
@@ -122,8 +127,8 @@ You can find the feature in `Emulation > Configure > Graphics > Anti-Aliasing Me
 
 As a side note, NVIDIA’s version of FSR, NIS, was also tested, but the result is so ugly and over-sharpened, that we decided to keep the best option of the two, FSR.
 
-byte[] has also fixed a {{< gh-hovercard "9420" "problem with anisotropic filtering," >}} in which under hardware running the RADV driver on linux at x1 filtering (aka “Default”), the rendering in `Super Mario Odyssey` when running on hardware with the RADV driver on Linux at x1 rendering (native resolution),
-although the issue persists at other values. byte[] continues working on the issue.
+byte[] has also fixed a {{< gh-hovercard "9420" "problem with anisotropic filtering." >}} 
+If users ran the RADV driver on Linux, anisotropic filtering values different than `Default` would cause a distinct acne rendering issue in `Super Mario Odyssey`. Although the issue persists at other anisotropic filtering and resolution multiplier values. byte[] continues working on the issue.
 
 {{< single-title-imgs-compare
 	"The so called RADV acne (Super Mario Odyssey)"
@@ -131,7 +136,7 @@ although the issue persists at other values. byte[] continues working on the iss
 	"./off1fix.png"
 	>}}
 
-The change also addresses an issue with the buggy water rendering in `Super Mario Sunshine` with automatic anisotropy on Lavapipe (mesa, Linux), although the error still occurs at other anisotropy values.
+The change also addresses an issue with the buggy water rendering in `Super Mario Sunshine` with automatic anisotropic filtering on Lavapipe (Mesa, Linux), although the error still occurs at other anisotropic filtering values.
 
 {{< single-title-imgs-compare
 	"Kind of makes it look even older (Super Mario Sunshine)"
