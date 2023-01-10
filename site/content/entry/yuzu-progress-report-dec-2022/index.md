@@ -106,7 +106,7 @@ The results speak for themselves:
     >}}
 
 For those interested, we used the `ULTRA` preset, testing showed a low performance loss even with a GT 1030, so we preferred to focus on quality.
-Only users with old integrated GPUs should avoid SMAA. For the rest, it’s a safe option to turn on and forget.
+Only users with old integrated GPUs should avoid `SMAA`. For the rest, it’s a safe option to turn on and forget.
 You can find the feature in `Emulation > Configure > Graphics > Anti-Aliasing Method`.
 
 {{< single-title-imgs-compare
@@ -128,7 +128,7 @@ You can find the feature in `Emulation > Configure > Graphics > Anti-Aliasing Me
 As a side note, NVIDIA’s version of FSR, NIS, was also tested, but the result is so ugly and over-sharpened, that we decided to keep the best option of the two, FSR.
 
 byte[] has also fixed a {{< gh-hovercard "9420" "problem with anisotropic filtering." >}} 
-If users ran the RADV driver on Linux, anisotropic filtering values different than `Default` would cause a distinct acne rendering issue in `Super Mario Odyssey`. Although the issue persists at other anisotropic filtering and resolution multiplier values. byte[] continues working on the issue.
+If users ran the RADV driver on Linux, anisotropic filtering values other than `Default` would cause a distinct "acne-like" rendering issue in `Super Mario Odyssey`. The issue persists at other anisotropic filtering and resolution multiplier values., but byte[] continues to work on the issue.
 
 {{< single-title-imgs-compare
 	"The so called RADV acne (Super Mario Odyssey)"
@@ -301,7 +301,7 @@ This means all Switch titles can be tested on Linux ARM64 devices with compatibl
 
 As part of this effort, we started implementing Flatpak support for ARM64 Linux devices. This {{< gh-hovercard "9419" "required making OpenGL optional" >}} for the build process, as Flatpak’s Qt build only supports OpenGL ES, not the full fledged OpenGL 4.6 compatibility profile we require.
 
-Part of these changes fixed compilation for macOS, but the situation remains the same, without MoltenVK support, nothing will be rendered.
+Part of these changes fixed compilation for macOS, but the situation remains the same, without `MoltenVK` support, nothing will be rendered.
 
 Epicboy implemented a series of changes with the goal of minimizing the overhead of dynamic memory allocation, a task which involves requesting memory from the operating system, and can slow-down performance in some circumstances.
 
