@@ -1,9 +1,9 @@
 +++
-date = "2023-01-05T12:00:00-03:00"
+date = "2023-01-10T12:00:00-03:00"
 title = "Progress Report December 2022"
 author = "Honghoa"
 coauthor = "GoldenX86"
-forum = 0
+forum = 706631
 +++
 
 Hello yuz-ers. What a year! We ended 2022 with more yuzu Fried Chicken, Vulkan changes, a new input driver, an exorbitant amount of kernel work, more performance, better visuals, and much more!
