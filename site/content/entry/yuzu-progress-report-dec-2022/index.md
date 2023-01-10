@@ -252,10 +252,10 @@ If an old-school user is so strongly set on running yuzu on decades old CPUs, th
 
 ## New Joy-Con driver and other input improvements
 
-[german77](https://github.com/german77) has done it again, giving us an amazing Christmas gift, a {{< gh-hovercard "9492" "new input driver for Nintendo controllers!" >}}
+[german77](https://github.com/german77) has done it again, giving us an amazing Christmas gift, a {{< gh-hovercard "9492" "new input driver for Joy-Cons" >}}
 This is an in-house development that doesn’t rely on SDL, so it gives us much more freedom to add features that weren’t previously available.
 
-The basics are covered. Single and Dual Joy-Con modes are available, Pro Controllers are supported, button, stick, motion mapping works the same as before.
+The basics are covered. Single and Dual Joy-Con modes are available, button, stick, motion mapping works the same as before.
 But that's not exciting, here’s all the new stuff that was added:
 
 * When launching yuzu, the controller player LEDs will show a blinking pattern to signal that the emulator has taken control. Once you’re in game, the LEDs will reflect the player number.
