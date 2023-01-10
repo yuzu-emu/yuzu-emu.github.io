@@ -59,8 +59,6 @@ A small side-note, Linux RADV users should update their Mesa version to the late
 
 As a last second change, Blinkhawk tested removing the 16-bit floating point (FP16) blacklist enforced on NVIDIA Ampere and newer GPUs (RTX 3000 series and higher). If it worked, it would have allowed them to work similarly to Turing and AMD Radeon offerings in this aspect. However, NVIDIA redesigned how their FP32 and FP16 units operate on Ampere and newer, with both providing identical performance. Unfortunately, even if it were faster, it'd be irrelevant in the end, as FP16 on Ampere and Ada is still bugged in the drivers, producing graphical issues in many games.
 
-All irrelevant in the end as the precision of FP16 on Ampere and Ada is still bugged in the drivers, producing graphical issues in many games, and even if we re-enabled it, there is no performance benefit thanks to the specific design of these cards, they are already fast enough with FP32.
-
 The only remaining architecture that could benefit from enabling blacklisted FP16 support is Intel on Windows, but their drivers are a dumpster fire regarding FP16. So they continue to emulate 16-bit precision with 32-bit the same way as Ampere and Ada, in this case with its always present performance loss. 
 _Of course_ the weakest architecture that could benefit the most from this change is the only one that remains broken…
 
