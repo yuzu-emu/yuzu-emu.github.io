@@ -16,7 +16,7 @@ description: "How to properly gather and upload log files from yuzu."
 <p style="color:cyan"><b>Note: After this step, yuzu needs to remain closed. Do not open the emulator until the rest of the steps are completed.</b></p>
 
 3. Gathering the log files:
- - 3a. *(Windows only)* Navigate to `%appdata%/yuzu/log`. A file called `yuzu_log.txt` should be present in the directory.
+ - 3a. *(Windows only)* Navigate to `%appdata%\yuzu\log\`. A file called `yuzu_log.txt` should be present in the directory.
 
  - 3b. *(Linux only)* In the terminal, type `echo $XDG_DATA_HOME`. This command will print out the user-specific data directory. If nothing gets printed out, that means the directory hasn't been changed and the log is present in `~/.local/share/yuzu/log`. If something has been printed out, however, you should follow that directory instead and manually navigate to `/yuzu/log` there.
 
