@@ -135,12 +135,35 @@ pre > code {
   box-shadow: 0 1px 1px rgba(0,0,0,0.125);
 }
 
-// Workaround for browsers without JavaScript for the downloads page
-#install-view, #manual-package-view {
+#download-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#download-buttons > a {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  #download-header {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  #download-buttons > a {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+#unsupported-platform-view {
   display: none;
 }
 
-.dl-button, #platform-unsupported {
+// Workaround for browsers without JavaScript for the downloads page
+#install-view, #manual-package-view {
   display: none;
 }
 

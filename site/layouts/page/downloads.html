@@ -1,54 +1,60 @@
 {{ define "header" }}
-<section class="section">
-    <div class="container">
-        <h1 class="title">{{ .Title }}</h1>
-	<div class="content">
-	    {{ .Content }}
-	</div>
-</section>
+<link href="//cdn.jsdelivr.net/npm/font-logos@0.18/assets/font-logos.css" rel="stylesheet">
 
 <section class="section">
     <div class="container">
-        <div id="no-js-view">
-            Hi! We see that you have JavaScript disabled. We can't show you an
-            updated listing of the available packages for yuzu, nor alternative
-            installation methods, but here are a few links to get you started: <br />
-            <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/yuzu_install.exe">Windows x64 Installer</a><br />
-            <a href="https://github.com/yuzu-emu/yuzu-mainline/releases">Mainline releases on GitHub</a>
+        <div class="mb-6" id="download-header">
+            <div class="is-flex-grow-1">
+                <h1 class="title">{{ .Title }}</h1>
+            </div>
+            <div id="download-buttons">
+                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/yuzu_install.exe" class="button dl-button is-medium is-success" id="dl-button-windows">
+                    <span class="icon mr-1"><i class="fab fa-windows"></i></span> Download for Windows x64
+                </a>
+                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/liftinstall-31b3e7e.tar.xz" class="button dl-button is-medium is-success" id="dl-button-linux">
+                    <span class="icon mr-1"><i class="fab fa-linux"></i></span> Download for Linux x64
+                </a>
+            </div>
         </div>
-        <div id="install-view">
+
+        <div class="content">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+<section class="section pt-0">
+    <div class="container">
+        <div id="no-js-view">
+            <article class="message is-warn">
+                <div class="message-body has-text-white mb-6">
+                    Hi! We see that you have JavaScript disabled. You can still use the 
+                    above download links but we can't show you an updated listing of the available 
+                    packages for yuzu, nor alternative installation methods, but we recommend 
+                    viewing the 
+                    <a href="https://github.com/yuzu-emu/yuzu-mainline/releases">Mainline releases on GitHub</a>
+                </div>
+            </article>
+        </div>
+
+        <div id="unsupported-platform-view">
             <article class="message is-danger" id="platform-unsupported">
-                <div class="message-body has-text-white">
-                    yuzu doesn't support your platform. If you are running Windows x64 or Linux x64 however,
+                <div class="message-body has-text-white mb-6">
+                    Yuzu doesn't support your platform. If you are running Windows x64 or Linux x64 however,
                     choose one of the options below.
                 </div>
             </article>
-
-            <div class="buttons is-centered">
-                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/yuzu_install.exe" class="button dl-button is-medium is-success" id="dl-button-windows">Download for Windows x64</a>
-                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/liftinstall-31b3e7e.tar.xz" class="button dl-button is-medium is-success" id="dl-button-linux">Download for Linux x64</a>
-            </div>
-
-            <div class="buttons is-centered">
-                <!-- Show this when Flatpak/other primary installation methods are provided for Linux/Mac.
-                <a class="button">
-                    Other platforms
-                </a>
-                -->
-                <a class="button" id="view-package-listing-button">
-                    Manual Download
-                </a>
-            </div>
         </div>
+        
         <div class="columns" id="manual-package-view">
             <!-- Mainline -->
-            <div class="column">
-                <h3>Builds
-                    <span style='font-size: smaller; margin-left: 6px;'>
-                        Last release was
+            <div class="column content">
+                <h2>Builds
+                    <span class="tag is-info">
+                        Last release was &nbsp;
                         <span id='last-updated-mainline'></span>
                     </span>
-                </h3>
+                </h2>
 
                 <div id="downloads-mainline">
                 </div>
@@ -62,7 +68,7 @@
             </div>
         </div>
 	</div>
- </section>
+</section>
 
 <!-- Advertisement -->
 <section class="hero is-info">
@@ -76,6 +82,10 @@
 
 {{ define "scripts" }}
 <script type="text/javascript">
+    // Show JS relevant elements
+    document.getElementById("no-js-view").style.display = "none";
+    document.getElementById("manual-package-view").style.display = "block";
+
     function fetchReleases() {
         getRelease('mainline');
     }
@@ -84,10 +94,9 @@
 
     // Attempt autodetection of their operating system
     var userAgent = navigator.userAgent.toLowerCase();
-
-    var allPlatforms = ["windows", "mac", "linux"];
-
     var os = "Other";
+    const unsupportedPlatforms = ["Other", "Mac"]
+
     if (userAgent.indexOf("windows") !== -1) {
         os = "Windows";
     } else if (userAgent.indexOf("mac") !== -1 && userAgent.indexOf("mobile") === -1 && userAgent.indexOf("phone") === -1) {
@@ -96,36 +105,17 @@
         os = "Linux";
     }
 
-    // Configure the views for this platform
-    document.getElementById("no-js-view").style.display = "none";
-
-    var platformButton = document.getElementById("dl-button-" + os.toLowerCase());
-    if (platformButton !== null) {
-        platformButton.style.display = "block";
-    } else {
-        document.getElementById("platform-unsupported").style.display = "block";
+    switch (os) {
+        case "Windows":
+            document.getElementById("dl-button-linux").style.display = "none";
+            break;
+        case "Linux":
+            document.getElementById("dl-button-windows").style.display = "none";
+            break;
+        default:
+            document.getElementById("unsupported-platform-view").style.display = "block";
+            break
     }
-
-    // Installer is not available on all platforms
-    if (os === "Mac") {
-        document.getElementById("install-view").style.display = "none";
-        document.getElementById("manual-package-view").style.display = "flex";
-    } else {
-        document.getElementById("install-view").style.display = "block";
-        document.getElementById("manual-package-view").style.display = "none";
-    }
-    if (os === "Linux") {
-        document.getElementById("dl-button-linux").style.display = "block";
-        document.getElementById("dl-button-windows").style.display = "none";
-    } else if (os === "Windows") {
-        document.getElementById("dl-button-windows").style.display = "block";
-        document.getElementById("dl-button-linux").style.display = "none";
-    }
-
-    document.getElementById("view-package-listing-button").addEventListener("click", function() {
-        this.style.display = "none";
-        document.getElementById("manual-package-view").style.display = "flex";
-    });
 
 </script>
 {{ end }}
