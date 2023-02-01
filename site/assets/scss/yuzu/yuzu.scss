@@ -98,6 +98,10 @@ a:hover {
   display: block !important;
 }
 
+.show-with-js {
+  display: none;
+}
+
 // Make text nicer to read in articles
 .section.content.pt-sm > p {
   text-align: justify;
@@ -142,14 +146,15 @@ pre > code {
 }
 
 #download-buttons > a {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 780px) {
   #download-header {
     flex-direction: row;
     text-align: left;
+    align-items: center;
   }
 
   #download-buttons > a {

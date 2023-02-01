@@ -4,10 +4,8 @@ layout: "downloads"
 FullWidth: true
 ---
 
-<div class="columns is-desktop">
-<div class="column">
-<h2>Windows</h2>
-
+<div class="tab-content" id="tab-windows">
+<h2 class="hide-with-js mt-5">Windows Instructions</h2>
 <article class="message has-text-weight-semibold">
 <div class="message-body">
 <p style="color:cyan;margin-bottom: 0px;">yuzu requires the latest versions of Microsoft Visual C++. 
@@ -27,9 +25,8 @@ Intel and AMD users are strongly recommended to switch to Vulkan by going to `Em
 
 
 
-<div class="column">
-<h2>Linux</h2>
-
+<div class="tab-content" id="tab-linux">
+<h2 class="hide-with-js mt-5">Linux Instructions</h2>
 <article class="message has-text-weight-semibold">
 <div class="message-body">
 <p style="color:cyan;margin-bottom: 0px;">We have yuzu as an AppImage and Flatpak now! This relaxes dependency requirements for yuzu, as well as enabling it to run on a lot of older distributions.</p>
@@ -45,5 +42,4 @@ chmod a+x yuzu-*.AppImage
 ```
 
 Or with the GUI, right click the AppImage, click Properties, then Permissions, then click "Allow this file to run as a program". After that, double-click the AppImage to run it.
-</div>
 </div>

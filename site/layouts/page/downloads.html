@@ -3,10 +3,8 @@
 
 <section class="section">
     <div class="container">
-        <div class="mb-6" id="download-header">
-            <div class="is-flex-grow-1">
-                <h1 class="title">{{ .Title }}</h1>
-            </div>
+        <div class="mb-3" id="download-header">
+            <h1 class="title is-flex-grow-1 mb-0">{{ .Title }}</h1>
             <div id="download-buttons">
                 <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/yuzu_install.exe" class="button dl-button is-medium is-success" id="dl-button-windows">
                     <span class="icon mr-1"><i class="fab fa-windows"></i></span> Download for Windows x64
@@ -17,7 +15,39 @@
             </div>
         </div>
 
-        <div class="content">
+        <div id="unsupported-platform-view">
+            <article class="message is-danger" id="platform-unsupported">
+                <div class="message-body has-text-white my-5">
+                    Currently, yuzu doesn't support your platform. If you are running Windows x64 or Linux x64 however,
+                    choose one of the options below.
+                </div>
+            </article>
+        </div>
+
+        <div class="show-with-js">
+            <div class="tabs " id="platform-switcher">
+                <ul>
+                    <li data-target="tab-windows">
+                        <a>
+                            <span class="icon is-small"><i class="fab fa-windows"></i></span>
+                            <span>Windows</span>
+                        </a>
+                    </li>
+                    <li data-target="tab-linux">
+                        <a>
+                            <span class="icon is-small"><i class="fab fa-linux"></i></span>
+                            <span>Linux</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h2>Instructions</h2>
+            </div>
+        </div>
+
+        <div class="content" id="platform-instructions">
             {{ .Content }}
         </div>
     </div>
@@ -25,7 +55,9 @@
 
 <section class="section pt-0">
     <div class="container">
-        <div id="no-js-view">
+        <div class="hide-with-js content">
+            <h2>Builds</h2>
+
             <article class="message is-warn">
                 <div class="message-body has-text-white mb-6">
                     Hi! We see that you have JavaScript disabled. You can still use the 
@@ -36,19 +68,10 @@
                 </div>
             </article>
         </div>
-
-        <div id="unsupported-platform-view">
-            <article class="message is-danger" id="platform-unsupported">
-                <div class="message-body has-text-white mb-6">
-                    Yuzu doesn't support your platform. If you are running Windows x64 or Linux x64 however,
-                    choose one of the options below.
-                </div>
-            </article>
-        </div>
         
-        <div class="columns" id="manual-package-view">
+        <div class="show-with-js" id="package-view">
             <!-- Mainline -->
-            <div class="column content">
+            <div class="content">
                 <h2>Builds
                     <span class="tag is-info">
                         Last release was &nbsp;
@@ -82,39 +105,78 @@
 
 {{ define "scripts" }}
 <script type="text/javascript">
-    // Show JS relevant elements
-    document.getElementById("no-js-view").style.display = "none";
-    document.getElementById("manual-package-view").style.display = "block";
+    const setTabActive = (targetId) => {
+        document.querySelectorAll(".content .tab-content")
+            .forEach(element => element.style.display = "none");
 
-    function fetchReleases() {
-        getRelease('mainline');
+        document.querySelectorAll(`#${targetId}`)    
+            .forEach(element => element.style.display = "block");
+
+        document.querySelectorAll(".tabs li")    
+            .forEach(element => element.classList.remove('is-active'));
+
+        document.querySelectorAll(`[data-target="${targetId}"]`)    
+            .forEach(element => element.classList.add('is-active'));
     }
 
-    fetchReleases();
+    const getOSGuess = () => {
+        const userAgent = navigator.userAgent.toLowerCase();
+
+        if (userAgent.includes("windows")) {
+            return "Windows";
+        } else if (
+            userAgent.includes("mac") && 
+            !userAgent.includes("mobile") && 
+            !userAgent.includes("phone")
+        ) {
+            return "Mac";
+        } else if (
+            userAgent.includes("linux") && 
+            userAgent.includes("android")
+        ) {
+            return "Linux";
+        }
+
+        return "Other";
+    }
+
+    const setupListeners = () => {
+        document.querySelectorAll(".tabs li")
+            .forEach(element => 
+                element.addEventListener('click', (event) => {
+                    setTabActive(element.dataset.target);
+                })
+            );
+    }
+
+    getRelease('mainline');
+
+    // Show JS relevant elements
+    document.querySelectorAll(".hide-with-js")
+        .forEach(element => element.style.display = "none");
+
+    document.querySelectorAll(".show-with-js")
+        .forEach(element => element.style.display = "block");
+    
+    document.querySelectorAll(".content .tab-content")
+        .forEach(element => element.style.display = "none");
 
     // Attempt autodetection of their operating system
-    var userAgent = navigator.userAgent.toLowerCase();
-    var os = "Other";
-
-    if (userAgent.indexOf("windows") !== -1) {
-        os = "Windows";
-    } else if (userAgent.indexOf("mac") !== -1 && userAgent.indexOf("mobile") === -1 && userAgent.indexOf("phone") === -1) {
-        os = "Mac";
-    } else if (userAgent.indexOf("linux") !== -1 && userAgent.indexOf("android") === -1) {
-        os = "Linux";
-    }
-
-    switch (os) {
+    switch (getOSGuess()) {
         case "Windows":
             document.getElementById("dl-button-linux").style.display = "none";
+            setTabActive('tab-windows');
             break;
         case "Linux":
             document.getElementById("dl-button-windows").style.display = "none";
+            setTabActive('tab-linux');
             break;
         default:
             document.getElementById("unsupported-platform-view").style.display = "block";
+            setTabActive('tab-windows');
             break
     }
 
+    window.addEventListener('DOMContentLoaded', setupListeners);
 </script>
 {{ end }}
