@@ -476,7 +476,7 @@ Thank you so much for staying until the end.
 And very special thanks to Mysterious Writer B, without their help, this article would have been seriously delayed.
 
 {{< imgs
-	"./byte.png| Out of the night, when the full moon is bright, comes a horseman known as B…"
+	"./byte.jpg| Out of the night, when the full moon is bright, comes a horseman known as B…"
   >}}
 
 &nbsp;
