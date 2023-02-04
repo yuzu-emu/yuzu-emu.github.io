@@ -101,22 +101,23 @@ Your writer has a stupid idea, and [byte[]](https://github.com/liamwhite) is the
 This routine worked successfully with SMAA for Vulkan, unsuccessfully with increasing the staging buffer size to take advantage of ReBAR, sadly, and this time, it _almost worked_ with `Turbo mode`, or its official/boring name, {{< gh-hovercard "9552" "Force maximum clocks." >}}
 
 You might be able to see where this is going.
-[A year ago](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2022/#vulkan-is-the-future) Patreon funding got me access to an RX 6500 to help with testing and debugging.
+[A year ago](https://yuzu-emu.org/entry/yuzu-progress-report-feb-2022/#vulkan-is-the-future) Patreon funding got your writer access to an RX 6500 to help with testing and debugging.
 That card died a horrible premature death (and no one misses it), but before kicking the bucket, it let us learn that RDNA and RDNA2 hardware from AMD suffer from serious downclocking issues if you’re not constantly shoving work to the GPU.
 Thankfully, due to the cryptomining crash an RX 6600 took its place, for no extra cost.
 In your face, miners.
 
 Ehem, back on topic.
-The card will try to idle as much as possible to save power, so if the workload is not constant, it switches to a lower clock speed, and raising it again takes time. This results in lower performance.
+The card will try to idle as much as possible to save power, so if the workload is not constant, it switches to a lower clock speed, and raising the clocks again takes time. 
+This results in lower performance.
 While the issue affects all GPU vendors in one way or another, only AMD suffers from up to 70% performance losses, with both Windows *and* Linux drivers, yes, even RADV.
 
 Since asking the users to apply external workarounds like encoding video in the background to keep VRAM usage high or overclocking the minimum clock speed are not easy to communicate, or can count as voiding your warranty, your writer was going insane trying to find ways to cleanly solve this issue, as it seems AMD isn’t very interested in it.
 
 The solution came from an overclocking background again.
 [memtestCL](https://github.com/ihaque/memtestCL) is a tool to test stability of video memory: you set a size, how many iterations to run, and the compute load will compare results, informing you of any errors.
-Running yuzu and memtestCL at the same time completely fixed the downclocking issues of AMD cards (I never pinged byte[] so quickly).
+Running yuzu and memtestCL at the same time completely fixed the downclocking issues of AMD cards!
 
-Some small discussions and prototyping later, and a solution was taking shape.
+Some small discussions and prototyping later, and a solution was starting to take shape.
 Creating and running an OpenCL/CUDA process in parallel was deemed to be too much work, and could be sent to the background by the scheduler, nullifying any gain.
 Instead, we decided to use Vulkan’s own compute capabilities.
 A useless dummy load will constantly run on the GPU, forcing it to always keep its clocks as high as possible, and with it, the power consumption.
@@ -248,8 +249,8 @@ byte[] {{< gh-hovercard "9561" " triggered the scheduled mandatory Dynarmic upda
 Anyone with an ARM64 device running a “normal” GPU (not mobile-tier hardware) interested in testing yuzu, feel free to install our official [Flatpak](https://flathub.org/apps/details/org.yuzu_emu.yuzu).
 
 [german77](https://github.com/german77) stumbled upon an issue which was causing input threads to randomly crash yuzu for seemingly no reason, but only on shutdown.
-byte[], intrigued, found that the incorrect logic which he fixed last month in kernel code with `KHardwareTimer`, was also present in `CoreTiming` -- removing a callback would not wait for completion of any in-progress callbacks, which caused the input threads to continue using memory after it already had been freed.
-By {{< gh-hovercard "9619" "requiring unregistration to wait for in-progress callbacks to finish running," >}} this issue is solved for good.
+byte[] found that `CoreTiming` had the same logic issue that he fixed last month in kernel code when adding `KHardwareTimer`: callbacks could be removed while in-progress, which could cause the input threads to continue using memory after it had been freed. 
+With this code changed to {{< gh-hovercard "9619" "wait until any in-progress callbacks are finished before removal," >}} this issue should be solved for good.
 
 After the merge of german77's impressive Joy-Con driver release [last month](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2022/#new-joy-con-driver-and-other-input-improvements), [Morph](https://github.com/Morph1984) noticed that yuzu was often taking a significantly longer amount of time to shutdown, sometimes more than 5 seconds longer than it should have been allowed to.
 He discovered that this was due to sleep calls in the Joy-Con driver to poll for new devices that weren't being cancelled on shutdown, and with help from byte[], he {{< gh-hovercard "9677" "implemented a proper fix" >}} so that they would immediately stop waiting when shutdown was signalled.
