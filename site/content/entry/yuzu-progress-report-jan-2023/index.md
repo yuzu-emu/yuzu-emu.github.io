@@ -67,7 +67,7 @@ In the `GLSL` backend, it was completely ignored, and in the `SPIR-V` backend, i
 ...which [epicboy](https://github.com/ameerj), one of the original authors of the shader compiler, took notice of, and came back with a rapid-fire series of fixes to address.
 His first fix was to continue what byte[] had started and fully {{< gh-hovercard "9687" "implement multisampled texture fetches" >}} in the `GLSL` and `GLASM` backends, cleaning up rendering of the game with those backends.
 
-{{< single-title-imgs
+{{< single-title-imgs-compare
     "From Stealth to Tactic RPG (Fire Emblem Engage)"
     "./oglbug.png"
     "./oglfix.png"
@@ -76,7 +76,7 @@ His first fix was to continue what byte[] had started and fully {{< gh-hovercard
 He then implemented two more changes: first, {{< gh-hovercard "9694" "preventing translations of the `TXQ instruction` from producing another invalid combination of arguments," >}} and then {{< gh-hovercard "9703" "implementing full support for multisampled images" >}} with the `TXQ instruction`, with only a few minor loose ends to tidy up -- which will require another cache invalidation.
 We preemptively apologize to all Smash players (even though it hasn't happened yet).
 
-{{< single-title-imgs
+{{< single-title-imgs-compare
     "Using a better ISP for your character portraits is said to improve productivity (Fire Emblem Engage)"
     "./feebug.png"
     "./feefix.png"
@@ -84,7 +84,7 @@ We preemptively apologize to all Smash players (even though it hasn't happened y
 
 This fixed menu rendering in other games, `Dokapon UP!` and `Pokémon Mystery Dungeon Rescue Team DX`.
 
-{{< single-title-imgs
+{{< single-title-imgs-compare
     "Fight fire with fire (Pokémon Mystery Dungeon Rescue Team DX)"
     "./pmdbug.png"
     "./pmdfix.png"
@@ -164,7 +164,7 @@ Starting off the new year with a bang, [bylaws](https://github.com/bylaws) of [S
 However, AMD, Intel, and other vendors don't support this extension, and require emulation using geometry shaders.
 bylaws {{< gh-hovercard "9535" "added support for geometry shader passthrough emulation," >}} which fixed rendering issues in `NieR:Automata The End of YoRHa Edition`, `Marvel Ultimate Alliance 3: The Black Order`, `Pokémon: Legends Arceus`, and likely many other games.
 
-{{< single-title-imgs
+{{< single-title-imgs-compare
     "Robot shoot is prEtty funny (NieR:Automata The End of YoRHa Edition)"
     "./nabug.png"
     "./nafix.png"
@@ -177,7 +177,7 @@ Generally, graphics APIs like OpenGL and Vulkan require shaders and some geometr
 When using OpenGL on NVIDIA hardware, yuzu will try to use the host's draw texture function, and it will be emulated with shaders on Vulkan or other platforms.
 This fixes the rendering of the title screen on `Titan Quest`.
 
-{{< single-title-imgs
+{{< single-title-imgs-compare
     "And people ask why we 'make' games run faster on NVIDIA hardware (Titan Quest)"
     "./tqbug.png"
     "./tqfix.png"
@@ -236,8 +236,8 @@ Finally, [PCSX2](https://github.com/PCSX2/pcsx2) and [Dolphin](https://github.co
 We are also able to render some simpler games, but be aware: most things don't work yet.
 Baby steps!
 
-{{< single-title-imgs
-    "It's a GPU hard to describe, has the performance, but lacks the features, but has modern features"
+{{< single-title-imgs-compare
+    "It's hard to describe, has the performance, but lacks the features, but has modern features"
     "./mvkbug.png"
     "./mvkfix.png"
     >}}
@@ -349,7 +349,7 @@ Morph originally started working on {{< gh-hovercard "4949" "improving the high 
 Now it’s ready, and the results are great. 
 Users that run displays at DPI values over 100% can now see proper UI element scaling, particularly noticeable in the controls setting window.
 
-{{< single-title-imgs
+{{< single-title-imgs-compare
     "Now 4K display users rejoice"
     "./dpibug.png"
     "./dpifix.png"
