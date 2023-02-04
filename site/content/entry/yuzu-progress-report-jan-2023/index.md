@@ -218,7 +218,7 @@ We think this should be reasonably future proof for now...
   >}}
 
 Small warning, AMD and Intel hardware don't support textures as big as NVIDIA, so it's possible to hit this limit in some games and make the driver crash. 
-If you have perofrmance and VRAM to spare and you hit a crash, lower the multiplier.
+If you have performance and VRAM to spare and you hit a crash, lower the multiplier.
 
 ## macOS progress
 
