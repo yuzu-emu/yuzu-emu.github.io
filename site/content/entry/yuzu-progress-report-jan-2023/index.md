@@ -252,7 +252,7 @@ byte[], intrigued, found that the incorrect logic which he fixed last month in k
 By {{< gh-hovercard "9619" "requiring unregistration to wait for in-progress callbacks to finish running," >}} this issue is solved for good.
 
 After the merge of german77's impressive Joy-Con driver release [last month](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2022/#new-joy-con-driver-and-other-input-improvements), [Morph](https://github.com/Morph1984) noticed that yuzu was often taking a significantly longer amount of time to shutdown, sometimes more than 5 seconds longer than it should have been allowed to.
-He discovered that this was due to sleep calls in the Joy-Con driver to poll for new devices that weren't being cancelled on shutdown, and with help from byte[], he {{< gh-hovercard "9677" "implemented a proper fix" >}} so that they would immediately stop waiting when shutdown was signalled (#9677).
+He discovered that this was due to sleep calls in the Joy-Con driver to poll for new devices that weren't being cancelled on shutdown, and with help from byte[], he {{< gh-hovercard "9677" "implemented a proper fix" >}} so that they would immediately stop waiting when shutdown was signalled.
 
 More battles won for the shutdown wars, with no end in sight so far! 
 It almost feels like a [Worms](https://www.youtube.com/watch?v=HWJsY4FoSZ8) game by now.
@@ -328,7 +328,7 @@ You can get the Switch to reach -32767 under certain conditions, and EARTH DEFEN
 So what do we do then? german77 decided that the best solution is to {{< gh-hovercard "9676" "apply a 0.99996x multiplier" >}} to the received input from the sticks, just to avoid weird games from behaving incorrectly.
 
 People have been complaining about poor Joy-Con reception since, well, ever, and honestly, there’s a limit to how much we can do, only Nintendo knows what Bluetooth black magic they use to get good range on the Switch.
-Thankfully, the new custom Joy-Con driver allows us to have more freedom on the parameters of the Bluetooth connection, and german77 discovered that {{< gh-hovercard "9683" "disabling low power mode and calling `TriggersElapsed`" >}}, one of the available parameters, after establishing a connection is closer to what the console does, and should help improve range to some extent.
+Thankfully, the new custom Joy-Con driver allows us to have more freedom on the parameters of the Bluetooth connection, and german77 discovered that {{< gh-hovercard "9683" "disabling low power mode," >}} one of the available parameters, after establishing a connection is closer to what the console does, and should help improve range to some extent.
 
 Our general recommendations still apply: if you’re using an Intel WiFI + BT combo chipset, turn off WiFi, and make sure to have your phone away from the BT chipset and the Joy-Cons.
 It’s known that off-brand generic USB dongles provide better range than WiFi + BT combo chips.
