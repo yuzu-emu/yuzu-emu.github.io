@@ -68,7 +68,7 @@ In the `GLSL` backend, it was completely ignored, and in the `SPIR-V` backend, i
 His first fix was to continue what byte[] had started and fully {{< gh-hovercard "9687" "implement multisampled texture fetches" >}} in the `GLSL` and `GLASM` backends, cleaning up rendering of the game with those backends.
 
 {{< single-title-imgs-compare
-    "From Stealth to Tactic RPG (Fire Emblem Engage)"
+    "From Stealth to Tactical RPG (Fire Emblem Engage)"
     "./oglbug.png"
     "./oglfix.png"
     >}}
