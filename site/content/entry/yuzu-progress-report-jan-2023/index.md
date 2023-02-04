@@ -15,7 +15,7 @@ During the time it took to merge last month’s Project `Y.F.C. 1.5`, several ot
 One change that slipped by, made by a new contributor, improved the Vulkan experience so dramatically, it almost feels like cheating…
 The change is simple: instead of relying on the GPU driver to store and validate the pipeline cache (a.k.a. the shaders), and having the usual suspects like the Windows AMD driver fail to store 95% of them because of some arbitrary low size limitation, [Wollnashorn](https://github.com/Wollnashorn) decided that {{< gh-hovercard "9527" "doing it with the official Vulkan API is better." >}}
 
-By storing the entire pipeline cache in a custom file among yuzu’s folders, AMD GPUs running on Windows can now properly load largebig caches in mere seconds, like it should be. 
+By storing the entire pipeline cache in a custom file among yuzu’s folders, AMD GPUs running on Windows can now properly load large caches in mere seconds, like it should be. 
 This has literally saved me hours of time while playing `Xenoblade Chronicles 3` with an RX 6600, as the game has a lovely combination of heavy shaders, and many of them.
 Booting the game with 25000 shaders used to take close to 15 minutes with the driver only providing the first 3000 shaders or so, and the rest always being recompiled. The process now takes mere seconds.
 
@@ -399,6 +399,9 @@ Sorry early adopters, you will have to wait.
 
 Having access to hardware that doesn’t cost NVIDIA-stupid levels would also help. 
 AMD, please don’t take a year to release the mid and low end.
+
+Now, regarding non-official custom drivers, we got reports that Amermine Zone drivers break rendering in many games. 
+Regular drivers are perfectly fine, so just stick to official AMD releases.
 
 #### Intel, artificial limitations capping good hardware
 
