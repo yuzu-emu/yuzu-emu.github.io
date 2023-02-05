@@ -123,7 +123,7 @@ Instead, we decided to use Vulkan’s own compute capabilities.
 A useless dummy load will constantly run on the GPU, forcing it to always keep its clocks as high as possible, and with it, the power consumption.
 
 {{< imgs
-	"./turboperf.png| Lower end cards like the infamous RX 6500 XT can see jumps as high as 70%"
+	"./turboperf.png| Four of the most GPU intensive games. Lower end cards like the infamous RX 6500 XT can see jumps as high as 70%"
   >}}
 
 While this is a simple solution, it has a few drawbacks that forced us to sadly not enable this option by default:
