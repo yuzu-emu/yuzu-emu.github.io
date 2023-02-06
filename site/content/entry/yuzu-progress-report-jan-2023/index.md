@@ -461,7 +461,7 @@ Or, well, macOS, once MoltenVK is fully working.
 ## Future projects
 
 I’m still under a sort of “NDA” with the developers, so I’m not allowed to tell you what’s cooking yet, or else.
-Two words managed to escape, `Project Lime`.
+Two words still managed to escape, `Project Lime`.
 
 `Project Gaia` continues to progress, growing closer to the internal beta testing stage.
 Some of its standalone features have already been tested.
