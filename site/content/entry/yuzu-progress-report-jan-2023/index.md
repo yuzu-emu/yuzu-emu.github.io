@@ -461,16 +461,18 @@ Or, well, macOS, once MoltenVK is fully working.
 ## Future projects
 
 I’m still under a sort of “NDA” with the developers, so I’m not allowed to tell you what’s cooking yet, or else.
-Two words still managed to escape, `Project Lime`.
 
-`Project Gaia` continues to progress, growing closer to the internal beta testing stage.
-Some of its standalone features have already been tested.
+The intel branch still managed to pass along a bit of information before going dark, `Project Lime`, a co-development between bunnei, Tobi, german77, and byte[].
+Stay tuned for its official announcement.
+
+`Project Gaia` continues to progress slowly, growing closer to the internal beta testing phase.
+Some of its standalone features have already been tested:
 
 {{< imgs
 	"./gaia.png| This was a performance test to see how long it takes to load a game list"
   >}}
 
-A bit of sad news for outdated hardware users: we have plans to discontinue OpenGL.
+A bit of sad news for outdated hardware users: we have discussed plans to discontinue OpenGL.
 Fixes and improvements that are critical for Vulkan are becoming a chore to port to OpenGL, and, as you’ve seen with the progress on MoltenVK support, we have to worry about new devices that depend exclusively on Vulkan. 
 It won’t be very soon, but it’s time to consider getting a GPU with Vulkan support, you know, something from the last 11 years.
 
