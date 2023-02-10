@@ -423,8 +423,8 @@ Unless the user pays the premium for a dual channel configuration, or has the op
 Most 3D games can’t run at playable framerates even at 0.5x handheld scaling.
 
 To top it out, it’s very clear that Vulkan drivers are still a weak spot with Intel hardware.
-It’s a lottery with each game. They may perform correctly, similar to their AMD and NVIDIA counterparts, or may have glaring issues.
-We will report these issues to Intel as we find them.
+It’s a lottery with each game. They may perform correctly, similar to their AMD and NVIDIA counterparts, or may have glaring issues. 
+Some shaders, for example, outright crash the driver. We will report these issues to Intel as we find them.
 
 Sadly, the usual solution of just running Linux is not a fix this time. Mesa support for Gen 12 Intel graphics hardware (Xe, Arc, etc) is still in very early stages, and the performance is usually in the sub-10 FPS territory.
 We can’t wait to see Mesa once again show the Windows driver team how their job is done. 
