@@ -416,7 +416,7 @@ As this was first hand experience for a tester with a Gen 12 Intel GPU, we now h
 
 Let’s start with the bad, and this is something that affects many users, as it is the default configuration of most laptops.
 
-Intel, in their *infinite wisdom*, decided that single channel memory configurations should [artificially limit the integrated GPU to the slower UHD Graphics spec](https://www.intel.com/content/www/us/en/support/articles/000059744/graphics.html), reducing its EU (execution units) count. 
+Intel, in their *infinite wisdom*, decided that single channel memory configurations should [artificially limit the integrated GPU to the slower UHD Graphics spec](https://www.intel.com/content/www/us/en/support/articles/000059744/graphics.html), reducing its EU (execution unit) count. 
 Basically, running the GPU with half its cylinders.
 
 Unless the user pays the premium for a dual channel configuration, or has the option to manually add the extra SO-DIMM stick later, performance on Intel Xe devices, or “UHD Graphics”, is *terrible*.
