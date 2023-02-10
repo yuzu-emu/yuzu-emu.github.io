@@ -77,7 +77,7 @@ He then implemented two more changes: {{< gh-hovercard "9694" "preventing transl
 We preemptively apologize to all Smash players (even though it hasn't happened yet).
 
 {{< single-title-imgs-compare
-    "Using a better ISP for your character portraits is said to improve productivity (Fire Emblem Engage)"
+    "Using a better connection for your character portraits is said to improve hero productivity, don't be like Star Wars (Fire Emblem Engage)"
     "./feebug.png"
     "./feefix.png"
     >}}
