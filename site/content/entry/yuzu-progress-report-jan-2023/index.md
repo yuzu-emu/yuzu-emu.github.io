@@ -1,8 +1,8 @@
 +++
-date = "2023-01-30T12:00:00-03:00"
+date = "2023-02-11T12:00:00-03:00"
 title = "Progress Report January 2023"
 author = "GoldenX86"
-forum = 0
+forum = 724529
 +++
 
 New year, more work to do! 2023 started with a plethora of graphical changes, audio and input improvements, TAS and LAN/LDN fixes, and more! Stay tuned yuz-ers, this is just the start of what's to come this year!
@@ -16,8 +16,8 @@ One change that slipped by, made by a new contributor, improved the Vulkan exper
 The change is simple: instead of relying on the GPU driver to store and validate the pipeline cache (a.k.a. the shaders), and having the usual suspects like the Windows AMD driver fail to store 95% of them because of some arbitrary low size limitation, [Wollnashorn](https://github.com/Wollnashorn) decided that {{< gh-hovercard "9527" "doing it with the official Vulkan API is better." >}}
 
 By storing the entire pipeline cache in a custom file among yuzu’s folders, AMD GPUs running on Windows can now properly load large caches in mere seconds, as it should be. 
-This has saved me literal hours of time while playing `Xenoblade Chronicles 3` with an RX 6600, as the game has a lovely combination of heavy shaders and many of them.
-Booting the game with 25000 shaders used to take close to 15 minutes with the driver only providing the first 3000 shaders or so, and the rest always being recompiled. The process now takes mere *seconds*.
+This has saved me literal hours of time while playing `Xenoblade Chronicles 3` with an RX 6600, as the game has the _lovely perk_ of many heavy shaders.
+Booting the game with 25000 shaders used to take close to 15 minutes, with the driver only providing the first 3000 shaders or so, and the rest always being recompiled. The process now takes mere *seconds*.
 
 {{< imgs
 	"./shaders.mp4| NVIDIA and Intel are faster at shader building than AMD"
@@ -37,7 +37,7 @@ Anyone interested in testing disabling it will find the new option in `Emulation
 	"./turboui.png| Vulkan only, OpenGL is not this flexible with compute work"
   >}}
 
-Wollnashorn, delivering another amazing entry for the new year, implemented {{< gh-hovercard "9539" "support for AMD's FidelityFX Super Resolution (FSR) in the OpenGL backend" >}}.
+Wollnashorn, delivering another amazing entry for the new year, implemented {{< gh-hovercard "9539" "support for AMD's FidelityFX Super Resolution (FSR) in the OpenGL backend." >}}
 While AMD only really intended this adapting filter to be used with Vulkan and Direct3D 12, it is actually portable to OpenGL, and provides generally superior results compared to other filters.
 Thanks!
 
@@ -77,7 +77,7 @@ He then implemented two more changes: {{< gh-hovercard "9694" "preventing transl
 We preemptively apologize to all Smash players (even though it hasn't happened yet).
 
 {{< single-title-imgs-compare
-    "Using a better connection for your character portraits is said to improve hero productivity, don't be like Star Wars (Fire Emblem Engage)"
+    "Now your favorite characters won't be half-way in the Shadow Realm (Fire Emblem Engage)"
     "./feebug.png"
     "./feefix.png"
     >}}
@@ -128,7 +128,7 @@ A useless dummy load will constantly run on the GPU, forcing it to always keep i
 
 While this is a simple solution, it has a few drawbacks that forced us to sadly not enable this option by default:
 
-First, not all users want to or can run their GPUs at maximum performance. On mobile devices, it results in terrible battery life, or hitting power limits on AMD and Intel APUs, like for example the Steam Deck, with its small 15W default TDP.
+First, not all users want to or can run their GPUs at maximum performance. On mobile devices, it results in terrible battery life, or hitting power limits on AMD and Intel APUs, like the Steam Deck for example, with its small 15W default TDP.
 
 Second, low constant loads like an old game running at very high framerates, or an emulator performing dummy cycles, produce a noise known as coil whine, an electrical “purring” that varies in intensity with each GPU. Some are barely audible, others can scare their users, even if the card is under no harm.
 
@@ -194,7 +194,7 @@ Let the (high-framerate) games begin!
 epicboy also {{< gh-hovercard "9708" "fixed a longstanding issue with asynchronous shader building on OpenGL," >}} forcing shaders to be fully flushed and available to the main rendering context before signalling availability.
 This should alleviate any persistent graphical errors exclusive to asynchronous shaders in the old API.
 
-[Blinkhawk](https://github.com/FernandoS27) returns with another {{< gh-hovercard "9559" "significant performance improvement" >}} for the world's seemingly-least optimized Pokémon games, allowing them to render in our much faster, but lower-accuracy, GPU Normal mode, as well as a few related optimizations along the way.
+[Blinkhawk](https://github.com/FernandoS27) returns with another {{< gh-hovercard "9559" "significant performance improvement" >}} for the world's seemingly-least optimized Pokémon games. This allows them to render in our much faster, but lower-accuracy, GPU Normal mode, and implements a few related optimizations along the way.
 Have fun shiny hunting!
 
 {{< single-title-imgs
@@ -203,7 +203,7 @@ Have fun shiny hunting!
     "./psh.png"
     >}}
 
-Keep in mind that Normal GPU accuracy will produce vertex explosions for a frame, but they should only last that long and not be permanent now.
+Keep in mind that Normal GPU accuracy will produce vertex explosions for a frame, but only last just as long. Permanent vertex explosions be gone!
 High GPU accuracy will be cleaner, but slower, so pick your side.
 
 As one final note for the GPU section, your writer implemented a feature which had been requested for quite a while since the resolution scaler was released, but nobody had really bothered to look at until now -- {{< gh-hovercard "9612" "additional resolution options." >}}
@@ -249,7 +249,7 @@ byte[] {{< gh-hovercard "9561" " triggered the scheduled mandatory Dynarmic upda
 Anyone with an ARM64 device running a “normal” GPU (not mobile-tier hardware) interested in testing yuzu, feel free to install our official [Flatpak](https://flathub.org/apps/details/org.yuzu_emu.yuzu).
 
 [german77](https://github.com/german77) stumbled upon an issue which was causing input threads to randomly crash yuzu for seemingly no reason, but only on shutdown.
-byte[] found that `CoreTiming` had the same logic issue that he fixed last month in kernel code when adding `KHardwareTimer`: callbacks could be removed while in-progress, which could cause the input threads to continue using memory after it had been freed. 
+byte[] found that `CoreTiming` had the same logic issue that he fixed last month in the kernel code when adding `KHardwareTimer`: callbacks could be removed while in-progress, which could cause the input threads to continue using memory after it had been freed. 
 With this code changed to {{< gh-hovercard "9619" "wait until any in-progress callbacks are finished before removal," >}} this issue should be solved for good.
 
 After the merge of german77's impressive Joy-Con driver release [last month](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2022/#new-joy-con-driver-and-other-input-improvements), [Morph](https://github.com/Morph1984) noticed that yuzu was often taking a significantly longer amount of time to shutdown, sometimes more than 5 seconds longer than it should have been allowed to.
@@ -313,7 +313,7 @@ For our keyboard and mouse fans, there’s now {{< gh-hovercard "9605" "support 
 Sounds like a simple way to switch gear in `The Legend of Zelda: Breath of the Wild` to me, for example.
 
 german77 has been gluing his eyes to some unit tests lately trying to find out why `EARTH DEFENSE FORCE: WORLD BROTHERS` would outright ignore input in some cases.
-After several back and forths between yuzu and the real deal Switch meal, he found out that the stick range didn’t seem to have minimum value of -32768, the usual value expected from a 16-bit signed integer (a range of -32768 to 32767), and instead seemed to have a minimum of -32766.
+After several back and forths between yuzu and the real Switch, he found out that the stick range didn’t seem to have minimum value of -32768, the usual value expected from a 16-bit signed integer (a range of -32768 to 32767), and instead seemed to have a minimum of -32766.
 
 {{< imgs
 	"./input.png| Unpatched Switch consoles are invaluable for us"
@@ -325,7 +325,7 @@ Problem solved, right?
 No.
 
 As it turns out, this is a game bug. 
-You can get the Switch to reach -32767 under certain conditions, and `EARTH DEFENSE FORCE: WORLD BROTHERS` will also refuse to accept input then, on the real hardware.
+You can get the Switch to reach -32767 under certain conditions, and `EARTH DEFENSE FORCE: WORLD BROTHERS` will _also_ refuse to accept input on the real hardware.
 So what do we do then? german77 decided that the best solution is to {{< gh-hovercard "9676" "apply a 0.99996x multiplier" >}} to the received input from the sticks, just to avoid weird games from behaving incorrectly.
 
 People have been complaining about poor Joy-Con reception since, well, ever, and honestly, there’s a limit to how much we can do, only Nintendo knows what Bluetooth black magic they use to get good range on the Switch.
