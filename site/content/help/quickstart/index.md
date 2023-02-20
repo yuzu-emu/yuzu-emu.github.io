@@ -49,6 +49,7 @@ Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are r
 
 - **Recommended:** Intel Core i5-10400 / AMD Ryzen 5 3600
 
+- **Optimal:** Intel Core i5-13400 / AMD Ryzen 7 5800X3D
 #### Dedicated graphics:
 
 OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support and 4GB of VRAM are recommended.
@@ -57,7 +58,9 @@ OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-flo
 
 - **Minimum for Windows:** NVIDIA GeForce GT 1030 2GB / AMD Radeon RX 550 2GB
 
-- **Recommended:** NVIDIA GeForce GTX 1650 4GB / AMD Radeon RX Vega 56 8GB
+- **Recommended:** NVIDIA GeForce GTX 1650 4GB / AMD Radeon RX 6500 4GB
+
+- **Optimal:** NVIDIA Geforce GTX 3060 8GB / AMD Radeon RX 6600 XT 8GB
 
 #### Integrated graphics:
 
@@ -66,13 +69,13 @@ This is only for listing iGPU support.
 
 - **Minimum for Linux:** Intel HD 5300 / AMD Radeon R5 Graphics
 
-- **Minimum for Windows:** Intel HD Graphics 520 / AMD Radeon Vega 3
+- **Minimum for Windows:** Intel UHD Graphics 730 / AMD Radeon Vega 3
 
-- **Recommended:** Intel UHD Graphics 750 / AMD Radeon Vega 7
+- **Recommended:** Intel Iris Xe Graphics / AMD Radeon Vega 7
 
 #### RAM:
 
-Since an integrated GPU uses system RAM as its video memory (VRAM), our memory requirement in this configuration is higher.
+Since an integrated GPU uses system RAM as its video memory (VRAM), our memory requirement in this configuration is higher. Highest possible frequency is strongly recommended.
 
 - **Minimum with dedicated graphics:** 8 GB
 
