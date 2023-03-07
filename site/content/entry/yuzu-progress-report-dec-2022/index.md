@@ -218,7 +218,7 @@ We don’t usually cover compilation changes here, but this time we had to do it
 [Your writer](https://github.com/goldenx86) (or co-writer in this progress report, my [partner](https://github.com/kurenaihana) did most of the work this time) has been playing with compilation flags in order to get more free performance, following previous work done by Blinkhawk some time ago.
 
 Microsoft Visual C++ (MSVC, Visual Studio) is simple enough (we’ll talk about Linux later). You enable full program optimizations, optimize for performance instead of size, a bit here, a bit there, and you gain a nice 3%, but I wanted more.
-Last month, [Epicboy](https://github.com/ameerj) improved the build process, saving both time and memory. This created a “gap” big enough to enable the *Big One*, {{< gh-hovercard "9442" "Link-Time Optimizations" >}} (LTO), an optimization that in the past had to be discarded for eating all the available RAM of our buildbots.
+Last month, [epicboy](https://github.com/ameerj) improved the build process, saving both time and memory. This created a “gap” big enough to enable the *Big One*, {{< gh-hovercard "9442" "Link-Time Optimizations" >}} (LTO), an optimization that in the past had to be discarded for eating all the available RAM of our buildbots.
 
 Windows testing went well and in some cases the performance uplift reached up to 12%.
 The problem was Linux. LTO is aggressive by nature, and there’s no guarantee that all parts of the project will react nicely to it.
@@ -301,13 +301,13 @@ As part of this effort, we started implementing Flatpak support for ARM64 Linux 
 
 Part of these changes fixed compilation for macOS, but the situation remains the same, without `MoltenVK` support, nothing will be rendered.
 
-Epicboy implemented a series of changes with the goal of minimizing the overhead of dynamic memory allocation, a task which involves requesting memory from the operating system, and can slow-down performance in some circumstances.
+epicboy implemented a series of changes with the goal of minimizing the overhead of dynamic memory allocation, a task which involves requesting memory from the operating system, and can slow-down performance in some circumstances.
 
 The texture cache, in particular, was a significant contributor to this issue, as it constantly allocated and then deallocated memory when transferring textures to and from the GPU.
-To address this problem, Epicboy optimized the texture cache to {{< gh-hovercard "9490" "pre-allocate a buffer to store swizzle data" >}} and reuse it whenever possible, rather than performing a dynamic memory allocation every time this was done.
+To address this problem, epicboy optimized the texture cache to {{< gh-hovercard "9490" "pre-allocate a buffer to store swizzle data" >}} and reuse it whenever possible, rather than performing a dynamic memory allocation every time this was done.
 This change should result in reduced stuttering, as memory will now only be requested from the operating system if the buffer is not large enough to hold the data.
 
-Epicboy also made similar changes to {{< gh-hovercard "9508" "optimise the `ReadBuffer` function" >}}, which likewise takes a similar approach: instead of allocating and deallocating memory, a buffer is created once to hold data in the memory, and it only reallocates whenever it needs to grow.
+epicboy also made similar changes to {{< gh-hovercard "9508" "optimise the `ReadBuffer` function" >}}, which likewise takes a similar approach: instead of allocating and deallocating memory, a buffer is created once to hold data in the memory, and it only reallocates whenever it needs to grow.
 
 Additionally, he introduced a {{< gh-hovercard "9453" "`ScratchBuffer` class" >}} to act as a wrapper around a heap-allocated buffer of memory.
 
