@@ -226,7 +226,7 @@ The user can adjust the sensitivity of mouse motion with the same setting used f
 
 But was all that german77 did this month only focused on Metroid Prime Remastered? No.
 Continuing the work started in [December of 2022](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2022/#new-joy-con-driver-and-other-input-improvements), {{< gh-hovercard "9759" "support for Pro Controllers" >}} within the new custom “Joy-Con” driver.
-Since the option is experimental, it only works properly on official Nintendo Pro Controllers, not with third parties, it’s disabled by default.
+Since the option is experimental, it only works properly on official Nintendo Pro Controllers and not with third parties, so it’s disabled by default.
 Owners of *real* Pro Controllers are encouraged to enable this option, as it will provide much better motion and HD Rumble support.
 
 {{< imgs
