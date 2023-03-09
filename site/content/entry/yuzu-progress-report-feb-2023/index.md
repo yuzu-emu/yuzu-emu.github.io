@@ -186,7 +186,7 @@ This time, the recently released update 1.2.0 wouldn’t boot on yuzu. After inv
 
 Some code changes later, and german77 fixed the issue! Now anyone can enjoy the reduced NPC count and lower draw distance.
 
-Even [your writer](https://github.com/goldenx86) tried to give a hand (emphasys on tried).
+Even [your writer](https://github.com/goldenx86) tried to give a hand (emphasis on tried).
 [As reported in the past](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2022/#cpu-requirement-changes-with-free-performance), we applied `Link-time Optimization` to all of yuzu’s subprojects. This meant that every section like audio, input, UI, etc. used LTO at build time, trying to squeeze out every possible bit of performance.
 This caused an unexpected problem: RAM consumption while building increased enough to cause our buildbot to cry for help, causing builds on our Azure DevOps CI to randomly run out of memory.
 
