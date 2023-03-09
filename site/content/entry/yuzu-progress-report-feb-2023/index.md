@@ -126,7 +126,7 @@ While it isn’t a perfect solution, {{< gh-hovercard "9802" "re-adding" >}} the
     >}}
 
 Depending on the shape of the terrain, or the camera angle, the issue can surface again. 
-But as a temporal solution, this change makes playing affected games much more tolerable.
+But as a temporary solution, this change makes playing affected games much more tolerable.
 Work continues!
 
 ## CPU, kernel, services, and optimizations
