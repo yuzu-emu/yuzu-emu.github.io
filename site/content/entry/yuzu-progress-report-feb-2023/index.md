@@ -213,10 +213,10 @@ The problem is that the game uses motion on top of stick input to aim, making it
 
 This was incentive enough to get german77 interested in giving it a try:
 
-First off, he fixed an issue where {{< gh-hovercard "9757" "motion would be constantly getting recalibrated." >}}
-Next, german77 tweaked the {{< gh-hovercard "9815" "mouse scaling" >}} for users running a DPI scaling higher than 100% (1.0x).
-Following up, the {{< gh-hovercard "9842" "mapping for mouse input" >}} was improved. By default a mouse to stick is considered a joystick, which includes assuming deadzone and ranges that aren’t zero by default. This pull request includes some other miscellaneous changes, like fixing some UI elements not working.
-And finally, to address Metroid Prime Remastered’s `hybrid mode`, support for {{< gh-hovercard "9848" "dedicated motion using the mouse" >}} was added. Since the game only uses two axes, this can be directly mapped 1:1 to mouse movement, giving great ease of aiming!
+- First off, he fixed an issue where {{< gh-hovercard "9757" "motion would be constantly getting recalibrated." >}}
+- Next, german77 tweaked the {{< gh-hovercard "9815" "mouse scaling" >}} for users running a DPI scaling higher than 100% (1.0x).
+- Following up, the {{< gh-hovercard "9842" "mapping for mouse input" >}} was improved. By default a mouse to stick is considered a joystick, which includes assuming deadzone and ranges that aren’t zero by default. This pull request includes some other miscellaneous changes, like fixing some UI elements not working.
+- And finally, to address Metroid Prime Remastered’s `hybrid mode`, support for {{< gh-hovercard "9848" "dedicated motion using the mouse" >}} was added. Since the game only uses two axes, this can be directly mapped 1:1 to mouse movement, giving great ease of aiming!
 
 The user can adjust the sensitivity of mouse motion with the same setting used for mouse panning in `Emulation > Configure… > Controls > Advanced`
 
@@ -300,7 +300,7 @@ Properly {{< gh-hovercard "9843" "passing the error" >}} through to the game all
 
 Some improvements were done to yuzu-cmd, the command-line alternative to the default Qt UI.
 
-german77 added support {{< gh-hovercard "9729" "touch from mouse click and SDL controller input," >}} and {{< gh-hovercard "9730" "two parameters," >}} `-g`  for specifying a game file location and `-u` for specifying an user profile.
+german77 added support for {{< gh-hovercard "9729" "touch inputs from mouse clicks and SDL controller input support," >}} and {{< gh-hovercard "9730" "two parameters," >}} `-g`  for specifying a game file location and `-u` for specifying an user profile.
 
 Your writer also showed up, {{< gh-hovercard "9737" "updating" >}} the graphical filters and resolution multiplier options that were recently added to regular yuzu.
 
