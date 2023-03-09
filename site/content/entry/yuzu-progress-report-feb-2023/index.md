@@ -85,7 +85,7 @@ Both solutions have stuttering always present while the decoding takes place, es
 Well, epicboy adds a new weapon to our arsenal, and oh boy it can help. At a price.
 Introducing {{< gh-hovercard "9849" "Asynchronous ASTC texture decoding!" >}} 
 
-For those that prefer zero ASTC related stuttering during their gameplay, this new toggle uses a background thread to decode ASTC textures while the game is being rendered
+For those that prefer zero ASTC related stuttering during their gameplay, this new toggle uses a background thread to decode ASTC textures while the game is being rendered.
 Such an approach will eliminate stuttering, but has the cost of introducing graphical glitches until the textures finish showing up on screen.
 
 Here’s a comparison of asynchronous decoding with a 16 threads Ryzen 7 5800X3D (so not even the king of the hill in thread count, what matters the most for CPU decoding), vs an RTX 4090, the biggest commercially available compute monster for consumers right now.
