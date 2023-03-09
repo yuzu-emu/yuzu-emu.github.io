@@ -277,7 +277,7 @@ The images are grabbed from our compatibility wiki, which is under a rewrite, so
     >}}
 
 A small mistake caused the web applet to lose the ability to redraw and zoom its content when resizing the yuzu web applet window.
-{{< gh-hovercard "9761" "Re-adding" >}} the `setZoomFactor ` feature fixes the scaling, allowing players to fit their Mario Manual to their needs.
+{{< gh-hovercard "9761" "Re-adding" >}} the `setZoomFactor` feature fixes the scaling, allowing players to fit their Mario Manual to their needs.
 
 Per-game settings are very useful, but also very tricky to get right codewise
 [m-HD](https://github.com/m-HD) greets us by adding a few missing graphical settings to the list, solving conflicting issues when setting the fullscreen mode, resolution scaling, filter, and antialiasing values in the {{< gh-hovercard "9784" "per-game" >}} configuration window.
