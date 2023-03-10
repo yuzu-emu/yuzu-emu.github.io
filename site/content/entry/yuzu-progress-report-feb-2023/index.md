@@ -161,7 +161,7 @@ This game requires more work to get proper video and gameplay rendering.
 Keeping the pursuit for accuracy, byte[] also implemented {{< gh-hovercard "9832" "HLE multiprocess" >}} for services.
 Now instead of pushing the game’s requests to the services, the services wait for the requests to arrive.
 All this processing is done, for the most part, in what would be the emulated `core 3` of the Switch, instead of all over the place with one thread per service. 
-Games usually only have access to cores 0 to 2, so we’re making good use of the normally free last core available, just as the actual Switch operating system does!
+Games usually only have access to cores 0 to 2, so we're now dedicating the last core for system service processing, just as the actual Switch operating system does!
 
 This part of CPU emulation is one of the main reasons we recommend at least 6 cores in our [hardware requirements](https://yuzu-emu.org/help/quickstart/#hardware-requirements), 4 for uninterrupted emulation of the Switch’s CPU, and extras for other processes and tasks. Just a 4 core CPU will be usually overburdened. HT/SMT may help, but that will always depend on the workload at any given moment.
 A SMT/HT thread can’t improve performance in a significant way if the core is already saturated.
@@ -191,7 +191,7 @@ Even [your writer](https://github.com/goldenx86) tried to give a hand (emphasis 
 This caused an unexpected problem: RAM consumption while building increased enough to cause our buildbot to cry for help, causing builds on our Azure DevOps CI to randomly run out of memory.
 
 byte[] suggested that I instead profile which subprojects would provide the most performance boosts, and to only apply LTO to those.
-A few rounds of toasting a CPU building yuzu later, and it was determined that the two most obvious candidates, core and video_core, were the responsible ones for the performance boost provided by enabling LTO.
+A few rounds of toasting a CPU by building yuzu later, and it was determined that the two most obvious candidates, core and video_core, were the responsible ones for the performance boost provided by enabling LTO.
 
 {{< gh-hovercard "9872" "Partially applying LTO" >}} to only the core and video_core projects not only reduced compiler RAM use, but also provided a very minor but still consistently measured performance increase, `The Legend of Zelda: Link’s Awakening` improved from 257 FPS to 260 FPS.
 Nothing groundbreaking, but it’s a free bonus from a change that was only intended to reduce RAM use!
@@ -224,9 +224,9 @@ The user can adjust the sensitivity of mouse motion with the same setting used f
 	"./mouse.png| Remember to set sensitivity to your liking"
   >}}
 
-But was all that german77 did this month only focused on Metroid Prime Remastered? No.
+But did german77 focus on nothing but Metroid Prime Remastered? No.
 Continuing the work started in [December of 2022](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2022/#new-joy-con-driver-and-other-input-improvements), {{< gh-hovercard "9759" "support for Pro Controllers" >}} within the new custom “Joy-Con” driver.
-Since the option is experimental, it only works properly on official Nintendo Pro Controllers and not with third parties, so it’s disabled by default.
+Since the option is experimental, it only works properly on official Switch Pro Controllers and not with third party controllers, so it’s disabled by default.
 Owners of *real* Pro Controllers are encouraged to enable this option, as it will provide much better motion and HD Rumble support.
 
 {{< imgs
@@ -244,14 +244,16 @@ Guess having fewer crashes is always good, right?
 
 Merry made an attempt at fixing a {{< gh-hovercard "9768" "rounding issue" >}} in the bi-quad filter. 
 
-While the intention of this change is to partially improve the audio quality in several games, but most notably the game of the month, `Metroid Prime Remastered`, it didn’t quite hit the mark. 
+While the intention of this change is to partially improve the audio quality in several games, most notably Metroid Prime Remastered (the game of the month), it didn’t quite hit the mark.
 This wasn’t enough to solve the random noise issues affecting the game, so Maide set out to investigate and found out that the audio emulation codebase was wrongly saving the state of all different audio channels in the same address! 
 
-You can imagine what’s the audio result if the left channel stores some precious data, the right channel does the same, overwriting what the left channel did, and then the left channel fetches back what it expects to be the correct information to work on something else.
+As you can imagine, if the left audio channel stores some samples, the right channel does the same (overwriting what the left channel stored), and then the left channel fetches back something unexpected, the result can sound... interesting.
 Users described this problem in Metroid as “if someone shot a gun right by your ears”.
 
-Now each audio channel stores its information in {{< gh-hovercard "9795" "different memory regions," >}} completely avoiding overlapping each other.
-Not just `Metroid Prime Remastered` will benefit from this, both `Fire Emblem` games have shown improvements too.
+Now each audio channel stores its information in {{< gh-hovercard "9795" "different memory regions," >}} avoiding any issues with overlapping access.
+Not only `Metroid Prime Remastered` benefits from this; both `Fire Emblem` games have shown improvements as well.
+
+pic
 
 Another issue Maide found was a missed check causing an array index to read negative values, which is, in simple terms, “very wrong”.
 This was causing the audio engine to grab {{< gh-hovercard "9769" "random chunks of memory" >}} as information for mixing, crashing the audio engine, and yuzu with it.
@@ -267,7 +269,7 @@ Nothing beats quality of life changes like this, thanks!
 	"./lobby.png| Only the dankest rooms, please"
   >}}
 
-For Discord gamers, [SoRadGaming](https://github.com/SoRadGaming) gives us proper game images for{{< gh-hovercard "9720" "Discord Status!" >}}
+For Discord gamers, [SoRadGaming](https://github.com/SoRadGaming) gives us proper game images for {{< gh-hovercard "9720" "Discord Status!" >}}
 The images are grabbed from our compatibility wiki, which is under a rewrite, so expect some games to be missing for now.
 
 {{< single-title-imgs
@@ -277,14 +279,14 @@ The images are grabbed from our compatibility wiki, which is under a rewrite, so
     >}}
 
 A small mistake caused the web applet to lose the ability to redraw and zoom its content when resizing the yuzu web applet window.
-{{< gh-hovercard "9761" "Re-adding" >}} the `setZoomFactor` feature fixes the scaling, allowing players to fit their Mario Manual to their needs.
+{{< gh-hovercard "9761" "Re-adding" >}} the `setZoomFactor` call fixes the scaling, allowing players to fit their Mario Manual to their needs.
 
 Per-game settings are very useful, but also very tricky to get right codewise.
 [m-HD](https://github.com/m-HD) greets us by adding a few missing graphical settings to the list, solving conflicting issues when setting the fullscreen mode, resolution scaling, filter, and antialiasing values in the {{< gh-hovercard "9784" "per-game" >}} configuration window.
 
 German77 then properly implemented per-game configuration support for the `Force maximum clocks` {{< gh-hovercard "9863" "setting" >}} AMD GPUs [benefit](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/) so much from.
 
-yuzu can crash, that’s expected of any first generation emulator.
+While we are constantly working to improve the user experience, yuzu sometimes does crash, that’s expected of any first generation emulator.
 What shouldn’t happen is missing changes made to the configuration after a crash, or a forced close.
 The problem was in our Qt UI, and german77 worked to properly tell Qt to save and sync the configuration to file, avoiding any {{< gh-hovercard "9817" "configuration change loss" >}} after a force close.
 
