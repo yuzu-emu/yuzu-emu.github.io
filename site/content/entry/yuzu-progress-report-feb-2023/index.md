@@ -230,7 +230,7 @@ Since the option is experimental, it only works properly on official Switch Pro 
 Owners of *real* Pro Controllers are encouraged to enable this option, as it will provide much better motion and HD Rumble support.
 
 {{< imgs
-	"./procon.png| Not the same pic as the previous one, I swear"
+	"./procon.png| Not the same screenshot as the previous one, I swear"
   >}}
 
 Previous limitations like being unable to use a Pro Controller for Amiibo detection are still in place, as there’s still work to be done.
@@ -253,7 +253,9 @@ Users described this problem in Metroid as “if someone shot a gun right by you
 Now each audio channel stores its information in {{< gh-hovercard "9795" "different memory regions," >}} avoiding any issues with overlapping access.
 Not only `Metroid Prime Remastered` benefits from this; both `Fire Emblem` games have shown improvements as well.
 
-pic
+{{< imgs
+	"./fee.png| Clown Swimsuit (Fire Emblem Engage)"
+  >}}
 
 Another issue Maide found was a missed check causing an array index to read negative values, which is, in simple terms, “very wrong”.
 This was causing the audio engine to grab {{< gh-hovercard "9769" "random chunks of memory" >}} as information for mixing, crashing the audio engine, and yuzu with it.
