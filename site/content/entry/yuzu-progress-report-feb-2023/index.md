@@ -338,11 +338,9 @@ With yuzu or any other emulator/program of choice open, press `Windows + G`, and
 
 Then enable `Remember this is a game`.
 
-{{< single-title-imgs-compare
-	"And just like that, better performance!"
-	"./xbox2.png"
-	"./xbox3.png"
->}}
+{{< imgs
+	"./xbox3.png| And just like that, better performance!"
+  >}}
 
 That’s it! 
 
