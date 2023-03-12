@@ -11,7 +11,7 @@ Hello yuz-ers! This month has seen changes across all aspects of yuzu. We have i
 
 ## Project Y.F.C. 1.75?
 
-Another month, another Project Y.FC. addendum. Introducing one of the features that was missing from the previous 1.5 release.
+Another month, another Project Y.F.C. addendum. Introducing one of the features that was missing from the previous 1.5 release.
 
 [Blinkhawk](https://github.com/FernandoS27) implemented host texture download acceleration for the Switch’s DMA engine (or Accelerate DMA for short).
 
@@ -86,7 +86,7 @@ Well, epicboy adds a new weapon to our arsenal, and oh boy it can help. At a pri
 Introducing {{< gh-hovercard "9849" "Asynchronous ASTC texture decoding!" >}} 
 
 For those that prefer zero ASTC related stuttering during their gameplay, this new toggle uses a background thread to decode ASTC textures while the game is being rendered.
-Such an approach will eliminate stuttering, but has the cost of introducing graphical glitches until the textures finish showing up on screen.
+Such an approach will eliminate stuttering, but has the cost of introducing graphical glitches until the textures finish loading in.
 
 Here’s a comparison of asynchronous decoding with a 16 threads Ryzen 7 5800X3D (so not even the king of the hill in thread count, what matters the most for CPU decoding), vs an RTX 4090, the biggest commercially available compute monster for consumers right now.
 
@@ -101,7 +101,7 @@ Even a 12-thread CPU would still win a drag race in the most intensive ASTC game
 Users with lower thread count CPUs (like quad cores with 8 threads or lower) may need to time their results.
 
 You can find the option in `Emulation > Configure… > Graphics > Advanced > Decode ASTC textures asynchronously (Hack)`. 
-Enabling it will also override the setting in Graphics, always using CPU decoding, so remember to disable it if you want to use GPU compute decoding instead.
+Enabling it will also override the setting `Accelerate ASTC texture decoding` in the `Graphics` tab. This setting makes yuzu use the GPU, but enabling `Decode ASTC textures asynchronously (Hack)` will force yuzu to always use CPU decoding. So remember to disable asynchronous ASTC decode if you want to use GPU compute decoding instead.
 
 {{< imgs
 	"./astc.png| We recommend low CPU thread users to stick to GPU decoding"
@@ -224,7 +224,7 @@ The user can adjust the sensitivity of mouse motion with the same setting used f
 	"./mouse.png| Remember to set sensitivity to your liking"
   >}}
 
-But did german77 focus on nothing but Metroid Prime Remastered? No.
+But did german77 focus on nothing but `Metroid Prime Remastered`? No.
 Continuing the work started in [December of 2022](https://yuzu-emu.org/entry/yuzu-progress-report-dec-2022/#new-joy-con-driver-and-other-input-improvements), {{< gh-hovercard "9759" "support for Pro Controllers" >}} within the new custom “Joy-Con” driver.
 Since the option is experimental, it only works properly on official Switch Pro Controllers and not with third party controllers, so it’s disabled by default.
 Owners of *real* Pro Controllers are encouraged to enable this option, as it will provide much improved motion and HD Rumble support.
@@ -322,9 +322,9 @@ AMD recently released their Zen 4 CPUs with 3D V-Cache technology, and in an eff
 
 Only one of this gaming-beast CPU’s two CCDs (modules containing 8 cores each) has access to the expanded L3 V-Cache, and the decision on which one to use is up to Windows Game Bar. 
 To our dismay, there is no hardware scheduler here. 
-The chipset driver and a Windows toggle decides which mode is better.
+The chipset driver and a Windows toggle decide which mode is better.
 
-Since yuzu and basically any other emulator are not registered as games by Windows, the user will have to manually intervene and enable `Game Mode` in order to let the chipset driver profile performance and decide which CCD will provide the best performance.
+Since yuzu, and basically any other emulator, are not registered as games by Windows, the user will have to manually intervene and enable `Game Mode` in order to let the chipset driver profile performance and decide which CCD will perform the best.
 
 Doing this should also benefit every user, not just 7000X3D ones, as Windows uses the toggle to allocate resources (RAM, threads) to the affected program, so it’s not a bad practice at all!
  
