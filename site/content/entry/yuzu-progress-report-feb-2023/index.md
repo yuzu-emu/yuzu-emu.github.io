@@ -216,7 +216,11 @@ This was incentive enough to get german77 interested in giving it a try:
 - First off, he fixed an issue where {{< gh-hovercard "9757" "motion would be constantly getting recalibrated." >}}
 - Next, german77 tweaked the {{< gh-hovercard "9815" "mouse scaling" >}} for users running a DPI scaling higher than 100% (1.0x).
 - Following up, the {{< gh-hovercard "9842" "mapping for mouse input" >}} was improved. By default a mouse to stick is considered a joystick, which includes assuming deadzone and ranges that aren’t zero by default. This pull request includes some other miscellaneous changes, like fixing some UI elements not working.
-- And finally, to address `Metroid Prime Remastered`’s "hybrid mode", support for {{< gh-hovercard "9848" "dedicated motion using the mouse" >}} was added. Since the game only uses two axes, this can be directly mapped 1:1 to mouse movement, making aiming a breeze!
+- And finally, to address `Metroid Prime Remastered`’s "Dual Stick mode", support for {{< gh-hovercard "9848" "dedicated motion using the mouse" >}} was added. Since the game only uses two axes, this can be directly mapped 1:1 to mouse movement, making aiming a breeze!
+
+To use this feature, go to `Emulation > Configure… > Controls`, click on `Motion 1`, then click again to set the mouse to motion. Then in the Advanced tab, enable mouse panning. After that map the keys manually as if to configure an FPS.
+
+GitHub user [SixelAlexiS90](https://github.com/SixelAlexiS90) provides an input profile. To use it, on yuzu go to `File > Open yuzu folder` and place [this input profile](https://github.com/yuzu-emu/yuzu/files/10958194/MetroidPrimeRemasteredM%2BK.txt) inside the `config\input` folder (make a new "input" folder if there isn't one). All that's left to do after that is to select the profile in yuzu's control settings.
 
 The user can adjust the sensitivity of mouse motion with the same setting used for mouse panning in `Emulation > Configure… > Controls > Advanced`
 
