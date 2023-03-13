@@ -1,8 +1,8 @@
 +++
-date = "2023-03-08T12:00:00-03:00"
+date = "2023-03-12T12:00:00-03:00"
 title = "Progress Report February 2023"
 author = "GoldenX86"
-forum = 0
+forum = 740528
 +++
 
 Hello yuz-ers! This month has seen changes across all aspects of yuzu. We have improvements in the GPU, Kernel, Services, Input, User Interface and Experience, Driver related rants, and more!
