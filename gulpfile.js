@@ -10,14 +10,14 @@ const parallel = require('concurrent-transform');
 const browserSync = require('browser-sync').create();
 
 // Gulp Run Tasks
-gulp.task('scripts:compatdb', callback => {
-    exec('cd ./scripts/shared-hugo-scripts/compatdb/ && yarn install && node app.js', (err, stdout, stderr) => {
+gulp.task('scripts:compatdb', function (callback) {
+    exec('yarn run compatdb', { cwd: './scripts/shared-hugo-scripts/' }, function (err, stdout, stderr) {
         callback(err);
     });
 });
 
-gulp.task('scripts:wiki', callback => {
-    exec('cd ./scripts/shared-hugo-scripts/wiki/ && yarn install && node app.js', (err, stdout, stderr) => {
+gulp.task('scripts:wiki', function (callback) {
+    exec('yarn run wiki', { cwd: './scripts/shared-hugo-scripts/' }, function (err, stdout, stderr) {
         callback(err);
     });
 });

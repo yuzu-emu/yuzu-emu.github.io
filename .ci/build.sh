@@ -3,8 +3,7 @@
 echo -e '\e[1m\e[36m========== Installing gulp & dependencies ==========\e[0m'
 yarn install
 # Install dependencies one-by-one to avoid race-conditions
-yarn --cwd ./scripts/shared-hugo-scripts/wiki/
-yarn --cwd ./scripts/shared-hugo-scripts/compatdb/
+yarn --cwd ./scripts/shared-hugo-scripts/
 yarn hugo version
 echo -e '\e[1m\e[36m========== Starting gulp deploy task ===============\e[0m'
 if [[ -n "${EPHEMERAL_BASE_URL}" ]]; then
