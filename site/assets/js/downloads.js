@@ -30,7 +30,7 @@ function releaseCallback(v, count, e) {
 
         var release_date = moment(release.published_at).fromNow();
 
-        var release_commit = release.assets[0].name.split('-').pop().trim().split('.')[0];
+        var release_commit = release.target_commitish;
         var release_commit_url = `https://github.com/yuzu-emu/yuzu-${v}/commit/${release_commit}`;
 
         var release_title = '';
@@ -39,7 +39,7 @@ function releaseCallback(v, count, e) {
         }
 
         if (release_commit) {
-            release_title += ' - ' + release_commit;
+            release_title += ' - ' + release_commit.substring(0, 9);
         }
 
         var download_span = '';
