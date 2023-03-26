@@ -24,9 +24,7 @@
     "hugo-bin": "0.101.4",
     "minimist": "^1.2.8"
   },
-  "devDependencies": {
-    "xo": "^0.53.1"
-  },
+  "devDependencies": {},
   "hugo-bin": {
     "buildTags": "extended"
   }
