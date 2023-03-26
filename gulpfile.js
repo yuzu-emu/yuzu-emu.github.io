@@ -23,25 +23,14 @@ gulp.task('scripts:wiki', function (callback) {
 });
 
 gulp.task('assets:images', () => {
-    const baseImages = gulp.src('build/images/*', {base: './'})
-        .pipe(gulp.dest('./'));
-    const jumbotronImages = gulp.src('build/images/jumbotron/*', {base: './'})
-        .pipe(imageResize({width: 426, height: 240, crop: true}))
-        .pipe(gulp.dest('./'));
     const bannerImages = gulp.src('build/images/banners/*', {base: './'})
         .pipe(imageResize({width: 824, height: 306, crop: false}))
-        .pipe(gulp.dest('./'));
-    const boxartImages = gulp.src('build/images/game/boxart/*', {base: './'})
-        .pipe(imageResize({width: 328, height: 300, crop: true}))
         .pipe(gulp.dest('./'));
     const iconImages = gulp.src('build/images/game/icons/*', {base: './'})
         .pipe(imageResize({width: 48, height: 48, crop: true}))
         .pipe(gulp.dest('./'));
-    const screenshotImages = gulp.src('build/images/screenshots/*')
-        .pipe(imageResize({width: 640, height: 360, crop: false}))
-        .pipe(gulp.dest('build/images/screenshots/thumbs'));
 
-    return parallel(baseImages, jumbotronImages, bannerImages, boxartImages, iconImages, screenshotImages);
+    return parallel(bannerImages, iconImages);
 });
 
 gulp.task('hugo', (callback) => {

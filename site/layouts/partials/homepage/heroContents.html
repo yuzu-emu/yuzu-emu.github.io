@@ -34,18 +34,19 @@
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
-                            {{ $jumbotronFiles := readDir "/static/images/jumbotron/" }}
-                            {{ range $index, $element := $jumbotronFiles }}
+                            {{ $jumbotronImages := resources.Match "/images/jumbotron/*" }}
+                            {{ range $index, $element := $jumbotronImages }}
+                            {{ $jumbotronThumb := $element.Fill "426x240 jpg q95" }}
                             {{ $fileTitle := (index (split .Name "-") 1) }}
                             {{ $fileTitle := (index (split $fileTitle ".") 0) }}
                             <li class="glide__slide">
                                 <div class="image is-16by9">
                                     <div class="carousel-caption">{{ $fileTitle }}</div>
                                     <img {{if eq $index 0}}
-                                         src="/images/jumbotron{{ $element.Name | relURL }}"
+                                         src="{{ $jumbotronThumb.Permalink }}"
                                          {{else}}
                                          class="lazy-load"
-                                         data-src="/images/jumbotron{{ $element.Name | relURL }}"
+                                         data-src="{{ $jumbotronThumb.Permalink }}"
                                          {{end}}
                                          alt="{{ $fileTitle }}">
                                 </div>
