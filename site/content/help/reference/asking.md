@@ -16,7 +16,7 @@ description: "How to properly ask in our forums or support channel for assistanc
 
 ### Submitting your support request:
 * Choose a place to ask for support:
-    * **Discord:** Go to the [**#yuzu-support channel on our Discord Server**](https://discord.gg/u77vRWY) and submit a message describing your issue alongside uploading your log file. Remember to read the #welcome channel for instructions on how to join the server.
+    * **Discord:** Go to the [**#yuzu-support channel on our Discord Server**](https://discord.gg/u77vRWY) and submit a message describing your issue alongside uploading your log file. Remember to read the #read-me channel for instructions on how to join the server.
     * **Forums:** Go to the [**Support section of our forums**](https://community.citra-emu.org/c/yuzu-support) and start a new thread or post in an existing one if it discusses the same problem you're experiencing, attaching or uploading your log file.
 * **Don't forget to upload the file containing the log.**
 * Include screenshots if you believe they help clarifying your problem. Upload them as attachments to the post or upload them to image sharing websites like [**Imgur**](http://imgur.com/) and link them on your request.
