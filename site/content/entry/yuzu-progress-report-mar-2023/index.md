@@ -362,7 +362,7 @@ But enough about that. Let’s talk about some exciting projects in the works.
 Regarding Project Gaia:
 
 {{< imgs
-	"./gaia.png| Flute intensifies"
+	"./gaia.jpg| Flute intensifies"
   >}}
 
 Project Gaia is still in development.
