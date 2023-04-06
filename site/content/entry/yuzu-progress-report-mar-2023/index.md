@@ -1,7 +1,7 @@
 +++
-date = “2023-04-05T12:00:00-03:00”
-title = “Progress Report March 2023”
-author = “GoldenX86”
+date = "2023-04-05T12:00:00-03:00"
+title = "Progress Report March 2023"
+author = "GoldenX86"
 forum = 0
 +++
 
@@ -35,7 +35,7 @@ The new free resources mean better performance for low core count CPUs like quad
 With this change, we measured up to a 24% reduction in CPU use or power consumption, depending on the limiting factor.
 
 {{< single-title-imgs
-    "Left: old 1ms precision; Right: current 0.5ms precision. The result comes from your writer’s laptop which runs a Single Language Windows, so don’t mind the Spanish. Note that there is a difference in CPU use between the two results."
+    "Left: old 1ms precision; Right: current 0.5ms precision. The result comes from your writer’s laptop which runs a Single Language Windows, so don’t mind the Spanish. Note that there is a difference in CPU use between the two results"
     "./usebug.png"
     "./usefix.png"
     >}}
