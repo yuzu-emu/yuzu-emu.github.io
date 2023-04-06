@@ -20,7 +20,7 @@ However, some of these events, like audio, require a high level of timer precisi
 
 By default Windows only allows a precision of 1ms since the OS event loop runs at 1000Hz. 
 This is not enough. 
-However, Linux, BSD or MacOS running devices don't face this limitation and can achieve μs levels of precision.
+However, Linux, BSD or MacOS running devices don't face this limitation and can achieve μs (microseconds) levels of precision.
 
 If a game wants to run at 16.67ms of frametime (60 FPS), you could wait for 17ms two-thirds of the time, and 16ms for the remaining one third, but this has already proved in the past to be terrible for audio accuracy.
 The alternative, and the old method in use for Windows, is to wait for 16ms, and do a busy wait for 0.67ms. 
@@ -35,7 +35,7 @@ The new free resources mean better performance for low core count CPUs like quad
 With this change, we measured up to a 24% reduction in CPU use or power consumption, depending on the limiting factor.
 
 {{< single-title-imgs
-    "Left: old 1ms precision; Right: current 0.5ms precision. The result comes from your writer’s laptop which runs a Single Language Windows, so don’t mind the Spanish. Note that there is a difference in CPU use between the two results"
+    "Left: old 1ms precision; Right: current 0.5ms precision. The result comes from your writer’s laptop which runs a Single Language Windows installation, so don’t mind the Spanish. Note that there is a difference in CPU use between the two results"
     "./usebug.png"
     "./usefix.png"
     >}}
@@ -52,7 +52,7 @@ Alternatively, a more common scenario for an emulator, if your ceiling is a fixe
 Users reported that games have less audio stuttering thanks to the improved timer precision.
 
 Another nice tool that the Windows 10 SDK adds is allowing us to set yuzu as a `HighQoS` process, hinting to the Windows scheduler that if there are higher performance cores available, they should take priority.
-This further improves performance for current Ryzen CPUs by suggesting to use the best cores of a CCX, and for Intel 12th Gen and newer CPUs, by prioritizing P-cores.
+This further improves performance for current Ryzen CPUs by suggesting to use the best cores of a CCX, and for Intel 12th Gen and newer, by prioritizing P-cores ("performance cores", normal cores).
 
 It’s heavily recommended to keep chipset drivers up to date to take the best advantage of your hardware.
 
@@ -297,7 +297,7 @@ bylaws has been digging deep into {{< gh-hovercard "9969" "audio synchronization
 This change caused some regressions, as some games are *very sensitive* to audio scheduling requirements. 
 Users reported popping sounds after the merge, so bylaws improved the situation by adding a constant 15 ms of {{< gh-hovercard "10027" "latency" >}} to the sample count reporting.
 
-## Other CPU and Kernel changes
+## Other code changes
 
 Fire Emblem fans have been experiencing freezes in game, and after some investigation, Morph found out that the culprit was the bounded threadsafe queue, introduced with a pull request from [behunin](https://github.com/behunin).
 
