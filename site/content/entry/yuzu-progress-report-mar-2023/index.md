@@ -80,7 +80,7 @@ The result is practically perfect timing on Ryzen and Intel 11th Gen and older s
 Having completely different cores counting time simultaneously inside the CPU is not pretty for this specific application.
 We can’t defeat the hybrid asymmetric nature of Intel’s design, but we managed to reduce the drift from a second per minute, to a second every 5 minutes or so.
 
-“Okay, this is pretty good” said Morph, but how can you go even deeper?
+"Okay, this is pretty good" said Morph, but how can you go even deeper?
 The only option left is to {{< gh-hovercard "9982" "drop to assembly." >}}
 
 The only optimization possible at the time is only available for 12th Gen and newer Intel CPUs; AMD has not added support for it yet.
@@ -164,7 +164,7 @@ We need more information to fully understand the issue, but for now, {{< gh-hove
 >}}
 
 The other long-standing issue affecting the Xenoblade trilogy (well, Definitive Edition and 2 at least) has been plaguing yuzu since the legendary [Texture Cache Rewrite](https://yuzu-emu.org/entry/yuzu-tcr/). 
-It was the random “rainbow mode” that could happen anytime during gameplay, or in a specific late-game cutscene in `Xenoblade Chronicles 2` that I won’t spoil for new players.
+It was the random "rainbow mode" that could happen anytime during gameplay, or in a specific late-game cutscene in `Xenoblade Chronicles 2` that I won’t spoil for new players.
 If you played it in yuzu, you know which one. 
 It makes you wonder if you’re in [Rapture](https://tvtropes.org/pmwiki/pmwiki.php/VideoGame/Bioshock).
 
@@ -199,7 +199,7 @@ Then you can join your writer in debating over which Queen is the best.
 Newcomer [rschlaikjer](https://github.com/rschlaikjer), I hope I pronounced that right, has been digging deep into the texture cache, trying to figure out why a simple visual novel like `Tsukihime -A Piece of Blue Glass Moon-` would stutter when changing scenes. 
 Maybe it’s because the game is too emotional for the emulator to handle.
 
-The culprit was a missing reference operator when capturing the GPU page table, which caused the table to be copied over and over again thousands of times per second. That would make anyone stutter, let alone an emulator. {{< gh-hovercard “9988” “Converting” >}} the capture to a reference solved the issue, and it might also fix similar problems in other games.
+The culprit was a missing reference operator when capturing the GPU page table, which caused the table to be copied over and over again thousands of times per second. That would make anyone stutter, let alone an emulator. {{< gh-hovercard "9988" "Converting" >}} the capture to a reference solved the issue, and it might also fix similar problems in other games.
 
 We’re glad rschlaikjer caught this bug before it got out of hand. We don’t want to end up like [that chair](https://youtu.be/NPVRBa-VSMg).
 
@@ -212,7 +212,7 @@ And some issues are just plain silly. Like when a game crashes because the defau
 [german77](https://github.com/german77) found a simple fix for crashes in dozens of games:  {{< gh-hovercard "9908" "giving" >}} the profile picture to a real 32x32 resolution instead of 0x0. 
 That’s it.
 
-Continuing to work on UI improvements, german77 also {{< gh-hovercard "9941" "moved" >}} the last audio setting “Mute audio when in background” to the Audio section, where it belongs. No more wandering around in General for this option.
+Continuing to work on UI improvements, german77 also {{< gh-hovercard "9941" "moved" >}} the last audio setting "Mute audio when in background" to the Audio section, where it belongs. No more wandering around in General for this option.
 
 {{< single-title-imgs-compare
 	"Good, proper order"
@@ -223,7 +223,7 @@ Continuing to work on UI improvements, german77 also {{< gh-hovercard "9941" "mo
 This next one is a great improvement for UX (user experience), and a huge relief for me personally. 
 Before, when using per-game controller profiles, if you forgot to change your input settings before starting a game, you would lose them when the game closes, and have to set them up again next time.
 
-epicboy {{< gh-hovercard “9965” “fixed” >}} this annoying issue and german77 merged the changes.
+epicboy {{< gh-hovercard "9965" "fixed" >}} this annoying issue and german77 merged the changes.
 Thank you so much for this fix.
 
 german77 is also working on making the profile selection applet better.
@@ -233,7 +233,7 @@ The {{< gh-hovercard "10006" "current changes" >}} are just the beginning, we wi
 
 Let’s talk about input, where german77 continues to shine.
 
-Not satisfied with the mouse and keyboard experience when {{< gh-hovercard “9906” “playing” >}} `Metroid Prime Remastered`, german77 set the default mouse sensitivity to 50% and removed the smoothing filter, improving the performance on high DPI gaming mice after getting valuable feedback from Metroid fans.
+Not satisfied with the mouse and keyboard experience when {{< gh-hovercard "9906" "playing" >}} `Metroid Prime Remastered`, german77 set the default mouse sensitivity to 50% and removed the smoothing filter, improving the performance on high DPI gaming mice after getting valuable feedback from Metroid fans.
 He also lowered the motion threshold, clamped the rotation speed and accumulated all input until delivery, which fixed the delay and choppiness of the previous implementation.
 
 {{< imgs
@@ -242,7 +242,7 @@ He also lowered the motion threshold, clamped the rotation speed and accumulated
 
 Thanks to those changes, `Metroid Prime Remastered` showed that it could be a great PC game. If only Nintendo would let it out of its dungeon.
 
-A common question we get is “will this third party Switch controller work?”
+A common question we get is "will this third party Switch controller work?"
 The short answer is maybe, but the long answer is a bit more complicated.
  
 According to Nintendo’s API, Joy-Cons have two modes: active and passive.
@@ -251,14 +251,14 @@ They just run with the default settings, for better or worse.
 
 That doesn’t mean passive controllers are useless. They still work on the Switch. But it does mean that they work differently. Active controllers update their status every 15 ms, while passive controllers only do it when something happens, like a button press or release.
 
-Well, it turns out yuzu didn’t support passive mode until now! So german77’s {{< gh-hovercard “9907” “changes” >}} made a lot of third party controller users happy.
+Well, it turns out yuzu didn’t support passive mode until now! So german77’s {{< gh-hovercard "9907" "changes" >}} made a lot of third party controller users happy.
 That’s quite handy, considering how many unofficial controllers are out there.
 
 The battle with vibration goes on!
 While doing his usual research, german77 found out that if you have more than one player using the same type of controller, or if you use a dual Joy-Con setup with a single controller, you can end up sending two vibration commands to the same controller in a row.
 This can be annoying, and it also takes up the limited bandwidth of Bluetooth connections.
 
-The {{< gh-hovercard “9939” “solution” >}} is simple: only take the latest element in the [cool vibrations](https://www.youtube.com/watch?v=gzY8VH7eb8Y) queue for each controller, check if the controller can handle the requested vibration, and ignore the rest.
+The {{< gh-hovercard "9939" "solution" >}} is simple: only take the latest element in the [cool vibrations](https://www.youtube.com/watch?v=gzY8VH7eb8Y) queue for each controller, check if the controller can handle the requested vibration, and ignore the rest.
 
 We all love Quality of Life changes, right? Even if they are not very flashy.
 
@@ -274,15 +274,15 @@ Some games go back to a previous menu instead of getting stuck in an endless loo
 german77 solved this {{< gh-hovercard "9997" "behaviour," >}} and while at it also solved a bug where the player count wasn’t correct. 
 
 german77 implemented the… hold on, let me catch my breath first, `SetNpadJoyAssignmentModeSingleWithDestination` service call.
-He {{< gh-hovercard “9999” “implemented” >}} it hoping to make `Let’s Get Fit` playable, but unfortunately there are more issues in the way.
+He {{< gh-hovercard "9999" "implemented" >}} it hoping to make `Let’s Get Fit` playable, but unfortunately there are more issues in the way.
 
 Changing topics to Amiibo support, a lot has happened this month.
 
-First of all, german77 managed to {{< gh-hovercard “9953” “write” >}} the correct [CRC](https://en.wikipedia.org/wiki/Cyclic_redundancy_check), making Amiibo data written by yuzu compatible with a Switch later on; no more invalid info.
+First of all, german77 managed to {{< gh-hovercard "9953" "write" >}} the correct [CRC](https://en.wikipedia.org/wiki/Cyclic_redundancy_check), making Amiibo data written by yuzu compatible with a Switch later on; no more invalid info.
 
-Next, if you tried to connect a controller while scanning an Amiibo, it would not be recognized. By {{< gh-hovercard “9981” “accounting” >}} for this and initializing or finalizing the controller, he fixed the issue.
+Next, if you tried to connect a controller while scanning an Amiibo, it would not be recognized. By {{< gh-hovercard "9981" "accounting" >}} for this and initializing or finalizing the controller, he fixed the issue.
 
-And last but not least, to wrap up the Amiibo saga, Herman the German Sherman {{< gh-hovercard “9995” “added support” >}} for plain Amiibo files.
+And last but not least, to wrap up the Amiibo saga, Herman the German Sherman {{< gh-hovercard "9995" "added support" >}} for plain Amiibo files.
 Some Amiibos, like the ones themed after `Super Smash Bros. Ultimate`, don’t encrypt their data, so they don’t need keys to be dumped. 
 Now yuzu can read non-encrypted game data from your Amiibos correctly!
 
@@ -295,7 +295,7 @@ Now you can enjoy Mario’s voice without any echo. Mama mia!
 bylaws has been digging deep into {{< gh-hovercard "9969" "audio synchronization," >}} improving the codebase here and there, and managing to avoid stalls by linking the guest sample tracking to the host.
 
 This change caused some regressions, as some games are *very sensitive* to audio scheduling requirements. 
-Users reported popping sounds after the merge, so bylaws improved the situation by adding a constant 15 ms of {{< gh-hovercard “10027” “latency” >}} to the sample count reporting.
+Users reported popping sounds after the merge, so bylaws improved the situation by adding a constant 15 ms of {{< gh-hovercard "10027" "latency" >}} to the sample count reporting.
 
 ## Other CPU and Kernel changes
 
@@ -355,7 +355,7 @@ The devs are on fire and they’re not stopping anytime soon.
 Nintendo contributed in releasing the holy grail of Vulkan extensions, [VK_EXT_shader_object](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_shader_object.html).
 This extension promises to cut down the amount of work needed to build shaders significantly, as its dependencies suggest, requiring support for all previous dynamic state extensions.
 
-Most likely Nintendo intends to use it for their internal emulators, maybe for “backwards compatibility.”
+Most likely Nintendo intends to use it for their internal emulators, maybe for "backwards compatibility."
 Regardless of any of that, we have a lot of work ahead of us to add support for this extension.
 
 But enough about that. Let’s talk about some exciting projects in the works.
