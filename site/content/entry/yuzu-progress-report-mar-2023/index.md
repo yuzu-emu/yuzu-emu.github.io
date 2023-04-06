@@ -352,6 +352,8 @@ The solution while the investigation continues is to use ol’ reliable Linux, o
 We’re not even halfway through April and I’m already thrilled about what’s coming up in the next progress report. 
 The devs are on fire and they’re not stopping anytime soon.
 
+Maide is working on more improvements for the Xenoblade series, such as fixing the cloud flickering in `Xenoblade Chronicles 2`, the particle effects in `Xenoblade Chronicles 3`, and the texture flickering that affects the whole saga and some other games.
+
 Nintendo contributed in releasing the holy grail of Vulkan extensions, [VK_EXT_shader_object](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_shader_object.html).
 This extension promises to cut down the amount of work needed to build shaders significantly, as its dependencies suggest, requiring support for all previous dynamic state extensions.
 
