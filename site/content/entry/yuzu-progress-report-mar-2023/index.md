@@ -353,6 +353,8 @@ We’re not even halfway through April and I’m already thrilled about what’s
 The devs are on fire and they’re not stopping anytime soon.
 
 Maide is working on more improvements for the Xenoblade series, such as fixing the cloud flickering in `Xenoblade Chronicles 2`, the particle effects in `Xenoblade Chronicles 3`, and the texture flickering that affects the whole saga and some other games.
+However, these fixes come at a performance cost, so he needs some help from another GPU developer to optimize them.
+Maybe [Blinkhawk](https://github.com/FernandoS27) could lend a hand?
 
 Nintendo contributed in releasing the holy grail of Vulkan extensions, [VK_EXT_shader_object](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_shader_object.html).
 This extension promises to cut down the amount of work needed to build shaders significantly, as its dependencies suggest, requiring support for all previous dynamic state extensions.
