@@ -1,8 +1,8 @@
 +++
-date = "2023-04-05T12:00:00-03:00"
+date = "2023-04-10T12:00:00-03:00"
 title = "Progress Report March 2023"
 author = "GoldenX86"
-forum = 0
+forum = 756599
 +++
 
 Hi yuz-ers! We've been working hard as usual, and this March saw improvements in performance, graphics, audio, CPU precision, input, and much more!
@@ -283,8 +283,7 @@ First of all, german77 managed to {{< gh-hovercard "9953" "write" >}} the correc
 Next, if you tried to connect a controller while scanning an Amiibo, it would not be recognized. By {{< gh-hovercard "9981" "accounting" >}} for this and initializing or finalizing the controller, he fixed the issue.
 
 And last but not least, to wrap up the Amiibo saga, Herman the German Sherman {{< gh-hovercard "9995" "added support" >}} for plain Amiibo files.
-Some Amiibos, like the ones themed after `Super Smash Bros. Ultimate`, don’t encrypt their data, so they don’t need keys to be dumped. 
-Now yuzu can read non-encrypted game data from your Amiibos correctly!
+Some Amiibos, like the ones themed after `Super Smash Bros. Ultimate`, can be edited without the need of keys. Now yuzu can read non-encrypted game data from your Amiibos correctly!
 
 ## Audio fixes
 
@@ -368,7 +367,7 @@ But enough about that. Let’s talk about some exciting projects in the works.
   >}}
 
 Regarding Project Gaia:
-Project Gaia is still in development.
+it is still in development.
 
 Oh, and Project Lime is in release candidate status, under intense internal testing.
 
