@@ -49,7 +49,7 @@ Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are r
 
 - **Recommended:** Intel Core i5-10400 / AMD Ryzen 5 3600
 
-- **Optimal:** Intel Core i5-13900K / AMD Ryzen 7 7800X3D
+- **Optimal:** Intel Core i9-13900K / AMD Ryzen 7 7800X3D
 
 #### Dedicated graphics:
 
