@@ -1,8 +1,6 @@
 +++
-title = "yuzu Privacy Policy"
+title = "Privacy Policy for the yuzu Emulator Project"
 +++
-
-# Privacy Policy for the yuzu Emulator Project
 
 The yuzu Emulator Project values your privacy and is committed to protecting your personal information. 
 This Privacy Policy explains how we collect, use, and protect your anonymized telemetry data when you use the yuzu application (the "App"), and how we collect, use, and protect your information when you use the website and forum.
@@ -62,4 +60,4 @@ This Privacy Policy explains how we collect, use, and protect your anonymized te
 
 <br>
 
-### This Privacy Policy is effective as of **May 1st, 2023**.
+This Privacy Policy is effective as of **May 1st, 2023**.
