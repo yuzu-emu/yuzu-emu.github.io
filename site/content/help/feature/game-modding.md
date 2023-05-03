@@ -50,7 +50,7 @@ This allows modders to delete files within the romfs if a file of the same name 
 Similarly, if a file with the same name but with extension `.ips` is found at the same directory within `romfs_ext`, the base game file will be patched with it.
 
 ### Example 
-For example, lets examine Splatoon 2, a popular game for modding.
+For example, let's examine Splatoon 2, a popular game for modding.
 
 Since Splatoon 2's title id is `01003BC0000A0000`, all of our mods for this game will go in `%YUZU_DIR%/load/01003BC0000A0000`. 
 
