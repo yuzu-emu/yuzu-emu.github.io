@@ -17,4 +17,4 @@ Steps to run:
     export GITHUB_WIKI_URL=https://github.com/yuzu-emu/yuzu.wiki.git
     export TENANT=yuzu
     ```
-3. Run `yarn serve` to watch files and serve on http://localhost:3000 or `yarn build` to compile a static version.
+3. Run `yarn serve` to watch files and serve on http://localhost:1313 or `yarn build` to compile a static version.

@@ -24,7 +24,7 @@ jobs:
         key: ${{ runner.os }}-rendered-${{ github.sha }}
         restore-keys: ${{ runner.os }}-rendered-
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install graphicsmagick
+      run: sudo apt-get update
     - name: Build
       env:
         GITHUB_WIKI_URL: 'https://github.com/yuzu-emu/yuzu.wiki.git'

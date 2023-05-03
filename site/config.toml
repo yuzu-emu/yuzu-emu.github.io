@@ -71,6 +71,14 @@ timeout = 300000
     description = "yuzu is a highly experimental open-source emulator for the Nintendo Switch."
     weight = 1
 
+[module]
+  [[module.mounts]]
+  source = "static/images"
+  target = "assets/images"
+  [[module.mounts]]
+  source = 'assets'
+  target = 'assets'
+
 [outputs]
 home = [ "HTML", "RSS" ]
 section = [ "HTML" ]

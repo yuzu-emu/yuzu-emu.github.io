@@ -1,74 +1,52 @@
 const fs = require('fs');
-const exec = require('child_process').exec;
+const { spawnSync } = require("child_process");
 
 const gulp = require('gulp');
 const log = require('fancy-log');
 const parseArgs = require('minimist');
-const concat = require('gulp-concat');
-const imageResize = require('gulp-image-resize');
-const parallel = require('concurrent-transform');
-const browserSync = require('browser-sync').create();
+
+const hugoDefaultArgs = ["-s", "./site/", "-d", "../build", "-v", "--gc"];
 
 // Gulp Run Tasks
 gulp.task('scripts:compatdb', function (callback) {
-    exec('yarn run compatdb', { cwd: './scripts/shared-hugo-scripts/' }, function (err, stdout, stderr) {
-        callback(err);
-    });
+    callback(
+        spawnSync("yarn", ["run", "compatdb"], { cwd: "./scripts/shared-hugo-scripts/" }).error
+    );
 });
 
 gulp.task('scripts:wiki', function (callback) {
-    exec('yarn run wiki', { cwd: './scripts/shared-hugo-scripts/' }, function (err, stdout, stderr) {
-        callback(err);
-    });
-});
-
-gulp.task('assets:images', () => {
-    const baseImages = gulp.src('build/images/*', {base: './'})
-        .pipe(gulp.dest('./'));
-    const jumbotronImages = gulp.src('build/images/jumbotron/*', {base: './'})
-        .pipe(imageResize({width: 426, height: 240, crop: true}))
-        .pipe(gulp.dest('./'));
-    const bannerImages = gulp.src('build/images/banners/*', {base: './'})
-        .pipe(imageResize({width: 824, height: 306, crop: false}))
-        .pipe(gulp.dest('./'));
-    const boxartImages = gulp.src('build/images/game/boxart/*', {base: './'})
-        .pipe(imageResize({width: 328, height: 300, crop: true}))
-        .pipe(gulp.dest('./'));
-    const iconImages = gulp.src('build/images/game/icons/*', {base: './'})
-        .pipe(imageResize({width: 48, height: 48, crop: true}))
-        .pipe(gulp.dest('./'));
-    const screenshotImages = gulp.src('build/images/screenshots/*')
-        .pipe(imageResize({width: 640, height: 360, crop: false}))
-        .pipe(gulp.dest('build/images/screenshots/thumbs'));
-
-    return parallel(baseImages, jumbotronImages, bannerImages, boxartImages, iconImages, screenshotImages);
+    callback(
+        spawnSync("yarn", ["run", "wiki"], { cwd: "./scripts/shared-hugo-scripts/" }).error
+    );
 });
 
 gulp.task('hugo', (callback) => {
     import('hugo-bin').then((hugo) => {
-        exec(hugo.default + ' -s ./site/ -d ../build/ -v --gc', (err, stdout, stderr) => {
-            console.log(stdout);
-            callback(err);
+        const result = spawnSync(hugo.default, hugoDefaultArgs, {
+            stdio: "inherit",
         });
+        if (result.status !== 0) {
+            log.error(result.error);
+            callback(new Error("Hugo build failed"));
+            return;
+        }
+        callback();
     });
 });
 
 gulp.task('final:serve', (done) => {
-    browserSync.init({
-        open: false,
-        server: {
-            baseDir: 'build'
+    import('hugo-bin').then((hugo) => {
+        let args = hugoDefaultArgs;
+        args.push("server");
+        const result = spawnSync(hugo.default, args, {
+            stdio: "inherit",
+        });
+        if (result.status !== 0) {
+            log.error(result.error);
+            callback(new Error("Failed to start Hugo preview server"));
+            return;
         }
-    });
-
-    gulp.watch('site/assets/js/**/*', gulp.series('hugo'));
-    gulp.watch('src/scss/**/*', gulp.series('hugo'));
-    gulp.watch('site/**/*.html', gulp.series('hugo'));
-    gulp.watch('site/**/*.md', gulp.series('hugo'));
-    gulp.watch('site/**/*.png', gulp.series('hugo'));
-
-    gulp.watch('build/**/*.html').on('change', (x) => {
-        browserSync.reload(x);
+        callback();
     });
 
     done();
@@ -103,6 +81,6 @@ if (parseArgs(process.argv).production) {
 log.info(`process.env.HUGO_ENV = '${process.env.HUGO_ENV}'`);
 log.info(`process.env.HUGO_BASEURL = '${process.env.HUGO_BASEURL}'`);
 
-gulp.task('default', gulp.series('hugo', 'assets:images', finalCommand));
-gulp.task('all', gulp.series(gulp.parallel('scripts:compatdb', 'scripts:wiki'), 'hugo', 'assets:images', finalCommand));
+gulp.task('default', gulp.series('hugo', finalCommand));
+gulp.task('all', gulp.series(gulp.parallel('scripts:compatdb', 'scripts:wiki'), 'hugo', finalCommand));
 gulp.task('content', gulp.series('hugo', finalCommand));

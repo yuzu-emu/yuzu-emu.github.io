@@ -19,19 +19,12 @@
   "homepage": "https://github.com/yuzu-emu/yuzu-emu.github.io#readme",
   "dependencies": {
     "bulma": "0.9.4",
-    "concurrent-transform": "^1.0.0",
     "fancy-log": "^2.0.0",
     "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-image-resize": "^0.13.1",
-    "hugo-bin": "0.101.2",
-    "merge-stream": "^2.0.0",
+    "hugo-bin": "0.101.4",
     "minimist": "^1.2.8"
   },
-  "devDependencies": {
-    "browser-sync": "^2.29.0",
-    "xo": "^0.53.1"
-  },
+  "devDependencies": {},
   "hugo-bin": {
     "buildTags": "extended"
   }
