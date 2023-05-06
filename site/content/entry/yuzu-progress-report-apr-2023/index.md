@@ -31,8 +31,6 @@ Plus, all this wizardry reduces bandwidth usage, boosting performance up to 50% 
 Here’s an incomplete list of changes:
 
 - As noted previously, many games which required high GPU accuracy to be visually accurate now work with normal GPU accuracy with minimal sacrifice.
-- Particles in `The Legend of Zelda: Breath of the Wild` have been fixed, resulting in 40% higher performance with accurate rendering at normal GPU accuracy.
-- Tree flickering in `The Legend of Zelda: Breath of the Wild` has been fixed on all GPU accuracy options.
 - Particles and character lighting/shading in `Pokemon Sword & Shield` have been fixed at normal GPU accuracy. Performance has improved by up to 40% at normal GPU accuracy.
 - Models (the BowWow, for example) and particle rendering are fixed at normal GPU accuracy in `The Legend of Zelda: Link's Awakening`. Performance at normal accuracy, with correct rendering, is now up to 70% higher than before.
 - Lighting in `Diablo II: Resurrected` has been fixed and will no longer flicker.
@@ -49,6 +47,8 @@ Here’s an incomplete list of changes:
 - `NieR:Automata The End of YoRHa Edition"` now renders correctly.
 - `Bayonetta 3` no longer requires high GPU accuracy to render correctly.
 - `Splatoon 2`’s ink physics work correctly on AMD GPUs while using high GPU accuracy.
+- Particles in `The Legend of Zelda: Breath of the Wild` have been fixed, resulting in 40% higher performance with accurate rendering at normal GPU accuracy.
+- Tree flickering in `The Legend of Zelda: Breath of the Wild` has been fixed on all GPU accuracy options.
 - And much more.
  
 No option needs to be enabled to take advantage of all of this, just switch GPU accuracy to normal if you haven’t already.
@@ -197,7 +197,7 @@ One of the options available to the users with [LDN](https://yuzu-emu.org/entry/
 They implemented the functionality and now users can pass the `--bind-address` argument to the room’s configuration.
 Thanks!
 
-Continuing his work on improving CPU timing accuracy, [Morph](https://github.com/Morph1984) fixed confusion between the raw CPU frequency and `Counter-timer Frequency`, or CNTFRQ.
+Continuing his work on {{< gh-hovercard "10086" "improving CPU timing accuracy," >}} [Morph](https://github.com/Morph1984) fixed confusion between the raw CPU frequency and `Counter-timer Frequency`, or CNTFRQ.
 The difference between the two is that CNTFRQ reports the frequency of the system clock, instead of the CPU frequency.
 While fixing this, he also reduced the time it takes to measure timing information by about 60%.
 
