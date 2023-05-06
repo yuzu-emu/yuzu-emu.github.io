@@ -156,7 +156,7 @@ We have many more changes Blinkhawk implemented, but they didn’t make it in ti
 
 ## General changes and settings glossary
 
-The modding community requested us to allow for larger texture mods. The old 6GB limit was not enough, so byte[] {{< gh-hovercard "10035" "expanded it to support the 8GB arrangement" >}} instead, giving almost all of it to the emulated program.
+The modding community requested us to allow for larger texture mods. The old 6GB limit was not enough, so byte[] {{< gh-hovercard "10035" "expanded it to support a custom 8GB arrangement" >}} instead, giving almost all of it to the emulated program.
 
 This had unforeseen consequences.
  
@@ -340,7 +340,7 @@ This is some kind of twisted joke.
 For comparison, when you do this with NVIDIA, they *hire* you.
 
 We’re left with no option but to mitigate the crashes as much as we can. 
-To do so, Morph {{< gh-hovercard "10110" "disabled compute shaders" >}} entirely for Intel Windows drivers, ensuring games like `The Legend of Zelda: Breath of the Wild` can even be booted, let alone playable.
+To do so, Morph {{< gh-hovercard "10110" "disabled compute shaders" >}} entirely for Intel Windows drivers, ensuring games like `The Legend of Zelda: Breath of the Wild` can still boot―even though they'll have gameplay issues as a result.
 
 This isn’t enough to solve all crashes. Some games like `Xenoblade Chronicles 3` will still crash the shader compiler. We haven't diagnosed this yet, but believe that it's likely closely related to the same issue we have already reported.
 
