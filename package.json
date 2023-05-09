@@ -21,7 +21,7 @@
     "bulma": "0.9.4",
     "fancy-log": "^2.0.0",
     "gulp": "^4.0.2",
-    "hugo-bin": "0.101.4",
+    "hugo-bin": "0.102.0",
     "minimist": "^1.2.8"
   },
   "devDependencies": {},
