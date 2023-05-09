@@ -26,7 +26,7 @@ Part of the work {{< gh-hovercard "10088" "also involves:" >}}
 - Improving consistency for `Query Cache` asynchronous downloads
 
 The results are amazing. Most games that used to need High GPU accuracy to render correctly can now run on Normal with no issues.
-Additionally, all this wizardry reduces bandwidth usage and boosts performance up to 50% for everyone, from the low-end APUs to the high-end beasts.
+Additionally, all this wizardry reduces bandwidth usage and boosts performance up to 87% for everyone (50% on average), from the low-end APUs to the high-end beasts.
 
 Here’s an incomplete list of changes:
 
