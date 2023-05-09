@@ -9,7 +9,7 @@ Hello yuz-ers! There were fewer individual changes this month, but the changes t
 
 <!--more--> 
 
-This *should be* a shorter article than usual, you’ll find out why soon.
+Poor Melia up there.
 
 ## Project Y.F.C. 1.90!
 
@@ -374,7 +374,6 @@ Stay tuned.
 You will also hear news about `Project Lime` *very soon!*
 
 That’s all folks! Thank you for reading until the end, nothing makes us happier.
-
 
 &nbsp;
 {{< article-end >}}
