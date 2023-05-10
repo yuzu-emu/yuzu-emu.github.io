@@ -286,7 +286,7 @@ It has a downside worth mentioning, it can be up to 5% slower than regular Vulka
 While this fun renaming works fine, we also heard from Windows Insider users that future versions of the Xbox Game Bar application will allow yuzu to work with Auto HDR without doing any renaming. 
 This will most likely require newer NVIDIA drivers to work.
 
-If you own an HDR-compatible monitor and want to compare the results, here’s a .jxr [HDR capture](https://github.com/goldenx86/yuzu-emu.github.io/blob/apr23/site/content/entry/yuzu-progress-report-apr-2023/hdr.jxr) that the default Windows 11 photo viewer can open, and a comparable .png native [SDR capture](https://github.com/goldenx86/yuzu-emu.github.io/blob/apr23/site/content/entry/yuzu-progress-report-apr-2023/sdr.png).
+If you own an HDR-compatible monitor and want to compare the results, here’s a .jxr [HDR capture](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-apr-2023/hdr.jxr) that the default Windows 11 photo viewer can open, and a comparable .png native [SDR capture](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-apr-2023/sdr.png).
 You will of course need HDR output enabled in both your display’s and Windows 11 settings.
 Notice the difference in the sky and lamps.
 The tonemapping isn’t perfect, but we will never get Switch games outputting native HDR anyway.
