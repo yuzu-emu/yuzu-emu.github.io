@@ -310,7 +310,7 @@ In the meantime, Polaris users should stick to driver [23.3.1](https://www.amd.c
 	"./polaris.png| Your whole desktop looks like this"
   >}}
 
-On another topic, we started talks with AMD to investigate the cause of the Pentelas Region vertex explosions in `Xenoblade Chronicles 3`, and also the initial regions in its new expansion, `Future Redeemed`.
+On another topic, we reported to AMD what we suspect is the cause of the Pentelas Region vertex explosions in `Xenoblade Chronicles 3`, which also now affect the initial regions in its new expansion, `Future Redeemed`.
 
 {{< imgs
 	"./pentelas.png| That’s the water performing the mother of all vertex explosions (Xenoblade Chronicles 3)"
