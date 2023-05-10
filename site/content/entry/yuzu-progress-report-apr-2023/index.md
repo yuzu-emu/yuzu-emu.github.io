@@ -49,7 +49,7 @@ Here’s an incomplete list of changes:
 - `Splatoon 2`’s ink physics work correctly on AMD GPUs while using High GPU accuracy.
 - Particles in `The Legend of Zelda: Breath of the Wild` have been fixed, resulting in 40% higher performance and accurate rendering on Normal GPU accuracy.
 - Tree flickering in `The Legend of Zelda: Breath of the Wild` has been fixed on all GPU accuracy options.
-- And much, much more!.
+- And much, much more!
  
 No option needs to be enabled to take advantage of all of this, just switch GPU accuracy to Normal if you haven’t already. What are you waiting for?
 
@@ -197,7 +197,7 @@ Properly {{< gh-hovercard "10056" "returning this error as a result" >}} is enou
 
 One of the options made available to our [LDN](https://yuzu-emu.org/entry/ldn-is-here/) users is the ability to [create private rooms](https://yuzu-emu.org/help/feature/multiplayer/), providing hosts with several options to configure their servers as they want.
 
-[twitchax](https://github.com/twitchax) knows that for certain hosting servers, such as `fly.io`, a {{< gh-hovercard "10068" "custom bind address" >}} is needed.
+[twitchax](https://github.com/twitchax) knows that for certain server hosts, such as `fly.io`, a {{< gh-hovercard "10068" "custom bind address" >}} is needed.
 They implemented the functionality and now users can pass the `--bind-address` argument to the room’s configuration.
 Thanks!
 
@@ -287,7 +287,7 @@ While this fun renaming works fine, we also heard from Windows Insider users tha
 This will most likely require newer NVIDIA drivers to work.
 
 If you own an HDR-compatible monitor and want to compare the results, here’s a .jxr [HDR capture](https://github.com/goldenx86/yuzu-emu.github.io/blob/apr23/site/content/entry/yuzu-progress-report-apr-2023/hdr.jxr) that the default Windows 11 photo viewer can open, and a comparable .png native [SDR capture](https://github.com/goldenx86/yuzu-emu.github.io/blob/apr23/site/content/entry/yuzu-progress-report-apr-2023/sdr.png).
-You will of course need HDR output enabled in both your display’s and Windows 11’s settings.
+You will of course need HDR output enabled in both your display’s and Windows 11 settings.
 Notice the difference in the sky and lamps.
 The tonemapping isn’t perfect, but we will never get Switch games outputting native HDR anyway.
 
