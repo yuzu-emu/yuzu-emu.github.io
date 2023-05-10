@@ -357,7 +357,7 @@ For those that prefer proper rendering on Intel Windows drivers, can tolerate th
 We’re working to add a toggle that can be configured per game.
 
 But wait, there’s more, the fun doesn’t stop there.
-Reddit user [r4mbazamba](https://www.reddit.com/user/r4mbazamba/) discovered that Intel 12th and 13th Gen CPUs running on Windows 11 have noticeably worse frametimes than the same hardware running on Windows 10.
+Reddit users discovered that Intel 12th and 13th Gen CPUs running on Windows 11 have noticeably worse frametimes than the same hardware running on Windows 10.
 
 {{< imgs
 	"./intel.png| What would EA say to this"
