@@ -47,7 +47,7 @@ Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are r
 
 - **Minimum:** Intel Core i5-4430 / AMD Ryzen 3 1200
 
-- **Recommended:** Intel Core i5-10400 / AMD Ryzen 5 3600
+- **Recommended:** Intel Core i5-11400 / AMD Ryzen 5 3600
 
 - **Optimal:** Intel Core i9-13900K / AMD Ryzen 7 7800X3D
 
@@ -55,11 +55,11 @@ Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are r
 
 OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support and VP9 decoding support are recommended.
 
-- **Minimum for Linux:** NVIDIA GeForce GT 1030 2GB / AMD Radeon R7 240 2GB
+- **Minimum for Linux:** NVIDIA GeForce GT 1050 4GB / AMD Radeon R7 240 4GB
 
-- **Minimum for Windows:** NVIDIA GeForce GT 1030 2GB / AMD Radeon RX 550 2GB
+- **Minimum for Windows:** NVIDIA GeForce GT 1050 4GB / AMD Radeon RX 550 4GB
 
-- **Recommended:** NVIDIA GeForce GTX 1650 4GB / AMD Radeon RX 6500 4GB [(with "Force maximum clocks" enabled)](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/turboui.png)
+- **Recommended:** NVIDIA GeForce GTX 1660 6GB / AMD Radeon RX 5500 8GB [(with "Force maximum clocks" enabled)](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/turboui.png)
 
 - **Optimal:** NVIDIA Geforce GTX 3060 12GB / AMD Radeon RX 6700 10GB [(with "Force maximum clocks" enabled)](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/turboui.png)
 
@@ -83,6 +83,8 @@ Since an integrated GPU uses system RAM as its video memory (VRAM), our memory r
 - **Minimum with integrated graphics:** 12 GB
 
 - **Recommended:** 16 GB
+
+- **Optimal:** 32 GB
 
 #### Notes:
 
