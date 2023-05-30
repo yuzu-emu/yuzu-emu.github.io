@@ -12,6 +12,9 @@
                 <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/liftinstall-31b3e7e.tar.xz" class="button dl-button is-medium is-success" id="dl-button-linux">
                     <span class="icon mr-1"><i class="fab fa-linux"></i></span> Download for Linux x64
                 </a>
+                <a href="https://play.google.com/store/apps/details?id=org.yuzu.yuzu_emu" class="button dl-button is-medium is-success" id="dl-button-android">
+                    <span class="icon mr-1"><i class="fab fa-android"></i></span> Download for Android
+                </a>
             </div>
         </div>
 
@@ -37,6 +40,12 @@
                         <a>
                             <span class="icon is-small"><i class="fab fa-linux"></i></span>
                             <span>Linux</span>
+                        </a>
+                    </li>
+                    <li data-target="tab-android">
+                        <a>
+                            <span class="icon is-small"><i class="fab fa-android"></i></span>
+                            <span>Android</span>
                         </a>
                     </li>
                 </ul>
@@ -130,9 +139,12 @@
             !userAgent.includes("phone")
         ) {
             return "Mac";
-        } else if (
-            userAgent.includes("linux") && 
+        }  else if (
             userAgent.includes("android")
+        ) {
+            return "Android";
+        } else if (
+            userAgent.includes("linux")
         ) {
             return "Linux";
         }
@@ -165,11 +177,18 @@
     switch (getOSGuess()) {
         case "Windows":
             document.getElementById("dl-button-linux").style.display = "none";
+            document.getElementById("dl-button-android").style.display = "none";
             setTabActive('tab-windows');
             break;
         case "Linux":
             document.getElementById("dl-button-windows").style.display = "none";
+            document.getElementById("dl-button-android").style.display = "none";
             setTabActive('tab-linux');
+            break;
+        case "Android":
+            document.getElementById("dl-button-windows").style.display = "none";
+            document.getElementById("dl-button-linux").style.display = "none";
+            setTabActive('tab-android');
             break;
         default:
             document.getElementById("unsupported-platform-view").style.display = "block";

@@ -43,3 +43,26 @@ chmod a+x yuzu-*.AppImage
 
 Or with the GUI, right click the AppImage, click Properties, then Permissions, then click "Allow this file to run as a program". After that, double-click the AppImage to run it.
 </div>
+
+<div class="tab-content" id="tab-android">
+<h2 class="hide-with-js mt-5">Android Instructions</h2>
+<article class="message has-text-weight-semibold">
+<div class="message-body">
+<p style="color:cyan;margin-bottom: 0px;">yuzu requires Android 11 or above.</p>
+</div>
+</article>
+
+<div class="columns is-desktop" style="text-align: center;">
+    <div class="column">
+    <a href="https://play.google.com/store/apps/details?id=org.yuzu.yuzu_emu">
+        <div style="align-items: center"><img alt="yuzu mainline" src="/entry/yuzu-android/svg/mainline.svg" width="400"></div>
+        <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200">
+    </a>
+    </div>
+    <div class="column">
+    <a href="https://play.google.com/store/apps/details?id=org.yuzu.yuzu_emu.ea">
+        <div style="align-items: center;"><img alt="yuzu early access" src="/entry/yuzu-android/svg/early_access.svg" width="400"></div>
+        <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200">
+    </a>
+    </div>
+</div>
