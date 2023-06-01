@@ -88,7 +88,7 @@ Since an integrated GPU uses system RAM as its video memory (VRAM), our memory r
 
 #### Notes:
 
-- At least Windows 10 version 1809 is required, but GPU drivers may require newer versions.
+- An up-to-date Windows 10 version is required, old Windows 10 releases or older Windows versions are not supported. Windows 11 offers similar performance.
 
 - Our recommended/optimal specifications don't guarantee perfect performance in all games, but rather strive to provide a cost effective recommendation while still considering performance.
 
