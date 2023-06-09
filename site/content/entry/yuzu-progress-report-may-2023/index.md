@@ -314,7 +314,7 @@ Unlike Adreno, Mali has no viable Mesa alternative to save it, and the current p
 Its current status is that it won’t boot any game on yuzu, but:
 
 {{< imgs
-	"./mali.png| Internal dev build, work-in-progress in getting Mali running."
+	"./mali.jpg| Internal dev build, work-in-progress in getting Mali running."
   >}}
 
 We’re working on solving all the quirks needed to get Mali rendering on yuzu as soon as possible.
