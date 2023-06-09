@@ -805,7 +805,7 @@ Another fresh issue is a hardware limitation.
 Intel decided to remove support for Float64 operations on their Generation 12 graphics products (UHD 700/Xe/Arc) without providing a driver fallback.
 Well, it turns out that, for some reason, `Tears of the Kingdom` requires over the top precision in its cutscenes — precision that current Intel hardware physically lacks, causing crashes.
 We’re working on a Float64 to Float32 shader conversion to solve the problem.
-But for now, Intel users will have to get a save past the intro cutscene, either finding one online, or by using OpenGL, as the OpenGL spec dictates that Float64 must be supported one way or another, even if it is via software emulation.
+But for now, Intel users will have to get a save past the intro cutscene, or use OpenGL, as the OpenGL spec dictates that Float64 must be supported one way or another, even if it is via software emulation.
 
 Once these issues are solved, Intel should be in very good shape. Stay tuned.
 
