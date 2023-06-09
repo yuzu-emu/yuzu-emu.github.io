@@ -202,8 +202,8 @@ The green glow had a pixelated look, caused by {{< gh-hovercard "10402" "missing
 
 {{< single-title-imgs-compare
     "Green Lantern hand. (The Legend of Zelda: Tears of the Kingdom)"
-    "./ultrabug.png"
-    "./ultrafix.png"
+    "./ultrabug.jpg"
+    "./ultrafix.jpg"
     >}}
 
 Several keyboard strokes later, and byte[] went green with envy.
