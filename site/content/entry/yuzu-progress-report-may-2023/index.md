@@ -726,7 +726,7 @@ As the VRAM fills up, an AMD card will get slower and slower until it stops work
 Using the ASTC re-compression option goes a long way to avoiding this problem.
 But if it does happen, it can still cause a system lock or reboot, so we need a way to mitigate this while NVIDIA investigates the issue.
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
     "Now playable with only 2GB of VRAM! (The Legend of Zelda: Tears of the Kingdom)"
     "./nvidiabug.png"
     "./nvidiafix.png"
