@@ -143,7 +143,7 @@ These changes would not be necessary if GPUs simply supported ASTC textures.
 Wouldn't you like your games to be no bigger than 100GB instead of having software features that degrade image quality, such as frame generation?
 Native ASTC decoding support would allow this.
 
-An Intel Iris Xe iGPU can run the game at 30 FPS in handheld mode while using less memory than any other hardware combination, all thanks to being the last GPU capable of decoding ASTC.
+An Intel Iris Xe iGPU can run the game at 30 FPS in handheld mode while using less memory than any other hardware combination, all thanks to being their last GPU capable of decoding ASTC.
 More on Intel's driver support later.
 
 {{< imgs
@@ -447,7 +447,7 @@ With this release of the yuzu fried chicken, Blinkhawk introduces the new reacti
     >}}
 
 {{< single-title-imgs
-    "From left to right, Mario + Rabbids Kingdom Battle, Pokémon Violet, and Yoshi's Crafted World"
+    "From left to right, Mario + Rabbids Kingdom Battle, Pokémon Scarlet, and Yoshi's Crafted World"
     "./rf6.png"
     "./rf7.png"
     "./rf8.png"
@@ -468,7 +468,7 @@ What used to be just VSync on, off, or triple buffer in the good old OpenGL days
 In fact, nowadays there are 4 VSync options supported by GPU drives:
 
 - Immediate: No VSync. Tearing will happen, but no framerate restrictions will apply.
-- FIFO: Double buffering. This is equivalent to yuzu’s old VSync off. Tearing won’t happen, but input will have one frame of latency, and the refresh rate can’t exceed the display’s capabilities.
+- FIFO: Double buffering. This is equivalent to yuzu’s old VSync on. Tearing won’t happen, but input will have one frame of latency, and the refresh rate can’t exceed the display’s capabilities.
 - Relaxed FIFO: Identical to regular FIFO, but allows for tearing to happen if a desynchronisation happens. Can be considered similar to adaptive VSync. Useful for games with dynamic framerates.
 - Mailbox: Triple buffering, avoids tearing while allowing for framerates higher than the refresh rate of the display. Similar to what AMD calls Enhanced sync, and what NVIDIA calls Fast sync.
 
@@ -496,14 +496,13 @@ We recommend setting the driver’s control panel to Enhanced/Fast sync for the 
     "./intel.png"
     >}}
 
-A great strike from Maide is related to the size of the pipeline cache.
-Yuzu used to return the size of the shader code in bytes, which was later used to resize the unsigned 64 bit integer array in charge of storing the cache.
-If instead of the size in bytes, a {{< gh-hovercard "10145" "word size function" >}} is used, the array gets 8 times smaller!
-This not only saves storage space, but also system memory when shaders are preloaded at boot.
+Maide found an issue related to the size of the pipeline cache.
+Yuzu used to return the size of the shader code in bytes, which was later used to resize the unsigned 64 bit integer array in charge of storing the cache, which made the array 8 times larger than it was supposed to be.
+This is fixed by {{< gh-hovercard "10145" "using the length of the array" >}} instead of the size in bytes.
 
 A common complaint from 8GB of RAM users is that games become unstable over time. This isn't necessarily a memory leak — it's likely just the system running out of RAM as new shaders are added to the pipeline cache.
 This change greatly benefits them.
-~~But it’s bloody 2023, you should seriously consider getting 16GB by now, Tears of the Kingdom is not Super Mario Odyssey.~~
+~~But it’s 2023, you should seriously consider getting 16GB by now. Tears of the Kingdom is not Super Mario Odyssey.~~
 
 ASTC continues to be in the news here — this time a problem with {{< gh-hovercard "10206" "3D ASTC" >}} textures, because it isn’t enough to deal with flat 2D ones.
 A bug in their implementation caused the level Frantic Fields in `Donkey Kong Country: Tropical Freeze` to render incorrectly.
@@ -579,13 +578,13 @@ And finally, to close this section, Maide fixed homebrew console apps crashing b
 byte[] implemented some file system changes on his own, giving us a taste of what’s to come.
 
 Here’s a fun one. Why does it take minutes to boot `Fire Emblem Engage` or `Animal Crossing: New Horizons` with mods?
-Because the old implementation increased file read times on a quadratic scale!
+Because the old implementation became quadratically slower as the number of the files in the game increased!
 
-{{< gh-hovercard "10183" "Replacing" >}} that terrible algorithm reduces load times in `Fire Emblem Engage` from one and a half minutes to three seconds, and in `Animal Crossing: New Horizons` from four and a half minutes, to ten seconds.
+{{< gh-hovercard "10183" "Fixing" >}} the terrible time complexity reduces load times in `Fire Emblem Engage` from one and a half minutes to three seconds, and in `Animal Crossing: New Horizons` from four and a half minutes to ten seconds.
 
-Another optimisation now in place is {{< gh-hovercard "10463" "fixing the complexity of reads," >}} improving in-game load times as well as boot times.
+That function wasn't the only source of unnecessarily quadratic behavior. Reads also grew quadratically in time with file count, which has now been {{< gh-hovercard "10463" "optimized," >}} improving in-game load times as well as boot times.
 
-`Project Gaia` will further improve this performance in the future by avoiding wasting time copying and freeing strings.
+Another source of slowdown we've identified comes from unnecessary copying and freeing of strings, and we plan to address this in Project Gaia in the future.
 
 Finally, a savedata reader for `cache storage` needed to be {{< gh-hovercard "10237" "stubbed" >}} to get `Tears of the Kingdom` to boot.
 
@@ -617,7 +616,7 @@ If you use it, remember to leave the controller/device on a flat surface for at 
   >}}
 
 Now something for the ~~dirty cheaters~~ open-minded players out there.
-Games will block trying to use the same Amiibo more than once, so german77 added a way to {{< gh-hovercard "10207" "randomly generate a new ID" >}} each time the Amiibo is used, the option can be enabled from `Emulation > Configure.. > Controls > Advanced > Use random Amiibo ID`.
+Games will block trying to use the same Amiibo more than once, so german77 added a way to {{< gh-hovercard "10207" "randomly generate a new ID" >}} each time the Amiibo is used. The option can be enabled from `Emulation > Configure.. > Controls > Advanced > Use random Amiibo ID`.
 
 {{< imgs
 	"./id.png| Bottom right corner, can’t miss it."
@@ -639,10 +638,10 @@ This enables the last missing piece for full Amiibo emulation, just as you would
 
 Feel free to scan to your heart's content! As long as you managed to grab one of the plastic things while they were in stock.
 
-It’s worth mentioning that Amiibo keys are required to write any data.
-This doesn’t mean dumping the keys is mandatory if all you want to do is just load decrypted Amiibo dumps– german77 {{< gh-hovercard "10415" "removed the requirement" >}} for encryption keys if that’s the case.
+It's worth mentioning that writing Amiibo data will require dumping the relevant keys.
+However, if all you want to do is load decrypted Amiibo dumps, german77 {{< gh-hovercard "10415" "added support" >}} for using them without needing to dump the Amiibo keys.
 
-The only thing left to close the Amiibo case is to add a manager, but that’s homework for later.
+At this point, the only thing left for full Amiibo support is to add a manager!
 
 ## Audio and miscellaneous changes
 
@@ -654,9 +653,7 @@ Another battle won, but how many remain?
 This next one left us wondering...
 [ronikirla](https://github.com/ronikirla) reported that `Pokémon Mystery Dungeon Rescue Team DX` would consistently crash due to a read access violation after two hours of gameplay.
 
-That’s not a simple bug to track and fix, but yet somehow a mysterious person claiming to work at Google identified the issue, a {{< gh-hovercard "10178" "bad block" >}} in the address space code, passed ronikirla the changed code, and vanished, alleging that due to company guidelines they can’t publicly work on emulators!
-
-Thank you Mysterious Coder G! 
+That’s not a simple bug to track down and fix, yet someone in ronikirla's Twitch chat identified the issue as a {{< gh-hovercard "10178" "bad block check" >}} in the address space code and passed along a fix.
 
 {{< imgs
 	"./pmd.png| Love the art style! (Pokémon Mystery Dungeon Rescue Team DX)"
@@ -700,11 +697,8 @@ Continuing the trend in quality-of-life changes, newcomer [grimkor](https://gith
 A {{< gh-hovercard "10352" "context menu" >}} for the filter and antialiasing options! You no longer will have to go through the entire list of options if you want to try a different one, just right click and choose.
 Thank you!
 
-And finally, an oversight leading to weird issues, one of those cases where we ask ourselves “what the hell is the user doing to trigger this?!”
-{{< gh-hovercard "10482" "context menu" >}}
-In german77’s words, “Qt solution to Qt problem.”
-The game list was still active in the background while a game was running, so under special circumstances, you could try to boot a second game, causing a colourful set of issues, leading to deafening sirens sounding off, havoc, mayhem, and too many mosquitoes in a closed space.
-Needless to say, disabling the game list when a game is selected solved the issue.
+If you double clicked a game in the game list, you could end up double clicking it again or pressing enter before the game list got unloaded, which would cause yuzu to try to load the game twice, and usually just crash. 
+german77 fixed this up by {{< gh-hovercard "10482" "immediately disabling the game list" >}} after a game has been launched.
 
 ## Hardware section
 
@@ -723,7 +717,7 @@ We reported our findings to NVIDIA with a test case, so it’s in their hands no
 
 As the VRAM fills up, an AMD card will get slower and slower until it stops working and crashes yuzu, while an NVIDIA GPU would corrupt the entire desktop, taking all the displays with it.
 
-Using the ASTC re-compression option goes a long way to avoiding this problem.
+Using the ASTC recompression option goes a long way to avoiding this problem.
 But if it does happen, it can still cause a system lock or reboot, so we need a way to mitigate this while NVIDIA investigates the issue.
 
 {{< single-title-imgs-compare
@@ -815,12 +809,12 @@ Once these issues are solved, Intel should be in very good shape. Stay tuned.
 
 ## Future projects
 
-I don’t have much to announce for now regarding ongoing projects as the team was very busy with `Tears of the Kingdom` and the Android release.
+We don’t have much to announce for now regarding ongoing projects—we were very busy with `Tears of the Kingdom` and the Android release!
 
-GPUCode is working on a couple of cool things, one of them is implementing a way to have an equivalent to {{< gh-hovercard "10545" "DXGI presentation" >}} working on Intel and AMD hardware, that way AutoHDR can be used with any GPU vendor, not just NVIDIA.
+GPUCode is working on a couple of cool things. One of them is implementing a way to have an equivalent to {{< gh-hovercard "10545" "DXGI presentation" >}} working on Intel and AMD hardware; that way, AutoHDR can be used with any GPU vendor, not just NVIDIA.
 
 That’s all folks! For real this time. If you reached this point, sorry for the delay, thank you for your patience and for sticking until the end. See you next month!
-~~I need some sleep…~~
+~~We all need some sleep…~~
 
 &nbsp;
 {{< article-end >}}
