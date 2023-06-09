@@ -91,7 +91,7 @@ Finally, the `BC1 (low quality)` setting will reduce VRAM consumption by a facto
 We don’t recommend using this setting, but it will allow 4GB VRAM users to play `Tears of the Kingdom` without significant issues, and will make 2GB users have a much more stable and consistent experience in other games.
 
 {{< single-title-imgs
-    "From left to right, BC1 vs BC3 vs ASTC (Fire Emblem Engage)"
+    "From left to right or top to bottom on phones, BC1 vs BC3 vs ASTC (Fire Emblem Engage)"
     "./bc11.png"
     "./bc31.png"
     "./astc1.png"
@@ -100,7 +100,7 @@ We don’t recommend using this setting, but it will allow 4GB VRAM users to pla
 As you can see, BC1 destroys image quality in some games.
 
 {{< single-title-imgs
-    "From left to right, BC1 vs BC3 vs ASTC (The Legend of Zelda: Tears of the Kingdom)"
+    "From left to right or top to bottom on phones, BC1 vs BC3 vs ASTC (The Legend of Zelda: Tears of the Kingdom)"
     "./bc12.png"
     "./bc32.png"
     "./astc2.png"
@@ -115,9 +115,10 @@ We also hope to add an option to use BC7 in the future to provide a higher quali
 Keep in mind that {{< gh-hovercard "10398" "ASTC recompression" >}} won’t affect other texture formats, so the actual VRAM usage reduction will vary per game. Not every resource held in VRAM is ASTC.
 
 In addition, byte[] has also {{< gh-hovercard "10422" "tuned the memory manager" >}} to be more aggressive.
-This should help to improve stability during play sessions on systems with less RAM,
+This change should help improve gameplay stability during long sessions on systems with less RAM.
+yuzu always targets support for a minimum of 8GB of RAM on systems with dedicated GPUs.
 
-He also made sure that {{< gh-hovercard "10452" "memory collection doesn’t happen at a bad time" >}}, so that it doesn't cause a device loss (i.e. the GPU driver shutting down).
+He also made sure that {{< gh-hovercard "10452" "memory collection doesn’t happen during the configuration step" >}}, so that it doesn't cause a device loss (i.e. the GPU driver shutting down).
 
 By fixing the {{< gh-hovercard "10433" "block depth adjustment on slices" >}}, Blinkhawk solved the rendering issues affecting the gloom textures over the terrain in `Tears of the Kingdom`, a bug that was particularly noticeable on low VRAM hardware.
 
@@ -309,17 +310,18 @@ In the meantime, we plan to work on improving the rendering on the official Adre
 
 The Adreno 500 series is too old for yuzu. Its proprietary Vulkan driver lacks many of the necessary features needed, and Turnip has no plans to support it either.
 
-Mali is a textbook case of good hardware being headbutted into uselessness by its available drivers. 
-Unlike Adreno, Mali has no viable Mesa alternative to save it, and the current proprietary Mali drivers are in very bad shape for Switch emulation.
+Mali is an example of good hardware being limited by the quirks of its available drivers. 
+Unlike Adreno, Mali has no viable Mesa alternative to save it, and the current proprietary Mali drivers are in bad shape for Switch emulation.
 Its current status is that it won’t boot any game on yuzu, but:
 
-{{< imgs
-	"./mali.jpg| Internal dev build, work-in-progress in getting Mali running."
-  >}}
+{{< single-title-imgs
+    "Internal dev build, work-in-progress in getting Mali running."
+    "./mali.jpg"
+    "./mali2.jpg"
+    >}}
 
 We’re working on solving all the quirks needed to get Mali rendering on yuzu as soon as possible.
 This is the most popular GPU vendor on the platform after all.
-But, as you can see, it will take some time.
 Mali support will happen, we just need some breathing room.
 
 The last case of hardware that should work, but doesn’t, is the AMD RDNA2-based Xclipse 920 from Samsung, used only in the latest Exynos 2200 SoC, and somehow completely skipped from the S23 series phones.
@@ -439,7 +441,7 @@ With this release of the yuzu fried chicken, Blinkhawk introduces the new reacti
 - Make High GPU Accuracy fully use asynchronous buffers in Vulkan, improving performance.
 
 {{< single-title-imgs
-    "From left to right, Bayonetta 2, ASTRAL CHAIN, Xenoblade Chronicles Definitive Edition, and Luigi’s Mansion 3"
+    "From left to right or top to bottom on phones, Bayonetta 2, ASTRAL CHAIN, Xenoblade Chronicles Definitive Edition, and Luigi’s Mansion 3"
     "./rf1.png"
     "./rf2.png"
     "./rf3.png"
@@ -447,7 +449,7 @@ With this release of the yuzu fried chicken, Blinkhawk introduces the new reacti
     >}}
 
 {{< single-title-imgs
-    "From left to right, Mario + Rabbids Kingdom Battle, Pokémon Scarlet, and Yoshi's Crafted World"
+    "From left to right or top to bottom on phones, Mario + Rabbids Kingdom Battle, Pokémon Scarlet, and Yoshi's Crafted World"
     "./rf6.png"
     "./rf7.png"
     "./rf8.png"
