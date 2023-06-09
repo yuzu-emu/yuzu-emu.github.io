@@ -226,8 +226,8 @@ By {{< gh-hovercard "10459" "changing a single character," >}} byte[] solved the
 
 {{< single-title-imgs-compare
     "What’s deeper than The Depths? (The Legend of Zelda: Tears of the Kingdom)"
-    "./gapbug.png"
-    "./gapfix.png"
+    "./gapbug.jpg"
+    "./gapfix.jpg"
     >}}
 
 In an interesting case where a UI setting is needed for improving a game’s gameplay, byte[] added an option to {{< gh-hovercard "10464" "clean the cache storage for a game" >}}, which can be accessed from the `Remove` menu when right clicking a game in yuzu’s list.
