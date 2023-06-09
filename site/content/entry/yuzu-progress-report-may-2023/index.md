@@ -440,17 +440,17 @@ Make High GPU Accuracy fully use asynchronous buffers in Vulkan, improving perfo
 
 {{< single-title-imgs
     "From left to right, Bayonetta 2, ASTRAL CHAIN, Xenoblade Chronicles Definitive Edition, and Luigi’s Mansion 3"
-    "./r1.png"
-    "./r2.png"
-    "./r3.png"
-    "./r4.png"
+    "./rf1.png"
+    "./rf2.png"
+    "./rf3.png"
+    "./rf4.png"
     >}}
 
 {{< single-title-imgs
     "From left to right, Mario + Rabbids Kingdom Battle, Pokémon Violet, and Yoshi's Crafted World"
-    "./r6.png"
-    "./r7.png"
-    "./r8.png"
+    "./rf6.png"
+    "./rf7.png"
+    "./rf8.png"
     >}}
 
 The option still carries a performance cost, sometimes a considerable one.
