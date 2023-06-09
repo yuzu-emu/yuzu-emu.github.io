@@ -355,6 +355,8 @@ Regarding OS requirements, we set the lower limit to Android 11.
 This decision was taken to cut off offering support to completely unviable hardware (like Adreno 500 series devices or similarly older ones from Mali), and to reduce compatible low RAM devices as much as possible.
 This is final, as there are no plans to support older Android versions.
 
+Needless to say, it must be a 64-bit Android 11 or newer, 32-bit devices won't be supported.
+
 Users with capable hardware stuck on older Android versions can either build yuzu themselves and remove the code responsible for performing this check, or install custom ROMs such as [LineageOS](https://lineageos.org/) to get unofficial Android updates on their device.
 
 {{< imgs
