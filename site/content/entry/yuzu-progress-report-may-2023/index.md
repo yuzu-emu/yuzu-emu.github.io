@@ -431,12 +431,12 @@ So Blinkhawk replaced this system for predictive flushing some years ago, improv
 
 With this release of the yuzu fried chicken, Blinkhawk introduces the new reactive flushing, which has the following fixes:
 
-Old regressions such as `Bayonetta 2`'s shadows.
-Lighting in `Xenoblade Chronicles` games.
-Improves performance in buffer-heavy games like `Monster Hunter Rise`.
-Thumbnails and in-game photos in a bunch of games like saves in `Xenoblade Chronicles Definitive Edition` and `Xenoblade Chronicles 3`, camera photos in `ASTRAL CHAIN` and partially thumbnails in `Luigi's Mansion 3`.
-Vertex explosions in `Pokemon Violet/Scarlet` and `Yoshi’s Crafted World`.
-Make High GPU Accuracy fully use asynchronous buffers in Vulkan, improving performance.
+- Old regressions such as `Bayonetta 2`'s shadows.
+- Lighting in `Xenoblade Chronicles` games.
+- Improves performance in buffer-heavy games like `Monster Hunter Rise`.
+- Thumbnails and in-game photos in a bunch of games like saves in `Xenoblade Chronicles Definitive Edition` and `Xenoblade Chronicles 3`, camera photos in `ASTRAL CHAIN` and partially thumbnails in `Luigi's Mansion 3`.
+- Vertex explosions in `Pokemon Violet/Scarlet` and `Yoshi’s Crafted World`.
+- Make High GPU Accuracy fully use asynchronous buffers in Vulkan, improving performance.
 
 {{< single-title-imgs
     "From left to right, Bayonetta 2, ASTRAL CHAIN, Xenoblade Chronicles Definitive Edition, and Luigi’s Mansion 3"
