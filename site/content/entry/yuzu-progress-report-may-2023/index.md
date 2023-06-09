@@ -51,7 +51,7 @@ That’s right, the VRAM starvation affecting the PC gaming industry hurts yuzu 
 Serious changes had to be made, and they had to allow 2GB GPUs to still be compatible somehow.
 
 {{< imgs
-	"./gpu.jpg| Your writer’s Tower of VRAM Testing. GTX 750 2GB, RX 550 2GB, and GTX 1650 4GB Not pictured, GTX 1660 SUPER 6GB, RX 6600 8GB, and RTX 3060 Ti 8GB"
+	"./gpu.jpg| Your writer’s Tower of VRAM Testing. GTX 750 2GB, RX 550 2GB, and RX 6600 8GB. Not pictured, GTX 1650 4GB, GTX 1660 SUPER 6GB, and RTX 3060 Ti 8GB"
   >}}
 
 The solution, which took many attempts, was split into several parts to ensure that no other games were negatively affected by the changes, and required the combined efforts of [Maide](https://github.com/Kelebek1), [byte[]](https://github.com/liamwhite) and [Blinkhawk](https://github.com/FernandoS27).
