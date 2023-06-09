@@ -163,7 +163,7 @@ Fixing this simple bug allowed for `Tears of the Kingdom` to boot.
 Meanwhile, Maide implemented {{< gh-hovercard "10234" "shader fixes," >}} suggested by [Kristijan1001](https://github.com/Kristijan1001), solving issues with cloud flickering and missing geometry in The Depths. 
 
 {{< imgs
-	"./depths.png| Your GPU is fine, it’s just software. (The Legend of Zelda: Tears of the Kingdom)"
+	"./depths.jpeg| Your GPU is fine, it’s just software. (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
 Next is a bug that only affected the base game. Following updates were unaffected, as they rendered in a different order.
