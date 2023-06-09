@@ -726,7 +726,7 @@ As the VRAM fills up, an AMD card will get slower and slower until it stops work
 Using the ASTC re-compression option goes a long way to avoiding this problem.
 But if it does happen, it can still cause a system lock or reboot, so we need a way to mitigate this while NVIDIA investigates the issue.
 
-{{< single-title-imgs
+{{< single-title-imgs-compare
     "Now playable with only 2GB of VRAM! (The Legend of Zelda: Tears of the Kingdom)"
     "./nvidiabug.png"
     "./nvidiafix.png"
@@ -780,7 +780,7 @@ AMD has shown steady progress with each new driver release, and thanks to this t
 
 The only main exception is a rendering issue affecting `Tears of the Kingdom`, which only happens with RDNA3 hardware, the RX 7000 series.
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
     "Both RX 7900 and RX 7600 series are affected. (The Legend of Zelda: Tears of the Kingdom)"
     "./rdna1.png"
     "./rdna2.png"
