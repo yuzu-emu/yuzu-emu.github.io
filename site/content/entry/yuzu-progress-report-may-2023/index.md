@@ -91,7 +91,7 @@ Finally, the `BC1 (low quality)` setting will reduce VRAM consumption by a facto
 We don’t recommend using this setting, but it will allow 4GB VRAM users to play `Tears of the Kingdom` without significant issues, and will make 2GB users have a much more stable and consistent experience in other games.
 
 {{< single-title-imgs
-    "From left to right or top to bottom on phones, BC1 vs BC3 vs ASTC (Fire Emblem Engage)"
+    "From left to right, or top to bottom on phones, BC1 vs BC3 vs ASTC (Fire Emblem Engage)"
     "./bc11.png"
     "./bc31.png"
     "./astc1.png"
@@ -100,7 +100,7 @@ We don’t recommend using this setting, but it will allow 4GB VRAM users to pla
 As you can see, BC1 destroys image quality in some games.
 
 {{< single-title-imgs
-    "From left to right or top to bottom on phones, BC1 vs BC3 vs ASTC (The Legend of Zelda: Tears of the Kingdom)"
+    "From left to right, or top to bottom on phones, BC1 vs BC3 vs ASTC (The Legend of Zelda: Tears of the Kingdom)"
     "./bc12.png"
     "./bc32.png"
     "./astc2.png"
@@ -441,7 +441,7 @@ With this release of the yuzu fried chicken, Blinkhawk introduces the new reacti
 - Make High GPU Accuracy fully use asynchronous buffers in Vulkan, improving performance.
 
 {{< single-title-imgs
-    "From left to right or top to bottom on phones, Bayonetta 2, ASTRAL CHAIN, Xenoblade Chronicles Definitive Edition, and Luigi’s Mansion 3"
+    "From left to right, or top to bottom on phones, Bayonetta 2, ASTRAL CHAIN, Xenoblade Chronicles Definitive Edition, and Luigi’s Mansion 3"
     "./rf1.png"
     "./rf2.png"
     "./rf3.png"
@@ -449,7 +449,7 @@ With this release of the yuzu fried chicken, Blinkhawk introduces the new reacti
     >}}
 
 {{< single-title-imgs
-    "From left to right or top to bottom on phones, Mario + Rabbids Kingdom Battle, Pokémon Scarlet, and Yoshi's Crafted World"
+    "From left to right, or top to bottom on phones, Mario + Rabbids Kingdom Battle, Pokémon Scarlet, and Yoshi's Crafted World"
     "./rf6.png"
     "./rf7.png"
     "./rf8.png"
