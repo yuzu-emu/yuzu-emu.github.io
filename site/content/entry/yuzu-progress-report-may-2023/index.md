@@ -5,7 +5,7 @@ author = "GoldenX86"
 forum = 0
 +++
 
-*What a month!* GoaT releases, yuzu ventures into new platforms, we get a taste of Project Gaia, full Amiibo support, more Project Y.F.C., and a lot more!
+*What a month!* GOAT releases, yuzu ventures into new platforms, we get a taste of Project Gaia, full Amiibo support, more Project Y.F.C., and a lot more!
 Put on your safety belt and start playing some [eurobeat](https://youtu.be/8B4guKLlbVU), this will be a long ride.
 
 <!--more--> 
@@ -188,7 +188,7 @@ There were also reports of graphical glitches when using the 2X resolution scali
 Blinkhawk quickly identified the cause of this problem: wrong clears were being done in the code responsible for synchronisation in the buffer cache.
 {{< gh-hovercard "10249" "Some tweaks," >}} and the game can be safely played while scaled.
 
-For the Linux AMD users, specifically people using older Mesa RADV Vulkan driver releases, byte[] found out that one of the features of `VK_EXT_extended_dynamic_state3`, dynamic depth clamp, was implemented incorrectly in the driver, leading to vertex explosions in some expository and cutscenes moments in the game.
+For the Linux AMD users, specifically people using older Mesa RADV Vulkan driver releases, byte[] found out that one of the features of `VK_EXT_extended_dynamic_state3`, dynamic depth clamp, was implemented incorrectly in the driver, leading to vertex explosions in some expository moments in the game.
 
 {{< single-title-imgs-compare
     "Oh, there goes the vertex… (The Legend of Zelda: Tears of the Kingdom)"
@@ -332,7 +332,7 @@ Hopefully future iterations of this hardware ship more up to date drivers.
 For all other vendors like PowerVR, Vivante, etc: don't even try.
 These vendors provide such poor quality drivers that support is out of the question.
 
-We’re working hard in improving GPU compatibility, adding the required changes needed to boot within the limitations set by the vendors.
+We’re working hard on improving GPU compatibility, adding the required changes needed to boot within the limitations set by the vendors.
 
 CPU emulation still uses the Dynarmic JIT, instead of native code execution. 
 This allows us to run 32-bit games like `Mario Kart 8 Deluxe`, but is slow for 64-bit games.
@@ -477,7 +477,7 @@ In fact, nowadays there are 4 VSync options supported by GPU drives:
 Mailbox is the obvious recommendation for most games, so of course only NVIDIA on Windows, Mesa on Linux, and Android drivers offer support for it.
 
 {{< imgs
-	"./VSync.png| Qualcomm has no tolerance for tearing."
+	"./VSync.png| Android has no tolerance for tearing."
   >}}
 
 Per your writer’s ~~begging~~ request, [toastUnlimited](https://github.com/lat9nq) updated the old VSync toggle in Graphics, Advanced, for a {{< gh-hovercard "10125" "proper drop list" >}} mentioning all available Vulkan options.
@@ -551,16 +551,16 @@ At best, this would break the state of the guest pipeline, and at worst, it woul
 If you experienced random crashes in `Xenoblade Chronicles` games, `Luigi’s Mansion 3`, `Bayonetta 3`, among others, you might now know why.
 
 So, how can this be solved? “Simple!” Let’s just give the host and guest compute pipelines their own {{< gh-hovercard "10222" "queues." >}} 
-Having this information in separate queues keeps data integrity, greatly improving stability.
+Having this information in separate queues fixes the data integrity issues, greatly improving stability.
 
-Newcomer [danilaml](https://github.com/danilaml) identified a {{< gh-hovercard "10254" "missing write bit flag" >}} in the header responsible for decoding h.264 videos.
+Newcomer [danilaml](https://github.com/danilaml) identified a {{< gh-hovercard "10254" "missing bitflag" >}} in the header responsible for decoding H.264 videos.
 This fixes video rendering for `Layton's Mysterious Journey: Katrielle and the Millionaires' Conspiracy`.
 
 {{< imgs
 	"./layton.png| Games are boring without their cutscenes, right? (Layton's Mysterious Journey: Katrielle and the Millionaires)"
   >}}
 
-Not stopping there, danilaml also added support for deinterlaced video playback by using the {{< gh-hovercard "10283" "yadif filter" >}} included with [FFmpeg](https://ffmpeg.org/), fixing the playback performance of the game’s videos.
+Not stopping there, danilaml also added support for deinterlaced video playback by using the {{< gh-hovercard "10283" "yadif filter" >}} included with [FFmpeg](https://ffmpeg.org/), fixing rendering of the game’s videos.
 Thank you!
 
 Intel’s Linux Mesa Vulkan driver, ANV, broke the `VK_KHR_push_descriptor` extension with version 22.3.0 and later, causing several games to fail to boot.
@@ -677,7 +677,7 @@ With the timeout implemented, `SUPER MARIO ODYSSEY` and `Kirby Star Allies`, amo
 This time, simply {{< gh-hovercard "10362" "updating cubeb" >}} (one of our audio backends, and most of the time the default one) fixed a bug that muted the emulator after resuming the PC from sleep.
 Feel free to close your lids and continue later!
 
-Users playing games with lots of shaders or with slow storage devices, like mechanical drives, will know that the audio can desync and sound crackled.
+Users noticed that after recent changes to fix the wire audio in `SUPER MARIO ODYSSEY`, audio in many games could desync and sound crackled or distorted.
 bylaws suggested allowing the audio buffer to {{< gh-hovercard "10471" "wait indefinitely" >}} if a queue is too big, so Maide implemented this idea and et voilà, the problem is gone!
 (Pardon my French; Spanish is cooler).
 
@@ -688,7 +688,7 @@ Well, for the newcomer [Qigo42](https://github.com/Qigo42), this was unsatisfact
 Nothing beats quality-of-life changes. Thank you!
 
 [jbeich](https://github.com/jbeich) is back, fixing {{< gh-hovercard "10205" "BSD support" >}} again!
-What a Chad. It’s always good to have more OS alternatives working.
+It’s always good to have more OS alternatives working.
 
 Continuing the trend in quality-of-life changes, newcomer [grimkor](https://github.com/grimkor) has a nice gift for us.
 
@@ -765,7 +765,7 @@ The RTX 4060 Ti 8GB with only a 128-bit wide memory bus and GDDR6 VRAM is a seri
 You will be getting slower performance in Switch emulation if you get the newer product.
 We have no choice but to advise users to stick to Ampere products if possible, or aim higher in the product stack if you have to get a 4000 series card for some reason (DLSS3 or AV1 encoding), which is clearly what NVIDIA is aiming for.
 
-The argument in favour of Ada is the increased cache size, which RDNA2 confirmed in the past helps with performance substantially, but it also has a silent warning no review mentions: if the cache runs out, you’re left with the performance of a 128-bit wide card, and it’s very easy to saturate the cache when using the resolution scaler–just 2X is enough to tank performance.
+The argument in favour of Ada is the increased cache size, which RDNA2 confirmed in the past helps with performance substantially, but it also has a silent warning no review mentions: if you saturate the cache, you’re left with the performance of a 128-bit wide card, and it’s very easy to saturate the cache when using the resolution scaler–just 2X is enough to tank performance.
 
 Spending 400 USD on a card that has terrible performance outside of 1X scaling is, in our opinion, a terrible investment, and should be avoided entirely.
 We hope the 16GB version at least comes equipped with GDDR6X VRAM, which would double the available bandwidth and provide an actual improvement in performance for this kind of workload.
