@@ -792,10 +792,10 @@ Affected users will have to wait to see if future driver updates solve this.
 After the… peculiar [discussion](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/159) we had with Intel regarding their drivers and how they handle bug reports, we are happy to announce the [latest public beta driver](https://www.intel.com/content/www/us/en/download/729157/intel-arc-iris-xe-graphics-beta-windows.html) solves the SPIR-V issues we reported seven months ago!
 We strongly recommend Intel Windows users to update to this driver to improve stability with most games.
 
-Sadly, or luckily, fixing this issue showed us two areas where yuzu is at fault.
-Both issues have fixes in testing in the, at the time of writing, latest Early Access release. If everything goes according to plan, they should hit Mainline in a few days. Stay tuned.
+Sadly, fixing this issue showed us two areas where yuzu is at fault.
+But luckily both issues have fixes in testing in the latest Early Access release (at the time of writing). If everything goes according to plan, they should hit Mainline in a few days. Stay tuned.
 
-First problem is in yuzu's code. 
+The first problem is in yuzu's code. 
 Some compute shaders have barriers in places that result in generating invalid SPIR-V code, and while NVIDIA and AMD have no problem with it, Intel is following the Vulkan specification much more closely and doesn’t like the result, leading to crashes.
 While we test the solution, for now we recommend Mainline Intel users to keep the {{< gh-hovercard "10181" "freshly added" >}} “Enable Compute Pipelines (Intel Vulkan only)” disabled in `Emulation > Configure… > Graphics > Advanced`.
 
@@ -805,7 +805,7 @@ While we test the solution, for now we recommend Mainline Intel users to keep th
 
 The other issue is a hardware limitation.
 Intel decided to remove support for Float64 operations on their Generation 12 graphics products (UHD 700/Xe/Arc) without providing a driver fallback.
-Well, it turns out that, for some Goddess forsaken reason, `Tears of the Kingdom` requires over the top precision in its cutscenes — precision that current Intel hardware physically lacks, causing crashes.
+Well, it turns out that, for unknown reasons, `Tears of the Kingdom` requires over the top precision in its cutscenes — precision that current Intel hardware physically lacks, causing us to crash building the shader.
 We’re testing a Float64 to Float32 shader conversion to solve the problem.
 For now, Mainline Intel users will have to get a save past the intro cutscene, or use OpenGL, as the OpenGL spec dictates that Float64 must be supported one way or another, even if it is via software emulation.
 
