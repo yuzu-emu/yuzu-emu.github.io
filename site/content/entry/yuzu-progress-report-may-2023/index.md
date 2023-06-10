@@ -768,7 +768,7 @@ We have no choice but to advise users to stick to Ampere products if possible, o
 The argument in favour of Ada is the increased cache size, which RDNA2 confirmed in the past helps with performance substantially, but it also has a silent warning no review mentions: if you saturate the cache, you’re left with the performance of a 128-bit wide card, and it’s very easy to saturate the cache when using the resolution scaler–just 2X is enough to tank performance.
 
 Spending 400 USD on a card that has terrible performance outside of 1X scaling is, in our opinion, a terrible investment, and should be avoided entirely.
-We hope the 16GB version at least comes equipped with GDDR6X VRAM, which would double the available bandwidth and provide an actual improvement in performance for this kind of workload.
+We hope the 16GB version at least comes equipped with GDDR6X VRAM, which would increase the available bandwidth and provide an actual improvement in performance for this kind of workload.
 
 ### AMD
 
