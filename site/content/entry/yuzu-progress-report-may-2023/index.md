@@ -303,9 +303,11 @@ But the problem is that, while the included Adreno 700 series GPU is very capabl
 It will be at least weeks, if not months, before we start to see proper support take shape.
 In the meantime, we plan to work on improving the rendering on the official Adreno drivers.
 
-{{< imgs
-	"./driver.png| Try several, don’t marry the first one that works. Divorcing a shader cache isn’t fun."
-  >}}
+{{< single-title-imgs
+    "Try several, don’t marry the first one that works. Divorcing a shader cache isn’t fun."
+    "./driver.png"
+    "./driver2.png"
+    >}}
 
 The Adreno 500 series is too old for yuzu. Its proprietary Vulkan driver lacks many of the necessary features needed, and Turnip has no plans to support it either.
 
