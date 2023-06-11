@@ -136,7 +136,6 @@ And for integrated GPU users with 16GB of system RAM or less, such as the Steam 
     "./astcbug.mp4"
     "./astcfix.mp4"
     >}}
-Vids The difference made on a 2GB equipped GTX 750
 
 That ends the list of changes made to memory management to allow `Tears of the Kingdom` to be playable in at least the components listed in our [hardware requirements](https://yuzu-emu.org/help/quickstart/#hardware-requirements).
 
@@ -271,13 +270,13 @@ That’s right, with the blessing from Skyline’s [bylaws](https://github.com/b
 
 We recommend you to read the detailed article on yuzu Android [here](https://yuzu-emu.org/entry/yuzu-android/).
 What we're going to do here is explain the direction we will take from now on, help with settings and hardware requirements, and set the expectations for what's possible at the moment.
-And pardon your writer if the tone is aggressive, but we learned from [previous experiences](https://kotaku.com/ps2-emulator-android-aethersx2-developer-death-threats-1849955012) from within the Android emulation community that things need to be explained hard and true.
+And pardon us if the tone is aggressive, but we learned from [previous experiences](https://kotaku.com/ps2-emulator-android-aethersx2-developer-death-threats-1849955012) from within the Android emulation community that things need to be explained firmly and precisely.
 
 The Android version of yuzu took almost eight months of development time. 
 Right now, it is basically the desktop version under the hood with an Android UI, with *very few* platform optimisations applied.
 This means goodies like 32-bit game support, NVDEC video decoding support, motion, controller automapping, resolution scaling, and filters are available.
 On the other hand, features like updates, DLC, mods and cheats management, LDN, and the controller configuration applet are still in development.
-The plan is to slowly but surely make the Android builds reach feature parity with the PC version.
+The plan is to slowly but surely get the Android builds to feature parity with the PC version.
 
 Besides the Google Play Store, we will soon be uploading releases to our GitHub, and F-Droid is also planned.
 
@@ -327,7 +326,7 @@ Mali support will happen, we just need some breathing room.
 The last case of hardware that should work, but doesn’t, is the AMD RDNA2-based Xclipse 920 from Samsung, used only in the latest Exynos 2200 SoC, and somehow completely skipped from the S23 series phones.
 Available information suggests that it may just be an old AMD Windows driver ported to Android, but for some reason the devices refuse to start rendering on yuzu.
 This is a GPU we want to get working, as there is no clear reason why it refuses to work, while desktop AMD products work almost perfectly.
-Hopefully future iterations of this hardware ship more up to date drivers.
+Unfortunately, we haven't yet been able to track one down, but we'll update with more info once we do.
 
 For all other vendors like PowerVR, Vivante, etc: don't even try.
 These vendors provide such poor quality drivers that support is out of the question.
@@ -353,11 +352,11 @@ A certain Zelda game we spent a lot of words on currently requires at least 12GB
 There are ongoing efforts to reduce memory requirements, such as native code execution and UMA optimisations for the GPU code, but the reality is that emulation adds overhead and Android will only get fatter over time.
 We may be able to get light 2D games running on 4GB devices, but we don't expect complex 3D games to run on less than 8GB any time soon, if ever.
 
-Regarding OS requirements, we set the lower limit to Android 11.
-This decision was taken to cut off offering support to completely unviable hardware (like Adreno 500 series devices or similarly older ones from Mali), and to reduce compatible low RAM devices as much as possible.
+We have set the minimum required operating system to Android 11.
+This decision was taken to cut off installation on completely unviable hardware (like Adreno 500 series devices or older Mali GPUs), and to reduce low-memory devices as much as possible.
 This is final, as there are no plans to support older Android versions.
 
-Needless to say, it must be a 64-bit Android 11 or newer, 32-bit devices won't be supported.
+Needless to say, it must be a 64-bit Android 11 or newer; just like on desktop, 32-bit devices will never be supported.
 
 Users with capable hardware stuck on older Android versions can either build yuzu themselves and remove the code responsible for performing this check, or install custom ROMs such as [LineageOS](https://lineageos.org/) to get unofficial Android updates on their device.
 
@@ -384,7 +383,7 @@ While playing a game you can select Settings from the left menu, or select it fr
     "./settings3.png"
     >}}
 
-Here you will find setting and customisation options, most are self-explanatory, but if you want explanations for the options in Advanced settings, check our settings glossary [here](https://community.citra-emu.org/t/settings-glossary/768483).
+Here you will find setting and customisation options. Most are self-explanatory, but if you want explanations for the options in Advanced settings, check our settings glossary [here](https://community.citra-emu.org/t/settings-glossary/768483).
 
 After the initial configuration is done, just tap a game and play. 
 A search option is offered for those with high storage capacity devices needing to filter over many games.
@@ -402,11 +401,11 @@ This makes importing and exporting saves very simple. Thank you!
 	"./saves.png| It’s dangerous to go alone, take this!"
   >}}
 
-Ah, one very important thing to remember. Android has the most… peculiar file system permissions.
+One important thing to remember: Android has the most… peculiar file system permissions.
 We recommend creating a yuzu folder on your storage root to store your keys in, to avoid any permissions issues.
 
 You can get different Adreno and Turnip driver versions to test from [here](https://github.com/K11MCH1/AdrenoToolsDrivers/releases).
-Keep in mind this option will only change the driver for yuzu, it won’t replace anything on a system level.
+Keep in mind this option will only change the driver for yuzu. It won’t (and can’t) replace anything on a system level.
 
 At the time of writing, we recommend [Turnip 23.2.0](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v23.2.0-dev) (or [23.1.0](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v23.1.0-dev) if you have Android 11) for Adreno 600, while Adreno 700 users can run the [Qualcomm 676.22](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v676.22FIX) driver to improve performance and compatibility somewhat.
 
@@ -429,7 +428,7 @@ Blinkhawk serves us {{< gh-hovercard "10155" "Reactive Flushing" >}}, with fries
 
 In the early days of yuzu, if the CPU read an area modified by the GPU, full sync flushing between the host and guest GPU (emulated and system’s GPU) would trigger, let’s call it, “old reactive flushing”.
 This was safe and provided proper rendering, but was also incredibly slow.
-So Blinkhawk replaced this system for predictive flushing some years ago, improving performance considerably but introducing with it several graphical regressions, like broken shadows and lightings, wrong thumbnails on saves and photos, and even vertex explosions.
+So Blinkhawk replaced this system for predictive flushing some years ago, improving performance considerably but introducing with it several graphical regressions, like broken shadows and lighting, wrong thumbnails on saves and photos, and even vertex explosions.
 
 With this release of the yuzu fried chicken, Blinkhawk introduces the new reactive flushing, which has the following fixes:
 
@@ -467,7 +466,7 @@ Users with AMD and Intel GPUs complained that high-framerate mods couldn't get p
 This was because the VSync toggle was assuming the best option for each hardware driver based on compatibility.
 
 What used to be just VSync on, off, or triple buffer in the good old OpenGL days is now more complex with Vulkan, even if current games insist on mistakenly calling the setting “VSync on” for legacy reasons.
-In fact, nowadays there are 4 VSync options supported by GPU drives:
+In fact, nowadays there are 4 VSync options commonly supported by GPU drivers:
 
 - Immediate: No VSync. Tearing will happen, but no framerate restrictions will apply.
 - FIFO: Double buffering. This is equivalent to yuzu’s old VSync on. Tearing won’t happen, but input will have one frame of latency, and the refresh rate can’t exceed the display’s capabilities.
@@ -526,7 +525,7 @@ Another mishap in the buffer cache affected rendering in `Dokapon Kingdom Connec
     "./dkgfix.mp4"
     >}}
 
-Since the old code would track buffers globally, some draws would end up ignoring channel swaps, leading to bad values in the uniform buffer.
+Since the old code would track buffers globally, some draws would end up ignoring channel swaps, leading to leftover values from the wrong channel getting bound in uniform buffers.
 If instead we {{< gh-hovercard "10469" "move buffer bindings" >}} to be channel specific, the issue is solved.
 This fix should affect more games using multiple 3D channels too.
 
@@ -543,10 +542,10 @@ This could very well be `target[2]` as expected, or an earlier render target suc
 In short, this process was both slower and potentially unsafe due to the risk of clearing the wrong render target.
 Not happy with this, Maide worked to sort it out, getting {{< gh-hovercard "10217" "the correct render target" >}} cleared.
 
-Time to introduce another term! `Descriptor Sets` are a feature of the Vulkan API. Their purpose is to allow the CPU to update input bindings, the list of resources used by a shader, without having to wait for the GPU to finish rendering.
+Time to introduce another term! `Descriptor Sets` are a feature of the Vulkan API. Their purpose is to allow the CPU to update input bindings, the list of resources used by a shader, in an efficient way.
 
-Previously, yuzu would share the same descriptor update queue for both host and guest compute pipelines.
-This would mistakenly end up binding the pipeline for compute shader data conversion concurrently with the binding for a guest pipeline.
+Previously, yuzu would share the same descriptor set update queues between guest operations (operations directly translated from a game) and host operations (operations yuzu performs to emulate specific Switch GPU features which don't exist in Vulkan).
+This could mistakenly end up with host operations overwriting the descriptor set updates of a guest pipeline during processing.
 At best, this would break the state of the guest pipeline, and at worst, it would take down the entire GPU driver.
 If you experienced random crashes in `Xenoblade Chronicles` games, `Luigi’s Mansion 3`, `Bayonetta 3`, among others, you might now know why.
 
@@ -571,7 +570,7 @@ GPUCode improved overall performance when using Vulkan in a few percentage point
 Every bit helps.
 
 [Epicboy](https://github.com/ameerj) continues his crusade to improve OpenGL.
-This time, he {{< gh-hovercard "10483" "fixed" >}} the performance of “Accelerate ASTC texture decoding” when ASTC recompression was set to Uncompressed.
+This time, he {{< gh-hovercard "10483" "fixed" >}} the use of “Accelerate ASTC texture decoding” when ASTC recompression was set to Uncompressed.
 
 And finally, to close this section, Maide fixed homebrew console apps crashing by {{< gh-hovercard "10506" "skipping a section of the buffer cache" >}} that isn’t needed when an app doesn’t use graphics.
 
@@ -582,7 +581,7 @@ byte[] implemented some file system changes on his own, giving us a taste of wha
 Here’s a fun one. Why does it take minutes to boot `Fire Emblem Engage` or `Animal Crossing: New Horizons` with mods?
 Because the old implementation became quadratically slower as the number of the files in the game increased!
 
-{{< gh-hovercard "10183" "Fixing" >}} the terrible time complexity reduces load times in `Fire Emblem Engage` from one and a half minutes to three seconds, and in `Animal Crossing: New Horizons` from four and a half minutes to ten seconds.
+{{< gh-hovercard "10183" "Fixing" >}} the terrible time complexity reduces patch times during boot in `Fire Emblem Engage` from one and a half minutes to _three seconds_, and in `Animal Crossing: New Horizons` from about a minute to _one and a half seconds_. Wow!
 
 That function wasn't the only source of unnecessarily quadratic behavior. Reads also grew quadratically in time with file count, which has now been {{< gh-hovercard "10463" "optimized," >}} improving in-game load times as well as boot times.
 
@@ -643,7 +642,7 @@ Feel free to scan to your heart's content! As long as you managed to grab one of
 It's worth mentioning that writing Amiibo data will require dumping the relevant keys.
 However, if all you want to do is load decrypted Amiibo dumps, german77 {{< gh-hovercard "10415" "added support" >}} for using them without needing to dump the Amiibo keys.
 
-At this point, the only thing left for full Amiibo support is to add a manager!
+At this point, the only thing left to complete Amiibo support is to add a manager!
 
 ## Audio and miscellaneous changes
 
