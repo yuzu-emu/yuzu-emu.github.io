@@ -476,7 +476,7 @@ In fact, nowadays there are 4 VSync options commonly supported by GPU drivers:
 Mailbox is the obvious recommendation for most games, so of course only NVIDIA on Windows, Mesa on Linux, and Android drivers offer support for it.
 
 {{< imgs
-	"./VSync.png| Android has no tolerance for tearing."
+	"./vsync.png| Android has no tolerance for tearing."
   >}}
 
 Per your writer’s ~~begging~~ request, [toastUnlimited](https://github.com/lat9nq) updated the old VSync toggle in Graphics, Advanced, for a {{< gh-hovercard "10125" "proper drop list" >}} mentioning all available Vulkan options.
@@ -513,17 +513,9 @@ Some tweaks by the ‘hawk, and the Kong army is back in action.
 	"./dk.png| Quicksands no more! (Donkey Kong Country: Tropical Freeze)"
   >}}
 
-The buffer cache, responsible for storing information for the GPU to process at the right time.
-The buffer can be modified by either the GPU or the CPU, so yuzu would set the buffer to either one, then wait for the other type, when in reality, {{< gh-hovercard "10216" "checking for one state" >}} before setting to the other would make much more sense.
+yuzu's buffer cache is responsible for storing most forms of arbitrary data for the GPU to process.
+Buffers can be modified by either the GPU or the CPU, so yuzu would track the buffer to one type of modification, then wait for the other type of modification to synchronize the data. But in reality, {{< gh-hovercard "10216" "performing the synchronization" >}} before tracking the modification would make much more sense.
 Maide noticed this discrepancy and set out to correct it, streamlining the code.
-
-Another mishap in the buffer cache affected rendering in `Dokapon Kingdom Connect`.
-
-{{< single-title-imgs
-    "There’s still some room for improvement! (Dokapon Kingdom Connect)"
-    "./dkgbug.mp4"
-    "./dkgfix.mp4"
-    >}}
 
 Since the old code would track buffers globally, some draws would end up ignoring channel swaps, leading to leftover values from the wrong channel getting bound in uniform buffers.
 If instead we {{< gh-hovercard "10469" "move buffer bindings" >}} to be channel specific, the issue is solved.
