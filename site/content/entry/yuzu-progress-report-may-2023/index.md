@@ -810,7 +810,8 @@ We’re testing a Float64 to Float32 shader conversion to solve the problem.
 For now, Mainline Intel users will have to get a save past the intro cutscene, or use OpenGL, as the OpenGL spec dictates that Float64 must be supported one way or another, even if it is via software emulation.
 
 The results speak for themselves, the game is playable at mostly consistent 30 FPS with an i5 1240P running an Iris Xe iGPU if you stick to handheld rendering, showing better performance than AMD's Vega iGPUs. 
-Here is footage captured with an Arc A770 16GB:
+
+For those interested in what's the experience with desktop products, here is footage captured with an Arc A770 16GB:
 
 {{< imgs
 	"./totk.mp4| Arc is viable! (The Legend of Zelda: Tears of the Kingdom)"
