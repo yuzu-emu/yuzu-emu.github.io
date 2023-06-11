@@ -114,6 +114,16 @@
 
 {{ define "scripts" }}
 <script type="text/javascript">
+    function getFragment () {
+        const fragment = window.location.hash;
+        if (!fragment) return null;
+        switch (fragment) {
+            case "#linux": return "Linux";
+            case "#android": return "Android";
+            case "#windows": return "Windows";
+        }
+        return null;
+    }
     const setTabActive = (targetId) => {
         document.querySelectorAll(".content .tab-content")
             .forEach(element => element.style.display = "none");
@@ -126,6 +136,9 @@
 
         document.querySelectorAll(`[data-target="${targetId}"]`)    
             .forEach(element => element.classList.add('is-active'));
+        
+        const fragment = targetId.split('-')[1];
+        window.location.hash = `#${fragment}`;
     }
 
     const getOSGuess = () => {
@@ -174,7 +187,7 @@
         .forEach(element => element.style.display = "none");
 
     // Attempt autodetection of their operating system
-    switch (getOSGuess()) {
+    switch (getFragment() || getOSGuess()) {
         case "Windows":
             document.getElementById("dl-button-linux").style.display = "none";
             document.getElementById("dl-button-android").style.display = "none";
