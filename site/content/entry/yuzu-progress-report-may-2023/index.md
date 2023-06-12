@@ -252,11 +252,12 @@ We’re following one of the most important rules of coding, “Make it work. Ma
 
 As this is a particularly popular game (and for good reason), here are some recommendations that user reports and fixes have taught us.
 
-- This game is very taxing on hardware. What we list in yuzu’s `recommended` system requirements is the minimum needed to sustain 30 FPS in most areas. A 6-core desktop Zen 2/11th gen Core, 16GB of RAM, and a GPU with at least 6GB of VRAM are the baseline for now.
+- This game is very taxing on hardware. What we list in yuzu’s `recommended` [hardware requirements](https://yuzu-emu.org/help/quickstart/#hardware-requirements) is the minimum needed to sustain 30 FPS in most areas. A 6-core desktop Zen 2/11th gen Core, 16GB of RAM, and a GPU with at least 6GB of VRAM are the baseline for now.
 - The latest CPUs (Zen 4/13th gen Core, always speaking of desktop products) provide massive improvements in IPC, RAM bandwidth and cache sizes. Where a Ryzen 7 5800X3D barely manages 55 FPS, a Ryzen 5 7600 reaches 90 FPS.
 - Normal GPU accuracy can be used to improve performance safely.
 - The Depths are particularly taxing on VRAM. Remember to use ASTC recompression if you are VRAM starved. We recommend at least 8GB of VRAM for 2X resolution scaling using BC3 compression.
 - The modding community has been providing amazing mods. Dynamic framerate, improved resolution and details, and much more is only a few clicks away. Here’s a [collection with recommendations](https://github.com/HolographicWings/TOTK-Mods-collection).
+- Old FPS mods compatible with the base version of the game (1.0.0) are unstable and will cause softlocks and crashes during certain actions like the Game Over screen. Update your game and use newer mods.
 - Remember to test the game without mods before reporting issues, as mods are still altering memory regions to work.
 - If you disabled Fast GPU Time due to recommendations from modders, do it only for Tears of the Kingdom, as you will be seriously affecting performance in other games. Right clicking a game in yuzu’s list and selecting properties shows the per-game configuration. We strongly recommend keeping Fast GPU Time enabled in all scenarios.
 
