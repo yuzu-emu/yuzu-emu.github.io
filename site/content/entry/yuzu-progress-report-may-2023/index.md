@@ -317,7 +317,7 @@ It will take weeks, if not months, before we see proper support emerge. In the m
 The Adreno 500 series is too outdated for yuzu. Its proprietary Vulkan driver is missing many of the essential features required, and Turnip has no plans to support it either.
 
 Mali is an example of good but weak hardware being limited by the quirks of its available drivers. 
-Unlike Adreno, Mali has no viable Mesa alternative to resque it, and the current proprietary Mali drivers are in bad shape for Switch emulation.
+Unlike Adreno, Mali has no viable Mesa alternative to rescue it, and the current proprietary Mali drivers are in bad shape for Switch emulation.
 Its current status is that it won’t boot any game on yuzu, but:
 
 {{< single-title-imgs
@@ -332,7 +332,7 @@ Mali support will happen, we just need some time.
 
 The last case of hardware that should work, but doesn’t, is the AMD RDNA2-based Xclipse 920 from Samsung, used only in the latest Exynos 2200 SoC, and somehow completely skipped from the S23 series phones.
 Available information suggests that it may just be an old AMD Windows driver ported to Android, but for some reason the devices refuse to start rendering on yuzu.
-This is a GPU we want to get working, as there is no clear reason why it doesn't to work, while desktop AMD products work almost flawlessly.
+This is a GPU we want to get working, as there is no clear reason why it doesn't work, while desktop AMD products work almost flawlessly.
 Unfortunately, we haven't yet been able to get our hands on one, but we'll update with more info once we do.
 
 For all other vendors like PowerVR, Vivante, etc: don't bother.
@@ -345,7 +345,7 @@ This allows us to run 32-bit games like `Mario Kart 8 Deluxe`, but is slow for 6
 Expect “good” compatibility, similar to the desktop version thanks to this, but also low performance and high temperatures.
 Native code execution, or NCE (do I smell `Project Nice`?) is on our list of goals for the Android builds.
 
-The CPU itself, while very crucial for performance and the main bottleneck for now, is less important than the GPU, for the reasons previously mentioned, its drivers.
+The CPU itself, while very crucial for performance and the main bottleneck for now, is less important than the GPU, for the reasons previously mentioned (the drivers).
 The same rules as on PC apply here: 6 cores or more is preferred, and the highest possible IPC is strongly recommended. A Snapdragon 8 Gen 2 can be twice as fast as a Snapdragon 865.
 
 RAM use is both a blessing and a curse.
@@ -432,7 +432,7 @@ Because this isn’t just a Zelda emulator after all.
 Who wants more `Project Y.F.C.` goodies?
 Blinkhawk serves us {{< gh-hovercard "10155" "Reactive Flushing" >}}, with fries.
 
-In the early days of yuzu, if the CPU reads an area modified by the GPU, full sync flushing between the host and guest GPU (emulated and system’s GPU) would trigger, let’s call it, “old reactive flushing”.
+In the early days of yuzu, if the CPU were to read an area modified by the GPU, full sync flushing between the host and guest GPU (emulated and system’s GPU) would trigger (let’s call it “old reactive flushing”).
 This was safe and provided proper rendering, but was also slow.
 So Blinkhawk replaced this system with predictive flushing some years ago, improving performance significantly but introducing with it several graphical regressions, like broken shadows and lighting, wrong thumbnails on saves and photos, and even vertex explosions.
 
