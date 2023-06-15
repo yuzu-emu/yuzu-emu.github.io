@@ -259,6 +259,8 @@ As this is a particularly popular game (and for good reason), here are some reco
 - The latest CPUs (Zen 4/13th gen Core, always speaking of desktop products) provide massive improvements in IPC, RAM bandwidth and cache sizes. Where a Ryzen 7 5800X3D barely manages 55 FPS, a Ryzen 5 7600 reaches 90 FPS.
 - Normal GPU accuracy can be used to improve performance safely.
 - Unsafe CPU accuracy can improve performance at the cost of small inaccuracies.
+- Enable asynchronous presentation degrades performance a bit.
+- Don't use Decode ASTC textures asynchronously for this game, it will cause crashes.
 - In some rare cases audio events can cause crashes, so be careful when using multi-arrow bows and bombs.
 - The Depths are particularly hungry for VRAM. Remember to use ASTC recompression if you are VRAM starved. We recommend at least 8GB of VRAM for 2X resolution scaling using BC3 compression.
 - The modding community has been providing amazing mods. Dynamic framerate, improved resolution and details, and much more is only a few clicks away. Here’s a [collection with recommendations](https://github.com/HolographicWings/TOTK-Mods-collection).
