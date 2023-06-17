@@ -380,7 +380,7 @@ You can access these settings in-game by dragging from the left side of the scre
 If you updated from a previous version, the overlay may be invisible. Just select `Overlay Options > Reset Overlay` to make it visible again.
 
 {{< imgs
-	"./overlay.png| Set as you see fit. (13 Sentinels: Aegis Rim)"
+	"./settings1.png| Set as you see fit. (Cooking Mama: Cookstar)"
   >}}
 
 While playing a game you can select Settings from the left menu, or select it from the main menu.
