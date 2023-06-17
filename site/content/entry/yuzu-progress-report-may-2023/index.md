@@ -1,8 +1,8 @@
 +++
-date = "2023-06-08T12:00:00-03:00"
+date = "2023-06-17T12:00:00-03:00"
 title = "Progress Report May 2023"
 author = "GoldenX86"
-forum = 0
+forum = 835148
 +++
 
 *What a month!* GOAT releases, yuzu ventures onto new platforms, we get a taste of Project Gaia, full Amiibo support, further Project Y.F.C., and a lot more!
