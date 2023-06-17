@@ -357,7 +357,7 @@ This allows the GPU to use very little RAM, just like on the Switch.
 The curse is that, because Android is such a heavy OS, there is no guarantee that complex games will run on devices with 6GB of RAM. 8GB is the strong recommendation, which puts compatibility on the pricey side of the spectrum. 
 A certain Zelda game we wrote a lot about currently requires at least 12GB of RAM to run.
 
-There are ongoing efforts to reduce memory requirements, such as native code execution and [UMA](https://en.wikipedia.org/wiki/Universal_memory) optimizations for the GPU code, but the reality is that emulation adds overhead and Android will only get fatter over time.
+There are ongoing efforts to reduce memory requirements, such as native code execution and [UMA](https://en.wikipedia.org/wiki/Unified_Memory_Architecture) optimizations for the GPU code, but the reality is that emulation adds overhead and Android will only get fatter over time.
 We may be able to get light 2D games running on 4GB devices, but we don't expect complex 3D games to run on less than 8GB any time soon, if ever.
 
 We have set the minimum required operating system to Android 11. 
@@ -518,7 +518,7 @@ A bug in their implementation caused the level Frantic Fields in `Donkey Kong Co
 Some tweaks by the ‘hawk, and the Kong army is back in action.
 
 {{< imgs
-	"./dk.png| No more quicksands! (Donkey Kong Country: Tropical Freeze)"
+	"./dk.png| No more quicksand! (Donkey Kong Country: Tropical Freeze)"
   >}}
 
 yuzu's buffer cache is responsible for storing most forms of arbitrary data for the GPU to process.
