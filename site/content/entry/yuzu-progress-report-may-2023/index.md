@@ -297,7 +297,7 @@ They all started working on Vulkan drivers around the same time in 2016. And yet
 
 It is obvious that only 4 vendors have the expertise and the commitment to make Vulkan drivers work: NVIDIA, AMD, and Mesa, with a special mention for Intel, who recently stepped up their game.
 
-As a result of the sad state of things, supporting Qualcom SoCs exclusively for our early releases was the only viable choice. We needed to make yuzu run on Android without spending an additional several months modifying our GPU code to accommodate all the quirks and broken extensions of Android phones and tablets.
+Although not one of these 4, we decided that limiting support to Qualcomm SoCs was our only option for now if we didn't want to spend several months further modifying our GPU code to accommodate all the quirks and broken extensions of Android phones and tablets.
 Not because their driver is decent — it’s bad.
 But it was just good enough to get some games to render, albeit incorrectly most of the time.
 
@@ -330,6 +330,7 @@ Its current status is that it won’t boot any game on yuzu, but:
 We’re working on solving all the quirks needed to get Mali rendering on yuzu as soon as possible.
 This is the most common GPU vendor on the platform after all.
 Mali support will happen, we just need some time.
+Expect news very soon!
 
 The last case of hardware that should work, but doesn’t, is the AMD RDNA2-based Xclipse 920 from Samsung, used only in the latest Exynos 2200 SoC, and somehow completely skipped from the S23 series phones.
 Available information suggests that it may just be an old AMD Windows driver ported to Android, but for some reason the devices refuse to start rendering on yuzu.
@@ -517,7 +518,7 @@ A bug in their implementation caused the level Frantic Fields in `Donkey Kong Co
 Some tweaks by the ‘hawk, and the Kong army is back in action.
 
 {{< imgs
-	"./dk.png| Quicksands no more! (Donkey Kong Country: Tropical Freeze)"
+	"./dk.png| No more quicksands! (Donkey Kong Country: Tropical Freeze)"
   >}}
 
 yuzu's buffer cache is responsible for storing most forms of arbitrary data for the GPU to process.
@@ -530,7 +531,7 @@ This fix should affect more games using multiple 3D channels too.
 
 Continuing with code optimisations, Maide found some incorrect behaviour in how render targets are selected.
 
-The `Render Target` (The OG RT before Ray Tracing came to town) is a texture containing the image to be rendered during a draw or clear operation.
+The `Render Target` (The OG RT for rendering devs before RTX came to town) is a texture containing the image to be rendered during a draw or clear operation.
 
 The emulator has to look at the format of the available render targets to determine which one to clear.
 For example, suppose there are 5 images bound as render targets, indexed from `0` to `4`, and the game requests to clear the render target with index `2`.
