@@ -5,15 +5,15 @@ author = "GoldenX86"
 forum = 0
 +++
 
-*What a month!* GOAT releases, yuzu ventures into new platforms, we get a taste of Project Gaia, full Amiibo support, more Project Y.F.C., and a lot more!
+*What a month!* GOAT releases, yuzu ventures onto new platforms, we get a taste of Project Gaia, full Amiibo support, further Project Y.F.C., and a lot more!
 Put on your safety belt and start playing some [eurobeat](https://youtu.be/8B4guKLlbVU), this will be a long ride.
 
 <!--more--> 
 
 ## The Legend of Zelda: Tears of the VRAM
 
-Six years, and the wait was worth it. 
-No pay to win mechanics, no soul draining microtransactions, no apology letter ready since release, [just game, just good game](https://youtu.be/i1qnIBLNOG0?t=16).
+Six years and the wait was worth it. 
+No pay to win mechanics, no soul-draining microtransactions, no apology letter published after release. [Just game, just good game](https://youtu.be/i1qnIBLNOG0?t=16).
 
 {{< imgs
 	"./totk1.png| Runs on a 2015 tablet. (The Legend of Zelda: Tears of the Kingdom)"
@@ -26,7 +26,7 @@ Zelda is back, and once again teaches the gaming industry how to make a video ga
   >}}
 
 `The Legend of Zelda: Tears of the Kingdom` not only made its predecessor (a game which already reinvented how open-world gameplay should be done) look like a tech demo, but it also turned out to be one massive heavyweight, punching way above its class in hardware requirements when emulated.
-The combination of a heavier physics engine, massive amounts of shaders and the ludicrous use of enormous ASTC textures has brought emulators to their knees.
+The combination of a heavier physics engine, massive amounts of shaders, and the ludicrous use of enormous ASTC textures has brought emulators to their knees.
 
 Let’s begin with the most complex problem the Princess introduced the project to. The old Switch-emulation-on-PC nemesis, now elevated to new heights: ASTC.
 
@@ -34,10 +34,10 @@ Let’s begin with the most complex problem the Princess introduced the project 
 	"./deer.png| Deer. (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
-Since there is not a single dedicated desktop or laptop graphics card that supports the native decoding of [ASTC textures](https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression) (with the exception of Intel iGPUs), the emulator is forced to transcode them on the fly into a safe and lossless format that all GPUs support; in this case, the `RGBA8` format.
+As there isn't a single dedicated desktop or laptop graphics card that supports the native decoding of [ASTC textures](https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression) (with the exception of Intel iGPUs), yuzu is forced to transcode them on the fly into a safe and lossless format that all GPUs support; in this case, the `RGBA8` format.
 
 This was perfectly fine until now (even on 2GB GPUs), since `ASTRAL CHAIN` was the only game that made "extensive" use of ASTC textures, shipping with 4K textures on a mobile device intended for 1080p and 720p screen resolutions. 
-Our garbage collector introduced two years ago with [Project Hades](https://yuzu-emu.org/entry/yuzu-hades/), which our veteran users know as “the memory Reaper”, was tuned for this worst case scenario at the time.
+Our garbage collector, introduced two years ago with [Project Hades](https://yuzu-emu.org/entry/yuzu-hades/), which our veteran users know as “the memory Reaper”, was tuned for this worst case scenario at the time.
 
 But what happens if a game with many more textures and a teletransportation system that allows the player to reach different regions in-game (and, in turn, load a truckload of new, different textures) releases?
 What if this hypothetical game made use of dozens and dozens of huge ASTC textures?
@@ -58,7 +58,7 @@ The solution, which took many attempts, was split into several parts to ensure t
 
 While investigating very low VRAM devices, byte[] found that yuzu used {{< gh-hovercard "10286" "incompatible memory property flags" >}} when the Vulkan memory allocator was under pressure, causing low VRAM GPUs to crash when trying to actually use a recycled allocation.
 
-Having more VRAM available certainly helps, but that’s not enough to avoid the game from biting off more than the GPU’s memory can chew under stressful conditions–for example, teleporting between different regions.
+Having more VRAM available certainly helps, but that’s not enough to avoid the game from biting off more than the GPU’s memory can chew under stressful conditions — for example, teleporting between different regions.
 
 Previously, if VRAM was almost full, the memory manager would try to use shared memory, which is just a portion of system RAM, for new allocations.
 This caused massive slowdowns during gameplay, as the transfer operation of going over system RAM, CPU, PCIe, GPU, and finally VRAM is a slow process that introduces a high latency.
@@ -75,25 +75,25 @@ What if, instead of relying on the pixel-accurate but bigger `RGBA8` texture for
 Ladies and gentlemen, we present you `ASTC recompression`, a {{< gh-hovercard "10398" "new option" >}} available in `Emulation > Configure > Graphics > Advanced` that intends to reduce VRAM consumption by turning those Ganon-cursed unsupported ASTC textures into something more suitable for low-VRAM GPUs.
 
 {{< imgs
-	"./astcrecomp.png| We recommend to avoid BC1 if possible."
+	"./astcrecomp.png| We recommend avoiding BC1 if possible."
   >}}
 
 The principle is pretty simple, we just add one more step to the recompression process, from ASTC > RGBA8, to ASTC > RGBA8 > [BC1 or BC3](https://en.wikipedia.org/wiki/S3_Texture_Compression).
 
 The default `Uncompressed` setting uses the old `RGBA8` method, which preserves the original image quality, but also consumes the most VRAM.
-For users that wish to emulate `Tears of the Kingdom`, we recommend setting this option if their GPU has at least 10~12GB of VRAM.
+For users that wish to emulate `Tears of the Kingdom`, we recommend setting this option if their GPU has at least 10-12GB of VRAM.
 For other, more **reasonable** games, this option is suitable for users with cards with at least 4GB of VRAM.
 
-The `BC3 (medium quality)` setting reduces the VRAM usage of ASTC textures by a factor of four, with a very minimal loss in quality, which you can barely notice as slightly softer textures.
+The `BC3 (medium quality)` setting reduces the VRAM usage of ASTC textures by a factor of four, with a very minimal loss in quality, typically showing as marginally softer textures.
 This setting is recommended for emulating `Tears of the Kingdom` on 6GB and 8GB GPUs.
 For other games, this setting is good for GPUs with 3GB of VRAM.
 
 Finally, the `BC1 (low quality)` setting cuts down the VRAM consumption by a factor of eight, but will also have a significant impact on texture quality, to the point where some assets will look completely different.
-We don’t recommend using this setting, unless you really have to. 
-It will let 4GB VRAM users to play `Tears of the Kingdom` without significant issues, and will make 2GB users have a smoother and more reliable experience in other games.
+We don’t recommend using this setting unless you really have to. 
+It allows users with 4GB of VRAM to play `Tears of the Kingdom` without significant issues, and will make 2GB users have a smoother and more reliable experience in other games.
 
 {{< single-title-imgs
-    "From left to right, or top to bottom on phones, BC1 vs BC3 vs ASTC (Fire Emblem Engage)"
+    "From first to last, BC1 vs BC3 vs ASTC (Fire Emblem Engage)"
     "./bc11.png"
     "./bc31.png"
     "./astc1.png"
@@ -102,7 +102,7 @@ It will let 4GB VRAM users to play `Tears of the Kingdom` without significant is
 As you can see, BC1 destroys image quality in some games.
 
 {{< single-title-imgs
-    "From left to right, or top to bottom on phones, BC1 vs BC3 vs ASTC (The Legend of Zelda: Tears of the Kingdom)"
+    "From first to last, BC1 vs BC3 vs ASTC (The Legend of Zelda: Tears of the Kingdom)"
     "./bc12.png"
     "./bc32.png"
     "./astc2.png"
@@ -111,7 +111,7 @@ As you can see, BC1 destroys image quality in some games.
 But in others, the difference is less noticeable.
 If you only have 2GB of VRAM and 8GB of RAM, the sacrifice may be worth it.
 
-Right now this is done using the CPU, but GPU acceleration is planned for the future.
+This is currently done using the CPU, but GPU acceleration is planned for the future.
 We also hope to add an option to use BC7 in the future to provide a higher quality experience.
 
 Keep in mind that {{< gh-hovercard "10398" "ASTC recompression" >}} only works on ASTC textures, so the actual VRAM usage reduction will depend on the game. Not every resource held in VRAM is ASTC.
@@ -121,9 +121,9 @@ In addition, byte[] has also {{< gh-hovercard "10422" "tuned the memory manager"
 This change should help improve gameplay stability during long sessions on systems with less RAM.
 yuzu always aims to support a minimum of 8GB of RAM on systems with dedicated GPUs.
 
-He also made sure that {{< gh-hovercard "10452" "memory collection doesn’t happen during the configuration step" >}}, so that it doesn't cause a device loss (i.e. the GPU driver shutting down).
+He also made sure that {{< gh-hovercard "10452" "memory collection doesn’t happen during the configuration step," >}} so that it doesn't cause a device loss (i.e. the GPU driver shutting down).
 
-By fixing the {{< gh-hovercard "10433" "block depth adjustment on slices" >}}, Blinkhawk solved the rendering issues affecting the gloom textures over the terrain in `Tears of the Kingdom`, a bug that was especially frustrating on low VRAM hardware.
+By fixing the {{< gh-hovercard "10433" "block depth adjustment on slices," >}} Blinkhawk solved the rendering issues affecting the gloom textures on the terrain in `Tears of the Kingdom`, a bug that was especially frustrating on low VRAM hardware.
 
 {{< single-title-imgs-compare
     "Let’s not make the gloom feel depressed… (The Legend of Zelda: Tears of the Kingdom)"
@@ -153,7 +153,7 @@ More on Intel's driver support later.
 	"./totkception.png| We need to go deeper! (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
-So far, that was just the worst part of it. More work was needed to get the game to boot and render properly. Let’s dive into that.
+This was the worst part... up to this point. More work was needed to get the game to boot and render properly. Let’s dive into that.
 
 One thing that both the Switch and Android devices have in common is the way they present to the screen.
 Google's OS uses `SurfaceFlinger` (the only good Linux presentation method), and the Switch uses `nvnflinger`, which is a custom adaptation of `SurfaceFlinger` designed for the Switch's firmware and operating system.
@@ -175,11 +175,11 @@ Next is a bug that only affected the base game. Following updates were unaffecte
 	"./red.png| Ganon likes to record Link… (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
-This mysterious red dot on the bottom right was caused by {{< gh-hovercard "10243" "incorrectly tracking" >}} render target indexes when clearing.
+This mysterious red dot on the right was caused by {{< gh-hovercard "10243" "incorrectly tracking" >}} render target indexes when clearing.
 Thanks to some behaviour changes made by Maide, Link is no longer being spied on.
 
-After the game was released, several users reported that the date in the game's save files was always being set to 1 January 1970.
-After checking the behaviour of the Switch, byte[] implemented {{< gh-hovercard "10244" "a few changes" >}} that solved the issue, with an updated service implementation that allows for computing the time in nanoseconds, automatically adjusting for clock skew, and using the same clock source as the system’s steady clock.
+After the game was released, several users reported that the date in the game's save files was always set to January 1st, 1970.
+After checking the behaviour of the Switch, byte[] implemented {{< gh-hovercard "10244" "a few changes" >}} that solved the issue with an updated service implementation that allows for computing the time in nanoseconds, automatically adjusting for clock skew, and using the same clock source as the system’s steady clock.
 
 There were also reports of graphical glitches when using the 2X resolution scaling factor: Link and terrain textures would become corrupted after switching weapons.
 
@@ -187,10 +187,10 @@ There were also reports of graphical glitches when using the 2X resolution scali
 	"./2x.png| Scrambled textures. (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
-Blinkhawk quickly found the cause of this problem: wrong clears were being done in the code responsible for synchronisation in the buffer cache.
+Blinkhawk quickly found the cause of this problem: wrong clears were performed in the code responsible for synchronization in the buffer cache.
 {{< gh-hovercard "10249" "Some tweaks," >}} and the game can be safely played while scaled.
 
-For the Linux AMD users, especially people not using the latest Mesa RADV Vulkan driver releases, byte[] found out that one of the features of `VK_EXT_extended_dynamic_state3`, dynamic depth clamp, was implemented incorrectly in the driver, leading to vertex explosions in some expository moments in the game.
+For the Linux AMD users, especially those not using the latest Mesa RADV Vulkan driver releases, byte[] found that one of the features of `VK_EXT_extended_dynamic_state3`, dynamic depth clamp, was implemented incorrectly in the driver, leading to vertex explosions in some expository moments in the game.
 
 {{< single-title-imgs-compare
     "Oh, there goes the vertex… (The Legend of Zelda: Tears of the Kingdom)"
@@ -200,8 +200,8 @@ For the Linux AMD users, especially people not using the latest Mesa RADV Vulkan
 
 {{< gh-hovercard "10262" "Disabling the feature" >}} for the affected driver version and older solves this issue.
 
-Another identified issue affected the light projection made by the Ultrahand ability, intended to help the player positioning objects.
-The green glow had a pixelated look, caused by {{< gh-hovercard "10402" "missing barriers on attachment feedback loops" >}}.
+Another identified issue affected the light projection made by the Ultrahand ability, intended to help the player position objects.
+The green glow had a pixelated look, caused by {{< gh-hovercard "10402" "missing barriers on attachment feedback loops." >}}
 
 {{< single-title-imgs-compare
     "Green Lantern hand. (The Legend of Zelda: Tears of the Kingdom)"
@@ -212,7 +212,7 @@ The green glow had a pixelated look, caused by {{< gh-hovercard "10402" "missing
 Several keyboard strokes later, and byte[] went green with envy.
 
 Next on the list of weird rendering issues is one that affected camera changes — for example, when talking to an NPC or aiming with the bow/throwing a weapon.
-Large areas in front of the player would go black for a frame and then return to normal.
+Large areas in front of the player would turn black for a frame and then return to normal.
 Needless to say, it was very distracting.
 
 {{< imgs
@@ -224,7 +224,7 @@ After a few tries by Blinkhawk and byte[], the issue was finally fixed.
 
 While investigating bugs related to `Tears of the Kingdom`, a copy-paste error hidden in the code for 3 years was also found.
 In the shader recompilation code, [Rodrigo](https://github.com/ReinUsesLisp) copied over the wrong value from one line to the next.
-This is another interesting case of the problem not being an issue until now, as no one noticed this bug until Zelda needed rescuing, again...
+This is another interesting case of the problem not being an issue until now, as no one noticed this bug until Zelda needed rescuing again...
 By {{< gh-hovercard "10459" "changing a single character," >}} byte[] solved the terrain gaps that could be spotted from a distance all over the map, but most noticeably in The Depths.
 
 {{< single-title-imgs-compare
@@ -233,7 +233,7 @@ By {{< gh-hovercard "10459" "changing a single character," >}} byte[] solved the
     "./gapfix.png"
     >}}
 
-In an interesting case where a UI setting is needed for improving a game’s gameplay, byte[] added an option to {{< gh-hovercard "10464" "clean the cache storage for a game" >}}, which can be accessed from the `Remove` menu when right clicking a game in yuzu’s list.
+In an interesting case where a UI setting is needed to improve a game’s rendering, byte[] added an option to {{< gh-hovercard "10464" "clean the cache storage for a game," >}} which can be accessed from the `Remove` menu when right clicking a game in yuzu’s game list.
 
 {{< imgs
 	"./remove.png| It’s fun to watch the game reconstruct the images in real time."
@@ -256,35 +256,34 @@ We’re following one of the most important rules of coding, “Make it work. Ma
 As this is a particularly popular game (and for good reason), here are some recommendations that user reports and fixes have taught us.
 
 - This game is very demanding on hardware. What we list in yuzu’s `recommended` [hardware requirements](https://yuzu-emu.org/help/quickstart/#hardware-requirements) is the minimum needed to sustain 30 FPS in most areas. A 6-core desktop Zen 2/11th gen Core, 16GB of RAM, and a GPU with at least 6GB of VRAM are the baseline for now.
-- The latest CPUs (Zen 4/13th gen Core, always speaking of desktop products) provide massive improvements in IPC, RAM bandwidth and cache sizes. Where a Ryzen 7 5800X3D barely manages 55 FPS, a Ryzen 5 7600 reaches 90 FPS.
+- The latest CPUs (Zen 4/13th gen Core, always speaking of desktop products) provide massive improvements in IPC, RAM bandwidth, and cache sizes. Where a Ryzen 7 5800X3D barely manages 55 FPS, a Ryzen 5 7600 reaches 90 FPS.
 - Normal GPU accuracy can be used to improve performance safely.
 - Unsafe CPU accuracy can improve performance at the cost of small inaccuracies.
-- Enable asynchronous presentation degrades performance a bit.
-- Don't use Decode ASTC textures asynchronously for this game, it will cause crashes.
+- Enabling asynchronous presentation degrades performance a bit.
+- Don't use `Decode ASTC textures asynchronously` for this game, it will cause crashes.
 - In some rare cases audio events can cause crashes, so be careful when using multi-arrow bows and bombs.
 - The Depths are particularly hungry for VRAM. Remember to use ASTC recompression if you are VRAM starved. We recommend at least 8GB of VRAM for 2X resolution scaling using BC3 compression.
-- The modding community has been providing amazing mods. Dynamic framerate, improved resolution and details, and much more is only a few clicks away. Here’s a [collection with recommendations](https://github.com/HolographicWings/TOTK-Mods-collection).
+- The modding community has been providing amazing mods. Dynamic framerate, improved resolution and details, and much more are only a few clicks away. Here’s a [collection with recommendations](https://github.com/HolographicWings/TOTK-Mods-collection).
 - Old FPS mods compatible with the base version of the game (1.0.0) are unstable and will cause softlocks and crashes during certain actions like the Game Over screen. Update your game and use newer mods.
 - Remember to test the game without mods before reporting issues, as mods are still altering memory regions to work.
-- If you disabled Fast GPU Time due to recommendations from modders, do it only for Tears of the Kingdom, as you will be seriously affecting performance in other games. Right clicking a game in yuzu’s list and selecting properties shows the per-game configuration. We strongly recommend keeping Fast GPU Time enabled in all scenarios.
+- If you disabled `Use Fast GPU Time` due to recommendations from modders, do it only for `Tears of the Kingdom`, as you will be seriously affecting performance in other games. Right clicking a game in yuzu’s game list and selecting properties shows the per-game configuration. We strongly recommend keeping `Use Fast GPU Time` enabled in all scenarios.
 
-[Now go. Let the Legend come back to life](https://www.youtube.com/watch?v=1pN8TvupNn4).
+[Now go. Let the Legend come back to life.](https://www.youtube.com/watch?v=1pN8TvupNn4)
 
 ## Project Lime
 
 {{< gh-hovercard "10508" "Bet you didn’t expect this." >}}
 
-That’s right, with the blessing from Skyline’s [bylaws](https://github.com/bylaws), and Dolphin’s [t985](https://github.com/t895), the help from Citra’s [GPUCode](https://github.com/GPUCode), and work from yuzu’s and Citra’s [flTobi](https://github.com/FearlessTobi), [bunnei](https://github.com/bunnei), [Merry](https://github.com/merryhime), [Flamboyant Ham](https://github.com/Schplee), [german77](https://github.com/german77), and more, yuzu is now available for Android devices!
+That’s right, with the blessing from Skyline’s [bylaws](https://github.com/bylaws), help from Dolphin’s [t985](https://github.com/t895) and Citra’s [GPUCode](https://github.com/GPUCode), work from yuzu’s and Citra’s [flTobi](https://github.com/FearlessTobi), [bunnei](https://github.com/bunnei), [Merry](https://github.com/merryhime), [Flamboyant Ham](https://github.com/Schplee), [german77](https://github.com/german77), and more, yuzu is now [available for Android devices](https://yuzu-emu.org/downloads/#android)!
 
-We recommend you to read the detailed article on yuzu Android [here](https://yuzu-emu.org/entry/yuzu-android/).
+We recommend that you read the dedicated yuzu on Android article [here](https://yuzu-emu.org/entry/yuzu-android/).
 In this section, we will give you an overview of our future plans, some tips on settings and hardware requirements, and a realistic outlook on what you can expect from yuzu on Android right now.
-And pardon us if the tone is aggressive, but we learned from [previous experiences](https://kotaku.com/ps2-emulator-android-aethersx2-developer-death-threats-1849955012) from within the Android emulation scene that we need to be clear and direct.
 
 The Android version of yuzu was not an easy feat. It took us almost eight months of hard work to make it happen. 
-Right now, it is essentially the same as the desktop version under the hood, with an Android UI and *very few* platform-specific tweaks.
-This means you can enjoy features like 32-bit game support, NVDEC video decoding support, motion, controller automapping, resolution scaling, and filters are available.
-On the other hand, features like mods and cheats management, LDN, and the controller configuration applet are still under development.
-Our goal is to gradually bring the Android builds up to speed with the PC version.
+Right now, the core is essentially the same as the desktop version, with an Android UI and *very few* platform-specific tweaks.
+This means you can enjoy features like 32-bit game support, NVDEC video decoding support, motion, controller automapping, resolution scaling, and filters.
+On the other hand, features like mod and cheat management, LDN, and the controller configuration applet are still under development.
+Our goal is to gradually have the Android builds reach parity with the PC version.
 
 In addition to the Google Play Store, we will soon be posting releases on our GitHub, and F-Droid is also on the horizon.
 
@@ -298,12 +297,12 @@ They all started working on Vulkan drivers around the same time in 2016. And yet
 
 It is obvious that only 4 vendors have the expertise and the commitment to make Vulkan drivers work: NVIDIA, AMD, and Mesa, with a special mention for Intel, who recently stepped up their game.
 
-The only viable choice we had to make yuzu run on Android without spending several months modifying our GPU code to accommodate all the quirks and broken extensions of Android phones and tablets was Qualcomm.
+As a result of the sad state of things, supporting Qualcom SoCs exclusively for our early releases was the only viable choice. We needed to make yuzu run on Android without spending an additional several months modifying our GPU code to accommodate all the quirks and broken extensions of Android phones and tablets.
 Not because their driver is decent — it’s bad.
 But it was just good enough to get some games to render, albeit incorrectly most of the time.
 
-Qualcomm is the best option (and for now, the only one) because bylaws created [AdrenoTools](https://github.com/bylaws/libadrenotools), which lets users load the ***vastly*** superior [Mesa Turnip](https://docs.mesa3d.org/drivers/freedreno.html) drivers on their Adreno 600 series GPUs, providing accurate rendering, comparable to the quality expected of PC products.
-Any Qualcomm SoC with a name like “Snapdragon ###” from the 460 to the 888+ equipped with an Adreno 600 series GPU can choose to use either the proprietary Qualcomm driver, or Mesa Turnip.
+Qualcomm is the best option (and for now, the only one) because bylaws created [AdrenoTools](https://github.com/bylaws/libadrenotools), which lets users load the ***vastly*** superior [Mesa Turnip](https://docs.mesa3d.org/drivers/freedreno.html) drivers on their Adreno 600 series GPUs, providing more accurate rendering, comparable to the quality expected of PC products.
+Any Qualcomm SoC with a name like “Snapdragon ###” from the 460 to the 888+ equipped with an Adreno 600 series GPU can choose to use either the proprietary Qualcomm driver or Mesa Turnip.
 
 The performance gain you can expect from a device with a Snapdragon Gen 1 or Gen 2 is quite significant. 
 But the problem is that, while the Adreno 700 series GPU that comes with it is very powerful hardware-wise, the proprietary Qualcomm driver for it is subpar at best, and Mesa has only just begun to work on adding support for Turnip.
@@ -357,11 +356,11 @@ This allows the GPU to use very little RAM, just like on the Switch.
 The curse is that, because Android is such a heavy OS, there is no guarantee that complex games will run on devices with 6GB of RAM. 8GB is the strong recommendation, which puts compatibility on the pricey side of the spectrum. 
 A certain Zelda game we wrote a lot about currently requires at least 12GB of RAM to run.
 
-There are ongoing efforts to reduce memory requirements, such as native code execution and UMA optimisations for the GPU code, but the reality is that emulation adds overhead and Android will only get fatter over time.
+There are ongoing efforts to reduce memory requirements, such as native code execution and [UMA](https://en.wikipedia.org/wiki/Universal_memory) optimizations for the GPU code, but the reality is that emulation adds overhead and Android will only get fatter over time.
 We may be able to get light 2D games running on 4GB devices, but we don't expect complex 3D games to run on less than 8GB any time soon, if ever.
 
 We have set the minimum required operating system to Android 11. 
-This decision was made to prevent installation on completely unsuitable hardware (like Adreno 500 series devices or older T series Mali GPUs), and to reduce low-memory devices as much as possible.
+This decision was made to prevent installation on completely unsuitable hardware (like Adreno 500 series devices or older T series Mali GPUs), and to reduce installation on low-memory devices as much as possible.
 This is final, as there are no plans to support older Android versions.
 
 Of course, it must be a 64-bit Android 11 or newer; just like on desktop, 32-bit devices will never be supported.
@@ -391,10 +390,10 @@ While playing a game you can select Settings from the left menu, or select it fr
     "./settings3.png"
     >}}
 
-Here you will find setting and customisation options. Most are self-explanatory, but if you want explanations for the options in Advanced settings, check our settings glossary [here](https://community.citra-emu.org/t/settings-glossary/768483).
+Here you will find setting and customization options. Most are self-explanatory, but if you want explanations for the options in Advanced settings, check our settings glossary [here](https://community.citra-emu.org/t/settings-glossary/768483).
 
 After the initial configuration is done, just tap a game and play. 
-A search option is offered for those with high storage capacity devices needing to filter over many games.
+A search option is available for your convenience, along with a few search filters.
 
 {{< single-title-imgs
     "Choose your destiny."
@@ -402,7 +401,7 @@ A search option is offered for those with high storage capacity devices needing 
     "./search.png"
     >}}
 
-One of the first improvements to be added by [PabloG02](https://github.com/PabloG02) is a {{< gh-hovercard "10534" "saves manager" >}} that can be accessed from settings.
+One of the first improvements added by [PabloG02](https://github.com/PabloG02) is a {{< gh-hovercard "10534" "save manager" >}} that can be accessed from the Settings.
 This makes importing and exporting saves very simple. Thank you!
 
 {{< imgs
@@ -410,10 +409,10 @@ This makes importing and exporting saves very simple. Thank you!
   >}}
 
 One important thing to remember: Android has the most… unusual file system permissions.
-We recommend creating a yuzu folder on your storage root to store your keys in, to avoid any permissions issues.
+We recommend creating a yuzu folder on your storage root to store your keys, as to avoid any permissions issues.
 
 You can get different Adreno and Turnip driver versions to test from [here](https://github.com/K11MCH1/AdrenoToolsDrivers/releases).
-Keep in mind this option will only change the driver for yuzu. It won’t (and can’t) replace anything on a system level.
+Keep in mind, this option will only change the driver for yuzu. It won’t (and can’t) replace anything on a system level.
 
 At the time of writing, we recommend [Turnip 23.2.0](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v23.2.0-dev) (or [23.1.0](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v23.1.0-dev) if you have Android 11) for Adreno 600, while Adreno 700 users can run the [Qualcomm 676.22](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v676.22FIX) driver to improve performance and compatibility somewhat.
 
@@ -432,23 +431,23 @@ Oh right, we have more to talk about!
 Because this isn’t just a Zelda emulator after all.
 
 Who wants more `Project Y.F.C.` goodies?
-Blinkhawk serves us {{< gh-hovercard "10155" "Reactive Flushing" >}}, with fries.
+Blinkhawk serves us {{< gh-hovercard "10155" "Reactive Flushing," >}} with fries.
 
 In the early days of yuzu, if the CPU were to read an area modified by the GPU, full sync flushing between the host and guest GPU (emulated and system’s GPU) would trigger (let’s call it “old reactive flushing”).
-This was safe and provided proper rendering, but was also slow.
-So Blinkhawk replaced this system with predictive flushing some years ago, improving performance significantly but introducing with it several graphical regressions, like broken shadows and lighting, wrong thumbnails on saves and photos, and even vertex explosions.
+This was safe and rendered things properly, but was also slow.
+Blinkhawk replaced this system with predictive flushing some years ago, improving performance significantly but introducing several graphical regressions, such as broken shadows and lighting, wrong thumbnails on saves and photos, and even vertex explosions.
 
-With this release of the yuzu fried chicken, Blinkhawk introduces the new reactive flushing, which has the following fixes:
+With this release of the yuzu fried chicken, Blinkhawk introduces the new Reactive Flushing, which has the following fixes:
 
-- Old regressions such as `Bayonetta 2`'s shadows.
-- Lighting in `Xenoblade Chronicles` games.
+- Fixes old regressions such as `Bayonetta 2`'s shadows.
+- Fixes lighting in `Xenoblade Chronicles` games.
 - Improves performance in buffer-heavy games like `Monster Hunter Rise`.
-- Thumbnails and in-game photos in a bunch of games like saves in `Xenoblade Chronicles Definitive Edition` and `Xenoblade Chronicles 3`, camera photos in `ASTRAL CHAIN` and partially thumbnails in `Luigi's Mansion 3`.
+- Thumbnails and in-game photos in a bunch of games such as: saves in `Xenoblade Chronicles Definitive Edition` and `Xenoblade Chronicles 3`, camera photos in `ASTRAL CHAIN`, and partially fixes thumbnails in `Luigi's Mansion 3`.
 - Vertex explosions in `Pokemon Violet/Scarlet` and `Yoshi’s Crafted World`.
 - Make High GPU Accuracy fully use asynchronous buffers in Vulkan, improving performance.
 
 {{< single-title-imgs
-    "From left to right, or top to bottom on phones, Bayonetta 2, ASTRAL CHAIN, Xenoblade Chronicles Definitive Edition, and Luigi’s Mansion 3"
+    "From first to last: Bayonetta 2, ASTRAL CHAIN, Xenoblade Chronicles Definitive Edition, and Luigi’s Mansion 3"
     "./rf1.png"
     "./rf2.png"
     "./rf3.png"
@@ -456,7 +455,7 @@ With this release of the yuzu fried chicken, Blinkhawk introduces the new reacti
     >}}
 
 {{< single-title-imgs
-    "From left to right, or top to bottom on phones, Mario + Rabbids Kingdom Battle, Pokémon Scarlet, and Yoshi's Crafted World"
+    "From first to last: Mario + Rabbids Kingdom Battle, Pokémon Scarlet, and Yoshi's Crafted World"
     "./rf6.png"
     "./rf7.png"
     "./rf8.png"
@@ -470,7 +469,7 @@ If you need the performance, and can tolerate the graphical regressions introduc
 	"./reactive.png| If you have performance to spare, keep it enabled."
   >}}
 
-Users with AMD and Intel GPUs complained that high-framerate mods couldn't get past the display's refresh rate when using Vulkan.
+Users with AMD and Intel GPUs complained that high-framerate mods couldn't push the framerate past the display's refresh rate when using Vulkan.
 This was because the VSync toggle was assuming the best option for each hardware driver based on compatibility.
 
 What used to be just VSync on, off, or triple buffer in the good old OpenGL days is now more complex with Vulkan, even if current games insist on mistakenly calling the setting “VSync on” for legacy reasons.
@@ -487,14 +486,14 @@ Mailbox is the obvious recommendation for most games, so of course only NVIDIA o
 	"./vsync.png| Android has no tolerance for tearing."
   >}}
 
-Per your writer’s ~~begging~~ request, [toastUnlimited](https://github.com/lat9nq) updated the old VSync toggle in Graphics, Advanced, for a {{< gh-hovercard "10125" "proper drop list" >}} mentioning all available Vulkan options.
+Per your writer’s ~~begging~~ request, [toastUnlimited](https://github.com/lat9nq) updated the old VSync toggle in the Graphics menu to a {{< gh-hovercard "10125" "proper drop list" >}} mentioning all available Vulkan options.
 
 {{< imgs
 	"./mailbox.png| If it is an option, pick Mailbox."
   >}}
 
-So, for example, if someone with an AMD or Intel GPU on Windows wants to play `Super Smash Bros. Ultimate` with a 120 FPS mod on a 60 Hz display, they now have the option to use Immediate mode, which is what the emulator switches to when the player unlocks the framerate with Ctrl + U.
-The rest can just enjoy Chad Mailbox.
+If, for example, someone with an AMD or Intel GPU on Windows wants to play `Super Smash Bros. Ultimate` with a 120 FPS mod on a 60 Hz display, they now have the option to use Immediate mode, which is what the emulator switches to when the player unlocks the framerate with Ctrl + U.
+The rest can just enjoy Mailbox.
 
 We recommend setting the driver’s control panel to Enhanced/Fast sync for the best results.
 
@@ -506,10 +505,10 @@ We recommend setting the driver’s control panel to Enhanced/Fast sync for the 
     >}}
 
 Maide found an issue related to the size of the pipeline cache.
-Yuzu used to return the size of the shader code in bytes, which was later used to resize the unsigned 64 bit integer array in charge of storing the cache, which made the array 8 times larger than it was supposed to be.
+yuzu used to return the size of the shader code in bytes, which was later used to resize the unsigned 64 bit integer array in charge of storing the cache, making the array 8 times larger than it was supposed to be.
 This is fixed by {{< gh-hovercard "10145" "using the length of the array" >}} instead of the size in bytes.
 
-A common complaint from 8GB of RAM users is that games become unstable over time. This isn't necessarily a memory leak — it's likely just the system running out of RAM as new shaders are added to the pipeline cache.
+A common complaint from users with 8GB of RAM is that games become unstable over time. This isn't necessarily a memory leak — it's likely just the system running out of RAM as new shaders are added to the pipeline cache.
 This change greatly benefits them.
 ~~But it’s 2023, you should seriously consider getting 16GB by now. Tears of the Kingdom is not Super Mario Odyssey.~~
 
@@ -534,7 +533,7 @@ Continuing with code optimisations, Maide found some incorrect behaviour in how 
 The `Render Target` (The OG RT before Ray Tracing came to town) is a texture containing the image to be rendered during a draw or clear operation.
 
 The emulator has to look at the format of the available render targets to determine which one to clear.
-For example, suppose there are 5 images bound as render targets, indexed from `0` to `4`, and the game requests to clear the render target with index 2.
+For example, suppose there are 5 images bound as render targets, indexed from `0` to `4`, and the game requests to clear the render target with index `2`.
 The next step is to look at the format of render `target[2]` in the array.
 This is where the old code would work incorrectly and inefficiently, as it would iterate through all the render targets and pick the first one that returned a valid format corresponding to `target[2]`.
 This could very well be `target[2]` as expected, or an earlier render target such as `target[0]` or `target[1]`, in which case the code would completely ignore the actual render target we wanted to clear.
@@ -553,13 +552,13 @@ So, how can this be solved? “Simple!” Let’s just give the host and guest c
 Having this information in separate queues fixes the data integrity issues, greatly improving stability.
 
 Newcomer [danilaml](https://github.com/danilaml) identified a {{< gh-hovercard "10254" "missing bitflag" >}} in the header responsible for decoding H.264 videos.
-This fixes video rendering for `Layton's Mysterious Journey: Katrielle and the Millionaires' Conspiracy`.
+This fixes video rendering for `Layton's Mystery Journey: Katrielle and the Millionaires' Conspiracy`.
 
 {{< imgs
 	"./layton.png| Games are boring without their cutscenes, right? (Layton's Mysterious Journey: Katrielle and the Millionaires)"
   >}}
 
-Not stopping there, danilaml also added support for deinterlaced video playback by using the {{< gh-hovercard "10283" "yadif filter" >}} included with [FFmpeg](https://ffmpeg.org/), fixing rendering of the game’s videos.
+Not stopping there, danilaml also added support for deinterlaced video playback by using the {{< gh-hovercard "10283" "yadif filter" >}} included with [FFmpeg](https://ffmpeg.org/), fixing the game's video rendering.
 Thank you!
 
 Intel’s Linux Mesa Vulkan driver, ANV, broke the `VK_KHR_push_descriptor` extension with version 22.3.0 and later, causing several games to fail to boot.
@@ -570,7 +569,7 @@ GPUCode improved overall performance when using Vulkan in a few percentage point
 Every bit helps.
 
 [Epicboy](https://github.com/ameerj) continues his crusade to improve OpenGL.
-This time, he {{< gh-hovercard "10483" "fixed" >}} the use of “Accelerate ASTC texture decoding” when ASTC recompression was set to Uncompressed.
+This time, he {{< gh-hovercard "10483" "fixed" >}} the use of `Accelerate ASTC texture decoding` when ASTC recompression was set to Uncompressed.
 
 And finally, to close this section, Maide fixed homebrew console apps crashing by {{< gh-hovercard "10506" "skipping a section of the buffer cache" >}} that isn’t needed when an app doesn’t use graphics.
 
@@ -596,11 +595,11 @@ HD Rumble is one of the marketed features of the Switch, which is a cool way of 
 Well, Sony’s DualSense controller also has linear resonant actuators, so in theory, it should be able to emulate HD Rumble.
 The problem is that SDL, the API we use to support non-Nintendo controllers on yuzu, currently doesn’t expose a way to take advantage of these fancy actuators.
 
-Well, newcomer [marius851000](https://github.com/marius851000) intends to improve this situation for DualSense owners, so they came up with the idea to {{< gh-hovercard "10119" "change the rumble amplitude" >}} based on the frequency requested by the game, with 140-400 Hz operating as the low frequency, and 200-700 Hz as the high frequency.
+Well, newcomer [marius851000](https://github.com/marius851000) improved this situation for DualSense owners, so they came up with the idea to {{< gh-hovercard "10119" "change the rumble amplitude" >}} based on the frequency requested by the game, with 140-400 Hz operating as the low frequency, and 200-700 Hz as the high frequency.
 This way, some sense of “rumble audio”, and an overall better shaky-shaky experience, is achieved.
 Thank you!
 
-To help you see if the motion controls are working, german77 has added a {{< gh-hovercard "10167" "cute tiny little cube" >}} to the controller preview.
+To help you see if the motion controls are working, german77 has added a {{< gh-hovercard "10167" "cute little cube" >}} to the controller preview.
 Feel free to play with it!
 
 {{< imgs
@@ -673,7 +672,7 @@ After doing some extensive reverse engineering, Maide reached the conclusion tha
 With the timeout implemented, `SUPER MARIO ODYSSEY` and `Kirby Star Allies`, among others can now play back their audio at full speed.
 
 [danilaml](https://github.com/danilaml) continues to deliver the good stuff.
-This time, simply {{< gh-hovercard "10362" "updating cubeb" >}} (one of our audio backends, and most of the time the default one) fixed a bug that muted the emulator after resuming the PC from sleep.
+This time, simply {{< gh-hovercard "10362" "updating cubeb" >}} (one of our audio backends, and most of the time the default one) fixed a bug that muted the emulator after waking the PC from sleep.
 Feel free to close your lids and continue later!
 
 Users noticed that after recent changes to fix the wire audio in `SUPER MARIO ODYSSEY`, audio in many games could desync and sound crackled or distorted.
@@ -695,7 +694,7 @@ Continuing the trend in quality-of-life changes, newcomer [grimkor](https://gith
 	"./context.png| And now, for your convenience…"
   >}}
 
-A {{< gh-hovercard "10352" "context menu" >}} for the filter and antialiasing options! You no longer will have to go through the entire list of options if you want to try a different one, just right click and choose.
+A {{< gh-hovercard "10352" "context menu" >}} for the filter and antialiasing options! You no longer have to go through the entire list of options if you want to try a different one, simply right click and choose.
 Thank you!
 
 If you double clicked a game in the game list, you could end up double clicking it again or pressing enter before the game list got unloaded, which would cause yuzu to try to load the game twice, and usually just crash. 
@@ -703,12 +702,12 @@ german77 fixed this up by {{< gh-hovercard "10482" "immediately disabling the ga
 
 ## Hardware section
 
-This section got expanded! In future articles we will include any news for Android GPU vendors.
+We no longer only support the PC! In future articles, we will include any news for Android GPU vendors.
 
 ### NVIDIA
 
 We have some good news and a little disappointment for the Green Team.
-But first, we have some progress in the Maxwell and Pascal situation.
+But first, we have some progress with the Maxwell and Pascal situation.
 
 In the past, we used to recommend users to stick to older driver releases for the GTX 750/900/1000 series, as anything newer than the 470 driver series was unstable.
 Thanks to the work done with the garbage collector for `Tears of the Kingdom`, we now know that the problem with these cards is how the driver handles out-of-memory situations.
@@ -741,7 +740,7 @@ DLDSR is a way to use the Tensor cores available in RTX cards to upscale the ima
 Needless to say, it’s a great way to improve image quality if you have the hardware to test it.
 
 And in other good news, [Special K](https://special-k.info/) now supports HDR in Vulkan and it works with yuzu!
-NVIDIA is still the only supported vendor, as this is only possible thanks to the magic `Prefer layered on DXGI Swapchain` option, but the quality and customisation offered by Special K over AutoHDR is outstanding. That expensive OLED never looked so tempting.
+NVIDIA is still the only supported vendor, as this is only possible thanks to the magic `Prefer layered on DXGI Swapchain` option, but the quality and customization offered by Special K over AutoHDR is outstanding. That expensive OLED never looked so tempting.
 
 Note that we have confirmed in testing that `Prefer layered on DXGI Swapchain` needs to be manually enabled for Special K to work properly.
 This also includes other NVIDIA-exclusive goodies such as input lag reduction thanks to NVIDIA Reflex.
@@ -754,29 +753,29 @@ Here are some comparison pics in .jxr format, they can be opened with the defaul
 - SpecialK’s HDR with [Perceptual Boost disabled](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-may-2023/specialk.jxr).
 - SpecialK’s HDR with [Perceptual Boost enabled](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-may-2023/specialkpb.jxr).
 
-Keep in mind Special K needs to be tuned to the capabilities of the display, and my humble 350 nits of top brightness Gigabyte G27Q is a disservice to what this change can make on actually good HDR displays. 
+Keep in mind, Special K needs to be tuned to the capabilities of the display, and my humble 350 nit Gigabyte G27Q is a disservice to what this change can do on actually good HDR displays. 
 Expect better results if you have an OLED, or a display with dimming zones and a higher peak brightness.
 
-Now, on the disappointing news, the RTX 4060 Ti.
+Now, on to the disappointing news: the RTX 4060 Ti.
 
 We don’t understand what kind of decisions NVIDIA took when deciding the Ada Lovelace GeForce product stack, but it has been nothing but mistakes.
 The RTX 4060 Ti 8GB with only a 128-bit wide memory bus and GDDR6 VRAM is a serious downgrade for emulation when compared to its predecessor, the 256-bit wide equipped RTX 3060 Ti.
 You will be getting slower performance in Switch emulation if you get the newer product.
 We have no choice but to advise users to stick to Ampere products if possible, or aim higher in the product stack if you have to get a 4000 series card for some reason (DLSS3 or AV1 encoding), which is clearly what NVIDIA is aiming for.
 
-The argument in favour of Ada is the increased cache size, which RDNA2 confirmed in the past helps with performance substantially, but it also has a silent warning no review mentions: if you saturate the cache, you’re left with the performance of a 128-bit wide card, and it’s very easy to saturate the cache when using the resolution scaler–just 2X is enough to tank performance.
+The argument in favour of Ada is the increased cache size, which RDNA2 confirmed in the past helps with performance substantially, but it also has a silent warning no review mentions: if you saturate the cache, you’re left with the performance of a 128-bit wide card, and it’s very easy to saturate the cache when using the resolution scaler — just 2X is enough to tank performance.
 
 Spending 400 USD on a card that has terrible performance outside of 1X scaling is, in our opinion, a terrible investment, and should be avoided entirely.
 We hope the 16GB version at least comes equipped with GDDR6X VRAM, which would increase the available bandwidth and provide an actual improvement in performance for this kind of workload.
 
 ### AMD
 
-AMD has shown steady progress with each new driver release, and thanks to this the experience on yuzu is in very good shape for Radeon owners, besides some documented hardware limitations causing graphical issues we mentioned [in the past](https://yuzu-emu.org/entry/yuzu-progress-report-apr-2023/#amd-delivering-on-their-promises).
+AMD has shown steady progress with each new driver release and, thanks to this, the experience on yuzu is in very good shape for Radeon owners, besides some documented hardware limitations causing graphical issues we've mentioned [in the past](https://yuzu-emu.org/entry/yuzu-progress-report-apr-2023/#amd-delivering-on-their-promises).
 
-The only main exception is a rendering issue affecting `Tears of the Kingdom`, which only happens with RDNA3 hardware, the RX 7000 series.
+The main exception is a rendering issue affecting `Tears of the Kingdom`, which only happens with RDNA3 hardware, the RX 7000 series.
 
 {{< single-title-imgs
-    "Both RX 7900 and RX 7600 series are affected. (The Legend of Zelda: Tears of the Kingdom)"
+    "Both the RX 7900 and RX 7600 series are affected. (The Legend of Zelda: Tears of the Kingdom)"
     "./rdna1.png"
     "./rdna2.png"
     "./rdna3.png"
@@ -796,7 +795,7 @@ But luckily both issues have fixes in testing in the latest Early Access release
 
 The first problem is in yuzu's code. 
 Some compute shaders have barriers in places that result in generating invalid SPIR-V code, and while NVIDIA and AMD have no problem with it, Intel is following the Vulkan specification much more closely and doesn’t like the result, leading to crashes.
-While we test the solution, for now we recommend Mainline Intel users to keep the {{< gh-hovercard "10181" "freshly added" >}} “Enable Compute Pipelines (Intel Vulkan only)” disabled in `Emulation > Configure… > Graphics > Advanced`.
+While we test the solution, for now we recommend Mainline Intel users to keep the {{< gh-hovercard "10181" "freshly added" >}} `Enable Compute Pipelines (Intel Vulkan only)` disabled in `Emulation > Configure… > Graphics > Advanced`.
 
 {{< imgs
 	"./compute.png| This is just temporary (famous last words…)"
@@ -804,11 +803,11 @@ While we test the solution, for now we recommend Mainline Intel users to keep th
 
 The other issue is a hardware limitation.
 Intel decided to remove support for Float64 operations on their Generation 12 graphics products (UHD 700/Xe/Arc) without providing a driver fallback.
-Well, it turns out that, for unknown reasons, `Tears of the Kingdom` requires over the top precision in its cutscenes — precision that current Intel hardware physically lacks, causing us to crash building the shader.
+Well, it turns out that, for unknown reasons, `Tears of the Kingdom` requires over the top precision in its cutscenes — precision that current Intel hardware physically lacks, causing us to crash when building the shader.
 We’re testing a Float64 to Float32 shader conversion to solve the problem.
-For now, Mainline Intel users will have to get a save past the intro cutscene, or use OpenGL, as the OpenGL spec dictates that Float64 must be supported one way or another, even if it is via software emulation.
+For now, Mainline Intel users will want to use a save that's past the intro cutscene, or use OpenGL, as the OpenGL spec dictates that Float64 must be supported one way or another, even if it is via software emulation.
 
-Currently, the game is playable at a mostly-consistent 30 FPS with an i5 1240P running an Iris Xe iGPU (if you stick to handheld rendering), and shows better performance than AMD's Vega iGPUs. 
+Currently, the game is playable at a mostly-consistent 30 FPS with an i5 1240P running an Iris Xe iGPU (if you stick to handheld rendering), and exhibits better performance than AMD's Vega iGPUs. 
 
 For those interested in the experience with desktop products, here is footage captured with an Arc A770 16GB:
 
@@ -818,11 +817,11 @@ For those interested in the experience with desktop products, here is footage ca
 
 ## Future projects
 
-We don’t have much to announce for now regarding ongoing projects—we were very busy with `Tears of the Kingdom` and the Android release!
+We don’t have much to announce for now regarding ongoing projects — we were very busy with `Tears of the Kingdom` and the Android release!
 
 GPUCode is working on a couple of cool things. One of them is implementing a way to have an equivalent to {{< gh-hovercard "10545" "DXGI presentation" >}} working on Intel and AMD hardware; that way, AutoHDR can be used with any GPU vendor, not just NVIDIA.
 
-That’s all folks! For real this time. If you reached this point, sorry for the delay, thank you for your patience and for sticking until the end. See you next month!
+That’s all folks! For real this time. If you've reached this point, thank you for your patience and for reading to the end. We hope you've enjoyed this mega-report! See you next month!
 ~~We all need some sleep…~~
 
 &nbsp;
