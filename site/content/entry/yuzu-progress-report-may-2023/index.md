@@ -274,7 +274,7 @@ As this is a particularly popular game (and for good reason), here are some reco
 
 {{< gh-hovercard "10508" "Bet you didn’t expect this." >}}
 
-That’s right, with the blessing from Skyline’s [bylaws](https://github.com/bylaws), help from Dolphin’s [t985](https://github.com/t895) and Citra’s [GPUCode](https://github.com/GPUCode), work from yuzu’s and Citra’s [flTobi](https://github.com/FearlessTobi), [bunnei](https://github.com/bunnei), [Merry](https://github.com/merryhime), [Flamboyant Ham](https://github.com/Schplee), [german77](https://github.com/german77), and more, yuzu is now [available for Android devices](https://yuzu-emu.org/downloads/#android)!
+That’s right, with the blessing from Skyline’s [bylaws](https://github.com/bylaws), help from Dolphin’s [t895](https://github.com/t895) and Citra’s [GPUCode](https://github.com/GPUCode), work from yuzu’s and Citra’s [flTobi](https://github.com/FearlessTobi), [bunnei](https://github.com/bunnei), [Merry](https://github.com/merryhime), [Flamboyant Ham](https://github.com/Schplee), [german77](https://github.com/german77), and more, yuzu is now [available for Android devices](https://yuzu-emu.org/downloads/#android)!
 
 We recommend that you read the dedicated yuzu on Android article [here](https://yuzu-emu.org/entry/yuzu-android/).
 In this section, we will give you an overview of our future plans, some tips on settings and hardware requirements, and a realistic outlook on what you can expect from yuzu on Android right now.
