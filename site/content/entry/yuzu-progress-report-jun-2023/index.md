@@ -133,8 +133,14 @@ A bug affecting how NVN virtual images were being remapped after sparse memory g
 
 {{< single-title-imgs-compare
     "Optical camouflage gone wrong, clearly Protag-kun here is not as good as major Motoko (SHIN MEGAMI TENSEI V)"
-    "./yvcbug.png"
-    "./yvcfix.png"
+    "./yvcbug1.png"
+    "./yfcfix1.png"
+    >}}
+
+{{< single-title-imgs-compare
+    "It's not a phase, mom! (BRAVELY DEFAULT II)"
+    "./yfcbug1.png"
+    "./yfcfix2.png"
     >}}
 
 {{< gh-hovercard "10953" "Fixing this regression" >}} returns proper rendering to these games.
