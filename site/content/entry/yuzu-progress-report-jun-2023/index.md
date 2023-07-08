@@ -632,7 +632,7 @@ But hey, a free way to get a 4GB GPU to run `The Legend of Zelda: Tears of the K
 
 ### NVIDIA, no sign of progress
 
-Tthe new (at the time of writing) driver release that adds support for the RTX 4060, 536.40, hasn’t introduced any regression for yuzu. 
+The new (at the time of writing) driver release that adds support for the RTX 4060, 536.40, hasn’t introduced any regression for yuzu. 
 So it’s safe to update, just not “safe to upgrade” from older hardware yet. 
 Maybe the RTX 5000 series will be a more viable option.
 
