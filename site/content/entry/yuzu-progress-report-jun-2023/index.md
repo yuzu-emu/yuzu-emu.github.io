@@ -50,7 +50,7 @@ The following bugs have now been fixed as a result:
 - Fixes the vertex explosions affecting `Pokemon Scarlet & Violet`. Use High GPU accuracy.
 
 {{< single-title-imgs
-    "No explosions near the Academy, Megumin! (Pokémon Skarlet)"
+    "No explosions near the Academy, Megumin! (Pokémon Scarlet)"
     "./scarletbug.mp4"
     "./scarletfix.mp4"
     >}}
