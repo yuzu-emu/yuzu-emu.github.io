@@ -18,30 +18,30 @@ Now that we’ve cleared that up, let’s get started.
 
 ## Illusion of Time
 
-One of the requirements for running some commercial games in yuzu is a firmware dump, necessary for things like Mii models, or to properly render foreign scripts or button fonts.
+While we implement many features of the Switch operating system, and can boot most games without a firmware dump, some games still require one. This is necessary for things like Mii models, or to properly render foreign scripts or button fonts.
 The firmware files also include the resources needed for proper time zone support.
 
-Thanks to the amazing work of [toastUnlimited](https://github.com/lat9nq), yuzu {{< gh-hovercard "10603" "now ships with" >}} virtually all {{< gh-hovercard "10797" "time zone data" >}} that the Switch has, without requiring a firmware dump.
+Thanks to the amazing work of [toastUnlimited](https://github.com/lat9nq), yuzu {{< gh-hovercard "10603" "now ships with" >}} virtually all {{< gh-hovercard "10797" "time zone data" >}} that the Switch has by default!
 
 In the past, yuzu would pretend that the system was in GMT, and then adjust the universal time by the local offset in the guest.
-While this worked fine, it’s not very accurate to how the Switch does it.
+While this usually worked, it’s not accurate to how the Switch reports times.
 
-The default “Auto” time zone setting will now send a location-accurate time zone to the guest (instead of following the old GMT rule) with the synthesised archive.
+The default “Auto” time zone setting will now send a location-accurate time zone to the guest (instead of following the old GMT rule) using the synthesised time zone archive.
 The new system also sends a correct representation of the universal time, regardless of whether there is a firmware dump or not.
 
 Now, while Linux had few issues with the new system, Flatpak being its usual annoying self, Windows has some special needs. There are two important things to keep in mind: 
 
-- Right now, users need to run at least a 2019 version of Windows 10, with 1809 no longer being compatible. For LTSC users, this means only the newest 2021 release would work. We are working to solve this limitation in the near future.
+- Right now, users need to run at least a 2019 version of Windows 10, with 1809 no longer being compatible. For LTSC users, this means only the newest 2021 release will work. We are working to remove this limitation in the near future.
 - You need the latest Visual C++ 2022 redistributable. Get it from this link: https://aka.ms/vs/17/release/vc_redist.x64.exe
 
-Don’t forget to set your clock right!
+Don’t forget to set your clock correctly!
 
 ## Graphics changes
 
 This month has been full of GPU changes, so let’s start with a *simple* one.
 
 There’s never rest for the wicked, so [Blinkhawk](https://github.com/FernandoS27) makes good use of that extra time doing what he does best: pulling big changes out of thin air.
-In this case, he investigated what happens if a GPU page is being incoherently written. 
+In this case, he investigated what happens if a memory page is being used by the GPU and written by the CPU at the same time. 
 Lovely little bugs that have been haunting us for half a decade, that’s what happens!
 
 What Blinkhawk adds here is {{< gh-hovercard "10942" "a mechanism to register small CPU writes" >}} that sneak through while the page is being accessed by the GPU, properly invalidating the page if needed.
@@ -55,7 +55,7 @@ The following bugs have now been fixed as a result:
     "./scarletfix.mp4"
     >}}
 
-- Fixes the slow rain and snow particles in `The Legend of Zelda: Breath of the Wild & Tears of the Kingdom`. 
+- Fixes the slow rain and snow particles in `The Legend of Zelda: Breath of the Wild` & `The Legend of Zelda: Tears of the Kingdom`. 
 
 {{< single-title-imgs
     "It’s raining Chuchus out there (The Legend of Zelda: Tears of the Kingdom)"
@@ -87,7 +87,7 @@ The following bugs have now been fixed as a result:
     "./xc3fix.mp4"
     >}}
 
-- Fixes the corrupted saves thumbnails in `Xenoblade Chronicles: Definitive Edition`.
+- Fixes the corrupted save thumbnails in `Xenoblade Chronicles: Definitive Edition`.
 
 {{< single-title-imgs-compare
     "That’s Dunban over there! (Xenoblade Chronicles: Definitive Edition)"
@@ -99,18 +99,18 @@ And more.
 
 {{< gh-hovercard "10783" "Here’s some good news for the low-RAM folks!" >}}
 
-Since native Switch game shaders can’t be run directly on the user’s GPU, yuzu has to recompile them into an intermediate representation or IR, which is a middle format that can be optimised and then converted to a shader that users' GPU drivers can actually handle (SPIR-V/GLSL/GLASM, no, not you Metal). For performance reasons, a significant amount of memory is preallocated to store these blocks of IR, and the old implementation would use 34MB per thread, twice.
+Since native Switch game shaders can’t be run directly on the user’s GPU, yuzu has to recompile them into an intermediate representation or IR, which is a middle format that can be optimised and then converted to a shader that users' GPU drivers can actually handle (SPIR-V/GLSL/GLASM). For performance reasons, a significant amount of memory is preallocated to store these blocks of IR, and the old implementation would use 34MB per thread, twice.
 
 68MB per thread may not seem like a lot, right? But this allocation is made as many times as the total thread count of the CPU, SMT included. 
 Some quick maffs, and you can see how a Ryzen 3600 would gobble up 816 MB of system RAM, a Ryzen 7950X or an i9 13900 would need 2.2GB, and many phones with 8-threads SoCs would lose 544MB.
-This is, of course, not much of a problem for users with 32GB of system memory, but for 16GB or lower, particularly 8GB RAM users, this is a very steep price to pay, as it is not uncommon to see a laptop with only 8GB of RAM and a 12-threads equipped Ryzen 5500U for example, or 8GB phones and tablets.
+This is, of course, not much of a problem for users with 32GB of system memory, but for 16GB or lower, particularly 8GB RAM users, this is a very steep price to pay, as it is not uncommon to see a laptop with only 8GB of RAM and a 12 thread-equipped Ryzen 5500U for example, as well as 8GB phones and tablets.
 
-[byte[]](https://github.com/liamwhite) wasn’t happy with this behaviour,so he replaced it with a much more memory-friendly one.
+[byte[]](https://github.com/liamwhite) wasn’t happy with this behaviour, so he replaced it with a much more memory-friendly one.
 The current use per-thread is about 134KB now. That’s a whopping 99.6% reduction!
 
 One of the ways to make games look better is by forcing higher values of anisotropic filtering, which makes textures at steep angles look much sharper.
-The old implementation had to skip nearest neighbour mipmapped textures to avoid rendering issues in games like `Fire Emblem: Three Houses` and `ASTRAL CHAIN`.
-This decision meant that many games like `Metroid Prime Remastered` would see no benefit from using higher values of anisotropic filtering, to the point that [Wollnashorn](https://github.com/Wollnashorn) would create mods to force the textures of `Breath of the Wild` and `Tears of the Kingdom` to trilinear filtering, allowing yuzu to let the anisotropic filter do its job.
+The old implementation had to skip nearest-neighbour samplers on mipmapped images to avoid rendering issues in games like `Fire Emblem: Three Houses` and `ASTRAL CHAIN`.
+This decision meant that many games like `Metroid Prime Remastered` would see no benefit from using higher values of anisotropic filtering, to the point that [Wollnashorn](https://github.com/Wollnashorn) would create mods to force the textures of `Breath of the Wild` and `Tears of the Kingdom` to trilinear filtering, allowing yuzu's anisotropic filtering setting to do its job.
 
 While that was a nice workaround, Wollnashorn wasn’t satisfied with this solution, so they improved the {{< gh-hovercard "10744" " heuristics" >}} used to allow anisotropic filtering on any texture format without rendering issues, improving image quality, and as a bonus, even fixing an old rendering bug affecting `Mario Kart 8 Deluxe` too!
 
@@ -166,7 +166,7 @@ This simple trick makes most Unreal Engine 4 games stable, but it is very likely
 
 It’s a high price to pay considering Tears of the Kingdom is by far the most played game on yuzu, but we think the huge number of games that benefit from stable gameplay outweighs the latest Zelda stuttering a bit more on low end hardware.
 
-What better way to prove that statement than by keeping speaking about `The Legend of Zelda: Tears of the Kingdom`!.
+What better way to prove that statement than by continuing to write about `The Legend of Zelda: Tears of the Kingdom`!
 Ever since its release, the modding community has been working tirelessly to improve the rendering quality of the game.
 During their testing they discovered that any rendering resolution mod higher than 1008p would break ambient occlusion effects when scaled above 1x resolution.
 
@@ -180,13 +180,13 @@ byte[], with some help from Wollnashorn's initial investigation, {{< gh-hovercar
 
 Now you can enjoy the game in all its splendour, without sacrificing any details.
 
-While working on optimising the GPU code, Maide found a way to squeeze more performance out of the game.
+While profiling the GPU code, Maide found a way to squeeze more performance out of the game.
 By {{< gh-hovercard "10668" "combining vertex and transform feedback buffer bindings" >}} instead of binding them individually, thousands of API calls per frame can be avoided.
 This leads to a small 1-3% improvement in framerates in general, but it manages to boost Tears of the Kingdom by a whopping 17%.
-The tests were performed with a Ryzen 5 5600X, it’s very likely that newer CPUs will see bigger gains.
+The tests were performed with a Ryzen 5 5600X, so it’s very likely that newer CPUs will see even bigger gains.
 
 By adding some {{< gh-hovercard "10818" "additional samples checks" >}} when finding the correct render target, [vonchenplus](https://github.com/vonchenplus) fixed the device loss crashes that affected `Fire Emblem Engage` while playing in handheld mode, as well as the squished character portraits that affected some systems.
-This change also fixes incorrect colour and shadows in `SPONGEBOB SQUAREPANTS THE COSMIC SHAKE`.
+This change additionally fixes incorrect colour and shadows in `SPONGEBOB SQUAREPANTS THE COSMIC SHAKE`.
 
 {{< single-title-imgs-compare
 	"Yeah that portrait wasn’t very engaging, your excellency (Fire Emblem Engage)"
@@ -218,13 +218,13 @@ But the OpenGL gains didn’t stop there.
 
 We expect a similar improvement when using Mesa drivers on Linux.
 
-While most NVIDIA users are advised to stick to Vulkan now, as it is still faster and with WAY less shader stuttering, these changes should greatly help Fermi and Kepler /GTX400 to GTX700 series) users that, due to driver support reasons, must still use OpenGL. 
+While most NVIDIA users are advised to stick to Vulkan now, as it is still faster and with WAY less shader stuttering, these changes should greatly help Fermi and Kepler (GTX 400 to GTX 700 series) users that, due to driver support reasons, must still use OpenGL. 
 Or those who just like to live dangerously.
 
 With the introduction of the resolution scaler, we added FXAA as a possible anti-aliasing filter, a preferred option over SMAA for games that already look too crisp, or simply for users that can’t afford the performance loss of SMAA.
 Its Vulkan implementation has had issues with colour banding since release.
 Not satisfied with that, byte[] solved the problem by {{< gh-hovercard "10670" "using a higher colour bit depth." >}}
-Sometimes solutions don’t need to be complicated.
+Sometimes, solutions don’t need to be complicated.
 
 {{< single-title-imgs-compare
 	"For those old enough to remember what it felt getting a GPU that could do 24-bit colour (SUPER MARIO ODYSSEY)"
@@ -235,14 +235,14 @@ Sometimes solutions don’t need to be complicated.
 Many Switch games support dynamic framerates, or get mods that support dynamic framerates, meaning unlocking the framerate (by default by pressing Ctrl + U) is a great way to get a much better and smoother experience while emulating those games.
 By the way, here’s a [list](https://github.com/Law022/Dynamic-Frame-Rate/wiki/Game--List) of such games for those curious.
 
-One “problem” here, or more of an unwanted side effect, is that video playback won’t be able to keep up with the increased framerate, often desynchronizing audio while still having to wait for the video to end.
+One unwanted side effect with this is that video playback won’t be able to keep up with the increased framerate, often desynchronizing audio while still having to wait for the video to end.
 To mitigate this, byte[] {{< gh-hovercard "10666" "added a toggle" >}} in `Emulation > Configure… > Graphics > Advanced` called “Sync to framerate of video playback” that, when enabled, will dynamically re-enable the framerate limit while a video cutscene is playing.
 
 {{< imgs
 	"./af.png| Totally not the same pic"
   >}}
 
-While digging into the AccelerateDMA code, Epicboy found an {{< gh-hovercard "10583" "incorrect check" >}} that affected Buffer < > Texture copies.
+While digging into the AccelerateDMA code, Epicboy found an {{< gh-hovercard "10583" "incorrect check" >}} that affected buffer-to-texture copies.
 Fixing it increased performance by a whopping 1%, but as any avid gamer knows, average framerates are only half of the story.
 This change also improved frametime consistency, especially in sudden spikes, which are arguably the most noticeable during gameplay.
 
@@ -255,10 +255,10 @@ This change also improved frametime consistency, especially in sudden spikes, wh
   >}}
 
 Users like to try yuzu on a wide variety of devices; one particularly interesting example is the Tegra X1 product line from NVIDIA, the same architecture that powers the actual Nintendo Switch.
-Since there are drivers available for those devices, yuzu can be run on a Linux environment, but for some reason, such drivers don’t include the VK_EXT_robustness2 extension, which was mandatory up until now.
-Newcomer [mrcmunir](https://github.com/mrcmunir) decided to change this and {{< gh-hovercard "10635" "mark the extension as optional," >}} letting the most optimal ARM boards for Switch emulation be able to enjoy some good yuzu gameplay.
+Since there are drivers available for those devices, yuzu can be run in a Linux environment, but for some reason, those drivers don’t include the VK_EXT_robustness2 extension, which was mandatory up until now.
+Newcomer [mrcmunir](https://github.com/mrcmunir) decided to change this and {{< gh-hovercard "10635" "mark the extension as optional," >}} making the most optimal ARM boards for Switch emulation able to enjoy gameplay with yuzu.
 
-To close the graphics section, the best for last.
+To close the graphics section, we saved the best for last.
 toastUnlimited removed the use of a Windows only external memory Vulkan extension.
 Why? To make yuzu {{< gh-hovercard "10829" "compatible with Wine" >}} while using Vulkan!
 Why would someone run yuzu on Wine when a native and faster Linux version is available? We don’t know! But you can definitely do it now, given you build Wine from source yourself with support for Vulkan child windows.
@@ -292,19 +292,19 @@ This theoretically doubles the compatibility of yuzu’s Android builds, as Mali
     "./mali5.png"
     >}}
 
-Further testing with Mali revealed that while the hardware briefly had support for the VK_EXT_extended_dynamic_state2 extension in older Mali drivers, the implementation is actually completely broken.
-This is most likely the reason the extension was removed from current drivers. 
-To avoid users of affected drivers from suffering random crashes, byte[] {{< gh-hovercard "10790" "disabled the use of the extension" >}} on Mali hardware.
+Further testing with Mali revealed that while the driver implemented support for the VK_EXT_extended_dynamic_state2 extension in older Mali drivers, the implementation for VK_EXT_extended_dynamic_state was not fully functional, and yuzu was not behaving correctly in this case.
+This is most likely the reason both extensions were removed by Google from Pixel drivers. 
+To avoid users of affected drivers from getting no rendering output at all, byte[] {{< gh-hovercard "10790" "disabled the use of the extension" >}} on Mali hardware.
 
 It should be noted that while the Mali drivers are much better at following the Vulkan specification than others, the physical hardware specifications are lacking.
 Only high end devices will reach playable framerates at the moment. 
 Lower end Mali products will be too weak for Switch emulation, even if they meet the driver requirements to run the emulator.
 But hey, you’re welcome to try it out and see how it goes!
 
-There’s also a LOT of work put into the Android user interface. 
+There’s also been a LOT of work put into the Android user interface. 
 What can we say–we’re new at this.
 
-To begin with, [PabloG02](https://github.com/PabloG02) is giving us a hand again, this time by {{< gh-hovercard "10551" "storing the position of overlay controls" >}} as a percentage, so if there is a change in the dimensions of the window, for example by using a foldable device, or rotating the screen on a tablet, the overlay controls stay in approximately the same location.
+To begin with, [PabloG02](https://github.com/PabloG02) has given us a hand again, this time by {{< gh-hovercard "10551" "storing the position of overlay controls" >}} as a percentage, so if there is a change in the dimensions of the window, for example by using a foldable device, or rotating the screen on a tablet, the overlay controls stay in approximately the same location.
 
 {{< imgs
 	"./move.png| Place your input anywhere you want!"
@@ -353,7 +353,7 @@ Thank you!
 
 Since release, users have reported games looking strangely blurry, and issues with the aspect ratio of the rendering window and the orientation of the overlay controls when flipping the device.
 
-This is a bit of an embarrassing one: all those issues were caused by decoupling the rotation of the surface with the frontend layer.
+This is a bit of an embarrassing one: all those issues were caused by decoupling the rotation of the Vulkan surface with the frontend layer.
 This explains why aspect ratios were distorted and the overlay was inverted when the device was rotated, but the explanation for the blurriness issue deserves special mention.
 Games present to the screen in docked mode using a landscape form factor and resolution of 1920x1080, but phones typically have a portrait mode form factor.
 What happens if the window starts rendering at 1920x1080, then gets modified to 1080x1920 by the device and is stretched to fit the screen? Well, this:
@@ -411,7 +411,7 @@ Additionally, an option to select the audio backend was added too.
 	"./audio.png| Volume controls"
   >}}
 
-Because the option is only supported on Qualcomm devices, t895 {{< gh-hovercard "10864" "now hides" >}} the `Install GPU driver` option if the user is running a Mali or Intel/AMD x86 device.
+Because it is only supported on Qualcomm devices, t895 {{< gh-hovercard "10864" "now hides" >}} the `Install GPU driver` option if the user is running a non-Qualcomm device.
 Since we don’t offer the option to run different drivers on these devices, there’s no reason to show it. 
 Of course, if Mesa can deliver a good driver for Mali hardware in the future, we will support custom drivers for it then.
 
@@ -448,7 +448,7 @@ So unless you installed Windows onto your Steam Deck, you already had the best p
 Long gameplay sessions can sometimes feel like a gamble regarding stability. 
 That’s a very common problem for emulators due to how they have to handle memory in unique ways to match two completely different systems. 
 This was especially true for Linux users, who had to rely on increasing the size of the `vm.max_map_count` kernel parameter for certain games to avoid out-of-memory crashes. 
-Since the emulator needs to create placeholder memory mappings to keep up with the virtual memory requirements of the game, it wasn’t hard to saturate the default value, resulting in a crash once the placeholder mappings outnumber the max mapping count.
+Since the emulator needs to create placeholder memory mappings to keep up with the virtual memory requirements of the game, it wasn’t hard to saturate the default value, resulting in a crash once the placeholder mappings outnumbered the max mapping count.
 
 Enter newcomer [kkoniuszy](https://github.com/kkoniuszy), who had a simple yet very effective idea. 
 By {{< gh-hovercard "10550" "keeping track of the creation" >}} of such placeholder mappings and using that information to create fewer larger ones instead of several smaller ones, the stress on `vm.max_map_count` is reduced and generally no longer needs to be modified. 
@@ -476,7 +476,7 @@ This serves as yet another reminder that emulation is very CPU-focused.
 ## Input improvements
 
 The work on making those fancy plastics with Near-Field Communication (NFC) behave like on the Switch continues.
-With the proper implementation finished [last month](https://yuzu-emu.org/entry/yuzu-progress-report-may-2023/#input-and-amiibo-improvements), german77 can now focus on the last items on the checklist.
+With the proper implementation finished [last month](https://yuzu-emu.org/entry/yuzu-progress-report-may-2023/#input-and-amiibo-improvements), german77 has focused on the last items on the checklist.
 
 First of all, backup support.
 On the Switch, Amiibo data is stored in the console every time data is loaded or saved. 
@@ -493,7 +493,7 @@ And to finish up the NFC section, {{< gh-hovercard "10903" "bugfixes and support
 
 Controllers sometimes fail to properly restore to a previous state when pairing. 
 This could make yuzu lose input when the controller fails to use the NFC sensor.
-So, if the game stops polling for Amiibos while there’s one in range, the Amiibo would be lost but not signaled.
+If the game stopped polling for Amiibos while one was in range, the Amiibo would be lost but not signaled.
 This pull request addressed this particular scenario.
 
 Many third-party controllers don’t accept all commands. 
@@ -505,7 +505,7 @@ This is now fixed.
 Now, what about regular input changes? Well, we have a bit to talk about there too.
 
 SDL, the external library used here to handle input (it can do much more than that), does get updates, and it doesn’t hurt to keep up with those from time to time, after validating they are stable, of course.
-{{< gh-hovercard "10873" "Updating to version 2.28.0" >}}improved the calibration profile used on official Switch controllers, added support for the new Dual Sense Edge controller from Sony, {{< gh-hovercard "10891" "fixed some issues with Pro Controllers," >}} and added other minor changes and fixes that benefit the emulator.
+{{< gh-hovercard "10873" "Updating to version 2.28.0" >}}improved the calibration profile used on official Switch controllers, added support for the new DualSense Edge controller from Sony, {{< gh-hovercard "10891" "fixed some issues with Pro Controllers," >}} and added other minor changes and fixes that benefit the emulator.
 
 {{< gh-hovercard "10950" "Mouse controls" >}} got more tuning love. 
 This time there are some minor tweaks to its calibration. 
@@ -543,15 +543,15 @@ Users can now run as many mods as they want on their games, and they can have as
 But the fun doesn’t stop there for byte[]. Yet again, Windows demands special attention…
 {{< gh-hovercard "10806" "A couple of optimizations," >}} and Windows users get to properly benefit too.
 
-An oversight in the code responsible for caching the installed mods disabled the entire implementation, making yuzu take considerable time when booting a game with mods.
+An oversight in the code responsible for caching RomFS mods prevented any caching from taking effect at all, making yuzu take typically twice as long as it needed to when loading a game with them enabled.
 By {{< gh-hovercard "10594" "fixing" >}} this oversight, byte[] further reduced game load times with mods.
 
 ## Audio fixes
 
 Linux users running the SDL audio backend reported having no audio out when using the JACK output.
-The problem, as newcomer [zeltermann](https://github.com/zeltermann) found out after a good investigation, is in how SDL identifies the CPU characteristics of the user’s hardware.
+The problem, as newcomer [zeltermann](https://github.com/zeltermann) found out after some investigation, is in how SDL identifies the CPU characteristics of the user’s hardware.
 
-SDL’s `CPUInfo` subsystem is called to report the specifications of the user’s CPU, SDL then uses that information to properly configure itself for the environment it will run on, setting optimizations and deciding which internal code paths to use.
+SDL’s `CPUInfo` subsystem is called to report the specifications of the user’s CPU. SDL then uses that information to properly configure itself for the environment it will run on, setting optimizations and deciding which internal code paths to use.
 We thought CPUInfo shouldn’t be necessary just for audio output, so it was disabled in yuzu.
 
 Well, under normal circumstances, it would have been fine, but SDL can’t decide if not having CPU information means there is or there isn’t a CPU present.
@@ -570,7 +570,7 @@ A few tweaks here and there in the audio core code, and the issues are gone.
 ## UI changes
 
 Switch games provide pretty game icons for the launcher. 
-Needless to say, yuzu couldn’t let the opportunity to make good use of them on the game list go. 
+Needless to say, yuzu makes good use of them while rendering the game list. 
 What wasn’t considered when using these icons for the user interface is that some games offer multiple alternatives for different languages. 
 yuzu would just pick the first one available.
 
@@ -592,7 +592,7 @@ Thanks!
 
 ## Hardware section
 
-Before starting with the driver rants, we want to share a possible way to save up to 2 GB of VRAM by taking advantage of Windows 11’s per-app graphics selector. 
+Before starting with the driver rants, we want to share a possible way to save up to 2 GB of VRAM by taking advantage of Windows 11’s per-app graphics selector, assuming you have multiple GPUs available in your system. 
 This has the potential of helping VRAM-intensive games like `The Legend of Zelda: Tears of the Kingdom`, and may also improve 1% lows on native PC games too.
 
 For some reason, Windows uses around 1-2 GB of VRAM only for rendering the desktop.
@@ -627,7 +627,7 @@ While this is enough for yuzu after a reboot, you will also need to manually set
 Like this, you get the benefits of more free VRAM on the high performance GPU, and if the secondary GPU is more efficient, a power consumption reduction overall when using the PC. More available VRAM results in improved minimum framerates (the 1% low for example).
 
 The cons for using this method is that frame data is transferred over the PCIe interface, which can be saturated. 
-This would result in lower average framerates and more input lag.
+This can result in slightly lower average framerates and more input lag.
 But hey, a free way to get a 4GB GPU to run `The Legend of Zelda: Tears of the Kingdom` with better frame pacing is worth a try, right?
 
 ### NVIDIA, no sign of progress
@@ -657,21 +657,24 @@ The performance loss from this change is very small, so feel free to update to t
 In the near future, we’ll check if this method solves the remaining graphical issues specific to AMD hardware. 
 If it works, it would also solve the issue on the AMD official drivers, once/if the extension is supported there too.
 
-We know it’s not fun having to switch to OpenGL to be able to play some games, we’re ready to combat even hardware limitations to defeat this foe.
+We know it’s not fun having to switch to OpenGL to be able to play some games, so we’re gearing up to combat even hardware limitations to defeat this foe.
 
 ### Intel
 
-Intel got its fair share of fixes this month too, first of all, as promised last month, byte[] added a translation for FP64 shaders, to turn them into FP32 ones.
+Intel got its fair share of fixes this month too.
+First of all, as promised last month, byte[] added a translation for FP64 use in shaders, to turn uses into FP32.
 This was required because Generation 12 Intel graphics (UHD 700/Iris Xe/Arc A series) removed support on a hardware level for double precision operations.
-With this {{< gh-hovercard "10693" "shader translation" >}} in place, games will no longer suddenly crash when trying to run very high precision shaders, for example during the opening cutscene of `Tears of the Kingdom` when starting a new game.
+With this {{< gh-hovercard "10693" "shader translation" >}} in place, games will no longer suddenly crash when trying to use these shaders, for example during the opening cutscene of `Tears of the Kingdom` when starting a new game.
 
-The next issue is an interesting mix of unique behaviour by the Nintendo Switch, yuzu’s code at fault, and another case of lack of hardware support. 
-Intel defined the use of barriers as specified by SPIR-V, but the Switch’s Tegra X1 (and interestingly, any other GPU vendor besides Intel, including Android ones) prefers to follow the PTX ISA documentation for barriers, which defines what to do if no checks for existing threads are done.
+The next issue is an interesting mix of unique behaviour by the Switch's own graphics drivers, yuzu’s code at fault, and another case of lack of hardware support. 
+Intel's GPUs allow the use of control barriers as specified by SPIR-V, which requires all threads in a dispatch to execute the same barriers at the same times, and don't allow any threads to exit early if another barrier will occur.
+But all other GPU vendors besides Intel, including mobile GPUs, do allow threads to exit early, and will free up barriers on the remaining threads as needed.
+This situation caused Intel GPUs to hit device losses, as guest compute shaders had barriers that ended up hitting this exact type of control flow.
 
-By {{< gh-hovercard "10699" "removing barriers" >}} in the conditional control flow, Intel GPUs are free from their device loss crashes.
+By {{< gh-hovercard "10699" "removing barriers" >}} after conditional control flow, Intel GPUs are free from their device loss crashes.
 
 And lastly, one loose end remained, our toggle to disable the compute pipeline on Intel GPUs.
-Since this option was a stopgap solution until a driver update was released, it has become irrelevant now that Intel took their long time to release a proper fix, so toastUnlimited made the option only show up in yuzu’s settings if an old driver known to be affected is still being run by the user.
+This option was a stopgap solution until a driver update was released. But since Intel has finally published a driver update fixing the issues, it has now become irrelevant. toastUnlimited therefore modified the option to only show up in yuzu’s settings if an old driver known to be affected is still in use.
 The disable compute pipeline toggle is now a {{< gh-hovercard "10835" "legendary drop option" >}} only available for the most unlucky Generation 12 users, as the option will also remain hidden for unaffected Generation 11 and older devices.
 [Remember to update your drivers!](https://www.intel.com/content/www/us/en/download/729157/intel-arc-iris-xe-graphics-beta-windows.html)
 
@@ -683,7 +686,7 @@ Still, we can finally focus on working on the few remaining quirks for the Gener
 Right now, the Iris Xe can easily beat a Geforce MX450 in ASTC intensive games like `The Legend of Zelda: Tears of the Kingdom`, using less RAM and having no texture stuttering. 
 Here, the E-cores are a blessing for shader building.
 
-Hopefully future Intel products offer better FP16, higher performance, longer driver life support, don’t base their pricing on software gimmicks like their competition, and add a much-needed separate compute queue.
+Hopefully future Intel products offer better FP16, higher performance, longer driver life support, don’t base their pricing on software gimmicks like their competition, and add a much-needed dedicated compute queue.
 
 ### Android
 
@@ -713,7 +716,7 @@ Clearly, high-end devices won’t have much issue in the GPU front as they are n
 Unfortunately, due to an unstable kernel API, and the lack of a maintained Mesa driver for these devices, there isn't currently any practical way to replace the running driver on a Mali device with a better one.
 If a device ships with an outdated driver too old for yuzu and the vendor doesn’t update it, chances are nothing can be done about it.
 
-That’s planned obsolescence at its finest, or sheer incompetence. We’ll let you be the judge of that.
+That’s either planned obsolescence at its finest, or sheer incompetence. We’ll let you be the judge of that.
 
 ## Future projects
 
