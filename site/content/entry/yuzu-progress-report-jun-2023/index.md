@@ -624,15 +624,7 @@ But hey, a free way to get a 4GB GPU to run `The Legend of Zelda: Tears of the K
 
 ### NVIDIA, no sign of progress
 
-Just after the release of the RTX 4060 Ti, a card that is in a terrible spot for emulation, NVIDIA manages to do something worse by selling yet another expensive 8 GB GPU, this time even more cut down.
-
-The RTX 4060 is using the 128-bit GDDR6 combination again, but this time it is attacking the two fronts that affect emulation performance the most, cache, which is down from 32MB to 24MB when compared to the RTX 4060 Ti, and PCIe bandwidth, which is halved to just an 8X link.
-
-For emulation this means the new card is weaker than the RTX 3060 it replaces (the 12GB model). 
-The lower cache and PCIe bandwidth puts it on the territory of the GTX1650 if users want to use resolutions higher than 1.5X scaling. 
-Remember to vote with your wallets, people.
-
-In more happy news, the new driver release that adds support for this card, 536.40, hasn’t introduced any regression for yuzu so far. 
+Tthe new (at the time of writing) driver release that adds support for the RTX 4060, 536.40, hasn’t introduced any regression for yuzu. 
 So it’s safe to update, just not “safe to upgrade” from older hardware yet. 
 Maybe the RTX 5000 series will be a more viable option.
 
