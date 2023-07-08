@@ -189,7 +189,7 @@ By adding some {{< gh-hovercard "10818" "additional samples checks" >}} when fin
 This change also fixes incorrect colour and shadows in `SPONGEBOB SQUAREPANTS THE COSMIC SHAKE`.
 
 {{< single-title-imgs-compare
-	"Yeah that portrait wasn’t very engaging, you excellency (Fire Emblem Engage)"
+	"Yeah that portrait wasn’t very engaging, your excellency (Fire Emblem Engage)"
 	"./feebug.png"
 	"./feefix.png"
 >}}
