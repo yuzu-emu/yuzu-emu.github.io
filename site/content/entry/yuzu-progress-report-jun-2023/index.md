@@ -246,11 +246,13 @@ While digging into the AccelerateDMA code, Epicboy found an {{< gh-hovercard "10
 Fixing it increased performance by a whopping 1%, but as any avid gamer knows, average framerates are only half of the story.
 This change also improved frametime consistency, especially in sudden spikes, which are arguably the most noticeable during gameplay.
 
-{{< single-title-imgs
-    "I have become frametime, the destroyer of gameplay"
-    "./frame1.png"
-    "./frame2.png"
-    >}}
+{{< imgs
+	"./frame1.png| "
+  >}}
+
+{{< imgs
+	"./frame2.png| I have become frametime, the destroyer of gameplay"
+  >}}
 
 Users like to try yuzu on a wide variety of devices; one particularly interesting example is the Tegra X1 product line from NVIDIA, the same architecture that powers the actual Nintendo Switch.
 Since there are drivers available for those devices, yuzu can be run on a Linux environment, but for some reason, such drivers don’t include the VK_EXT_robustness2 extension, which was mandatory up until now.
