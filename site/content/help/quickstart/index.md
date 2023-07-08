@@ -61,7 +61,7 @@ OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-flo
 
 - **Recommended:** NVIDIA GeForce GTX 1660 6GB / AMD Radeon RX 5500 8GB [(with "Force maximum clocks" enabled)](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/turboui.png)
 
-- **Optimal:** NVIDIA Geforce GTX 3060 12GB / AMD Radeon RX 6700 10GB [(with "Force maximum clocks" enabled)](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/turboui.png)
+- **Optimal:** NVIDIA Geforce RTX 3060 12GB / AMD Radeon RX 6700 10GB [(with "Force maximum clocks" enabled)](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/turboui.png)
 
 #### Integrated graphics:
 
