@@ -213,7 +213,7 @@ But the OpenGL gains didn’t stop there.
 `Persistent Buffer Maps` were already in use by the texture cache, but {{< gh-hovercard "10476" "extending their use" >}} to the buffer cache more than doubles the performance of OpenGL on NVIDIA hardware!
 
 {{< imgs
-	"./ogl.png| Fermi and Kepler users rejoice"
+	"./ogl.png| Fermi and Kepler users rejoice (tested with an RTX 3070)"
   >}}
 
 We expect a similar improvement when using Mesa drivers on Linux.
