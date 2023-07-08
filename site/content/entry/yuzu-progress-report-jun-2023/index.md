@@ -82,7 +82,7 @@ The following bugs have now been fixed as a result:
 - Fixes the hilariously wrong eyebrows affecting some characters in `Xenoblade Chronicles 3` like Noah and Sena. Writer’s note: I will miss this one, it was fabulous.
 
 {{< single-title-imgs
-    "Hey, Noah’s eyes are down here (Xenoblade Chronicles 3)"
+    "Hey, Noah’s eyes are up here (Xenoblade Chronicles 3)"
     "./xc3bug.mp4"
     "./xc3fix.mp4"
     >}}
