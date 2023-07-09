@@ -31,7 +31,7 @@ The new system also sends a correct representation of the universal time, regard
 
 Now, while Linux had few issues with the new system, Flatpak being its usual annoying self, Windows has some special needs. There are two important things to keep in mind: 
 
-- Right now, users need to run at least a 2019 version of Windows 10, with 1809 no longer being compatible. For LTSC users, this means only the newest 2021 release will work. We are working to remove this limitation in the near future.
+- When the changes got released, users needed to run at least a 2019 version of Windows 10, with 1809 no longer being compatible. For LTSC users, this meant only the newest 2021 release would work. We later {{< gh-hovercard "11030" "implemented a solution" >}} for this. If you're running Windows LTSC 1809, or for some reason blocked Windows Update on a regular Windows version, remember to update to the latest yuzu version.
 - You need the latest Visual C++ 2022 redistributable. Get it from this link: https://aka.ms/vs/17/release/vc_redist.x64.exe
 
 Don’t forget to set your clock correctly!
