@@ -425,11 +425,11 @@ You never know when Google might surprise us.
 Before we end this section, let us clarify something. 
 The Android builds are not limited to the changes mentioned here, but also include any other core improvements mentioned in this article.
 For instance, the previous GPU changes, and memory and ARM optimizations we’ll mention next are also part of the Android builds. 
-These changes have boosted the performance by 30-70% in the latest versions.
+These changes have boosted the performance by 30-70% in the latest versions, for example, and none were Android specific.
 
 We have also completed our release backups on GitHub! 
 You can find them [here.](https://github.com/yuzu-emu/yuzu-android/releases/)
-If you want to download a previous version, or avoid using the Google Play Store, feel free to grab the .apk from there.
+If you want to download a previous version, test experimental features, or avoid using the Google Play Store, feel free to grab the .apk from there.
 
 ## Making CPUs go the opposite of BRRR, AMD edition
 
