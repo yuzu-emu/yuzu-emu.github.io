@@ -422,6 +422,15 @@ Speaking of which, t895 added {{< gh-hovercard "10945" "support for Android 14."
 Better be ready beforehand! 
 You never know when Google might surprise us.
 
+Before we end this section, let us clarify something. 
+The Android builds are not limited to the changes mentioned here, but also include any other core improvements mentioned in this article.
+For instance, the previous GPU changes, and memory and ARM optimizations we’ll mention next are also part of the Android builds. 
+These changes have boosted the performance by 30-70% in the latest versions.
+
+We have also completed our release backups on GitHub! 
+You can find them [here.](https://github.com/yuzu-emu/yuzu-android/releases/)
+If you want to download a previous version, or avoid using the Google Play Store, feel free to grab the .apk from there.
+
 ## Making CPUs go the opposite of BRRR, AMD edition
 
 [Back in March](https://yuzu-emu.org/entry/yuzu-progress-report-mar-2023/#making-cpus-go-the-opposite-of-brrrr), we explained why Windows is not accurate enough when very high precision timers are required, so in order to improve performance, power consumption, and temperatures on x86_64 CPUs, specific CPU instructions are needed to reduce the time the CPU spends improperly idling.
