@@ -445,17 +445,7 @@ The Steam Deck by default runs a Linux distribution.
 Linux doesn’t benefit from these changes as its kernel, unlike Windows’, is actually decent and can run high-precision timer events without any problem or undocumented SDK usage. If there’s no need to spin the CPU at all, it gets to idle properly. 
 So unless you installed Windows onto your Steam Deck, you already had the best performance it can offer.
 
-Long gameplay sessions can sometimes feel like a gamble regarding stability. 
-That’s a very common problem for emulators due to how they have to handle memory in unique ways to match two completely different systems. 
-This was especially true for Linux users, who had to rely on increasing the size of the `vm.max_map_count` kernel parameter for certain games to avoid out-of-memory crashes. 
-Since the emulator needs to create placeholder memory mappings to keep up with the virtual memory requirements of the game, it wasn’t hard to saturate the default value, resulting in a crash once the placeholder mappings outnumbered the max mapping count.
-
-Enter newcomer [kkoniuszy](https://github.com/kkoniuszy), who had a simple yet very effective idea. 
-By {{< gh-hovercard "10550" "keeping track of the creation" >}} of such placeholder mappings and using that information to create fewer larger ones instead of several smaller ones, the stress on `vm.max_map_count` is reduced and generally no longer needs to be modified. 
-This results in stable game sessions when playing for hours. 
-Thank you!
-
-### ARM changes
+## ARM changes
 
 The Android release taught us something very important: Using [Dynarmic](https://github.com/merryhime/dynarmic) adds a lot of overhead on ARM CPUs. While this doesn't pose any major obstacles on Apple Silicon M1 and M2 Macs, it's a big problem for Android devices, which are constantly power-limited with virtually no room for waste.
 
@@ -472,6 +462,18 @@ Recently, Merry was able to {{< gh-hovercard "10933" "enable an optimization" >}
 Block linking allows blocks of guest code that directly jump to each other to directly jump to each other when recompiled as well.
 After enabling it, this resulted in a 60-70% performance boost for 32-bit games like `Mario Kart 8 Deluxe` on Android SoCs.
 This serves as yet another reminder that emulation is very CPU-focused.
+
+## Linux specific fix
+
+Long gameplay sessions can sometimes feel like a gamble regarding stability. 
+That’s a very common problem for emulators due to how they have to handle memory in unique ways to match two completely different systems. 
+This was especially true for Linux users, who had to rely on increasing the size of the `vm.max_map_count` kernel parameter for certain games to avoid out-of-memory crashes. 
+Since the emulator needs to create placeholder memory mappings to keep up with the virtual memory requirements of the game, it wasn’t hard to saturate the default value, resulting in a crash once the placeholder mappings outnumbered the max mapping count.
+
+Enter newcomer [kkoniuszy](https://github.com/kkoniuszy), who had a simple yet very effective idea. 
+By {{< gh-hovercard "10550" "keeping track of the creation" >}} of such placeholder mappings and using that information to create fewer larger ones instead of several smaller ones, the stress on `vm.max_map_count` is reduced and generally no longer needs to be modified. 
+This results in stable game sessions when playing for hours. 
+Thank you!
 
 ## Input improvements
 
