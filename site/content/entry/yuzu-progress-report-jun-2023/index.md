@@ -1,8 +1,8 @@
 +++
-date = "2023-07-07T12:00:00-03:00"
+date = "2023-07-10T12:00:00-03:00"
 title = "Progress Report June 2023"
 author = "GoldenX86"
-forum = 0
+forum = 852816
 +++
 
 Hello again, yuz-ers! Our devs, old and new, show no signs of slowing down. This month we have general performance and stability improvements, many graphics bug fixes, Android gets its first wave of improvements, and much more! Helmets on, let’s ride. 
