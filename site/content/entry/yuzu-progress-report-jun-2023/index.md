@@ -239,7 +239,7 @@ One unwanted side effect with this is that video playback won’t be able to kee
 To mitigate this, byte[] {{< gh-hovercard "10666" "added a toggle" >}} in `Emulation > Configure… > Graphics > Advanced` called “Sync to framerate of video playback” that, when enabled, will dynamically re-enable the framerate limit while a video cutscene is playing.
 
 {{< imgs
-	"./af.png| Totally not the same pic"
+	"./af.png| Totally not the same pic from earlier"
   >}}
 
 While digging into the AccelerateDMA code, Epicboy found an {{< gh-hovercard "10583" "incorrect check" >}} that affected buffer-to-texture copies.
@@ -323,7 +323,7 @@ For cases like these, [t895](https://github.com/t895) added a dialog to {{< gh-h
   >}}
 
 {{< single-title-imgs
-    "It’s also a great way to enjoy touch-only games (WITCH ON THE HOLY NIGHT)"
+    "It’s also a great way to enjoy touch-only games (Witch on the Holy Night)"
     "./ov1.png"
     "./ov2.png"
     >}}
