@@ -593,7 +593,7 @@ Thanks!
     "./langfix.png"
     >}}
 
-The OpenGL API has three available shader backends in yuzu, and since the only way to know which one is selected is from checking the option in `Emulation > Configure… > Graphics`, newcomer [xcfrg](https://github.com/xcfrg) decided it was due time to {{< gh-hovercard "10614" "add this info" >}} to the status bar.
+The OpenGL API has three available shader backends in yuzu, and since the only way to know which one is selected is from checking the option in `Emulation > Configure… > Graphics`, newcomer [fastcall](https://github.com/xcfrg) decided it was due time to {{< gh-hovercard "10614" "add this info" >}} to the status bar.
 Thanks!
 
 {{< imgs
