@@ -164,7 +164,7 @@ Thankfully, [gidoly](https://github.com/gidoly) quickly solved it by {{< gh-hove
 While working on these crashes, byte[] changed the behaviour of the Vulkan memory manager to prefer (instead of require) {{< gh-hovercard "10994" "using device local memory" >}} (VRAM) for image memory, which ends up allowing up to 50% of shared memory (system RAM) to be used by the GPU.
 This simple trick makes most Unreal Engine 4 games stable, but it is very likely it has the cost of making VRAM intensive games stutter more often once VRAM gets close to full, for example, when running `The Legend of Zelda: Tears of the Kingdom` on a GPU with 4GB of VRAM or less.
 
-It’s a high price to pay considering Tears of the Kingdom is by far the most played game on yuzu, but we think the huge number of games that benefit from stable gameplay outweighs the latest Zelda stuttering a bit more on low end hardware.
+It’s a high price to pay considering `Tears of the Kingdom` is by far the most played game on yuzu, but we think the huge number of games that benefit from stable gameplay outweighs the latest Zelda stuttering a bit more on low-end hardware.
 
 What better way to prove that statement than by continuing to write about `The Legend of Zelda: Tears of the Kingdom`!
 Ever since its release, the modding community has been working tirelessly to improve the rendering quality of the game.
@@ -689,7 +689,7 @@ The disable compute pipeline toggle is now a {{< gh-hovercard "10835" "legendary
 [Remember to update your drivers!](https://www.intel.com/content/www/us/en/download/729157/intel-arc-iris-xe-graphics-beta-windows.html)
 
 With all driver and yuzu stability-related issues fixed, we can finally recommend Intel hardware again, especially current-generation integrated GPUs like the Iris Xe. 
-While the lower end 80EU-equipped Iris Xe can bottleneck performance at docked 1X mode in the most intensive games, it makes up for that by having zero texture related stuttering thanks to being the last breed of Intel GPUs with native ASTC texture support. 
+While the lower-end 80EU-equipped Iris Xe can bottleneck performance at docked 1X mode in the most intensive games, it makes up for that by having zero texture related stuttering thanks to being the last breed of Intel GPUs with native ASTC texture support. 
 We don’t know if future iGPUs will keep supporting ASTC, but it’s a reality that Arc dedicated GPUs don’t offer it.
 
 Still, we can finally focus on working on the few remaining quirks for the Generation 12 architecture.
