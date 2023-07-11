@@ -164,7 +164,7 @@ Thankfully, [gidoly](https://github.com/gidoly) quickly solved it by {{< gh-hove
 While working on these crashes, byte[] changed the behaviour of the Vulkan memory manager to prefer (instead of require) {{< gh-hovercard "10994" "using device local memory" >}} (VRAM) for image memory, which ends up allowing up to 50% of shared memory (system RAM) to be used by the GPU.
 This simple trick makes most Unreal Engine 4 games stable, but it is very likely it has the cost of making VRAM intensive games stutter more often once VRAM gets close to full, for example, when running `The Legend of Zelda: Tears of the Kingdom` on a GPU with 4GB of VRAM or less.
 
-It’s a high price to pay considering `Tears of the Kingdom` is by far the most played game on yuzu, but we think the huge number of games that benefit from stable gameplay outweighs the latest Zelda stuttering a bit more on low-end hardware.
+It’s a high price to pay considering `Tears of the Kingdom` is by far the most played game on yuzu, but we think the huge number of games that benefit from stable gameplay outweighs the latest Zelda stuttering a bit more on low-end GPUs with dedicated VRAM.
 
 What better way to prove that statement than by continuing to write about `The Legend of Zelda: Tears of the Kingdom`!
 Ever since its release, the modding community has been working tirelessly to improve the rendering quality of the game.
