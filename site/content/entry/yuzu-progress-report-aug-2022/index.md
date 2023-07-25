@@ -99,7 +99,7 @@ This mode is not very useful, so it is a surprise to see it still used by games.
 
 {{< single-title-imgs-compare
 	"No more vacations in the Abyss (The Touryst)"
-	"./tourystbug.png"
+	"./tourystbug.jpg"
 	"./tourystfix.jpg"
 >}}
 

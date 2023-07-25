@@ -47,7 +47,7 @@ An example in *Pokémon Sword*:
 And another example in *Fire Emblem: Three Houses*:  
   
 {{< imgs
-    "./01.png| AF Off"
+    "./01.jpg| AF Off"
     "./02.jpg| AF 8x"
   >}}
 

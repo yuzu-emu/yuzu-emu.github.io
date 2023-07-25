@@ -20,7 +20,7 @@ More work remains to be done to properly implement these clears in Vulkan, but t
 
 {{< single-title-imgs-compare
     "Joker, no stealing the screen! (Persona 5 Royal)"
-    "./p5bug.png"
+    "./p5bug.jpg"
     "./p5fix.jpg"
 >}}
 

@@ -181,7 +181,7 @@ These changes fixed the Hero's path in `Legend of Zelda: Breath of the Wild`, as
 
 {{< single-title-imgs-compare
 	"When the Sheika GPS signal returns (The Legend of Zelda: Breath of the Wild)"
-	"./botwbug.png"
+	"./botwbug.jpg"
 	"./botwfix.jpg"
 >}}
 
