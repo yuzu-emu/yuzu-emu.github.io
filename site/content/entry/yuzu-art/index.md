@@ -54,7 +54,7 @@ However, the planned rewrites of the [**Texture Cache**](https://yuzu-emu.org/en
 &nbsp;
 {{< single-title-imgs
 	"Hyrule Warriors: Age of Calamity (1x Vs. 3x)"
-	"aoc1x.png"
+	"aoc1x.jpg"
 	"aoc3x.jpg"
 >}}
 
@@ -107,7 +107,7 @@ This makes it quite hard to figure out where the bug originally manifested.
 
 {{< single-title-imgs
 	"Super Mario Party (1x Vs. 3x)"
-	"./smp1x.png"
+	"./smp1x.jpg"
 	"./smp3x.jpg"
 >}}
 
@@ -118,7 +118,7 @@ BreadFish later tuned them and also added a little something extra, AMD's [**Fid
 
 {{< single-title-imgs
 	"Super Mario Odyssey (1x Vs. 3x)"
-	"./smo1x.png"
+	"./smo1x.jpg"
 	"./smo3x.jpg"
 >}}
 

@@ -183,7 +183,7 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 
 {{< single-title-imgs
     "Pokémon Brilliant Diamond/Shining Pearl"
-    "./bdsp_3.png"
+    "./bdsp_3.jpg"
     "./bdsp_4.jpg"
 >}}
 
