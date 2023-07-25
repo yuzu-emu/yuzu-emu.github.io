@@ -344,7 +344,7 @@ And finally, the Web Applet can cause the SDL process to die, [disabling an unne
 ## Future projects
 
 {{< imgs
-	"./art.png| 4K beach episode (Xenoblade Chronicles Definitive Edition)"
+	"./art.jpg| 4K beach episode (Xenoblade Chronicles Definitive Edition)"
   >}}
 
 Progress on `Project A.R.T.` is going well, most major problems have been addressed. Morph had several eureka moments with `Project Gaia`. And now other secret recipes are in the oven, 

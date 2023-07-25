@@ -55,7 +55,7 @@ However, the planned rewrites of the [**Texture Cache**](https://yuzu-emu.org/en
 {{< single-title-imgs
 	"Hyrule Warriors: Age of Calamity (1x Vs. 3x)"
 	"aoc1x.png"
-	"aoc3x.png"
+	"aoc3x.jpg"
 >}}
 
 ## Enter Project ART
@@ -108,7 +108,7 @@ This makes it quite hard to figure out where the bug originally manifested.
 {{< single-title-imgs
 	"Super Mario Party (1x Vs. 3x)"
 	"./smp1x.png"
-	"./smp3x.png"
+	"./smp3x.jpg"
 >}}
 
 Fast-forward a few weeks, and thanks to continuous iterative internal testing, our developers were finally able to fix most of the bugs they came across.
@@ -119,7 +119,7 @@ BreadFish later tuned them and also added a little something extra, AMD's [**Fid
 {{< single-title-imgs
 	"Super Mario Odyssey (1x Vs. 3x)"
 	"./smo1x.png"
-	"./smo3x.png"
+	"./smo3x.jpg"
 >}}
 
 ## Benefits of Project ART

@@ -48,7 +48,7 @@ And another example in *Fire Emblem: Three Houses*:
   
 {{< imgs
     "./01.png| AF Off"
-    "./02.png| AF 8x"
+    "./02.jpg| AF 8x"
   >}}
 
 Shader cache invalidations are something our users don’t like at all. 

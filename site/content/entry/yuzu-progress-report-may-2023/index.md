@@ -16,13 +16,13 @@ Six years and the wait was worth it.
 No pay to win mechanics, no soul-draining microtransactions, no apology letter published after release. [Just game, just good game](https://youtu.be/i1qnIBLNOG0?t=16).
 
 {{< imgs
-	"./totk1.png| Runs on a 2015 tablet. (The Legend of Zelda: Tears of the Kingdom)"
+	"./totk1.jpg| Runs on a 2015 tablet. (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
 Zelda is back, and once again teaches the gaming industry how to make a video game, while also making it fit inside a 15-year-old USB stick and run on an 8-year-old mobile SoC.
 
 {{< imgs
-	"./totk2.png| And it’s only 16GB! (The Legend of Zelda: Tears of the Kingdom)"
+	"./totk2.jpg| And it’s only 16GB! (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
 `The Legend of Zelda: Tears of the Kingdom` not only made its predecessor (a game which already reinvented how open-world gameplay should be done) look like a tech demo, but it also turned out to be one massive heavyweight, punching way above its class in hardware requirements when emulated.
@@ -31,7 +31,7 @@ The combination of a heavier physics engine, massive amounts of shaders, and the
 Let’s begin with the most complex problem the Princess introduced the project to. The old Switch-emulation-on-PC nemesis, now elevated to new heights: ASTC.
 
 {{< imgs
-	"./deer.png| Deer. (The Legend of Zelda: Tears of the Kingdom)"
+	"./deer.jpg| Deer. (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
 As there isn't a single dedicated desktop or laptop graphics card that supports the native decoding of [ASTC textures](https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression) (with the exception of Intel iGPUs), yuzu is forced to transcode them on the fly into a safe and lossless format that all GPUs support; in this case, the `RGBA8` format.
@@ -43,7 +43,7 @@ But what happens if a game with many more textures and a teletransportation syst
 What if this hypothetical game made use of dozens and dozens of huge ASTC textures?
 
 {{< imgs
-	"./totk3.png| The VRAM is on fire! (The Legend of Zelda: Tears of the Kingdom)"
+	"./totk3.jpg| The VRAM is on fire! (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
 Well, suddenly the old and trusted garbage collector we developed is no longer capable of keeping even 8GB GPUs working.
@@ -94,18 +94,18 @@ It allows users with 4GB of VRAM to play `Tears of the Kingdom` without signific
 
 {{< single-title-imgs
     "From first to last, BC1 vs BC3 vs ASTC (Fire Emblem Engage)"
-    "./bc11.png"
-    "./bc31.png"
-    "./astc1.png"
+    "./bc11.jpg"
+    "./bc31.jpg"
+    "./astc1.jpg"
     >}}
 
 As you can see, BC1 destroys image quality in some games.
 
 {{< single-title-imgs
     "From first to last, BC1 vs BC3 vs ASTC (The Legend of Zelda: Tears of the Kingdom)"
-    "./bc12.png"
-    "./bc32.png"
-    "./astc2.png"
+    "./bc12.jpg"
+    "./bc32.jpg"
+    "./astc2.jpg"
     >}}
 
 But in others, the difference is less noticeable.
@@ -150,7 +150,7 @@ An Intel Iris Xe iGPU can run the game at 30 FPS in handheld mode while using le
 More on Intel's driver support later.
 
 {{< imgs
-	"./totkception.png| We need to go deeper! (The Legend of Zelda: Tears of the Kingdom)"
+	"./totkception.jpg| We need to go deeper! (The Legend of Zelda: Tears of the Kingdom)"
   >}}
 
 This was the worst part... up to this point. More work was needed to get the game to boot and render properly. Let’s dive into that.
@@ -244,7 +244,7 @@ This option is needed because using Asynchronous shader building in `Emulation >
 {{< single-title-imgs-compare
     "Not even close, baby! (The Legend of Zelda: Tears of the Kingdom)"
     "./cachebug.png"
-    "./cachefix.png"
+    "./cachefix.jpg"
     >}}
 
 Disabling Asynchronous shader building and clearing the cache storage lets the game properly rebuild the images of all your weaponized abominations.
@@ -657,13 +657,13 @@ This next one left us wondering...
 That’s not a simple bug to track down and fix, yet someone in ronikirla's Twitch chat identified the issue as a {{< gh-hovercard "10178" "bad block check" >}} in the address space code and passed along a fix.
 
 {{< imgs
-	"./pmd.png| Love the art style! (Pokémon Mystery Dungeon Rescue Team DX)"
+	"./pmd.jpg| Love the art style! (Pokémon Mystery Dungeon Rescue Team DX)"
   >}}
 
 The change seems to also fix `Advance Wars 1+2: Re-Boot Camp`.
 
 {{< imgs
-	"./aw.png| Bond, yuzu Bond. (Advance Wars 1+2: Re-Boot Camp)"
+	"./aw.jpg| Bond, yuzu Bond. (Advance Wars 1+2: Re-Boot Camp)"
   >}}
 
 Recent changes made to audio emulation improved performance and solved crashes, but also had an interesting regression.
@@ -749,7 +749,7 @@ Feel free to experiment with the app, it's amazing.
 
 Here are some comparison pics in .jxr format, they can be opened with the default Photo app included with Windows 11, and an SDR control capture in .png format: 
 
-- First the scene in [SDR](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-may-2023/sdr.png), the default experience.
+- First the scene in [SDR](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-may-2023/sdr.jpg), the default experience.
 - Windows 11’s [AutoHDR](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-may-2023/autohdr.jxr) with the Cemu renaming trick.
 - SpecialK’s HDR with [Perceptual Boost disabled](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-may-2023/specialk.jxr).
 - SpecialK’s HDR with [Perceptual Boost enabled](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-may-2023/specialkpb.jxr).

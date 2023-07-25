@@ -18,8 +18,8 @@ What a month we've had, yuz-ers. This time, we offer you a plethora of kernel ch
 
 {{< single-title-imgs-compare
 	"Crispy (Super Mario Odyssey)"
-	"./astcbug.png"
-	"./astcfix.png"
+	"./astcbug.jpg"
+	"./astcfix.jpg"
 >}}
 
 After some investigation, [epicboy](https://github.com/ameerj) found that the reason for the bug is an over-optimization introduced by the new drivers (an optimization for one scenario results in issues for another).
@@ -49,7 +49,7 @@ Apart from the disappointing graphics, this game's release exposed several issue
 The problem can be summarised as follows: One thread (thread `A`) would be waiting for another one (thread `B`) to release a lock, and conversely, thread `B` would be waiting for thread `A` to release another lock, resulting in a deadlock.
 
 {{< imgs
-	"./ending.png| Best gameplay change in decades (Pokémon Legends: Arceus)"
+	"./ending.jpg| Best gameplay change in decades (Pokémon Legends: Arceus)"
   >}}
 
 Moving on from kernel issues, epicboy implemented various GPU changes.
@@ -125,8 +125,8 @@ These settings will cause weird shadow acne on characters, and the solution is t
 
 {{< single-title-imgs-compare
 	"Broken shadows? Zero! (Pokémon Legends: Arceus)"
-	"./glasmbug.png"
-	"./glasmfix.png"
+	"./glasmbug.jpg"
+	"./glasmfix.jpg"
 >}}
 
 Users of Radeon GPUs older than the 400 series running Windows will experience crashes due to outdated and out of support drivers.
@@ -323,7 +323,7 @@ This allows `Gravity Rider Zero` to boot, but nothing is yet displayed on screen
 And finally, german77 {{< gh-hovercard "7821" "implemented the 32-bit variant of the supervisor call (SVC) `SynchronizePreemptionState`" >}}, making `Espgaluda II` playable.
 
 {{< imgs
-	"./esp.png| Espgaluda II"
+	"./esp.jpg| Espgaluda II"
   >}}
 
 Meanwhile, [liushuyu](https://github.com/liushuyu) updated the dynarmic external submodule, providing {{< gh-hovercard "7679" "optimizations and also fixing compile errors" >}} caused by an update of another external, the `fmt` library — used to format text in yuzu's log and interface.

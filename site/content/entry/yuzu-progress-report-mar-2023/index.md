@@ -169,7 +169,7 @@ If you played it in yuzu, you know which one.
 It makes you wonder if you’re in [Rapture](https://tvtropes.org/pmwiki/pmwiki.php/VideoGame/Bioshock).
 
 {{< imgs
-	"./sea.png| Somewhere, beyond the (cloud) sea! (Xenoblade Chronicles 2)"
+	"./sea.jpg| Somewhere, beyond the (cloud) sea! (Xenoblade Chronicles 2)"
   >}}
 
 Another observed problem was excessive lighting making the whole scene unreadable (especially at night with an HDR display, not a pleasant sudden flashbang).
@@ -192,8 +192,8 @@ Then you can join your writer in debating over which Queen is the best.
 
 {{< single-title-imgs-compare
 	"Since this issue only happens the first time the cutscene renders, I’ll cheat using bug report pics, bite me (Xenoblade Chronicles 2)"
-	"./xc2bug.png"
-	"./xc2fix.png"
+	"./xc2bug.jpg"
+	"./xc2fix.jpg"
 >}}
 
 Newcomer [rschlaikjer](https://github.com/rschlaikjer), I hope I pronounced that right, has been digging deep into the texture cache, trying to figure out why a simple visual novel like `Tsukihime -A Piece of Blue Glass Moon-` would stutter when changing scenes. 
@@ -237,7 +237,7 @@ Not satisfied with the mouse and keyboard experience when {{< gh-hovercard "9906
 He also lowered the motion threshold, clamped the rotation speed, and accumulated all input until delivery, which fixed the delay and choppiness of the previous implementation.
 
 {{< imgs
-	"./prime.png| Have you noticed how Samus lacks a lead indicator? Her suit couldn’t spare a tiny bit more processing power for that? (Metroid Prime Remastered)"
+	"./prime.jpg| Have you noticed how Samus lacks a lead indicator? Her suit couldn’t spare a tiny bit more processing power for that? (Metroid Prime Remastered)"
   >}}
 
 Thanks to those changes, `Metroid Prime Remastered` showed that it could be a great PC game. If only Nintendo would let it out of its dungeon.
@@ -320,7 +320,7 @@ On the positive side, AMD has finally added support for the missing dynamic stat
 However, on the negative side, this driver update also introduces a serious regression:
 
 {{< imgs
-	"./amd.png| This can affect your entire desktop (Metroid Prime Remastered)"
+	"./amd.jpg| This can affect your entire desktop (Metroid Prime Remastered)"
   >}}
 
 Some games, such as `Metroid Prime Remastered` and `Pokémon Legends: Arceus`, trigger what seems to be an out-of-bounds crash that causes desktop corruption and a driver crash.

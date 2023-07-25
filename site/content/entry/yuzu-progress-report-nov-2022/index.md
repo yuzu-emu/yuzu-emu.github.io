@@ -37,7 +37,7 @@ When the game first released, it didn’t render anything in yuzu at all, which 
 You will hear more about this `gl_Layer` "character" later.
 
 {{< imgs
-    "./poke.png| One thing is for sure, the graphics have definitely improved (Pokémon Scarlet)"
+    "./poke.jpg| One thing is for sure, the graphics have definitely improved (Pokémon Scarlet)"
   >}}
 
 With this change, the game starts to render and the team can focus on finding, documenting, and fixing any other bugs that show up.
@@ -223,7 +223,7 @@ Since it became clear that more time was needed to solve this issue on the drive
 This way, the game remains playable in Vulkan for AMD on Windows.
 
 {{< imgs
-    "./xc3.png| Always has great title screen music (Xenoblade Chronicles 3)"
+    "./xc3.jpg| Always has great title screen music (Xenoblade Chronicles 3)"
   >}}
 
 Here’s an interesting find from one of our *old* testers.
@@ -254,8 +254,8 @@ Personal preference applies here, for example, `The Legend of Zelda: Breath of t
 
 {{< single-title-imgs-compare
     "Seems to help with distant objects (The Legend of Zelda: Breath of the Wild)"
-    "./fsr0.png"
-    "./fsr100.png"
+    "./fsr0.jpg"
+    "./fsr100.jpg"
 >}}
 
 Test it to your preference and use the per-game profiles to make the most out of it.

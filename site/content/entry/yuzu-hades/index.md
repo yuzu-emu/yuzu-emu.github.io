@@ -48,7 +48,7 @@ Rewriting the decompiler would allow us to audit it through [unit testing](https
 
 {{< imgs
     "./Dark Souls.png| Dark Souls"
-    "./Dragon Quest XI.png| Dragon Quest XI"
+    "./Dragon Quest XI.jpg| Dragon Quest XI"
 >}}
 
 Taking a leaf from dynarmic's book, the developers opted to use an [SSA representation](https://en.wikipedia.org/wiki/Static_single_assignment_form), as it would work very nicely with the `SPIR-V` IR used for shaders, thanks to its native support for SSA.
@@ -204,7 +204,7 @@ Various graphical glitches, crashes and general stability issues in `Fire Emblem
 
 {{< single-title-imgs
     "Fire Emblem: Three Houses"
-    "./Fire emblem Three houses.png"
+    "./Fire emblem Three houses.jpg"
     "./feth1.png"
     "./feth2.png"
 >}}

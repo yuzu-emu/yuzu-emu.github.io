@@ -314,7 +314,7 @@ As a temporary alternative, [Read was just stubbed](https://github.com/yuzu-emu/
 For anyone wondering about `Project A.R.T.`, the following image speaks for itself.
 
 {{< imgs
-	"./art.png| Xenoblade Chronicles Definitive Edition"
+	"./art.jpg| Xenoblade Chronicles Definitive Edition"
   >}}
 
 Regarding works in progress, there are more rendering fixes underway, and we’re already starting plans on what to focus on after `A.R.T.` is finished.

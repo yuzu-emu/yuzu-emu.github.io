@@ -68,8 +68,8 @@ While working on {{< gh-hovercard "9749" "fixing regressions" >}} in Blinkhawk�
 
 {{< single-title-imgs-compare
 	"No more ghost town (Pokémon Scarlet)"
-	"./pokebug.png"
-	"./pokefix.png"
+	"./pokebug.jpg"
+	"./pokefix.jpg"
 >}}
 
 Ahh, [ASTC](https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression), most of you know the struggle by now.
@@ -136,8 +136,8 @@ One game that benefited from this is `Taiko Risshiden V DX`, which got its load 
 
 {{< single-title-imgs
     "Take your time (Taiko Risshiden V DX)"
-    "./taiko1.png"
-    "./taiko2.png"
+    "./taiko1.jpg"
+    "./taiko2.jpg"
     >}}
 
 [byte[]](https://github.com/liamwhite) has also been going deep into the kernel code. One of his changes improves the `SVC wrappers`.
@@ -172,7 +172,7 @@ Most games were tolerant to this, but `FINAL FANTASY CRYSTAL CHRONICLES Remaster
 A tweak here and there and the regression is now gone!
 
 {{< imgs
-	"./ffcc.png| Feel free to progress the game now (FINAL FANTASY CRYSTAL CHRONICLES Remastered Edition)"
+	"./ffcc.jpg| Feel free to progress the game now (FINAL FANTASY CRYSTAL CHRONICLES Remastered Edition)"
   >}}
 
 New Pokémon game update, new things to fix.
@@ -181,7 +181,7 @@ Once again, `Pokémon Scarlet/Violet` is giving us a headache.
 This time, the recently released update 1.2.0 wouldn’t boot on yuzu. After investigating for a bit, [german77](https://github.com/german77) found out that the cause was that some {{< gh-hovercard "9874" "Bluetooth functions" >}} weren’t properly implemented, causing the game to crash when attempting to start with the latest update installed.
 
 {{< imgs
-	"./ps.png| Mandatory protagonist seat (Pokémon Scarlet)"
+	"./ps.jpg| Mandatory protagonist seat (Pokémon Scarlet)"
   >}}
 
 Some code changes later, and german77 fixed the issue! Now anyone can enjoy the reduced NPC count and lower draw distance.
@@ -205,8 +205,8 @@ I’m a disaster, sorry.
 
 {{< single-title-imgs
     "This game is gorgeous, like Samus (Metroid Prime Remastered)"
-    "./mpr.png"
-    "./mpr2.png"
+    "./mpr.jpg"
+    "./mpr2.jpg"
     >}}
 
 The problem is that the game uses motion on top of stick input to aim, making it an interesting case for how to handle non-controller input.
@@ -258,7 +258,7 @@ Now each audio channel stores its information in {{< gh-hovercard "9795" "differ
 Not only `Metroid Prime Remastered` benefits from this; both `Fire Emblem` games have shown improvements as well.
 
 {{< imgs
-	"./fee.png| Clown Swimsuit (Fire Emblem Engage)"
+	"./fee.jpg| Clown Swimsuit (Fire Emblem Engage)"
   >}}
 
 Another issue Maide found was a missed check causing an array index to read negative values, which is, in simple terms, “very wrong”.

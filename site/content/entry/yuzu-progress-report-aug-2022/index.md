@@ -100,7 +100,7 @@ This mode is not very useful, so it is a surprise to see it still used by games.
 {{< single-title-imgs-compare
 	"No more vacations in the Abyss (The Touryst)"
 	"./tourystbug.png"
-	"./tourystfix.png"
+	"./tourystfix.jpg"
 >}}
 
 In the case of `Fast RMX`, disabling `DYNAMIC CAMERA EXPOSURE` in its in-game graphic settings fixes an overbright rendering bug.
@@ -144,8 +144,8 @@ Games like `Street of Rage 4`, `Celeste`, `Axiom Verge`, and many others are now
 
 {{< single-title-imgs-compare
 	"A new meaning for inverse climbing (Celeste)"
-	"./celestebug.png"
-	"./celestefix.png"
+	"./celestebug.jpg"
+	"./celestefix.jpg"
 >}}
 
 {{< single-title-imgs-compare

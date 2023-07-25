@@ -116,8 +116,8 @@ While that was a nice workaround, Wollnashorn wasn’t satisfied with this solut
 
 {{< single-title-imgs-compare
 	"More accurate and better looking! (Mario Kart 8 Deluxe)"
-	"./afbug.png"
-	"./affix.png"
+	"./afbug.jpg"
+	"./affix.jpg"
 >}}
 
 Now you can safely select 16x filtering and enjoy the results, which you can find in `Emulation > Configure… > Graphics > Advanced > Anisotropic Filtering`:
@@ -149,7 +149,7 @@ Speaking of the `Pikmin 4 Demo`, the game taught us that while you can do it, 3D
 In order to avoid crashes in Unreal Engine 4 games like this, the LLE slow code path will be used instead.
 
 {{< imgs
-	"./pm4.png| More proof that games don’t need high requirements to be fun (Pikmin 4 Demo)"
+	"./pm4.jpg| More proof that games don’t need high requirements to be fun (Pikmin 4 Demo)"
   >}}
 
 This pull request introduced a regression that affected rendering in `Metroid Prime Remastered`.
@@ -157,7 +157,7 @@ Thankfully, [gidoly](https://github.com/gidoly) quickly solved it by {{< gh-hove
 
 {{< single-title-imgs-compare
 	"Chozo Suite error 404: Texture not found (Metroid Prime Remastered)"
-	"./mprbug.png"
+	"./mprbug.jpg"
 	"./mprfix.png"
 >}}
 

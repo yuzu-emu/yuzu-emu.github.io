@@ -182,7 +182,7 @@ These changes fixed the Hero's path in `Legend of Zelda: Breath of the Wild`, as
 {{< single-title-imgs-compare
 	"When the Sheika GPS signal returns (The Legend of Zelda: Breath of the Wild)"
 	"./botwbug.png"
-	"./botwfix.png"
+	"./botwfix.jpg"
 >}}
 
 Blinkhawk has added {{< gh-hovercard "9383" "alpha to coverage and alpha to one" >}} to our Vulkan backend.
@@ -198,8 +198,8 @@ These changes have fixed the shading of trees and grass problems when viewed up 
 
 {{< single-title-imgs-compare
 	"The camera isn’t more interested in that tree, you should learn from this, Dark Souls (Pokémon Scarlet)"
-	"./alphabug.png"
-	"./alphafix.png"
+	"./alphabug.jpg"
+	"./alphafix.jpg"
 >}}
 
 vonchenplus has corrected errors caused by yuzu's faulty detection of draw types.
@@ -328,7 +328,7 @@ Without the fix, the threads would return successfully from the operation but fa
 This change fixes the random hangs that have been plaguing us for months in `The Legend of Zelda: Breath of the Wild`, as well as `Persona 5 Royal`.
 
 {{< imgs
-	"./p5.png| The soundtrack that steals your heart (Persona 5 Royal)"
+	"./p5.jpg| The soundtrack that steals your heart (Persona 5 Royal)"
   >}}
 
 byte[] also introduced a {{< gh-hovercard "9496" "workaround for crashes caused due to unallocated memory" >}} after noticing that yuzu always used memory blocks without marking them as allocated, causing it to overlap memory used by the game.

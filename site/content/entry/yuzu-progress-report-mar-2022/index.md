@@ -100,7 +100,7 @@ This was achieved by {{< gh-hovercard "8023" "improving the accuracy of the cons
 
 {{< single-title-imgs
 	"Such pretty locations (MONSTER HUNTER RISE)"
-	"./rise.png"
+	"./rise.jpg"
 	"./rise2.png"
 	"./rise3.png"
 >}}
@@ -129,8 +129,8 @@ As the new implementation can only feed a single upload request at a time, this 
 
 {{< single-title-imgs-compare
 	"A look inside Kirby's powers? (Kirby and the Forgotten Land)"
-	"./poyobug.png"
-	"./poyofix.png"
+	"./poyobug.jpg"
+	"./poyofix.jpg"
 >}}
 
 AMD Radeon users may experience more stuttering than usual when running this game, depending on the specific GPU they have.

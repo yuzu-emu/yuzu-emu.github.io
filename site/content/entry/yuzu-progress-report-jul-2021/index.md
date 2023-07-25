@@ -458,7 +458,7 @@ If you're interested in a more technical explanation about textures and their ty
 `Project A.R.T.`, the designated name for our revival of the resolution scaler, has started, and early results look very promising!
 
 {{< imgs
-	"./art.png| Getting blue-shelled at 4K doesn't really help with anger management (Mario Kart 8 Deluxe)"
+	"./art.jpg| Getting blue-shelled at 4K doesn't really help with anger management (Mario Kart 8 Deluxe)"
   >}}
 
 There are many bugs to fix, optimizations to make, and tons of testing to do before we can confidently release this feature. 

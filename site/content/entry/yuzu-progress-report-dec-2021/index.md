@@ -49,8 +49,8 @@ Since this counts as an optimization, we now apply it to all APIs.
 
 {{< single-title-imgs-compare
 	"Back to the early days (Fire Emblem: Three Houses)"
-	"./nvidiabug.png"
-	"./nvidiafix.png"
+	"./nvidiabug.jpg"
+	"./nvidiafix.jpg"
 >}}
 
 Please report if you find any issues, as there could be more broken games due to yet unknown driver bugs.
@@ -78,7 +78,7 @@ sending the correct frame data only to the correct decoder.
 (Please note that `Immortals Fenyx Rising` gets in game but has broken graphics at the moment).
 
 {{< imgs
-	"./lcu.png| I brick you not (LEGO® CITY UNDERCOVER)"
+	"./lcu.jpg| I brick you not (LEGO® CITY UNDERCOVER)"
   >}}
 
 [Blinkhawk](https://github.com/FernandoS27) [fixed a bug in the texture cache](https://github.com/yuzu-emu/yuzu/pull/7495) that was conveniently ignored by the AMD driver, 
@@ -91,8 +91,8 @@ This PR fixes the sand and shadow graphical problems in `The Legend of Zelda: Sk
 
 {{< single-title-imgs-compare
 	"When you invert the polarity of your HDR display (Xenoblade Chronicles 2)"
-	"./xc2bug.png"
-	"./xc2fix.png"
+	"./xc2bug.jpg"
+	"./xc2fix.jpg"
 >}}
 
 epicboy took a look at the issues that affected games that made heavy use of sparse GPU memory, and [made the changes necessary](https://github.com/yuzu-emu/yuzu/pull/7658) 
@@ -109,7 +109,7 @@ Notably, the crashes on titles developed with the `UE4` engine *(cough, True God
 The devs are still investigating any other oddities surrounding this game, so stay tuned for more updates.
 
 {{< imgs
-	"./ue4.png| These changes mitigate memory-related problems but are not guaranteed to “fix” them completely (SHIN MEGAMI TENSEI V)"
+	"./ue4.jpg| These changes mitigate memory-related problems but are not guaranteed to “fix” them completely (SHIN MEGAMI TENSEI V)"
   >}}
 
 Users reported crashes when playing `Sonic Colors Ultimate` on AMD and Intel GPUs on Vulkan after the resolution scaler was introduced.
@@ -140,8 +140,8 @@ Thanks to epicboy, [users no longer have to suffer this sudden crash](https://gi
 
 {{< single-title-imgs
     "BRAVELY DEFAULT II"
-    "./bd1.png"
-    "./bd2.png"
+    "./bd1.jpg"
+    "./bd2.jpg"
     >}}
 
 ## Skyline framework: Part 2

@@ -85,7 +85,7 @@ There are limitations listed in the Pull Request that we will continue to work o
 {{< single-title-imgs
     "Like night and day! (Xenoblade Chronicles Definitive Edition)"
     "./xcdebug.png"
-    "./xcdefix.png"
+    "./xcdefix.jpg"
   >}}
 
 This fix will be a Vulkan exclusive for now to avoid invalidating the current OpenGL shader cache.

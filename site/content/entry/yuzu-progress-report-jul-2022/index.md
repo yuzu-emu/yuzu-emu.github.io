@@ -53,8 +53,8 @@ We’re working to resolve these regressions, but Blinkhawk is busy with IRL thi
 
 {{< single-title-imgs
     "Not all games are in perfect shape... yet! (The Witcher 3: Wild Hunt)"
-    "./witcher.png"
-    "./plaid.png"
+    "./witcher.jpg"
+    "./plaid.jpg"
     >}}
 
 ## Project Andio
@@ -142,8 +142,8 @@ This also provides a significant performance boost in many games due to keeping 
 
 {{< single-title-imgs
     "Time to smash those attack buttons (Fire Emblem Warriors: Three Hopes)"
-    "./few3h.png"
-    "./3hopes.png"
+    "./few3h.jpg"
+    "./3hopes.jpg"
     >}}
 
 Finally, [BreadFish64](https://github.com/BreadFish64) {{< gh-hovercard "8543" "implemented a way to read the exact TSC frequency of the host CPU." >}} 
@@ -168,7 +168,7 @@ This time around, while searching for the source of a mysterious freezing bug in
 This fixed issues in a number of games, but most notably fixed the freezing issues users had in `Mario Strikers: Battle League` (once you use an [intro-skipping mod](https://github.com/piplup55/switch-mods/blob/master/mario%20strike%20battle%20league/cutscene%20skip.7z?raw=true)), and allowed `Mononoke Slashdown` to boot for the first time.
 
 {{< imgs
-	"./strikers.png| Some graphical bugs are expected for now (Mario Strikers: Battle League)"
+	"./strikers.jpg| Some graphical bugs are expected for now (Mario Strikers: Battle League)"
   >}}
 
 {{< imgs
@@ -232,7 +232,7 @@ That’s right, another `ASTC` format. Your GPU will hate you while decoding it.
 This doesn’t solve the rendering bugs we face with this game, but it makes things look a bit better!
 
 {{< imgs
-	"./mhr.png| Rise ye Tarnished! Wait, wrong game (MONSTER HUNTER RISE)"
+	"./mhr.jpg| Rise ye Tarnished! Wait, wrong game (MONSTER HUNTER RISE)"
   >}}
 
 ## Linux Flatpak (Discover) and AppImage fixes

@@ -21,7 +21,7 @@ More work remains to be done to properly implement these clears in Vulkan, but t
 {{< single-title-imgs-compare
     "Joker, no stealing the screen! (Persona 5 Royal)"
     "./p5bug.png"
-    "./p5fix.png"
+    "./p5fix.jpg"
 >}}
 
 Longtime graphics contributor [Blinkhawk](https://github.com/FernandoS27) [has returned from the dead](https://www.youtube.com/watch?v=sOnqjkJTMaA) to fix games.
@@ -82,8 +82,8 @@ Grainy textures begone!
 
 {{< single-title-imgs-compare
     "ASTC acne, begone! (MONSTER HUNTER RISE)"
-    "./mhr2bug.png"
-    "./mhr2fix.png"
+    "./mhr2bug.jpg"
+    "./mhr2fix.jpg"
 >}}
 
 byte[] found that while he was debugging graphical issues, yuzu would frequently crash after the merge of `Project Y.F.C.` 
@@ -168,7 +168,7 @@ Remember when we say that yuzu is faster on Linux? This is a great example of wh
 byte[] investigated the log file and stubbed the previously unimplemented calls, {{< gh-hovercard "9032" "CheckFriendListAvailability" >}} and {{< gh-hovercard "9033" "GetCacheStorageSize," >}} allowing `No Man's Sky` to boot.
 
 {{< imgs
-    "./nms.png| Still the best screensaver"
+    "./nms.jpg| Still the best screensaver"
   >}}
 
 `Bayonetta 3`'s release caused some issues that were tricky to track down. 
@@ -180,7 +180,7 @@ Stay tuned for performance optimizations that will benefit this game!
 [german77](https://github.com/german77) took part in the fun, {{< gh-hovercard "9149" "stubbing the SetRecordVolumeMuted service," >}} allowing the game to boot.
 
 {{< imgs
-    "./bayo.png| Hot protagonists in your area (Bayonetta 3)"
+    "./bayo.jpg| Hot protagonists in your area (Bayonetta 3)"
   >}}
 
 Another notable release from bunnei this month was the start of the {{< gh-hovercard "9071" "multiprocess project." >}} 

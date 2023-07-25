@@ -129,7 +129,7 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 {{< single-title-imgs
     "Animal Crossing: New Horizons"
     "./acnh1.jpg"
-    "./acnh2.png"
+    "./acnh2.jpg"
 >}}
 
 {{< single-title-imgs
@@ -141,8 +141,8 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 
 {{< single-title-imgs
     "Mario Kart 8 Deluxe"
-    "./mk8d_1.png"
-    "./mk8d_2.png"
+    "./mk8d_1.jpg"
+    "./mk8d_2.jpg"
 >}}
 
 {{< single-title-imgs
@@ -160,9 +160,9 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 
 {{< single-title-imgs
     "Super Mario Smash Bros. Ultimate"
-    "./ssbu_ldn_2.png"
-    "./ssbu_ldn_3.png"
-    "./ssbu_ldn_1.png"
+    "./ssbu_ldn_2.jpg"
+    "./ssbu_ldn_3.jpg"
+    "./ssbu_ldn_1.jpg"
 >}}
 
 {{< imgs
@@ -177,14 +177,14 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 >}}
 
 {{< imgs
-    "./bdsp_1.png|"
-    "./bdsp_2.png|"
+    "./bdsp_1.jpg|"
+    "./bdsp_2.jpg|"
 >}}
 
 {{< single-title-imgs
     "Pokémon Brilliant Diamond/Shining Pearl"
     "./bdsp_3.png"
-    "./bdsp_4.png"
+    "./bdsp_4.jpg"
 >}}
 
 {{< single-title-imgs
@@ -194,9 +194,9 @@ yuzu's Local Wireless Multiplayer was tested by our team of Testers and Support 
 >}}
 
 {{< imgs
-    "./cowabunga.png| Teenage Mutant Ninja Turtles: The Cowabunga Collection" 
-    "./monster_hunter_ultimate.png| Monster Hunter Generations Ultimate"
-    "./kirby_dream_buffet.png| Kirby's Dream Buffet"
+    "./cowabunga.jpg| Teenage Mutant Ninja Turtles: The Cowabunga Collection" 
+    "./monster_hunter_ultimate.jpg| Monster Hunter Generations Ultimate"
+    "./kirby_dream_buffet.jpg| Kirby's Dream Buffet"
 >}}
 
 

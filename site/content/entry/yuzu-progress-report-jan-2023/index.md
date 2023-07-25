@@ -78,8 +78,8 @@ We preemptively apologize to all Smash players (even though it hasn't happened y
 
 {{< single-title-imgs-compare
     "Now your favorite characters won't be half-way in the Shadow Realm (Fire Emblem Engage)"
-    "./feebug.png"
-    "./feefix.png"
+    "./feebug.jpg"
+    "./feefix.jpg"
     >}}
 
 This fixed menu rendering in other games, such as `Dokapon UP!` and `Pokémon Mystery Dungeon: Rescue Team DX`.
@@ -199,8 +199,8 @@ Have fun shiny hunting!
 
 {{< single-title-imgs
     "If you ask why all pics are in the same area, it's one of the best benchmarking spots. Normal accuracy on the left, High accuracy on the right (Pokémon Scarlet)"
-    "./psn.png"
-    "./psh.png"
+    "./psn.jpg"
+    "./psh.jpg"
     >}}
 
 Keep in mind that Normal GPU accuracy will produce vertex explosions for a frame, but only last just as long. Permanent vertex explosions be gone!
