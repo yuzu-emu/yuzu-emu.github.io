@@ -101,6 +101,10 @@ While the original changes aimed to reduce guest memory (Switch) allocations whi
 [byte[]'s](https://github.com/liamwhite) {{< gh-hovercard "11136" "latest fix" >}} significantly improves the slowest shader compilation in `Splatoon 3` with time taken reduced from `30 seconds` to about `4 seconds`.
 A {{< gh-hovercard "10583" "recent change to our texture cache's `AccelerateDMA` logic"  >}} was identified to have been causing device losses and {{< gh-hovercard "10993" "has been since been reverted." >}}
 
+{{< imgs
+	"./sp3.png| She calls it Sasha (Splatoon 3)"
+  >}}
+
 # Input Changes
 
 [German77](https://github.com/german77) continued his reverse engineering of the Switch NFC service and {{< gh-hovercard "11096" "improved yuzu's code accuracy" >}}.
