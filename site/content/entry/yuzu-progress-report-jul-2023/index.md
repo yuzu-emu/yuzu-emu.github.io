@@ -96,7 +96,7 @@ Keep your eyes open for follow-up changes that will build on top of this foundat
 # Graphics Changes
 
 [Maide](https://github.com/Kelebek1) continued his efforts on improving performance through optimizations and {{< gh-hovercard "10996" "his latest changes further optimize" >}} one of his {{< gh-hovercard "10457" "earlier optimizations." >}}
-While the original changes aimed to reduce guest memory (Switch) allocations while copying data from guest to host (User's PC), the latest changes remove data copying entirely thereby resulting in nearly 10% performance boost in parts of `Super Mario Odyssey` like the Metro Kingdom area, and `Xenoblade Chronicles: Definitive Edition` reporting similar gains.
+While the original changes aimed to reduce memory allocations while copying data from guest to host (User's PC), the latest changes remove data copying entirely, resulting in nearly 10% performance boost in parts of `Super Mario Odyssey` like the Metro Kingdom area, and `Xenoblade Chronicles: Definitive Edition` reporting similar gains.
 
 [byte[]'s](https://github.com/liamwhite) {{< gh-hovercard "11136" "latest fix" >}} significantly improves the slowest shader compilation in `Splatoon 3` with time taken reduced from `30 seconds` to about `4 seconds`.
 A {{< gh-hovercard "10583" "recent change to our texture cache's `AccelerateDMA` logic"  >}} was identified to have been causing device losses and {{< gh-hovercard "10993" "has been since been reverted." >}}
@@ -122,7 +122,7 @@ This means any Snapdragon user should be able to run Turnip drivers now, links w
 
 [t895](https://github.com/t895) {{< gh-hovercard "11067" "disabled yuzu from asking to save user data on uninstall," >}} which could cause issues when users attempted to use different APK versions.
 
-t895 also {{< gh-hovercard "11070" "added some help text messages" >}} to inform users why certain buttons were disabled when games were running.
+t895 also {{< gh-hovercard "11070" "added some help text messages" >}} to inform users why certain buttons were disabled on some devices but not others.
 The most common case is Mali or Xclipse users trying to install custom drivers, a feature that is only available and possible to Adreno users, at least for now.
 
 {{< imgs
@@ -137,17 +137,17 @@ Apart from the ones highlighted above, there have also been several smaller chan
 
 toast added a {{< gh-hovercard "11042" "new Linux build script which added the libraries required to enable `Wayland` support" >}} on our official AppImage releases.
 
-Not ending there, toast {{< gh-hovercard "11186" "fixed a potential memory leak with the new timezone binary," >}} which happened when games tried to ask for timezone information too many times. 
+Not ending there, toast {{< gh-hovercard "11186" "fixed a memory leak with the new timezone data generator," >}} which happened when games tried to ask for timezone information too many times. 
 This was resolved by keeping track of the generated timezone binary instead of recreating it repeatedly.
 
 And toast also {{< gh-hovercard "11030" "bypassed a MSVC build crash on `Windows version 10 1809 LTSC` with the new timezone binary changes," >}} by temporarily disabling this for MSVC until there is a solution from Microsoft. 
 The actual reason for this crash on older Windows 10 builds is currently unknown.
 
-byte[] {{< gh-hovercard "11113" "fixed a bug that caused the `Quake` homebrew from failing to launch," >}} and {{< gh-hovercard "11135" "also fixed a bug that resulted `Splatoon 3` having an endless loading screen when LAN was enabled," >}} by implementing the missing service functions.
+byte[] {{< gh-hovercard "11113" "fixed a bug that caused `Quake` to fail to launch," >}} and {{< gh-hovercard "11135" "also fixed a bug that resulted `Splatoon 3` having an endless loading screen when LAN was enabled," >}} by implementing the missing service functions.
 
 byte[] also {{< gh-hovercard "11016" "fixed an issue within yuzu's filesystem" >}} which resulted in either corrupt save data or failing to save data.
 
-A bug resulting in games like `TLoZ: Breath of the Wild` and `TLoZ: Tears of the Kingdom` to crash on Linux, due to `DBus` expecting a `UTF8` string was {{< gh-hovercard "11007" "fixed." >}}
+A previous merge caused games with non-ASCII titles to crash on Linux, due to `DBus` expecting a `UTF8` string.  This has now been {{< gh-hovercard "11007" "fixed." >}}
 Thanks [zeltermann](https://github.com/zeltermann)!
 
 [Morph](https://github.com/Morph1984) {{< gh-hovercard "10999" "fixed a bug that broke the game installation progress bar" >}} after the recent buffer size increase, by refactoring the progress bar calculation code.
@@ -158,7 +158,7 @@ German77 reduced almost 2GB of memory usage, by {{< gh-hovercard "11128" "fixing
 
 German77 also {{< gh-hovercard "11142" "fixed a crash in yuzu's gamelist" >}} which happened when you loaded yuzu without keys.
 
-Newcomer [Steveice10](https://github.com/Steveice10) made {{< gh-hovercard "10974" "few improvements to Vulkan surface creation on macOS," >}} While [comex](https://github.com/comex) made {{< gh-hovercard "10990" "few fixes and workarounds for macOS to resolve few undefined behaviour errors." >}} Thanks to you two!
+yuzu newcomer and Citra expert [Steveice10](https://github.com/Steveice10) made {{< gh-hovercard "10974" "a few improvements to Vulkan surface creation on macOS," >}} and [comex](https://github.com/comex) made {{< gh-hovercard "10990" "few fixes and workarounds for macOS to resolve few undefined behaviour errors." >}} Thanks to you two!
 This doesn't mean full MoltenVK support yet, but the gap is now smaller.
 
 ## Hardware section
@@ -175,7 +175,7 @@ If you recall from our [June progress report](https://yuzu-emu.org/entry/yuzu-pr
 
 Fast-forward to July, and it's still broken, for some.
 Giving credit where due, AMD ***did*** fix this issue with driver version `23.7.2` but only for `RDNA2` GPUs (RX 6000 series), with `GCN4`, also known as `Polaris` (RX 400 and 500 series), confirmed to still be broken.
-In light of this, and the fact that the fixed driver still reports the same Vulkan version, we {{< gh-hovercard "11182" "reverted" >}} {{< gh-hovercard "11163" "our revert" >}} of {{< gh-hovercard "10946" "our original change from June" >}} and have {{<gh-hovercard "11204" "currently disabled usage of this extension on all AMD official drivers," >}} until this is fixed.
+In light of this, and the fact that the fixed driver still reports the same Vulkan version, we {{< gh-hovercard "11182" "reverted" >}} {{< gh-hovercard "11163" "our revert" >}} of {{< gh-hovercard "10946" "our original change from June" >}} and have {{<gh-hovercard "11204" "currently disabled usage of this extension on all AMD official drivers," >}} until this is fixed and has a new version number.
 
 ### Turnip
 
@@ -190,7 +190,7 @@ Some games still require the proprietary Adreno driver to be more stable or fast
 
 Behind the counter, there has been great progress in some key projects.
 The last missing piece of `Project Y.F.C.` the `Query Cache Rewrite` was released, but we'll talk about it next time. We're sure Xenoblade and Luigi's Mansion fans will love it
-byte[] continues to improve the current file system emulation, maybe some particular games would start working soon?
+byte[] continues to improve the current file system emulation--maybe some particular games will start working soon?
 And Maide has some interesting ideas to implement in the shader cache code.
 
 That's all folks! Thank you for staying with us until the end. See ya next time!
