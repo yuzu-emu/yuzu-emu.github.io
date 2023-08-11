@@ -99,7 +99,7 @@ Keep your eyes open for follow-up changes that will build on top of this foundat
 While the original changes aimed to reduce memory allocations while copying data from guest to host (User's PC), the latest changes remove data copying entirely, resulting in nearly 10% performance boost in parts of `Super Mario Odyssey` like the Metro Kingdom area, and `Xenoblade Chronicles: Definitive Edition` reporting similar gains.
 
 [byte[]'s](https://github.com/liamwhite) {{< gh-hovercard "11136" "latest fix" >}} significantly improves the slowest shader compilation in `Splatoon 3` with time taken reduced from `30 seconds` to about `4 seconds`.
-A {{< gh-hovercard "10583" "recent change to our texture cache's `AccelerateDMA` logic"  >}} was identified to have been causing device losses and {{< gh-hovercard "10993" "has been since been reverted." >}}
+A {{< gh-hovercard "10583" "recent change to our texture cache's `AccelerateDMA` logic" >}} was identified to have been causing device losses and {{< gh-hovercard "10993" "has been since been reverted." >}}
 
 {{< imgs
 	"./sp3.png| She calls it Sasha (Splatoon 3)"
@@ -141,13 +141,13 @@ Not ending there, toast {{< gh-hovercard "11186" "fixed a memory leak with the n
 This was resolved by keeping track of the generated timezone binary instead of recreating it repeatedly.
 
 And toast also {{< gh-hovercard "11030" "bypassed a MSVC build crash on `Windows version 10 1809 LTSC` with the new timezone binary changes," >}} by temporarily disabling this for MSVC until there is a solution from Microsoft. 
-The actual reason for this crash on older Windows 10 builds is currently unknown.
+The reason, for those interested, is [documented here](https://github.com/microsoft/STL/issues/3853#issuecomment-1627630752).
 
 byte[] {{< gh-hovercard "11113" "fixed a bug that caused `Quake` to fail to launch," >}} and {{< gh-hovercard "11135" "also fixed a bug that resulted `Splatoon 3` having an endless loading screen when LAN was enabled," >}} by implementing the missing service functions.
 
 byte[] also {{< gh-hovercard "11016" "fixed an issue within yuzu's filesystem" >}} which resulted in either corrupt save data or failing to save data.
 
-A previous merge caused games with non-ASCII titles to crash on Linux, due to `DBus` expecting a `UTF8` string.  This has now been {{< gh-hovercard "11007" "fixed." >}}
+A previous merge caused games with non-ASCII titles to crash on Linux, due to `DBus` expecting a `UTF8` string. This has now been {{< gh-hovercard "11007" "fixed." >}}
 Thanks [zeltermann](https://github.com/zeltermann)!
 
 [Morph](https://github.com/Morph1984) {{< gh-hovercard "10999" "fixed a bug that broke the game installation progress bar" >}} after the recent buffer size increase, by refactoring the progress bar calculation code.
