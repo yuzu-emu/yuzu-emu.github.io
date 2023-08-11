@@ -12,26 +12,25 @@ Let's jump right in!
 
 <!--more--> 
 
-## Aliens and ghosts are real! And they run on Unreal Engine
+## Aliens and ghosts are real! And they run on Unreal Engine!
 
-The wait was long but worth it, another game in the charming Pikmin franchise is finally arriving on Earth, just in time to join the wave of UFO declarations!
+The wait was long but worth it. Another game in the charming Pikmin franchise has finally arrived on Earth, just in time to join the wave of UFO reports!
 
 {{< imgs
 	"./pk1.png| Imagine a cross-over with Toy Story, it would explain The Claw! (Pikmin 4)"
   >}}
 
 This time, `Pikmin 4` decided to use Unreal Engine 4, which guarantees good performance and quality on the Switch.
-This engine also guarantees headaches implementing its particular interest in sparse textures and the stability problems it introduces to NVIDIA GPU users running Vulkan, as previous Unreal Engine 4 games have demonstrated.
+This engine also guarantees headaches for emulating its use of sparse textures, as well guaranteeing instability for NVIDIA GPU users running Vulkan, as previous games have demonstrated.
 
-As you can expect, there’s a lot of work to do to improve compatibility on games running this particular popular engine.
 
-[byte[]](https://github.com/liamwhite) took the first blow, by finding which part of the texture cache code caused a regression {{< gh-hovercard "11093" "affecting stability" >}} strong enough to cause device losses (the driver cutting off the GPU from rendering, resulting in an emulator crash) on NVIDIA GPUs.
+[byte[]](https://github.com/liamwhite) identified and fixed a regression caused by a recent change to the texture cache which severely {{< gh-hovercard "11093" "impacted stability" >}} on NVIDIA GPUs, causing constant device losses (the driver cutting off the GPU from rendering, resulting in an emulator crash).
 
 {{< imgs
 	"./pk2.png| Moss seems tired (Pikmin 4)"
   >}}
 
-[emufan](https://github.com/GPUCode) followed up, he identified that hardcoding the total number of texture buffers to `16` was causing crashes in some Unreal Engine 4 games and {{< gh-hovercard "11098" "bumped up the count" >}} to `32`.
+[emufan](https://github.com/GPUCode) found that hardcoding the total number of texture buffers to `16` was causing crashes in some Unreal Engine 4 games and {{< gh-hovercard "11098" "bumped up the count" >}} to `32`.
 
 {{< single-title-imgs
     "Good thing this game didn't cross paths with Pikmin (Master Detective Archives: RAIN CODE)"
@@ -39,30 +38,32 @@ As you can expect, there’s a lot of work to do to improve compatibility on gam
     "./rain2.png"
     >}}
 
-This not only has helped `Pikmin 4 but also `Master Detective Archives: RAIN CODE`, another recent release using this same engine.
+This not only has helped `Pikmin 4` but also `Master Detective Archives: RAIN CODE`, another recent release using this same engine.
 
 {{< imgs
 	"./rain3.png| Yeah, good name for a train, I'll board it in Dracula Station (Master Detective Archives: RAIN CODE)"
   >}}
+  
+Many things have improved, but there's a lot of work remaining to improve compatibility on games running this popular game engine!
 
 # Per-game configurations - Reimagined!
 
-If you're not a new yuz-er, it is very likely that you've seen and used per-game configurations.
-But incase you haven't yet, per-game configurations are a way to set game specific settings without having to redo your settings for every game you start.
-Imagine if few games require GPU accuracy to be "HIGH" instead of "NORMAL" or if some games work best with "OpenGL" over "Vulkan", with per-game configurations you can easily override these specific settings for just those games.
+If you're experienced with yuzu, it is very likely that you've seen and used per-game configurations.
+But if you didn't know, yuzu supports per-game configurations as an easy way to set game-specific settings, without having to change your global settings for every game you start.
+For the games which require GPU accuracy to be high instead of normal, or for games which work best with OpenGL over"Vulkan, per-game configurations allow you to easily override these specific settings for just those games.
 
 So, what's new, you ask?
-The brains behind this feature's implementation and our trusty slice of toast, [toastUnlimited](https://github.com/lat9nq/), started working towards a future where yuzu could essentially download a game-specific configuration file, that was curated by the community, and then instantly apply those settings.
-Thus users obtaining the optimal settings for any game without having to tinker with the several configuration options we have today.
+The brains behind this feature's implementation and our trusty slice of toast, [toastUnlimited](https://github.com/lat9nq/), has started working towards a future where yuzu could essentially apply a game-specific configuration file curated by the community, and then instantly apply those settings by default.
+The ultimate goal is that users will be able to apply the optimal settings for any game by default, without having to tinker with the many, many configuration options we have today.
 
 Sounds exciting, right? Heck yeah!
-While toast was finalizing his designs, he quickly ran into a road-block of his own design that is our current per-game configuration system.
+While toast was finalizing his designs, he quickly ran into a road-block of his own design: our current per-game configuration system.
 The existing system's design made it difficult to programmatically define and override each setting in multiple places across yuzu's backend and frontend systems.
 
 toast decided to take the challenge head-on and {{< gh-hovercard "10839" "rewrote the entire settings backend" >}} to improve it while making it programmatically easier to define and implement any setting.
 Thanks to these changes, developers now only need to write out the UI text for a setting and the system will do the rest (reading, writing, representing in the UI, resetting global state).
 
-This also had the benefit of providing the perfect timeframe to rework several parts of the global settings UI!
+This also had the benefit of providing the perfect opportunity to rework several parts of the global settings UI!
 For example, System settings now includes `Multicore CPU Emulation` support, all three possible values for `Memory Layout`, and `Limit Speed Percent`.
 
 {{< single-title-imgs-compare
@@ -91,7 +92,7 @@ But enough of the global settings, toast also changed how per-game configuration
 	"./customfix.png"
 >}}
 
-Keep your eyes open for follow-up changes that will build on top of this foundation!
+Stay tuned for follow-up changes to settings building on top of this new foundation!
 
 # Graphics Changes
 
@@ -107,7 +108,7 @@ A {{< gh-hovercard "10583" "recent change to our texture cache's `AccelerateDMA`
 
 # Input Changes
 
-[German77](https://github.com/german77) continued his reverse engineering of the Switch NFC service and {{< gh-hovercard "11096" "improved yuzu's code accuracy" >}}.
+[german77](https://github.com/german77) continued his reverse engineering of the Switch NFC service and {{< gh-hovercard "11096" "improved yuzu's code accuracy" >}}.
 He also fixed a bug which caused users' mouse to stop working after some time, by avoiding an accidental division by zero.
 
 Newcomer [SuperSamus's](https://github.com/SuperSamus) first contribution to yuzu was to {{< gh-hovercard "11050" "fix how button mapping was being handled within yuzu." >}}
@@ -118,12 +119,12 @@ Note: This change **BREAKS** controller configurations for those using Nintendo 
 # Android Changes
 
 [bunnei](https://github.com/bunnei/) implemented changes to {{< gh-hovercard "11017" "fix an issue where Turnip drivers would fail" >}} on certain Snapdragon devices, and added checks for broken Qualcomm 7xx drivers.
-This means any Snapdragon user should be able to run Turnip drivers now, links will be provided in the Hardware section later in this article.
+This means any Snapdragon user should be able to run Turnip drivers now. Links are provided in the Hardware section later in this article.
 
 [t895](https://github.com/t895) {{< gh-hovercard "11067" "disabled yuzu from asking to save user data on uninstall," >}} which could cause issues when users attempted to use different APK versions.
 
 t895 also {{< gh-hovercard "11070" "added some help text messages" >}} to inform users why certain buttons were disabled on some devices but not others.
-The most common case is Mali or Xclipse users trying to install custom drivers, a feature that is only available and possible to Adreno users, at least for now.
+The most common case is Mali or Xclipse users trying to install custom drivers, a feature that is only available to Adreno users, at least for now.
 
 {{< imgs
 	"./mali.png| Abstract art generator (Hyrule Warriors: Age of Calamity)"
@@ -154,9 +155,9 @@ Thanks [zeltermann](https://github.com/zeltermann)!
 
 Morph also {{< gh-hovercard "11173" "fixed a bug where yuzu would crash on systems with weak CPUs running very low clock speeds" >}}, due to yuzu's strict requirements on CPU clock precision.
 
-German77 reduced almost 2GB of memory usage, by {{< gh-hovercard "11128" "fixing a memory leak within yuzu's discord game presence" >}} presumed to be caused by `cpp-httplib`.
+german77 eliminated almost 2GB of memory usage in some circumstances by {{< gh-hovercard "11128" "fixing a memory leak within Discord presence code" >}}, presumed to be caused by `cpp-httplib`.
 
-German77 also {{< gh-hovercard "11142" "fixed a crash in yuzu's gamelist" >}} which happened when you loaded yuzu without keys.
+german77 also {{< gh-hovercard "11142" "fixed a crash in yuzu's gamelist" >}} which happened when you loaded yuzu without keys.
 
 yuzu newcomer and Citra expert [Steveice10](https://github.com/Steveice10) made {{< gh-hovercard "10974" "a few improvements to Vulkan surface creation on macOS," >}} and [comex](https://github.com/comex) made {{< gh-hovercard "10990" "few fixes and workarounds for macOS to resolve few undefined behaviour errors." >}} Thanks to you two!
 This doesn't mean full MoltenVK support yet, but the gap is now smaller.
