@@ -12,7 +12,7 @@ Let's jump right in!
 
 <!--more--> 
 
-## Aliens and ghosts are real! And they run on Unreal Engine!
+## Aliens and ghosts are real... and they run on Unreal Engine!
 
 The wait was long, but worth it. Another game in the charming Pikmin franchise has finally arrived on Earth, just in time to join the wave of UFO reports!
 
@@ -126,7 +126,7 @@ t895 also {{< gh-hovercard "11070" "added some helpful error prompts" >}} to inf
 The most common case is Mali or Xclipse users trying to install custom drivers, a feature that is only available for Adreno users, at least for now.
 
 {{< imgs
-	"./mali.png| Abstract art generator (Hyrule Warriors: Age of Calamity)"
+	"./mali.png| Your Mesa driver is in another castle"
   >}}
 
 # Miscellaneous changes
