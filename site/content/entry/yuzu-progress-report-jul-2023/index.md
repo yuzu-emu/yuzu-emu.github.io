@@ -120,7 +120,7 @@ Note: This change **BREAKS** controller configurations for those using Nintendo 
 [bunnei](https://github.com/bunnei/) implemented changes to {{< gh-hovercard "11017" "fix an issue where Turnip drivers would fail" >}} on certain Snapdragon devices and added checks for broken Qualcomm 7xx drivers.
 This means that any Snapdragon user should be able to run Turnip drivers now. Links are provided in the Hardware section later in this article.
 
-[t895](https://github.com/t895) {{< gh-hovercard "11067" "disabled the prompt to "saveuser data on uninstall" in yuzu." >}} This feature often caused issues when users attempted to use different APK versions.
+[t895](https://github.com/t895) {{< gh-hovercard "11067" "disabled the prompt to save user data on uninstall in yuzu." >}} This feature often caused issues when users attempted to use different APK versions.
 
 t895 also {{< gh-hovercard "11070" "added some helpful error prompts" >}} to inform users why certain buttons were disabled on some devices.
 The most common case is Mali or Xclipse users trying to install custom drivers, a feature that is only available for Adreno users, at least for now.
