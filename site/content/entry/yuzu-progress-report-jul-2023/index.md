@@ -1,9 +1,9 @@
 +++
-date = "2023-08-06T06:45:00+05:30"
+date = "2023-08-13T06:45:00+05:30"
 title = "Progress Report July 2023"
 author = "CaptV0rt3x"
 coauthor = "GoldenX86"
-forum = 0
+forum = 876723
 +++
 
 Hey there, yuz-ers!
