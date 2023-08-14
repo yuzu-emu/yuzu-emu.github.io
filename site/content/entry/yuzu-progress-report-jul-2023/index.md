@@ -110,8 +110,8 @@ A {{< gh-hovercard "10583" "recent change to our texture cache's `AccelerateDMA`
 [german77](https://github.com/german77) continued his reverse engineering of the Switch NFC service and {{< gh-hovercard "11096" "improved yuzu's code accuracy." >}}
 He also fixed a bug, which would cause mice to stop working after some time, by avoiding an accidental division by zero.
 
-Newcomer [SuperSamus's](https://github.com/SuperSamus) first contribution to yuzu was to {{< gh-hovercard "11050" "remove a workaround on button mapping within yuzu." >}}
-With these changes, SDL properly inverts the A/B and X/Y mapping of Nintendo devices. Thank you!
+Newcomer [SuperSamus's](https://github.com/SuperSamus) first contribution to yuzu was to {{< gh-hovercard "11050" "remove a workaround on button mapping within yuzu" >}} which used to invert the face buttons mapping.
+With these changes, SDL properly uses the native A/B and X/Y mapping of Nintendo devices. Thank you!
 
 Note: This change **BREAKS** controller configurations for those using Nintendo controllers without the direct driver.
 
