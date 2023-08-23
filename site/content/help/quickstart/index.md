@@ -43,7 +43,7 @@ description: A guide designed to get you started with yuzu quickly.
 
 #### CPU:
 
-Any x86_64 CPU with support for the FMA instruction set, or an ARM64 CPU. 6 threads or more are recommended.
+Any x86_64 CPU with support for the FMA instruction set, or an ARM64-v8a or newer CPU. 6 threads or more are recommended.
 
 - **Minimum:** Intel Core i5-4430 / AMD Ryzen 3 1200 / Snapdragon 460
 
