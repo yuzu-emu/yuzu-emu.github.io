@@ -45,11 +45,11 @@ description: A guide designed to get you started with yuzu quickly.
 
 Any x86_64 CPU with support for the FMA instruction set, or an ARM64-v8a or newer CPU. 6 threads or more are recommended.
 
-- **Minimum:** Intel Core i5-4430 / AMD Ryzen 3 1200 / Snapdragon 460
+- **Minimum:** Intel Core i5-4430 / AMD Ryzen 3 1200 / Qualcomm Snapdragon 460
 
-- **Recommended:** Intel Core i5-11400 / AMD Ryzen 5 3600 / Snapdragon 865
+- **Recommended:** Intel Core i5-11400 / AMD Ryzen 5 3600 / Qualcomm Snapdragon 865
 
-- **Optimal:** Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Snapdragon 8 Gen 2
+- **Optimal:** Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Qualcomm Snapdragon 8 Gen 2
 
 #### Dedicated graphics:
 
@@ -72,9 +72,9 @@ This is only for listing iGPU support.
 
 - **Minimum for Windows:** Intel UHD Graphics 730 / AMD Radeon Vega 3
 
-- **Minimum for Android:** Adreno 605 (with Turnip drivers) / Mali G57
+- **Minimum for Android:** Qualcomm Adreno 605 (with Turnip drivers) / ARM Mali G57
 
-- **Recommended:** Intel Iris Xe Graphics / AMD Radeon 680M / Adreno 740 / Mali G720
+- **Recommended:** Intel Iris Xe Graphics / AMD Radeon 680M / Qualcomm Adreno 740 / ARM Mali G720
 
 #### RAM:
 
