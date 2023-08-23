@@ -43,13 +43,13 @@ description: A guide designed to get you started with yuzu quickly.
 
 #### CPU:
 
-Any x86_64 CPU with support for the FMA instruction set. 6 threads or more are recommended.
+Any x86_64 CPU with support for the FMA instruction set, or an ARM64 CPU. 6 threads or more are recommended.
 
-- **Minimum:** Intel Core i5-4430 / AMD Ryzen 3 1200
+- **Minimum:** Intel Core i5-4430 / AMD Ryzen 3 1200 / Snapdragon 460
 
-- **Recommended:** Intel Core i5-11400 / AMD Ryzen 5 3600
+- **Recommended:** Intel Core i5-11400 / AMD Ryzen 5 3600 / Snapdragon 865
 
-- **Optimal:** Intel Core i9-13900K / AMD Ryzen 7 7800X3D
+- **Optimal:** Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Snapdragon 8 Gen 2
 
 #### Dedicated graphics:
 
@@ -59,7 +59,7 @@ OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-flo
 
 - **Minimum for Windows:** NVIDIA GeForce GT 1050 4GB / AMD Radeon RX 550 4GB
 
-- **Recommended:** NVIDIA GeForce GTX 1660 6GB / AMD Radeon RX 5500 8GB [(with "Force maximum clocks" enabled)](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/turboui.png)
+- **Recommended:** NVIDIA GeForce GTX 1660 6GB / AMD Radeon RX 5500 8GB [(with "Force maximum clocks" enabled)](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/turboui.png) / Adreno 
 
 - **Optimal:** NVIDIA Geforce RTX 3060 12GB / AMD Radeon RX 6700 10GB [(with "Force maximum clocks" enabled)](https://yuzu-emu.org/entry/yuzu-progress-report-jan-2023/turboui.png)
 
@@ -72,13 +72,15 @@ This is only for listing iGPU support.
 
 - **Minimum for Windows:** Intel UHD Graphics 730 / AMD Radeon Vega 3
 
-- **Recommended:** Intel Iris Xe Graphics / AMD Radeon 680M
+- **Minimum for Android:** Adreno 605 (with Turnip drivers) / Mali G57
+
+- **Recommended:** Intel Iris Xe Graphics / AMD Radeon 680M / Adreno 740 / Mali G720
 
 #### RAM:
 
 Since an integrated GPU uses system RAM as its video memory (VRAM), our memory requirement in this configuration is higher. Highest possible frequency is strongly recommended.
 
-- **Minimum with dedicated graphics:** 8 GB
+- **Minimum with dedicated graphics & for Android:** 8 GB
 
 - **Minimum with integrated graphics:** 12 GB
 
