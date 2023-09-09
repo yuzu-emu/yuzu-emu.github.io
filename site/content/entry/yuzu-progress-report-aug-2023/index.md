@@ -350,7 +350,7 @@ This was causing `GRID Autosport` to crash on boot.
 	"./grid.png|Running in the 90s (`GRID Autosport`)"
   >}}
 
-Not stopping there, FearlessTobi also fixed yuzu-cmd, our command line version, to {{< gh-hovercard "11371" "properly load updates and DLC" >}} when booting a game old-school style.
+Not stopping there, FearlessTobi also fixed yuzu's command line arguments, to {{< gh-hovercard "11371" "properly load updates and DLC" >}} when booting a game for example when using an user made script.
 
 Users reported that some RomFS dumps from games don’t always include all game assets, with one example being `KLONOA Phantasy Reverie Series`.
 byte[]’s investigation showed that several areas of the RomFS dump code were… of low quality.
