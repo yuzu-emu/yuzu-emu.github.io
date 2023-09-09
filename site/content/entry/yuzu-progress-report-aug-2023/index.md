@@ -133,7 +133,6 @@ However, Vulkan was designed to support mobile GPUs, and on mobile GPUs, the mos
 This avoids reading the buffer back from memory, which can be expensive.
 So Vulkan does not have a direct translation of masked clears, and requires clearing the entire "aspect" of an image (colour, depth, or stencil) at once.
 
-
 `Red Dead Redemption` was using a masked clear on its stencil buffer. This is why the bug was only affecting grass and bushes.
 The game was trying to keep those values intact with the mask.
 But since we translated clears directly from the game to Vulkan clears, we were just wiping out the entire stencil buffer, breaking the bush and grass rendering in the process.
@@ -146,7 +145,7 @@ The new system in place works by drawing a fullscreen triangle, which allows the
 Howdy! You get correct rendering directly to your face, like it or not.
 
 {{< single-title-imgs
-    "You drink some tequilas, and then your horse is an adventurer (Red Dead Redemption)"
+    "You drink some tequilas, and then Juan decides he is an adventurer (Red Dead Redemption)"
     "./rdr.png"
     "./juan.png"
     >}}
