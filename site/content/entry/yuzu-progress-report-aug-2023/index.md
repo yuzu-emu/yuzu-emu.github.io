@@ -1,7 +1,7 @@
 +++
 date = "2023-09-08T12:00:00-03:00"
 title = "Progress Report August 2023"
-author = "GoldenX86”
+author = "GoldenX86"
 coauthor = "CaptV0rt3x"
 forum = 0
 +++
