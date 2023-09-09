@@ -415,10 +415,10 @@ Besides all previously reported changes, Android got it’s share of specific bu
 
 {{< single-title-imgs
     "Cleaner and more functional"
-    "./settings1.gif"
-    "./settings2.gif"
-    "./settings3.gif"
-    "./settings4.gif"
+    "./setting1.gif"
+    "./setting2.gif"
+    "./setting3.gif"
+    "./setting4.gif"
     >}}
 
 - {{< gh-hovercard "11392" "Fixing some activity issues," >}} like the surface appearing stretched when changing orientation or starting a game in landscape mode and then switching to portrait.
