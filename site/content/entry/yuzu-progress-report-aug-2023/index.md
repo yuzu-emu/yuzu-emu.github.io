@@ -16,22 +16,21 @@ And Robin.
 
 This is {{< gh-hovercard "11225" "the final piece" >}} of `Project Y.F.C.`, the `Query Cache Rewrite`, and the implementation of `Host Conditional Rendering`. But before we start, we must explain a few things, starting with:
 
-### What is a Query Cache?
+### Why do we need a query cache?
 
-Many GPUs have a feature called counters, which are used to gather data from the various commands that GPU executes — things like how many pixels were drawn or how many triangles were generated, etc. 
-Games use "queries" to fetch and load this data into memory whenever they need to use it.
+Many GPUs have a feature called counters, which are used to gather data from the various commands that GPU executes — things like how many pixels were drawn or how many triangles were generated 
+Games use _queries_ to fetch and load these counters into memory whenever they need to use it.
 
-A Query Cache is a cache that emulates the GPU counters through the use of Host GPU queries. 
-yuzu's Query Cache runs these queries on the Host's (user) GPU to emulate the Switch's GPU counters.
+yuzu's query cache emulates the GPU counters for Switch games through host GPU queries, and services query requests from the game.
 
 ### What is it used for?
 
-Some games can make use of this fetched data to further optimise their rendering. For example, `SUPER MARIO ODYSSEY` optimises the amount of triangles it renders using a commonly used technique called "Occlusion Culling".
+Some games can make use of this fetched data to further optimise their rendering. For example, `SUPER MARIO ODYSSEY` optimises the amount of triangles it renders using a commonly used technique called _occlusion culling_.
 
-Occlusion Culling is a feature that disables rendering of objects when they are not currently seen by the camera because they are obscured (occluded) by other objects.
+Occlusion culling is a feature that disables rendering of objects when they are not currently seen by the camera because they are offscreen or obscured (occluded) by other objects.
 
 In `SUPER MARIO ODYSSEY`, the game first renders simple boundary boxes that cover all objects that will be rendered on the screen. 
-Then it'll count the pixels of each object using queries and later conditionally render the real objects based on whether any pixels of the object's corresponding box were rendered or not.
+Then it queries the number of pixels rendered to each box, and conditionally renders the real objects based on whether any pixels of the object's corresponding box were rendered or not.
 
 Similarly, `Splatoon` games use pixel counts to check which characters are touching whose ink, if any at all. 
 The game tests for both ally ink and enemy ink and if both tests fail, then the character is not standing in any ink.
@@ -42,39 +41,39 @@ The game tests for both ally ink and enemy ink and if both tests fail, then the 
 
 ### Development & Challenges
 
-yuzu already has a Query Cache which was developed many years ago. 
-However, this implementation was not perfect and had many issues like not being able to hold any queries except pixel counts, not flushing everything in the correct order, not invalidating queries rewritten by other query types, among others.
+yuzu already has a query cache which was developed many years ago. 
+However, this implementation was not perfect and had many issues like not being able to hold any queries except pixel counts, not flushing everything in the correct order, not invalidating queries rewritten by other query types, and others.
 
-Our resident GPU dev [Blinkhawk](https://github.com/FernandoS27), set out to rework the Query Cache to fix these issues and modernise the code. 
+Our resident GPU dev [Blinkhawk](https://github.com/FernandoS27), set out to rework the query cache to fix these issues and modernise the code. 
 But, as he would later come to figure out, it wasn't going to be easy.
 
-If you recall, we mentioned earlier that a Query cache works by running queries on the host (user's) GPU. 
-Turns out this was actually the hardest part of the entire rewrite.
+Recall that the query cache works by running queries on the host GPU. 
+As it turns out, this was actually the hardest part of the entire rewrite, due to significant differences between what the Switch GPU does and what host graphics APIs like Vulkan expose.
 
 During development, Blinkhawk ran into two big challenges with Host GPU queries. 
-The first issue was — when to do the queries and when to sync the memory?
+First, when should we perform the queries and sync the memory?
 
 As soon as you start a game, the game begins making these queries to the GPU. 
-Normally, the results are obtained immediately after counting is done i.e., when the rendering is done. 
-But for games like `SUPER MARIO ODYSSEY`, that do Occlusion Culling, they make a lot of queries.
+Normally, the results are obtained by the Switch's GPU immediately after counting is done--when the rendering is done. 
+But games like `SUPER MARIO ODYSSEY` which use occlusion culling make a _lot_ of queries.
 
 {{< imgs
 	"./occ.png| Turn the camera around, and the whole city magically disappears (SUPER MARIO ODYSSEY)"
   >}}
 
-So, if we tried to run all those queries and sync the results on the host (user's) GPU in the same way, it would stall the GPU heavily — as the GPU would be forced to draw each frame one by one while switching heavily between engines very often.
+So, if we tried to run all those queries and sync the results on the host (user's) GPU in the same way, it would stall the GPU heavily — as the GPU would be forced to synchronize with the CPU after drawing each scene element to write back the counters.
 
 To prevent this from happening, Blinkhawk set the memory syncing to happen whenever the guest (Switch's) GPU needed to wait for idling, as that is perfectly safe.
 
-The second issue was — how to mix these query results as fast as possible? 
+Second, how do we mix these query results as fast as possible? 
 In the guest (Switch's) GPU, the counters can be reset at any time or not at all. 
 But this behaviour is not exposed in graphics APIs such as OpenGL and Vulkan. 
 Instead, these APIs have queries that only count a smaller section such as a single draw or multiple draws. 
 This meant that we would need to take all the query results and sum them up, especially if the game never resets the counter.
 
-In the old Query Cache, we used to do all the sum of all query results on a single GPU thread which made it linear in complexity. 
+In the old query cache, we used to sum all of the query results on a single GPU thread, which was not optimal. 
 As the number of query results increased, so did the time it took to sum them. 
-This was fine for like 50 or 80 queries but some games can easily make upwards of 500 to 2000 queries in a single frame.
+This was fine for around 50 or 80 queries, but some games can easily make thousands of queries within a single frame.
 
 Blinkhawk experimented with a few different algorithms before finally settling on an implementation based on the [Hillis Steele Scan Algorithm](https://en.wikipedia.org/wiki/Prefix_sum), which makes use of subgroups instead of pure shared memory.
 
@@ -86,7 +85,7 @@ The result? Well, let the following list speak for itself:
 	"./qcr1.png| No flashbangs (Luigi’s Mansion 3)"
   >}}
 
-- The Level-of-Detail in `Pokémon Scarlet & Violet` is fixed when using High GPU accuracy. No more tree flickering.
+- The level of detail in `Pokémon Scarlet & Violet` is fixed when using High GPU accuracy. No more tree flickering.
 - Rendering in some Koei Tecmo games like `Marvel Ultimate Alliance 3: The Black Order` is fixed when using High GPU accuracy.
 - Glow particles in `Xenoblade Chronicles 2 & 3` are fixed when using High GPU accuracy and disabling Asynchronous shader building.
 
@@ -100,7 +99,7 @@ The result? Well, let the following list speak for itself:
 	"./qcr2.png| Not that Dark Samus (`Metroid Prime Remastered`)"
   >}}
 
-- Performance increase for low-end and/or power-limited hardware in games that make use of Host Conditional Rendering, like `Pokémon Scarlet & Violet`, `Luigi’s Mansion 3`, `SUPER MARIO ODYSSEY`, most Koei Tecmo titles, and many others.
+- Performance increased for low-end and/or power-limited hardware in games that make use of Host Conditional Rendering, like `Pokémon Scarlet & Violet`, `Luigi’s Mansion 3`, `SUPER MARIO ODYSSEY`, most Koei Tecmo titles, and many others.
 - And more!
 
 ## More GPU changes
@@ -445,7 +444,7 @@ Besides all previously reported changes, Android got it’s share of specific bu
 - {{< gh-hovercard "11420" "Fixing a bug in the game content installer" >}} that would lead to a crash when trying to install an update or DLC.
 - And more!
 
-Also joining forces in the Android effort, byte[] fixed a {{< gh-hovercard "11357" "virtual file system bug" >}} that made `The Legend of Zelda: Tears of the Kingdom` softlock when trying to start.
+Also joining forces in the Android effort, byte[] fixed a {{< gh-hovercard "11357" "virtual file system bug" >}} that made any game with updates installed fail to boot after the aforementioned NCA changes had been merged.
 
 ## Desktop UI improvements
 
@@ -472,8 +471,8 @@ Feel free to experiment, and save your best gameplay moments!
   >}}
 
 Per-game settings are a great way to customise the settings and mods of each game.
-One option there that was in a weird spot was `Console mode`, and by this we mean how the Switch is being emulated, if in docked or handheld mode.
-The old implementation relied on controller profiles, the user would set some controller mapping, the type of controller, the console mode, save all of this as a profile, and then set each game to use the preferred controller profile.
+One option there that was in a weird spot was `Console mode` -- docked or handheld mode.
+The old implementation relied on controller profiles: the user would set some controller mapping, the type of controller, the console mode, save all of this as a profile, and then set each game to use the preferred controller profile.
 The problem with this approach is that it forces users to save different controller profiles, when in most cases a single one is used, for example, a Pro Controller profile using a Sony Dual Sense.
 To simplify this particular situation, toastUnlimited {{< gh-hovercard "11356" "added a Console Mode to the per-game system properties." >}} Much easier, right?
 
