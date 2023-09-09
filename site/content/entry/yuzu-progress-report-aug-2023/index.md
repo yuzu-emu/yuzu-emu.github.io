@@ -140,7 +140,7 @@ The solution we came up with for Vulkan is similar to a previous trick [we used 
 With a regular draw, we are able to use the built-in hardware support for applying a stencil mask, and produce the same result as OpenGL.
 
 
-The new system in place works by drawing a fullscreen triangle, which allows the regular stencil hardware to handle masking and buffer writing. Thanks to this, {{< gh-hovercard "11320" "rendering issues in grass and bushes in Red Dead Redemption are now solved" >}}!
+The new system in place works by drawing a fullscreen triangle, which allows the regular stencil hardware to handle masking and buffer writing. Thanks to this, {{< gh-hovercard "11320" "rendering issues in grass and bushes in Red Dead Redemption are now solved." >}}
 Howdy! You get correct rendering directly to your face, like it or not.
 
 {{< single-title-imgs
