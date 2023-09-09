@@ -60,13 +60,13 @@ As soon as you start a game, the game begins making queries to get GPU counters.
 Normally, the results are obtained by the Switch's GPU immediately after counting is done--when the rendering is done. 
 But games like `SUPER MARIO ODYSSEY` which use occlusion culling make a _lot_ of queries.
 
-{{< imgs
-	"./occ.png| Turn the camera around, and the whole city magically disappears (SUPER MARIO ODYSSEY)"
-  >}}
-
 So, if we tried to run all those queries and sync the results on the host (user's) GPU in the same way, it would stall the GPU heavily — as the GPU would be forced to synchronize with the CPU after drawing each scene element to write back the counters.
 
 To prevent this from happening, Blinkhawk synchronises memory whenever the game requests the GPU to wait for commands to finish rendering. This allows for efficient batching, and for GPU commands which occur after the wait to utilize the counter values.
+
+{{< imgs
+	"./occ.png| Turn the camera around, and the whole city magically disappears (SUPER MARIO ODYSSEY)"
+  >}}
 
 Second, in the guest (Switch's) GPU, counters can be reset at any time, or not at all. 
 But this behaviour is not exposed in graphics APIs such as OpenGL and Vulkan. 
