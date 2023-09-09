@@ -217,7 +217,7 @@ And finally, to close this section with what is more of a build process change t
 	"./m1.png| Let’s begin with simple stuff (`DRAGON QUEST BUILDERS`)"
   >}}
 
-Properly keeping up with MoltenVK updates allows macOS builds to run some basic games, but there’s still much to do to get the fruit company's devices up to speed.
+Properly keeping up with MoltenVK updates allows macOS builds to run some basic games, but there’s still much to do to get the forbidden fruit company's devices up to speed.
 
 ## OpenGL-specific improvements, which also improve Vulkan
 
@@ -368,7 +368,7 @@ This lovely behaviour made Maide work on a {{< gh-hovercard "11359" "test to run
 
 If you find that a game has no audio but is otherwise working, you should check your drivers, check any intermediate programs like equalisers, and check your OS settings for issues.
 
-Opus is a lossy open-source and royalty-free audio format used by several games.
+Opus is a lossy open-source and royalty-free (as it always should be) audio format used by several games.
 Like with the VP9 video format, its implementation on yuzu is not as simple as just playing the file.
 {{< gh-hovercard "11390" "By implementing" >}} the `OpenHardwareOpusDecoderForMultiStreamEx` and `DecodeInterleavedForMultiStream` service methods (Opus multistream support), FearlessTobi ensured games like `MLB The Show 22` are now playable.
 
