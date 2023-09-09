@@ -471,7 +471,7 @@ Feel free to experiment, and save your best gameplay moments!
   >}}
 
 Per-game settings are a great way to customise the settings and mods of each game.
-One option there that was in a weird spot was `Console mode` -- docked or handheld mode.
+One option in a weird spot was `Console mode` -- docked or handheld mode.
 The old implementation relied on controller profiles: the user would set some controller mapping, the type of controller, the console mode, save all of this as a profile, and then set each game to use the preferred controller profile.
 The problem with this approach is that it forces users to save different controller profiles, when in most cases a single one is used, for example, a Pro Controller profile using a Sony Dual Sense.
 To simplify this particular situation, toastUnlimited {{< gh-hovercard "11356" "added a Console Mode to the per-game system properties." >}} Much easier, right?
