@@ -288,9 +288,13 @@ And lastly, yuzu was missing support for HTML manual mods, so byte[] {{< gh-hove
 The end result after these few fixes is that most mods for Super Smash Bros. Ultimate are now working!
 
 {{< single-title-imgs
-    "Bocchi-chan vs Melia, the fight of the century (Super Smash Bros. Ultimate)"
+    "Let the modding begin! (Super Smash Bros. Ultimate)"
     "./arc1.png"
     "./arc2.png"
+    >}}
+
+{{< single-title-imgs
+    "Bocchi-chan vs Melia, the fight of the century (Super Smash Bros. Ultimate)"
     "./arc3.png"
     "./arc4.png"
     "./arc5.png"
