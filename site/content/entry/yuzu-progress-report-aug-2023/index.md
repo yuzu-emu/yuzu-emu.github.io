@@ -164,10 +164,10 @@ Thanks to this {{< gh-hovercard "11383" "late intervention," >}} `Mario + Rabbid
 
 The water in Sea of Solitude requires emulating other very tricky aspects of the Tegra X1, so that’s homework for later.
 
-As Maide also has learnt by now, `Accelerated DMA` is an eccentric lady. 
-She’s responsible for uploading and downloading image data directly from the GPU, avoiding the slow path of swizzling image data on the CPU and system memory.
+As Maide also has learnt by now, `Accelerated DMA` fast path is an eccentric lady. 
+She’s responsible for uploading and downloading image data directly from the GPU, converting image data on the CPU and system memory.
+But, it can only work when just the right conditions are met. 
 If you don’t tread carefully enough near her, you will get the wrong data, in the wrong place, at the wrong moment. 
-This will include a bunch of ara ara’s.
 Such was the fortune of `Sid Meier's Civilization VI`, a game that crashed on Vulkan, and rendered completely broken on OpenGL.
 
 The culprit? Not marking a destination buffer and/or image as modified, causing any future read to not trigger the corresponding download. This resulted in the game reading the wrong data.
@@ -214,7 +214,7 @@ byte[] found the culprit was hiding in how mappings were being aligned during al
 And finally, to close this section with what is more of a build process change than a graphics code change, [vonchenplus](https://github.com/vonchenplus) added {{< gh-hovercard "11302" "MoltenVK as an external dependency" >}} to yuzu’s CMake settings, allowing Apple users to automatically get the latest version of this translation library when building yuzu on their Vulkan-starved machines. (AGXV, anyone?)
 
 {{< imgs
-	"./m1.png| Let’s begin with simple stuff (`DRAGON QUEST BUILDERS`)"
+	"./m1.png| Let’s begin with simple stuff (`DRAGON QUEST III The Seeds of Salvation`)"
   >}}
 
 Properly keeping up with MoltenVK updates allows macOS builds to run some basic games, but there’s still much to do to get the forbidden fruit company's devices up to speed.
