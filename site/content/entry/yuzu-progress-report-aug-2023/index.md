@@ -6,7 +6,7 @@ coauthor = "CaptV0rt3x"
 forum = 0
 +++
 
-[Tuturu~](https://www.youtube.com/watch?v=HkGNeN0LGOE) yuz-ers. Did you feel that the last report was too short? Well, August is back, and with a vengeance! This month offers important graphical fixes, developers working around GPU limitations, several long overdue file system fixes, Skyline framework support, some Android and Apple love, and more!
+[Tuturu~](https://www.youtube.com/watch?v=HkGNeN0LGOE) yuz-ers. Did you feel that the last report was too short? Well, August is at full throttle! This month offers important graphical fixes, developers working around GPU limitations, several long overdue file system fixes, Skyline framework support, some Android and Apple love, and more!
 
 <!--more--> 
 
