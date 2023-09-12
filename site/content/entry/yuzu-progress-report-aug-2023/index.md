@@ -207,9 +207,17 @@ The result? A 69% or higher performance boost in `Bayonetta 3`, depending on the
 byte[] discovered that yuzu’s implementation of nvnflinger, the service responsible for presenting to screen, was missing a scale mode option, {{< gh-hovercard "11281" "preserve aspect ratio." >}}
 Implementing it solves the rendering of `Gunvolt Chronicles Luminous Avenger iX` in its base version.
 
+{{< imgs
+	"./gunvolt.png| Hell yeah, sprites! (Gunvolt Chronicles Luminous Avenger iX)"
+  >}}
+
 A user reported an unknown change from a long time ago was causing `AI: THE SOMNIUM FILES` to constantly crash.
 byte[] found the culprit was hiding in how mappings were being aligned during allocation but not deallocation, a bug originally discovered by ex-Skyline emulator developer [bylaws](https://github.com/skyline-emu/skyline/commits?author=bylaws).
 {{< gh-hovercard "11375" "Regression solved, game stable, case closed." >}}
+
+{{< imgs
+	"./ai.png| Elementary, my dear user (AI: THE SOMNIUM FILES)"
+  >}}
 
 And finally, to close this section with what is more of a build process change than a graphics code change, [vonchenplus](https://github.com/vonchenplus) added {{< gh-hovercard "11302" "MoltenVK as an external dependency" >}} to yuzu’s CMake settings, allowing Apple users to automatically get the latest version of this translation library when building yuzu on their Vulkan-starved machines. (AGXV, anyone?)
 
