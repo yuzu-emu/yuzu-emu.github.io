@@ -98,7 +98,7 @@ The result? Well, let the following list speak for itself:
 - Shadows in `Metroid Prime Remastered` are fixed.
 
 {{< imgs
-	"./qcr2.png| Not that Dark Samus (`Metroid Prime Remastered`)"
+	"./qcr2.png| Not that Dark Samus (Metroid Prime Remastered)"
   >}}
 
 - Performance increased for low-end and/or power-limited hardware in games that make use of Host Conditional Rendering, like `Pokémon Scarlet & Violet`, `Luigi’s Mansion 3`, `SUPER MARIO ODYSSEY`, most Koei Tecmo titles, and many others.
@@ -175,7 +175,7 @@ The culprit? Not marking a destination buffer and/or image as modified, causing 
 Gandhi says peace was never an option.
 
 {{< imgs
-	"./civ.png| Just one more turn (`Sid Meier's Civilization VI`)"
+	"./civ.png| Just one more turn (Sid Meier's Civilization VI)"
   >}}
 
 For our *cultured* players out there, Blinkhawk and [byte[]](https://github.com/liamwhite) bring us much-awaited fixes for `Bayonetta 3`.
@@ -214,7 +214,7 @@ byte[] found the culprit was hiding in how mappings were being aligned during al
 And finally, to close this section with what is more of a build process change than a graphics code change, [vonchenplus](https://github.com/vonchenplus) added {{< gh-hovercard "11302" "MoltenVK as an external dependency" >}} to yuzu’s CMake settings, allowing Apple users to automatically get the latest version of this translation library when building yuzu on their Vulkan-starved machines. (AGXV, anyone?)
 
 {{< imgs
-	"./m1.png| Let’s begin with simple stuff (`DRAGON QUEST III The Seeds of Salvation`)"
+	"./m1.png| Let’s begin with simple stuff (DRAGON QUEST III The Seeds of Salvation)"
   >}}
 
 Properly keeping up with MoltenVK updates allows macOS builds to run some basic games, but there’s still much to do to get the forbidden fruit company's devices up to speed.
@@ -350,7 +350,7 @@ FearlessTobi also fixed a bug in {{< gh-hovercard "11370" "how an error is handl
 This was causing `GRID Autosport` to crash on boot. 
 
 {{< imgs
-	"./grid.png|Running in the 90s (`GRID Autosport`)"
+	"./grid.png|Running in the 90s (GRID Autosport)"
   >}}
 
 Not stopping there, FearlessTobi also fixed yuzu's command line arguments to {{< gh-hovercard "11371" "properly load updates and DLC" >}} when booting a game--for example, when using a script.
