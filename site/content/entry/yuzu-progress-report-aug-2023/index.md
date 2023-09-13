@@ -373,7 +373,7 @@ Let’s start with the sole input change of this progress report. [german77](htt
 
 {{< gh-hovercard "11406" "Updating SDL to version 2.28.2" >}} fixed issues affecting Xbox controller trigger motion events and their rumble while the program runs in the background.
 8BitDo gamepad mapping while in XInput mode was fixed for Linux.
-And a controller lockup that happened when initializing some unofficial PS4 controllers is now fixed.
+And a controller lockup that happened when initialising some unofficial PS4 controllers is now fixed.
 
 Some users' machines have improperly configured audio devices, which can lead to games locking up on boot.
 This lovely behaviour forced Maide to work on a {{< gh-hovercard "11359" "test to run early in the boot process" >}} to see which audio backend can properly start the audio device. If the device fails to initialise with both cubeb and SDL, the null backend is selected and the game continues to work, just without any audio output.
