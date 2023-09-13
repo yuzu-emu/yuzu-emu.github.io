@@ -6,7 +6,7 @@ coauthor = "CaptV0rt3x"
 forum = 0
 +++
 
-[Tuturu~](https://www.youtube.com/watch?v=HkGNeN0LGOE) yuz-ers. Did you feel that the last report was too short? Well, August is at full throttle! This month offers important graphical fixes, developers working around GPU limitations, several long overdue file system fixes, Skyline framework support, some Android and Apple love, and more!
+[Tuturu~](https://www.youtube.com/watch?v=HkGNeN0LGOE) yuz-ers. Did you feel that the last report was too short? Well, August was at full throttle! This month offers important graphical fixes, developers working around GPU limitations, several long overdue file system fixes, Skyline framework support, some Android and Apple love, and more!
 
 <!--more--> 
 
@@ -14,14 +14,14 @@ forum = 0
 
 And Robin.
 
-This is {{< gh-hovercard "11225" "the final piece" >}} of `Project Y.F.C.`, the `Query Cache Rewrite`, and the implementation of `Host Conditional Rendering`. But before we start, we must explain a few things, starting with:
+This is {{< gh-hovercard "11225" "the final piece" >}} of `Project Y.F.C.`, the `Query Cache Rewrite`, and the implementation of `Host Conditional Rendering`. But before we start, we must explain a few things.
 
 ### Why do we need a query cache?
 
 Many GPUs expose _counters_, which are used to gather data from the various commands that GPU executes — things like how many pixels were drawn or how many triangles were generated.
 Games use _queries_ to fetch and load these counters into memory whenever they need to use them.
 
-yuzu's query cache is responsible for tracking the values of GPU counters for Switch games, and services query requests from the game.
+yuzu's query cache is responsible for tracking the values of GPU counters for Switch games and services query requests from the game.
 
 ### What is it used for?
 
@@ -30,7 +30,7 @@ Some games can make use of this fetched data to further optimise their rendering
 Occlusion culling is a feature that disables rendering of objects when they are not currently seen by the camera because they are offscreen or obscured (occluded) by other objects.
 
 In `SUPER MARIO ODYSSEY`, the game first renders simple boundary boxes that cover all objects that will be rendered on the screen. 
-Then it queries the number of pixels rendered to each box, and only renders the real objects whose corresponding boxes had any pixels rendered.
+It then queries the number of pixels rendered to each box, and only renders the real objects whose corresponding boxes had any pixels rendered.
 
 Similarly, `Splatoon` games use pixel counts to check whose ink a given character is touching.
 The game tests for both ally ink and enemy ink and if both tests fail, then the character is not standing in any ink.
@@ -42,7 +42,7 @@ The game tests for both ally ink and enemy ink and if both tests fail, then the 
 ### Development & Challenges
 
 yuzu already had a query cache which was developed many years ago. 
-However, this implementation was not perfect, and had many issues. To name just a few:
+However, this implementation was not perfect and had many issues. To name just a few:
 - It could not hold any queries except pixel counts
 - It failed to write to memory in the correct order
 - It didn't invalidate queries that were later overwritten by other query types
@@ -57,18 +57,18 @@ During development, Blinkhawk ran into two big challenges with Host GPU queries.
 First, for performance reasons, we can't submit commands to the host GPU immediately upon processing them. We need to batch them in order to get any reasonable level of speed. This leads to the question: when do we need to perform the queries and sync the memory?
 
 As soon as you start a game, the game begins making queries to get GPU counters. 
-Normally, the results are obtained by the Switch's GPU immediately after counting is done--when the rendering is done. 
-But games like `SUPER MARIO ODYSSEY` which use occlusion culling make a _lot_ of queries.
+Normally, the results are obtained by the Switch's GPU immediately after counting is done — when the rendering is done. 
+But games like `SUPER MARIO ODYSSEY`, which use occlusion culling, make a _lot_ of queries.
 
 So, if we tried to run all those queries and sync the results on the host (user's) GPU in the same way, it would stall the GPU heavily — as the GPU would be forced to synchronize with the CPU after drawing each scene element to write back the counters.
 
 To prevent this from happening, Blinkhawk synchronises memory whenever the game requests the GPU to wait for commands to finish rendering. This allows for efficient batching, and for GPU commands which occur after the wait to utilize the counter values.
 
 {{< imgs
-	"./occ.png| Turn the camera around, and the whole city magically disappears (SUPER MARIO ODYSSEY)"
+	"./occ.png| Turn the camera around and the whole city magically disappears (SUPER MARIO ODYSSEY)"
   >}}
 
-Second, in the guest (Switch's) GPU, counters can be reset at any time, or not at all. 
+Second, in the guest (Switch's) GPU, counters can be reset at any time or not at all. 
 But this behaviour is not exposed in graphics APIs such as OpenGL and Vulkan. 
 Instead, these APIs have queries that only count a smaller section such as a single draw or multiple draws. 
 This meant that we would need to take all the query results and sum them up, especially if the game never resets the counter.
@@ -183,7 +183,7 @@ They involve emulating how the Switch’s GPU drivers emulate a feature the hard
 
 This story revolves around `textureGrad`, an OpenGL function that does texture lookups over multiple mipmap levels based on the supplied angle, and returns a single texel.
 
-Well, the Maxwell-based GPU on the Tegra X1 of the Switch can’t do this natively for 3D textures, so it uses the SAM and RAM instructions to enter into and leave a special mode, which we don't know much about--but we do know it is used for calculating the derivatives for the texture fetch.
+Well, the Maxwell-based GPU on the Tegra X1 of the Switch can’t do this natively for 3D textures, so it uses the SAM and RAM instructions to enter into and leave a special mode, which we don't know much about — but we do know it is used for calculating the derivatives for the texture fetch.
 
 By looking for this {{< gh-hovercard "11316" "instruction pattern," >}} Blinkhawk implemented preliminary support for the fog and clouds in `Bayonetta 3`.
 byte[] later {{< gh-hovercard "11430" "fixed the implementation" >}} to make it behave the way Blink initially intended, and to avoid crashes on Mesa and RDNA3-based GPUs (AMD Radeon RX 7000 series).
@@ -230,7 +230,7 @@ Properly keeping up with MoltenVK updates allows macOS builds to run some basic 
 ## OpenGL-specific improvements, which also improve Vulkan
 
 That’s right, Mesa and NVIDIA Fermi/Kepler users, it’s your turn to get some love.
-[Epicboy](https://github.com/ameerj) is back with some great changes for the ~~old~~classic API that started it all, OpenGL.
+[Epicboy](https://github.com/ameerj) is back with some great changes for the ~~old~~ classic API that started it all, OpenGL.
 
 First on the list is a major overhaul for GPU ASTC decoding, for both OpenGL and Vulkan APIs.
 {{< gh-hovercard "11149" "Code optimizations" >}} in several areas of the compute shader-based decoder improved Vulkan ASTC decoding performance by up to 60%, but it made OpenGL on NVIDIA *15 times* faster, making it now slightly faster than Vulkan at decoding ASTC textures.
@@ -241,19 +241,19 @@ First on the list is a major overhaul for GPU ASTC decoding, for both OpenGL and
 
 GPUs which were left behind on Vulkan support can now enjoy much smoother performance in titles like `The Legend of Zelda: Tears of the Kingdom`, `Bayonetta 3`, `Luigi’s Mansion 3`, etc.
 
-To get the most out of this change, the `ASTC recompression` method must be set to `Uncompressed`, and `Enable asynchronous presentation` should be enabled if you’re using Vulkan,.
-Both options can be found in in `Emulation > Configure… > Graphics > Advanced`.
+To get the most out of this change, the `ASTC recompression` method must be set to `Uncompressed`, and `Enable asynchronous presentation` should be enabled if you’re using Vulkan.
+Both options can be found in `Emulation > Configure… > Graphics > Advanced`.
 
-[toastUnlimited]() later {{< gh-hovercard "11216" "blocked Mesa’s native ASTC decoder," >}} as it is now considerably slower than our implementation.
+[toastUnlimited](https://github.com/lat9nq) later {{< gh-hovercard "11216" "blocked Mesa’s native ASTC decoder," >}} as it is now considerably slower than our implementation.
 
 And lastly, Epicboy solved what was a very common issue for `Pokémon Legends: Arceus` players before we made Vulkan the default API.
 Sit down, kids, it’s story time.
 
 In the not-so-far-away good old days, yuzu was only experimenting with an incomplete and immature Vulkan backend, there was no LDN/LAN support, and an Android release was considered to be a fever dream.
-Back then we used the OpenGL API by default, and out of its three options for shader backends, GLASM was the shader backend of choice, since it didn’t affect incompatible drivers–it’s an NVIDIA-only "feature", and any other driver would automatically revert to the vendor-agnostic GLSL. 
+Back then we used the OpenGL API by default, and out of its three options for shader backends, GLASM was the shader backend of choice, since it didn’t affect incompatible drivers — it’s an NVIDIA-only "feature" and any other driver would automatically revert to the vendor-agnostic GLSL. 
 This provided NVIDIA users the best experience at the time, with the lowest shader build times available, until Vulkan improved enough to be the full replacement it is today.
 
-A very common report during these migration days was that character shading in `Pokémon Legends: Arceus` was wrong–it either introduced weird motes to characters, or they looked completely devoid of any form of lighting.
+A very common report during these migration days was that character shading in `Pokémon Legends: Arceus` was wrong — it either introduced weird motes to characters, or they looked completely devoid of any form of lighting.
 This problem was quickly found to be rooted in GLASM.
 
 Since GLASM was, and continues to be, almost impossible to work on due to its complete lack of tools to debug and assist development, no developer wanted to touch it after Rodrigo introduced it. As he later left for greener pastures, this has resulted in our GLASM shader backend becoming entirely unmaintained.
@@ -285,7 +285,7 @@ One particularly annoying issue from the early days of the emulator is a lock wh
 Since the implementation is incorrect (the lock should not be present at all), but a lot of existing yuzu code depends on it, byte[] instead {{< gh-hovercard "11327" "avoids locking only around calls to socket interfaces," >}} avoiding a deadlock when Skyline's TCP logger is active.
 More work remains to be done to remove this service lock once and for all.
 
-With these changes, the Skyline framework is operative, but a bit more work was needed to get ARCropolis up and running, and the Smash modding community happy.
+With these changes, the Skyline framework is operational, but a bit more work was needed to get ARCropolis up and running, and the Smash modding community happy.
 Thankfully, byte[] didn’t stop there, and continued implementing the required changes.
 
 ARCropolis used to incorrectly initiate the handshake when connecting to an SSL/TLS socket without first setting a hostname.
@@ -322,7 +322,7 @@ Here’s a nowhere-close-to-complete list of now-working eShop titles:
 
 - `Splatoon 3`
 - `Bayonetta 3`
-- `Atelier Ryza 3 Alchemist of the End & the Secret Key`
+- `Atelier Ryza 3: Alchemist of the End & the Secret Key`
 - `Double Dragon Gaiden: Rise of the Dragons`
 - `OneShot: World Machine Edition`
 - `Skullgirls: 2nd Encore`
@@ -348,10 +348,10 @@ Here’s a nowhere-close-to-complete list of now-working eShop titles:
 
 Installing updates and DLC for multi-program applications (such as a game launcher with several games inside) didn't work properly on yuzu.
 This meant games like `Super Mario 3D All-Stars` would only launch the base game version no matter what the user did.
-The current virtual file system implementation can’t properly support this, which is one of the many areas Project Gaia is acting upon.
+The current virtual file system implementation can’t properly support this, which is one of the many areas Project Gaia is geared to fix.
 To bypass this limitation, byte[] {{< gh-hovercard "11319" "creates synthetic update metadata" >}} inside yuzu, allowing the update/DLC to pass through and load correctly.
 
-The [FearlessTobi](https://github.com/FearlessTobi) fixed {{< gh-hovercard "11367" "an *old* regression" >}} affecting how the game’s size is displayed on the game list when using games dumped with an outdated method.
+[FearlessTobi](https://github.com/FearlessTobi) fixed {{< gh-hovercard "11367" "an *old* regression" >}} affecting how the game’s size is displayed on the game list when using games dumped with an outdated method.
 How old is the regression? Well, it’s 5 years old by now.
 
 FearlessTobi also fixed a bug in {{< gh-hovercard "11370" "how an error is handled" >}} when a game tries to rename a file to a name that already exists.
@@ -361,7 +361,7 @@ This was causing `GRID Autosport` to crash on boot.
 	"./grid.png|Running in the 90s (GRID Autosport)"
   >}}
 
-Not stopping there, FearlessTobi also fixed yuzu's command line arguments to {{< gh-hovercard "11371" "properly load updates and DLC" >}} when booting a game--for example, when using a script.
+Not stopping there, FearlessTobi also fixed yuzu's command line arguments to {{< gh-hovercard "11371" "properly load updates and DLC" >}} when booting a game — for example, when using a script.
 
 Users reported that some RomFS dumps from games don’t always include all game assets, with one example being `KLONOA Phantasy Reverie Series`.
 byte[]’s investigation showed that several areas of the RomFS dump code were… of low quality.
@@ -371,17 +371,17 @@ byte[]’s investigation showed that several areas of the RomFS dump code were�
 
 Let’s start with the sole input change of this progress report. [german77](https://github.com/german77) almost broke his streak!
 
-{{< gh-hovercard "11406" "Updating SDL to version 2.28.2" >}} fixed issues affecting Xbox controllers trigger motion events and their rumble while the program runs in the background.
-8BitDo gamepads mapping while in XInput mode was fixed when running Linux.
-And a controller lockup that happened when initialising some unofficial PS4 controllers is now fixed.
+{{< gh-hovercard "11406" "Updating SDL to version 2.28.2" >}} fixed issues affecting Xbox controller trigger motion events and their rumble while the program runs in the background.
+8BitDo gamepad mapping while in XInput mode was fixed for Linux.
+And a controller lockup that happened when initializing some unofficial PS4 controllers is now fixed.
 
 Some users' machines have improperly configured audio devices, which can lead to games locking up on boot.
-This lovely behaviour made Maide work on a {{< gh-hovercard "11359" "test to run early in the boot process" >}} to see which audio backend can properly start the audio device. If the device fails to initialise with both cubeb and SDL, the null backend is selected and the game continues to work, just without any audio output.
+This lovely behaviour forced Maide to work on a {{< gh-hovercard "11359" "test to run early in the boot process" >}} to see which audio backend can properly start the audio device. If the device fails to initialise with both cubeb and SDL, the null backend is selected and the game continues to work, just without any audio output.
 
 If you find that a game has no audio but is otherwise working, you should check your drivers, check any intermediate programs like equalisers, and check your OS settings for issues.
 
 Opus is a lossy open-source and royalty-free (as it always should be) audio format used by several games.
-Like with the VP9 video format, its implementation on yuzu is not as simple as just playing the file.
+Like with the VP9 video format, its implementation in yuzu is not as simple as just playing the file.
 {{< gh-hovercard "11390" "By implementing" >}} the `OpenHardwareOpusDecoderForMultiStreamEx` and `DecodeInterleavedForMultiStream` service methods (Opus multistream support), FearlessTobi ensured games like `MLB The Show 22` are now playable.
 
 {{< gh-hovercard "11419" "Implementing" >}} the `GetWorkBufferSizeExEx` service method, on the other hand, allowed `Sea of Stars` to boot.
@@ -462,7 +462,7 @@ Also joining forces in the Android effort, byte[] fixed a {{< gh-hovercard "1135
 
 The desktop side of things also got its share of developer love.
 
-Newcomer [mdmrk](https://github.com/mdmrk) brings us a very requested feature: {{< gh-hovercard "11519" "Per-game play time tracking!" >}}
+Newcomer [mdmrk](https://github.com/mdmrk) brings us a very requested feature: {{< gh-hovercard "10519" "per-game play time tracking!" >}}
 It’s shown in the game list as a new column.
 Thank you!
 
@@ -483,7 +483,7 @@ Feel free to experiment, and save your best gameplay moments!
   >}}
 
 Per-game settings are a great way to customise the settings and mods of each game.
-One option in a weird spot was `Console mode` -- whether a game was played in docked or handheld mode.
+One option in a weird spot was `Console mode` — whether a game was played in docked or handheld mode.
 The old implementation relied on controller profiles: the user would set some controller mapping, the type of controller, the console mode, save all of this as a profile, and then set each game to use the preferred controller profile.
 The problem with this approach is that it forces users to save different controller profiles, when in most cases a single one is used, for example, a Pro Controller profile using a Sony Dual Sense.
 To simplify this particular situation, toastUnlimited {{< gh-hovercard "11356" "added a Console Mode to the per-game system properties." >}} Much easier, right?
@@ -501,9 +501,8 @@ There’s only one vendor to discuss this time, and it is…
 
 We continue our investigations into how to deal with the lack of hardware support for the D24 depth format on Red Team hardware.
 
-Some fun and totally-not-evil experiments (faking lack of support with an RTX 3060 Ti) proved that while the D24 glitches are easy to reproduce on compatible hardware by just commenting out some lines. 
-We also confirmed that the vertex explosions affecting `Xenoblade Chronicles 3` in its DLC, `Future Redeemed`, and in the `Pentelas region` of the main game are *not* caused by the lack of D24 on AMD cards. 
-Any other GPU vendor with D24 support disabled renders those sections perfectly fine, leaving us again with no clue on what Radeon GPUs hate about this particular great game.
+Some fun and totally-not-evil experiments (faking lack of support with an RTX 3060 Ti) proved that while the D24 glitches are easy to reproduce on compatible hardware by just commenting out some lines, we also confirmed that the vertex explosions affecting `Xenoblade Chronicles 3` in its DLC, `Future Redeemed`, and in the `Pentelas region` of the main game are *not* caused by the lack of D24 on AMD cards. 
+Any other GPU vendor with D24 support disabled renders those sections perfectly fine, leaving us again with no clue on what Radeon GPUs hate about this particular game.
 
 On Windows, OpenGL continues to be the only alternative for Red Team users for the time being.
 Mesa, on the other hand, seems to have solved the issue (at least on Polaris hardware) with their latest version, so "just use Linux" seems to be a way to fix an AMD-specific problem once again.
