@@ -1,9 +1,9 @@
 +++
-date = "2023-09-08T12:00:00-03:00"
+date = "2023-09-13T12:00:00-03:00"
 title = "Progress Report August 2023"
 author = "GoldenX86"
 coauthor = "CaptV0rt3x"
-forum = 0
+forum = 896040
 +++
 
 [Tuturu~](https://www.youtube.com/watch?v=HkGNeN0LGOE) yuz-ers. Did you feel that the last report was too short? Well, August was at full throttle! This month offers important graphical fixes, developers working around GPU limitations, several long overdue file system fixes, Skyline framework support, some Android and Apple love, and more!
