@@ -10,7 +10,7 @@ Hi yuz-ers! We have an interesting month to report. Mii’s want to play, GPU ch
 
 <!--more--> 
 
-## Mii and applets.
+## Of Miis and applets.
 
 {{< imgs
 	"./miiedit4.png| Wii want to play"
