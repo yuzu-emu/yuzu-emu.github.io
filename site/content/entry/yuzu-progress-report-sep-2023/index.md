@@ -302,12 +302,13 @@ vendor-agnostic frame generation like FSR3 would be cool to make Pokémon games 
 FSR2, or even DLSS/XeSS for that matter, apply here.
 Games don’t report their motion vector data to the console, since they were never developed to support DLSS.
 
-There are ways to implement this, we could add one frame of delay and extrapolate data. The downside here is that 33ms of delay for 30 FPS games would be utterly disgusting.
-We could guess motion from previous frames, but this would have a very high performance cost.
-Or we could dip our toes into AI, which is completely uncharted waters.
+There are ways to implement this, we could add one frame of delay and extrapolate data. 
+The downside here is that 33ms of delay for 30 FPS games would be utterly disgusting.
+We could guess motion from previous frames, but this could have a very high performance cost and produce very erratic results, old frames can't read the future.
+Or we could dip our toes into AI, which has given us unsatisfactory results in the past.
 As you can see, while coding a generic way to extract motion vector data might be possible, it’s a huge endeavour, so expect it to be a very low priority at the moment. 
 We have bigger fires to put out first, after all.
-These are the kind of things Blinkhawk suggests while drunk.
+These are the kind of things Blinkhawk suddenly suggests.
 
 What could work is [AFMF](https://community.amd.com/t5/gaming/amd-fluid-motion-frames-is-out-now-on-amd-radeon-rx-7000-series/ba-p/634372), if AMD adds Vulkan support for it in the future.
 
