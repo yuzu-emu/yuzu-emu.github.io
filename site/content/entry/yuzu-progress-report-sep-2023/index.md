@@ -342,8 +342,8 @@ Project Nice, the implementation of native code execution (NCE) for ARM devices 
 
 {{< single-title-imgs
     "And so it begins…"
-    "./nce1.png"
-    "./nce2.png"
+    "./nce1.jpg"
+    "./nce2.jpg"
     >}}
 
 A lot more work is needed before we can even consider doing internal testing, so please have some patience, Android gang.
