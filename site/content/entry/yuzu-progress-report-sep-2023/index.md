@@ -291,6 +291,9 @@ We have a medal ready for byte[].
 The latest driver releases have proven to be stable for Turing and newer products, but we got reports of small regressions affecting Pascal and Maxwell users.
 If you’re still running older 750, 900 and 1000 series products and you face new issues in games, try reverting to older driver versions like the 52X series.
 
+Still, it's worth to mention that driver release `545.84` seems to have solved the instabilities caused by excessive VRAM use, like for example while running `The Legend of Zelda: Tears of the Kingdom` in the Depths with 2GB/4GB GPUs of any architecture.
+This is great news for low end users struggling to run this particularly ASTC-heavy game.
+
 ### AMD, VSync problems and frame interpolation
 
 Windows driver version 23.9.3 and newer cause the VSync options to be ignored, resulting in tearing during gameplay.
