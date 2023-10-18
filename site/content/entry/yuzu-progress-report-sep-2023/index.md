@@ -299,9 +299,13 @@ The standard procedure was followed: we opened a ticket of this issue to AMD wit
 
 Switching to something more interesting, we heard you! Despite our previous (deserved) rants about frame generation, we think
 vendor-agnostic frame generation like FSR3 would be cool to make Pokémon games playable, but the same requisites which prevent us from using
-FSR2, or even DLSS/XeSS for that matter, apply here. 
+FSR2, or even DLSS/XeSS for that matter, apply here.
 Games don’t report their motion vector data to the console, since they were never developed to support DLSS.
-While coding a generic way to extract motion vector data might be possible, it’s a huge endeavour, so expect it to be a very low priority at the moment. 
+
+There are ways to implement this, we could add one frame of delay and extrapolate data. The downside here is that 33ms of delay for 30 FPS games would be utterly disgusting.
+We could guess motion from previous frames, but this would have a very high performance cost.
+Or we could dip our toes into AI, which is completely uncharted waters.
+As you can see, while coding a generic way to extract motion vector data might be possible, it’s a huge endeavour, so expect it to be a very low priority at the moment. 
 We have bigger fires to put out first, after all.
 These are the kind of things Blinkhawk suggests while drunk.
 
@@ -310,7 +314,7 @@ What could work is [AFMF](https://community.amd.com/t5/gaming/amd-fluid-motion-f
 “But writer, AFMF is not vendor-agnostic! It’s an AMD Windows driver exclusive feature!” You say.
 Ah but you’re wrong, it is vendor-agnostic on desktop PCs! Kinda. 
 
-The only thing you have to do is get an RX 6400 (or higher), as a secondary GPU on your desktop PC, connect your displays to it, and enjoy enforcing frame interpolation even when using a primary Intel or NVIDIA GPU for rendering!
+The only thing you have to do is get an RX 6400 (or higher) as a secondary GPU on your desktop PC, connect your displays to it, and enjoy enforcing frame interpolation even when using a primary Intel or NVIDIA GPU for rendering!
 Sadly, this doesn’t apply to yuzu yet, because the current beta driver for AFMF at the time of writing only supports the Direct3D 11 and 12 APIs. 
 
 Let’s hope we get Vulkan support and we may be able to finally see Tears of the Kingdom hitting over 100 FPS, or Pokémon Scarlet model animations reaching ~~smooth~~ cinematic 30 FPS.
