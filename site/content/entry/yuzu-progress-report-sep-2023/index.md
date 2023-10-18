@@ -257,7 +257,7 @@ Microtransactions, begone!
 As you can see, more work is needed to get this game to render properly.
 Extra points for being a game that renders better on AMD over NVIDIA.
 
-But what about {{< gh-hovercard "11496" "a new service" >}}? byte[] added a stub for the `NGC` service, allowing the `Baten Kaitos HD` collection to work.
+But what about {{< gh-hovercard "11496" "a new service?" >}} byte[] added a stub for the `NGC` service, allowing the `Baten Kaitos HD` collection to work.
 
 {{< single-title-imgs
     "Oldschool (Baten Kaitos HD collection)"
