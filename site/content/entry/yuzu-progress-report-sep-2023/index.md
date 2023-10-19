@@ -286,7 +286,7 @@ We have a medal ready for byte[].
 
 ## Hardware section
 
-### NVIDIA, focusing on the latest hardware
+### NVIDIA, VRAM fixes, and focusing on the latest hardware
 
 The latest driver releases have proven to be stable for Turing and newer products, but we got reports of small regressions affecting Pascal and Maxwell users.
 If you’re still running older 750, 900 and 1000 series products and you face new issues in games, try reverting to older driver versions like the 52X series.
@@ -294,14 +294,17 @@ If you’re still running older 750, 900 and 1000 series products and you face n
 Still, it's worth to mention that driver release `545.84` seems to have solved the instabilities caused by excessive VRAM use, like for example while running `The Legend of Zelda: Tears of the Kingdom` in the Depths with 2GB/4GB GPUs of any architecture.
 This is great news for low end users struggling to run this particularly ASTC-heavy game.
 
-### AMD, VSync problems and frame interpolation
+### AMD, fixes, AutoHDR, VSync problems and frame interpolation
 
 First, good news, latest Windows driver version at the time of writing, `23.10.2` has solved the D24 issue affecting AMD cards on Vulkan.
 Those bothered by clipping lines and textures should upgrade to get the proper graphics experience.
 Keep in mind that this doesn't solve the vertex explosions affecting the Pentelas region and the DLC of `Xenoblade Chronicles 3`, we manage to confirm this is a different issue affecting AMD cards ona much lower level, as it is architecture, OS, and driver agnostic.
 
-Now a bit of bad news. 
-Windows driver version 23.9.3 and newer cause the VSync options to be ignored, resulting in tearing during gameplay.
+Another good bit is that recent drivers also seem to have introduced DXGI swapchain support, allowing AMD cards to work with AutoHDR out of the box. 
+There doesn't seem to be a driver toggle for this so
+
+Now for a bit of bad news. 
+Windows driver version `23.9.3` and newer cause the VSync options to be ignored, resulting in tearing during gameplay.
 If you’re affected by this, revert back to driver 23.9.2 for now.
 The standard procedure was followed: we opened a ticket of this issue to AMD with a generic test case.
 
@@ -330,7 +333,7 @@ Let’s hope we get Vulkan support and we may be able to finally see Tears of th
 Meanwhile, try to enjoy converting 20 FPS to 40 when using Path Tracing.
 At least you don’t have to pay 500+ bucks for this.
 
-### Intel
+### Intel...
 
 Sadly, we have another driver-level issue to report from Team Blue.
 This time, the problem is in geometry shaders.
@@ -339,7 +342,7 @@ This affects many games, even popular ones like `Xenoblade Chronicles 3` and `Th
 
 The bug report has been filed. Fingers crossed for a resolution faster than seven months this time, and a more satisfatory result than 14th gen products.
 
-### Turnip
+### Turnip, steadily progressing
 
 The latest release of the Turnip driver for Adreno 700 series at the time of writing, [R7](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v23.3.0_R7), seems to reduce overhead considerably, resulting in less overheating for Qualcomm Android users.
 Since the driver is also compatible with Adreno 600 series GPUs, we recommend users to give it a try.
