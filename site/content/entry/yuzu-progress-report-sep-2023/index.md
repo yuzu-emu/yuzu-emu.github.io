@@ -315,7 +315,7 @@ Games don’t report their motion vector data to the console, since they were ne
 
 There are ways to implement this, we could add one frame of delay and extrapolate data. 
 The downside here is that 33ms of delay for 30 FPS games would be utterly disgusting.
-We could guess motion from previous frames, but this could have a very high performance cost and produce very erratic results, old frames can't read the future.
+We could guess motion from previous frames, but this could have a very high performance cost and can potentially produce erratic results, old frames can't read the future.
 Or we could dip our toes into AI, which has given us unsatisfactory results in the past.
 As you can see, while coding a generic way to extract motion vector data might be possible, it’s a huge endeavour, so expect it to be a very low priority at the moment. 
 We have bigger fires to put out first, after all.
