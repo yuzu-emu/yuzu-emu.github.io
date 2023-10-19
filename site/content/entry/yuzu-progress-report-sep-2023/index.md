@@ -296,6 +296,11 @@ This is great news for low end users struggling to run this particularly ASTC-he
 
 ### AMD, VSync problems and frame interpolation
 
+First, good news, latest Windows driver version at the time of writing, `23.10.2` has solved the D24 issue affecting AMD cards on Vulkan.
+Those bothered by clipping lines and textures should upgrade to get the proper graphics experience.
+Keep in mind that this doesn't solve the vertex explosions affecting the Pentelas region and the DLC of `Xenoblade Chronicles 3`, we manage to confirm this is a different issue affecting AMD cards ona much lower level, as it is architecture, OS, and driver agnostic.
+
+Now a bit of bad news. 
 Windows driver version 23.9.3 and newer cause the VSync options to be ignored, resulting in tearing during gameplay.
 If you’re affected by this, revert back to driver 23.9.2 for now.
 The standard procedure was followed: we opened a ticket of this issue to AMD with a generic test case.
@@ -354,7 +359,7 @@ Project Nice, the implementation of native code execution (NCE) for ARM devices 
     "./nce2.jpg"
     >}}
 
-A lot more work is needed before we can even consider doing internal testing, so please have some patience, Android gang.
+A lot more work is needed before we can even consider doing internal testing, there are many crashes and softlocks to sort around first, so please have some patience, Android gang.
 
 With the progress on the Album applet going so well, german77 is progressing further into other interesting applets too. Stay tuned.
 
