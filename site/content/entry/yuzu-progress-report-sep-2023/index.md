@@ -6,7 +6,7 @@ coauthor = "CaptV0rt3x"
 forum = 920177
 +++
 
-Hi yuz-ers! Last month has been interesting, and we're excited to report what we've been up to. Mii’s come out to play, GPU changes, Android improvements, and more! Let’s get into it.
+Hi yuz-ers! Last month has been interesting, and we're excited to report what we've been up to. Miis come out to play, GPU changes, Android improvements, and more! Let’s get into it.
 
 <!--more--> 
 
