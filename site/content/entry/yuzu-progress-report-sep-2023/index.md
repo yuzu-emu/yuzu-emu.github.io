@@ -244,8 +244,7 @@ Sadly the game crashes after that, guess there’s more work to do!
 	"./minecraft.png|This is as far as it goes for now (Minecraft Legends)"
   >}}
 
-Continuing with the stubbing procedures, axing all {{< gh-hovercard "11540" "purchase info calls" >}} allows `The Settlers: New Allies` to start properly.
-Microtransactions, begone!
+Continuing with the stubbing procedures, fixing up {{< gh-hovercard "11540" "purchase info calls" >}} allows `The Settlers: New Allies` to start properly.
 
 {{< single-title-imgs
     "NVIDIA on the left, AMD on the right (The Settlers: New Allies)"
