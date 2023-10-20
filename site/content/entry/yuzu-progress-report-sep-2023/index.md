@@ -300,11 +300,14 @@ Keep in mind that this doesn't solve the vertex explosions affecting the Pentela
 
 Another good bit is that recent drivers also seem to have introduced DXGI swapchain support, allowing AMD cards to work with AutoHDR out of the box. 
 There doesn't seem to be a driver toggle for this though.
+Users interested in enabling AutoHDR for yuzu can use [this piece of software](https://github.com/ledoge/autohdr_force) to do the registry work for them.
 
 Now for a bit of bad news. 
 Windows driver version `23.9.3` and newer cause the VSync options to be ignored, resulting in tearing during gameplay.
 If you’re affected by this, revert back to driver `23.9.2` for now.
 The standard procedure was followed: we've opened a ticket with AMD regarding this issue and provided a generic test case.
+
+ED: Driver `23.10.2` seems to have solved this issue entirely, we recommend updating to it.
 
 Switching to something more interesting, we heard you! Despite our previous rants about frame generation, we think
 vendor-agnostic frame generation like FSR3 would be cool to make Pokémon games playable, but the same requisites which prevent us from using
