@@ -1,9 +1,9 @@
 +++
-date = "2023-10-16T12:00:00-03:00"
+date = "2023-10-20T12:00:00-03:00"
 title = "Progress Report September 2023"
 author = "GoldenX86"
 coauthor = "CaptV0rt3x"
-forum = 0
+forum = 920177
 +++
 
 Hi yuz-ers! Last month has been interesting, and we're excited to report what we've been up to. Mii’s come out to play, GPU changes, Android improvements, and more! Let’s get into it.
