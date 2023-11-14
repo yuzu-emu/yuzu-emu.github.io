@@ -90,8 +90,8 @@ This work solves rendering issues in games like `Disney Speedstorm` and `Titan G
 
 {{< single-title-imgs-compare
 	"Look, the most powerful mouse in the world (Disney Speedstorm)"
-	"./depthbug.png"
-	"./depthfix.png"
+	"./disneybug.png"
+	"./disneyfix.png"
 >}}
 
 Some games also make aliases of images in the D32 depth format.
@@ -196,7 +196,7 @@ And to close the graphics section, by following this chain of events, the previo
 95 lines of {{< gh-hovercard "11896" "cropping-behaviour code changes" >}} later, and byte[] solved the issue.
 
 {{< imgs
-	"./tt.png| Good aesthetics (Arcaea)"
+	"./arcaea.png| Good art style (Arcaea)"
   >}}
 
 ## Android changes
@@ -331,7 +331,7 @@ Our audio connoisseur Maide found thanks to user reports that `Ancient Rush 2` w
 {{< gh-hovercard "11735" "Clearing the DPS buffer" >}} after each call execution closes the issue.
 
 {{< imgs
-	"./poke.png| Diggy Diggy Hole! (Ancient Rush 2)"
+	"./ar2.png| Diggy Diggy Hole! (Ancient Rush 2)"
   >}}
 
 Speaking of audio, byte[] accomplished another blow to shutdown crashes by {{< gh-hovercard "11778" "fixing a shutdown deadlock" >}} in the audio renderer.
