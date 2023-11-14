@@ -370,7 +370,7 @@ o7
 yuzu uses a single codebase for all its releases, upstream/master/main, however you prefer to call it, Mainline, Early Access, and Android all start from there.
 When improvements to the codebase are added, they eventually reach all releases, Android included.
 
-What happens if we add support for `occlusion queries` (part of project Y.F.C.) to improve performance on all devices, and its implementation on Turnip drivers is not very robust? 
+What happens if we add the improved `occlusion queries` (part of project Y.F.C.) to Android to increase performance on all devices, and its implementation on Turnip drivers is not very robust?
 You get crashes that force users to remain on outdated [GitHub](https://github.com/yuzu-emu/yuzu-android/releases/) versions, and forces us to stall new Play Store releases until the problem gets investigated and solved.
 
 The issue was found, reported, and resolved by Mesa in record time in their current Adreno 700 branches, which then driver repackers like [K11MCH1](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) use to build packages Qualcomm users can load on emulators.
