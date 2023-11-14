@@ -18,7 +18,7 @@ New Mario game! And it’s an excellent one at that.
 	"./wonder1.png| Such a pretty game (Super Mario Bros. Wonder)"
   >}}
 
-The game didn’t boot at release due to incorrect free memory reporting in the kernel.
+The game didn’t boot at release due to incorrect used memory reporting in the kernel.
 Thankfully, [byte[]](https://github.com/liamwhite) quickly found the culprit. It was a {{< gh-hovercard "11825" "single line change!" >}}
 
 {{< imgs
@@ -119,7 +119,7 @@ Maide gets to play detective yet again, dear Watson.
 	"./ctrfix.png"
 >}}
 
-Maide also fixed a silent issue hidden in the shadows.
+Maide also fixed a hidden issue with the resolution scaler.
 Images were being {{< gh-hovercard "11744" "marked as rescaled" >}}, even if the resolution scaler was not in use (running at 1x). 
 This led to a slight additional overhead, and rarely, some assertion failures.
 While no game bug was known to be caused by this, it’s good to have preemptive fixes for once instead of just reactionary ones.
@@ -157,7 +157,7 @@ And for those asking, yes, Vulkan allows the use of a separate thread for render
 
 Maide found a problem occurring with compute shaders when they were triggering invalidations in the buffer cache.
 yuzu has a lot of code to track the sizes of buffers used by the games.
-Consider a game using two buffers: the first, with an address range from 1 to 3, and another with a range of 3 to 5. There don't overlap, so there is no issue.
+Consider a game using two buffers: the first, with an address range from 1 to 2, and another with a range of 3 to 5. They don't overlap, so there is no issue.
 Then, after the game runs for a while, a buffer requiring a range of 1 to 5 is used.
 The previous two buffers would be considered to overlap it, and will be deleted. 
 Then, the old buffer data from the two overlaps gets moved to the new third buffer.
@@ -279,7 +279,7 @@ Thank you!
 
 Continuing his work on applets support, german77 implemented the `SaveScreenShotEx0` {{< gh-hovercard "11812" "service method and its variants," >}} allowing users to take captures from within the games themselves instead of globally with the screenshot hotkey.
 This works for games like `Super Smash Bros. Ultimate`―however, note that screenshot editing is not available yet.
-Homework for tomorrow!
+Homework for later!
 
 {{< imgs
 	"./smash.png| Save your best moments (Super Smash Bros. Ultimate)"
@@ -310,12 +310,12 @@ By {{< gh-hovercard "11846" "changing the behaviour" >}} of how the game list is
 ## Kernel, CPU, and file system changes
 
 byte[] has been having a lot of “fun” lately fixing and implementing kernel changes.
-First off, he {{< gh-hovercard "11686" "fully implemented transfer memory," >}} fixed {{< gh-hovercard "11766" "incorrect page group tracking," >}} added the full {{< gh-hovercard "11914" "implementation of KPageTableBase," >}} and even {{< gh-hovercard "11843" "added" >}} nearly the entire KProcess implementation itself!
+First off, he {{< gh-hovercard "11686" "fully implemented transfer memory," >}} fixed {{< gh-hovercard "11766" "incorrect page group tracking," >}} {{< gh-hovercard "11914" "updated the implementation" >}} of KPageTableBase, and has now {{< gh-hovercard "11843" "nearly completed" >}} the entire KProcess implementation!
 
 As preliminary work for NCE support coming in the near future, byte[] implemented {{< gh-hovercard "11718" "native clock support" >}} for arm64 devices running on Linux or Android.
 There is no support for ARM Windows devices for now, as none have bothered to include a Vulkan driver yet.
 
-The kernel was updated to {{< gh-hovercard "11748" "firmware version 17.0.0," >}} ensuring support for future games.
+The kernel was updated to reflect changes made in {{< gh-hovercard "11748" "firmware version 17.0.0," >}} ensuring support for future games.
 
 v1993 {{< gh-hovercard "11772" "solved some warnings" >}} that were spamming our build logs–namely, using `std::forward` where appropriate, and qualifying `std::move` calls.
 This should solve build issues for those experimenting with Darwin build targets.
