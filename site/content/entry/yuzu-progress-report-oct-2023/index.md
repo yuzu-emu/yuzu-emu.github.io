@@ -113,7 +113,11 @@ For some reason, either Maxwell and Pascal NVIDIA GPUs have broken robustness su
 {{< gh-hovercard "11789" "Manually clamping out-of-bounds buffer reads to 0" >}} on the affected GPU architectures solves the issues. We are also now investigating what causes this problem in the first place.
 Maide gets to play detective yet again, dear Watson.
 
-pics
+{{< single-title-imgs-compare
+	"This GTX 1050 needed a diet (Crash Team Racing: Nitro Fueled)"
+	"./ctrbug.png"
+	"./ctrfix.png"
+>}}
 
 Maide also fixed a silent issue hidden in the shadows.
 Images were being {{< gh-hovercard "11744" "marked as rescaled" >}}, even if the resolution scaler was not in use (running at 1x). 
