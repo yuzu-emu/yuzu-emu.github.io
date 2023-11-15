@@ -104,8 +104,6 @@ Since a similar limitation with format conversion was present here too, `ARGB8_S
 Continuing with this streak, Maide {{< gh-hovercard "11688" "implemented" >}} the `X8_D24` depth format, allowing `A Sound Plan` to start rendering.
 However, more work is needed to make this game properly playable.
 
-Sudden Explanation Time!
-
 Robustness is a feature Vulkan provides that lets developers handle invalid memory accesses in a cleanly defined way.
 This can help prevent the application from crashing or ~~summoning dragons~~ invoking undefined behaviour when some part of the code tries to access memory out of bounds.
 
