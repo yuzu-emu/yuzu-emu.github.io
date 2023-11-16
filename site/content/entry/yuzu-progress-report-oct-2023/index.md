@@ -1,8 +1,8 @@
 +++
-date = "2023-11-13T12:00:00-03:00"
+date = "2023-11-16T12:00:00-03:00"
 title = "Progress Report October 2023"
 author = "GoldenX86"
-forum = 0
+forum = 942091
 +++
 
 Hello yuz-ers! This past month, we got a plethora of GPU fixes, support for new applets, a lot of work poured into the Android builds, some interesting news of the future, and more. Let’s get to it!
