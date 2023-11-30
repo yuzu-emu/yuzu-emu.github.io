@@ -43,6 +43,15 @@ If you're too excited, you can jump in immediately by downloading yuzu from the 
 The GitHub releases aren't live yet, but we will edit this article with a link to download them once they are.
 This initial release won't have parity with the feature-rich Desktop builds of yuzu, but we are looking forward to introducing all the features you love as we fine-tune them for Android.
 
+<br>
+<article class="message"><div class="message-header">
+<p>⚠️ Update</p>
+</div>
+<div class="message-body"><p style="color:white;">
+<b>Standalone GitHub releases are now available <a href="https://github.com/yuzu-emu/yuzu-android/releases/" style="color:#03a9f4;"> here.</a>
+</b>
+</p></div></article>
+
 Features such as multiplayer over LAN/LDN, Input Profiles, TAS, etc. are not yet available.
 For now, we want to focus on compatibility and performance as performing cutting-edge emulation on typical Android hardware has several challenges.
 
@@ -156,6 +165,15 @@ So, to temper expectations, we would like to clarify our minimum requirements fo
 
 At the moment, yuzu requires devices powered by Qualcomm Snapdragon SoCs which have Adreno GPUs.
 Devices powered by SoCs like Exynos, Mediatek, etc. are expected to not work at all due to their "worse-than-Adreno" GPU drivers, at least for the near future.
+
+<br>
+<article class="message"><div class="message-header">
+<p>⚠️ Update</p>
+</div>
+<div class="message-body"><p style="color:white;">
+<b>yuzu now supports Xclipse based and Mali G-series based SoC GPUs.</b>
+</p></div></article>
+
 Also, yuzu on Android has high RAM requirements, therefore fairly high-end devices provide the best experience (e.g. SD 865 and 8GB of RAM or better).
 
 yuzu on Android ships with the ability to run custom GPU drivers, such as newer official Adreno drivers, or [Turnip](https://docs.mesa3d.org/drivers/freedreno.html) using [libadrenotools](https://github.com/bylaws/libadrenotools) to improve the performance on older generation Snapdragon SoCs.
@@ -187,6 +205,14 @@ If you want games to start and render correctly, this is the way to go.
 The best performance comes from Adreno 700 series hardware (Snapdragon 8 Gen 1 and newer), which won't have Turnip support for a while.
 While performance is typically higher, you will experience rendering issues or some games refusing to start.
 
+<br>
+<article class="message"><div class="message-header">
+<p>⚠️ Update</p>
+</div>
+<div class="message-body"><p style="color:white;">
+<b>Current Turnip drivers provide good support for both Adreno 600 and 700 series hardware, but performance is still better with official Qualcomm drivers in the few games that render correctly with them.</b>
+</p></div></article>
+
 With that said, take a look at some performance numbers from several games:
 
 {{< imgs
@@ -194,6 +220,15 @@ With that said, take a look at some performance numbers from several games:
 >}}
 
 We think that devices with Exynos 2200 and newer SoCs running AMD RDNA2 GPUs could also work well, but we haven’t been able to test them out due to how hard they are to find.
+
+<br>
+<article class="message"><div class="message-header">
+<p>⚠️ Update</p>
+</div>
+<div class="message-body"><p style="color:white;">
+<b>Samsung's Xclipse 900 series GPUs are perfectly usable now.</b>
+</p></div></article>
+
 Available information suggests they run some older form of the AMD proprietary driver, so support may be somewhat good knowing AMD's track record.
 
 Regardless of the device, disabling `Docked mode` and/or using lower resolution multipliers can help with performance in most games.
