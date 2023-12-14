@@ -1,7 +1,7 @@
 [
     {
         "Developer": null,
-        "Status": "Unassigned",
+        "Status": "Completed",
         "Description": "Fix softlocks for Pokemon Sword and Pokemon Shield.",
         "Response": null,
         "Requestors": [
@@ -44,7 +44,7 @@
     },
     {
         "Developer": null,
-        "Status": "Unassigned",
+        "Status": "Completed",
         "Description": "Get Super Mario Party to render In-Game.",
         "Response": null,
         "Requestors": [
@@ -165,7 +165,7 @@
     },
     {
         "Developer": null,
-        "Status": "Unassigned",
+        "Status": "Completed",
         "Description": "Be able to beat The Legend of Zelda Link's Awakening.",
         "Response": null,
         "Requestors": [
@@ -193,7 +193,7 @@
     },
     {
         "Developer": null,
-        "Status": "Unassigned",
+        "Status": "Completed",
         "Description": "Get Octopath Traveller in-game working through the first introduction tutorial without major graphical glitches or freezes.",
         "Response": null,
         "Requestors": [
@@ -285,7 +285,7 @@
     },
 	{
         "Developer": null,
-        "Status": "Unassigned",
+        "Status": "Completed",
         "Description": "Get Animal Crossing: New Horizons booting in-game",
         "Response": null,
         "Requestors": [
@@ -300,7 +300,7 @@
     },
     {
         "Developer": null,
-        "Status": "Unassigned",
+        "Status": "Completed",
         "Description": "Port over Citra's build system (docker build-environments) plus porting Citra's Flatpak support for Linux.",
         "Response": null,
         "Requestors": [
