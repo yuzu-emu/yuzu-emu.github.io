@@ -12,7 +12,7 @@ Hello there, yuz-ers! November brought us many GPU fixes followed by driver fixe
 ## Mario Role-Playing as Mario!
 
 As if `Super Mario Bros. Wonder` wasn’t enough, a cult classic is back, with improved graphics to boot!
-`Super Mario RPG` brings some distilled nostalgia to the old SNES era guard (we still stand strong), so the question was there at release day: “Does it run in yuzu?”
+`Super Mario RPG` brings some distilled nostalgia to the old SNES era guard (we still stand strong), so the question was there at release day: "Does it run in yuzu?"
 
 It did, but with some buts, as usual.
 Two things needed fixing to get this colourful cast into good shape, an audio fix affecting everyone, and a fix for NVIDIA users.
@@ -68,7 +68,7 @@ With both issues out of the way there’s only one thing left to say: Happy stom
 ## Project NiCE
 
 Here it is! 
-Time to graduate from a PC emulator compatible with Android to a “native” Android emulator.
+Time to graduate from a PC emulator compatible with Android to a "native" Android emulator.
 
 {{< gh-hovercard "12074" "NCE support," >}} or `Native Code Execution`, a huge effort made by [GPUCode](https://github.com/GPUCode) and byte[], adapted [Skyline](https://github.com/skyline-emu/skyline)’s ability to run Switch games’ code natively on ARM devices, with no recompiler middleman slowing things down.
 
@@ -88,7 +88,7 @@ The FPS boost is usually around 20-100%, depending on the game and device.
     "./nce2.png"
     >}}
 
-Sadly, as always, it’s not all perfect–“restrictions may apply.”
+Sadly, as always, it’s not all perfect–"restrictions may apply."
 Not all games can take advantage of NCE. 
 Due to limitations in the Linux kernel and the requirements to run on a very restricted memory address space, some early Switch games need to have their updates installed to be able to run with NCE.
 Games like `The Legend of Zelda: Breath of the Wild` and `ARMS` use a deprecated 36-bit address space in their original v1.0.0 release, and NCE requires 39-bit to work. Here the emulator automatically reverts to JIT to allow booting the game.
@@ -155,7 +155,7 @@ But why stop there? There’s more work baked into the Android builds, here’s 
 
 The `Force maximum clocks` setting seems to cause a lot of confusion among users, which sadly leads to it being enabled in cases where it isn’t intended to be used, particularly power/thermally restricted devices.
 
-The setting was originally intended to solve an AMD problem: their RDNA based cards suffer from severe downclocking, or what your writer calls “chronic downclocking syndrome”, when emulating many games. 
+The setting was originally intended to solve an AMD problem: their RDNA based cards suffer from severe downclocking, or what your writer calls "chronic downclocking syndrome", when emulating many games. 
 The GPU load the emulator produces is often so low, it fails to trigger the governor of those products, causing the card to set clock speeds to extremely low values. 
 As you can expect, this leads to very low performance.
 
@@ -190,7 +190,7 @@ Investigating the cause reveals that even with the use of the extension, you can
 While we investigate alternatives for this situation, the old workaround is back in place, allowing players to fight in the Nintendo 64 Zelda stage without going blind from the glare.
 
 {{< single-title-imgs-compare
-	“Back to the drawing board (Super Smash Bros. Ultimate)"
+	"Back to the drawing board (Super Smash Bros. Ultimate)"
 	"./smashbug.png"
 	"./smashfix.png"
 >}}
@@ -276,7 +276,7 @@ A bit of {{< gh-hovercard "11984" "restructuring" >}} by the Unlimited Toast, an
 ## Miscellaneous changes
 
 To help users check the status of their firmware installation, and since the firmware version makes a difference for the system applets, german77 added a {{< gh-hovercard "12156" "firmware version indicator" >}} to the status bar of the user interface.
-Gone is the confusion about “when was the last time I updated this?” now.
+Gone is the confusion about "when was the last time I updated this?" now.
 
 {{< imgs
 	"./fw.png|You need matching keys to decode the firmware, always dump both together"
@@ -285,7 +285,7 @@ Gone is the confusion about “when was the last time I updated this?” now.
 Mouse emulation, along with keyboard emulation, are options for users within yuzu, for the few games that support it.
 The options has been available in `Emulation > Configure… > Settings > Controls > Advanced`, and report to games that a keyboard and/or mouse is plugged to the console.
 
-To help mouse players–and we don’t mean “use mouse as a stick for aiming”, we mean emulating an attached USB mouse–german77 made sure the actual native cursor of your OS {{< gh-hovercard "12160" "doesn’t leave the yuzu window." >}}
+To help mouse players–and we don’t mean "use mouse as a stick for aiming", we mean emulating an attached USB mouse–german77 made sure the actual native cursor of your OS {{< gh-hovercard "12160" "doesn’t leave the yuzu window." >}}
 If you hate clicking your own game out of focus, you will like this change.
 
 While continuing his work on improving yuzu’s file system emulation, byte[] solved a bug that caused `MONSTER HUNTER GENERATIONS ULTIMATE` to {{< gh-hovercard "11936" "fail to boot" >}} when mods for the game were installed.
@@ -327,7 +327,7 @@ On shutdown, the system calls to clear pending events, even while the timing thr
 What we didn’t consider is what happens to mixed configurations, for example running a Vega iGPU and an RDNA2 dGPU.
 This kind of configuration is quite common, as AMD is still selling new devices with integrated Vega GPUs, and laptop vendors can sell configurations with dedicated RDNA2 or RDNA3 products.
 
-Unlike Intel, who just decided to say “good luck and goodbye” to their Gen 9/9.5/11 graphics userbase with no warning, AMD implemented a system where you can still run drivers for mixed configurations.
+Unlike Intel, who just decided to say "good luck and goodbye" to their Gen 9/9.5/11 graphics userbase with no warning, AMD implemented a system where you can still run drivers for mixed configurations.
 Since on an all-AMD laptop you can’t use different vendor drivers for the two GPUs, this was basically mandatory.
 
 What AMD did is provide two different drivers, one for RDNA based hardware, and another for Vega and Polaris.
