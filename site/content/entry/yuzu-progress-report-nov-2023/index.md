@@ -122,7 +122,7 @@ If you see old pictures of games running with Fastmem disabled but still showing
 
 But why stop there? There’s more work baked into the Android builds―here’s this month’s list:
 
-- [t895](https://github.com/t895) made changes to the {{< gh-hovercard "11972" "FPS counter." >}} The text was changed to white, its reading is now continuously updated, and it now mentions what CPU backend is in use, JIT or NCE. The FPS counter can be enabled by dragging from the left while running a game and selecting `Overlay options > FPS counter`.
+- byte[] authored and [t895](https://github.com/t895) uploaded the {{< gh-hovercard "11972" "FPS counter." >}} The text was changed to white, its reading is now continuously updated, and it now mentions what CPU backend is in use, JIT or NCE. The FPS counter can be enabled by dragging from the left while running a game and selecting `Overlay options > FPS counter`.
 - {{< gh-hovercard "12018" "Many improvements were made to the settings tab." >}} Icons and descriptions have been added, and the order of the elements and the location of some settings was changed. Work by t895.
 {{< imgs
 	"./icons.png| Pretty"
@@ -136,7 +136,7 @@ But why stop there? There’s more work baked into the Android builds―here’s
 -  t895 {{< gh-hovercard "12034" "added a drop shadow" >}} to the FPS counter to improve readability, and allowed the device’s font style to control the text size of the FPS readout.
 - When enabled, {{< gh-hovercard "12035" "Picture-in-Picture was blocked" >}} during startup or shutdown, improving stability. Work by t895.
 - [Blinkhawk](https://github.com/FernandoS27) {{< gh-hovercard "12036" "disabled write syncing" >}} on Android devices running Turnip drivers, fixing crashes in games like `Red Dead Redemption` and `Luigi’s Mansion 3`.
-- To improve general stability and reduce memory consumption, {{< gh-hovercard "12043" "Picture-in-Picture has been disabled" >}} by default. Work by t895.
+- By democratic decision from the users, {{< gh-hovercard "12043" "Picture-in-Picture has been disabled" >}} by default. Work by t895.
 - Blinkhawk re-enabled using {{< gh-hovercard "12081" "multithreaded pipeline compilation" >}} for Android, reducing stuttering when loading caches at boot and building new shaders while in-game. This was made possible thanks to the lower resource consumption under NCE.
 - byte[] found another cause for {{< gh-hovercard "12083" "crashes on Mali GPUs:" >}} they don’t support multi-viewport rendering. Disabling this feature greatly improves stability on Mali equipped devices. (And so the list of features Mali doesn’t support keeps growing.)
 - The upper {{< gh-hovercard "12091" "speed limit was increased to 400%," >}} as t895 found out using a high limit is more stable than disabling it at all. Happy benchmarking! 
