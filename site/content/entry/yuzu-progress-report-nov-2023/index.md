@@ -17,10 +17,6 @@ As if `Super Mario Bros. Wonder` wasn’t enough, a cult classic is back, with i
 It did―with some buts, as usual.
 Two things needed to be fixed to get this colourful cast into good shape: an audio fix affecting everyone, and a separate fix for NVIDIA users.
 
-Users immediately noticed how the game’s background audio was completely muted, detracting a lot from the experience.
-After performing a cross-examination [with music and all](https://youtu.be/5I443rHIYVk), [byte[]](https://github.com/liamwhite) found out the cause was {{< gh-hovercard "12058" "a leftover" >}} from the Opus rewrite [Maide](https://github.com/Kelebek1) did [back in September](https://yuzu-emu.org/entry/yuzu-progress-report-sep-2023/#audio-changes).
-With this specific case fixed, the game started playing audio as it should.
-
 {{< single-title-imgs
     "Is she in that castle? (Super Mario RPG)"
     "./rpg1.png"
@@ -28,7 +24,17 @@ With this specific case fixed, the game started playing audio as it should.
     "./rpg3.png"
     >}}
 
+Users immediately noticed how the game’s background audio was completely muted, detracting a lot from the experience.
+After performing a cross-examination [with music and all](https://youtu.be/5I443rHIYVk), [byte[]](https://github.com/liamwhite) found out the cause was {{< gh-hovercard "12058" "a leftover" >}} from the Opus rewrite [Maide](https://github.com/Kelebek1) did [back in September](https://yuzu-emu.org/entry/yuzu-progress-report-sep-2023/#audio-changes).
+With this specific case fixed, the game started playing audio as it should.
+
 Meanwhile, [epicboy](https://github.com/ameerj)’s performed a separate investigation in the shader recompiler regarding NVIDIA’s broken rendering.
+
+{{< single-title-imgs
+    "Imagine if the Switch was capable of HDR (Super Mario RPG)"
+    "./rpg4.png"
+    "./rpg5.png"
+    >}}
 
 For those not familiar with the shader pipeline of yuzu and other emulators:
 
