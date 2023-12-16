@@ -348,10 +348,10 @@ We hope the next time we mention this in the next progress report, the issue wil
 
 ## Future projects
 
-We’re past the middle of December and we already know the next report will be juicy, just on changes already merged alone. Some stuff includes memory savings, improved load times, higher performance, and your writer should really stop spoiling it.
+We’re past the middle of December and we already know the next report will be juicy, just on changes already merged alone. Some stuff includes memory savings, improved load times, higher performance, Blinkhawk up to something, and your writer should really stop spoiling it.
 Maybe some Christmas gift? Only Emperor Nero knows.
 
-That’s all folks! This [Folks Blues](https://www.youtube.com/watch?v=CjUVTEExfBg) is over, we hope to see you next time.
+That’s all folks! This [Folk Blues](https://www.youtube.com/watch?v=CjUVTEExfBg) is over, see you next month, space cowboy.
 
 &nbsp;
 {{< article-end >}}
