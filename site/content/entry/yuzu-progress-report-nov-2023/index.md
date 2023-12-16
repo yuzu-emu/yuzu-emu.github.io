@@ -95,7 +95,7 @@ Games like `The Legend of Zelda: Breath of the Wild` and `ARMS` use a deprecated
 These games get full 39-bit support only with their respective updates installed.
 You can confirm this when enabling the framerate counter, which will show if NCE or JIT is in use:
 
-{{< single-title-imgs-compare
+{{< single-title-imgs
 	"As simple as that (The Legend of Zelda: Breath of the Wild)"
 	"./jit.png"
 	"./nce.png"
