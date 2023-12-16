@@ -123,16 +123,16 @@ If you see old pictures of games running with Fastmem disabled but still showing
 But why stop there? There’s more work baked into the Android builds, here’s this month’s list:
 
 - [t895](https://github.com/t895) made changes to the {{< gh-hovercard "11972" "FPS counter." >}} The text was changed to white, its reading is now continuously updated, and it now mentions what CPU backend is in use, JIT or NCE. The FPS counter can be enabled by dragging from the left while running a game and selecting `Overlay options > FPS counter`.
+- {{< gh-hovercard "12018" "General UI improvements to the settings tab." >}} icons and descriptions have been added, the order of the elements and the location of some settings was changed.Work by t895.
+{{< imgs
+	"./icons.png| Pretty"
+  >}}
 - {{< gh-hovercard "12014" "The Settings tab and About page" >}} have been tweaked to add a landscape layout. This work by t895 improves usability for tablets, foldables, and big devices users.
 {{< single-title-imgs
     "Thank you Alphonsokurukuchu for the tablet pics"
     "./layout1.png"
     "./layout2.png"
     >}}
-- {{< gh-hovercard "12018" "General UI improvements to the settings tab." >}} icons and descriptions have been added, the order of the elements and the location of some settings was changed.Work by t895.
-{{< imgs
-	"./icons.png| Pretty"
-  >}}
 -  t895 {{< gh-hovercard "12034" "adds a drop shadow" >}} to the FPS counter to improve readability and allows the device’s style to control the text size of the FPS readout.
 - When enabled, {{< gh-hovercard "12035" "Picture-in-Picture was blocked" >}} during startup or shutdown, improving stability. Work by t895.
 - [Blinkhawk](https://github.com/FernandoS27) {{< gh-hovercard "12036" "disabled write syncing" >}} on Android devices running Turnip drivers, fixing crashes in games like `Red Dead Redemption` and `Luigi’s Mansion 3`.
