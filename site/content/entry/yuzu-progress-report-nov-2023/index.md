@@ -125,7 +125,7 @@ But why stop there? There’s more work baked into the Android builds, here’s 
 - [t895](https://github.com/t895) made changes to the {{< gh-hovercard "11972" "FPS counter." >}} The text was changed to white, its reading is now continuously updated, and it now mentions what CPU backend is in use, JIT or NCE. The FPS counter can be enabled by dragging from the left while running a game and selecting `Overlay options > FPS counter`.
 - {{< gh-hovercard "12014" "The Settings tab and About page" >}} have been tweaked to add a landscape layout. This work by t895 improves usability for tablets, foldables, and big devices users.
 {{< single-title-imgs
-    "Imagine your writer took these pics with a tablet"
+    "Thank you Alphonsokurukuchu for the tablet pics"
     "./layout1.png"
     "./layout2.png"
     >}}
