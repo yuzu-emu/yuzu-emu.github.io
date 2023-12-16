@@ -308,8 +308,8 @@ Fixing this blockade fixes shutdown operations on Android.
 
 Next one is quite a bit more involved, as it involves the procedure needed to ~~kill~~ terminate a process, James Bond style.
 This procedure consists of two steps for each thread in the terminated process:
-- - The thread is marked for termination, and an interrupt is sent to all cores with that thread's affinity if it is runnable.
-- - The kernel then waits for the thread to actually terminate.
+- The thread is marked for termination, and an interrupt is sent to all cores with that thread's affinity if it is runnable.
+- The kernel then waits for the thread to actually terminate.
 
 Runnable threads marked for termination are not removed from the scheduling priority queue. This means they can get scheduled during termination, even if the core already cleared the interrupt when a previous thread was terminated.
 {{< gh-hovercard "12025" "Checking for termination" >}} just before running the thread again, as the Switch does, fixed a very common shutdown deadlock on Android.
