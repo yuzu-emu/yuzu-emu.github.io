@@ -1,8 +1,8 @@
 +++
-date = "2023-12-14T12:00:00-03:00"
+date = "2023-12-18T12:00:00-03:00"
 title = "Progress Report November 2023"
 author = "GoldenX86"
-forum = 0
+forum = 963750
 +++
 
 Hello there, yuz-ers! November brought us many GPU fixes, followed shortly by driver fixes, significant Android/ARM changes, more applet work, new input projects, and much more!
