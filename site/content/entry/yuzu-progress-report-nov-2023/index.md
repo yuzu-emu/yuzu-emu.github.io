@@ -268,11 +268,11 @@ Macj0rdan, working solo this time, has a separate fix for us.
 The controller applet started crashing after the release of firmware 17.0.0.
 New firmware, new functions to implement ― in this case, {{< gh-hovercard "12201" "implementing" >}} `SetTouchscreenDimensions` solved the problem.
 
-One of the calls `Super Bomberman R 2` makes checks for blocked users. 
+One of the calls `SUPER BOMBERMAN R 2` makes checks for blocked users. 
 Since the emulator doesn’t yet store that information, nor has any use for it anyway, it’s {{< gh-hovercard "12107" "safe to stub," >}} which is exactly what newcomer [daisymlleung](https://github.com/daisymlleung) did. Thank you!
 
 {{< imgs
-	"./bomber.png|The game only boots for now, it doesn’t reach in-game yet (SUPER BOMBERMAN B 2)"
+	"./bomber.png|The game only boots for now, it doesn’t reach in-game yet (SUPER BOMBERMAN R 2)"
   >}}
 
 To close out this section, [toastUnlimited](https://github.com/lat9nq) had to deal with Qt shenanigans.
@@ -340,7 +340,7 @@ What AMD did is provide two different drivers, one for RDNA based hardware, and 
 If you have a mixed device, you can install the driver for RDNA based hardware first, and then on top install the driver for Vega and Polaris.
 This allows you to access all software features of the driver, and allows you to have both GPUs operating with no issue.
 
-But there’s a price to pay: the Vulkan driver in the Vega and Polaris driver is *older* than the one in the RDNA2-based hardware driver, and all AMD GPUs running this mixed configuration will run a single Vulkan driver.
+But there’s a price to pay: the Vulkan driver in the Vega and Polaris driver is *older* than the one in the RDNA-based hardware driver, and all AMD GPUs running this mixed configuration will run a single Vulkan driver.
 This results in a setback in features and fixes for the RDNA-based GPU just to keep compatibility.
 
 If you experience issues in yuzu when running this configuration, you now know the reason. Sadly, the only solution is to run Linux, which has a single unified and up-to-date Vulkan driver: RADV.
