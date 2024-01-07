@@ -520,7 +520,7 @@ Total Mali moments count this month: 3.
 
 But it’s not all bad news dear Mali sufferers!
 
-[Newer generations](https://www.phoronix.com/news/Panthor-DRM-Newer-Mali) of Mali hardware, codenamed "Panthor" will have an officially backed Mesa driver, the already existing but almost abandoned [panfrost](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/26358) driver.
+[Newer generations](https://www.phoronix.com/news/Panthor-DRM-Newer-Mali) of Mali hardware, codenamed "Panthor" will have an officially backed Mesa driver, the already existing but almost abandoned [Panfrost/PanVK](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/26358) driver.
 This means in the future Mali moments will maybe stop existing, in a similar way to how Turnip provides a much better experience to Adreno users.
 
 ## Future projects
