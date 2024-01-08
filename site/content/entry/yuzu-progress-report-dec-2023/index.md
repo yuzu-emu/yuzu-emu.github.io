@@ -312,7 +312,7 @@ This new section can be accessed by hold pressing a game in the list, and gives 
 - A save data manager, allowing to export or import per game saves, along the global option.
 - An option to delete all save data of that particular game.
 - An option to clear the pipeline cache of that particular game.
-- And a Start button, which allows you to select global or custom configuration. Launching from the game list will always load the custom configuration.
+- And a Start button, which allows you to select a global or custom configuration. Launching from the game list will always load the custom configuration.
 
 {{< imgs
 	"./config6.png|To round it up"
@@ -358,7 +358,7 @@ That in itself wouldn’t normally be a problem, if it wasn’t for the fact tha
 
 yuzu is not the only [project](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) affected by this completely arbitrary limitation–it has been a complaint for quite a long time.
 
-To work around this limitation, byte[] {{< gh-hovercard "12466" "inserts a layer" >}} between the software page table and the host mapping system, constantly tracking the heap allocations made by programs and automatically recycling some less recently used mappings, which causes some stuttering―but better than a game crash. Collection will reduce the number of mappings to around half of the 65530 limit most systems ship with.
+To work around this limitation, byte[] {{< gh-hovercard "12466" "inserts a layer" >}} between the software page table and the host mapping system, constantly tracking the heap allocations made by programs and automatically recycling some less recently used mappings, which causes some stuttering―but that's better than a game crash. Collection will reduce the number of mappings to around half of the 65530 limit most systems ship with.
 
 Yep, 64k is not enough for everyone.
 
@@ -394,7 +394,8 @@ Thank you!
 
 We spoke about preliminary work for multiprocess support. There’s more to cover on the matter.
 
-byte[] refactored how yuzu emulates {{< gh-hovercard "12236" "CPU core activation," >}} he assures us writing three thousand lines of code simplifies the design of the ARM interface the emulator uses.
+byte[] refactored how yuzu emulates {{< gh-hovercard "12236" "CPU core activation." >}} 
+He assures us writing three thousand lines of code simplifies the design of the ARM interface the emulator uses.
 This has the added benefit of allowing code from multiple guest processes to run simultaneously, which is another of the prerequisites for starting the multiprocess effort.
 
 ARM guest emulation also received support for {{< gh-hovercard "12394" "multiple memory instances," >}} which can now coexist and interact with multiple server sessions.
@@ -508,8 +509,8 @@ Speaking of which.
 
 ### Turnip
 
-Adreno 750 aside, the Turnip network of support continues to improve.
-Current [releases](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) for example have added support for rare variants, like Adreno 642L and Adreno 644.
+Adreno 750 aside, which Mesa [already has in the oven](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/26934), the Turnip network of support continues to improve.
+Current [releases](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) for example have added support for rare GPU variants, like Adreno 642L and Adreno 644.
 Performance has improved too, as well as stability.
 
 Keep up to date with Turnip releases; they usually only bring benefits.
