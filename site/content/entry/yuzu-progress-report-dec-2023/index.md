@@ -245,8 +245,8 @@ By properly using the `VK_FORMAT_R16G16B16A16_SFLOAT` format for the renderpass,
 
 {{< single-title-imgs-compare
 	"From Cursed Triforce to proper Triangle of Death"
-	"./fxaabug.jpg"
-	"./fxaafix.jpg"
+	"./fxaabug.png"
+	"./fxaafix.png"
 >}}
 
 The Switch offers a JIT service (not to be confused with yuzu’s JIT, Dynarmic) that allows games to write to code memory during runtime — which wouldn't normally be possible due to the restrictions of the platform. 
