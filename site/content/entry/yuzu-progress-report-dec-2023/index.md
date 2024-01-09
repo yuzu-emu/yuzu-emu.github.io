@@ -497,13 +497,19 @@ In spite of its driver, it managed to bruteforce amazing framerate numbers. It s
 Some games reached the 120 FPS limit imposed by the device’s screen refresh rate.
 In short, Balanced mode in the Red Magic 9 is faster than Diablo mode in the previous Red Magic 8.
 
-We can’t wait for Mesa to add Turnip support to this new hardware in town, but as anyone with experience using Mesa will tell you: "let them cook".
+Even Turnip, with its [early support](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v24.0.0_R15) already shows outstanding results, here is an Adreno 740 vs an Adreno 750:
+
+{{< single-title-imgs-compare
+	"i9 14900K who? (The Legend of Zelda: Breath of the Wild)"
+	"./sd8g2.jpg"
+	"./sd8g3.jpg"
+>}}
 
 Speaking of which.
 
 ### Turnip
 
-Adreno 750 aside, which Mesa [already has in the oven](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/26934), the Turnip network of support continues to improve.
+Leaving Adreno 750 aside for a moment, the Turnip network of support continues to improve.
 Current [releases](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) have added support for rare GPU variants, like Adreno 642L and Adreno 644.
 Performance and stability have improved as well.
 
