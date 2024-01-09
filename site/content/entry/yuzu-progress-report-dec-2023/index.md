@@ -11,7 +11,6 @@ Happy New Year, yuz-ers! We say goodbye to 2023 with several great changes, rang
 
 ## Graphics changes and driver fixes
 
-
 ### Vulkan
 
 Drivers are fantastical creatures. 
@@ -414,7 +413,7 @@ The update contains the RomFS, but since the base game didn't contain it, yuzu c
 Handling this {{< gh-hovercard "12263" "peculiar case" >}} fell into byte[]’s hands, and the World’s Greatest Detective can now go fetch `?` signs all over the place at ease.
 
 {{< imgs
-	"./batman.png|The Batman (Batman: Arkham Knight)"
+	"./batman.png|I am vengeance! I am the night! (Batman: Arkham Knight)"
   >}}
 
 Another {{< gh-hovercard "12392" "file system implementation" >}} byte[] gave us was support for the `OpenDirectoryMode` flag, which allows `Portal 2` to save and load properly. One has to wonder why this wasn’t fixed earlier.
