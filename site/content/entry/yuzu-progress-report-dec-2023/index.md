@@ -5,19 +5,17 @@ author = "GoldenX86"
 forum = 0
 +++
 
-Happy new year yuz-ers! We say goodbye to 2023 with several good changes, ranging from driver fixes to big memory savings, and quite a bit in between! Let’s go.
+Happy New Year, yuz-ers! We say goodbye to 2023 with several great changes, ranging from driver fixes to big memory savings, and quite a bit in between! Let’s go.
 
 <!--more--> 
 
 ## Graphics changes and driver fixes
 
-No huge project in this area this time, but developers still solved big problems affecting both APIs.
-Let’s start with the most common and important of the two APIs, which is:
 
 ### Vulkan
 
 Drivers are fantastical creatures. 
-They love to have major behavioural changes while still following the Vulkan specification–or more correctly for this issue, the SPIR-V specification.
+They love to exhibit major behavioural changes while still following the Vulkan specification — or more correctly for this issue, the SPIR-V specification.
 
 Such was the case with NVIDIA drivers.
 Since the release of the 540 branch back in September, users have reported sudden crashes when building specific shaders in games, the most common example being some cutscenes and scenarios in `Bayonetta 3`. However, the problem extended to many other games in unexpected places.
@@ -41,10 +39,10 @@ Anyone using an NVIDIA GPU, regardless of operating system, feel free to update 
   >}}
 
 Android users have a knack for finding bugs, partially thanks to the different set of default settings we use for the small screen.
-Handheld mode for example is picked by default to improve performance (Mali users thank this substantially) and save a tiny bit of RAM, but hey, we’re not in the Android section yet!
+Handheld mode, for example, is selected by default to improve performance (Mali users appreciate this substantially) and save a tiny bit of RAM, but hey, we’re not in the Android section yet!
 
-`Fight'N Rage`, a fantastic beat’em up, had its screen cut in half in handheld mode, something most desktop users missed, since it runs fine in docked mode.
-The issue was–and this is a classic for sprite games by now–in how swizzle and window origin adjustment were being handled.
+`Fight'N Rage`, a fantastic beat’em up, had its screen cut in half in handheld mode, something most desktop users missed since it runs fine in docked mode.
+The issue was — and this is a classic for sprite games by now — in how swizzle and window origin adjustments were being handled.
 Viewport transform and window origin mode are handled separately in the GPU, so {{< gh-hovercard "12235" "splitting the two jobs" >}} is what doctor byte[] ordered. Feel free to smash that attack button now.
 
 {{< single-title-imgs-compare
@@ -57,7 +55,7 @@ Guess who’s back. A game that is special in many aspects, an emulator itself, 
 
 That’s right, `Super Mario 3D All-Stars` is back in a report, this time addressing one of its remaining interesting quirks: the incredibly slow performance of its intro video on non-NVIDIA and non-Mesa drivers.
 
-The quirkiness lied in that the game was causing yuzu to continuously recreate its swapchain on every single frame.
+The quirkiness was the result of the game causing yuzu to continuously recreate its swapchain on every single frame.
 A swapchain is a set of framebuffer images used by the graphics API and the GPU to draw to the screen.
 
 The game used one of its framebuffer images as sRGB during startup, which caused yuzu to detect it as sRGB. The other framebuffer image was only used as linear. Since yuzu tries to respect the colorspace of the output image, this problem was causing yuzu to incorrectly think it needed to recreate the swapchain on every single frame.
@@ -65,16 +63,16 @@ This constant, per-frame swapchain recreation is not that expensive on NVIDIA an
 That’s around 30 FPS lost in a game supposed to render at 60!
 
 How do we avoid this? Well, Vulkan always interprets any framebuffer currently being presented to screen as sRGB, so replacing the frame with a non-sRGB one is just adding unnecessary additional work and pissing off several drivers.
-Changing the logic to {{< gh-hovercard "12274" "ignore sRGB in framebuffer images" >}} provides smooth frametimes to *unholy driver users*.
+Changing the logic to {{< gh-hovercard "12274" "ignore sRGB in framebuffer images" >}} provides smooth frametimes for users of these drivers.
 
 {{< imgs
-	"./sm3d.png|What does Mario do with all those many stars? Not sing Peaches I hope (Super Mario 3D All-Stars)"
+	"./sm3d.png|What does Mario do with that many stars? Not sing Peaches I hope (Super Mario 3D All-Stars)"
   >}}
 
-On a related note, let’s talk about presentation limits and how they affect asynchronous presentation, which moves presenting to screen to a different CPU thread.
+On a related note, let’s talk about presentation limits and how they affect asynchronous presentation, which moves presenting to the screen to a different CPU thread.
 
 Due to several factors, yuzu’s Vulkan renderer could only process up to 6 frames at a time.
-While this isn’t normally an issue on desktop, especially for users that don’t enable Asynchronous Presentation (available in `Emulation > Configure… > Graphics > Advanced`), Android, a platform that demands always using asynchronous presentation, showed us that low enough performance with the setting toggled on, regardless of OS or platform, can cause the queue of swapchain images to grow beyond the limit of 6 frames, which leads to a driver crash, and your progress being lost. Ouch.
+While this isn’t normally an issue on desktop, especially for users that don’t enable Asynchronous Presentation (available in `Emulation > Configure… > Graphics > Advanced`), Android, a platform that demands always using asynchronous presentation, showed us that low enough performance with the setting toggled on, regardless of OS or platform, can cause the queue of swapchain images to grow beyond the limit of 6 frames. Leading to a driver crash and your progress being lost. Ouch.
 
 {{< imgs
 	"./async.png|Feel free to test enabling it now"
@@ -88,17 +86,17 @@ The easy solution byte[] found for this problem after identifying it was to {{< 
 Now asynchronous presentation is safe to use, improves frametimes, reduces input latency, and does your laundry! That’s a solid win for everyone.
 
 Enough about presentation, let’s talk about clip distance instead now.
-I can hear you asking in the back, "what the living Koopa Castle is a clip distance?".
+I can hear you asking in the back, "what the living Koopa Castle is a clip distance?"
 
 Most GPUs allow shaders to set up custom clipping planes for vertex data, which allows the GPU to cut geometry invisible to the viewport with no extra triangles generated or rendering cost.
-The members of gl_ClipDistance, a global variable and float array declared in the shader, represent the distance to the clipping plane on each vertex.
+The members of `gl_ClipDistance`, a global variable and float array declared in the shader, represent the distance to the clipping plane on each vertex.
 
-Many games use these values, including `Red Dead Redemption`, `Fire Emblem Warriors: Three Hopes`, `DEAD OR ALIVE Xtreme 3 Scarlet`, `Hyrule Warriors: Definitive Edition` and `Portal`.
-Weird group, isn’t it? A cowboy, a skimpy Japanese fighter, two mediaeval warriors and a Companion Cube enter a bar…
+Many games use these values, including `Red Dead Redemption`, `Fire Emblem Warriors: Three Hopes`, `DEAD OR ALIVE Xtreme 3 Scarlet`, `Hyrule Warriors: Definitive Edition`, and `Portal`.
+Weird group, isn’t it? A cowboy, a skimpy Japanese fighter, two medieval warriors, and a Companion Cube walk into a bar…
 
 On most desktop drivers, the default values for all global variables will be zero implicitly.
 However, SPIR-V says that these values are actually undefined.
-This assumption broke rendering in `Portal` on the radv Mesa driver―for clip distances specifically.
+This assumption broke rendering in `Portal` on the radv Mesa driver ― for clip distances specifically.
 
 byte[]'s {{< gh-hovercard "12403" "first fix" >}} attempted to only declare an array of clip distances as large as actually needed, which would prevent any undefined values from persisting in the array.
 While some shaders (like those used in `Portal`) write directly to the clip distance array values, others (like in `Red Dead Redemption`) use a loop variable to access the array.
@@ -140,7 +138,7 @@ Vulkan expects the pitch to be the number of texels (the minimum unit of a textu
 	"./pizza.png|Your writer is old enough to remember playing this on the Nintendo 64 (Mario Party Superstars)"
   >}}
 
-That ends the Vulkan section section, so what’s left is to follow up with the:
+That ends the Vulkan section, so what’s left is to follow up with the:
 
 {{< imgs
 	"./opengl.png|And you can’t prove Khronos wrong"
@@ -190,7 +188,7 @@ One of the properties of the Linux kernel, which GNU/Linux distributions and And
 One such case is the Linux kernel extension [MADV_REMOVE](https://man7.org/linux/man-pages/man2/madvise.2.html), which allows for freeing up a given range of memory pages, "punching a hole" in the specified range of memory.
 
 Thanks to byte[]’s work, the emulator can {{< gh-hovercard "12358" "take advantage" >}} of this extension to remove the requirement of needing 3GB of free RAM immediately after booting a game, and to also significantly decrease boot times while at it.
-Memory isn’t a problem for most users with 16GB of system RAM (unless you do too much stuff in the background), but for 8GB or lower users running an OS with a Linux kernel (desktop Linux or Android), this greatly reduces immediate memory requirements, even allowing `Celeste` to work on 4GB devices…
+Memory isn’t a problem for most users with 16GB of system RAM (unless you have too many background processes), but for users with 8GB or lower running an OS with a Linux kernel (desktop Linux or Android), this greatly reduces immediate memory requirements, even allowing `Celeste` to work on 4GB devices…
 
 …For a time. While the system doesn’t need to provide the full 3GB at game boot now, the game will still slowly demand that amount as it runs.
 But this might be enough to let 8GB devices, or even 6GB ones (which we don’t officially support, but users use them anyway) reach the next save point.
@@ -199,15 +197,15 @@ Feel free to play the most complex games now on your 8GB Linux laptop or phone a
 We believe only `The Legend of Zelda: Tears of the Kingdom` still requires 12GB on ASTC compatible devices (Android devices or Intel iGPUs) to be safely playable now.
 
 For the Windows gang, sorry: only bad news.
-The Windows kernel doesn’t have an equivalent to MADV_REMOVE, so if you have a low end device with a small RAM amount, Linux is the way to go.
+The Windows kernel doesn’t have an equivalent to MADV_REMOVE, so if you have a low-end device with a small amount of RAM, Linux is the way to go.
 
 No surprise there though.
 
 ### 4K
 
 The resolution? No, worse, crazier than pixel density.
-Remember `Paper Mario: The Origami King`? Good game, pretty graphics and fun humour.
-This game has a unique situation in its hands, its ARM CPU code is illegal.
+Remember `Paper Mario: The Origami King`? Good game, pretty graphics, and fun humour.
+This game has a unique situation on its hands, its ARM CPU code is illegal.
 Not "FBI OPEN UP" illegal, but "not able to run natively on contemporary systems due to a difference in stack pointer alignment handling" type of illegal.
 The Switch clears a hardware bit that checks the stack pointer alignment and generates an exception, but practically every other operating system sets it, and there is no way to turn it off without a kernel modification.
 
@@ -215,7 +213,7 @@ This meant modern devices couldn’t run this game with NCE enabled.
 Until now.
 
 By using the {{< gh-hovercard "12237" "ARM parser" >}} of [Dynarmic](https://github.com/merryhime/dynarmic), byte[] parses the instructions responsible for causing the crash due to the alignment error this game produces, and interprets them in software.
-The result? Three thousand eight hundred and fifty eight lines of code added to get a game that doesn’t render correctly on Android booting, and even needs a save file to get past the intro…
+The result? Three thousand eight hundred and fifty eight lines of code added to get a game that doesn’t render correctly on Android booting, and it still needs a save file to get past the intro…
 
 {{< imgs
 	"./tokbug.png|Luigi sure is brave to drive in the Dark Woods (Paper Mario: The Origami King)"
@@ -251,7 +249,7 @@ By properly using the `VK_FORMAT_R16G16B16A16_SFLOAT` format for the renderpass,
 	"./fxaafix.jpg"
 >}}
 
-The Switch offers a JIT service (not to be confused with yuzu’s JIT, Dynarmic) that allows games to write to code memory during runtime–which wouldn't normally be possible due to the restrictions of the platform. 
+The Switch offers a JIT service (not to be confused with yuzu’s JIT, Dynarmic) that allows games to write to code memory during runtime — which wouldn't normally be possible due to the restrictions of the platform. 
 This is currently only used for the official Nintendo 64 emulators in `Super Mario 3D All-Stars` and the `Nintendo Switch Online` collection.
 
 Properly using {{< gh-hovercard "12513" "code memory handles" >}} allows the JIT service to work with yuzu’s NCE backend, letting the user run games from the `Nintendo 64 - Nintendo Switch Online` library.
@@ -268,7 +266,7 @@ Mali moment #3.
 nullDescriptor was added with the Vulkan extension [VK_EXT_robustness2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_robustness2.html), back in 2020, for version 1.1 of the API. Vulkan is currently at version 1.3. 
 Given that the feature has native hardware support on all Direct3D-compatible GPUs, and is trivial to emulate in the driver, we are not sure why this has not been implemented yet...
 
-Turnip drivers are a work in progress from Mesa developers–while they typically perform and render very well, they are still in development.
+Turnip drivers are a work in progress from the Mesa developers — while they typically perform and render very well, they are still in development.
 One case that demonstrated this was how a change to improve driver compatibility in Mali caused Turnip to regress in response. 
 Mali moment # 4? No. This was last month.
 
@@ -278,7 +276,7 @@ Now Adreno 610 users can run Turnip drivers again.
 
 ### Android-specific UI and miscellaneous changes
 
-Let’s round up the Android changes–we have more stuff to cover affecting both desktop and Android users too, after all.
+Let’s round up the Android changes — we have more to cover, affecting both desktop and Android users too.
 
 First and most important to mention, [t895](https://github.com/t895) outdid himself and finished implementing {{< gh-hovercard "12335" "Game Properties" >}}.
 
@@ -286,7 +284,7 @@ First and most important to mention, [t895](https://github.com/t895) outdid hims
 	"./config1.gif|Kept you waiting, huh"
   >}}
 
-This new section can be accessed by hold pressing a game in the list, and gives access to these new pages:
+This new feature can be accessed by long-pressing a game in the list, and allows access to the following menus:
 
 - A game information page to check program ID, game developer, game version running, and game ROM path.
 
@@ -309,7 +307,7 @@ This new section can be accessed by hold pressing a game in the list, and gives 
     "./config5.png"
     >}}
 
-- A save data manager, allowing to export or import per game saves, along the global option.
+- A save data manager, allowing users to export or import per-game saves, alongside the global option.
 - An option to delete all save data of that particular game.
 - An option to clear the pipeline cache of that particular game.
 - And a Start button, which allows you to select a global or custom configuration. Launching from the game list will always load the custom configuration.
@@ -319,7 +317,7 @@ This new section can be accessed by hold pressing a game in the list, and gives 
   >}}
 
 This covers one of the biggest missing components the Android build has left.
-The only remaining settings are a content manager to delete installed content, and the controller mapping UI.
+The only remaining settings are a content manager to delete installed content, and a controller mapping UI.
 Rest assured, we’re working on them.
 
 t895 has continued to work on bringing Android to feature parity with the desktop build, while considering the specific needs of the mobile platform.
@@ -356,9 +354,9 @@ If only the software page table is being used, there’s no problem, as the bloc
 When yuzu uses host-mapped addressing, the emulator propagates all of these mappings into the host address space.
 That in itself wouldn’t normally be a problem, if it wasn’t for the fact that Unreal Engine 4 can allocate hundreds of thousands of small heap blocks, going over the kernel limit with ease, and crashing the entire program.
 
-yuzu is not the only [project](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) affected by this completely arbitrary limitation–it has been a complaint for quite a long time.
+yuzu is not the only [project](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) affected by this completely arbitrary limitation — it has been a complaint for quite a long time.
 
-To work around this limitation, byte[] {{< gh-hovercard "12466" "inserts a layer" >}} between the software page table and the host mapping system, constantly tracking the heap allocations made by programs and automatically recycling some less recently used mappings, which causes some stuttering―but that's better than a game crash. Collection will reduce the number of mappings to around half of the 65530 limit most systems ship with.
+To work around this limitation, byte[] {{< gh-hovercard "12466" "inserts a layer" >}} between the software page table and the host mapping system, constantly tracking the heap allocations made by programs and automatically recycling some less recently used mappings, which causes some stuttering ― but that's better than a game crash. Collection will reduce the number of mappings to around half of the 65530 limit most systems ship with.
 
 Yep, 64k is not enough for everyone.
 
@@ -374,7 +372,7 @@ Since read-only data is set from the factory, {{< gh-hovercard "12255" "skipping
 Next up, an announcement. german77 started working on a rewrite for the HID (human interface devices) code, called `Project Leviathan` with the intention of further improving the accuracy of yuzu’s input emulation.
 So far only preliminary work has been done, but some results have already been put into service.
 
-The first part finished is the {{< gh-hovercard "12289" "emulation" >}} of `AppletResource`, which allows the developers to start working on multiprocess support in the near future, as well as other necessary resources like `AppletResourceUserId`, or simply aruid.
+The first part finished is the {{< gh-hovercard "12289" "emulation" >}} of `AppletResource`, which allows the developers to start working on multiprocess support in the near future, as well as other necessary resources like `AppletResourceUserId`, or simply `aruid`.
 
 Following up, german77 implemented the necessary code to allow the {{< gh-hovercard "12359" "creation of multiple instances" >}} of HID shared memory, removing an old workaround and relieving the kernel from being responsible for handling shared memory, which in turn allows having a single shared memory instance per aruid.
 
@@ -382,7 +380,7 @@ Another spot that is starting to shape up thanks to this HID rewrite is {{< gh-h
 
 But not only german77 worked on input this month, newcomer [HurricanePootis](https://github.com/HurricanePootis) brought us an interesting fix for Linux users.
 Linux handles hardware permissions on a per-user level.
-For example, if for some reason the administrator desires it, an user can be completely blocked from having access to the `video` group, or `audio`, etc.
+For example, if for some reason the administrator desires it, a user can be completely blocked from having access to the `video` group, or `audio`, etc.
 
 Connected devices are often only able to be accessed by the `root` user or group. While this usually isn’t a problem for just using the device, it can block access to the custom Joy-Con and Pro Controller drivers german77 implemented, regardless of whether the user runs an appimage or Flatpak yuzu build.
 By {{< gh-hovercard "12292" "adding a udev rule" >}} to grant access to `hidraw` devices, HurricanePootis circumvented this limitation.
@@ -413,10 +411,10 @@ That shouldn't have been a problem; having a RomFS is never a requirement to run
 `Batman: Arkham Asylum` did have a RomFS, and was launching fine, but `Batman: Arkham City` and `Batman: Arkham Knight` require their updates installed to be playable (their base game size is only 8MB).
 The update contains the RomFS, but since the base game didn't contain it, yuzu couldn't find the RomFS to load, even with the update installed.
 
-Handling this {{< gh-hovercard "12263" "peculiar case" >}} fell into byte[]’s hands, and the World’s Greatest Detective can now go fetch ? signs all over the place at ease.
+Handling this {{< gh-hovercard "12263" "peculiar case" >}} fell into byte[]’s hands, and the World’s Greatest Detective can now go fetch `?` signs all over the place at ease.
 
 {{< imgs
-	"./batman.png|The Goddamn Batman (Batman: Arkham Knight)"
+	"./batman.png|The Batman (Batman: Arkham Knight)"
   >}}
 
 Another {{< gh-hovercard "12392" "file system implementation" >}} byte[] gave us was support for the `OpenDirectoryMode` flag, which allows `Portal 2` to save and load properly. One has to wonder why this wasn’t fixed earlier.
@@ -426,7 +424,7 @@ Another {{< gh-hovercard "12392" "file system implementation" >}} byte[] gave us
   >}}
 
 Some additional work was needed to get this masterpiece fully playable. 
-An entire service needed some patching-up, specifically, `ro`, or {{< gh-hovercard "12321" "relocatable object" >}} (allowing programs to load libraries on the fly), needed to be rewritten a bit–just over a thousand lines of code.
+An entire service needed some patching-up, specifically, `ro`, or {{< gh-hovercard "12321" "relocatable object" >}} (allowing programs to load libraries on the fly), needed to be rewritten a bit  — just over a thousand lines of code.
 
 And finally, `vi`, one of the services responsible for drawing on the screen, needed to distinguish between {{< gh-hovercard "12331" "closing and destroying layers" >}} in order to get `Portal 2` in-game.
 
@@ -452,14 +450,13 @@ If anyone noticed yuzu always selected the default language, you now know what t
 And lastly one last minor buff to Linux desktop users, from the hands of newcomer [ReillyBrogan](https://github.com/ReillyBrogan).
 
 When using a Wayland compositor, program windows are matched to their `.desktop` shortcut file.
-The appId window property is intended to match the name of the `.desktop` file, for example, `org.yuzu_emu.yuzu.desktop`.
-Plasma desktop by default sets this property to the name of the binary file, which in this case is just `yuzu`, and doesn’t match the expected value of `org.yuzu_emu.yuzu`.
+The `appId` window property is intended to match the name of the `.desktop` file, for example, `org.yuzu_emu.yuzu.desktop`.
+Plasma desktop, by default, sets this property to the name of the binary file, which in this case is just `yuzu`, and doesn’t match the expected value of `org.yuzu_emu.yuzu`.
 This led to Plasma desktop users (Steam Deck included) displaying yuzu without our glorious icon.
 One {{< gh-hovercard "12521" "manual override" >}} later, and the icon is properly there. Thank you!
 
 ## Hardware section
 
-Not much to mention this time, but there’s a few nits that deserve to be brought up.
 
 ## NVIDIA, safe to update
 
@@ -471,7 +468,7 @@ Hopefully they finally provide good value.
 
 ### NVK
 
-What’s this? A free and open source Mesa Vulkan driver for Turing and later NVIDIA hardware, that’s what it is!
+What’s this? A free and open source Mesa Vulkan driver for Turing and later NVIDIA hardware?
 
 [It’s still very early days](https://www.phoronix.com/news/Mesa-23.3-Released), Mesa just started shipping preliminary support for this new driver, but we can’t wait to try it out once it’s mature enough.
 There’s nothing better than having the option to choose.
@@ -484,24 +481,22 @@ The usual standard procedure was followed, a custom test case was provided in a 
 ## Intel…
 
 In contrast, Intel failed us again. 
-No words from the fix for the geometry shader crash we [reported](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/551) back in October yet.
+No word on the fix for the geometry shader crash we [reported](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/551) back in October yet.
 
 We hope it’s just a delay from the holidays.
 2024 is the year of ~~the Linux desktop~~ working Intel Windows drivers.
 
 ## Qualcomm
 
-This section needs to be split too. Just a moment.
 
 ### Proprietary Qualcomm driver
 
-Much better.
 
 We recently got our hands on a Snapdragon 8 Gen 3 device (a Red Magic 9), and while the official Qualcomm driver is still mediocre at best, we’re very impressed with the performance of the new Adreno 750 GPU. 
 In spite of its driver, it managed to bruteforce amazing framerate numbers. It still produced the same graphical glitches any other Adreno card has with their respective official drivers.
 
 Some games reached the 120 FPS limit imposed by the device’s screen refresh rate.
-In simpler terms, Balanced mode in the Red Magic 9 is faster than Diablo mode in the previous Red Magic 8.
+In short, Balanced mode in the Red Magic 9 is faster than Diablo mode in the previous Red Magic 8.
 
 We can’t wait for Mesa to add Turnip support to this new hardware in town, but as anyone with experience using Mesa will tell you: "let them cook".
 
@@ -510,10 +505,10 @@ Speaking of which.
 ### Turnip
 
 Adreno 750 aside, which Mesa [already has in the oven](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/26934), the Turnip network of support continues to improve.
-Current [releases](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) for example have added support for rare GPU variants, like Adreno 642L and Adreno 644.
-Performance has improved too, as well as stability.
+Current [releases](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) have added support for rare GPU variants, like Adreno 642L and Adreno 644.
+Performance and stability have improved as well.
 
-Keep up to date with Turnip releases; they usually only bring benefits.
+Keep up to date with Turnip releases; they usually only bring improvements.
 
 ## Mali moment
 
@@ -522,7 +517,7 @@ Total Mali moments count this month: 3.
 But it’s not all bad news dear Mali sufferers!
 
 [Newer generations](https://www.phoronix.com/news/Panthor-DRM-Newer-Mali) of Mali hardware, codenamed "Panthor" will have an officially backed Mesa driver, the already existing but almost abandoned [Panfrost/PanVK](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/26358) driver.
-This means in the future Mali moments will maybe stop existing, in a similar way to how Turnip provides a much better experience to Adreno users.
+This means that Mail moments may cease existing sometime in the future, in a similar way to how Turnip provides a much better experience to Adreno users.
 
 ## Future projects
 
@@ -531,7 +526,7 @@ We’ll cover it in more detail next month, but you can check the pull request d
 
 And maybe the rest of the team has something more going on, yeah. But let’s save that surprise for later, it’s more fun that way (this in no way means any attempt to leak a picture of the current progress was rejected by all devs, no no).
 
-That’s all folks! I’m finishing writing and collecting media at 7AM. Thank you for reading until the end, let’s see you all again next time in the first progress report of 2024!
+That’s all folks! Thank you for reading until the end, we hope to see you all again in the first progress report of 2024!
 
 &nbsp;
 {{< article-end >}}
