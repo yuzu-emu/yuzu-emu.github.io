@@ -154,7 +154,7 @@ By bringing the {{< gh-hovercard "12412" "counter query accuracy," >}} which was
 	"./metroid.png|SPAAAAACE (Metroid Prime Remastered)"
   >}}
 
-Another win for OpenGL users are two fixes for `Xenoblade Chronicles 3`.
+Another win for OpenGL users is two fixes for `Xenoblade Chronicles 3`.
 This is particularly important for AMD users, Windows or Linux, since most AMD GPUs can’t avoid vertex explosions while running the game with Vulkan in the Pentelas region of the main story, and the DLC, Future Redeemed.
 
 First, by {{< gh-hovercard "12415" "implementing" >}} the `DrawTransformFeedback` macro, which is the OpenGL equivalent of Vulkan’s `DrawIndirectByteCount`, particles were fixed.
