@@ -71,7 +71,7 @@ Changing the logic to {{< gh-hovercard "12274" "ignore sRGB in framebuffer image
 On a related note, let’s talk about presentation limits and how they affect asynchronous presentation, which moves presenting to the screen to a different CPU thread.
 
 Due to several factors, yuzu’s Vulkan renderer could only process up to 6 frames at a time.
-While this isn’t normally an issue on desktop, especially for users that don’t enable Asynchronous Presentation (available in `Emulation > Configure… > Graphics > Advanced`), Android, a platform that demands always using asynchronous presentation, showed us that low enough performance with the setting toggled on, regardless of OS or platform, can cause the queue of swapchain images to grow beyond the limit of 6 frames. Leading to a driver crash and your progress being lost. Ouch.
+While this isn’t normally an issue on desktop, especially for users that don’t enable Asynchronous Presentation (available in `Emulation > Configure… > Graphics > Advanced`), Android, a platform that demands always using asynchronous presentation, showed us that low enough performance with the setting toggled on, regardless of OS or platform, can cause the queue of swapchain images to grow beyond the limit of 6 frames. Thus, leading to a driver crash and your progress being lost. Ouch.
 
 {{< imgs
 	"./async.png|Feel free to test enabling it now"
@@ -154,7 +154,7 @@ By bringing the {{< gh-hovercard "12412" "counter query accuracy," >}} which was
 	"./metroid.png|SPAAAAACE (Metroid Prime Remastered)"
   >}}
 
-Another win for OpenGL users is two fixes for `Xenoblade Chronicles 3`.
+OpenGL users saw another win with the implementation of two fixes for `Xenoblade Chronicles 3`.
 This is particularly important for AMD users, Windows or Linux, since most AMD GPUs can’t avoid vertex explosions while running the game with Vulkan in the Pentelas region of the main story, and the DLC, Future Redeemed.
 
 First, by {{< gh-hovercard "12415" "implementing" >}} the `DrawTransformFeedback` macro, which is the OpenGL equivalent of Vulkan’s `DrawIndirectByteCount`, particles were fixed.
@@ -497,10 +497,10 @@ In spite of its driver, it managed to bruteforce amazing framerate numbers. It s
 Some games reached the 120 FPS limit imposed by the device’s screen refresh rate.
 In short, Balanced mode in the Red Magic 9 is faster than Diablo mode in the previous Red Magic 8.
 
-Even Turnip, with its [early support](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v24.0.0_R15) already shows outstanding results, here is an Adreno 740 vs an Adreno 750:
+Even Turnip, with its [early support](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v24.0.0_R15) already shows outstanding results. Here is an Adreno 740 vs an Adreno 750:
 
 {{< single-title-imgs-compare
-	"i9 14900K who? (The Legend of Zelda: Breath of the Wild)"
+	"i9-14900K who? (The Legend of Zelda: Breath of the Wild)"
 	"./sd8g2.jpg"
 	"./sd8g3.jpg"
 >}}
@@ -522,7 +522,7 @@ Total Mali moments count this month: 3.
 But it’s not all bad news dear Mali sufferers!
 
 [Newer generations](https://www.phoronix.com/news/Panthor-DRM-Newer-Mali) of Mali hardware, codenamed "Panthor" will have an officially backed Mesa driver, the already existing but almost abandoned [Panfrost/PanVK](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/26358) driver.
-This means that Mail moments may cease existing sometime in the future, in a similar way to how Turnip provides a much better experience to Adreno users.
+This means that Mali moments may cease existing sometime in the future, in a similar way to how Turnip provides a much better experience to Adreno users.
 
 ## Future projects
 
