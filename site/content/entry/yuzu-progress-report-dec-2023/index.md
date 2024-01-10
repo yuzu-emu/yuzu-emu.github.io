@@ -1,8 +1,8 @@
 +++
-date = "2024-01-06T12:00:00-03:00"
+date = "2024-01-10T12:00:00-03:00"
 title = "Progress Report December 2023"
 author = "GoldenX86"
-forum = 0
+forum = 982561
 +++
 
 Happy New Year, yuz-ers! We say goodbye to 2023 with several great changes, ranging from driver fixes to big memory savings, and quite a bit in between! Let’s go.
