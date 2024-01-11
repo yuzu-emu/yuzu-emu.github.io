@@ -220,7 +220,7 @@ The result? Three thousand eight hundred and fifty eight lines of code added to 
 
 So, wasted effort? With byte[]? Never.
 The game wouldn’t render correctly because the emulator was binding float images with a mismatched sampler type.
-By {{< gh-hovercard "12432" "forcing the use of floats" >}} for all pixel formats in the shader cache which aren’t explicitly declared as integer, mobile drivers are now able to properly render the Mario brothers in all their flat glory.
+By {{< gh-hovercard "12432" "forcing the use of floats" >}} for all pixel formats in the shader cache which aren’t explicitly declared as integer, mobile drivers are now able to properly render the Mario brothers in all their flat glory, along with at least **71** [other games!](https://www.reddit.com/r/EmulationOnAndroid/comments/18od8vw/single_pr_fixes_a_lot_of_games_in_yuzu/)
 
 {{< imgs
 	"./tokfix.png|Now that’s more like it, it only costs us a shader invalidation (Paper Mario: The Origami King)"
