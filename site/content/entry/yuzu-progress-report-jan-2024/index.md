@@ -465,7 +465,7 @@ Manually make this change with regedit, reboot Windows if needed, add yuzu to Ra
 
 In the performance tab, you can set the overlay to show the generated frames performance (it won’t show up on regular apps or yuzu, as it isn’t informed by the game engine), along with latency and stuttering.
 
-Open yuzu, set VSync Mode to Immediate, Fullscreen Mode to Exclusive Fullscreen:
+Open yuzu, set Fullscreen Mode to Exclusive Fullscreen:
 
 {{< imgs
 	"./fullscreen.png| It’s as shrimple as that"
