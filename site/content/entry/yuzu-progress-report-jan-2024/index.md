@@ -1,5 +1,5 @@
 +++
-date = "2024-02-07T12:00:00-03:00"
+date = "2024-02-06T12:00:00-03:00"
 title = "Progress Report January 2024"
 author = "GoldenX86"
 coauthor = "CaptV0rt3x"
@@ -560,4 +560,3 @@ That’s all folks! Thank you for reaching the end of this progress report. We h
 {{< article-end >}}
 {{< imgs-compare-include-end >}}
 {{< gh-hovercard-include-end >}}
-
