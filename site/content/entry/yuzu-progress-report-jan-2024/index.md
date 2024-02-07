@@ -316,7 +316,7 @@ As a one-size-fits-all solution to this problem, t895 {{< gh-hovercard "12747" "
 
 t895 followed that up with some {{< gh-hovercard "12796" "controller focus optimizations." >}}
 Android controller focus is the highlight you see over buttons indicating that you can select it.
-These changes fix a few issues observed when using a controller to navigate the yuzu app UI.
+These changes fix a few issues observed when using a controller to navigate the yuzu app UI and solved an issue where the emulation surface would appear gray.
 
 In his quest to bring feature parity between yuzu on PC and yuzu on Android, t895 implemented {{< gh-hovercard "12777" "the 'encryption keys missing' warning on Android." >}} 
 You will now get this warning on app startup without the keys required to decrypt games/firmware.	
