@@ -216,7 +216,7 @@ These platforms support storage atomics, so by performing a compare-and-swap loo
 {{< gh-hovercard "12652" "Very enthusiastic walks." >}}
 
 {{< imgs
-	"./mk11.jpg| Dear god, you don’t need to make the menu low resolution too (Mortal Kombat 11)"
+	"./mk11.png| Dear god, you don’t need to make the menu low resolution too (Mortal Kombat 11)"
   >}}
 
 This emulation incurs a small performance loss, but beggars can’t be choosers.
