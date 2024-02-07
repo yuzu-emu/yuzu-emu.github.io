@@ -199,9 +199,11 @@ This could be an interesting experiment for Fermi users or other EoL hardware on
 The fun testing for multiprocess revealed a graphical issue when opening the web applet help page in `Super Smash Bros. Ultimate`.
 One fix for {{< gh-hovercard "12875" "pitch linear reading and writing" >}} in the software blitter code later, and Blinkhawk resolved the issue.
 
-{{< imgs
-	"./webapplet.png| Da Rules (Super Smash Bros. Ultimate)"
-  >}}
+{{< single-title-imgs-compare
+	"Da Rules (Super Smash Bros. Ultimate)"
+	"./webappletbug.png"
+	"./webapplet.png"
+>}}
 
 Android users have regularly reminded us that `Mortal Kombat 11` is unable to boot.
 After his enthusiastic walk through the code, byte[] found that 8-bit and 16-bit storage writes in shaders were completely broken on hardware which did not support them.
