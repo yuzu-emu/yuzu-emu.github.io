@@ -55,7 +55,7 @@ This led to a couple of fixes implemented first by {{< gh-hovercard "12749" "byt
 This change opened the floodgates to applet emulation and is the starting point to get [Direct Memory Import](https://github.com/skyline-emu/skyline/pull/2106) in the future–but let’s slow down a bit, there’s more to cover.
 
 {{< imgs
-	"./miiedit.mp4| Time to launch another program, GPU!"
+	"./miiedit.mp4| Time to launch another program, GPU! Right click the video to unmute it"
   >}}
 
 ### Project Leviathan
@@ -87,7 +87,7 @@ FSR in particular was converted from a compute shader to a fragment shader, so p
 The end result is the same, with no image quality changes–but now FSR can be used while games display the native inline keyboard, for example.
 
 {{< imgs
-	"./keyboard.mp4| That transparency behind the keyboard wasn’t free"
+	"./keyboard.mp4| That transparency behind the keyboard wasn’t free. Right click the video to unmute it"
   >}}
 
 ### [I AM the applet manager](https://www.youtube.com/watch?v=7ZLS5KNDelI)
@@ -113,7 +113,7 @@ Maide was responsible for making {{< gh-hovercard "12831" "audio emulation" >}} 
 Games should be able to share audio playback with applets, right? Sharing is caring.
 
 {{< imgs
-	"./web2.mp4| Special menus included (Super Mario 3D All-Stars)"
+	"./web2.mp4| Special menus included (Super Mario 3D All-Stars). Right click the video to unmute it"
   >}}
 
 ### Universal Serialization Byte[]
@@ -541,13 +541,13 @@ Progress feels so good! You could learn a little, Windows.
 Work on multiprocess support is far from over. We’re aiming to support `QLaunch`, meaning being able to boot the native game launcher, launch games from there, close them, suspend them, launch a different game, the whole deal.
 
 {{< imgs
-	"./ql1.mp4| QLaunching in 3, 2, 1!"
+	"./ql1.mp4| QLaunching in 3, 2, 1! Right click the video to unmute it"
   >}}
 
 Resuming a game works too.
 
 {{< imgs
-	"./ql2.mp4| Back and forth"
+	"./ql2.mp4| Back and forth. Right click the video to unmute it"
   >}}
 
 The work on applets and multiprocess is exposing a lot of hidden bugs in multiple areas–the accuracy improvements are a very welcome addition to having this much fun testing and running the applets.
