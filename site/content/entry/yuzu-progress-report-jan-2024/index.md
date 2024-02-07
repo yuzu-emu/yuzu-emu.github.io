@@ -448,7 +448,7 @@ Still, for those with recent AMD GPUs (RDNA2 and RDNA3 so far), there’s a bett
 Driver release 24.1.1 introduced the first public release of [AFMF](https://community.amd.com/t5/gaming/amd-fluid-motion-frames-is-out-now-on-amd-radeon-rx-7000-series/ba-p/634372), AMD’s game independent frame generation algorithm.
 
 “But writer, AFMF is only for Direct3D 11 and 12 games!” You say.
-That’s where you’re wrong, you see, our best spy, agent Twilight, got his hands on some fantastic information, AFMF can be run on Vulkan, OpenGL, and Direct3D 9/10 too, it only needs a registry edit:
+That’s where you’re wrong, you see, the [Guru3D forums](https://forums.guru3d.com/threads/amd-software-adrenalin-edition-23-40-01-10-preview-driver-for-amd-fluid-motion-frames.449598/page-35#post-6197794) got some fantastic information, AFMF can be run on Vulkan, OpenGL, and Direct3D 9/10 too, it only needs a registry edit:
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\AMD\DVR]
@@ -495,8 +495,6 @@ No performance graphs are included because your writer doesn’t consider percei
 The games can be rendered with an NVIDIA or Intel GPU while still generating frames with AFMF, although the experience is slightly worse than just using the AMD card directly due to the added latency of transmitting the finished frames over PCIe.
 The only requisite for AFMF to work is to have the display connected to the compatible AMD GPU, any other GPU can do the actual rendering after that.
 Time to invest in an RX 6400? Smash must look amazing at 240 FPS.
-
-For those that prefer to install a .reg file instead of manually tweaking the regedit, here are the [installer](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-jan-2024/GFGEnableAPI.reg) and [uninstaller](https://github.com/yuzu-emu/yuzu-emu.github.io/blob/hugo/site/content/entry/yuzu-progress-report-jan-2024/remove_GFGEnableAPI.reg) for Vulkan/OpenGL/Direct3D 9 support.
 
 ### Intel delivering on its promises
 
