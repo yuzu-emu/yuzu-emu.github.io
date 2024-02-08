@@ -429,12 +429,12 @@ Due to upload size and bandwidth limitations from your writer’s ISP, we're usi
 
 {{< youtube v-U7GJYrY64 >}} {{< youtube XNBTxr6HBlA >}}
 
-Native 30 FPS vs Lossless Scalling generating frames with a 30 FPS base.
+Native 30 FPS vs Lossless Scaling generating frames with a 30 FPS base.
 You can see with so little information, artifacts are common. Lossless Scaling doesn’t handle scene transitions.
 
 {{< youtube CG_e5yOnd9E >}} {{< youtube UpvdLJUtEis >}}
 
-Native 60 FPS vs Lossless Scalling generating frames with a 60 FPS base.
+Native 60 FPS vs Lossless Scaling generating frames with a 60 FPS base.
 With more information to play with, Lossless Scaling does a better job. Scene transitions are still an issue.
 
 While the quality is not perfect, it’s a simple and harmless way of improving the experience on any hardware–especially on ~~ugly~~ 30 FPS games like the Pokémon series, or cinematic experiences like the Xenoblade saga. No double standards here.
