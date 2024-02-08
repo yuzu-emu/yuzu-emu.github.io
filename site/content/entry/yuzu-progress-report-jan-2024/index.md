@@ -217,6 +217,7 @@ These platforms support storage atomics, so by performing a compare-and-swap loo
 
 {{< gh-hovercard "12652" "Very enthusiastic walks." >}}
 
+
 {{< imgs
 	"./mk11.png| Dear god, you don’t need to make the menu low resolution too (Mortal Kombat 11)"
   >}}
@@ -471,6 +472,7 @@ Note that while the image quality is much better than the result from Lossless S
 This leads to a noticeable frametime inconsistency when a lot of action is happening on screen. We hope AMD adds an option in the future to toggle the sensitivity of this behaviour.
 
 {{< youtube v-U7GJYrY64 >}} {{< youtube 8Cbov_uR2Dc >}}
+
 Native 30 FPS vs AFMF generating frames with a 30 FPS base.
 While a better result than Lossless Scaling at 30 FPS, artifacts are still noticeable in faster movements, especially on vegetation. Scene transitions are clear and there is less shimmering around the player.
 
