@@ -256,13 +256,13 @@ Therefore, he {{< gh-hovercard "12558" "disabled compression for these ZIP expor
 Moving on to the quality-of-life (QoL) fixes, t895 {{< gh-hovercard "12571" "extended support for custom screen orientations." >}}
 With this change, yuzu now supports a total of seven orientation styles, listed below.
 
-	- - Auto. Selects any of the four orientations based on the phone’s sensor.
-	- - Sensor Landscape. Limits the sensor detection to only landscape orientations.
-	- - Landscape. Fixed regular landscape.
-	- - Reverse Landscape. Fixed inverted landscape.
-	- - Sensor Portrait. Limits the sensor detection to only portrait orientations, if the device allows it.
-	- - Portrait. Fixed regular portrait.
-	- - Reverse Portrait. Fixed inverted portrait
+- Auto. Selects any of the four orientations based on the phone’s sensor.
+- Sensor Landscape. Limits the sensor detection to only landscape orientations.
+- Landscape. Fixed regular landscape.
+- Reverse Landscape. Fixed inverted landscape.
+- Sensor Portrait. Limits the sensor detection to only portrait orientations, if the device allows it.
+- Portrait. Fixed regular portrait.
+- Reverse Portrait. Fixed inverted portrait
 
 {{< imgs
 	"./orientations.png| Reverse portrait, the way it’s meant to be played"
