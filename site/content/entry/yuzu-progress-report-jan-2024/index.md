@@ -424,22 +424,16 @@ The results are good on smaller displays, but on larger packages like your write
 Still, it’s a cheap way of improving perceived framerates and bypassing CPU bottlenecks on any GPU vendor without driver or hardware restrictions.
 
 Here you can see native 30 FPS vs Lossless Scaling generating frames to 60 FPS videos on `The Legend of Zelda: Breath of the Wild`. 
-Due to upload size and bandwidth limitations from your writer’s ISP, the encoding quality is just 1080p h.264 5Mbps. A refresh rate of 120Hz or higher is recommended.
+Due to upload size and bandwidth limitations from your writer’s ISP, we're using YouTube, which will limit the framerate to 60 FPS, losing detail on the 120 FPS framegen examples.
 
-{{< single-title-imgs
-    "Native 30 FPS vs Lossless Scalling (The Legend of Zelda: Breath of the Wild)"
-    "./NONE30.mp4"
-    "./LS30.mp4"
-    >}}
+{{< youtube v-U7GJYrY64 >}} {{< youtube XNBTxr6HBlA >}}
 
+Native 30 FPS vs Lossless Scalling generating frames with a 30 FPS base.
 You can see with so little information, artifacts are common. Lossless Scaling doesn’t handle scene transitions.
 
-{{< single-title-imgs
-    "Native 60 FPS vs Lossless Scalling (The Legend of Zelda: Breath of the Wild)"
-    "./NONE60.mp4"
-    "./LS60.mp4"
-    >}}
+{{< youtube CG_e5yOnd9E >}} {{< youtube UpvdLJUtEis >}}
 
+Native 60 FPS vs Lossless Scalling generating frames with a 60 FPS base.
 With more information to play with, Lossless Scaling does a better job. Scene transitions are still an issue.
 
 While the quality is not perfect, it’s a simple and harmless way of improving the experience on any hardware–especially on ~~ugly~~ 30 FPS games like the Pokémon series, or cinematic experiences like the Xenoblade saga. No double standards here.
@@ -476,20 +470,12 @@ And that’s it, start a game, go into fullscreen by pressing F11 or the hotkey 
 Note that while the image quality is much better than the result from Lossless Scaling, AMD disables AFMF if there is too much variance between one frame and the next in order to avoid smoothing out scene transitions like camera changes or opening the menu.
 This leads to a noticeable frametime inconsistency when a lot of action is happening on screen. We hope AMD adds an option in the future to toggle the sensitivity of this behaviour.
 
-{{< single-title-imgs
-    "Native 30 FPS vs AFMF (The Legend of Zelda: Breath of the Wild)"
-    "./NONE30.mp4"
-    "./AFMF30.mp4"
-    >}}
-
+{{< youtube v-U7GJYrY64 >}} {{< youtube 8Cbov_uR2Dc >}}
+Native 30 FPS vs AFMF generating frames with a 30 FPS base.
 While a better result than Lossless Scaling at 30 FPS, artifacts are still noticeable in faster movements, especially on vegetation. Scene transitions are clear and there is less shimmering around the player.
 
-{{< single-title-imgs
-    "Native 60 FPS vs AFMF (The Legend of Zelda: Breath of the Wild)"
-    "./NONE60.mp4"
-    "./AFMF60.mp4"
-    >}}
-
+{{< youtube CG_e5yOnd9E >}} {{< youtube GfRjc9v0jls >}}
+Native 60 FPS vs AFMF generating frames with a 60 FPS base.
 And at 60 FPS the results are great, providing smooth gameplay to 120-180Hz displays.
 
 No performance graphs are included because your writer doesn’t consider perceived framerate as real performance, but to provide an example, `The Legend of Zelda: Tears of the Kingdom`, which produces solid 60 FPS in open world with a 5600X and an RTX 3060 Ti, can produce 170-180 “FPS” with AFMF enabled, and with little to no distortion visible.
