@@ -124,7 +124,7 @@ Interacting with guest processes required tedious and error-prone layout calcula
 With the increased involvement in service implementations and the exponential growth of complexity you’ve seen so far, byte[] aims to automate and simplify serialization by using a template-based approach that automatically generates the code needed for the method.
 
 So far, the work on multiprocess has taken over twenty thousands lines of code and continues growing.
-All you have to do now to enjoy your native applets is to [dump your firmware](https://rena21.github.io/yuzu-wiki/setup-guide/dump-firmware/). Minimum required version to get the applets running is FW16.
+All you have to do now to enjoy your native applets is to [dump your firmware](https://rena21.github.io/yuzu-wiki/setup-guide/dump-firmware/). The minimum required version to get the applets running is firmware 16.0.0.
 
 ### Other service rewrites and fixes
 
