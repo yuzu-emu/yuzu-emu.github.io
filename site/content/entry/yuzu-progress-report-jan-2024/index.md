@@ -6,33 +6,33 @@ coauthor = "CaptV0rt3x"
 forum = 0
 +++
 
-Welcome to 2024 yuz-ers! What better way to begin the year than to do major code refactors resulting in almost full applet support and more!
+Welcome to 2024 yuz-ers! What better way to begin the year than to do major code refactors resulting in almost full applet support. We present this, and plenty more, to you today! Remember to right click and unmute the embedded videos.
 
 <!--more--> 
 
-## Multiprocess, services, LLE applets and Project Leviathan
+## Multiprocess, services, LLE applets, and Project Leviathan
 
-Because converting a single process emulator into a multiprocess one is no simple task.
+Converting a single process emulator into a multiprocess one is no simple task.
 
 {{< imgs
-	"./keyboard.png| Type speed challenge with the Nintendo keyboard?"
+	"./keyboard.png| Typing speed challenge with the Nintendo keyboard?"
   >}}
 
-2024 started quite busy thanks to the combined efforts of [byte[]](https://github.com/liamwhite), [german77](https://github.com/german77), [Blinkhawk](https://github.com/FernandoS27), and [Maide](https://github.com/Kelebek1), in implementing multiprocess support, taking advantage of it on multiple areas (heh, get it) including GPU, input, services, and applet emulation, and fixing long standing problems along the way too.
+2024 started out quite busy thanks to the combined efforts of [byte[]](https://github.com/liamwhite), [german77](https://github.com/german77), [Blinkhawk](https://github.com/FernandoS27), and [Maide](https://github.com/Kelebek1) in implementing multiprocess support, taking advantage of it in multiple areas (heh, get it?) including GPU, input, services, and applet emulation, and fixing long standing problems along the way.
 
 As of writing, multiprocess support {{< gh-hovercard "12756" "is not yet merged," >}} but fixes in the GPU, input, and other modules (implemented by byte[], Blinkhawk, and german77) have already been staged and released, allowing full support to be added in parts.
 
 Implementing the requirements to support multiprocess in yuzu led us to make five significant changes in the past month:
 
-- Allow the GPU to run multiple programs. This is where SMMU support, which we will discuss momentarily, comes in.
-- Rewrite the old basic applet manager.
+- Allow the GPU to run multiple programs. This is where SMMU support comes in, which we will discuss in the next section.
+- Rewrite the old, basic applet manager.
 - Rewrite presentation. Part of the prerequisites to run more than one program simultaneously is to be able to display all of them to the user.
 - Rewrite every other relevant area (for example, input) to support multiple processes.
 - Automate the serialization of service calls.
 
 ### Device mapping and SMMU
 
-Blinkhawk starts with a big one: implementing device memory mapping emulation and rewriting the GPU implementation with support for the {{< gh-hovercard "12579" "SMMU," >}} or for desktop enthusiasts/Linux VM users/UEFI lurkers, its other common name, IOMMU.
+We start off with a big on: Blinkhawk implemented device memory mapping emulation and rewrote the GPU implementation with support for the {{< gh-hovercard "12579" "SMMU," >}} or for desktop enthusiasts/Linux VM users/UEFI lurkers, its other common name, IOMMU.
 
 The ARM **S**ystem **M**emory **M**anagement **U**nit handles memory mapping for peripheral devices like the GPU.
 It’s a hardware component on the Switch in charge of translating device virtual memory addresses into physical memory addresses.
@@ -52,16 +52,16 @@ One downside of this change was how it increased debugging complexity, which led
 For example, games on Android getting stuck at 0 FPS randomly, breaking compatibility with NCE, or running out of memory on some game engines.
 This led to a couple of fixes implemented first by {{< gh-hovercard "12749" "byte[]" >}} and then {{< gh-hovercard "12869" "Blinkhawk himself," >}} with more on the way.
 
-This change opened the floodgates to applet emulation and is the starting point to get [Direct Memory Import](https://github.com/skyline-emu/skyline/pull/2106) in the future–but let’s slow down a bit, there’s more to cover.
+This change opened the floodgates to applet emulation and is the starting point to implement [Direct Memory Import](https://github.com/skyline-emu/skyline/pull/2106) sometime in the future — but let’s slow down a bit, there’s more to cover.
 
 {{< imgs
-	"./miiedit.mp4| Time to launch another program, GPU! Right click the video to unmute it"
+	"./miiedit.mp4| Time to launch another program, GPU!"
   >}}
 
 ### Project Leviathan
 
 german77 had to adapt his input rewrite, `Project Leviathan` to the requirements of multiprocess too. The rewrite is still ongoing, with more parts planned.
-But just in January, the following changes, either specifically for multiprocess, or more generally as part of the rewrite, were implemented:
+But just in January, the following changes, either specifically for multiprocess or more generally as part of the rewrite, were implemented:
 
 - {{< gh-hovercard "12536" "Use individual applet resources," >}} so each applet has its own view of the controller input.
 - {{< gh-hovercard "12549" "Implement NpadResource emulation," >}} now using the input process ID to distinguish HID state and controller style configuration between multiple processes.
@@ -79,15 +79,15 @@ While this leads to us being able to load the native controller applet (among ot
 
 ### Now Presenting
 
-Besides the emulated GPU, {{< gh-hovercard "12761" "presentation to screen" >}} also needed some work to support running applets–without it, none of the benefits could actually be displayed. 
+Besides the emulated GPU, {{< gh-hovercard "12761" "presentation to screen" >}} also needed some work to support running applets — without it, none of the benefits could actually be displayed. 
 If there is no multi-layer composition in place, there is no applet fun.
 
 byte[] rewrote almost all of the presentation code to support layer overlays and blending, taking special care to not break the existing filtering and antialiasing options.
 FSR in particular was converted from a compute shader to a fragment shader, so proper blending could be enabled.
-The end result is the same, with no image quality changes–but now FSR can be used while games display the native inline keyboard, for example.
+The end result is the same, with no image quality changes — but now FSR can be used while games display the native inline keyboard, for example.
 
 {{< imgs
-	"./keyboard.mp4| That transparency behind the keyboard wasn’t free. Right click the video to unmute it"
+	"./keyboard.mp4| That transparency behind the keyboard wasn’t free."
   >}}
 
 ### [I AM the applet manager](https://www.youtube.com/watch?v=7ZLS5KNDelI)
@@ -96,16 +96,15 @@ Another critical service that required a rewrite to have proper multiprocess sup
 AM has now been almost completely refactored to track state for every applet individually, properly allowing it to support running more than one at the same time.
 
 {{< imgs
-	"./web1.mp4| Help one button press away (Super Smash Bros. Ultimate)"
+	"./web1.mp4| Help is only one button press away (Super Smash Bros. Ultimate)"
   >}}
 
 While byte[] got the rewrite up and running, german77 {{< gh-hovercard "12837" "fixed an issue" >}} causing `The Battle Cats Unite` to softlock past the starting loading screen.
 
 {{< imgs
-	"./bc.png| That’s one of the games of all time (The Battle Cats Unite)"
+	"./bc.png| This is one of the games of all time. Nyaa. (The Battle Cats Unite)"
   >}}
 
-Nyaa.
 
 ### Sounds good
 
@@ -113,7 +112,7 @@ Maide was responsible for making {{< gh-hovercard "12831" "audio emulation" >}} 
 Games should be able to share audio playback with applets, right? Sharing is caring.
 
 {{< imgs
-	"./web2.mp4| Special menus included (Super Mario 3D All-Stars). Right click the video to unmute it"
+	"./web2.mp4| Special menus included (Super Mario 3D All-Stars)."
   >}}
 
 ### Universal Serialization Byte[]
@@ -131,10 +130,10 @@ All you have to do now to enjoy your native applets is to [dump your firmware](h
 
 Here’s a toast to Maide for fixing one of the longest standing bugs in yuzu: the passage of time in games like `Pokémon Sword/Shield` and `Pokémon Quest`.
 
-In the past, while time tracked during saving, some game events like dens or Pokéjobs wouldn’t reset, forcing users to manually advance time with the custom RTC option.
+In the past, while time tracked during saving, some game events like Dens or Pokéjobs wouldn’t reset, forcing users to manually advance time with the custom RTC option.
 It was quite bothersome.
 
-It took an entire {{< gh-hovercard "12499" "rewrite of the time services" >}} to resolve the issue, or “only” almost nine thousand lines of code.
+It took an entire {{< gh-hovercard "12499" "rewrite of the time services" >}} to resolve the issue, “only” about nine thousand lines of code.
 The new implementation is much more accurate, allowing Pokéjobs and other timed events to finally be enjoyed normally in this low-poly, almost-always-30-FPS masterpiece.
 
 {{< single-title-imgs
@@ -145,7 +144,7 @@ The new implementation is much more accurate, allowing Pokéjobs and other timed
 
 Continuing this work, Maide removed some old workarounds that were no longer needed in the time services, and fixed {{< gh-hovercard "12864" "network clock to local clock" >}} synchronisation on every game boot.
 This fixed time progression in `Pokémon Quest`.
-No longer a Time Quest.
+No longer a [Time Quest](https://en.wikipedia.org/wiki/Hype:_The_Time_Quest).
 
 {{< imgs
 	"./pq.png| Set camp (Pokémon Quest)"
@@ -158,7 +157,7 @@ Just like the Navy intended.
 
 ### A dose of Dozen
 
-Unforeseen issues are one of the signatures “comes with the job” of emulation–you never know from where a new problem will arise, so we’ll have to start this section with a PSA.
+Unforeseen issues are one of the signature “comes with the job” moments of emulation — you never know from where a new problem will arise, so we’ll have to start this section with a PSA.
 
 **PSA:** If yuzu has recently started showing Microsoft as the GPU vendor for you, and you can no longer play any game, uninstall the package named `OpenCL™, OpenGL®, and Vulkan® Compatibility Pack`, or if you prefer to keep it, go to `Emulation > Configure… > Graphics > Device` and change the GPU to your correct model, without “Microsoft Direct3D 12” at the start of its name.
 
@@ -171,28 +170,28 @@ The project used to achieve this is Mesa `Dozen`, which [runs Vulkan atop a Dire
 The intended purpose is to offer Vulkan support to devices that only ship a Direct3D 12 driver, for example, Qualcomm ARM laptops.
 We don’t know why Microsoft decided to silently test this feature on x86-64 PCs that already ship hardware capable of proper Vulkan support, but here we are.
 
-Those new devices generated by Dozen are added to the Vulkan devices available to the OS, named “Microsoft Direct3D 12 (GPU model name)”, and conflict with how yuzu orders its device list.
+Those new devices generated by `Dozen` are added to the Vulkan devices available to the OS, named “Microsoft Direct3D 12 (GPU model name)”, and conflict with how yuzu orders its device list.
 
-To ensure the best GPU is selected by default on yuzu, three sorts are performed, in order:
+To ensure the best GPU is selected by default on yuzu, three sorts are performed in order:
 
-- Prefer NVIDIA hardware over AMD, AMD hardware over Intel. This favours NVIDIA hardware and also double ensures dedicated GPUs get selected over integrated ones. Plus, in the rare case an user has multiple GPUs of different vendors on a system, we ensure the one with the least issues is picked by default. “Outdated NVIDIA tablet-turned-console likes NVIDIA drivers,” after all.
+- Prefer NVIDIA hardware over AMD, AMD hardware over Intel. This favours NVIDIA hardware and also double ensures dedicated GPUs get selected over integrated ones. Plus, in the rare case a user has multiple GPUs from different vendors on a system, we ensure the one with the least issues is picked by default. “Outdated NVIDIA tablet-turned-console likes NVIDIA drivers,” after all.
 - Prefer dedicated hardware over any other, including integrated and CPU rendering. There are people out there trying to run yuzu with CPU rendering.
 - Order in inverse alphabetical order. This helps ensure an RTX 4090 is picked over a GTX 1050, or an RX 7900 XTX over an RX 780m.
 
-Did you notice it? The last point is the problem. Dozen devices share the same identical features as the real Vulkan device but change the name. 
+Did you notice it? The last point is the problem. `Dozen` devices share the same identical features as the real Vulkan device but change the name. 
 Since the list is ordered in inverse alphabetical order, a device named “Microsoft” will take priority over an identical one named AMD or Intel.
 
 The issue is simple enough to solve: detect when a {{< gh-hovercard "12781" "device is Dozen" >}} and demote it to the bottom of the list.
-Even if Dozen was capable of running yuzu, we would prefer not to run a layered implementation by default.
+Even if `Dozen` was capable of running yuzu, we would prefer not to run a layered implementation by default.
 
 {{< imgs
 	"./dozen.png| Nice way of having a Dozen GPUs"
   >}}
 
-Sadly, Dozen isn't compatible with yuzu for the moment–it lacks multiple mandatory extensions and has some issues your writer enjoyed reporting to its devs while testing this. 
+Sadly, `Dozen` isn't compatible with yuzu for the moment — it lacks multiple mandatory extensions and has some issues your writer enjoyed reporting to its devs while testing this. 
 Fixes for multiple of them arrived in just a couple of days. Mesa devs are built differently.
 
-This could be an interesting experiment for Fermi users or other EoL hardware once Dozen is suitable for yuzu.
+This could be an interesting experiment for Fermi users or other end-of-life hardware once `Dozen` is suitable for yuzu.
 
 ### Your regularly scheduled GPU changes
 
@@ -206,7 +205,7 @@ One fix for {{< gh-hovercard "12875" "pitch linear reading and writing" >}} in t
 >}}
 
 Android users have regularly reminded us that `Mortal Kombat 11` is unable to boot.
-After his enthusiastic walk through the code, byte[] found that 8-bit and 16-bit storage writes in shaders were completely broken on hardware which did not support them.
+After his enthusiastic walk through the code, byte[] found that {{< gh-hovercard "12652" "8-bit and 16-bit storage writes" >}} in shaders were completely broken on hardware which did not support them.
 
 The problem, at least one of them, was lack of hardware support for `shaderInt8` and `shaderInt16`, something the big three, NVIDIA (the Switch included, of course), AMD (and by extension, Xclipse), and Intel, have full support for with up-to-date drivers, but [Android devices](https://vulkan.gpuinfo.org/listdevicescoverage.php?core=1.2&feature=shaderInt8&platform=all&option=not) with Adreno and Mali GPUs don’t.
 
@@ -215,17 +214,16 @@ Mali moment #1, along with Adreno.
 The solution byte[] implemented to solve this specific issue is the usual for the lack of hardware support. If you can’t run it, emulate it!
 These platforms support storage atomics, so by performing a compare-and-swap loop to atomically (in the thread safety sense, not radioactive) write a value to a memory location, 8-bit and 16-bit values can be written to larger 32-bit memory words without tearing the value seen by other threads.
 
-{{< gh-hovercard "12652" "Very enthusiastic walks." >}}
 
 
 {{< imgs
-	"./mk11.png| Dear god, you don’t need to make the menu low resolution too (Mortal Kombat 11)"
+	"./mk11.png| Dear gods, you don’t need to make the menu low resolution too (Mortal Kombat 11)"
   >}}
 
 This emulation incurs a small performance loss, but beggars can’t be choosers.
-Mobile GPUs are very stingy with their feature sets, which frequently holds our development back to add workarounds.
+Mobile GPUs are very stingy with their feature sets, which frequently holds our development back and necessitates adding workarounds.
 
-We doubt only Mortal Kombat 11 is affected–this change helped many unknown games crashing on Android devices or people running outdated GPU drivers on desktop/laptop PCs.
+We doubt only `Mortal Kombat 11` is affected — this change improved many unknown games that were crashing on Android devices or for people running outdated GPU drivers on desktop/laptop PCs.
 Sadly, this change alone isn’t enough to make the game playable on Android devices.
 This issue exposed other shader problems related to lack of support for `StorageImageExtendedFormats`, but that’s homework for later, most likely for future byte[].
 
@@ -234,13 +232,13 @@ Switching to the other Linux kernel equipped OS (erm, Linux), Tuxusers reported 
 The solution was thankfully simple, reverting an unnecessary change in one of the previous DMA fixes.
 By forcing a {{< gh-hovercard "12688" "recreation of the swapchain" >}} each time the window frame size changes, the issue is gone.
 
-Proper tear-free gameplay with safe window management shall return to Wayland land.
+Proper tear-free gameplay with safe window management shall return to Wayland.
 HDR support when, Linux?
 
 Newcomer [shinra-electric](https://github.com/shinra-electric) {{< gh-hovercard "12713" "updated the MoltenVK dependency" >}} to its latest version. Thank you!
 
 While the update brings tons of improvements and many Vulkan extensions are now supported, there are no new changes to report in rendering or compatibility on Apple devices.
-But hey, no reported regressions is good news though!
+But hey, no reported regressions is good news!
 
 ## Android augmentations
 
@@ -252,9 +250,9 @@ ZIP compression, in most cases, can result in a reduction of file size compared 
 However, applying compression overtop of encrypted data is almost always a waste of time.
  
 t895 observed that when compression was turned on, these ZIP exports were excessively slow, while still resulting in negligible size reduction gains, as the largest files in the user data are NCAs, and those are encrypted.
-Therefore, he {{< gh-hovercard "12558" "disabled compression for these ZIP exports," >}} leading to up to a 3x decrease in export times.
+Therefore, he {{< gh-hovercard "12558" "disabled compression for these ZIP exports," >}} exhibiting up to a 3x decrease in export times.
 
-Moving on to the quality-of-life (QoL) fixes, t895 {{< gh-hovercard "12571" "extended support for custom screen orientations." >}}
+Moving on to the QoL fixes, t895 {{< gh-hovercard "12571" "extended support for custom screen orientations." >}}
 With this change, yuzu now supports a total of seven orientation styles, listed below.
 
 - Auto. Selects any of the four orientations based on the phone’s sensor.
@@ -287,8 +285,8 @@ Note: Currently, yuzu on PC doesn't have UI support for uninstalling mods or che
 Ever spend a long time copying over your dumps or installing content to NAND, only to have them fail to work?
 Look no further: t895 {{< gh-hovercard "12736" "brings the PC version's integrity check features to Android." >}}
 You can now easily verify the file integrity of your game dumps and your NAND contents.
-To verify a game dump, simply go to your game's properties and under "Info", select "Verify Integrity".
-There is also a separate, self-explanatory button within Settings labelled "Verify Installed Content."
+To verify a game dump, simply go to your game's properties and under `Info`, select `Verify Integrity`.
+There is also a separate, self-explanatory button within `Settings` labelled `Verify Installed Content`.
 
 {{< single-title-imgs
     "Great for peace of mind after experiencing a game crash"
@@ -320,7 +318,7 @@ Android controller focus is the highlight you see over buttons indicating that y
 These changes fix a few issues observed when using a controller to navigate the yuzu app UI and solved an issue where the emulation surface would appear gray.
 
 In his quest to bring feature parity between yuzu on PC and yuzu on Android, t895 implemented {{< gh-hovercard "12777" "the 'encryption keys missing' warning on Android." >}} 
-You will now get this warning on app startup without the keys required to decrypt games/firmware.	
+You will now get this warning on app startup if you don't have the keys required to decrypt games/firmware.	
 
 {{< imgs
 	"./keys.png| Time to grab that jig"
@@ -346,15 +344,15 @@ And that's not all.
 Newcomer [Emma](https://github.com/GayPotatoEmma) {{< gh-hovercard "12560" "implemented basic support for the game dashboard" >}} feature found on Pixel devices.
 Thank you!
 
-Resident AMD tester [Moonlacer](https://github.com/Moonlacer) noticed that Samsung mobile devices with the new RDNA-based Xclipse GPUs had the {{< gh-hovercard "6900" "same wireframe issues in various Pokémon games">}}, that plague the PC AMD Vulkan drivers.
-With some help from [byte[]](https://github.com/liamwhite) {{< gh-hovercard "12885" "a fix for these Xclipse GPU drivers was implemented" >}} by considering these devices as AMD, gaining access to the same old workarounds Radeon cards benefit from.
+Resident AMD tester [Moonlacer](https://github.com/Moonlacer) noticed that Samsung mobile devices with the new RDNA-based Xclipse GPUs had the {{< gh-hovercard "6900" "same wireframe issues in various Pokémon games,">}} that plague the PC AMD Vulkan drivers.
+With some help from [byte[]](https://github.com/liamwhite), {{< gh-hovercard "12885" "a fix for these Xclipse GPU drivers was implemented" >}} by considering these devices as AMD, gaining access to the same old workarounds Radeon cards benefit from.
 Thanks to user `no.kola` on discord for testing these!
 
 Xclipse moment #1. We have some bad news for Xclipse users we’ll discuss in the hardware section.
 
 ## Miscellaneous changes
 
-One notable standing issue with yuzu is profile corruption, when after a badly-timed crash, the emulator creates a new profile and leaves all user data in the old one, forcing the user to manually move their saves back to the fresh current profile.
+One notable standing issue with yuzu is profile corruption, when after a badly-timed crash, the emulator creates a new profile and leaves all user data in the old one, forcing the user to manually move their saves back to the newly created active profile.
 Thankfully, german77 {{< gh-hovercard "12665" "fixes user profile corruption" >}} issues by only saving profile data when contents change.
 
 While NCE has been with us for some time now, that doesn’t mean it’s entirely stable yet.
@@ -370,10 +368,10 @@ the {{< gh-hovercard "12677" "NCE loader" >}} to try to use the same patch secti
 
 This should allow mods for other games that make assumptions about module layout to work under NCE as well.
 
-Jumping to a bit of input changes, german77 got notified that a user tried to dump their Amiibos but yuzu failed to generate any dump because the Amiibos were mounted as read-only and no backup was available.
+Jumping to a bit of input changes, german77 was notified that a user tried to dump their Amiibos, but yuzu failed to generate any dump because the Amiibos were mounted as read-only and no backup was available.
 The solution? {{< gh-hovercard "12683" "Dump Amiibos" >}} if no backup exists, no questions asked.
 
-Resident helper [anpilley](https://github.com/anpilley) decided it was time to improve the available command-line arguments for the yuzu binaries, adding the use of `-u` to specify an {{< gh-hovercard "12695" "user to load" >}} and suppress the user selector from showing.
+Resident helper [anpilley](https://github.com/anpilley) decided it was time to improve the available command-line arguments for the yuzu binaries, adding the use of `-u` to specify a {{< gh-hovercard "12695" "user to load" >}} and suppress the user selector from showing.
 Thank you!
 
 Back for more, [FearlessTobi](https://github.com/FearlessTobi) decides to tackle a few problems with the virtual file system emulation, or `VFS`.
@@ -383,7 +381,7 @@ The {{< gh-hovercard "12707" "list of changes" >}} is long: it includes moving f
 Never hurts to improve an area that was designed back when there was little information available.
 
 The boss of Dynarmic herself, [merryhime](https://github.com/merryhime), {{< gh-hovercard "12830" "updated the bundled build" >}} in yuzu to the latest version, bringing some new changes and fixes with it.
-There are some instruction emulation optimizations, more 32-bit ARM instructions were added, and the startup times of games on Android was improved–it’s not as fast as NCE, but it’s considerably faster for those games that must run on JIT.
+There are some instruction emulation optimizations, more 32-bit ARM instructions were added, and the startup times of games on Android was improved — it’s not as fast as NCE, but it’s considerably faster for those games that must run on JIT.
 
 To close this section and move to an interesting hardware discussion, t895 has one last gift for us this month, {{< gh-hovercard "12868" "per-game audio settings." >}}
 One of the missing settings that could be set on a per-game basis, and it includes the full set, output engine, output device, input device, etc.
@@ -396,13 +394,13 @@ The more you’re able to choose, the better, right?
 
 ## Hardware and software section
 
-As promised last month, we’ll talk about frame generation, and the new tools available to take advantage of it on yuzu.
+As promised last month, we’ll talk about frame generation, and the new tools available to take advantage of it in yuzu.
 But first, one last HDR example for NVIDIA users.
 
 ### NVIDIA TrueHDR
 
 With the 551.XX series of drivers, NVIDIA introduced the option to auto-generate an HDR output for any video displayed on a Chromium-based browser (Google Chrome, Microsoft Edge, Brave, etc).
-It didn’t take long for the community to come up with plug-ins to take advantage of this change on [local video players](https://github.com/emoose/VideoRenderer/releases), but that’s not the only application outside NVIDIA’s official intended use.
+It didn’t take long for the community to come up with plug-ins to take advantage of this change in [local video players](https://github.com/emoose/VideoRenderer/releases), but that’s not the only application outside NVIDIA’s official intended use.
 
 Enter [NvTrueHDR](https://www.nexusmods.com/site/mods/781), an alternative to Windows AutoHDR and Special K HDR.
 Always fun to have more options to pick from!
@@ -421,44 +419,44 @@ Usage is simple, set Frame Generation to the right to `LSFG`, if you’re an Int
 	"./ls2.png| Scroll down to find it"
   >}}
 
-The results are good on smaller displays, but on larger packages like your writer’s 27 inches, the artifacts of the generated frames are too noticeable, making this tool more suitable for laptops and handhelds than for desktop or TV gameplay.
+The results are good on smaller displays, but on larger monitors (such as 27 inch displays), the artifacts of the generated frames are too noticeable, making this tool more suitable for laptops and handhelds than for desktop or TV gameplay.
 Still, it’s a cheap way of improving perceived framerates and bypassing CPU bottlenecks on any GPU vendor without driver or hardware restrictions.
 
-Here you can see native 30 FPS vs Lossless Scaling generating frames to 60 FPS videos on `The Legend of Zelda: Breath of the Wild`. 
-Due to upload size and bandwidth limitations from your writer’s ISP, we're using YouTube, which will limit the framerate to 60 FPS, losing detail on the 120 FPS framegen examples.
+Below you can see comparison videos between native 30 FPS and Lossless Scaling generating frames to 60 FPS in `The Legend of Zelda: Breath of the Wild`. 
+Due to YouTube only supporting 60FPS video, you won't see the true 120 FPS framegen examples.
 
 {{< youtube v-U7GJYrY64 >}} {{< youtube XNBTxr6HBlA >}}
 
-Native 30 FPS vs Lossless Scaling generating frames with a 30 FPS base.
+The above videos demonstrate native 30 FPS vs Lossless Scaling generating frames from a 30 FPS base.
 You can see with so little information, artifacts are common. Lossless Scaling doesn’t handle scene transitions.
 
 {{< youtube CG_e5yOnd9E >}} {{< youtube UpvdLJUtEis >}}
 
-Native 60 FPS vs Lossless Scaling generating frames with a 60 FPS base.
+The above videos demonstrate native 60 FPS vs Lossless Scaling generating frames from a 60 FPS base.
 With more information to play with, Lossless Scaling does a better job. Scene transitions are still an issue.
 
-While the quality is not perfect, it’s a simple and harmless way of improving the experience on any hardware–especially on ~~ugly~~ 30 FPS games like the Pokémon series, or cinematic experiences like the Xenoblade saga. No double standards here.
+While the quality is not perfect, it’s a simple and harmless way of improving the experience on any hardware — especially on ~~ugly~~ 30 FPS games like the Pokémon series, or cinematic experiences like the Xenoblade saga. No double standards here.
 Still, for those with recent AMD GPUs (RDNA2 and RDNA3 so far), there’s a better option available now:
 
 ### AMD Fluid Motion Frames
 
-Driver release 24.1.1 introduced the first public release of [AFMF](https://community.amd.com/t5/gaming/amd-fluid-motion-frames-is-out-now-on-amd-radeon-rx-7000-series/ba-p/634372), AMD’s game independent frame generation algorithm.
+Driver release 24.1.1 introduced the first public release of [AFMF](https://community.amd.com/t5/gaming/amd-fluid-motion-frames-is-out-now-on-amd-radeon-rx-7000-series/ba-p/634372), AMD’s game-independent frame generation algorithm.
 
-“But writer, AFMF is only for Direct3D 11 and 12 games!” You say.
-That’s where you’re wrong, you see, the [Guru3D forums](https://forums.guru3d.com/threads/amd-software-adrenalin-edition-23-40-01-10-preview-driver-for-amd-fluid-motion-frames.449598/page-35#post-6197794) got some fantastic information, AFMF can be run on Vulkan, OpenGL, and Direct3D 9/10 too, it only needs a registry edit:
+“But writer, AFMF is only for Direct3D 11 and 12 games!” you say.
+That’s where you’re wrong. You see, the [Guru3D forums](https://forums.guru3d.com/threads/amd-software-adrenalin-edition-23-40-01-10-preview-driver-for-amd-fluid-motion-frames.449598/page-35#post-6197794) has some fantastic information, AFMF can be run on Vulkan, OpenGL, and Direct3D 9/10 too, it only needs a registry edit:
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\AMD\DVR]
 "GFGEnableAPI"=dword:00000007
 ```
 
-Manually make this change with regedit, reboot Windows if needed, add yuzu to Radeon Software, set Wait for vertical refresh to Disabled, enable AMD Fluid Motion Frames:
+Manually make this change with regedit, reboot Windows if needed, add yuzu to the Radeon Software, set `Wait for Vertical Refresh` to `Disabled`, enable AMD Fluid Motion Frames:
 
 {{< imgs
 	"./radeon.png| Good looking UI, AMD"
   >}}
 
-In the performance tab, you can set the overlay to show the generated frames performance (it won’t show up on regular apps or yuzu, as it isn’t informed by the game engine), along with latency and stuttering.
+In the performance tab, you can set the overlay to show the generated frames' performance (it won’t show up on regular apps or yuzu, as it isn’t informed by the game engine), along with latency and stuttering.
 
 Open yuzu, set Fullscreen Mode to Exclusive Fullscreen:
 
@@ -468,17 +466,17 @@ Open yuzu, set Fullscreen Mode to Exclusive Fullscreen:
 
 And that’s it, start a game, go into fullscreen by pressing F11 or the hotkey assigned to your controller, and enjoy 2x to 3x the perceived framerate.
 
-Note that while the image quality is much better than the result from Lossless Scaling, AMD disables AFMF if there is too much variance between one frame and the next in order to avoid smoothing out scene transitions like camera changes or opening the menu.
+Note that, while the image quality is much better than the result from Lossless Scaling, AMD disables AFMF if there is too much variance between one frame and the next in order to avoid smoothing out scene transitions like camera changes or opening the menu.
 This leads to a noticeable frametime inconsistency when a lot of action is happening on screen. We hope AMD adds an option in the future to toggle the sensitivity of this behaviour.
 
 {{< youtube v-U7GJYrY64 >}} {{< youtube 8Cbov_uR2Dc >}}
 
-Native 30 FPS vs AFMF generating frames with a 30 FPS base.
+The above videos demonstrate native 30 FPS vs AFMF generating frames from a 30 FPS base.
 While a better result than Lossless Scaling at 30 FPS, artifacts are still noticeable in faster movements, especially on vegetation. Scene transitions are clear and there is less shimmering around the player.
 
 {{< youtube CG_e5yOnd9E >}} {{< youtube GfRjc9v0jls >}}
-Native 60 FPS vs AFMF generating frames with a 60 FPS base.
-And at 60 FPS the results are great, providing smooth gameplay to 120-180Hz displays.
+The above videos demonstrate native 60 FPS vs AFMF generating frames from a 60 FPS base.
+And at 60 FPS, the results are great! Allowing for smoother gameplay on 120-180Hz displays.
 
 No performance graphs are included because your writer doesn’t consider perceived framerate as real performance, but to provide an example, `The Legend of Zelda: Tears of the Kingdom`, which produces solid 60 FPS in open world with a 5600X and an RTX 3060 Ti, can produce 170-180 “FPS” with AFMF enabled, and with little to no distortion visible.
 
@@ -488,7 +486,7 @@ Time to invest in an RX 6400? Smash must look amazing at 240 FPS.
 
 ### Intel delivering on its promises
 
-As promised, Intel fixed [their crashes](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/551) while building geometry shaders starting with driver version [31.0.101.5186/5234](https://www.intel.com/content/www/us/en/download/785597/intel-arc-iris-xe-graphics-windows.html).
+As promised, Intel fixed [their crashes](https://github.com/IGCIT/Intel-GPU-Community-Issue-Tracker-IGCIT/issues/551) while building geometry shaders, starting with driver version [31.0.101.5186/5234](https://www.intel.com/content/www/us/en/download/785597/intel-arc-iris-xe-graphics-windows.html).
 
 While this allows for games like `Xenoblade Chronicles 3` to finally get in-game on integrated GPUs and ARC dedicated cards, it seems like there are other areas where the driver needs to mature to produce proper rendering:
 
@@ -500,7 +498,7 @@ On the flip side, `The Legend of Zelda: Tears of the Kingdom` improved stability
 
 ### Qualcomm
 
-[K11MCH1](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v24.1.0_R16)’s driver releases continue to flow out, improving performance and compatibility for the Adreno users. 
+[K11MCH1](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v24.1.0_R16)’s driver releases continue to flow out, improving performance and compatibility for Adreno users. 
 We strongly recommend staying up-to-date.
 
 While there have been new releases of the proprietary driver, nothing of value has been added or fixed yet.
@@ -509,11 +507,12 @@ Total Adreno moments count this month: 1.
 
 ### Exynos and Mali
 
-Why together? Because we found some *interesting* limitations in the Exynos hardware that made us remember of the existential crisis Mali suffers.
+Why together? Because we found some *interesting* limitations in the Exynos hardware that reminds us of the existential crisis Mali suffers.
 Besides the AMD specific issue we previously mentioned, Exynos’ Xclipse GPU series shares a quality with Mali: total lack of support for BC4 to BC7 texture decoding.
 
 While this is *fine* for native Android games (developers just have to scratch their head at the decision to skip basic texture support, and use an alternative like ASTC), Switch games do use BCn textures, extensively in some cases, and adding the extra CPU work of having to decode those textures into something the GPU can handle (RGBA8) will limit performance and increase memory usage.
 This is one of the main reasons these GPUs are not on par with Adreno in terms of feature support.
+
 So:
 
 Total Xclipse moments count this month: 2.
@@ -531,16 +530,16 @@ Progress feels so good! You could learn a little, Windows.
 Work on multiprocess support is far from over. We’re aiming to support `QLaunch`, meaning being able to boot the native game launcher, launch games from there, close them, suspend them, launch a different game, the whole deal.
 
 {{< imgs
-	"./ql1.mp4| QLaunching in 3, 2, 1! Right click the video to unmute it"
+	"./ql1.mp4| QLaunching in 3, 2, 1!"
   >}}
 
 Resuming a game works too.
 
 {{< imgs
-	"./ql2.mp4| Back and forth. Right click the video to unmute it"
+	"./ql2.mp4| Back and forth."
   >}}
 
-The work on applets and multiprocess is exposing a lot of hidden bugs in multiple areas–the accuracy improvements are a very welcome addition to having this much fun testing and running the applets.
+The work on applets and multiprocess is exposing a lot of hidden bugs in multiple areas — the accuracy improvements are a very welcome addition; we're having so much fun testing and running the applets.
 
 That’s all folks! Thank you for reaching the end of this progress report. We hope to see you next time!
 
