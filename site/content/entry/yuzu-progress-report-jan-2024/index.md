@@ -32,7 +32,7 @@ Implementing the requirements to support multiprocess in yuzu led us to make fiv
 
 ### Device mapping and SMMU
 
-We start off with a big on: Blinkhawk implemented device memory mapping emulation and rewrote the GPU implementation with support for the {{< gh-hovercard "12579" "SMMU," >}} or for desktop enthusiasts/Linux VM users/UEFI lurkers, its other common name, IOMMU.
+We start off with a big one: Blinkhawk implemented device memory mapping emulation and rewrote the GPU implementation with support for the {{< gh-hovercard "12579" "SMMU," >}} or for desktop enthusiasts/Linux VM users/UEFI lurkers, its other common name, IOMMU.
 
 The ARM **S**ystem **M**emory **M**anagement **U**nit handles memory mapping for peripheral devices like the GPU.
 It’s a hardware component on the Switch in charge of translating device virtual memory addresses into physical memory addresses.
