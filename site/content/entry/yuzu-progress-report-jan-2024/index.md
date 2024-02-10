@@ -6,7 +6,7 @@ coauthor = "CaptV0rt3x"
 forum = 0
 +++
 
-Welcome to 2024 yuz-ers! What better way to begin the year than to do major code refactors resulting in almost full applet support. We present this, and plenty more, to you today! Remember to right click and unmute the embedded videos.
+Welcome to 2024, yuz-ers! What better way to begin the year than to do major code refactors resulting in almost full applet support. We present this, and plenty more, to you today! Remember to right click and unmute the embedded videos.
 
 <!--more--> 
 
@@ -211,10 +211,8 @@ The problem, at least one of them, was lack of hardware support for `shaderInt8`
 
 Mali moment #1, along with Adreno.
 
-The solution byte[] implemented to solve this specific issue is the usual for the lack of hardware support. If you can’t run it, emulate it!
+The solution byte[] implemented to solve this specific issue is the usual for the lack of hardware support. If you can’t run it, emulate it! Those are very enthusiastic walks.
 These platforms support storage atomics, so by performing a compare-and-swap loop to atomically (in the thread safety sense, not radioactive) write a value to a memory location, 8-bit and 16-bit values can be written to larger 32-bit memory words without tearing the value seen by other threads.
-
-
 
 {{< imgs
 	"./mk11.png| Dear gods, you don’t need to make the menu low resolution too (Mortal Kombat 11)"
@@ -413,7 +411,7 @@ Always fun to have more options to pick from!
 	"./ls1.png| Clean UI"
   >}}
 
-Usage is simple, set Frame Generation to the right to `LSFG`, if you’re an Intel iGPU user, set Legacy capture API to enabled, open yuzu, enable Scale and switch back to playing your game, or press the default hotkey Ctrl + Alt + S while in game. Exclusive fullscreen recommended.
+Simply set Frame Generation on the right to `LSFG`. If you’re an Intel iGPU user, set Legacy capture API to enabled, open yuzu, enable Scale, and switch back to playing your game, or press the default hotkey `Ctrl + Alt + S` while in-game. Exclusive fullscreen is recommended.
 
 {{< imgs
 	"./ls2.png| Scroll down to find it"
