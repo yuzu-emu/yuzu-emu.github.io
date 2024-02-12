@@ -15,6 +15,7 @@ function releaseCallback(v, count, e) {
         var release = releases[i];
 
         var windowsFound = false;
+        var androidFound = false;
         release.assets.forEach(function (asset) {
             /* We only want to provide the msvc builds on the downloads page for Windows. */
             if (asset.name.includes('-mingw-')) return;
@@ -22,9 +23,13 @@ function releaseCallback(v, count, e) {
             if (asset.name.includes('windows')) {
                 windowsFound = true;
             }
+            
+            if (asset.name.includes('.apk')) {
+                androidFound = true;
+            }
         });
 
-        if (!windowsFound) {
+        if (!windowsFound && !androidFound) {
             continue;
         }
 
@@ -36,6 +41,8 @@ function releaseCallback(v, count, e) {
         var release_title = '';
         if (v == 'mainline') {
             release_title = 'Mainline Build';
+        } else if (v == 'android') {
+            release_title = 'Android Build';
         }
 
         if (release_commit) {
@@ -51,6 +58,7 @@ function releaseCallback(v, count, e) {
             if (asset.name.includes('.tar.xz')) return;
             if (asset.name.includes('-debugsymbols.zip')) return;
             if (asset.name.includes('.zsync')) return;
+            if (asset.name.includes('.aab')) return;
 
             /* We only want to provide the msvc builds on the downloads page for Windows. */
             if (asset.name.includes('-mingw-')) return;
@@ -63,6 +71,7 @@ function releaseCallback(v, count, e) {
             else if (asset.name.includes('exe')) env_icon = 'windows';
             else if (asset.name.includes('osx')) env_icon = 'apple';
             else if (asset.name.includes('AppImage')) env_icon = 'linux';
+            else if (asset.name.includes('.apk')) env_icon = 'android';
 
             var download_url = `https://github.com/yuzu-emu/yuzu-${v}/releases/download/${release.tag_name}/${asset.name}`;
 

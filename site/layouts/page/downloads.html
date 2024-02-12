@@ -5,17 +5,6 @@
     <div class="container">
         <div class="mb-3" id="download-header">
             <h1 class="title is-flex-grow-1 mb-0">{{ .Title }}</h1>
-            <div id="download-buttons">
-                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/yuzu_install.exe" class="button dl-button is-medium is-success" id="dl-button-windows">
-                    <span class="icon mr-1"><i class="fab fa-windows"></i></span> Download for Windows x64
-                </a>
-                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/liftinstall-31b3e7e.tar.xz" class="button dl-button is-medium is-success" id="dl-button-linux">
-                    <span class="icon mr-1"><i class="fab fa-linux"></i></span> Download for Linux x64
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=org.yuzu.yuzu_emu" class="button dl-button is-medium is-success" id="dl-button-android">
-                    <span class="icon mr-1"><i class="fab fa-android"></i></span> Download for Android
-                </a>
-            </div>
         </div>
 
         <div id="unsupported-platform-view">
@@ -59,6 +48,20 @@
         <div class="content" id="platform-instructions">
             {{ .Content }}
         </div>
+        
+        <div class="content">
+            <div id="download-buttons">
+                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/yuzu_install.exe" class="button dl-button is-medium is-success" id="dl-button-windows">
+                    <span class="icon mr-1"><i class="fab fa-windows"></i></span> Download for Windows x64
+                </a>
+                <a href="https://github.com/yuzu-emu/liftinstall/releases/download/1.9/liftinstall-31b3e7e.tar.xz" class="button dl-button is-medium is-success" id="dl-button-linux">
+                    <span class="icon mr-1"><i class="fab fa-linux"></i></span> Download for Linux x64
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=org.yuzu.yuzu_emu" class="button dl-button is-medium is-success" id="dl-button-android">
+                    <span class="icon mr-1"><i class="fab fa-android"></i></span> Download for Android
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -78,7 +81,7 @@
             </article>
         </div>
         
-        <div class="show-with-js" id="package-view">
+        <div class="show-with-js" id="package-view-mainline">
             <!-- Mainline -->
             <div class="content">
                 <h2>Builds
@@ -96,6 +99,28 @@
 
                 <div class="has-text-centered">
                     <a href="https://github.com/yuzu-emu/yuzu-mainline/releases">Click here to view previous versions...</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="show-with-js" id="package-view-android">
+            <!-- Android -->
+            <div class="content">
+                <h2>Builds
+                    <span class="tag is-info">
+                        Last release was &nbsp;
+                        <span id='last-updated-android'></span>
+                    </span>
+                </h2>
+
+                <div id="downloads-android">
+                </div>
+
+                <div id="unavailable-android" class="is-hidden">There was a problem checking GitHub. Click the link below to view them directly.</div>
+                <br />
+
+                <div class="has-text-centered">
+                    <a href="https://github.com/yuzu-emu/yuzu-android/releases">Click here to view previous versions...</a>
                 </div>
             </div>
         </div>
@@ -139,6 +164,33 @@
         
         const fragment = targetId.split('-')[1];
         window.location.hash = `#${fragment}`;
+        
+        switch (targetId) {
+            case "tab-windows":
+                document.getElementById("package-view-mainline").style.display = "block";
+                document.getElementById("dl-button-windows").style.display = "";
+                document.getElementById("package-view-android").style.display = "none";
+                document.getElementById("dl-button-linux").style.display = "none";
+                document.getElementById("dl-button-android").style.display = "none";
+                break;
+            case "tab-linux":
+                document.getElementById("package-view-mainline").style.display = "block";
+                document.getElementById("dl-button-linux").style.display = "";
+                document.getElementById("package-view-android").style.display = "none";
+                document.getElementById("dl-button-windows").style.display = "none";
+                document.getElementById("dl-button-android").style.display = "none";
+                break;
+            case "tab-android":
+                document.getElementById("package-view-android").style.display = "block";
+                document.getElementById("dl-button-android").style.display = "";
+                document.getElementById("package-view-mainline").style.display = "none";
+                document.getElementById("dl-button-windows").style.display = "none";
+                document.getElementById("dl-button-linux").style.display = "none";
+                break;
+            default:
+                document.getElementById("unsupported-platform-view").style.display = "block";
+                break
+        }
     }
 
     const getOSGuess = () => {
@@ -175,6 +227,7 @@
     }
 
     getRelease('mainline');
+    getRelease('android');
 
     // Show JS relevant elements
     document.querySelectorAll(".hide-with-js")
@@ -189,23 +242,18 @@
     // Attempt autodetection of their operating system
     switch (getFragment() || getOSGuess()) {
         case "Windows":
-            document.getElementById("dl-button-linux").style.display = "none";
-            document.getElementById("dl-button-android").style.display = "none";
             setTabActive('tab-windows');
             break;
         case "Linux":
-            document.getElementById("dl-button-windows").style.display = "none";
-            document.getElementById("dl-button-android").style.display = "none";
             setTabActive('tab-linux');
             break;
         case "Android":
-            document.getElementById("dl-button-windows").style.display = "none";
-            document.getElementById("dl-button-linux").style.display = "none";
             setTabActive('tab-android');
             break;
         default:
-            document.getElementById("unsupported-platform-view").style.display = "block";
             setTabActive('tab-windows');
+            document.getElementById("dl-button-windows").style.display = "none";
+            document.getElementById("unsupported-platform-view").style.display = "block";   
             break
     }
 

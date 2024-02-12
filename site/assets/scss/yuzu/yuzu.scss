@@ -145,9 +145,14 @@ pre > code {
   text-align: center;
 }
 
+#download-buttons {
+  display: flex;
+  justify-content: center;
+}
+
 #download-buttons > a {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 780px) {
@@ -158,8 +163,8 @@ pre > code {
   }
 
   #download-buttons > a {
-    margin-top: 0;
-    margin-bottom: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
